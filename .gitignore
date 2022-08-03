@@ -1,0 +1,9 @@
+#Gitignore for PP
+
+#ignore .vs/ files
+.vs
+
+#ignore debug build/log folders
+Project-Pentagram/**/[Dd]ebug
+
+
