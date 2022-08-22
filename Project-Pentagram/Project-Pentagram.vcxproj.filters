@@ -1,80 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="CDT.cpp" />
-    <ClCompile Include="GameStateLevel1.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="system.cpp" />
-    <ClCompile Include="TimerSystem.cpp" />
-    <ClCompile Include="GameObject.cpp">
-      <Filter>GameObj\Standard</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>GameObj\Standard</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>GameObj\Standard</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimatedObject.cpp">
-      <Filter>GameObj\Advance</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicObject.cpp">
-      <Filter>GameObj\Standard</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>GameObj\Implement</Filter>
-    </ClCompile>
-    <ClCompile Include="Chunk.cpp">
-      <Filter>Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="testreadspell_main.cpp" />
+    <ClCompile Include="Engine\ArcantEngine.cpp" />
+    <ClCompile Include="Engine\Camera.cpp" />
+    <ClCompile Include="Engine\GameObject.cpp" />
+    <ClCompile Include="Engine\GameStateController.cpp" />
+    <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\SceneManager.cpp" />
+    <ClCompile Include="Engine\UI.cpp" />
+    <ClCompile Include="Engine\Window.cpp" />
+    <ClCompile Include="Engine\stb\stb_image.cpp" />
+    <ClCompile Include="Engine\Scene\MenuScene.cpp" />
+    <ClCompile Include="Engine\Scene\NodeScene.cpp" />
+    <ClCompile Include="Engine\Renderer\EBO.cpp" />
+    <ClCompile Include="Engine\Renderer\Mesh.cpp" />
+    <ClCompile Include="Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\Texture.cpp" />
+    <ClCompile Include="Engine\Renderer\VAO.cpp" />
+    <ClCompile Include="Engine\Renderer\VBO.cpp" />
+    <ClCompile Include="..\lib\GLAD\src\glad.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CDT.h" />
-    <ClInclude Include="GameStateLevel1.h" />
-    <ClInclude Include="shader.hpp" />
     <ClInclude Include="SOIL.h" />
-    <ClInclude Include="system.h" />
-    <ClInclude Include="TimerSystem.h" />
-    <ClInclude Include="GameObject.h">
-      <Filter>GameObj\Standard</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>GameObj\Standard</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>GameObj\Standard</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimatedObject.h">
-      <Filter>GameObj\Advance</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicObject.h">
-      <Filter>GameObj\Standard</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>GameObj\Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="Chunk.h">
-      <Filter>Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\ArcantEngine.h" />
+    <ClInclude Include="Engine\Camera.h" />
+    <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameScene.h" />
+    <ClInclude Include="Engine\GameState.h" />
+    <ClInclude Include="Engine\GameStateController.h" />
+    <ClInclude Include="Engine\Input.h" />
+    <ClInclude Include="Engine\SceneManager.h" />
+    <ClInclude Include="Engine\UI.h" />
+    <ClInclude Include="Engine\Window.h" />
+    <ClInclude Include="Engine\stb\stb_image.h" />
+    <ClInclude Include="Engine\Scene\MenuScene.h" />
+    <ClInclude Include="Engine\Scene\NodeScene.h" />
+    <ClInclude Include="Engine\Renderer\EBO.h" />
+    <ClInclude Include="Engine\Renderer\Mesh.h" />
+    <ClInclude Include="Engine\Renderer\Shader.h" />
+    <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
+    <ClInclude Include="Engine\Renderer\Texture.h" />
+    <ClInclude Include="Engine\Renderer\VAO.h" />
+    <ClInclude Include="Engine\Renderer\VBO.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObj">
@@ -95,5 +71,13 @@
     <Filter Include="Utilities">
       <UniqueIdentifier>{a8056faa-f0ea-4fa9-a603-9463f701e782}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Engine\Texture\awesomeface.png" />
+    <Image Include="Engine\Texture\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WorkingDir\Shader\GameObjVertex.shader" />
+    <None Include="WorkingDir\Shader\GameObjFragment.shader" />
   </ItemGroup>
 </Project>
