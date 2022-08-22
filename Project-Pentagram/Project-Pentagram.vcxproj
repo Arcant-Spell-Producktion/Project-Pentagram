@@ -35,6 +35,7 @@
     <ClInclude Include="system.h" />
     <ClInclude Include="TimerSystem.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedObject.cpp" />
@@ -50,8 +51,10 @@
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="system.cpp" />
+    <ClCompile Include="testreadspell_main.cpp" />
     <ClCompile Include="TimerSystem.cpp" />
     <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

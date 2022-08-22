@@ -32,6 +32,10 @@
       <Filter>Map</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="testreadspell_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CDT.h" />
@@ -68,6 +72,9 @@
       <Filter>Map</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObj">
@@ -84,6 +91,9 @@
     </Filter>
     <Filter Include="Map">
       <UniqueIdentifier>{894c6ecf-c4ee-47d2-adaf-cf939f0982e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{a8056faa-f0ea-4fa9-a603-9463f701e782}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
