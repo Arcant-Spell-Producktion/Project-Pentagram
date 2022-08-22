@@ -29,7 +29,7 @@ void PrintSpellDetail(XMLElement* spell, int i = 0)
     cout << "\tChannelEffect: " << spell->FirstChildElement("ChannelEffect")->GetText() << endl;
 }
 
-int main()
+int main2()
 {
     XMLDocument doc;
     doc.LoadFile("Spellbooks/Ligma.xml");

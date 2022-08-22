@@ -19,42 +19,60 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimatedObject.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="CDT.h" />
-    <ClInclude Include="Chunk.h" />
-    <ClInclude Include="Collision.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameStateLevel1.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="PhysicObject.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="shader.hpp" />
+    <ClInclude Include="Engine\ArcantEngine.h" />
+    <ClInclude Include="Engine\Camera.h" />
+    <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameScene.h" />
+    <ClInclude Include="Engine\GameState.h" />
+    <ClInclude Include="Engine\GameStateController.h" />
+    <ClInclude Include="Engine\Input.h" />
+    <ClInclude Include="Engine\Renderer\EBO.h" />
+    <ClInclude Include="Engine\Renderer\Mesh.h" />
+    <ClInclude Include="Engine\Renderer\Shader.h" />
+    <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
+    <ClInclude Include="Engine\Renderer\Texture.h" />
+    <ClInclude Include="Engine\Renderer\VAO.h" />
+    <ClInclude Include="Engine\Renderer\VBO.h" />
+    <ClInclude Include="Engine\SceneManager.h" />
+    <ClInclude Include="Engine\Scene\MenuScene.h" />
+    <ClInclude Include="Engine\Scene\NodeScene.h" />
+    <ClInclude Include="Engine\stb\stb_image.h" />
+    <ClInclude Include="Engine\UI.h" />
+    <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="SOIL.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="system.h" />
-    <ClInclude Include="TimerSystem.h" />
-    <ClInclude Include="Transform.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AnimatedObject.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="CDT.cpp" />
-    <ClCompile Include="Chunk.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameStateLevel1.cpp" />
-    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="..\lib\GLAD\src\glad.c" />
+    <ClCompile Include="Engine\ArcantEngine.cpp" />
+    <ClCompile Include="Engine\Camera.cpp" />
+    <ClCompile Include="Engine\GameObject.cpp" />
+    <ClCompile Include="Engine\GameStateController.cpp" />
+    <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\Renderer\EBO.cpp" />
+    <ClCompile Include="Engine\Renderer\Mesh.cpp" />
+    <ClCompile Include="Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\Texture.cpp" />
+    <ClCompile Include="Engine\Renderer\VAO.cpp" />
+    <ClCompile Include="Engine\Renderer\VBO.cpp" />
+    <ClCompile Include="Engine\SceneManager.cpp" />
+    <ClCompile Include="Engine\Scene\MenuScene.cpp" />
+    <ClCompile Include="Engine\Scene\NodeScene.cpp" />
+    <ClCompile Include="Engine\stb\stb_image.cpp" />
+    <ClCompile Include="Engine\UI.cpp" />
+    <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PhysicObject.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="shader.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="system.cpp" />
     <ClCompile Include="testreadspell_main.cpp" />
-    <ClCompile Include="TimerSystem.cpp" />
-    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Engine\Texture\awesomeface.png" />
+    <Image Include="Engine\Texture\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WorkingDir\Shader\GameObjFragment.shader" />
+    <None Include="WorkingDir\Shader\GameObjVertex.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -127,13 +145,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)../lib/glm;$(ProjectDir)../lib/glew-1.13.0/include;$(ProjectDir)../lib/glfw-3.1.2.bin.WIN32/include/GLFW;$(ProjectDir)../lib/irrklang;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)../lib/glfw-3.1.2.bin.WIN32/lib-vc2015;$(ProjectDir)../lib/glew-1.13.0/lib/Release/Win32;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)../lib/GLFW/lib-vc2019;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
