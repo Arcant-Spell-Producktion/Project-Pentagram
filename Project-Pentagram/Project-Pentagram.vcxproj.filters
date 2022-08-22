@@ -6,51 +6,129 @@
       <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="testreadspell_main.cpp" />
-    <ClCompile Include="Engine\ArcantEngine.cpp" />
-    <ClCompile Include="Engine\Camera.cpp" />
-    <ClCompile Include="Engine\GameObject.cpp" />
-    <ClCompile Include="Engine\GameStateController.cpp" />
-    <ClCompile Include="Engine\Input.cpp" />
-    <ClCompile Include="Engine\SceneManager.cpp" />
-    <ClCompile Include="Engine\UI.cpp" />
-    <ClCompile Include="Engine\Window.cpp" />
-    <ClCompile Include="Engine\stb\stb_image.cpp" />
-    <ClCompile Include="Engine\Scene\MenuScene.cpp" />
-    <ClCompile Include="Engine\Scene\NodeScene.cpp" />
-    <ClCompile Include="Engine\Renderer\EBO.cpp" />
-    <ClCompile Include="Engine\Renderer\Mesh.cpp" />
-    <ClCompile Include="Engine\Renderer\Shader.cpp" />
-    <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
-    <ClCompile Include="Engine\Renderer\Texture.cpp" />
-    <ClCompile Include="Engine\Renderer\VAO.cpp" />
-    <ClCompile Include="Engine\Renderer\VBO.cpp" />
-    <ClCompile Include="..\lib\GLAD\src\glad.c" />
+    <ClCompile Include="Engine\Renderer\EBO.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Mesh.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Shader.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\ShaderCollector.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Texture.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\VAO.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\VBO.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Scene\MenuScene.cpp">
+      <Filter>Engine\Scene\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Scene\NodeScene.cpp">
+      <Filter>Engine\Scene\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ArcantEngine.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Camera.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameObject.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameStateController.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\GLAD\src\glad.c">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneManager.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UI.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\stb\stb_image.cpp">
+      <Filter>Engine\stb</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\ArcantEngine.h" />
-    <ClInclude Include="Engine\Camera.h" />
-    <ClInclude Include="Engine\GameObject.h" />
-    <ClInclude Include="Engine\GameScene.h" />
-    <ClInclude Include="Engine\GameState.h" />
-    <ClInclude Include="Engine\GameStateController.h" />
-    <ClInclude Include="Engine\Input.h" />
-    <ClInclude Include="Engine\SceneManager.h" />
-    <ClInclude Include="Engine\UI.h" />
-    <ClInclude Include="Engine\Window.h" />
-    <ClInclude Include="Engine\stb\stb_image.h" />
-    <ClInclude Include="Engine\Scene\MenuScene.h" />
-    <ClInclude Include="Engine\Scene\NodeScene.h" />
-    <ClInclude Include="Engine\Renderer\EBO.h" />
-    <ClInclude Include="Engine\Renderer\Mesh.h" />
-    <ClInclude Include="Engine\Renderer\Shader.h" />
-    <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
-    <ClInclude Include="Engine\Renderer\Texture.h" />
-    <ClInclude Include="Engine\Renderer\VAO.h" />
-    <ClInclude Include="Engine\Renderer\VBO.h" />
+    <ClInclude Include="Engine\Renderer\EBO.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Mesh.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Shader.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\ShaderCollector.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Texture.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\VAO.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\VBO.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Scene\MenuScene.h">
+      <Filter>Engine\Scene\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Scene\NodeScene.h">
+      <Filter>Engine\Scene\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ArcantEngine.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Camera.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameObject.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameScene.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameState.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameStateController.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneManager.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UI.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Window.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\stb\stb_image.h">
+      <Filter>Engine\stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObj">
@@ -65,19 +143,66 @@
     <Filter Include="GameObj\Implement">
       <UniqueIdentifier>{6598b669-363b-4e7e-9d1f-8665010942c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Map">
-      <UniqueIdentifier>{894c6ecf-c4ee-47d2-adaf-cf939f0982e7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utilities">
       <UniqueIdentifier>{a8056faa-f0ea-4fa9-a603-9463f701e782}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{f40eea03-9c84-4536-b115-1a37a77e2476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Renderer">
+      <UniqueIdentifier>{42777979-1db2-4370-bb6c-088619fbcf37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Renderer\Header File">
+      <UniqueIdentifier>{32a23f98-54f4-406e-a32b-9a3a740c0ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Renderer\Source File">
+      <UniqueIdentifier>{b179d5c6-1096-48f9-b361-959c061a02be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{45814c56-0ab1-4bcb-bb84-83f25c644974}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Header File">
+      <UniqueIdentifier>{942ba5c7-7655-4832-a6fd-5bd146ad10c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Source File">
+      <UniqueIdentifier>{2a2fa224-f3ae-4ad5-bbe4-0f149dabb27f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc">
+      <UniqueIdentifier>{d90edaed-444e-4412-91eb-35a79304a775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Header File">
+      <UniqueIdentifier>{e79f0177-0db9-400c-b37d-434f4487a527}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Source File">
+      <UniqueIdentifier>{9e54e777-b48e-4791-896a-8955448d748d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir">
+      <UniqueIdentifier>{084fb8a4-38b6-4afa-af85-a3007ac71f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Shader">
+      <UniqueIdentifier>{2cef612a-2f17-4270-9e71-07cf4f20a3a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites">
+      <UniqueIdentifier>{dc24e2ab-f360-4142-9f6c-eef5663e8d82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\stb">
+      <UniqueIdentifier>{739819d3-4b2e-4fc3-93ed-0a23894d933d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Engine\Texture\awesomeface.png" />
-    <Image Include="Engine\Texture\default.png" />
+    <Image Include="Engine\Texture\awesomeface.png">
+      <Filter>WorkingDir\Sprites</Filter>
+    </Image>
+    <Image Include="Engine\Texture\default.png">
+      <Filter>WorkingDir\Sprites</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="WorkingDir\Shader\GameObjVertex.shader" />
-    <None Include="WorkingDir\Shader\GameObjFragment.shader" />
+    <None Include="WorkingDir\Shader\GameObjFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GameObjVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
   </ItemGroup>
 </Project>
