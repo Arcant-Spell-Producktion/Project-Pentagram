@@ -2,11 +2,22 @@
 
 GameObject::GameObject()
 {
+	// Set GameObject to Active (Render on Screen)
 	isActive = true;
+	
+	// Set Transformation
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
 	rotation = 0.0f;
 	scale = glm::vec3(1.0f, 1.0f, 1.0f);
+	
+	// Set Color
 	color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	
+	// Set Row & Coloumn of SpriteSheet
+	animRow = 1;
+	animCol = 1;
+
+	// Set Texture
 	SetTexture("Sprites/default.png");
 }
 
@@ -49,4 +60,10 @@ void GameObject::UnloadMesh()
 void GameObject::SetTexture(const char* src)
 {
 	this->texture.SetTexture(src, GL_UNSIGNED_BYTE);
+}
+// Implement SpriteSheet Animation
+void GameObject::SetSpriteSheet(const int& row, const int& col)
+{
+	this->animRow = row;
+	this->animCol = col;
 }

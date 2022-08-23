@@ -9,29 +9,22 @@ void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/awesomeface.png";
 	// Init GameObject
-	GameObject* obj = new GameObject();
+	GameObject* obj = CreateGameObject();
 	obj->SetTexture(path.c_str());
 	obj->scale.x = 500.0f;
 	obj->scale.y = 500.0f;
-	objectsList.push_back(obj);
+	obj->position.x = 500.0f;
 
 	// Init UI
-	UI* ui = new UI();
-	ui->SetTexture(path.c_str());
-	ui->scale.x = 500.0f;
-	ui->scale.y = 500.0f;
-	ui->position.x = -550.0f;
-	ui->position.z = 1.0f;
-	ui->color = glm::vec4(1.0f, 0.0f, 0.0f, 0.5f);
-	uiList.push_back(ui);
+	UIObject* ui = CreateUIObject();
+	ui->scale.x = 1600.0f;
+	ui->scale.y = 900.0f;
+	ui->color = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f);
 
-	UI* ui2 = new UI();
+	UIObject* ui2 = CreateUIObject();
 	ui2->scale.x = 500.0f;
 	ui2->scale.y = 500.0f;
-	ui2->position.x = 550.0f;
-	ui2->position.z = 1.0f;
-	ui2->color = glm::vec4(0.0f, 0.0f, 1.0f, 0.5f);
-	uiList.push_back(ui2);
+	ui2->color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
@@ -41,25 +34,23 @@ void MenuScene::GameSceneUpdate(double dt)
 	double time = glfwGetTime();
 
 	camera.Input(dt);
-	objectsList[0]->rotation += dt * 25.0f;
+	if (uiObjectsList[0]->onClick())
+	{
+		uiObjectsList[0]->color = glm::vec4(0.0f, 1.0f, 0.0f, 0.5f);
+	}
+	else
+	{
+		uiObjectsList[0]->color = glm::vec4(0.0f, 0.0f, 0.0f, 0.5f);
+	}
 
-		if (uiList[0]->onClick())
-		{
-			uiList[0]->color = glm::vec4(0.0f, 1.0f, 0.0f, 0.5f);
-		}
-		else
-		{
-			uiList[0]->color = glm::vec4(1.0f, 0.0f, 0.0f, 0.5f);
-		}
-
-		if (uiList[1]->onHover())
-		{
-			uiList[1]->color = glm::vec4(1.0f, 1.0f, 0.0f, 0.5f);
-		}
-		else
-		{
-			uiList[1]->color = glm::vec4(0.0f, 0.0f, 1.0f, 0.5f);
-		}
+	if (uiObjectsList[1]->onClick())
+	{
+		uiObjectsList[1]->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+	}
+	else
+	{
+		uiObjectsList[1]->color = glm::vec4(0.0f, 0.0f, 1.0f, 1.0f);
+	}
 }
 
 void MenuScene::GameSceneDraw()
@@ -71,9 +62,9 @@ void MenuScene::GameSceneDraw()
 		objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
 	// Render UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
-		uiList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+		uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
 }
 
@@ -85,9 +76,9 @@ void MenuScene::GameSceneUnload()
 		objectsList[idx]->UnloadMesh();
 	}
 	// Unload UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
-		uiList[idx]->UnloadMesh();
+		uiObjectsList[idx]->UnloadMesh();
 	}
 	std::cout << "Menu Scene : UnLoad Mesh Completed\n";
 }
@@ -100,9 +91,9 @@ void MenuScene::GameSceneFree()
 		delete objectsList[idx];
 	}
 	// Free UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
-		delete uiList[idx];
+		delete uiObjectsList[idx];
 	}
 	std::cout << "Menu Scene : Free Memory Completed\n";
 }

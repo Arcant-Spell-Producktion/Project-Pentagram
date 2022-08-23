@@ -54,7 +54,7 @@
     <ClCompile Include="Engine\SceneManager.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\UI.cpp">
+    <ClCompile Include="Engine\UIObject.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Window.cpp">
@@ -62,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="Engine\stb\stb_image.cpp">
       <Filter>Engine\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameScene.cpp">
+      <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +123,7 @@
     <ClInclude Include="Engine\SceneManager.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\UI.h">
+    <ClInclude Include="Engine\UIObject.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Window.h">

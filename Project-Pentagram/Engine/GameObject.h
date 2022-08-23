@@ -14,6 +14,7 @@ class GameObject
 	protected:
 		Mesh mesh;
 		Texture texture;
+		int animRow, animCol;
 	public:
 		bool isActive;
 		glm::vec3 position;
@@ -27,4 +28,7 @@ class GameObject
 
 		// Texture
 		void SetTexture(const char* src);
+		// Animation
+		void UpdateAnimation(const float& time);
+		void SetSpriteSheet(const int& row, const int& col);
 };

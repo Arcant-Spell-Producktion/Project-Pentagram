@@ -37,7 +37,7 @@
     <ClInclude Include="Engine\Scene\MenuScene.h" />
     <ClInclude Include="Engine\Scene\NodeScene.h" />
     <ClInclude Include="Engine\stb\stb_image.h" />
-    <ClInclude Include="Engine\UI.h" />
+    <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
@@ -60,8 +60,9 @@
     <ClCompile Include="Engine\Scene\MenuScene.cpp" />
     <ClCompile Include="Engine\Scene\NodeScene.cpp" />
     <ClCompile Include="Engine\stb\stb_image.cpp" />
-    <ClCompile Include="Engine\UI.cpp" />
+    <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
+    <ClCompile Include="Engine\GameScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="testreadspell_main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
