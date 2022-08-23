@@ -5,7 +5,6 @@
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="testreadspell_main.cpp" />
     <ClCompile Include="Engine\Renderer\EBO.cpp">
       <Filter>Engine\Renderer\Source File</Filter>
     </ClCompile>
@@ -62,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="Engine\stb\stb_image.cpp">
       <Filter>Engine\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\Spell.cpp">
+      <Filter>Game\Spells</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,20 +131,11 @@
     <ClInclude Include="Engine\stb\stb_image.h">
       <Filter>Engine\stb</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Spells\Spell.h">
+      <Filter>Game\Spells</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="GameObj">
-      <UniqueIdentifier>{a073f415-8660-40cc-b010-5c8bf343af63}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObj\Standard">
-      <UniqueIdentifier>{a5be362c-9d82-4388-9c07-13000511d984}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObj\Advance">
-      <UniqueIdentifier>{efca7458-0563-4925-a2b2-6ac645c2ac25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObj\Implement">
-      <UniqueIdentifier>{6598b669-363b-4e7e-9d1f-8665010942c8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Utilities">
       <UniqueIdentifier>{a8056faa-f0ea-4fa9-a603-9463f701e782}</UniqueIdentifier>
     </Filter>
@@ -187,6 +180,12 @@
     </Filter>
     <Filter Include="Engine\stb">
       <UniqueIdentifier>{739819d3-4b2e-4fc3-93ed-0a23894d933d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{9d27666a-cef3-4b43-b960-ada43693520b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Spells">
+      <UniqueIdentifier>{84dc9be5-1d0c-4ef7-8ff4-e7b0dfa5b670}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
