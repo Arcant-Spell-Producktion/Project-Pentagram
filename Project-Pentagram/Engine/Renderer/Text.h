@@ -18,7 +18,7 @@ class Text
 		glm::vec4 color;
 		float rotation;
 		std::string text;
-		float fontSize;
+		float fontScale;
 		
 		Text();
 		void RenderText();

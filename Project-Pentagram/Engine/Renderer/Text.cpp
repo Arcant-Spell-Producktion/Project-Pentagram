@@ -5,7 +5,7 @@ Text::Text()
 	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
 	this->color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 	this->rotation = 0.0f;
-	this->fontSize = 0.5f;
+	this->fontScale = 0.5f;
 }
 
 void Text::RenderText()
@@ -33,11 +33,11 @@ void Text::RenderText()
 		char c = text[idx];
 		Character ch = FontCollector::GetInstance()->characters[c];
 
-		float xpos = x + ch.bearing.x * fontSize;
-		float ypos = y - (ch.size.y - ch.bearing.y) * fontSize;
+		float xpos = x + ch.bearing.x * fontScale;
+		float ypos = y - (ch.size.y - ch.bearing.y) * fontScale;
 
-		float w = ch.size.x * fontSize;
-		float h = ch.size.y * fontSize;
+		float w = ch.size.x * fontScale;
+		float h = ch.size.y * fontScale;
 
 		// Render glyph texture
 		ch.texture.Bind();
@@ -56,6 +56,6 @@ void Text::RenderText()
 		this->mesh.Render();
 
 		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-		x += (ch.advance >> 6) * fontSize;	// bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
+		x += (ch.advance >> 6) * fontScale;	// bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
 	}
 }
