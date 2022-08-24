@@ -4,29 +4,44 @@
 #include <vector>
 using namespace std;
 
-class SpellDatabase
+class SideEffectType
 {
+private:
+    static const const string enum_string[];
 public:
-    map<string,SpellBook> SpellBooks;
-    void AddSpellBook(string filename) {
-        string path = "Spellbooks/"+filename+".xml";
-        SpellBook newBook(path);
-        SpellBooks.emplace(filename, newBook);
-        newBook.PrintBookDetail();
+    static enum Type
+    {
+        None = 0,
+        Mark,
+        Burn
+    };
+    static SideEffectType::Type GetEnum(string typeString) {
+        for (int i = 0; i < 3; i++)
+        {
+            if (typeString.compare(enum_string[i])) return SideEffectType::Type(i);
+        }
+        return SideEffectType::None;
     }
 };
 
-class SpellBook
+class ChannelEffectType
 {
 private:
-    Spell m_Spells[9];
-    int m_Count = 0;
+    static const const string enum_string[];
 public:
-    SpellBook(std::string path);
-    void AddNewSpell(Spell newSpell) { m_Spells[m_Count++] = newSpell; }
-    Spell GetSpell(int index) { return m_Spells[index]; }
-    void PrintBookDetail() {};
-
+    static enum Type
+    {
+        None = 0,
+        Wait,
+        Active
+    };
+    static ChannelEffectType::Type GetEnum(string typeString) {
+        for (int i = 0; i < 3; i++)
+        {
+            if (typeString.compare(enum_string[i])) return ChannelEffectType::Type(i);
+        }
+        return ChannelEffectType::None;
+    }
 };
 
 class Spell
@@ -73,43 +88,27 @@ public:
     int GetChannelTime() { return m_ChannelTime; }
 };
 
-class SideEffectType
+class SpellBook
 {
 private:
-    static const const string enum_string[];
+    Spell m_Spells[9];
+    int m_Count = 0;
 public:
-    static enum Type
-    {
-        None = 0,
-        Mark,
-        Burn
-    };
-    static SideEffectType::Type GetEnum(string typeString) {
-        for (int i = 0; i < 3; i++)
-        {
-            if (typeString.compare(enum_string[i])) return SideEffectType::Type(i);
-        }
-        return SideEffectType::None;
-    }
+    SpellBook(std::string path);
+    void AddNewSpell(Spell newSpell) { m_Spells[m_Count++] = newSpell; }
+    Spell GetSpell(int index) { return m_Spells[index]; }
+    void PrintBookDetail() {};
+
 };
 
-class ChannelEffectType
+class SpellDatabase
 {
-private:
-    static const const string enum_string[];
 public:
-    static enum Type
-    {
-        None = 0,
-        Wait,
-        Active
-    };
-    static ChannelEffectType::Type GetEnum(string typeString) {
-        for (int i = 0; i < 3; i++)
-        {
-            if (typeString.compare(enum_string[i])) return ChannelEffectType::Type(i);
-        }
-        return ChannelEffectType::None;
+    map<string, SpellBook> SpellBooks;
+    void AddSpellBook(string filename) {
+        string path = "Spellbooks/" + filename + ".xml";
+        SpellBook newBook(path);
+        SpellBooks.emplace(filename, newBook);
+        newBook.PrintBookDetail();
     }
 };
-
