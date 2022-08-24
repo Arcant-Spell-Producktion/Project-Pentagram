@@ -1,10 +1,9 @@
 #pragma once
 
-#include "Window.h"
+#include <stdlib.h>
+#include <time.h>
 
-#define WINDOW_WIDTH 1600
-#define WINDOW_HEIGHT 900
-#define TITLE "Arcant Engine"
+#include "Window.h"
 
 class ArcantEngine
 {

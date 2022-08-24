@@ -15,6 +15,7 @@ struct Vertex
 	glm::vec2 TexCoords;
 };
 
+// Array of Square Vertices/Indices
 extern Vertex squareVertices[];
 extern GLuint squareIndices[];
 

@@ -10,6 +10,8 @@ namespace SceneManager
 		gameStateController->currentScene->GameSceneUnload();
 		gameStateController->currentScene->GameSceneFree();
 
+		delete gameStateController->currentScene;
+
 		gameStateController->Init(newState);
 	}
 

@@ -7,21 +7,19 @@ Texture::Texture()
 	glGenTextures(1, &ID);
 }
 
-Texture::Texture(const char* src, GLenum varType)
+Texture::Texture(const char* path, GLenum varType)
 {
 	// Generate Texture
 	glGenTextures(1, &ID);
-	this->SetTexture(src, varType);
+	this->SetTexture(path, varType);
 }
 
-void Texture::SetTexture(const char* src, GLenum varType)
+void Texture::SetTexture(const char* path, GLenum varType)
 {
-	stbi_set_flip_vertically_on_load(true);
-
 	// Create width & height to handle image size
 	int width, height, nrChannels;
 	// Load image to *data (unsigned char array)
-	unsigned char* data = stbi_load(src, &width, &height, &nrChannels, 0);
+	unsigned char* data = stbi_load(path, &width, &height, &nrChannels, 0);
 
 	// If cannot load data(wrong source file)
 	assert(data != NULL);
@@ -52,6 +50,20 @@ void Texture::SetTexture(const char* src, GLenum varType)
 
 	// free data
 	stbi_image_free(data);
+}
+
+void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const void* data)
+{
+	// Binding and setting-up texture
+	glBindTexture(GL_TEXTURE_2D, ID);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	// Specific Texture with image data
+	// Read with GL_RED pattern(8-bit)
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, width, height, 0, GL_RED, GL_UNSIGNED_BYTE, data);
 }
 
 void Texture::Activate(GLenum TextureSlot)

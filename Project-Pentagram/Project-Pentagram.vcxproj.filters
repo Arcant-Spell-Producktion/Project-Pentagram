@@ -53,7 +53,7 @@
     <ClCompile Include="Engine\SceneManager.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\UI.cpp">
+    <ClCompile Include="Engine\UIObject.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Window.cpp">
@@ -62,6 +62,16 @@
     <ClCompile Include="Engine\stb\stb_image.cpp">
       <Filter>Engine\stb</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\GameScene.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\FontCollector.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ParticleSystem.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Text.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp">
       <Filter>Game\Spells</Filter>
     </ClCompile>
@@ -122,7 +132,7 @@
     <ClInclude Include="Engine\SceneManager.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\UI.h">
+    <ClInclude Include="Engine\UIObject.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Window.h">
@@ -131,7 +141,14 @@
     <ClInclude Include="Engine\stb\stb_image.h">
       <Filter>Engine\stb</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Spells\Spell.h">
+    <ClInclude Include="Engine\ParticleSystem.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\FontCollector.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Text.h" />
+        <ClInclude Include="Game\Spells\Spell.h">
       <Filter>Game\Spells</Filter>
     </ClInclude>
   </ItemGroup>
@@ -186,6 +203,8 @@
     </Filter>
     <Filter Include="Game\Spells">
       <UniqueIdentifier>{84dc9be5-1d0c-4ef7-8ff4-e7b0dfa5b670}</UniqueIdentifier>
+    <Filter Include="WorkingDir\Fonts">
+      <UniqueIdentifier>{858db07d-979a-49fe-b2dd-504d9ce0f79c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -203,5 +222,7 @@
     <None Include="WorkingDir\Shader\GameObjVertex.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
+    <None Include="WorkingDir\Shader\TextFragment.shader" />
+    <None Include="WorkingDir\Shader\TextVertex.shader" />
   </ItemGroup>
 </Project>
