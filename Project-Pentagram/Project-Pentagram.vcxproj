@@ -30,6 +30,8 @@
     <ClInclude Include="Engine\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Renderer\Shader.h" />
     <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
+    <ClInclude Include="Engine\Renderer\FontCollector.h" />
+    <ClInclude Include="Engine\Renderer\Text.h" />
     <ClInclude Include="Engine\Renderer\Texture.h" />
     <ClInclude Include="Engine\Renderer\VAO.h" />
     <ClInclude Include="Engine\Renderer\VBO.h" />
@@ -39,6 +41,7 @@
     <ClInclude Include="Engine\stb\stb_image.h" />
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
+    <ClInclude Include="Engine\ParticleSystem.h" />
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
@@ -49,10 +52,13 @@
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\GameStateController.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\ParticleSystem.cpp" />
     <ClCompile Include="Engine\Renderer\EBO.cpp" />
     <ClCompile Include="Engine\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Renderer\Shader.cpp" />
     <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\FontCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\Text.cpp" />
     <ClCompile Include="Engine\Renderer\Texture.cpp" />
     <ClCompile Include="Engine\Renderer\VAO.cpp" />
     <ClCompile Include="Engine\Renderer\VBO.cpp" />
@@ -74,6 +80,8 @@
   <ItemGroup>
     <None Include="WorkingDir\Shader\GameObjFragment.shader" />
     <None Include="WorkingDir\Shader\GameObjVertex.shader" />
+    <None Include="WorkingDir\Shader\TextFragment.shader" />
+    <None Include="WorkingDir\Shader\TextVertex.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -146,13 +154,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)../lib/GLFW/lib-vc2019;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)../lib/GLFW/lib-vc2019;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;$(ProjectDir)../lib/FreeType/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

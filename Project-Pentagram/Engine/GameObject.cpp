@@ -3,7 +3,7 @@
 GameObject::GameObject()
 {
 	// Set GameObject to Active (Render on Screen)
-	isActive = true;
+	active = true;
 	
 	// Set Transformation
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -23,28 +23,32 @@ GameObject::GameObject()
 
 void GameObject::Draw(Shader& shader, Camera& camera)
 {
-	if (!isActive)
+	// If object is not-active -> no need to render
+	if (!active)
 	{
 		return;
 	}
 
+	// Update MVP Matrixs
 	glm::mat4 model = glm::mat4(1.0f);
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
 
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	int screen_width = window->GetWidth();
+	int screen_height = window->GetHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	shader.setMat4("model", model);
-	shader.setMat4("view", view);
-	shader.setMat4("projection", proj);
-	shader.setVec4("ObjColor", color);
+	shader.setMat4("u_Model", model);
+	shader.setMat4("u_View", view);
+	shader.setMat4("u_Projection", proj);
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f),glm::vec3(window->GetWindowRatio(), 1.0f)));
+	shader.setVec4("u_Color", color);
 	texture.Activate(GL_TEXTURE0);
-	shader.setInt("ObjTexture", 0);
+	shader.setInt("u_Texture", 0);
 
 	this->mesh.Render();
 
@@ -57,9 +61,9 @@ void GameObject::UnloadMesh()
 }
 
 // Implement Texture
-void GameObject::SetTexture(const char* src)
+void GameObject::SetTexture(const std::string& path)
 {
-	this->texture.SetTexture(src, GL_UNSIGNED_BYTE);
+	this->texture.SetTexture(path.c_str(), GL_UNSIGNED_BYTE);
 }
 // Implement SpriteSheet Animation
 void GameObject::SetSpriteSheet(const int& row, const int& col)

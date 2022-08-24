@@ -8,7 +8,9 @@ class ShaderCollector
 		static ShaderCollector* instance;
 
 	public:
+		// Shader for use with object
 		Shader GameObjectShader;
+		Shader TextShader;
 
 		ShaderCollector();
 		static ShaderCollector* GetInstance();

@@ -7,7 +7,7 @@ UIObject::UIObject()
 
 void UIObject::Draw(Shader& shader, Camera& camera)
 {
-	if (!isActive)
+	if (!active)
 	{
 		return;
 	}
@@ -17,20 +17,24 @@ void UIObject::Draw(Shader& shader, Camera& camera)
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
 
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	int screen_width = window->GetWidth();
+	int screen_height = window->GetHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	shader.setMat4("model", model);
-	shader.setMat4("view", glm::mat4(1.0f));
-	shader.setMat4("projection", proj);
-	shader.setVec4("ObjColor", color);
+	shader.setMat4("u_Model", model);
+	shader.setMat4("u_View", glm::mat4(1.0f));
+	shader.setMat4("u_Projection", proj);
+	shader.setVec4("u_Color", color);
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	texture.Activate(GL_TEXTURE0);
-	shader.setInt("ObjTexture", 0);
+	shader.setInt("u_Texture", 0);
 
 	this->mesh.Render();
+
+	textUI.RenderText();
 
 	texture.UnBind();
 }
@@ -77,6 +81,11 @@ bool UIObject::onHover()
 		for (int idx = uiList->size() - 1; uiList->at(idx) != this; idx--)
 		{
 			UIObject* curObj = uiList->at(idx);
+
+			if (!curObj->active)
+			{
+				continue;
+			}
 
 			left = curObj->position.x - (curObj->scale.x / 2.0f);
 			right = curObj->position.x + (curObj->scale.x / 2.0f);

@@ -7,6 +7,14 @@ GameObject* GameScene::CreateGameObject()
 	return obj;
 }
 
+ParticleSystem* GameScene::CreateParticle(ParticleProps& particleProps)
+{
+	ParticleSystem* particle = new ParticleSystem();
+	particle->baseParticle = particleProps;
+	particleList.push_back(particle);
+	return particle;
+}
+
 UIObject* GameScene::CreateUIObject()
 {
 	UIObject* ui = new UIObject();

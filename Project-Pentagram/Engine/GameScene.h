@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "GameObject.h"
+#include "ParticleSystem.h"
 #include "UIObject.h"
 #include "Camera.h"
 
@@ -10,6 +11,7 @@ class GameScene
 {
 	protected:
 		std::vector<GameObject*> objectsList;
+		std::vector<ParticleSystem*> particleList;
 		std::vector<UIObject*> uiObjectsList;
 		Camera camera;
 
@@ -25,5 +27,6 @@ class GameScene
 
 		// Create Object
 		GameObject* CreateGameObject();
+		ParticleSystem* CreateParticle(ParticleProps& particleProps);
 		UIObject* CreateUIObject();
 };

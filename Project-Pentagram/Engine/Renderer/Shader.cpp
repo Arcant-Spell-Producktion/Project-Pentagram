@@ -5,6 +5,7 @@ Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 	// String for Contain Shader Code
 	std::string vertexCode;
 	std::string fragmentCode;
+
 	// File (Open from both path)
 	std::ifstream vShaderFile;
 	std::ifstream fShaderFile;
@@ -34,23 +35,26 @@ Shader::Shader(const GLchar* vertexPath, const GLchar* fragmentPath)
 
 	GLuint vertex, fragment;
 
+	// Create VertexShader
 	vertex = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertex, 1, &vShaderCode, NULL);
 	glCompileShader(vertex);
 	checkCompileError(vertex, "VERTEX");
 
-
+	// Create FragmentShader
 	fragment = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragment, 1, &fShaderCode, NULL);
 	glCompileShader(fragment);
 	checkCompileError(fragment, "FRAGMENT");
 
+	// Create Program (Contain both Vertex and Fragment Shader)
 	m_ID = glCreateProgram();
 	glAttachShader(m_ID, vertex);
 	glAttachShader(m_ID, fragment);
 	glLinkProgram(m_ID);
 	checkCompileError(m_ID, "PROGRAM");
 
+	// Delete Vertex/Fragment Shader(Already Attach to Program -> Don't need Shader anymore)
 	glDeleteShader(vertex);
 	glDeleteShader(fragment);
 }
@@ -99,6 +103,7 @@ void Shader::checkCompileError(GLuint shaderID, const std::string& type)
 {
 	int success;
 	char infoLog[1024];
+	// Check Compile Error of Vertex/Fragment
 	if (type != "PROGRAM")
 	{
 		glGetShaderiv(shaderID, GL_COMPILE_STATUS, &success);
@@ -110,6 +115,7 @@ void Shader::checkCompileError(GLuint shaderID, const std::string& type)
 			std::cout << infoLog << '\n';
 		}
 	}
+	// Check Compile Error of Program
 	else
 	{
 		glGetProgramiv(shaderID, GL_COMPILE_STATUS, &success);

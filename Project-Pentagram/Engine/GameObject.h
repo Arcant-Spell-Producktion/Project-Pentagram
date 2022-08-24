@@ -16,7 +16,7 @@ class GameObject
 		Texture texture;
 		int animRow, animCol;
 	public:
-		bool isActive;
+		bool active;
 		glm::vec3 position;
 		glm::vec3 scale;
 		float rotation;
@@ -27,7 +27,7 @@ class GameObject
 		void UnloadMesh();
 
 		// Texture
-		void SetTexture(const char* src);
+		void SetTexture(const std::string& path);
 		// Animation
 		void UpdateAnimation(const float& time);
 		void SetSpriteSheet(const int& row, const int& col);
