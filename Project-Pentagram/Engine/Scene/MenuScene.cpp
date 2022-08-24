@@ -9,57 +9,65 @@ void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/awesomeface.png";
 	// Init GameObject
-	GameObject* obj = new GameObject();
-	obj->SetTexture(path.c_str());
+	GameObject* obj = CreateGameObject();
+	obj->SetTexture(path);
 	obj->scale.x = 500.0f;
 	obj->scale.y = 500.0f;
-	objectsList.push_back(obj);
+	obj->position.x = 500.0f;
+
+	ParticleProps particleProps;
+	particleProps.colorBegin = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	particleProps.colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 0.0f);
+	particleProps.sizeBegin = 20.0f, particleProps.sizeEnd = 20.0f, particleProps.sizeVariation = 5.0f;
+	particleProps.lifeTime = 2.0f;
+	particleProps.velocity.y = 200.0f;
+	particleProps.velocityVariation = glm::vec2(200.0f, 50.0f);
+
+	ParticleSystem* particle = CreateParticle(particleProps);
+	particle->SetTexture(path);
+	particle->spawnTime = 0.1f;
 
 	// Init UI
-	UI* ui = new UI();
-	ui->SetTexture(path.c_str());
-	ui->scale.x = 500.0f;
-	ui->scale.y = 500.0f;
-	ui->position.x = -550.0f;
-	ui->position.z = 1.0f;
-	ui->color = glm::vec4(1.0f, 0.0f, 0.0f, 0.5f);
-	uiList.push_back(ui);
-
-	UI* ui2 = new UI();
-	ui2->scale.x = 500.0f;
-	ui2->scale.y = 500.0f;
-	ui2->position.x = 550.0f;
-	ui2->position.z = 1.0f;
-	ui2->color = glm::vec4(0.0f, 0.0f, 1.0f, 0.5f);
-	uiList.push_back(ui2);
+	UIObject* ui = CreateUIObject();
+	ui->textUI.text = "FPS : ";
+	ui->textUI.position = glm::vec3(-800.0f, 425.0f, 0.0f);
+	ui->scale.x = 1600.0f;
+	ui->scale.y = 900.0f;
+	ui->color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
+	
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
 
+float trackTime = 0.0f;
 void MenuScene::GameSceneUpdate(double dt)
 {
 	double time = glfwGetTime();
 
 	camera.Input(dt);
-	objectsList[0]->rotation += dt * 25.0f;
+	
+	if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+	{
+		uiObjectsList[0]->active = uiObjectsList[0]->active ? false : true;
+	}
 
-		if (uiList[0]->onClick())
-		{
-			uiList[0]->color = glm::vec4(0.0f, 1.0f, 0.0f, 0.5f);
-		}
-		else
-		{
-			uiList[0]->color = glm::vec4(1.0f, 0.0f, 0.0f, 0.5f);
-		}
+	trackTime += dt;
+	if (trackTime >= 1.0f)
+	{
+		uiObjectsList[0]->textUI.text = "FPS : " + std::to_string((int)(1.0f / dt));
+		trackTime = 0.0f;
+	}
 
-		if (uiList[1]->onHover())
-		{
-			uiList[1]->color = glm::vec4(1.0f, 1.0f, 0.0f, 0.5f);
-		}
-		else
-		{
-			uiList[1]->color = glm::vec4(0.0f, 0.0f, 1.0f, 0.5f);
-		}
+	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
+	{
+		SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+	}
+
+	// Update Particle
+	for (GLuint idx = 0; idx < particleList.size(); idx++)
+	{
+		particleList[idx]->OnUpdate(dt);
+	}
 }
 
 void MenuScene::GameSceneDraw()
@@ -70,10 +78,15 @@ void MenuScene::GameSceneDraw()
 	{
 		objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
-	// Render UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	// Render Particle
+	for (GLuint idx = 0; idx < particleList.size(); idx++)
 	{
-		uiList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+		particleList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+	}
+	// Render UI
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+	{
+		uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
 }
 
@@ -84,10 +97,15 @@ void MenuScene::GameSceneUnload()
 	{
 		objectsList[idx]->UnloadMesh();
 	}
-	// Unload UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	// Unload Particle
+	for (GLuint idx = 0; idx < particleList.size(); idx++)
 	{
-		uiList[idx]->UnloadMesh();
+		particleList[idx]->UnloadMesh();
+	}
+	// Unload UI
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+	{
+		uiObjectsList[idx]->UnloadMesh();
 	}
 	std::cout << "Menu Scene : UnLoad Mesh Completed\n";
 }
@@ -99,10 +117,15 @@ void MenuScene::GameSceneFree()
 	{
 		delete objectsList[idx];
 	}
-	// Free UI
-	for (GLuint idx = 0; idx < uiList.size(); idx++)
+	// Free Particle
+	for (GLuint idx = 0; idx < particleList.size(); idx++)
 	{
-		delete uiList[idx];
+		delete particleList[idx];
+	}
+	// Free UI
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+	{
+		delete uiObjectsList[idx];
 	}
 	std::cout << "Menu Scene : Free Memory Completed\n";
 }

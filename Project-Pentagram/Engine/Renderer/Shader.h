@@ -17,6 +17,8 @@ class Shader
 		Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
 		~Shader();
 		void Activate() const;
+
+		// Act like glUniform
 		void setBool(const std::string& name, bool value) const;
 		void setInt(const std::string& name, int value) const;
 		void setFloat(const std::string& name, float value) const;

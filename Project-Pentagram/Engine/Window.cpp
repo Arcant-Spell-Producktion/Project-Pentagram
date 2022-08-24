@@ -3,6 +3,7 @@
 void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 {
 	Window* currentWindow = (Window*)glfwGetWindowUserPointer(window);
+	currentWindow->SetWindowRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
 	currentWindow->SetWidth(newWidth);
 	currentWindow->SetHeight(newHeight);
 	glViewport(0, 0, newWidth, newHeight);
@@ -53,11 +54,13 @@ bool Window::IsRunning()
 // Setter Implement
 void Window::SetWidth(const int& width) { this->m_Width = width; }
 void Window::SetHeight(const int& height) { this->m_Height = height; }
+void Window::SetWindowRatio(const glm::vec2& ratio) { this->m_windowRatio = ratio; }
 
 // Getter Implement
 GLFWwindow* Window::getWindow() { return m_Window; }
 int Window::GetWidth() { return m_Width; }
 int Window::GetHeight() { return m_Height; }
+glm::vec2 Window::GetWindowRatio() { return m_windowRatio; };
 
 void Window::Init()
 {

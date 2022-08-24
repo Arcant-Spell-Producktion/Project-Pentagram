@@ -9,6 +9,7 @@ ArcantEngine::ArcantEngine()
 
 void ArcantEngine::Init()
 {
+	srand(time(NULL));
 	this->window.Init();
 }
 

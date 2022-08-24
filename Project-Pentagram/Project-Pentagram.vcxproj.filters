@@ -54,7 +54,7 @@
     <ClCompile Include="Engine\SceneManager.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\UI.cpp">
+    <ClCompile Include="Engine\UIObject.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Window.cpp">
@@ -63,6 +63,16 @@
     <ClCompile Include="Engine\stb\stb_image.cpp">
       <Filter>Engine\stb</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\GameScene.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\FontCollector.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ParticleSystem.cpp">
+      <Filter>Engine\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -120,7 +130,7 @@
     <ClInclude Include="Engine\SceneManager.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\UI.h">
+    <ClInclude Include="Engine\UIObject.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Window.h">
@@ -129,6 +139,13 @@
     <ClInclude Include="Engine\stb\stb_image.h">
       <Filter>Engine\stb</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\ParticleSystem.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\FontCollector.h">
+      <Filter>Engine\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Text.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GameObj">
@@ -188,6 +205,9 @@
     <Filter Include="Engine\stb">
       <UniqueIdentifier>{739819d3-4b2e-4fc3-93ed-0a23894d933d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WorkingDir\Fonts">
+      <UniqueIdentifier>{858db07d-979a-49fe-b2dd-504d9ce0f79c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -204,5 +224,7 @@
     <None Include="WorkingDir\Shader\GameObjVertex.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
+    <None Include="WorkingDir\Shader\TextFragment.shader" />
+    <None Include="WorkingDir\Shader\TextVertex.shader" />
   </ItemGroup>
 </Project>

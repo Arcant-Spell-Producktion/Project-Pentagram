@@ -1,7 +1,7 @@
 #version 330 core
 
-uniform vec4 ObjColor;
-uniform sampler2D ObjTexture;
+uniform vec4 u_Color;
+uniform sampler2D u_Texture;
 
 in vec2 TexCoord;
 
@@ -10,10 +10,10 @@ out vec4 FragColor;
 void main()
 {
 	// If alpha less than 0.1f => Don't render
-	if (texture(ObjTexture, TexCoord).a <= 0.1f)
+	if (texture(u_Texture, TexCoord).a <= 0.1f)
 	{
 		discard;
 	}
 
-	FragColor = texture(ObjTexture, TexCoord) * vec4(ObjColor);
+	FragColor = texture(u_Texture, TexCoord) * vec4(u_Color);
 }
