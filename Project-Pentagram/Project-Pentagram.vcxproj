@@ -42,6 +42,7 @@
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
+    <ClInclude Include="Game\Spells\Spell.h" />
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
@@ -69,8 +70,8 @@
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\Spells\Spell.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="testreadspell_main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
