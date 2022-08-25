@@ -88,27 +88,3 @@ public:
     int GetChannelTime() { return m_ChannelTime; }
 };
 
-class SpellBook
-{
-private:
-    Spell m_Spells[9];
-    int m_Count = 0;
-public:
-    SpellBook(std::string path);
-    void AddNewSpell(Spell newSpell) { m_Spells[m_Count++] = newSpell; }
-    Spell GetSpell(int index) { return m_Spells[index]; }
-    void PrintBookDetail() {};
-
-};
-
-class SpellDatabase
-{
-public:
-    map<string, SpellBook> SpellBooks;
-    void AddSpellBook(string filename) {
-        string path = "Spellbooks/" + filename + ".xml";
-        SpellBook newBook(path);
-        SpellBooks.emplace(filename, newBook);
-        newBook.PrintBookDetail();
-    }
-};
