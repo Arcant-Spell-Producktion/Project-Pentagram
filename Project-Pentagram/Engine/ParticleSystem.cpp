@@ -1,6 +1,7 @@
 #include "ParticleSystem.h"
 
-ParticleSystem::ParticleSystem()
+ParticleSystem::ParticleSystem(const std::string& objName)
+	: GameObject(objName)
 {
 	m_ParticlePool.resize(1000);
 	m_PoolIndex = 999;
@@ -42,6 +43,12 @@ void ParticleSystem::OnUpdate(const float& dt)
 
 void ParticleSystem::Draw(Shader& shader, Camera& camera)
 {
+	// If object is not-active -> no need to render
+	if (!active)
+	{
+		return;
+	}
+
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
 
@@ -74,11 +81,11 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera)
 
 		mesh.Render();
 	}
-}
 
-void ParticleSystem::UnloadMesh()
-{
-	this->mesh.Delete();
+	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	{
+		childList[idx]->Draw(shader, camera);
+	}
 }
 
 // Implement Texture

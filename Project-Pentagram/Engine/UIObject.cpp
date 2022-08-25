@@ -1,6 +1,7 @@
 #include "UIObject.h"
 
-UIObject::UIObject()
+UIObject::UIObject(const std::string& objName)
+	: GameObject(objName)
 {
 
 }
@@ -34,73 +35,10 @@ void UIObject::Draw(Shader& shader, Camera& camera)
 
 	this->mesh.Render();
 
-	textUI.RenderText();
-
 	texture.UnBind();
-}
 
-bool UIObject::onClick()
-{
-	if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		return false;
-	}
-
-	return onHover();
-}
-
-bool UIObject::onHover()
-{
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
-
-	float curX = (Input::mouseX - screen_width / 2.0f);
-	float curY = (screen_height / 2.0f - Input::mouseY);
-
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-
-	float left = position.x - (scale.x / 2.0f);
-	float right = position.x + (scale.x / 2.0f);
-	float top = position.y + (scale.y / 2.0f);
-	float bottom = position.y - (scale.y / 2.0f);
-
-	// Debug
-	/*
-		std::cout << "MOUSE : " << curX << " " << curY << "\n";
-		std::cout << "LEFT : " << left << "\n";
-		std::cout << "RIGHT : " << right << "\n";
-		std::cout << "TOP : " << top << "\n";
-		std::cout << "BOTTOM : " << bottom << "\n";
-		std::cout << "POS : " << position.x << " " << position.y << "\n\n";
-	*/
-	
-
-	// If Mouse position hit with current Object
-	if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
-	{
-		for (int idx = uiList->size() - 1; uiList->at(idx) != this; idx--)
-		{
-			UIObject* curObj = uiList->at(idx);
-
-			if (!curObj->active)
-			{
-				continue;
-			}
-
-			left = curObj->position.x - (curObj->scale.x / 2.0f);
-			right = curObj->position.x + (curObj->scale.x / 2.0f);
-			top = curObj->position.y + (curObj->scale.y / 2.0f);
-			bottom = curObj->position.y - (curObj->scale.y / 2.0f);
-
-			if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
-			{
-				return false;
-			}
-		}
-		return true;
-	}
-	else
-	{
-		return false;
+		childList[idx]->Draw(shader, camera);
 	}
 }
