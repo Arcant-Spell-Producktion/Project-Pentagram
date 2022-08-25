@@ -3,6 +3,8 @@
 TextObject::TextObject(const std::string& objName)
 	: UIObject(objName)
 {
+	tag = GameObjectTag::TEXT;
+
 	this->fontScale = 1.0f; 
 	this->textAlignment = TextAlignment::MID;
 }

@@ -4,6 +4,7 @@ GameObject::GameObject(const std::string& objName)
 {
 	// Set GameObject Properties
 	name = objName;
+	tag = GameObjectTag::GAMEOBJECT;
 	active = true;
 	parent = nullptr;
 
@@ -84,6 +85,12 @@ void GameObject::MakeChild(GameObject* gameObj)
 {
 	childList.push_back(gameObj);
 	gameObj->parent = this;
+}
+
+// Implement Tag
+unsigned int GameObject::GetTag()
+{
+	return this->tag;
 }
 
 // Implement Texture

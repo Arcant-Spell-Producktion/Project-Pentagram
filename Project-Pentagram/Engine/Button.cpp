@@ -3,6 +3,7 @@
 Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
+	tag = GameObjectTag::BUTTON;
 	uiList = nullptr;
 }
 
@@ -61,8 +62,6 @@ bool Button::onHover()
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-
 	float left = position.x - (scale.x / 2.0f);
 	float right = position.x + (scale.x / 2.0f);
 	float top = position.y + (scale.y / 2.0f);
@@ -91,21 +90,20 @@ bool Button::onHover()
 			{
 				continue;
 			}
-			// If current Object is TextObject => No need to check button click with text
-			if (dynamic_cast<TextObject*>(curObj) != nullptr)
+			// If current Object is TextObject or UIObject => No need to check
+			if (dynamic_cast<Button*>(curObj) != nullptr)
 			{
-				continue;
+				left = curObj->position.x - (curObj->scale.x / 2.0f);
+				right = curObj->position.x + (curObj->scale.x / 2.0f);
+				top = curObj->position.y + (curObj->scale.y / 2.0f);
+				bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+
+				if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+				{
+					return false;
+				}
 			}
 
-			left = curObj->position.x - (curObj->scale.x / 2.0f);
-			right = curObj->position.x + (curObj->scale.x / 2.0f);
-			top = curObj->position.y + (curObj->scale.y / 2.0f);
-			bottom = curObj->position.y - (curObj->scale.y / 2.0f);
-
-			if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
-			{
-				return false;
-			}
 		}
 		return true;
 	}

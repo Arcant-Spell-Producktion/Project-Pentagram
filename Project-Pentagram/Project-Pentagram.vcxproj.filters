@@ -57,6 +57,7 @@
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
     <ClInclude Include="Engine\Button.h" />
+    <ClInclude Include="Engine\GameObjectTag.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png" />

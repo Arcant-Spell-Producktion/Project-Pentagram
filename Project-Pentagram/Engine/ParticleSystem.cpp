@@ -3,6 +3,8 @@
 ParticleSystem::ParticleSystem(const std::string& objName)
 	: GameObject(objName)
 {
+	tag = GameObjectTag::PARTICLE;
+
 	m_ParticlePool.resize(1000);
 	m_PoolIndex = 999;
 

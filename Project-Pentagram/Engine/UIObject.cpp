@@ -3,7 +3,7 @@
 UIObject::UIObject(const std::string& objName)
 	: GameObject(objName)
 {
-
+	tag = GameObjectTag::UIOBJECT;
 }
 
 void UIObject::Draw(Shader& shader, Camera& camera)

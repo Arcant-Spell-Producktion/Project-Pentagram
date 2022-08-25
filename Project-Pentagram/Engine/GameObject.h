@@ -9,13 +9,16 @@
 #include "Renderer/Mesh.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Shader.h"
+#include "GameObjectTag.h"
 
 class GameObject
 {
 	protected:
 		Mesh mesh;
 		Texture texture;
+		unsigned int tag;
 		int animRow, animCol;
+
 	public:
 		std::string name;
 		bool active;
@@ -35,6 +38,8 @@ class GameObject
 
 		void MakeChild(GameObject* gameObj);
 
+		// Tag
+		unsigned int GetTag();
 		// Texture
 		// override in ParticleSystem.h
 		virtual void SetTexture(const std::string& path);

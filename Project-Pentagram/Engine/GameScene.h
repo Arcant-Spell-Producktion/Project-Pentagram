@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include "Input.h"
+#include "GameObjectTag.h"
 #include "GameObject.h"
 #include "ParticleSystem.h"
 #include "UIObject.h"

@@ -67,6 +67,7 @@ void MenuScene::GameSceneUpdate(double dt)
 
 		curObj->OnUpdate((float)dt);
 	}
+
 	// Update UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{

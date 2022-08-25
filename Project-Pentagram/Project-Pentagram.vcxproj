@@ -23,6 +23,7 @@
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
     <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameObjectTag.h" />
     <ClInclude Include="Engine\GameScene.h" />
     <ClInclude Include="Engine\GameState.h" />
     <ClInclude Include="Engine\GameStateController.h" />
