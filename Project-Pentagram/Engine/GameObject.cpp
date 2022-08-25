@@ -38,14 +38,8 @@ void GameObject::Draw(Shader& shader, Camera& camera)
 	}
 
 	glm::mat4 model = glm::mat4(1.0f);
-	// Current Object has parent
-	if (parent != nullptr)
-	{
-		// Update Transform related with Parents
-		model *= glm::translate(glm::mat4(1.0f), parent->position);
-		model *= glm::rotate(glm::mat4(1.0f), glm::radians(parent->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-		model *= glm::scale(glm::mat4(1.0f), parent->scale);
-	}
+	// Update Modelmatrix related to parent Object
+	UpdateParentModelMatrix(this, model);
 
 	// Update MVP Matrixs
 	model *= glm::translate(glm::mat4(1.0f), this->position);
@@ -85,6 +79,21 @@ void GameObject::MakeChild(GameObject* gameObj)
 {
 	childList.push_back(gameObj);
 	gameObj->parent = this;
+}
+
+void GameObject::UpdateParentModelMatrix(GameObject* currentObj, glm::mat4& modelMat)
+{
+	if (currentObj->parent == nullptr)
+	{
+		return;
+	}
+
+	UpdateParentModelMatrix(currentObj->parent, modelMat);
+
+	// Update Transform related with Parents
+	modelMat *= glm::translate(glm::mat4(1.0f), currentObj->parent->position);
+	modelMat *= glm::rotate(glm::mat4(1.0f), glm::radians(currentObj->parent->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	modelMat *= glm::scale(glm::mat4(1.0f), currentObj->parent->scale);
 }
 
 // Implement Tag

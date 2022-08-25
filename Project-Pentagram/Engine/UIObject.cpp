@@ -13,7 +13,9 @@ void UIObject::Draw(Shader& shader, Camera& camera)
 		return;
 	}
 
+
 	glm::mat4 model = glm::mat4(1.0f);
+
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	model *= glm::scale(glm::mat4(1.0f), this->scale);

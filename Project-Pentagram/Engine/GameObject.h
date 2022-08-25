@@ -37,6 +37,7 @@ class GameObject
 		void UnloadMesh();
 
 		void MakeChild(GameObject* gameObj);
+		void UpdateParentModelMatrix(GameObject* currentObj, glm::mat4& modelMat);
 
 		// Tag
 		unsigned int GetTag();
