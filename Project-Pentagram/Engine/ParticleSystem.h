@@ -12,9 +12,7 @@
 
 #include "ArcantEngine.h"
 #include "Camera.h"
-#include "Renderer/Mesh.h"
-#include "Renderer/Texture.h"
-#include "Renderer/Shader.h"
+#include "GameObject.h"
 
 struct ParticleProps
 {
@@ -25,7 +23,7 @@ struct ParticleProps
 	float lifeTime = 1.0f;
 };
 
-class ParticleSystem
+class ParticleSystem : public GameObject
 {
 	private:
 		struct Particle
@@ -42,8 +40,6 @@ class ParticleSystem
 			bool active = false;
 		};
 		std::vector<Particle> m_ParticlePool;
-		Mesh mesh;
-		Texture texture;
 		float curSpawnTime;
 
 	public:
@@ -51,13 +47,11 @@ class ParticleSystem
 		ParticleProps baseParticle;
 		float spawnTime;
 
-		ParticleSystem();
+		ParticleSystem(const std::string& objName);
 
-		void OnUpdate(const float& dt);
-		void Draw(Shader& shader, Camera &camera);
-
-		void UnloadMesh();
-		void SetTexture(const std::string &path);
+		virtual void OnUpdate(const float& dt) override;
+		virtual void Draw(Shader& shader, Camera &camera) override;
+		virtual void SetTexture(const std::string &path) override;
 
 		void Emit(const ParticleProps& particleProps);
 };

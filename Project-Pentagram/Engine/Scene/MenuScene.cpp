@@ -8,65 +8,106 @@ void MenuScene::GameSceneLoad()
 void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/awesomeface.png";
-	// Init GameObject
-	GameObject* obj = CreateGameObject();
+
+	GameObject* emptyObj = CreateGameObject("Empty_Object");
+
+	GameObject* obj = CreateGameObject("SmileFace");
+	obj->position = { 500.0f, 0.0f, 0.0f };
+	obj->scale = { 200.0f, 200.0f, 1.0f};
 	obj->SetTexture(path);
-	obj->scale.x = 500.0f;
-	obj->scale.y = 500.0f;
-	obj->position.x = 500.0f;
+	emptyObj->MakeChild(obj);
 
-	ParticleProps particleProps;
-	particleProps.colorBegin = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	particleProps.colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 0.0f);
-	particleProps.sizeBegin = 20.0f, particleProps.sizeEnd = 20.0f, particleProps.sizeVariation = 5.0f;
-	particleProps.lifeTime = 2.0f;
-	particleProps.velocity.y = 200.0f;
-	particleProps.velocityVariation = glm::vec2(200.0f, 50.0f);
+	UIObject* ui = CreateUIObject("BigUI_1");
+	ui->scale = { 1600.0f, 900.0f, 1.0f };
+	ui->color = { 0.0f, 0.0f, 0.0f, 0.5f };
 
-	ParticleSystem* particle = CreateParticle(particleProps);
-	particle->SetTexture(path);
-	particle->spawnTime = 0.1f;
+	UIObject* subUI = CreateUIObject();
+	subUI->scale = { 800.0f, 700.0f, 1.0f };
+	subUI->color = { 0.8f, 0.8f, 0.8f, 1.0f };
+	ui->MakeChild(subUI);
 
-	// Init UI
-	UIObject* ui = CreateUIObject();
-	ui->textUI.text = "FPS : ";
-	ui->textUI.position = glm::vec3(-800.0f, 425.0f, 0.0f);
-	ui->scale.x = 1600.0f;
-	ui->scale.y = 900.0f;
-	ui->color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
-	
+	Button* button = CreateButton("Options_Button");
+	button->scale = { 300.0f, 100.0f, 1.0f };
+	button->position = { 0.0f, 150.0f, 0.0f };
+	button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+	button->textObject.text = "Options";
+	button->textObject.position = { 0.0f, 0.0f, 0.0f };
+	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+
+	Button* button2 = CreateButton("Exit_Button");
+	button2->scale = { 300.0f, 100.0f, 1.0f };
+	button2->position = { 0.0f, -150.0f, 0.0f };
+	button2->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+	button2->textObject.text = "Exit";
+	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
+	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+	subUI->MakeChild(button);
+	subUI->MakeChild(button2);
+	ui->active = false;
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
 
-float trackTime = 0.0f;
 void MenuScene::GameSceneUpdate(double dt)
 {
 	double time = glfwGetTime();
 
-	camera.Input(dt);
-	
-	if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+	camera.Input((float)dt);
+
+	// Update GameObject
+	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
-		uiObjectsList[0]->active = uiObjectsList[0]->active ? false : true;
+		GameObject*& curObj = objectsList[idx];
+		if (curObj->name == "Empty_Object")
+		{
+			curObj->rotation += dt * 10.0f;
+		}
+
+		curObj->OnUpdate((float)dt);
 	}
 
-	trackTime += dt;
-	if (trackTime >= 1.0f)
+	// Update UI
+	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
-		uiObjectsList[0]->textUI.text = "FPS : " + std::to_string((int)(1.0f / dt));
-		trackTime = 0.0f;
-	}
+		UIObject* &curObj = uiObjectsList[idx];
+		if (curObj->name == "BigUI_1")
+		{
+			if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+			{
+				curObj->active = (curObj->active ? false : true);
+			}
+		}
+		else if (curObj->name == "Options_Button")
+		{
+			Button* curButton = dynamic_cast<Button*>(curObj);
+			if (curButton->onHover())
+			{
+				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
+			}
+			else
+			{
+				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+			}
+		}
+		else if (curObj->name == "Exit_Button")
+		{
+			Button* curButton = dynamic_cast<Button*>(curObj);
+			if (curButton->onHover())
+			{
+				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
+			}
+			else
+			{
+				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+			}
 
-	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
-	{
-		SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-	}
-
-	// Update Particle
-	for (GLuint idx = 0; idx < particleList.size(); idx++)
-	{
-		particleList[idx]->OnUpdate(dt);
+			if (curButton->onClick())
+			{
+				GameStateController::GetInstance()->currentState = GameState::GS_QUIT;
+			}
+		}
 	}
 }
 
@@ -76,16 +117,23 @@ void MenuScene::GameSceneDraw()
 	// Render GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
+		// If current Object was child -> no need to draw
+		if (objectsList[idx]->parent != nullptr)
+		{
+			continue;
+		}
+
 		objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
-	}
-	// Render Particle
-	for (GLuint idx = 0; idx < particleList.size(); idx++)
-	{
-		particleList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
 	// Render UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
+		// If current Object was child -> no need to draw
+		if (uiObjectsList[idx]->parent != nullptr)
+		{
+			continue;
+		}
+
 		uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
 	}
 }
@@ -96,11 +144,6 @@ void MenuScene::GameSceneUnload()
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		objectsList[idx]->UnloadMesh();
-	}
-	// Unload Particle
-	for (GLuint idx = 0; idx < particleList.size(); idx++)
-	{
-		particleList[idx]->UnloadMesh();
 	}
 	// Unload UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
@@ -116,11 +159,6 @@ void MenuScene::GameSceneFree()
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		delete objectsList[idx];
-	}
-	// Free Particle
-	for (GLuint idx = 0; idx < particleList.size(); idx++)
-	{
-		delete particleList[idx];
 	}
 	// Free UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)

@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ArcantEngine.h" />
+    <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
     <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameObjectTag.h" />
     <ClInclude Include="Engine\GameScene.h" />
     <ClInclude Include="Engine\GameState.h" />
     <ClInclude Include="Engine\GameStateController.h" />
@@ -31,7 +33,7 @@
     <ClInclude Include="Engine\Renderer\Shader.h" />
     <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
     <ClInclude Include="Engine\Renderer\FontCollector.h" />
-    <ClInclude Include="Engine\Renderer\Text.h" />
+    <ClInclude Include="Engine\Renderer\TextObject.h" />
     <ClInclude Include="Engine\Renderer\Texture.h" />
     <ClInclude Include="Engine\Renderer\VAO.h" />
     <ClInclude Include="Engine\Renderer\VBO.h" />
@@ -49,6 +51,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />
+    <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\GameStateController.cpp" />
@@ -59,7 +62,7 @@
     <ClCompile Include="Engine\Renderer\Shader.cpp" />
     <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
     <ClCompile Include="Engine\Renderer\FontCollector.cpp" />
-    <ClCompile Include="Engine\Renderer\Text.cpp" />
+    <ClCompile Include="Engine\Renderer\TextObject.cpp" />
     <ClCompile Include="Engine\Renderer\Texture.cpp" />
     <ClCompile Include="Engine\Renderer\VAO.cpp" />
     <ClCompile Include="Engine\Renderer\VBO.cpp" />

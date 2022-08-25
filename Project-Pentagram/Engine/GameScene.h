@@ -2,16 +2,19 @@
 
 #include <vector>
 
+#include "Input.h"
+#include "GameObjectTag.h"
 #include "GameObject.h"
 #include "ParticleSystem.h"
 #include "UIObject.h"
+#include "Renderer/TextObject.h"
+#include "Button.h"
 #include "Camera.h"
 
 class GameScene
 {
 	protected:
 		std::vector<GameObject*> objectsList;
-		std::vector<ParticleSystem*> particleList;
 		std::vector<UIObject*> uiObjectsList;
 		Camera camera;
 
@@ -26,7 +29,10 @@ class GameScene
 		virtual void GameSceneFree() = 0;
 
 		// Create Object
-		GameObject* CreateGameObject();
+		GameObject* CreateGameObject(const std::string& objName = "");
 		ParticleSystem* CreateParticle(ParticleProps& particleProps);
-		UIObject* CreateUIObject();
+		ParticleSystem* CreateParticle(const std::string& objName, ParticleProps& particleProps);
+		UIObject* CreateUIObject(const std::string& objName = "");
+		TextObject* CreateTextObject(const std::string& objName = "");
+		Button* CreateButton(const std::string& objName = "");
 };

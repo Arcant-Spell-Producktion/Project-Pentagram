@@ -1,10 +1,13 @@
 #include "GameObject.h"
 
-GameObject::GameObject()
+GameObject::GameObject(const std::string& objName)
 {
-	// Set GameObject to Active (Render on Screen)
+	// Set GameObject Properties
+	name = objName;
+	tag = GameObjectTag::GAMEOBJECT;
 	active = true;
-	
+	parent = nullptr;
+
 	// Set Transformation
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
 	rotation = 0.0f;
@@ -21,6 +24,11 @@ GameObject::GameObject()
 	SetTexture("Sprites/default.png");
 }
 
+void GameObject::OnUpdate(const float& dt)
+{
+
+}
+
 void GameObject::Draw(Shader& shader, Camera& camera)
 {
 	// If object is not-active -> no need to render
@@ -29,8 +37,17 @@ void GameObject::Draw(Shader& shader, Camera& camera)
 		return;
 	}
 
-	// Update MVP Matrixs
 	glm::mat4 model = glm::mat4(1.0f);
+	// Current Object has parent
+	if (parent != nullptr)
+	{
+		// Update Transform related with Parents
+		model *= glm::translate(glm::mat4(1.0f), parent->position);
+		model *= glm::rotate(glm::mat4(1.0f), glm::radians(parent->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+		model *= glm::scale(glm::mat4(1.0f), parent->scale);
+	}
+
+	// Update MVP Matrixs
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
@@ -51,13 +68,29 @@ void GameObject::Draw(Shader& shader, Camera& camera)
 	shader.setInt("u_Texture", 0);
 
 	this->mesh.Render();
-
 	texture.UnBind();
+
+	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	{
+		childList[idx]->Draw(shader, camera);
+	}
 }
 
 void GameObject::UnloadMesh()
 {
 	this->mesh.Delete();
+}
+
+void GameObject::MakeChild(GameObject* gameObj)
+{
+	childList.push_back(gameObj);
+	gameObj->parent = this;
+}
+
+// Implement Tag
+unsigned int GameObject::GetTag()
+{
+	return this->tag;
 }
 
 // Implement Texture
