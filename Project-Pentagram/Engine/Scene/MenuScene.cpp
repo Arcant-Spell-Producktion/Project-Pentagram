@@ -73,7 +73,6 @@ void MenuScene::GameSceneUpdate(double dt)
 	}
 	if (Input::IsKeyBeginPressed(GLFW_KEY_2))
 	{
-
 		std::string path = "Sprites/awesomeface.png";
 
 		GameObject* emptyObj = CreateGameObject("Empty_Object");
@@ -158,7 +157,7 @@ void MenuScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (objectsList[idx]->parent != nullptr)
+		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->active)
 		{
 			continue;
 		}
@@ -169,7 +168,7 @@ void MenuScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (uiObjectsList[idx]->parent != nullptr)
+		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->active)
 		{
 			continue;
 		}

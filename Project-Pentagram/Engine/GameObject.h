@@ -4,18 +4,19 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 
-#include "Camera.h"
 #include "ArcantEngine.h"
+#include "Camera.h"
+#include "GameObjectTag.h"
 #include "Renderer/Mesh.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Shader.h"
-#include "GameObjectTag.h"
+#include "Renderer/TextureCollector.h"
 
 class GameObject
 {
 	protected:
 		Mesh mesh;
-		Texture texture;
+		Texture* texture;
 		unsigned int tag;
 		int animRow, animCol;
 

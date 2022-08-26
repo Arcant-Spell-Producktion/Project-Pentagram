@@ -28,6 +28,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
     <ClCompile Include="Engine\Button.cpp" />
+    <ClCompile Include="Engine\Renderer\TextureCollector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ArcantEngine.h" />
@@ -59,6 +60,7 @@
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\GameObjectTag.h" />
     <ClInclude Include="Utilities\Singleton.h" />
+    <ClInclude Include="Engine\Renderer\TextureCollector.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png" />

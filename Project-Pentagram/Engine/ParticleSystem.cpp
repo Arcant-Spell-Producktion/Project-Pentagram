@@ -12,7 +12,7 @@ ParticleSystem::ParticleSystem(const std::string& objName)
 	spawnTime = 0.005f;
 
 	// Set Texture
-	SetTexture("Sprites/default.png");
+	this->texture = TextureCollector::GetInstance()->GetTexture("default.png");
 }
 
 void ParticleSystem::OnUpdate(const float& dt)
@@ -53,6 +53,7 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
+	texture->Activate(GL_TEXTURE0);
 
 	// Render
 	glm::mat4 originModel = parentModel;
@@ -82,7 +83,6 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 		shader.setMat4("u_Model", originModel * model);
 		shader.setMat4("u_Projection", proj);
 		shader.setVec4("u_Color", color);
-		texture.Activate(GL_TEXTURE0);
 		shader.setInt("u_Texture", 0);
 
 		mesh.Render();
@@ -92,12 +92,6 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 	{
 		childList[idx]->Draw(shader, camera, originModel);
 	}
-}
-
-// Implement Texture
-void ParticleSystem::SetTexture(const std::string& path)
-{
-	this->texture.SetTexture(path.c_str(), GL_UNSIGNED_BYTE);
 }
 
 void ParticleSystem::Emit(const ParticleProps& particleProps)

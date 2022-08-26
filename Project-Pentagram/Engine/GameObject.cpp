@@ -21,7 +21,7 @@ GameObject::GameObject(const std::string& objName)
 	animCol = 1;
 
 	// Set Texture
-	SetTexture("Sprites/default.png");
+	this->texture = TextureCollector::GetInstance()->GetTexture("Sprites/default.png");
 }
 
 void GameObject::OnUpdate(const float& dt)
@@ -55,11 +55,11 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	shader.setMat4("u_Projection", proj);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f),glm::vec3(window->GetWindowRatio(), 1.0f)));
 	shader.setVec4("u_Color", color);
-	texture.Activate(GL_TEXTURE0);
+	texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 
 	this->mesh.Render();
-	texture.UnBind();
+	texture->UnBind();
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
@@ -87,7 +87,7 @@ unsigned int GameObject::GetTag()
 // Implement Texture
 void GameObject::SetTexture(const std::string& path)
 {
-	this->texture.SetTexture(path.c_str(), GL_UNSIGNED_BYTE);
+	this->texture = TextureCollector::GetInstance()->GetTexture(path);
 }
 // Implement SpriteSheet Animation
 void GameObject::SetSpriteSheet(const int& row, const int& col)

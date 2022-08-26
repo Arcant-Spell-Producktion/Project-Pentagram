@@ -1,7 +1,5 @@
 #include "FontCollector.h"
 
-FontCollector* FontCollector::instance = nullptr;
-
 FontCollector::FontCollector()
 {
 	// Initialize FreeType
@@ -15,19 +13,10 @@ FontCollector::FontCollector()
 	LoadFont("Fonts/ARLRDBD.ttf");
 }
 
-FontCollector* FontCollector::GetInstance()
-{
-	if (instance == nullptr)
-	{
-		instance = new FontCollector();
-	}
-	return instance;
-}
-
 void FontCollector::Free()
 {
 	FT_Done_FreeType(ft);
-	delete instance;
+	Singleton::Free();
 }
 
 void FontCollector::LoadFont(const std::string& path)

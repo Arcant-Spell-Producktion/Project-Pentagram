@@ -1,18 +1,15 @@
 #pragma once
 
 #include "Shader.h"
+#include "../../Utilities/Singleton.h"
 
-class ShaderCollector
+class ShaderCollector : public Singleton<ShaderCollector>
 {
-	private:
-		static ShaderCollector* instance;
-
 	public:
 		// Shader for use with object
 		Shader GameObjectShader;
 		Shader TextShader;
 
 		ShaderCollector();
-		static ShaderCollector* GetInstance();
 		void Free();
 };

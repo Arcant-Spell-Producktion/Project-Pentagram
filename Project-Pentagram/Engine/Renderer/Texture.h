@@ -9,8 +9,8 @@ private:
 	GLuint ID;
 public:
 	Texture();
-	Texture(const char* src, GLenum varType);
-	void SetTexture(const char* path, GLenum varType);
+	Texture(const char* src);
+	void SetTexture(const char* path);
 	// ---------------------------
 	//  SetTexture for Font only
 	void SetFontTexture(const GLuint& width, const GLuint& height, const void* data);

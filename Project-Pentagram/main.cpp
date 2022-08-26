@@ -2,16 +2,16 @@
 #include "Engine/GameStateController.h"
 #include "Engine/Renderer/ShaderCollector.h"
 #include "Engine/Renderer/FontCollector.h"
-#include "Game/Spells/Spell.h"
+#include "Engine/Renderer/TextureCollector.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
 ShaderCollector* shaderCollector = nullptr;
 FontCollector* fontCollector = nullptr;
+TextureCollector* textureCollector = nullptr;
 
 int main()
 {
-	Spell spell;
 	// Initialize Engine
 	engine = ArcantEngine::GetInstance();
 	engine->Init();
@@ -23,8 +23,11 @@ int main()
 	// Initialize ShaderCollector(For collecting type of Shader)
 	shaderCollector = ShaderCollector::GetInstance();
 
-	// Initialize TextCollector(For collecting type of Font)
+	// Initialize FontCollector(For collecting type of Font)
 	fontCollector = FontCollector::GetInstance();
+
+	// Initialize TextureCollector(For collecting all of texture in game)
+	textureCollector = TextureCollector::GetInstance();
 
 	double currTime = 0;
 	double prevTime = 0;
@@ -60,4 +63,5 @@ int main()
 	engine->Free();
 	gameStateController->Free();
 	fontCollector->Free();
+	textureCollector->Free();
 }

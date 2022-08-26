@@ -8,6 +8,7 @@
 #include <map>
 
 #include "Texture.h"
+#include "../../Utilities/Singleton.h"
 
 struct Character
 {
@@ -18,10 +19,9 @@ struct Character
 };
 
 
-class FontCollector
+class FontCollector : public Singleton<FontCollector>
 {
 	private:
-		static FontCollector* instance;
 		FT_Library ft;
 		void LoadFont(const std::string& path);
 	public:
@@ -29,6 +29,5 @@ class FontCollector
 		std::map<GLchar, Character> characters;
 
 		FontCollector();
-		static FontCollector* GetInstance();
 		void Free();
 };

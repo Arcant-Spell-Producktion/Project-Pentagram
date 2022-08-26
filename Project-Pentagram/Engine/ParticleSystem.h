@@ -51,7 +51,6 @@ class ParticleSystem : public GameObject
 
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Shader& shader, Camera &camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
-		virtual void SetTexture(const std::string &path) override;
 
 		void Emit(const ParticleProps& particleProps);
 };
