@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "SpellDatabase.h"
 
+SpellDatabase::SpellDatabase()
+{
+    AddSpellBook("Ligma");
+}
+
 void SpellDatabase::AddSpellBook(string filename)
 {
     string path = "Spellbooks/" + filename + ".xml";

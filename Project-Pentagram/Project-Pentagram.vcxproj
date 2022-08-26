@@ -45,6 +45,8 @@
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
+    <ClInclude Include="Game\Spells\SpellBook.h" />
+    <ClInclude Include="Game\Spells\SpellDatabase.h" />
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\Singleton.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
@@ -75,6 +77,8 @@
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
+    <ClCompile Include="Game\Spells\SpellBook.cpp" />
+    <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

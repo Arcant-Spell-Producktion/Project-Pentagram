@@ -27,14 +27,14 @@ SpellBook::SpellBook(string path)
         XMLElement* effectValueElement = currSpellElement->FirstChildElement("EffectValue")->FirstChildElement("Value");
 
         currSpell.SetSpellName(currSpellElement->FirstAttribute()->Value());
-        currSpell.SetCastTime(int(castTimeElement->GetText()));
-        currSpell.SetChannelTime(int(channelTimeElement->GetText()));
+        currSpell.SetCastTime(stoi(castTimeElement->GetText()));
+        currSpell.SetChannelTime(stoi(channelTimeElement->GetText()));
         currSpell.SetSideEffectType(SideEffectType::GetEnum(effectTypeElement->GetText()));
         currSpell.SetChannelEffectType(ChannelEffectType::GetEnum(channelTypeElement->GetText()));
         for (int array_index = 0; array_index < 6; array_index++)
         {
-            currSpell.SetWillValue(array_index, int(willValueElement->GetText()));
-            currSpell.SetSideEffectValue(array_index, int(effectValueElement->GetText()));
+            currSpell.SetWillValue(array_index, stoi(willValueElement->GetText()));
+            currSpell.SetSideEffectValue(array_index, stoi(effectValueElement->GetText()));
 
             willValueElement = willValueElement->NextSiblingElement();
             effectValueElement = effectValueElement->NextSiblingElement();
@@ -46,4 +46,9 @@ SpellBook::SpellBook(string path)
     }
 }
 
-void SpellBook::PrintBookDetail() {}
+void SpellBook::PrintBookDetail() {
+    for (int i = 0; i < 9; i++)
+    {
+        cout << "\t Spell Numero: " << i << "\n" << m_Spells[i];
+    }
+}

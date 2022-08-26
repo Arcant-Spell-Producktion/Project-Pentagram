@@ -1,13 +1,13 @@
 ﻿#pragma once
+
+#include <iostream>
 #include <string>
-#include <map>
-#include <vector>
 using namespace std;
 
 class SideEffectType
 {
 private:
-    static const const string enum_string[];
+    static const string enum_string[];
 public:
     static enum Type
     {
@@ -22,12 +22,13 @@ public:
         }
         return SideEffectType::None;
     }
+    static string GetString(SideEffectType::Type type) { return enum_string[(int)type];}
 };
 
 class ChannelEffectType
 {
 private:
-    static const const string enum_string[];
+    static const string enum_string[];
 public:
     static enum Type
     {
@@ -42,6 +43,7 @@ public:
         }
         return ChannelEffectType::None;
     }
+    static string GetString(ChannelEffectType::Type type) { return enum_string[(int)type]; }
 };
 
 class Spell
@@ -86,5 +88,7 @@ public:
 
     void SetChannelTime(int time) { m_ChannelTime = time; }
     int GetChannelTime() { return m_ChannelTime; }
+
+    friend ostream& operator<<(ostream& os, const Spell& dt);
 };
 
