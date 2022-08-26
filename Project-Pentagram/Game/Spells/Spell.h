@@ -25,6 +25,12 @@ public:
     static string GetString(SideEffectType::Type type) { return enum_string[(int)type];}
 };
 
+const string SideEffectType::enum_string[] = {
+    "None",
+    "Mark",
+    "Burn"
+};
+
 class ChannelEffectType
 {
 private:
@@ -44,6 +50,12 @@ public:
         return ChannelEffectType::None;
     }
     static string GetString(ChannelEffectType::Type type) { return enum_string[(int)type]; }
+};
+
+const string ChannelEffectType::enum_string[] = {
+    "None",
+    "Wait",
+    "Active"
 };
 
 class Spell

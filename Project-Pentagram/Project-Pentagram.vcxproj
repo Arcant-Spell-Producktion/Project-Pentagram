@@ -44,6 +44,7 @@
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
+    <ClInclude Include="Game\Spells\Element.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
     <ClInclude Include="Game\Spells\SpellBook.h" />
     <ClInclude Include="Game\Spells\SpellDatabase.h" />

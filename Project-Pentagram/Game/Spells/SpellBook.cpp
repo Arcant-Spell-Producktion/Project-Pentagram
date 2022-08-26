@@ -8,10 +8,8 @@
 
 using namespace tinyxml2;
 
-SpellBook::SpellBook(string filename)
+SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element),m_Bookname(filename)
 {
-    m_bookname = filename;
-
     string path = "Spellbooks/" + filename + ".xml";
     XMLDocument doc;
     doc.LoadFile(path.c_str());
@@ -50,7 +48,7 @@ SpellBook::SpellBook(string filename)
 }
 
 void SpellBook::PrintBookDetail() {
-    cout << "\n\t Book Name: " << m_bookname << "\n\n";
+    cout << "\n\t Book Name: " << m_Bookname << "\n\n";
     for (int i = 0; i < 9; i++)
     {
         cout << "\t Spell Numero: " << i << "\n" << m_Spells[i] <<"\n";

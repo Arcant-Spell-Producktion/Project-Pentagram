@@ -3,12 +3,12 @@
 
 SpellDatabase::SpellDatabase()
 {
-    AddSpellBook("Ligma");
+    AddSpellBook(Element::Debug,"Ligma");
 }
 
-void SpellDatabase::AddSpellBook(string filename)
+void SpellDatabase::AddSpellBook(Element::Type element , string filename)
 {
-    SpellBook newBook(filename);
-    SpellBooks.emplace(filename, newBook);
+    SpellBook newBook(element,filename);
+    SpellBooks.emplace(element, newBook);
     newBook.PrintBookDetail();
 }
