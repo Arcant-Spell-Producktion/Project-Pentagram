@@ -8,8 +8,7 @@ SpellDatabase::SpellDatabase()
 
 void SpellDatabase::AddSpellBook(string filename)
 {
-    string path = "Spellbooks/" + filename + ".xml";
-    SpellBook newBook(path);
+    SpellBook newBook(filename);
     SpellBooks.emplace(filename, newBook);
     newBook.PrintBookDetail();
 }
