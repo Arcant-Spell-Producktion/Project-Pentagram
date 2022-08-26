@@ -23,11 +23,3 @@ public:
     }
     static std::string GetString(Element::Type type) { return enum_string[(int)type]; }
 };
-
-const std::string Element::enum_string[] = {
-    "Fire",
-    "Water",
-    "Wind",
-    "Earth",
-    "Debug"
-};

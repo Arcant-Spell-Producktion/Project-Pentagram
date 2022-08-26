@@ -30,6 +30,7 @@
     <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Game\Spells\SpellBook.cpp" />
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
+    <ClCompile Include="Game\Spells\Element.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\ArcantEngine.h" />
