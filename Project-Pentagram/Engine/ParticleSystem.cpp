@@ -43,7 +43,7 @@ void ParticleSystem::OnUpdate(const float& dt)
 	}
 }
 
-void ParticleSystem::Draw(Shader& shader, Camera& camera)
+void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!active)
@@ -54,6 +54,11 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera)
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
 
+	// Render
+	glm::mat4 originModel = parentModel;
+	originModel *= glm::translate(glm::mat4(1.0f), position);
+	originModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	originModel *= glm::scale(glm::mat4(1.0f), scale);
 	for (auto& particle : m_ParticlePool)
 	{
 		if (!particle.active)
@@ -65,15 +70,7 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera)
 		glm::vec4 color = glm::lerp(particle.colorEnd, particle.colorBegin, life);
 		float size = glm::lerp(particle.sizeBegin, particle.sizeEnd, life);
 
-		// Render
 		glm::mat4 model = glm::mat4(1.0f);
-		// Update Modelmatrix related to parent Object
-		UpdateParentModelMatrix(this, model);
-
-		model *= glm::translate(glm::mat4(1.0f), position);
-		model *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-		model *= glm::scale(glm::mat4(1.0f), scale);
-
 		model *= glm::translate(glm::mat4(1.0f), glm::vec3(particle.position.x, particle.position.y, 0.0f));
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(particle.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(size, size, 1.0f));
@@ -82,7 +79,7 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera)
 		int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
 		glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	
-		shader.setMat4("u_Model", model);
+		shader.setMat4("u_Model", originModel * model);
 		shader.setMat4("u_Projection", proj);
 		shader.setVec4("u_Color", color);
 		texture.Activate(GL_TEXTURE0);
@@ -93,7 +90,7 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera)
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera);
+		childList[idx]->Draw(shader, camera, originModel);
 	}
 }
 

@@ -7,7 +7,7 @@ Button::Button(const std::string& objName)
 	uiList = nullptr;
 }
 
-void Button::Draw(Shader& shader, Camera& camera)
+void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
 	if (!active)
 	{

@@ -15,7 +15,7 @@ GameObject::GameObject(const std::string& objName)
 	
 	// Set Color
 	color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	
+
 	// Set Row & Coloumn of SpriteSheet
 	animRow = 1;
 	animCol = 1;
@@ -29,7 +29,7 @@ void GameObject::OnUpdate(const float& dt)
 
 }
 
-void GameObject::Draw(Shader& shader, Camera& camera)
+void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!active)
@@ -37,10 +37,7 @@ void GameObject::Draw(Shader& shader, Camera& camera)
 		return;
 	}
 
-	glm::mat4 model = glm::mat4(1.0f);
-	// Update Modelmatrix related to parent Object
-	UpdateParentModelMatrix(this, model);
-
+	glm::mat4 model = parentModel;
 	// Update MVP Matrixs
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
@@ -66,7 +63,7 @@ void GameObject::Draw(Shader& shader, Camera& camera)
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera);
+		childList[idx]->Draw(shader, camera, model);
 	}
 }
 
@@ -79,21 +76,6 @@ void GameObject::MakeChild(GameObject* gameObj)
 {
 	childList.push_back(gameObj);
 	gameObj->parent = this;
-}
-
-void GameObject::UpdateParentModelMatrix(GameObject* currentObj, glm::mat4& modelMat)
-{
-	if (currentObj->parent == nullptr)
-	{
-		return;
-	}
-
-	UpdateParentModelMatrix(currentObj->parent, modelMat);
-
-	// Update Transform related with Parents
-	modelMat *= glm::translate(glm::mat4(1.0f), currentObj->parent->position);
-	modelMat *= glm::rotate(glm::mat4(1.0f), glm::radians(currentObj->parent->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-	modelMat *= glm::scale(glm::mat4(1.0f), currentObj->parent->scale);
 }
 
 // Implement Tag

@@ -9,5 +9,5 @@ class UIObject : public GameObject
 {
 	public:
 		UIObject(const std::string& objName);
-		virtual void Draw(Shader& shader, Camera& camera) override;
+		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
 };

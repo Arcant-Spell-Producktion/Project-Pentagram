@@ -2,6 +2,7 @@
 #include "Engine/GameStateController.h"
 #include "Engine/Renderer/ShaderCollector.h"
 #include "Engine/Renderer/FontCollector.h"
+#include "Game/Spells/Spell.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
@@ -10,6 +11,7 @@ FontCollector* fontCollector = nullptr;
 
 int main()
 {
+	Spell spell;
 	// Initialize Engine
 	engine = ArcantEngine::GetInstance();
 	engine->Init();

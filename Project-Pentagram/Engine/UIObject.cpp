@@ -6,7 +6,7 @@ UIObject::UIObject(const std::string& objName)
 	tag = GameObjectTag::UIOBJECT;
 }
 
-void UIObject::Draw(Shader& shader, Camera& camera)
+void UIObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
 	if (!active)
 	{

@@ -71,6 +71,30 @@ void MenuScene::GameSceneUpdate(double dt)
 	{
 		SceneManager::LoadScene(GameState::GS_RESTART);
 	}
+	if (Input::IsKeyBeginPressed(GLFW_KEY_2))
+	{
+
+		std::string path = "Sprites/awesomeface.png";
+
+		GameObject* emptyObj = CreateGameObject("Empty_Object");
+
+		ParticleProps particleProp;
+		particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+		particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 0.0f };
+		particleProp.sizeBegin = particleProp.sizeEnd = 25.0f;
+		particleProp.velocity = { 400.0f, 0.0f };
+		particleProp.velocityVariation = { 100.0f, 100.0f };
+		ParticleSystem* particle = CreateParticle("Particle", particleProp);
+		particle->position = { 300.0f, 0.0f, 0.0f };
+		particle->rotation = -90.0f;
+		particle->SetTexture(path);
+		emptyObj->MakeChild(particle);
+
+		GameObject* obj = CreateGameObject("SmileFace");
+		obj->scale = { 200.0f, 200.0f, 1.0f };
+		obj->SetTexture(path);
+		particle->MakeChild(obj);
+	}
 
 	// Update GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)

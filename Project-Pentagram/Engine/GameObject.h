@@ -33,11 +33,10 @@ class GameObject
 
 		GameObject(const std::string& objName);
 		virtual void OnUpdate(const float& dt);
-		virtual void Draw(Shader& shader, Camera& camera);
+		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4 &parentModel = glm::mat4(1.0f));
 		void UnloadMesh();
 
 		void MakeChild(GameObject* gameObj);
-		void UpdateParentModelMatrix(GameObject* currentObj, glm::mat4& modelMat);
 
 		// Tag
 		unsigned int GetTag();
