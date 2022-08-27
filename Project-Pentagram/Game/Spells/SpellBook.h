@@ -12,6 +12,6 @@ private:
 public:
     SpellBook(Element::Type element,std::string filename);
     void AddNewSpell(Spell newSpell) { m_Spells[m_Count++] = newSpell; }
-    Spell GetSpell(int index) { return m_Spells[index]; }
+    Spell* GetSpellByIndex(int index) { return &m_Spells[index]; }
     void PrintBookDetail();
 };

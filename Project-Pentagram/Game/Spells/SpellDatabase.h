@@ -10,5 +10,5 @@ public:
 
     SpellDatabase();
     void AddSpellBook(Element::Type element, string filename);
-    SpellBook GetBookByElement(Element::Type element) { return SpellBooks.find(element)->second; }
+    SpellBook* GetBookByElement(Element::Type element) { return &SpellBooks.find(element)->second; }
 };

@@ -8,6 +8,7 @@ private:
 public:
     static enum Type
     {
+        NULLTYPE = -1,
         Fire = 0,
         Water,
         Wind,
