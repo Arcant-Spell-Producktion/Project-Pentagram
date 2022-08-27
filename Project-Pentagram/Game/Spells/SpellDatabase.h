@@ -6,9 +6,12 @@
 class SpellDatabase:public Singleton<SpellDatabase>
 {
 public:
-    map<Element::Type, SpellBook> SpellBooks;
+    map<Element::Type, SpellBook*> SpellBooks;
 
     SpellDatabase();
     void AddSpellBook(Element::Type element, string filename);
-    SpellBook* GetBookByElement(Element::Type element) { return &SpellBooks.find(element)->second; }
+    SpellBook* GetBookByElement(Element::Type element)
+    {
+     return SpellBooks.find(element)->second;
+    }
 };

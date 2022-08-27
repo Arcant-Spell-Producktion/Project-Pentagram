@@ -1,5 +1,13 @@
 ﻿#pragma once
 #include "../Spells/Spell.h"
+
+enum class Caster
+{
+    NONE,
+    CasterA,
+    CasterB,
+};
+
 class CastSpellDetail
 {
     public:
@@ -18,9 +26,3 @@ class CastSpellDetail
         {}
 };
 
-enum Caster
-{
-    NONE,
-    CasterA,
-    CasterB,
-};

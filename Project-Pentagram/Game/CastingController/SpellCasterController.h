@@ -3,20 +3,20 @@
 #include "../Spells/SpellDatabase.h"
 #include "CastSpellDetail.h"
 #include "PentagramData.h"
-class SpellCasterController:Singleton<SpellCasterController>
+class SpellCasterController:public Singleton<SpellCasterController>
 {
 private:
     void UpdateCurrentSpell();
 protected:
     Caster m_SpellCaster = Caster::NONE;
-    bool m_isInit = false;
     Element::Type m_Element = Element::NULLTYPE;
-    PentagramData m_PentagramData;
-    SpellBook* m_CurrentBook = nullptr;
+    PentagramData_T m_PentagramData;
+    SpellBook* m_CurrentBook;
     CastSpellDetail* m_CurrentSpell = nullptr;
 public:
-    void Init(Element::Type element,Caster caster);
-    virtual void SetPentagramData(PentagramData pentagram);
+    void Init() {};
+    void SetUp(Element::Type element,Caster caster);
+    void SetPentagramData(PentagramData_T pentagram);
     void CommitSpell();
     int GetSpellCost();
 };

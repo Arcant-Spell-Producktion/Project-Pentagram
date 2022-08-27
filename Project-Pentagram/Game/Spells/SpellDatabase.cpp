@@ -8,7 +8,7 @@ SpellDatabase::SpellDatabase()
 
 void SpellDatabase::AddSpellBook(Element::Type element , string filename)
 {
-    SpellBook newBook(element,filename);
+    SpellBook* newBook = new SpellBook(element,filename);
     SpellBooks.emplace(element, newBook);
-    newBook.PrintBookDetail();
+    newBook->PrintBookDetail();
 }

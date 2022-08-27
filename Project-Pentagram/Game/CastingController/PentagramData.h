@@ -1,5 +1,5 @@
 ﻿#pragma once
-struct PentagramData
+struct PentagramData_T
 {
     int circle = 1;
     int complex = 1;
