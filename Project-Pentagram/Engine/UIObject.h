@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-#include "Renderer/FontCollector.h"
+#include "Collector/EngineDataCollector.h"
 #include <string>
 #include <algorithm>
 

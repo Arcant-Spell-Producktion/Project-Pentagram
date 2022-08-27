@@ -10,7 +10,7 @@
 #include "Renderer/Mesh.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Shader.h"
-#include "Renderer/TextureCollector.h"
+#include "Collector/EngineDataCollector.h"
 
 class GameObject
 {

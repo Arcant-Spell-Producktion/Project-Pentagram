@@ -21,7 +21,7 @@ GameObject::GameObject(const std::string& objName)
 	animCol = 1;
 
 	// Set Texture
-	this->texture = TextureCollector::GetInstance()->GetTexture("Sprites/default.png");
+	this->texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
 }
 
 void GameObject::OnUpdate(const float& dt)
@@ -87,7 +87,7 @@ unsigned int GameObject::GetTag()
 // Implement Texture
 void GameObject::SetTexture(const std::string& path)
 {
-	this->texture = TextureCollector::GetInstance()->GetTexture(path);
+	this->texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(path);
 }
 // Implement SpriteSheet Animation
 void GameObject::SetSpriteSheet(const int& row, const int& col)

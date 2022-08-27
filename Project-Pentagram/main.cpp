@@ -1,14 +1,10 @@
 #include "Engine/ArcantEngine.h"
 #include "Engine/GameStateController.h"
-#include "Engine/Renderer/ShaderCollector.h"
-#include "Engine/Renderer/FontCollector.h"
-#include "Engine/Renderer/TextureCollector.h"
+#include "Engine/Collector/EngineDataCollector.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
-ShaderCollector* shaderCollector = nullptr;
-FontCollector* fontCollector = nullptr;
-TextureCollector* textureCollector = nullptr;
+EngineDataCollector* engineDataCollector = nullptr;
 
 int main()
 {
@@ -21,13 +17,9 @@ int main()
 	gameStateController->Init(GameState::GS_MENU_SCENE);
 
 	// Initialize ShaderCollector(For collecting type of Shader)
-	shaderCollector = ShaderCollector::GetInstance();
-
 	// Initialize FontCollector(For collecting type of Font)
-	fontCollector = FontCollector::GetInstance();
-
 	// Initialize TextureCollector(For collecting all of texture in game)
-	textureCollector = TextureCollector::GetInstance();
+	engineDataCollector = EngineDataCollector::GetInstance();
 
 	double currTime = 0;
 	double prevTime = 0;
@@ -62,6 +54,5 @@ int main()
 	// Deallocate instance
 	engine->Free();
 	gameStateController->Free();
-	fontCollector->Free();
-	textureCollector->Free();
+	engineDataCollector->Free();
 }

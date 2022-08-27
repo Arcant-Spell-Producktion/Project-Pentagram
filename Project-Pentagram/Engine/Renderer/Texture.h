@@ -3,6 +3,8 @@
 #include <glad/glad.h>
 #include "../stb/stb_image.h"
 
+#include <assert.h>
+
 class Texture
 {
 private:

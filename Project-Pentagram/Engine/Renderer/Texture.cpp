@@ -1,5 +1,4 @@
 #include "Texture.h"
-#include <assert.h>
 
 Texture::Texture()
 {

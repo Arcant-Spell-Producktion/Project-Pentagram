@@ -10,9 +10,6 @@ ParticleSystem::ParticleSystem(const std::string& objName)
 
 	curSpawnTime = 0.0f;
 	spawnTime = 0.005f;
-
-	// Set Texture
-	this->texture = TextureCollector::GetInstance()->GetTexture("default.png");
 }
 
 void ParticleSystem::OnUpdate(const float& dt)

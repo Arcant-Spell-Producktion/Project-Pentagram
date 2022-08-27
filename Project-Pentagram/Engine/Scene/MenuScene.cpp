@@ -5,6 +5,9 @@ void MenuScene::GameSceneLoad()
 	std::cout << "Menu Scene : Load Completed\n";
 }
 
+TextObject* cur;
+TextObject* cur2;
+
 void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/awesomeface.png";
@@ -58,12 +61,27 @@ void MenuScene::GameSceneInit()
 	subUI->MakeChild(button2);
 	ui->active = false;
 
+	TextObject* textObj = CreateTextObject();
+	textObj->textAlignment = TextAlignment::LEFT;
+	textObj->position = { -800.0f, 400.0f, 0.0f };
+	textObj->scale = { 400.0f, 100.0f, 1.0f };
+	textObj->color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	TextObject* textObj2 = CreateTextObject();
+	textObj2->textAlignment = TextAlignment::LEFT;
+	textObj2->position = { -800.0f, 350.0f, 0.0f };
+	textObj2->scale = { 400.0f, 100.0f, 1.0f };
+	textObj2->color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	cur = textObj;
+	cur2 = textObj2;
+	
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
 
+float t = 0.0f;
 void MenuScene::GameSceneUpdate(double dt)
 {
 	double time = glfwGetTime();
+	t += dt;
 
 	camera.Input((float)dt);
 
@@ -71,7 +89,14 @@ void MenuScene::GameSceneUpdate(double dt)
 	{
 		SceneManager::LoadScene(GameState::GS_RESTART);
 	}
-	if (Input::IsKeyBeginPressed(GLFW_KEY_2))
+	if (t >= 1.0f)
+	{
+		std::cout << 1.0f / dt << "\n";
+		cur->text = "FPS : " + std::to_string(int(1.0f / dt));
+		cur2->text = "Obj :" + std::to_string(objectsList.size());
+		t = 0.0f;
+	}
+	if(Input::IsKeyBeginPressed(GLFW_KEY_2))
 	{
 		std::string path = "Sprites/awesomeface.png";
 
@@ -152,7 +177,7 @@ void MenuScene::GameSceneUpdate(double dt)
 
 void MenuScene::GameSceneDraw()
 {
-	ShaderCollector* shaderCollector = ShaderCollector::GetInstance();
+	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
 	// Render GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
