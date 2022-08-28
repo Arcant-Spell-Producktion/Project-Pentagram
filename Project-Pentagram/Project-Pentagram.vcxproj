@@ -22,6 +22,7 @@
     <ClInclude Include="Engine\ArcantEngine.h" />
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
+    <ClInclude Include="Engine\Collector\EngineDataCollector.h" />
     <ClInclude Include="Engine\GameObject.h" />
     <ClInclude Include="Engine\GameObjectTag.h" />
     <ClInclude Include="Engine\GameScene.h" />
@@ -31,10 +32,11 @@
     <ClInclude Include="Engine\Renderer\EBO.h" />
     <ClInclude Include="Engine\Renderer\Mesh.h" />
     <ClInclude Include="Engine\Renderer\Shader.h" />
-    <ClInclude Include="Engine\Renderer\ShaderCollector.h" />
-    <ClInclude Include="Engine\Renderer\FontCollector.h" />
+    <ClInclude Include="Engine\Collector\ShaderCollector.h" />
+    <ClInclude Include="Engine\Collector\FontCollector.h" />
     <ClInclude Include="Engine\Renderer\TextObject.h" />
     <ClInclude Include="Engine\Renderer\Texture.h" />
+    <ClInclude Include="Engine\Collector\TextureCollector.h" />
     <ClInclude Include="Engine\Renderer\VAO.h" />
     <ClInclude Include="Engine\Renderer\VBO.h" />
     <ClInclude Include="Engine\SceneManager.h" />
@@ -45,6 +47,8 @@
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
+    <ClInclude Include="Game\Spells\SpellBook.h" />
+    <ClInclude Include="Game\Spells\SpellDatabase.h" />
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\Singleton.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
@@ -54,6 +58,7 @@
     <ClCompile Include="Engine\ArcantEngine.cpp" />
     <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />
+    <ClCompile Include="Engine\Collector\EngineDataCollector.cpp" />
     <ClCompile Include="Engine\GameObject.cpp" />
     <ClCompile Include="Engine\GameStateController.cpp" />
     <ClCompile Include="Engine\Input.cpp" />
@@ -61,10 +66,11 @@
     <ClCompile Include="Engine\Renderer\EBO.cpp" />
     <ClCompile Include="Engine\Renderer\Mesh.cpp" />
     <ClCompile Include="Engine\Renderer\Shader.cpp" />
-    <ClCompile Include="Engine\Renderer\ShaderCollector.cpp" />
-    <ClCompile Include="Engine\Renderer\FontCollector.cpp" />
+    <ClCompile Include="Engine\Collector\ShaderCollector.cpp" />
+    <ClCompile Include="Engine\Collector\FontCollector.cpp" />
     <ClCompile Include="Engine\Renderer\TextObject.cpp" />
     <ClCompile Include="Engine\Renderer\Texture.cpp" />
+    <ClCompile Include="Engine\Collector\TextureCollector.cpp" />
     <ClCompile Include="Engine\Renderer\VAO.cpp" />
     <ClCompile Include="Engine\Renderer\VBO.cpp" />
     <ClCompile Include="Engine\SceneManager.cpp" />
@@ -75,6 +81,8 @@
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
+    <ClCompile Include="Game\Spells\SpellBook.cpp" />
+    <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

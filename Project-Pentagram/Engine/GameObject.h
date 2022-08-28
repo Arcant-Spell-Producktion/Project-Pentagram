@@ -4,18 +4,19 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <vector>
 
-#include "Camera.h"
 #include "ArcantEngine.h"
+#include "Camera.h"
+#include "GameObjectTag.h"
 #include "Renderer/Mesh.h"
 #include "Renderer/Texture.h"
 #include "Renderer/Shader.h"
-#include "GameObjectTag.h"
+#include "Collector/EngineDataCollector.h"
 
 class GameObject
 {
 	protected:
 		Mesh mesh;
-		Texture texture;
+		Texture* texture;
 		unsigned int tag;
 		int animRow, animCol;
 
@@ -33,7 +34,7 @@ class GameObject
 
 		GameObject(const std::string& objName);
 		virtual void OnUpdate(const float& dt);
-		virtual void Draw(Shader& shader, Camera& camera);
+		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4 &parentModel = glm::mat4(1.0f));
 		void UnloadMesh();
 
 		void MakeChild(GameObject* gameObj);
