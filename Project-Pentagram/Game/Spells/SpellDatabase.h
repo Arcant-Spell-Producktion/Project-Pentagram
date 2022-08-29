@@ -1,9 +1,17 @@
 ﻿#pragma once
+#include <map>
+#include "../../Utilities/Singleton.h"
 #include "SpellBook.h"
 
-class SpellDatabase
+class SpellDatabase:public Singleton<SpellDatabase>
 {
 public:
-    map<string, SpellBook> SpellBooks;
-    void AddSpellBook(string filename);
+    map<Element::Type, SpellBook*> SpellBooks;
+
+    SpellDatabase();
+    void AddSpellBook(Element::Type element, string filename);
+    SpellBook* GetBookByElement(Element::Type element)
+    {
+     return SpellBooks.find(element)->second;
+    }
 };

@@ -1,10 +1,14 @@
 ﻿#pragma once
 #include "SpellDatabase.h"
 
-void SpellDatabase::AddSpellBook(string filename)
+SpellDatabase::SpellDatabase()
 {
-    string path = "Spellbooks/" + filename + ".xml";
-    SpellBook newBook(path);
-    SpellBooks.emplace(filename, newBook);
-    newBook.PrintBookDetail();
+    AddSpellBook(Element::Debug,"Ligma");
+}
+
+void SpellDatabase::AddSpellBook(Element::Type element , string filename)
+{
+    SpellBook* newBook = new SpellBook(element,filename);
+    SpellBooks.emplace(element, newBook);
+    newBook->PrintBookDetail();
 }
