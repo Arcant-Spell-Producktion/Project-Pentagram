@@ -9,6 +9,11 @@ TextObject::TextObject(const std::string& objName)
 	this->textAlignment = TextAlignment::MID;
 }
 
+void TextObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+{
+	this->RenderText();
+}
+
 void TextObject::RenderText()
 {
 	this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f));
@@ -17,7 +22,7 @@ void TextObject::RenderText()
 void TextObject::RenderText(glm::vec3 positionOffset)
 {
 	// Activate corresponding render state
-	Shader& shader = ShaderCollector::GetInstance()->TextShader;
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->TextShader;
 	shader.Activate();
 
 	// Set Uniform in shader
@@ -35,7 +40,7 @@ void TextObject::RenderText(glm::vec3 positionOffset)
 	for (unsigned int idx = 0; idx < text.size(); idx++)
 	{
 		char c = text[idx];
-		Character ch = FontCollector::GetInstance()->characters[c];
+		Character& ch = EngineDataCollector::GetInstance()->GetFontCollector()->characters[c];
 
 		float w = ch.size.x * fontScale;
 		float h = ch.size.y * fontScale;
@@ -50,7 +55,7 @@ void TextObject::RenderText(glm::vec3 positionOffset)
 	for (unsigned int idx = 0; idx < text.size(); idx++)
 	{
 		char c = text[idx];
-		Character ch = FontCollector::GetInstance()->characters[c];
+		Character& ch = EngineDataCollector::GetInstance()->GetFontCollector()->characters[c];
 
 		float xpos = x + ch.bearing.x * fontScale;
 		float ypos = y - (ch.size.y - ch.bearing.y) * fontScale;

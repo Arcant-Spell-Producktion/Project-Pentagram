@@ -4,16 +4,15 @@
 #include <time.h>
 
 #include "Window.h"
+#include "../Utilities/Singleton.h"
 
-class ArcantEngine
+class ArcantEngine : public Singleton<ArcantEngine>
 {
 	private:
-		static ArcantEngine* instance;
 		Window window;
 
 	public:
 		ArcantEngine();
-		static ArcantEngine* GetInstance();
 		Window* GetWindow();
 
 		void Init();

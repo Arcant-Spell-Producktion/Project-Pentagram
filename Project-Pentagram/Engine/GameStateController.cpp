@@ -1,7 +1,5 @@
 #include "GameStateController.h"
 
-GameStateController* GameStateController::instance = nullptr;
-
 GameStateController::GameStateController()
 	: currentState(GameState::GS_NONE), currentScene(nullptr)
 {
@@ -38,16 +36,7 @@ void GameStateController::Update()
 
 }
 
-GameStateController* GameStateController::GetInstance()
-{
-	if (instance == nullptr)
-	{
-		instance = new GameStateController();
-	}
-	return instance;
-}
-
 void GameStateController::Free()
 {
-	delete instance;
+	Singleton::Free();
 }

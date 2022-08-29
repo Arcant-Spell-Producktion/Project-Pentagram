@@ -1,5 +1,4 @@
 #include "Texture.h"
-#include <assert.h>
 
 Texture::Texture()
 {
@@ -7,14 +6,14 @@ Texture::Texture()
 	glGenTextures(1, &ID);
 }
 
-Texture::Texture(const char* path, GLenum varType)
+Texture::Texture(const char* path)
 {
 	// Generate Texture
 	glGenTextures(1, &ID);
-	this->SetTexture(path, varType);
+	this->SetTexture(path);
 }
 
-void Texture::SetTexture(const char* path, GLenum varType)
+void Texture::SetTexture(const char* path)
 {
 	// Create width & height to handle image size
 	int width, height, nrChannels;
@@ -45,7 +44,7 @@ void Texture::SetTexture(const char* path, GLenum varType)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// Specific Texture with image data
-	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, varType, data);
+	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	// free data

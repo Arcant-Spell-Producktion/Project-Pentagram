@@ -5,12 +5,11 @@
 #include "../ArcantEngine.h"
 #include "../Camera.h"
 #include "../UIObject.h"
-#include "FontCollector.h"
-#include "ShaderCollector.h"
+#include "../Collector/EngineDataCollector.h"
 #include "Shader.h"
 #include "Mesh.h"
 
-enum TextAlignment
+enum class TextAlignment
 {
 	LEFT = 0,
 	MID,
@@ -27,6 +26,7 @@ class TextObject : public UIObject
 		float fontScale;
 		
 		TextObject(const std::string& objName);
+		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
 		void RenderText();
 		// RenderText in box
 		void RenderText(glm::vec3 positionOffset);

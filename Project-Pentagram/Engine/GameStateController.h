@@ -4,11 +4,10 @@
 #include "GameScene.h"
 #include "Scene/MenuScene.h"
 #include "Scene/NodeScene.h"
+#include "../Utilities/Singleton.h"
 
-class GameStateController
+class GameStateController : public Singleton<GameStateController>
 {
-	private:
-		static GameStateController* instance;
 	public:
 		GameScene* currentScene;
 		GameState currentState;
@@ -17,6 +16,5 @@ class GameStateController
 		void Init(GameState state);
 		void Update();
 
-		static GameStateController* GetInstance();
 		void Free();
 };
