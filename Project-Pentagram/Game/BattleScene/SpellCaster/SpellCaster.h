@@ -1,9 +1,9 @@
 ﻿#pragma once
-#include "../../Utilities/Singleton.h"
-#include "../Spells/SpellDatabase.h"
+#include "../../../Utilities/Singleton.h"
+#include "../../Spells/SpellDatabase.h"
 #include "CastSpellDetail.h"
 #include "PentagramData.h"
-class SpellCasterController:public Singleton<SpellCasterController>
+class SpellCaster:public Singleton<SpellCaster>
 {
 private:
     void UpdateCurrentSpell();
@@ -19,5 +19,6 @@ public:
     void SetPentagramData(PentagramData_T pentagram);
     void CommitSpell();
     int GetSpellCost();
+    const CastSpellDetail* GetSpellDetail() {return m_CurrentSpell;}
 };
 
