@@ -92,6 +92,21 @@
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
       <Filter>Utilities\TinyXml</Filter>
     </ClCompile>
+    <ClCompile Include="Game\CastingController\CastSpellDetail.cpp" />
+    <ClCompile Include="Game\Spells\Element.cpp" />
+    <ClCompile Include="Game\CastingController\SpellCasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleManager.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleScene.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -191,6 +206,25 @@
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
       <Filter>Utilities\TinyXml</Filter>
     </ClInclude>
+    <ClInclude Include="Game\CastingController\CastSpellDetail.h" />
+    <ClInclude Include="Game\CastingController\PentagramData.h" />
+    <ClInclude Include="Game\Spells\Element.h" />
+    <ClInclude Include="Game\CastingController\SpellCasterController.h" />
+    <ClInclude Include="Game\BattleScene\BattleManager.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleScene.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -286,6 +320,12 @@
     </Filter>
     <Filter Include="Utilities\TinyXml">
       <UniqueIdentifier>{d25a4382-3500-4d4e-820e-0c08ff8bd63c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene">
+      <UniqueIdentifier>{18677a60-65ae-4436-8c5b-e3bcbba4b9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellCaster">
+      <UniqueIdentifier>{5056adb8-4763-48f9-834d-c814c385cd22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

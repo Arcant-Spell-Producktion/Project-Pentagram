@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <map>
-#include "../../Utilities/Singleton.h"
+#include "Utilities/Singleton.h"
 #include "SpellBook.h"
 
 class SpellDatabase:public Singleton<SpellDatabase>

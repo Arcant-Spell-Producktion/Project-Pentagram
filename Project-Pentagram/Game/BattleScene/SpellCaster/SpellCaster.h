@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "../../../Utilities/Singleton.h"
-#include "../../Spells/SpellDatabase.h"
+#include "Utilities/Singleton.h"
+#include "Game/Spells/SpellDatabase.h"
 #include "CastSpellDetail.h"
 #include "PentagramData.h"
 class SpellCaster:public Singleton<SpellCaster>
