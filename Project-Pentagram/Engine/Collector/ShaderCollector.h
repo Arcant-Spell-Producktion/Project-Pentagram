@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Renderer/Shader.h"
+#include "Engine/Renderer/Shader.h"
 
 class ShaderCollector
 {

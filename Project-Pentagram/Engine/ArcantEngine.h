@@ -4,7 +4,7 @@
 #include <time.h>
 
 #include "Window.h"
-#include "../Utilities/Singleton.h"
+#include "Utilities/Singleton.h"
 
 class ArcantEngine : public Singleton<ArcantEngine>
 {

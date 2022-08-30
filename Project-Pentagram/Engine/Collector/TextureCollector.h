@@ -4,7 +4,7 @@
 #include <string>
 #include <map>
 
-#include "../Renderer/Texture.h"
+#include "Engine/Renderer/Texture.h"
 
 class TextureCollector
 {

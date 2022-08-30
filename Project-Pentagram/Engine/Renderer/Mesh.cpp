@@ -15,9 +15,30 @@ GLuint squareIndices[] =
 };
 
 Mesh::Mesh()
-{	
+{
 	vao.Bind();
 	vbo.BufferData(sizeof(squareVertices), squareVertices, false);
+	ebo.BufferData(sizeof(squareIndices), squareIndices, false);
+
+	vao.Attribute(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), 0);
+	vao.Attribute(vbo, 1, 2, GL_FLOAT, sizeof(Vertex), 3 * sizeof(float));
+
+	vbo.UnBind();
+	ebo.UnBind();
+}
+
+Mesh::Mesh(const int& animRow, const int& animCol)
+{
+	Vertex squareAnimVertices[] =
+	{
+		Vertex{ glm::vec3(0.5f, 0.5f, 0.0f), glm::vec2(1.0f / animCol, 0.0f) },					// Top-Right
+		Vertex{ glm::vec3(0.5f, -0.5f, 0.0f), glm::vec2(1.0f / animCol, 1.0f / animRow) },		// Bottom-Right
+		Vertex{ glm::vec3(-0.5f, -0.5f, 0.0f), glm::vec2(0.0f, 1.0f / animRow) },				// Bottom-Left
+		Vertex{ glm::vec3(-0.5f, 0.5f, 0.0f), glm::vec2(0.0f, 0.0f) }							// Top-Left
+	};
+
+	vao.Bind();
+	vbo.BufferData(sizeof(squareAnimVertices), squareAnimVertices, false);
 	ebo.BufferData(sizeof(squareIndices), squareIndices, false);
 
 	vao.Attribute(vbo, 0, 3, GL_FLOAT, sizeof(Vertex), 0);

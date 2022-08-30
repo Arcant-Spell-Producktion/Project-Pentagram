@@ -6,7 +6,7 @@ TextObject::TextObject(const std::string& objName)
 	tag = GameObjectTag::TEXT;
 
 	this->fontScale = 1.0f; 
-	this->textAlignment = TextAlignment::MID;
+	this->textAlignment = TextAlignment::LEFT;
 }
 
 void TextObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
@@ -45,7 +45,7 @@ void TextObject::RenderText(glm::vec3 positionOffset)
 		float w = ch.size.x * fontScale;
 		float h = ch.size.y * fontScale;
 
-		sumX += w + ch.bearing.x * fontScale;
+		sumX += ((ch.advance >> 6) + ch.bearing.x ) * fontScale;
 		maxY = std::max(h - (ch.size.y - ch.bearing.y) * fontScale, maxY);
 	}
 
