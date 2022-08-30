@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../GameScene.h"
+#include "Engine/GameScene.h"
 
 class NodeScene : public GameScene
 {

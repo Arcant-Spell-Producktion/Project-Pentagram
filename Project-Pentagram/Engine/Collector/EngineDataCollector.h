@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Utilities/Singleton.h"
+#include "Utilities/Singleton.h"
 
 #include "ShaderCollector.h"
 #include "FontCollector.h"

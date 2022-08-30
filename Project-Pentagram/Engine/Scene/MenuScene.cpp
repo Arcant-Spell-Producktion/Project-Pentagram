@@ -65,12 +65,9 @@ void MenuScene::GameSceneInit()
 	subUI->MakeChild(button2);
 	ui->active = false;
 
-	TextObject* textObj = CreateTextObject("FPS_Text");
+	TextObject* textObj = CreateTextObject("INFO_Text");
 	textObj->position = { -800.0f, 400.0f, 0.0f };
 	textObj->color = { 0.0f, 0.0f, 0.0f, 1.0f };
-	TextObject* textObj2 = CreateTextObject("OBJ_Text");
-	textObj2->position = { -800.0f, 350.0f, 0.0f };
-	textObj2->color = { 0.0f, 0.0f, 0.0f, 1.0f };
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
@@ -98,12 +95,14 @@ void MenuScene::GameSceneUpdate(double dt)
 	else if (Input::IsKeyPressed(GLFW_KEY_D))
 	{
 		cur->scale.x = abs(cur->scale.x);
-		cur->position.x += 100.0f * dt;
+		cur->position.x += 1000.0f * dt;
+		cur->rotation += 1000.0f * dt;
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->scale.x = -abs(cur->scale.x);
-		cur->position.x -= 100.0f * dt;
+		cur->position.x -= 1000.0f * dt;
+		cur->rotation -= 1000.0f * dt;
 	}
 	else if (!Input::IsKeyBeginPressed(GLFW_KEY_D) || !Input::IsKeyBeginPressed(GLFW_KEY_A))
 	{
@@ -125,13 +124,10 @@ void MenuScene::GameSceneUpdate(double dt)
 	{
 		UIObject*& curObj = uiObjectsList[idx];
 
-		if (curObj->name == "FPS_Text" && t >= 1.0f)
+		if (curObj->name == "INFO_Text" && t >= 1.0f)
 		{
-			dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt));
-		}
-		else if (curObj->name == "OBJ_Text" && t >= 1.0f)
-		{
-			dynamic_cast<TextObject*>(curObj)->text = "Obj : " + std::to_string(objectsList.size());
+			dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt)) + "\n" +
+														"Object : " + std::to_string(objectsList.size());
 		}
 		else if (curObj->name == "BigUI_1")
 		{

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../GameScene.h"
-#include "../SceneManager.h"
-#include "../Input.h"
+#include "Engine/GameScene.h"
+#include "Engine/SceneManager.h"
+#include "Engine/Input.h"
 #include "Engine/Collector/EngineDataCollector.h"
 
 class MenuScene : public GameScene
