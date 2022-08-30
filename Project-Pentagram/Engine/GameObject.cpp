@@ -22,6 +22,9 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	m_AnimCol = animCol;
 	m_MaxAnimCol = *std::max_element(animCol.begin(), animCol.end());
 
+	// Set Current Sprite have animation or not
+	m_Animation = (m_AnimRow == 1 && m_AnimCol[0] == 1 ? false : true);
+
 	// Set Texture
 	this->texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
 }
@@ -47,7 +50,7 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	{
 		childList[idx]->Draw(shader, camera, model);
 	}
-
+	// !!Not Set scale to child -> Messy to encounter with
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
@@ -57,8 +60,16 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
-	shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
+	if (m_Animation)
+	{
+		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
+		shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
+	}
+	else
+	{
+		shader.setFloat("u_OffsetX", 0.0f);
+		shader.setFloat("u_OffsetY", 0.0f);
+	}
 	shader.setMat4("u_Model", model);
 	shader.setMat4("u_View", view);
 	shader.setMat4("u_Projection", proj);
@@ -83,11 +94,22 @@ void GameObject::MakeChild(GameObject* gameObj)
 	gameObj->parent = this;
 }
 
-// Implement Tag
+// Implement Getter
 unsigned int GameObject::GetTag()
 {
 	return this->tag;
 }
+bool GameObject::isAnimation()
+{
+	return this->m_Animation;
+}
+
+// Implement Setter
+void GameObject::setAnimation(const bool& active)
+{
+	this->m_Animation = active;
+}
+
 
 // Implement Texture
 void GameObject::SetTexture(const std::string& path)

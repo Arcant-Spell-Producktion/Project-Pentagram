@@ -49,6 +49,7 @@ void MenuScene::GameSceneInit()
 	button->position = { 0.0f, 150.0f, 0.0f };
 	button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	button->textObject.text = "Options";
+	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
 
@@ -58,6 +59,7 @@ void MenuScene::GameSceneInit()
 	button2->position = { 0.0f, -150.0f, 0.0f };
 	button2->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	button2->textObject.text = "Exit";
+	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
 
@@ -95,14 +97,12 @@ void MenuScene::GameSceneUpdate(double dt)
 	else if (Input::IsKeyPressed(GLFW_KEY_D))
 	{
 		cur->scale.x = abs(cur->scale.x);
-		cur->position.x += 1000.0f * dt;
-		cur->rotation += 1000.0f * dt;
+		cur->position.x += 100.0f * dt;
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->scale.x = -abs(cur->scale.x);
-		cur->position.x -= 1000.0f * dt;
-		cur->rotation -= 1000.0f * dt;
+		cur->position.x -= 100.0f * dt;
 	}
 	else if (!Input::IsKeyBeginPressed(GLFW_KEY_D) || !Input::IsKeyBeginPressed(GLFW_KEY_A))
 	{
@@ -116,7 +116,10 @@ void MenuScene::GameSceneUpdate(double dt)
 		GameObject*& curObj = objectsList[idx];
 
 		curObj->OnUpdate((float)dt);
-		curObj->UpdateAnimation((float)dt);
+		if (curObj->isAnimation())
+		{
+			curObj->UpdateAnimation((float)dt);
+		}
 	}
 
 	// Update UI

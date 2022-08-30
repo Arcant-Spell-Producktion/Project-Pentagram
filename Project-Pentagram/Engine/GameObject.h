@@ -19,7 +19,9 @@ class GameObject
 		Mesh mesh;
 		Texture* texture;
 		unsigned int tag;
-		// Running Animation
+
+		// Animation
+		bool m_Animation;
 		int m_AnimRow;
 		std::vector<int> m_AnimCol;
 		int m_MaxAnimCol;
@@ -45,8 +47,13 @@ class GameObject
 
 		void MakeChild(GameObject* gameObj);
 
-		// Tag
+		// Getter
 		unsigned int GetTag();
+		bool isAnimation();
+
+		// Setter
+		void setAnimation(const bool& active);
+
 		// Texture
 		// override in ParticleSystem.h
 		virtual void SetTexture(const std::string& path);
