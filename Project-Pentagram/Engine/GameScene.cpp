@@ -1,15 +1,15 @@
 #include "GameScene.h"
 
-GameObject* GameScene::CreateGameObject(const std::string& objName)
+GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
 	GameObject* obj;
 	if (objName == "")
 	{
-		obj = new GameObject("GameObject_" + std::to_string(objectsList.size()));
+		obj = new GameObject("GameObject_" + std::to_string(objectsList.size()), animRow, animCol);
 	}
 	else
 	{
-		obj = new GameObject(objName);
+		obj = new GameObject(objName, animRow, animCol);
 	}
 
 	objectsList.push_back(obj);
@@ -24,7 +24,7 @@ ParticleSystem* GameScene::CreateParticle(ParticleProps& particleProps)
 	return particle;
 }
 
-ParticleSystem* GameScene::CreateParticle(const std::string & objName, ParticleProps & particleProps)
+ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProps& particleProps)
 {
 	ParticleSystem* particle = new ParticleSystem(objName);
 	particle->baseParticle = particleProps;
@@ -61,7 +61,7 @@ TextObject* GameScene::CreateTextObject(const std::string& objName)
 	}
 	uiObjectsList.push_back(textObj);
 	return textObj;
-	
+
 }
 
 Button* GameScene::CreateButton(const std::string& objName)

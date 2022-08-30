@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
-GameObject::GameObject(const std::string& objName)
+GameObject::GameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
+	: mesh(animRow, *std::max_element(animCol.begin(), animCol.end()))
 {
 	// Set GameObject Properties
 	name = objName;
@@ -12,13 +13,14 @@ GameObject::GameObject(const std::string& objName)
 	position = glm::vec3(0.0f, 0.0f, 0.0f);
 	rotation = 0.0f;
 	scale = glm::vec3(1.0f, 1.0f, 1.0f);
-	
+
 	// Set Color
 	color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	// Set Row & Coloumn of SpriteSheet
-	animRow = 1;
-	animCol = 1;
+	m_AnimRow = animRow;
+	m_AnimCol = animCol;
+	m_MaxAnimCol = *std::max_element(animCol.begin(), animCol.end());
 
 	// Set Texture
 	this->texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
@@ -41,6 +43,11 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	// Update MVP Matrixs
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	{
+		childList[idx]->Draw(shader, camera, model);
+	}
+
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
@@ -50,10 +57,12 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
+	shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
+	shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
 	shader.setMat4("u_Model", model);
 	shader.setMat4("u_View", view);
 	shader.setMat4("u_Projection", proj);
-	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f),glm::vec3(window->GetWindowRatio(), 1.0f)));
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	shader.setVec4("u_Color", color);
 	texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
@@ -61,10 +70,6 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	this->mesh.Render();
 	texture->UnBind();
 
-	for (unsigned int idx = 0; idx < childList.size(); idx++)
-	{
-		childList[idx]->Draw(shader, camera, model);
-	}
 }
 
 void GameObject::UnloadMesh()
@@ -89,9 +94,20 @@ void GameObject::SetTexture(const std::string& path)
 {
 	this->texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(path);
 }
-// Implement SpriteSheet Animation
-void GameObject::SetSpriteSheet(const int& row, const int& col)
+
+// Implement Update Animation
+void GameObject::UpdateAnimation(const float& deltaTime, const float& animTime)
 {
-	this->animRow = row;
-	this->animCol = col;
+	m_Time += deltaTime;
+	if (m_Time >= animTime)
+	{
+		m_CurAnimCol++;
+		if (m_CurAnimCol >= m_AnimCol[m_CurAnimRow - 1]) { m_CurAnimCol = 1; }
+
+		m_Time = 0.0f;
+	}
+}
+void GameObject::SetAnimationState(const int& animRow)
+{
+	m_CurAnimRow = animRow;
 }

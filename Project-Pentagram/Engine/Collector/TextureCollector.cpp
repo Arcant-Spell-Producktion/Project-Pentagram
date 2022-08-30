@@ -7,6 +7,7 @@ TextureCollector::TextureCollector()
 	textures["Sprites/awesomeface.png"] = new Texture("Sprites/awesomeface.png");
 	textures["Sprites/default.png"] = new Texture("Sprites/default.png");
 	textures["Sprites/player_fire_idle.png"] = new Texture("Sprites/player_fire_idle.png");
+	textures["Sprites/Fire_Mage.png"] = new Texture("Sprites/Fire_Mage.png");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& name)
