@@ -1,10 +1,11 @@
-#pragma once
+﻿#pragma once
 
 #include "GameState.h"
 #include "GameScene.h"
 #include "Scene/MenuScene.h"
 #include "Scene/NodeScene.h"
-#include "../Utilities/Singleton.h"
+#include "Game/BattleScene/BattleScene.h"
+#include "Utilities/Singleton.h"
 
 class GameStateController : public Singleton<GameStateController>
 {

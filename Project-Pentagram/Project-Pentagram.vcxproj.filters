@@ -92,9 +92,6 @@
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
       <Filter>Utilities\TinyXml</Filter>
     </ClCompile>
-    <ClCompile Include="Game\CastingController\CastSpellDetail.cpp" />
-    <ClCompile Include="Game\Spells\Element.cpp" />
-    <ClCompile Include="Game\CastingController\SpellCasterController.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp">
       <Filter>Game\BattleScene</Filter>
     </ClCompile>
@@ -106,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp">
       <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\Element.cpp">
+      <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,10 +206,6 @@
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
       <Filter>Utilities\TinyXml</Filter>
     </ClInclude>
-    <ClInclude Include="Game\CastingController\CastSpellDetail.h" />
-    <ClInclude Include="Game\CastingController\PentagramData.h" />
-    <ClInclude Include="Game\Spells\Element.h" />
-    <ClInclude Include="Game\CastingController\SpellCasterController.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
@@ -224,6 +220,12 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\Element.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\PlayerData.h">
+      <Filter>Game\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -326,6 +328,9 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellCaster">
       <UniqueIdentifier>{5056adb8-4763-48f9-834d-c814c385cd22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{aa602bac-6036-41d7-aa2c-a6247329fe4d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

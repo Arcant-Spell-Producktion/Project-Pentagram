@@ -5,11 +5,11 @@
 
 class SpellDatabase:public Singleton<SpellDatabase>
 {
+    void AddSpellBook(Element::Type element, string filename);
 public:
     map<Element::Type, SpellBook*> SpellBooks;
 
     SpellDatabase();
-    void AddSpellBook(Element::Type element, string filename);
     SpellBook* GetBookByElement(Element::Type element)
     {
      return SpellBooks.find(element)->second;

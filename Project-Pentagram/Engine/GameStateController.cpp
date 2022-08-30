@@ -1,4 +1,4 @@
-#include "GameStateController.h"
+﻿#include "GameStateController.h"
 
 GameStateController::GameStateController()
 	: currentState(GameState::GS_NONE), currentScene(nullptr)
@@ -27,7 +27,8 @@ void GameStateController::Update()
 		case GameState::GS_NODE_SCENE :
 			currentScene = new NodeScene();
 			break;
-		case GameState::GS_ENCOUNTER_SCENE :
+		case GameState::GS_BATTLE_SCENE :
+            currentScene = new BattleScene();
 			break;
 	}
 

@@ -24,7 +24,6 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h" />
-    <ClInclude Include="Game\CastingController\CastSpellDetail.h" />
     <ClInclude Include="Engine\ArcantEngine.h" />
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
@@ -52,13 +51,12 @@
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
-    <ClInclude Include="Game\CastingController\PentagramData.h" />
+    <ClInclude Include="Game\Player\PlayerData.h" />
     <ClInclude Include="Game\Spells\Element.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
     <ClInclude Include="Game\Spells\SpellBook.h" />
     <ClInclude Include="Game\Spells\SpellDatabase.h" />
     <ClInclude Include="SOIL.h" />
-    <ClInclude Include="Game\CastingController\SpellCasterController.h" />
     <ClInclude Include="Utilities\Singleton.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
@@ -68,7 +66,6 @@
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp" />
-    <ClCompile Include="Game\CastingController\CastSpellDetail.cpp" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />
     <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />
@@ -99,7 +96,6 @@
     <ClCompile Include="Game\Spells\SpellBook.cpp" />
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Game\CastingController\SpellCasterController.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -183,7 +179,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Project-Pentagram;$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

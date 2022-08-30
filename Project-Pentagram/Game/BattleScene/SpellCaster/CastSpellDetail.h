@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Game/Spells/Spell.h"
+
 enum class Caster
 {
     NONE,

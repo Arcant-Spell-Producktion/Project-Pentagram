@@ -1,10 +1,14 @@
-#include "Engine/ArcantEngine.h"
+﻿#include "Engine/ArcantEngine.h"
 #include "Engine/GameStateController.h"
 #include "Engine/Collector/EngineDataCollector.h"
+
+#include "Game/Spells/SpellDatabase.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
 EngineDataCollector* engineDataCollector = nullptr;
+
+SpellDatabase* spellDatabase = nullptr;
 
 int main()
 {
@@ -14,12 +18,15 @@ int main()
 
 	// Initialize gameStateController
 	gameStateController = GameStateController::GetInstance();
-	gameStateController->Init(GameState::GS_MENU_SCENE);
+	gameStateController->Init(GameState::GS_BATTLE_SCENE);
 
 	// Initialize ShaderCollector(For collecting type of Shader)
 	// Initialize FontCollector(For collecting type of Font)
 	// Initialize TextureCollector(For collecting all of texture in game)
 	engineDataCollector = EngineDataCollector::GetInstance();
+
+    // Initialize SpellDatabase (For collecting all spell data)
+    spellDatabase = SpellDatabase::GetInstance();
 
 	double currTime = 0;
 	double prevTime = 0;
