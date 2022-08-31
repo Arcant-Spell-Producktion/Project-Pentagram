@@ -3,13 +3,13 @@
 Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
-	tag = GameObjectTag::BUTTON;
+	m_Tag = GameObjectTag::BUTTON;
 	uiList = nullptr;
 }
 
 void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
-	if (!active)
+	if (!m_Active)
 	{
 		return;
 	}
@@ -32,11 +32,11 @@ void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 	shader.setMat4("u_Projection", proj);
 	shader.setVec4("u_Color", color);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
-	texture->Activate(GL_TEXTURE0);
+	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 
-	this->mesh.Render();
-	texture->UnBind();
+	this->m_Mesh.Render();
+	m_Texture->UnBind();
 
 	textObject.RenderText(this->position);
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
@@ -87,7 +87,7 @@ bool Button::onHover()
 			UIObject* curObj = uiList->at(idx);
 
 			// If current Object is inactive (Not Render) => No need to check collision
-			if (curObj == nullptr || !curObj->active)
+			if (curObj == nullptr || !curObj->isActive())
 			{
 				continue;
 			}

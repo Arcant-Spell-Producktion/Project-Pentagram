@@ -16,9 +16,10 @@
 class GameObject
 {
 	protected:
-		Mesh mesh;
-		Texture* texture;
-		unsigned int tag;
+		Mesh m_Mesh;
+		Texture* m_Texture;
+		bool m_Active;
+		unsigned int m_Tag;
 
 		// Animation
 		bool m_Animation;
@@ -30,7 +31,6 @@ class GameObject
 
 	public:
 		std::string name;
-		bool active;
 		GameObject* parent;
 		std::vector<GameObject*> childList;
 		// Transform
@@ -50,9 +50,11 @@ class GameObject
 		// Getter
 		unsigned int GetTag();
 		bool isAnimation();
+		bool isActive();
 
 		// Setter
-		void setAnimation(const bool& active);
+		void SetAnimation(const bool& active);
+		void SetActive(const bool& active);
 
 		// Texture
 		// override in ParticleSystem.h

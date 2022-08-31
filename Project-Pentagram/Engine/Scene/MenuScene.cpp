@@ -1,4 +1,4 @@
-﻿#include "../Scene/MenuScene.h"
+﻿#include "Engine/Scene/MenuScene.h"
 
 void MenuScene::GameSceneLoad()
 {
@@ -29,11 +29,15 @@ void MenuScene::GameSceneInit()
 	obj2->scale = { 1600.0f, 500.0f, 1.0f };
 	obj2->position.y = -400.0f;
 
-	//GameObject* obj2 = CreateGameObject("SmileFace");
-	//obj2->scale = { 10.0f, 10.0f, 1.0f };
-	//obj2->SetTexture("Sprites/awesomeface.png");
 
+	GameObject* obj3 = CreateGameObject("SmileFace", 1, {5});
+	obj3->scale = { 320.0f, 320.0f, 1.0f };
+	obj3->SetTexture("Sprites/character_minion_idle.png");
+	obj3->position.x += 500.0f;
 
+	// GameObject* obj2 = CreateGameObject("SmileFace");
+	// obj2->scale = { 10.0f, 10.0f, 1.0f };
+	// obj2->SetTexture("Sprites/awesomeface.png");
 
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1600.0f, 900.0f, 1.0f };
@@ -65,11 +69,20 @@ void MenuScene::GameSceneInit()
 
 	subUI->MakeChild(button);
 	subUI->MakeChild(button2);
-	ui->active = false;
+	ui->SetActive(false);
 
 	TextObject* textObj = CreateTextObject("INFO_Text");
 	textObj->position = { -800.0f, 400.0f, 0.0f };
-	textObj->color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	textObj->color = AC_RED;
+	textObj->outlineColor = AC_BLUE;
+
+
+	TextObject* textObj2 = CreateTextObject("Test_Text");
+	textObj2->position = { -600.0f, -250.0f, 0.0f };
+	textObj2->color = AC_RED;
+	textObj2->textAlignment = TextAlignment::LEFT;
+	textObj2->text = "Hello! My name is Helis. I am Fire Mage.\nWho are you? Are you Blue Kiki?";
+	textObj2->SetSlowRender(0.075f);
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
@@ -136,9 +149,12 @@ void MenuScene::GameSceneUpdate(double dt)
 		{
 			if (Input::IsKeyBeginPressed(GLFW_KEY_1))
 			{
-				curObj->active = (curObj->active ? false : true);
+				curObj->SetActive(curObj->isActive() ? false : true);
 			}
 		}
+
+		if (!curObj->isActive()) { continue; }
+
 		else if (curObj->name == "Options_Button")
 		{
 			Button* curButton = dynamic_cast<Button*>(curObj);
@@ -168,6 +184,7 @@ void MenuScene::GameSceneUpdate(double dt)
 				GameStateController::GetInstance()->currentState = GameState::GS_QUIT;
 			}
 		}
+		curObj->OnUpdate(dt);
 	}
 }
 
@@ -178,7 +195,7 @@ void MenuScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->active)
+		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
 		{
 			continue;
 		}
@@ -189,7 +206,7 @@ void MenuScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->active)
+		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
 		{
 			continue;
 		}

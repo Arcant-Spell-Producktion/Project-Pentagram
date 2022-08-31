@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Engine/GameScene.h"
+#include "Engine/SceneManager.h"
+#include "Engine/Input.h"
 
 class NodeScene : public GameScene
 {

@@ -2,12 +2,16 @@
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+#include FT_STROKER_H
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <iostream>
+#include <vector>
 #include <map>
 
 #include "Engine/Renderer/Texture.h"
+
+#define BASE_FONT_SIZE 72
 
 struct Character
 {

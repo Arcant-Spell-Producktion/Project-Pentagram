@@ -4,6 +4,7 @@
 #include "Engine/SceneManager.h"
 #include "Engine/Input.h"
 #include "Engine/Collector/EngineDataCollector.h"
+#include "Utilities/Color.h"
 
 class MenuScene : public GameScene
 {

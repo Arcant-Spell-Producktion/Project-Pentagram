@@ -1,6 +1,4 @@
-#include "../Scene/NodeScene.h"
-#include "../SceneManager.h"
-#include "../Input.h"
+#include "Engine/Scene/NodeScene.h"
 
 void NodeScene::GameSceneLoad()
 {
