@@ -16,6 +16,7 @@ void BattleScene::GameSceneLoad()
 void BattleScene::GameSceneInit()
 {
     m_BattleManager = new BattleManager();
+    m_BattleManager->AddCaster();
     std::cout << "Node Scene : Initialize Completed\n";
 }
 

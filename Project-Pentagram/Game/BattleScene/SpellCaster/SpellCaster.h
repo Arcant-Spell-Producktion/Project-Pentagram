@@ -3,7 +3,7 @@
 #include "Game/Spells/SpellDatabase.h"
 #include "CastSpellDetail.h"
 #include "PentagramData.h"
-class SpellCaster:public Singleton<SpellCaster>
+class SpellCaster
 {
 private:
     void UpdateCurrentSpell();

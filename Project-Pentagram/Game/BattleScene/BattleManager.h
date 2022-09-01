@@ -1,10 +1,6 @@
 ﻿#pragma once
 #include <vector>
-class CasterController
-{
-    public:
-        
-};
+#include "SpellCaster/CasterController.h"
 
 enum class BattleState
 {

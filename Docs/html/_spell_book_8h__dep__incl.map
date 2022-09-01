@@ -1,0 +1,21 @@
+<map id="Project&#45;Pentagram/Game/Spells/SpellBook.h" name="Project&#45;Pentagram/Game/Spells/SpellBook.h">
+<area shape="rect" id="node1" title=" " alt="" coords="492,5,661,47"/>
+<area shape="rect" id="node2" href="$_spell_book_8cpp.html" title=" " alt="" coords="396,95,565,136"/>
+<area shape="rect" id="node3" href="$_spell_database_8h.html" title=" " alt="" coords="589,95,759,136"/>
+<area shape="rect" id="node4" href="$_spell_caster_8h.html" title=" " alt="" coords="467,184,636,240"/>
+<area shape="rect" id="node16" href="$main_8cpp.html" title=" " alt="" coords="545,667,731,694"/>
+<area shape="rect" id="node19" href="$_spell_database_8cpp.html" title=" " alt="" coords="712,191,887,233"/>
+<area shape="rect" id="node5" href="$_caster_controller_8h.html" title=" " alt="" coords="273,288,443,344"/>
+<area shape="rect" id="node18" href="$_spell_caster_8cpp.html" title=" " alt="" coords="467,288,636,344"/>
+<area shape="rect" id="node6" href="$_battle_manager_8h.html" title=" " alt="" coords="260,392,456,433"/>
+<area shape="rect" id="node7" href="$_battle_manager_8cpp.html" title=" " alt="" coords="121,481,331,523"/>
+<area shape="rect" id="node8" href="$_battle_scene_8h.html" title=" " alt="" coords="356,481,539,523"/>
+<area shape="rect" id="node9" href="$_game_state_controller_8h.html" title=" " alt="" coords="240,571,415,612"/>
+<area shape="rect" id="node17" href="$_battle_scene_8cpp.html" title=" " alt="" coords="439,571,637,612"/>
+<area shape="rect" id="node10" href="$_game_state_controller_8cpp.html" title=" " alt="" coords="41,660,216,701"/>
+<area shape="rect" id="node11" href="$_scene_manager_8h.html" title=" " alt="" coords="240,660,415,701"/>
+<area shape="rect" id="node12" href="$_menu_scene_8h.html" title=" " alt="" coords="403,749,577,791"/>
+<area shape="rect" id="node14" href="$_node_scene_8cpp.html" title=" " alt="" coords="5,749,180,791"/>
+<area shape="rect" id="node15" href="$_scene_manager_8cpp.html" title=" " alt="" coords="204,749,379,791"/>
+<area shape="rect" id="node13" href="$_menu_scene_8cpp.html" title=" " alt="" coords="403,839,577,880"/>
+</map>
