@@ -28,6 +28,7 @@ class Mesh
 
 	public:
 		Mesh();
+		Mesh(const int& animRow, const int& animCol);
 		void Render();
 		void Delete();
 };

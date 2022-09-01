@@ -51,6 +51,11 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
 	texture->Activate(GL_TEXTURE0);
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
+	shader.setMat4("u_Projection", proj);
+	shader.setInt("u_Texture", 0);
 
 	// Render
 	glm::mat4 originModel = parentModel;
@@ -68,19 +73,18 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 		glm::vec4 color = glm::lerp(particle.colorEnd, particle.colorBegin, life);
 		float size = glm::lerp(particle.sizeBegin, particle.sizeEnd, life);
 
+		if (color.a <= 0.0f)
+		{
+			continue;
+		}
 		glm::mat4 model = glm::mat4(1.0f);
 		model *= glm::translate(glm::mat4(1.0f), glm::vec3(particle.position.x, particle.position.y, 0.0f));
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(particle.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(size, size, 1.0f));
 
-		int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-		int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
-		glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	
 		shader.setMat4("u_Model", originModel * model);
-		shader.setMat4("u_Projection", proj);
 		shader.setVec4("u_Color", color);
-		shader.setInt("u_Texture", 0);
 
 		mesh.Render();
 	}

@@ -12,7 +12,7 @@ class GameStateController : public Singleton<GameStateController>
 	public:
 		GameScene* currentScene;
 		GameState currentState;
-		
+
 		GameStateController();
 		void Init(GameState state);
 		void Update();

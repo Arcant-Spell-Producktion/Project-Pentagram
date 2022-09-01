@@ -9,11 +9,12 @@ out vec4 FragColor;
 
 void main()
 {
+	vec4 textureResult = texture(u_Texture, TexCoord);
 	// If alpha less than 0.1f => Don't render
-	if (texture(u_Texture, TexCoord).a <= 0.1f)
+	if (textureResult.a <= 0.1f)
 	{
 		discard;
 	}
 
-	FragColor = texture(u_Texture, TexCoord) * vec4(u_Color);
+	FragColor = textureResult * vec4(u_Color);
 }

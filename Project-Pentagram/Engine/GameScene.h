@@ -29,7 +29,7 @@ class GameScene
 		virtual void GameSceneFree() = 0;
 
 		// Create Object
-		GameObject* CreateGameObject(const std::string& objName = "");
+		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
 		ParticleSystem* CreateParticle(ParticleProps& particleProps);
 		ParticleSystem* CreateParticle(const std::string& objName, ParticleProps& particleProps);
 		UIObject* CreateUIObject(const std::string& objName = "");

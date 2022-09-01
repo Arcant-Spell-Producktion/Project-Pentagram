@@ -8,10 +8,14 @@ uniform mat4 u_View;
 uniform mat4 u_Projection;
 uniform mat4 u_WindowRatio;
 
+uniform float u_OffsetX;
+uniform float u_OffsetY;
+
 out vec2 TexCoord;
 
 void main()
 {
 	gl_Position = u_Projection * u_View * u_WindowRatio * u_Model * vec4(vertexPosition, 1.0f);
-	TexCoord = vertexTexCoord;
+	TexCoord.x = vertexTexCoord.x + u_OffsetX;
+	TexCoord.y = vertexTexCoord.y + u_OffsetY;
 }

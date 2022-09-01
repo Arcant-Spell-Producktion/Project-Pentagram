@@ -179,7 +179,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Project-Pentagram;$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;$(SolutionDir)Project-Pentagram;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

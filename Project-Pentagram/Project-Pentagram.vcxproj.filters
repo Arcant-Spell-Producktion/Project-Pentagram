@@ -92,6 +92,7 @@
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
       <Filter>Utilities\TinyXml</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp">
       <Filter>Game\BattleScene</Filter>
     </ClCompile>
@@ -206,6 +207,7 @@
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
       <Filter>Utilities\TinyXml</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Spells\Element.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
