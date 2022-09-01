@@ -20,6 +20,9 @@ class TextObject : public UIObject
 {
 	private:
 		Mesh mesh;
+		// Fonts
+		std::string m_Fonts;
+
 		// Conatining Glyph Structure
 		float m_TextSumX;
 		float m_TextMaxY;
@@ -41,8 +44,11 @@ class TextObject : public UIObject
 		TextObject(const std::string& objName);
 		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
 		virtual void OnUpdate(const float& dt) override;
-		void RenderText();
+
+		// Setter
 		void SetSlowRender(const float& renderTime);
+		void SetFonts(const std::string& fontsPath);
+
 		// RenderText in box
 		void RenderText(glm::vec3 positionOffset, int start = -1, int end = -1);
 

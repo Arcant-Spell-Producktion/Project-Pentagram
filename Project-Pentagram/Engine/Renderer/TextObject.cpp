@@ -4,7 +4,8 @@ TextObject::TextObject(const std::string& objName)
 	: UIObject(objName)
 {
 	m_Tag = GameObjectTag::TEXT;
-
+	
+	this->m_Fonts = "Fonts/ARLRDBD.ttf";
 	this->fontSize = 48; 
 	this->textAlignment = TextAlignment::LEFT;
 	this->outlineColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -37,13 +38,8 @@ void TextObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	}
 	else if(!m_SlowRender)
 	{
-		this->RenderText();
+		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f));
 	}
-}
-
-void TextObject::RenderText()
-{
-	this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f));
 }
 
 void TextObject::SetSlowRender(const float& renderTime)
@@ -51,6 +47,11 @@ void TextObject::SetSlowRender(const float& renderTime)
 	m_SlowRender = true;
 	m_CurrentTextIndex = 0;
 	m_RenderTime = renderTime;
+}
+
+void TextObject::SetFonts(const std::string& fontsPath)
+{
+	m_Fonts = fontsPath;
 }
 
 void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
@@ -80,6 +81,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 	float y = position.y;
 	float lineSpace = BASE_FONT_SIZE * m_FontScale;
 	int countY = 0;
+	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Iterate through all characters
 	for (unsigned int idx = start; idx < end; idx++)
 	{
@@ -90,7 +92,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 			x = position.x;
 			continue;
 		}
-		Character& ch = EngineDataCollector::GetInstance()->GetFontCollector()->characters[c];
+		Character& ch = characters->at(c);
 
 		float xpos = x + ch.bearing.x * m_FontScale;
 		float ypos = y - (ch.size.y - ch.bearing.y) * m_FontScale;
@@ -135,11 +137,12 @@ void TextObject::CalculateGlyphText(const int& endIndex)
 	m_TextSumX = 0.0f;
 	m_TextMaxY = 0.0f;
 	m_FontScale = fontSize / BASE_FONT_SIZE;
+	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Pre-Calculated for justify text alignment
 	for (unsigned int idx = 0; idx < endIndex; idx++)
 	{
 		char c = text[idx];
-		Character& ch = EngineDataCollector::GetInstance()->GetFontCollector()->characters[c];
+		Character& ch = characters->at(c);
 
 		float w = ch.size.x * m_FontScale;
 		float h = ch.size.y * m_FontScale;

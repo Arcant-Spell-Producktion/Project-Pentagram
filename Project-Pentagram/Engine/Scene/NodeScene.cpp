@@ -10,7 +10,7 @@ void NodeScene::GameSceneInit()
 	std::cout << "Node Scene : Initialize Completed\n";
 }
 
-void NodeScene::GameSceneUpdate(double dt)
+void NodeScene::GameSceneUpdate(float dt)
 {
 
 }

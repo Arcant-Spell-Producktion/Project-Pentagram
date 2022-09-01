@@ -11,11 +11,17 @@ FontCollector::FontCollector()
 
 	// Load Font from Asset
 	LoadFont("Fonts/ARLRDBD.ttf");
+	LoadFont("Fonts/BAUHS93.ttf");
 }
 
 void FontCollector::Free()
 {
 	FT_Done_FreeType(ft);
+}
+
+std::map<GLchar, Character>* FontCollector::GetFonts(const std::string& fontsPath)
+{
+	return &fonts[fontsPath];
 }
 
 void FontCollector::LoadFont(const std::string& path)
@@ -37,6 +43,9 @@ void FontCollector::LoadFont(const std::string& path)
 
 	FT_Set_Pixel_Sizes(face, 0, BASE_FONT_SIZE);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	// For collecting each characters in current Fonts
+	std::map<GLchar, Character> characters;
 
 	// For loop for all possible characters
 	for (unsigned char c = 0; c < 128; c++)
@@ -124,6 +133,8 @@ void FontCollector::LoadFont(const std::string& path)
 		};
 		characters[c] = character;
 	}
+
+	fonts[path] = characters;
 
 	// Delete FT_FACE
 	FT_Done_Face(face);

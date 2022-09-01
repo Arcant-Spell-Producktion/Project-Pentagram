@@ -77,13 +77,13 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 		{
 			continue;
 		}
-		glm::mat4 model = glm::mat4(1.0f);
+		glm::mat4 model = originModel;
 		model *= glm::translate(glm::mat4(1.0f), glm::vec3(particle.position.x, particle.position.y, 0.0f));
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(particle.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(size, size, 1.0f));
 
 	
-		shader.setMat4("u_Model", originModel * model);
+		shader.setMat4("u_Model", model);
 		shader.setVec4("u_Color", color);
 
 		m_Mesh.Render();

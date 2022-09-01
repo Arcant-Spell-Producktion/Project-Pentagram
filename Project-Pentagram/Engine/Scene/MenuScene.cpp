@@ -39,6 +39,20 @@ void MenuScene::GameSceneInit()
 	// obj2->scale = { 10.0f, 10.0f, 1.0f };
 	// obj2->SetTexture("Sprites/awesomeface.png");
 
+
+	TextObject* textObj = CreateTextObject("INFO_Text");
+	textObj->position = { -800.0f, 400.0f, 0.0f };
+	textObj->color = AC_RED;
+	textObj->outlineColor = AC_BLUE;
+	textObj->SetFonts("Fonts/BAUHS93.ttf");
+
+	TextObject* textObj2 = CreateTextObject("Test_Text");
+	textObj2->position = { -600.0f, -250.0f, 0.0f };
+	textObj2->color = AC_RED;
+	textObj2->textAlignment = TextAlignment::LEFT;
+	textObj2->text = "Hello! My name is Helis. I am Fire Mage.\nWho are you? Are you Blue Kiki?";
+	textObj2->SetSlowRender(0.075f);
+
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1600.0f, 900.0f, 1.0f };
 	ui->color = { 0.0f, 0.0f, 0.0f, 0.5f };
@@ -70,25 +84,11 @@ void MenuScene::GameSceneInit()
 	subUI->MakeChild(button);
 	subUI->MakeChild(button2);
 	ui->SetActive(false);
-
-	TextObject* textObj = CreateTextObject("INFO_Text");
-	textObj->position = { -800.0f, 400.0f, 0.0f };
-	textObj->color = AC_RED;
-	textObj->outlineColor = AC_BLUE;
-
-
-	TextObject* textObj2 = CreateTextObject("Test_Text");
-	textObj2->position = { -600.0f, -250.0f, 0.0f };
-	textObj2->color = AC_RED;
-	textObj2->textAlignment = TextAlignment::LEFT;
-	textObj2->text = "Hello! My name is Helis. I am Fire Mage.\nWho are you? Are you Blue Kiki?";
-	textObj2->SetSlowRender(0.075f);
-
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
 
 float t = 0.0f;
-void MenuScene::GameSceneUpdate(double dt)
+void MenuScene::GameSceneUpdate(float dt)
 {
 	double time = glfwGetTime();
 	if (t >= 1.0f)
@@ -103,11 +103,16 @@ void MenuScene::GameSceneUpdate(double dt)
 		// If not return will cause memory problem
 		return;
 	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_D) || Input::IsKeyBeginPressed(GLFW_KEY_A))
+	if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->SetAnimationState(2);
 	}
-	else if (Input::IsKeyPressed(GLFW_KEY_D))
+	else
+	{
+		cur->SetAnimationState(1);
+	}
+
+	if (Input::IsKeyPressed(GLFW_KEY_D))
 	{
 		cur->scale.x = abs(cur->scale.x);
 		cur->position.x += 100.0f * dt;
@@ -117,10 +122,6 @@ void MenuScene::GameSceneUpdate(double dt)
 		cur->scale.x = -abs(cur->scale.x);
 		cur->position.x -= 100.0f * dt;
 	}
-	else if (!Input::IsKeyBeginPressed(GLFW_KEY_D) || !Input::IsKeyBeginPressed(GLFW_KEY_A))
-	{
-		cur->SetAnimationState(1);
-	}
 
 
 	// Update GameObject
@@ -128,10 +129,14 @@ void MenuScene::GameSceneUpdate(double dt)
 	{
 		GameObject*& curObj = objectsList[idx];
 
-		curObj->OnUpdate((float)dt);
+		curObj->OnUpdate(dt);
 		if (curObj->isAnimation())
 		{
-			curObj->UpdateAnimation((float)dt);
+			curObj->UpdateAnimation(dt);
+		}
+		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
+		{
+			curObj->SetActive(curObj->isActive() ? false : true);
 		}
 	}
 
@@ -143,11 +148,12 @@ void MenuScene::GameSceneUpdate(double dt)
 		if (curObj->name == "INFO_Text" && t >= 1.0f)
 		{
 			dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt)) + "\n" +
-														"Object : " + std::to_string(objectsList.size());
+				"GameObject : " + std::to_string(objectsList.size()) + "\n" +
+				"UIObject : " + std::to_string(uiObjectsList.size());
 		}
 		else if (curObj->name == "BigUI_1")
 		{
-			if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 			{
 				curObj->SetActive(curObj->isActive() ? false : true);
 			}
