@@ -39,19 +39,19 @@ void MenuScene::GameSceneInit()
 	// obj2->scale = { 10.0f, 10.0f, 1.0f };
 	// obj2->SetTexture("Sprites/awesomeface.png");
 
-
 	TextObject* textObj = CreateTextObject("INFO_Text");
 	textObj->position = { -800.0f, 400.0f, 0.0f };
 	textObj->color = AC_RED;
 	textObj->outlineColor = AC_BLUE;
+	textObj->textAlignment = TextAlignment::LEFT;
 	textObj->SetFonts("Fonts/BAUHS93.ttf");
 
 	TextObject* textObj2 = CreateTextObject("Test_Text");
 	textObj2->position = { -600.0f, -250.0f, 0.0f };
 	textObj2->color = AC_RED;
 	textObj2->textAlignment = TextAlignment::LEFT;
-	textObj2->text = "Hello! My name is Helis. I am Fire Mage.\nWho are you? Are you Blue Kiki?";
-	textObj2->SetSlowRender(0.075f);
+	textObj2->text = "Hello! My name is Helia. I am Fire Mage?\nWho are you? Are you Blue Kiki?\nNah Forget about it";
+	textObj2->SetSlowRender(0.050f);
 
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1600.0f, 900.0f, 1.0f };

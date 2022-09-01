@@ -12,6 +12,7 @@ TextObject::TextObject(const std::string& objName)
 	this->m_SlowRender = false;
 	this->m_CurrentTextIndex = -1;
 	this->m_CurrentTime = 0.0f;
+	this->lineSpacing = 1.15f;
 }
 
 void TextObject::OnUpdate(const float& dt)
@@ -79,8 +80,8 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 
 	float x = position.x;
 	float y = position.y;
-	float lineSpace = BASE_FONT_SIZE * m_FontScale;
-	int countY = 0;
+	float lineSpace = BASE_FONT_SIZE * m_FontScale * lineSpacing;
+	int countLine = 0;
 	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Iterate through all characters
 	for (unsigned int idx = start; idx < end; idx++)
@@ -88,7 +89,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		char c = text[idx];
 		if (c == '\n')
 		{
-			countY++;
+			countLine++;
 			x = position.x;
 			continue;
 		}
@@ -109,15 +110,15 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		glm::mat4 model = glm::translate(glm::mat4(1.0f), positionOffset);
 		if (textAlignment == TextAlignment::LEFT)
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f), ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countY), 0.0f));
+			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f), ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
 		else if (textAlignment == TextAlignment::MID)
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX / 2.0f, ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countY), 0.0f));
+			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine] / 2.0f, ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
 		else
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX, ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countY), 0.0f));
+			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine], ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 1.0f));
@@ -134,20 +135,45 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 
 void TextObject::CalculateGlyphText(const int& endIndex)
 {
-	m_TextSumX = 0.0f;
 	m_TextMaxY = 0.0f;
 	m_FontScale = fontSize / BASE_FONT_SIZE;
+
+	float curTextSumX = 0.0f;
+	int countLine = 0;
 	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Pre-Calculated for justify text alignment
 	for (unsigned int idx = 0; idx < endIndex; idx++)
 	{
 		char c = text[idx];
 		Character& ch = characters->at(c);
+		if (c == '\n')
+		{
+			if (countLine == m_TextSumX.size())
+			{
+				m_TextSumX.push_back(curTextSumX);
+			}
+			else
+			{
+				m_TextSumX[countLine] = curTextSumX;
+			}
+			curTextSumX = 0.0f;
+			countLine++;
+			continue;
+		}
 
 		float w = ch.size.x * m_FontScale;
 		float h = ch.size.y * m_FontScale;
 
-		m_TextSumX += ((ch.advance >> 6) + ch.bearing.x) * m_FontScale;
+		curTextSumX += (ch.advance >> 6) * m_FontScale;
 		m_TextMaxY = std::max(h - (ch.size.y - ch.bearing.y) * m_FontScale, m_TextMaxY);
+	}
+
+	if (countLine == m_TextSumX.size())
+	{
+		m_TextSumX.push_back(curTextSumX);
+	}
+	else
+	{
+		m_TextSumX[countLine] = curTextSumX;
 	}
 }

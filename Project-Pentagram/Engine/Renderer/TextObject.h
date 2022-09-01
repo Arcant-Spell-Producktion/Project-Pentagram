@@ -24,7 +24,7 @@ class TextObject : public UIObject
 		std::string m_Fonts;
 
 		// Conatining Glyph Structure
-		float m_TextSumX;
+		std::vector<float> m_TextSumX;
 		float m_TextMaxY;
 		float m_FontScale;
 
@@ -39,6 +39,7 @@ class TextObject : public UIObject
 		std::string text;
 		TextAlignment textAlignment;
 		float fontSize;
+		float lineSpacing;
 		glm::vec4 outlineColor;
 
 		TextObject(const std::string& objName);
