@@ -28,6 +28,10 @@ void TextObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 		if (m_CurrentTime >= m_RenderTime)
 		{
 			m_CurrentTextIndex++;
+			// If current index is tab -> Skip RenderText
+			/*
+				while (m_CurrentTextIndex < text.size() && text[m_CurrentTextIndex] == 9) { m_CurrentTextIndex++; }
+			*/
 			m_CurrentTime = 0.0f;
 		}
 		// If Render All of Characters
@@ -77,6 +81,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	shader.setVec4("u_TextColor", color);
 	shader.setVec4("u_OutlineColor", outlineColor);
+	shader.setInt("u_Texture", 0);
 
 	float x = position.x;
 	float y = position.y;
@@ -87,6 +92,10 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 	for (unsigned int idx = start; idx < end; idx++)
 	{
 		char c = text[idx];
+		// If current character is tab no need to render
+		if (c == 9) { continue; }
+
+		// If current character is new line('\n') -> Go To New Line
 		if (c == '\n')
 		{
 			countLine++;
@@ -94,15 +103,13 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 			continue;
 		}
 		Character& ch = characters->at(c);
-
 		float xpos = x + ch.bearing.x * m_FontScale;
 		float ypos = y - (ch.size.y - ch.bearing.y) * m_FontScale;
-
 
 		float w = ch.size.x * m_FontScale;
 		float h = ch.size.y * m_FontScale;
 
-		// Render glyph texture
+		// Activate current glyph texture
 		ch.texture.Bind();
 		ch.texture.Activate(GL_TEXTURE0);
 
@@ -123,10 +130,9 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 1.0f));
 		shader.setMat4("u_Model", model);
-		shader.setInt("u_Texture", 0);
 
 		// Render quad
-		this->mesh.Render();
+		this->m_Mesh.Render();
 
 		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
 		x += (ch.advance >> 6) * m_FontScale;	// bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
@@ -146,12 +152,18 @@ void TextObject::CalculateGlyphText(const int& endIndex)
 	{
 		char c = text[idx];
 		Character& ch = characters->at(c);
+		// If current character is tab no need to render
+		if (c == 9) { continue; }
+
+		// If current character is new line -> save m_TextSumX
 		if (c == '\n')
 		{
+			// If index countLine doesn't have in m_TextSumX -> Create New
 			if (countLine == m_TextSumX.size())
 			{
 				m_TextSumX.push_back(curTextSumX);
 			}
+			// else -> Modify existing index in vector
 			else
 			{
 				m_TextSumX[countLine] = curTextSumX;
@@ -168,10 +180,12 @@ void TextObject::CalculateGlyphText(const int& endIndex)
 		m_TextMaxY = std::max(h - (ch.size.y - ch.bearing.y) * m_FontScale, m_TextMaxY);
 	}
 
+	// If index countLine doesn't have in m_TextSumX -> Create New
 	if (countLine == m_TextSumX.size())
 	{
 		m_TextSumX.push_back(curTextSumX);
 	}
+	// else -> Modify existing index in vector
 	else
 	{
 		m_TextSumX[countLine] = curTextSumX;

@@ -29,7 +29,6 @@ void MenuScene::GameSceneInit()
 	obj2->scale = { 1600.0f, 500.0f, 1.0f };
 	obj2->position.y = -400.0f;
 
-
 	GameObject* obj3 = CreateGameObject("SmileFace", 1, {5});
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/character_minion_idle.png");
@@ -40,7 +39,7 @@ void MenuScene::GameSceneInit()
 	// obj2->SetTexture("Sprites/awesomeface.png");
 
 	TextObject* textObj = CreateTextObject("INFO_Text");
-	textObj->position = { -800.0f, 400.0f, 0.0f };
+	textObj->position = { -750.0f, 400.0f, 0.0f };
 	textObj->color = AC_RED;
 	textObj->outlineColor = AC_BLUE;
 	textObj->textAlignment = TextAlignment::LEFT;
@@ -50,8 +49,9 @@ void MenuScene::GameSceneInit()
 	textObj2->position = { -600.0f, -250.0f, 0.0f };
 	textObj2->color = AC_RED;
 	textObj2->textAlignment = TextAlignment::LEFT;
-	textObj2->text = "Hello! My name is Helia. I am Fire Mage?\nWho are you? Are you Blue Kiki?\nNah Forget about it";
-	textObj2->SetSlowRender(0.050f);
+	textObj2->text = R"(Hello! My name is Helia. I am Fire Mage?
+						Who are you? Are you Blue Kiki?)";
+	textObj2->SetSlowRender(0.075f);
 
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1600.0f, 900.0f, 1.0f };

@@ -4,11 +4,11 @@
 
 TextureCollector::TextureCollector()
 {
-	textures["Sprites/awesomeface.png"] = new Texture("Sprites/awesomeface.png");
-	textures["Sprites/default.png"] = new Texture("Sprites/default.png");
-	textures["Sprites/player_fire_idle.png"] = new Texture("Sprites/player_fire_idle.png");
-	textures["Sprites/Fire_Mage.png"] = new Texture("Sprites/Fire_Mage.png");
-	textures["Sprites/character_minion_idle.png"] = new Texture("Sprites/character_minion_idle.png");
+	LoadTexture("Sprites/awesomeface.png");
+	LoadTexture("Sprites/default.png");
+	LoadTexture("Sprites/player_fire_idle.png");
+	LoadTexture("Sprites/Fire_Mage.png");
+	LoadTexture("Sprites/character_minion_idle.png");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& name)
@@ -23,4 +23,9 @@ void TextureCollector::Free()
 		(it->second)->Delete();
 		delete it->second;
 	}
+}
+
+void TextureCollector::LoadTexture(const std::string& path)
+{
+	textures[path] = new Texture(path.c_str());
 }

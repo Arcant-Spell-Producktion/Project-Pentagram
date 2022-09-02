@@ -42,10 +42,11 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 		return;
 	}
 
-	glm::mat4 model = parentModel;
 	// Update MVP Matrixs
+	glm::mat4 model = parentModel;
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	// !!Draw Child First(Only GameObject that draw child first)
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
 		childList[idx]->Draw(shader, camera, model);
@@ -62,11 +63,13 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 	shader.Activate();
 	if (m_Animation)
 	{
+		// SpriteSheet Offset
 		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
 		shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
 	}
 	else
 	{
+		// Default Offset (0.0f, 0.0f)
 		shader.setFloat("u_OffsetX", 0.0f);
 		shader.setFloat("u_OffsetY", 0.0f);
 	}
@@ -80,7 +83,6 @@ void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentMod
 
 	this->m_Mesh.Render();
 	m_Texture->UnBind();
-
 }
 
 void GameObject::UnloadMesh()
@@ -103,7 +105,10 @@ bool GameObject::isActive() { return this->m_Active; }
 void GameObject::SetAnimation(const bool& active) { this->m_Animation = active; }
 void GameObject::SetActive(const bool& active) 
 { 
+	// Set Active on current Object
 	this->m_Active = active;
+
+	// Set Active on their childs
 	for (int idx = 0; idx < childList.size(); idx++)
 	{
 		childList[idx]->SetActive(active);
@@ -120,16 +125,27 @@ void GameObject::SetTexture(const std::string& path)
 // Implement Update Animation
 void GameObject::UpdateAnimation(const float& deltaTime, const float& animTime)
 {
+	// Increment Time
 	m_Time += deltaTime;
+
+	// m_Time reach AnimationTime or not?
 	if (m_Time >= animTime)
 	{
+		// Increment Column & Check Condition
 		m_CurAnimCol++;
 		if (m_CurAnimCol >= m_AnimCol[m_CurAnimRow - 1]) { m_CurAnimCol = 1; }
 
+		// Restart m_Time
 		m_Time = 0.0f;
 	}
 }
 void GameObject::SetAnimationState(const int& animRow)
 {
+	// If newAnimationRow != currentRow
+	// Reset AnimationColumn to 1(starting index)
+	if (m_CurAnimRow != animRow)
+	{
+		m_CurAnimCol = 1;
+	}
 	m_CurAnimRow = animRow;
 }

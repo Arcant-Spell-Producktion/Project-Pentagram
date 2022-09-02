@@ -19,7 +19,6 @@ enum class TextAlignment
 class TextObject : public UIObject
 {
 	private:
-		Mesh mesh;
 		// Fonts
 		std::string m_Fonts;
 
