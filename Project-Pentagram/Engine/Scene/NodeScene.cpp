@@ -1,6 +1,4 @@
-#include "../Scene/NodeScene.h"
-#include "../SceneManager.h"
-#include "../Input.h"
+#include "Engine/Scene/NodeScene.h"
 
 void NodeScene::GameSceneLoad()
 {
@@ -12,7 +10,7 @@ void NodeScene::GameSceneInit()
 	std::cout << "Node Scene : Initialize Completed\n";
 }
 
-void NodeScene::GameSceneUpdate(double dt)
+void NodeScene::GameSceneUpdate(float dt)
 {
 
 }

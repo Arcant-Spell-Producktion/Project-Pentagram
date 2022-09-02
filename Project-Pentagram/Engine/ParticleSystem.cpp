@@ -3,7 +3,7 @@
 ParticleSystem::ParticleSystem(const std::string& objName)
 	: GameObject(objName)
 {
-	tag = GameObjectTag::PARTICLE;
+	m_Tag = GameObjectTag::PARTICLE;
 
 	m_ParticlePool.resize(1000);
 	m_PoolIndex = 999;
@@ -43,14 +43,14 @@ void ParticleSystem::OnUpdate(const float& dt)
 void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
 	// If object is not-active -> no need to render
-	if (!active)
+	if (!m_Active)
 	{
 		return;
 	}
 
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
-	texture->Activate(GL_TEXTURE0);
+	m_Texture->Activate(GL_TEXTURE0);
 	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
 	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
@@ -77,16 +77,16 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 		{
 			continue;
 		}
-		glm::mat4 model = glm::mat4(1.0f);
+		glm::mat4 model = originModel;
 		model *= glm::translate(glm::mat4(1.0f), glm::vec3(particle.position.x, particle.position.y, 0.0f));
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(particle.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(size, size, 1.0f));
 
 	
-		shader.setMat4("u_Model", originModel * model);
+		shader.setMat4("u_Model", model);
 		shader.setVec4("u_Color", color);
 
-		mesh.Render();
+		m_Mesh.Render();
 	}
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)

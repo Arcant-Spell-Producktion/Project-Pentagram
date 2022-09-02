@@ -220,6 +220,7 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\Color.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

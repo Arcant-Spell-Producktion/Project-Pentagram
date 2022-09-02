@@ -21,10 +21,13 @@ int main()
 	// Initialize TextureCollector(For collecting all of texture in game)
 	engineDataCollector = EngineDataCollector::GetInstance();
 
-	double currTime = 0;
-	double prevTime = 0;
+	float currTime = 0;
+	float prevTime = 0;
 	while (engine->IsRunning())
 	{
+		// Receive Input from User
+		engine->GetWindow()->PollEvents();
+
 		currTime = glfwGetTime();
 
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -42,8 +45,6 @@ int main()
 		// Clear User-Input
 		Input::EndFrame();
 
-		// Receive Input from User
-		engine->GetWindow()->PollEvents();
 		engine->GetWindow()->SwapBuffers();
 
 		prevTime = currTime;
