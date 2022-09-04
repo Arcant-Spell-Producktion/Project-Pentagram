@@ -61,7 +61,7 @@ void BattleScene::GameSceneInit()
     std::cout << "Node Scene : Initialize Completed\n";
 }
 
-void BattleScene::GameSceneUpdate(double dt)
+void BattleScene::GameSceneUpdate(float dt)
 {
     if (Input::IsKeyBeginPressed(GLFW_KEY_8))
     {
@@ -87,7 +87,7 @@ void BattleScene::GameSceneDraw()
     for (GLuint idx = 0; idx < objectsList.size(); idx++)
     {
         // If current Object was child -> no need to draw
-        if (objectsList[idx]->parent != nullptr || !objectsList[idx]->active)
+        if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
         {
             continue;
         }
@@ -98,7 +98,7 @@ void BattleScene::GameSceneDraw()
     for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
     {
         // If current Object was child -> no need to draw
-        if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->active)
+        if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
         {
             continue;
         }
