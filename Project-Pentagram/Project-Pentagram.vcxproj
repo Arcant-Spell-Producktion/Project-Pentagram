@@ -51,6 +51,7 @@
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
+    <ClInclude Include="Game\Player\PlayerData.h" />
     <ClInclude Include="Game\Spells\Element.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
     <ClInclude Include="Game\Spells\SpellBook.h" />
@@ -64,6 +65,7 @@
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />

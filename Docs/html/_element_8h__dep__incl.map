@@ -1,0 +1,24 @@
+<map id="Project&#45;Pentagram/Game/Spells/Element.h" name="Project&#45;Pentagram/Game/Spells/Element.h">
+<area shape="rect" id="node1" title=" " alt="" coords="299,5,468,47"/>
+<area shape="rect" id="node2" href="$_player_data_8h.html" title=" " alt="" coords="103,95,274,136"/>
+<area shape="rect" id="node3" href="$_element_8cpp.html" title=" " alt="" coords="299,95,468,136"/>
+<area shape="rect" id="node4" href="$_spell_book_8h.html" title=" " alt="" coords="492,95,661,136"/>
+<area shape="rect" id="node5" href="$_spell_book_8cpp.html" title=" " alt="" coords="396,184,565,225"/>
+<area shape="rect" id="node6" href="$_spell_database_8h.html" title=" " alt="" coords="589,184,759,225"/>
+<area shape="rect" id="node7" href="$_spell_caster_8h.html" title=" " alt="" coords="467,273,636,329"/>
+<area shape="rect" id="node19" href="$main_8cpp.html" title=" " alt="" coords="545,757,731,783"/>
+<area shape="rect" id="node22" href="$_spell_database_8cpp.html" title=" " alt="" coords="712,281,887,322"/>
+<area shape="rect" id="node8" href="$_caster_controller_8h.html" title=" " alt="" coords="273,377,443,433"/>
+<area shape="rect" id="node21" href="$_spell_caster_8cpp.html" title=" " alt="" coords="467,377,636,433"/>
+<area shape="rect" id="node9" href="$_battle_manager_8h.html" title=" " alt="" coords="260,481,456,523"/>
+<area shape="rect" id="node10" href="$_battle_manager_8cpp.html" title=" " alt="" coords="121,571,331,612"/>
+<area shape="rect" id="node11" href="$_battle_scene_8h.html" title=" " alt="" coords="356,571,539,612"/>
+<area shape="rect" id="node12" href="$_game_state_controller_8h.html" title=" " alt="" coords="240,660,415,701"/>
+<area shape="rect" id="node20" href="$_battle_scene_8cpp.html" title=" " alt="" coords="439,660,637,701"/>
+<area shape="rect" id="node13" href="$_game_state_controller_8cpp.html" title=" " alt="" coords="41,749,216,791"/>
+<area shape="rect" id="node14" href="$_scene_manager_8h.html" title=" " alt="" coords="240,749,415,791"/>
+<area shape="rect" id="node15" href="$_menu_scene_8h.html" title=" " alt="" coords="403,839,577,880"/>
+<area shape="rect" id="node17" href="$_node_scene_8cpp.html" title=" " alt="" coords="5,839,180,880"/>
+<area shape="rect" id="node18" href="$_scene_manager_8cpp.html" title=" " alt="" coords="204,839,379,880"/>
+<area shape="rect" id="node16" href="$_menu_scene_8cpp.html" title=" " alt="" coords="403,928,577,969"/>
+</map>

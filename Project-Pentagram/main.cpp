@@ -1,10 +1,16 @@
-#include "Engine/ArcantEngine.h"
+﻿#include "Engine/ArcantEngine.h"
 #include "Engine/GameStateController.h"
 #include "Engine/Collector/EngineDataCollector.h"
+
+#include "Game/GameData/RuntimeGameData.h"
+#include "Game/Spells/SpellDatabase.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
 EngineDataCollector* engineDataCollector = nullptr;
+
+RuntimeGameData* currentGame = nullptr;
+SpellDatabase* spellDatabase = nullptr;
 
 int main()
 {
@@ -21,8 +27,18 @@ int main()
 	// Initialize TextureCollector(For collecting all of texture in game)
 	engineDataCollector = EngineDataCollector::GetInstance();
 
-	float currTime = 0;
-	float prevTime = 0;
+    // Initialize SpellDatabase (For collecting all spell data)
+    spellDatabase = SpellDatabase::GetInstance();
+
+
+    //Initialize GameData (For data management during runtime)
+    currentGame = RuntimeGameData::GetInstance();
+
+    //Init player, TODO:: done in character select instead
+    currentGame->Player = new PlayerData(CasterData(Element::Debug,100,10));
+
+	double currTime = 0;
+	double prevTime = 0;
 	while (engine->IsRunning())
 	{
 		// Receive Input from User
@@ -53,6 +69,9 @@ int main()
 	gameStateController->currentScene->GameSceneFree();
 
 	// Deallocate instance
+    currentGame->Free();
+    spellDatabase->Free();
+
 	engine->Free();
 	gameStateController->Free();
 	engineDataCollector->Free();

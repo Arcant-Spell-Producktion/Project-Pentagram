@@ -1,23 +1,18 @@
 ﻿#pragma once
+#include "Game/GameData/CasterData/CasterPosition.h"
 #include "Game/Spells/Spell.h"
-enum class Caster
-{
-    NONE,
-    CasterA,
-    CasterB,
-};
 
 class CastSpellDetail
 {
     public:
-        Caster SpellOwner;
+        CasterPosition SpellOwner;
         Spell* OriginalSpell;
         int SelectedWill;
         int SelectedEffect;
         int SelectedTime;
 
-        CastSpellDetail(Caster caster,Spell* spell, int will, int effect, int time) :
-            SpellOwner(caster),
+        CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time) :
+            SpellOwner(position),
             OriginalSpell(spell),
             SelectedWill(will),
             SelectedEffect(effect),

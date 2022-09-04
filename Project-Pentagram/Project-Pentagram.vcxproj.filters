@@ -105,6 +105,10 @@
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Spells\Element.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -220,7 +224,12 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Game\Spells\Element.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Player\PlayerData.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -322,6 +331,9 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellCaster">
       <UniqueIdentifier>{5056adb8-4763-48f9-834d-c814c385cd22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{aa602bac-6036-41d7-aa2c-a6247329fe4d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

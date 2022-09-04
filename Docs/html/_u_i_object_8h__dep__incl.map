@@ -1,0 +1,21 @@
+<map id="Project&#45;Pentagram/Engine/UIObject.h" name="Project&#45;Pentagram/Engine/UIObject.h">
+<area shape="rect" id="node1" title=" " alt="" coords="367,5,541,47"/>
+<area shape="rect" id="node2" href="$_button_8h.html" title=" " alt="" coords="179,184,353,225"/>
+<area shape="rect" id="node4" href="$_game_scene_8h.html" title=" " alt="" coords="329,273,504,315"/>
+<area shape="rect" id="node17" href="$_text_object_8h.html" title=" " alt="" coords="429,95,604,136"/>
+<area shape="rect" id="node19" href="$_u_i_object_8cpp.html" title=" " alt="" coords="628,95,803,136"/>
+<area shape="rect" id="node3" href="$_button_8cpp.html" title=" " alt="" coords="131,273,305,315"/>
+<area shape="rect" id="node5" href="$_game_scene_8cpp.html" title=" " alt="" coords="5,363,180,404"/>
+<area shape="rect" id="node6" href="$_game_state_controller_8h.html" title=" " alt="" coords="288,452,463,493"/>
+<area shape="rect" id="node9" href="$_menu_scene_8h.html" title=" " alt="" coords="604,631,779,672"/>
+<area shape="rect" id="node14" href="$_node_scene_8h.html" title=" " alt="" coords="204,363,379,404"/>
+<area shape="rect" id="node15" href="$_battle_scene_8h.html" title=" " alt="" coords="455,363,637,404"/>
+<area shape="rect" id="node7" href="$_game_state_controller_8cpp.html" title=" " alt="" coords="69,541,244,583"/>
+<area shape="rect" id="node8" href="$_scene_manager_8h.html" title=" " alt="" coords="268,541,443,583"/>
+<area shape="rect" id="node13" href="$main_8cpp.html" title=" " alt="" coords="467,549,654,575"/>
+<area shape="rect" id="node11" href="$_node_scene_8cpp.html" title=" " alt="" coords="7,631,181,672"/>
+<area shape="rect" id="node12" href="$_scene_manager_8cpp.html" title=" " alt="" coords="268,631,443,672"/>
+<area shape="rect" id="node10" href="$_menu_scene_8cpp.html" title=" " alt="" coords="604,720,779,761"/>
+<area shape="rect" id="node16" href="$_battle_scene_8cpp.html" title=" " alt="" coords="487,452,685,493"/>
+<area shape="rect" id="node18" href="$_text_object_8cpp.html" title=" " alt="" coords="480,184,655,225"/>
+</map>

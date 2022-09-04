@@ -102,8 +102,12 @@ void MenuScene::GameSceneUpdate(float dt)
 		SceneManager::LoadScene(GameState::GS_RESTART);
 		// If not return will cause memory problem
 		return;
-	}
-	if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
+    }
+  else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
+    {
+        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+    }
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_D) || Input::IsKeyBeginPressed(GLFW_KEY_A))
 	{
 		cur->SetAnimationState(2);
 	}

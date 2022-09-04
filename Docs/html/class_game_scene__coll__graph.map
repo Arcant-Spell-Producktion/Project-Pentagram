@@ -1,0 +1,4 @@
+<map id="GameScene" name="GameScene">
+<area shape="rect" id="node1" title=" " alt="" coords="5,95,100,121"/>
+<area shape="rect" id="node2" href="$class_camera.html" title=" " alt="" coords="19,5,86,32"/>
+</map>
