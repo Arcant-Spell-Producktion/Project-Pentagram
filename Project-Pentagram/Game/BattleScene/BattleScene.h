@@ -1,13 +1,16 @@
 ﻿#pragma once
 #include "Engine/GameScene.h"
+#include "Engine/SceneManager.h"
+#include "Engine/Input.h"
+#include "Engine/Collector/EngineDataCollector.h"
 #include "Game/BattleScene/BattleManager.h"
 class BattleScene :public GameScene
 {
 private:
     BattleManager* m_BattleManager = nullptr;
 
-    void InvokeStateUpdate();
-    void ResolveStateUpdate();
+    void CastStateUpdate(double dt);
+    void ResolveStateUpdate(double dt);
 public:
     virtual void GameSceneLoad() override;
     virtual void GameSceneInit() override;

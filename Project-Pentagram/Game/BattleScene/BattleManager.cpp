@@ -1,17 +1,25 @@
 ﻿#include "BattleManager.h"
 
-void BattleManager::AddCaster()
+void BattleManager::AddCaster(CasterController* controller)
 {
-    CasterController* newCaster = new CasterController();
-    m_Casters.push_back(newCaster);
+    m_Casters.push_back(controller);
 }
 
-CasterController* BattleManager::ChangeNextCaster()
+void BattleManager::StartBattle()
 {
-    int currentCasterIndex = std::find(m_Casters.begin(), m_Casters.end(),m_CurrentCaster) - m_Casters.begin();
-    int nextCasterIndex = (currentCasterIndex + 1) % m_Casters.size();
-    m_CurrentCaster = m_Casters[nextCasterIndex];
-    return m_CurrentCaster;
+    m_CurrentState = BattleState::InvokeState;
+}
+
+void BattleManager::SwapCaster()
+{
+    if (GetCurrentCaster()->GetState() == CasterState::Passed && GetNextCaster()->GetState() == CasterState::Passed)
+    {
+        m_CurrentState = BattleState::ResolveState;
+        return;
+    }
+    m_CurrentCasterIndex = (m_CurrentCasterIndex + 1) % m_Casters.size();
+
+    GetCurrentCaster()->StartTurn();
 }
 
 BattleManager::~BattleManager()

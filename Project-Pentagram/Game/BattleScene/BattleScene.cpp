@@ -1,10 +1,48 @@
 ﻿#include "BattleScene.h"
+#include "Game/GameData/RuntimeGameData.h"
+#include "SpellCaster/PlayerController.h"
 
-void BattleScene::InvokeStateUpdate()
+void BattleScene::CastStateUpdate(double dt)
 {
+    CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
+    SpellCaster* currentCaster = currentController->GetSpellCaster();
+    CasterData* casterData = currentCaster->GetCasterData();
+
+    if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+    {
+        currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
+    }
+    if (Input::IsKeyBeginPressed(GLFW_KEY_2))
+    {
+        currentCaster->SetPentagramData({ 1, 1, 2, 2, 2 });
+    }
+
+    int spellCost = currentCaster->GetSpellCost();
+    int canCostSpell = currentCaster->GetMana() - spellCost;
+    if (Input::IsKeyBeginPressed(GLFW_KEY_3)) //Invoke
+    {
+        if (canCostSpell >= 0)
+        {
+            currentController->CastSpell();
+        }
+        else
+        {
+            std::cout << "NO MANA\n";
+        }
+    }
+    
+    if (Input::IsKeyBeginPressed(GLFW_KEY_4))//End Turn
+    {
+        currentController->EndTurn(true);
+    }
+
+    if (currentController->GetState() >= CasterState::EndTurn)
+    {
+        m_BattleManager->SwapCaster();
+    }
 }
 
-void BattleScene::ResolveStateUpdate()
+void BattleScene::ResolveStateUpdate(double dt)
 {
 }
 
@@ -16,35 +54,85 @@ void BattleScene::GameSceneLoad()
 void BattleScene::GameSceneInit()
 {
     m_BattleManager = new BattleManager();
-    m_BattleManager->AddCaster();
+
+    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
+
+    m_BattleManager->StartBattle();
     std::cout << "Node Scene : Initialize Completed\n";
 }
 
 void BattleScene::GameSceneUpdate(double dt)
 {
+    if (Input::IsKeyBeginPressed(GLFW_KEY_8))
+    {
+        std::cout << "\t Battle State: " << (int)m_BattleManager->GetBattleState() <<"\n";
+    }
+
     switch (m_BattleManager->GetBattleState())
     {
     case BattleState::InvokeState:
-        InvokeStateUpdate();
+        CastStateUpdate(dt);
         break;
     case BattleState::ResolveState:
-        ResolveStateUpdate();
+        ResolveStateUpdate(dt);
         break;
     }
+
 }
 
 void BattleScene::GameSceneDraw()
 {
+    ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
+    // Render GameObject
+    for (GLuint idx = 0; idx < objectsList.size(); idx++)
+    {
+        // If current Object was child -> no need to draw
+        if (objectsList[idx]->parent != nullptr || !objectsList[idx]->active)
+        {
+            continue;
+        }
 
+        objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+    }
+    // Render UI
+    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+    {
+        // If current Object was child -> no need to draw
+        if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->active)
+        {
+            continue;
+        }
+
+        uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+    }
 }
 
 void BattleScene::GameSceneUnload()
 {
-    std::cout << "Node Scene : UnLoad Mesh Completed\n";
+    // Unload GameObject
+    for (GLuint idx = 0; idx < objectsList.size(); idx++)
+    {
+        objectsList[idx]->UnloadMesh();
+    }
+    // Unload UI
+    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+    {
+        uiObjectsList[idx]->UnloadMesh();
+    }
+    std::cout << "Menu Scene : UnLoad Mesh Completed\n";
 }
 
 void BattleScene::GameSceneFree()
 {
-    delete m_BattleManager;
-    std::cout << "Node Scene : Free Memory\n";
+    // Free GameObject
+    for (GLuint idx = 0; idx < objectsList.size(); idx++)
+    {
+        delete objectsList[idx];
+    }
+    // Free UI
+    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+    {
+        delete uiObjectsList[idx];
+    }
+    std::cout << "Menu Scene : Free Memory Completed\n";
 }

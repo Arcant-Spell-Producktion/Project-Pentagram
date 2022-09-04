@@ -2,12 +2,14 @@
 #include "Engine/GameStateController.h"
 #include "Engine/Collector/EngineDataCollector.h"
 
+#include "Game/GameData/RuntimeGameData.h"
 #include "Game/Spells/SpellDatabase.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
 EngineDataCollector* engineDataCollector = nullptr;
 
+RuntimeGameData* currentGame = nullptr;
 SpellDatabase* spellDatabase = nullptr;
 
 int main()
@@ -18,7 +20,7 @@ int main()
 
 	// Initialize gameStateController
 	gameStateController = GameStateController::GetInstance();
-	gameStateController->Init(GameState::GS_BATTLE_SCENE);
+	gameStateController->Init(GameState::GS_MENU_SCENE);
 
 	// Initialize ShaderCollector(For collecting type of Shader)
 	// Initialize FontCollector(For collecting type of Font)
@@ -27,6 +29,13 @@ int main()
 
     // Initialize SpellDatabase (For collecting all spell data)
     spellDatabase = SpellDatabase::GetInstance();
+
+
+    //Initialize GameData (For data management during runtime)
+    currentGame = RuntimeGameData::GetInstance();
+
+    //Init player, TODO:: done in character select instead
+    currentGame->Player = new PlayerData(CasterData(Element::Debug,100,10));
 
 	double currTime = 0;
 	double prevTime = 0;
@@ -59,6 +68,9 @@ int main()
 	gameStateController->currentScene->GameSceneFree();
 
 	// Deallocate instance
+    currentGame->Free();
+    spellDatabase->Free();
+
 	engine->Free();
 	gameStateController->Free();
 	engineDataCollector->Free();
