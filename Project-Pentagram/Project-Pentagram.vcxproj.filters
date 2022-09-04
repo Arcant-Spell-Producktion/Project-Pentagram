@@ -243,6 +243,7 @@
     <None Include="WorkingDir\Shader\GameObjFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
+    <None Include="WorkingDir\Shader\ButtonFragment.shader" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">

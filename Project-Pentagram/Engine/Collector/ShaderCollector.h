@@ -8,6 +8,7 @@ class ShaderCollector
 		// Shader for use with object
 		Shader GameObjectShader;
 		Shader TextShader;
+		Shader ButtonShader;
 
 		ShaderCollector();
 		void Free();

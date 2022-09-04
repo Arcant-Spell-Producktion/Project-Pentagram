@@ -14,6 +14,8 @@ void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 		return;
 	}
 
+	Shader& shader2 = EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader;
+
 	glm::mat4 model = glm::mat4(1.0f);
 
 	model *= glm::translate(glm::mat4(1.0f), this->position);
@@ -26,14 +28,31 @@ void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	glm::mat4 view = camera.getViewMatrix();
 
-	shader.Activate();
-	shader.setMat4("u_Model", model);
-	shader.setMat4("u_View", glm::mat4(1.0f));
-	shader.setMat4("u_Projection", proj);
-	shader.setVec4("u_Color", color);
-	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
+	shader2.Activate();
+	shader2.setMat4("u_Model", model);
+	shader2.setMat4("u_View", glm::mat4(1.0f));
+	shader2.setMat4("u_Projection", proj);
+	shader2.setVec4("u_Color", color);
+	shader2.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
-	shader.setInt("u_Texture", 0);
+	shader2.setInt("u_Texture", 0);
+	float slice = 128.0f / 3.0f;
+	shader2.setVec2("u_Dimensions", glm::vec2(slice / scale.x, slice / scale.y));
+	shader2.setVec2("u_Border", glm::vec2(slice / 128.0f, slice / 128.0f));
+	//std::cout << "u_Dimensions : " << slice / scale.x << ", " << slice / scale.y << "\n";
+	//std::cout << "u_Border : " << slice / 128.0f << "," << slice / 128.0f << "\n";
+	if (m_Animation)
+	{
+		// SpriteSheet Offset
+		shader2.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
+		shader2.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
+	}
+	else
+	{
+		// Default Offset (0.0f, 0.0f)
+		shader2.setFloat("u_OffsetX", 0.0f);
+		shader2.setFloat("u_OffsetY", 0.0f);
+	}
 
 	this->m_Mesh.Render();
 	m_Texture->UnBind();

@@ -6,6 +6,7 @@ void MenuScene::GameSceneLoad()
 }
 
 GameObject* cur;
+Button* curButton;
 void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/Fire_Mage.png";
@@ -70,6 +71,8 @@ void MenuScene::GameSceneInit()
 	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button->SetTexture("Sprites/Button_Test.png");
+	curButton = button;
 
 
 	Button* button2 = CreateButton("Exit_Button");
@@ -122,6 +125,11 @@ void MenuScene::GameSceneUpdate(float dt)
 		cur->scale.x = -abs(cur->scale.x);
 		cur->position.x -= 100.0f * dt;
 	}
+
+	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_RIGHT)) { curButton->scale.x += dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_UP)) { curButton->scale.y += dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_DOWN)) { curButton->scale.y -= dt * 30.0f; }
 
 
 	// Update GameObject
