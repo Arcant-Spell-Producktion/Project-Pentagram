@@ -57,6 +57,7 @@
     <ClInclude Include="Game\Spells\SpellBook.h" />
     <ClInclude Include="Game\Spells\SpellDatabase.h" />
     <ClInclude Include="SOIL.h" />
+    <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Utilities\Singleton.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>

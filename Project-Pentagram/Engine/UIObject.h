@@ -1,9 +1,10 @@
 #pragma once
 
-#include "GameObject.h"
-#include "Collector/EngineDataCollector.h"
 #include <string>
 #include <algorithm>
+
+#include "GameObject.h"
+#include "Collector/EngineDataCollector.h"
 
 class UIObject : public GameObject
 {

@@ -60,9 +60,11 @@ void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const vo
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	// Specific Texture with image data
-	// Read with GL_RED pattern(8-bit)
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, width, height, 0, GL_RED, GL_UNSIGNED_BYTE, data);
+	// Read with GL_RG pattern(16-bit / 2 bytes)
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8, width, height, 0, GL_RG, GL_UNSIGNED_BYTE, data);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 }
 
 void Texture::Activate(GLenum TextureSlot)

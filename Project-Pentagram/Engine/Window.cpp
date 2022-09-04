@@ -9,6 +9,12 @@ void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 	glViewport(0, 0, newWidth, newHeight);
 }
 
+void windowCloseCallback(GLFWwindow* window)
+{
+	Window* currentWindow = (Window*)glfwGetWindowUserPointer(window);
+	currentWindow->SetClose(true);
+}
+
 Window::Window(const int& width, const int& height, const char* title)
 	: m_Width(width), m_Height(height), m_Title(title), m_Window(nullptr)
 {
@@ -48,19 +54,21 @@ bool Window::IsNull()
 
 bool Window::IsRunning()
 {
-	return !glfwWindowShouldClose(m_Window);
+	return !m_Close;
 }
 
 // Setter Implement
 void Window::SetWidth(const int& width) { this->m_Width = width; }
 void Window::SetHeight(const int& height) { this->m_Height = height; }
 void Window::SetWindowRatio(const glm::vec2& ratio) { this->m_windowRatio = ratio; }
+void Window::SetClose(const bool& close) { this->m_Close = close; }
 
 // Getter Implement
 GLFWwindow* Window::getWindow() { return m_Window; }
 int Window::GetWidth() { return m_Width; }
 int Window::GetHeight() { return m_Height; }
 glm::vec2 Window::GetWindowRatio() { return m_windowRatio; };
+bool Window::IsClose() { return m_Close; }
 
 void Window::Init()
 {
@@ -73,6 +81,7 @@ void Window::Init()
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
 
 	glfwSetWindowUserPointer((GLFWwindow*)m_Window, (void*)&m_Window);
+	glfwSetWindowCloseCallback(m_Window, windowCloseCallback);
 	glfwSetFramebufferSizeCallback(m_Window, resizeCallback);
 	glfwSetKeyCallback(m_Window, Input::keyCallBack);
 	glfwSetCursorPosCallback(m_Window, Input::cursorCallBack);

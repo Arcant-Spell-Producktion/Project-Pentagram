@@ -10,6 +10,8 @@ class TextureCollector
 {
 	private:
 		std::map<std::string, Texture*> textures;
+
+		void LoadTexture(const std::string& path);
 	public:
 		TextureCollector();
 		Texture* GetTexture(const std::string& name);

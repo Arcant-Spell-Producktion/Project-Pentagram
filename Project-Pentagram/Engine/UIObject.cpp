@@ -3,12 +3,12 @@
 UIObject::UIObject(const std::string& objName)
 	: GameObject(objName)
 {
-	tag = GameObjectTag::UIOBJECT;
+	m_Tag = GameObjectTag::UIOBJECT;
 }
 
 void UIObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 {
-	if (!active)
+	if (!m_Active)
 	{
 		return;
 	}
@@ -32,12 +32,12 @@ void UIObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel
 	shader.setMat4("u_Projection", proj);
 	shader.setVec4("u_Color", color);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
-	texture->Activate(GL_TEXTURE0);
+	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 
-	this->mesh.Render();
+	this->m_Mesh.Render();
 
-	texture->UnBind();
+	m_Texture->UnBind();
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
