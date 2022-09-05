@@ -42,7 +42,7 @@ class GameObject
 
 		GameObject(const std::string& objName, const int& animRow = 1, const std::vector<int>& animCol = { 1 });
 		virtual void OnUpdate(const float& dt);
-		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f));
+		virtual void Draw(Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f));
 		void UnloadMesh();
 
 		void MakeChild(GameObject* gameObj);

@@ -6,16 +6,18 @@ UIObject::UIObject(const std::string& objName)
 	m_Tag = GameObjectTag::UIOBJECT;
 }
 
-void UIObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+void UIObject::Draw(Camera& camera, const glm::mat4& parentModel)
 {
 	if (!m_Active)
 	{
 		return;
 	}
 
+	// Get UI(GameObject) Shader
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
 
+	// Update MVP Matrix
 	glm::mat4 model = glm::mat4(1.0f);
-
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
@@ -53,6 +55,6 @@ void UIObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera);
+		childList[idx]->Draw(camera);
 	}
 }

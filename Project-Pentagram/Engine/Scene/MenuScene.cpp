@@ -83,6 +83,7 @@ void MenuScene::GameSceneInit()
 	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button2->SetTexture("Sprites/Button_Test.png");
 
 	subUI->MakeChild(button);
 	subUI->MakeChild(button2);
@@ -204,7 +205,6 @@ void MenuScene::GameSceneUpdate(float dt)
 
 void MenuScene::GameSceneDraw()
 {
-	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
 	// Render GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
@@ -214,7 +214,7 @@ void MenuScene::GameSceneDraw()
 			continue;
 		}
 
-		objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+		objectsList[idx]->Draw(camera);
 	}
 	// Render UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
@@ -225,7 +225,7 @@ void MenuScene::GameSceneDraw()
 			continue;
 		}
 
-		uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
+		uiObjectsList[idx]->Draw(camera);
 	}
 }
 

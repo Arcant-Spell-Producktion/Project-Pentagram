@@ -20,7 +20,7 @@ void TextObject::OnUpdate(const float& dt)
 	m_CurrentTime += dt;
 }
 
-void TextObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+void TextObject::Draw(Camera& camera, const glm::mat4& parentModel)
 {
 	if (m_SlowRender)
 	{

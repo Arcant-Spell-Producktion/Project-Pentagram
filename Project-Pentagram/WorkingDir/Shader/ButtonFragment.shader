@@ -4,7 +4,8 @@ uniform vec4 u_Color;
 uniform sampler2D u_Texture;
 
 uniform vec2 u_Dimensions;
-uniform vec2 u_Border;
+uniform vec2 u_TextureBorder;
+uniform float u_Border;
 
 in vec2 TexCoord;
 out vec4 FragColor;
@@ -29,9 +30,10 @@ float processAxis(float coord, float textureBorder, float windowBorder)
 
 void main() 
 {
+    vec2 borders = vec2(u_Border) / u_Dimensions.xy;
     vec2 newUV = vec2(
-            processAxis(TexCoord.x, u_Border.x, u_Dimensions.x),
-            processAxis(TexCoord.y, u_Border.y, u_Dimensions.y)
+            processAxis(TexCoord.x, u_TextureBorder.x, borders.x),
+            processAxis(TexCoord.y, u_TextureBorder.y, borders.y)
     );
     
     vec4 textureResult = texture(u_Texture, newUV);
