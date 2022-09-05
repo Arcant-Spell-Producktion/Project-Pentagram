@@ -7,19 +7,21 @@ void BattleManager::AddCaster(CasterController* controller)
 
 void BattleManager::StartBattle()
 {
-    m_CurrentState = BattleState::InvokeState;
+    SetBattleState(BattleState::CastState);
 }
 
 void BattleManager::SwapCaster()
 {
     if (GetCurrentCaster()->GetState() == CasterState::Passed && GetNextCaster()->GetState() == CasterState::Passed)
     {
-        m_CurrentState = BattleState::ResolveState;
+        SetBattleState(BattleState::ResolveState);
         return;
     }
     m_CurrentCasterIndex = (m_CurrentCasterIndex + 1) % m_Casters.size();
 
     GetCurrentCaster()->StartTurn();
+
+    SetBattleState(BattleState::CastState);
 }
 
 BattleManager::~BattleManager()

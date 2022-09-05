@@ -109,6 +109,7 @@
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -255,6 +256,7 @@
     <ClInclude Include="Game\GameData\MapData\MapData.h">
       <Filter>Game\GameData</Filter>
     </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

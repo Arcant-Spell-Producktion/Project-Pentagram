@@ -7,7 +7,8 @@
 enum class BattleState
 {
     SetupState = 0,
-    InvokeState,
+    CastState,
+    CastConfirmState,
     ResolveState,
     ResultState
 };
@@ -21,7 +22,11 @@ private:
     int m_CurrentCasterIndex = 0;
 
 public:
-    void SetBattleState(BattleState state) { m_CurrentState = state; }
+    void SetBattleState(BattleState state)
+    {
+        m_CurrentState = state;
+        std::cout << "\n\t Battle State: " << (int)m_CurrentState << "\n\n";
+    }
     BattleState GetBattleState() { return m_CurrentState; }
 
     void StartBattle();

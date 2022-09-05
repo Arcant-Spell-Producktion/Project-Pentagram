@@ -54,6 +54,7 @@
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
     <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimeline.h" />
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterData.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterPosition.h" />
     <ClInclude Include="Game\GameData\CasterData\EnemyData.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
     <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
     <ClCompile Include="Game\Spells\SpellBook.cpp" />

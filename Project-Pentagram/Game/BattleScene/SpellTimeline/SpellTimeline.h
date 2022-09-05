@@ -1,16 +1,41 @@
 ﻿#include <array>
-#include <vector>
-#include "Game/BattleScene/SpellCaster/CastSpellDetail.h"
+#include "SpellTimetrack.h"
 
 class SpellTimeline 
 {
 private:
-    array<vector<CastSpellDetail*>, 11> m_Timelines;
+    array<SpellTimetrack, 11> m_Timeline;
 
 public:
     void AddSpellToTimeline(CastSpellDetail* spell)
     {
         int array_index = spell->SelectedTime <= 10 ? (spell->SelectedTime - 1) : (11 - 1);
-        m_Timelines[array_index].push_back(spell);
+        m_Timeline[array_index].push_back(spell);
+
+        cout << "Add Spell to Timetrack index: " << array_index << "\n";
+    }
+
+    void UpdateTimeline()
+    {
+        ResetTimeline();
+        auto spellList = m_Timeline[10].GetSpellList();
+        m_Timeline[10].clear(false);
+        for (CastSpellDetail* csd: spellList)
+        {
+            csd->SelectedTime -= 10;
+            AddSpellToTimeline(csd);
+        }
+    }
+
+    void ResetTimeline(bool isHardClear = false)
+    {
+        int count = 10;
+
+        if (isHardClear)count++;
+
+        for (int i = 0; i < count; i++)
+        {
+            m_Timeline[i].clear();
+        }
     }
 };

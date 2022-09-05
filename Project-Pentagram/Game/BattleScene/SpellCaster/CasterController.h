@@ -15,9 +15,8 @@ class CasterController
 protected:
     CasterState m_CasterState = CasterState::Idle;
     SpellCaster m_SpellCaster;
-    void (*m_CasterUpdate)(float) = nullptr;
 public:
-    CasterController(CasterData caster,void (*Update_func)(float) = nullptr):m_SpellCaster(caster), m_CasterUpdate(Update_func){}
+    CasterController(CasterData caster):m_SpellCaster(caster){}
 
     SpellCaster* GetSpellCaster() {return &m_SpellCaster;}
 
@@ -28,11 +27,6 @@ public:
     {
         m_CasterState = CasterState::Idle;
         m_SpellCaster.SetPentagramData({ 1,1,1,1,1 });
-    }
-
-    virtual void UpdateCaster(float dt)
-    {
-        if (m_CasterUpdate != nullptr) m_CasterUpdate(dt);
     }
 
     CastSpellDetail* CastSpell() {

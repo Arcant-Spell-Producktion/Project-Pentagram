@@ -7,17 +7,17 @@ void BattleScene::CastStateUpdate(float dt)
 {
     CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
 
-    currentController->UpdateCaster(dt);
-
-    if (currentController->GetState() >= CasterState::EndTurn)
+    if (dynamic_cast<PlayerController*>(currentController) != nullptr)
     {
-        m_BattleManager->SwapCaster();
+        PlayerCastUpdate(dt);
     }
+
+    
 }
 
-void PlayerCastUpdate(float dt)
+void BattleScene::PlayerCastUpdate(float dt)
 {
-    CasterController* currentController = BattleManager::GetInstance()->GetCurrentCaster();
+    CasterController* currentController = m_BattleManager->GetCurrentCaster();
     SpellCaster* currentCaster = currentController->GetSpellCaster();
     CasterData* casterData = currentCaster->GetCasterData();
 
@@ -27,7 +27,7 @@ void PlayerCastUpdate(float dt)
     }
     if (Input::IsKeyBeginPressed(GLFW_KEY_2))
     {
-        currentCaster->SetPentagramData({ 1, 1, 2, 2, 2 });
+        currentCaster->SetPentagramData({ 1, 1, 2, 2, 5 });
     }
 
     int spellCost = currentCaster->GetSpellCost();
@@ -36,14 +36,16 @@ void PlayerCastUpdate(float dt)
     {
         if (canCostSpell >= 0)
         {
-            BattleManager::GetInstance()->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+            m_BattleManager->SetBattleState(BattleState::CastConfirmState);
+            currentController->EndTurn();
         }
         else
         {
             std::cout << "NO MANA\n";
         }
     }
-    if (Input::IsKeyBeginPressed(GLFW_KEY_4))//End Turn
+    if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
     {
         currentController->EndTurn(true);
     }
@@ -62,7 +64,7 @@ void BattleScene::GameSceneInit()
 {
     m_BattleManager = BattleManager::GetInstance();
 
-    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player), &PlayerCastUpdate));
+    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
 
     m_BattleManager->StartBattle();
     std::cout << "Battle Scene : Initialize Completed\n";
@@ -70,15 +72,23 @@ void BattleScene::GameSceneInit()
 
 void BattleScene::GameSceneUpdate(float dt)
 {
-    if (Input::IsKeyBeginPressed(GLFW_KEY_8))
+    if (Input::IsKeyBeginPressed(GLFW_KEY_R))
     {
-        std::cout << "\t Battle State: " << (int)m_BattleManager->GetBattleState() <<"\n";
+        SceneManager::LoadScene(GameState::GS_RESTART);
+        // If not return will cause memory problem
+        return;
     }
 
     switch (m_BattleManager->GetBattleState())
     {
-    case BattleState::InvokeState:
+    case BattleState::CastState:
         CastStateUpdate(dt);
+        break;
+    case BattleState::CastConfirmState:
+        if (m_BattleManager->GetCurrentCaster()->GetState() >= CasterState::EndTurn)
+        {
+            m_BattleManager->SwapCaster();
+        }
         break;
     case BattleState::ResolveState:
         ResolveStateUpdate(dt);
