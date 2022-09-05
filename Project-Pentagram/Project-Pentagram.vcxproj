@@ -105,6 +105,8 @@
     <Image Include="Engine\Texture\default.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="WorkingDir\Shader\ButtonFragment.shader" />
+    <None Include="WorkingDir\Shader\ButtonVertex.shader" />
     <None Include="WorkingDir\Shader\GameObjFragment.shader" />
     <None Include="WorkingDir\Shader\GameObjVertex.shader" />
     <None Include="WorkingDir\Shader\TextFragment.shader" />
@@ -182,6 +184,7 @@
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;$(SolutionDir)Project-Pentagram;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -42,7 +42,7 @@ class TextObject : public UIObject
 		glm::vec4 outlineColor;
 
 		TextObject(const std::string& objName);
-		virtual void Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
+		virtual void Draw(Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
 		virtual void OnUpdate(const float& dt) override;
 
 		// Setter

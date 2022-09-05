@@ -1,14 +1,14 @@
 #include "TextureCollector.h"
-#include <iostream>
-
 
 TextureCollector::TextureCollector()
 {
-	LoadTexture("Sprites/awesomeface.png");
-	LoadTexture("Sprites/default.png");
-	LoadTexture("Sprites/player_fire_idle.png");
-	LoadTexture("Sprites/Fire_Mage.png");
-	LoadTexture("Sprites/character_minion_idle.png");
+	// Load All Sprites Texture
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator("Sprites"))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+		LoadTexture(filePathString);
+	}
 }
 
 Texture* TextureCollector::GetTexture(const std::string& name)
