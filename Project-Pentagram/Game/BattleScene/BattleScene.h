@@ -9,8 +9,8 @@ class BattleScene :public GameScene
 private:
     BattleManager* m_BattleManager = nullptr;
 
-    void CastStateUpdate(double dt);
-    void ResolveStateUpdate(double dt);
+    void CastStateUpdate(float dt);
+    void ResolveStateUpdate(float dt);
 public:
     virtual void GameSceneLoad() override;
     virtual void GameSceneInit() override;

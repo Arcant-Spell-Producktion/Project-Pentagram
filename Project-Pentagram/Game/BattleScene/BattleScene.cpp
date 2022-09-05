@@ -2,9 +2,22 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "SpellCaster/PlayerController.h"
 
-void BattleScene::CastStateUpdate(double dt)
+
+void BattleScene::CastStateUpdate(float dt)
 {
     CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
+    
+    currentController->UpdateCaster(dt);
+
+    if (currentController->GetState() >= CasterState::EndTurn)
+    {
+        m_BattleManager->SwapCaster();
+    }
+}
+
+void PlayerCastUpdate(float dt)
+{
+    CasterController* currentController = BattleManager::GetInstance()->GetCurrentCaster();
     SpellCaster* currentCaster = currentController->GetSpellCaster();
     CasterData* casterData = currentCaster->GetCasterData();
 
@@ -23,42 +36,36 @@ void BattleScene::CastStateUpdate(double dt)
     {
         if (canCostSpell >= 0)
         {
-            currentController->CastSpell();
+            BattleManager::GetInstance()->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
         }
         else
         {
             std::cout << "NO MANA\n";
         }
     }
-    
     if (Input::IsKeyBeginPressed(GLFW_KEY_4))//End Turn
     {
         currentController->EndTurn(true);
     }
-
-    if (currentController->GetState() >= CasterState::EndTurn)
-    {
-        m_BattleManager->SwapCaster();
-    }
 }
 
-void BattleScene::ResolveStateUpdate(double dt)
+void BattleScene::ResolveStateUpdate(float dt)
 {
 }
 
 void BattleScene::GameSceneLoad()
 {
-    std::cout << "Node Scene : Load Completed\n";
+    std::cout << "Battle Scene : Load Completed\n";
 }
 
 void BattleScene::GameSceneInit()
 {
-    m_BattleManager = new BattleManager();
+    m_BattleManager = BattleManager::GetInstance();
 
-    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
+    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player), &PlayerCastUpdate));
 
     m_BattleManager->StartBattle();
-    std::cout << "Node Scene : Initialize Completed\n";
+    std::cout << "Battle Scene : Initialize Completed\n";
 }
 
 void BattleScene::GameSceneUpdate(float dt)
@@ -119,11 +126,15 @@ void BattleScene::GameSceneUnload()
     {
         uiObjectsList[idx]->UnloadMesh();
     }
-    std::cout << "Menu Scene : UnLoad Mesh Completed\n";
+    std::cout << "Battle Scene : UnLoad Mesh Completed\n";
 }
 
 void BattleScene::GameSceneFree()
 {
+
+    //Free Battle Manager
+    delete m_BattleManager;
+
     // Free GameObject
     for (GLuint idx = 0; idx < objectsList.size(); idx++)
     {
@@ -134,5 +145,5 @@ void BattleScene::GameSceneFree()
     {
         delete uiObjectsList[idx];
     }
-    std::cout << "Menu Scene : Free Memory Completed\n";
+    std::cout << "Battle Scene : Free Memory Completed\n";
 }

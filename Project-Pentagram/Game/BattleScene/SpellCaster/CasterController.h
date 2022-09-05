@@ -12,11 +12,12 @@ enum class CasterState
 
 class CasterController
 {
-private:
+protected:
     CasterState m_CasterState = CasterState::Idle;
     SpellCaster m_SpellCaster;
+    void (*m_CasterUpdate)(float) = nullptr;
 public:
-    CasterController(CasterData caster):m_SpellCaster(caster) {}
+    CasterController(CasterData caster,void (*Update_func)(float) = nullptr):m_SpellCaster(caster), m_CasterUpdate(Update_func){}
 
     SpellCaster* GetSpellCaster() {return &m_SpellCaster;}
 
@@ -29,13 +30,19 @@ public:
         m_SpellCaster.SetPentagramData({ 1,1,1,1,1 });
     }
 
-    void CastSpell() {
+    virtual void UpdateCaster(float dt)
+    {
+        if (m_CasterUpdate != nullptr) m_CasterUpdate(dt);
+    }
+
+    CastSpellDetail* CastSpell() {
 
         CastSpellDetail* spell = m_SpellCaster.GetSpellDetail();
         m_SpellCaster.CommitSpell();
         std::cout << "Casted:\n" << *spell->OriginalSpell << "\n"
             << "\tRemained Mana: "<< m_SpellCaster.GetMana() <<"\n";
         EndTurn();
+        return spell;
     }
 
     void EndTurn(bool isPassed = false)

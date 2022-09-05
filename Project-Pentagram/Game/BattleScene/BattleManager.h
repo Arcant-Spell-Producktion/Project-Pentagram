@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <vector>
+#include "Utilities/Singleton.h"
+#include "SpellTimeline/SpellTimeline.h"
 #include "SpellCaster/CasterController.h"
 
 enum class BattleState
@@ -10,10 +12,11 @@ enum class BattleState
     ResultState
 };
 
-class BattleManager
+class BattleManager : public Singleton<BattleManager>
 {
 private:
     BattleState m_CurrentState = BattleState::SetupState;
+    SpellTimeline m_Timeline;
     std::vector<CasterController*> m_Casters;
     int m_CurrentCasterIndex = 0;
 
@@ -23,7 +26,9 @@ public:
 
     void StartBattle();
     void SwapCaster();
-    void EndBattle() { m_CurrentState = BattleState::ResultState;} //TODO
+    void EndBattle() { m_CurrentState = BattleState::ResultState; } //TODO
+
+    SpellTimeline* GetTimeline(){return &m_Timeline;}
 
     void AddCaster(CasterController* controller);
     CasterController* GetCurrentCaster() { return m_Casters[m_CurrentCasterIndex]; }

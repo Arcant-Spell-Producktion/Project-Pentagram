@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h" />
     <ClInclude Include="Engine\ArcantEngine.h" />
     <ClInclude Include="Engine\Button.h" />
@@ -51,7 +53,13 @@
     <ClInclude Include="Engine\UIObject.h" />
     <ClInclude Include="Engine\Window.h" />
     <ClInclude Include="Engine\ParticleSystem.h" />
-    <ClInclude Include="Game\Player\PlayerData.h" />
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimeline.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterData.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterPosition.h" />
+    <ClInclude Include="Game\GameData\CasterData\EnemyData.h" />
+    <ClInclude Include="Game\GameData\CasterData\PlayerData.h" />
+    <ClInclude Include="Game\GameData\MapData\MapData.h" />
+    <ClInclude Include="Game\GameData\RuntimeGameData.h" />
     <ClInclude Include="Game\Spells\Element.h" />
     <ClInclude Include="Game\Spells\Spell.h" />
     <ClInclude Include="Game\Spells\SpellBook.h" />
