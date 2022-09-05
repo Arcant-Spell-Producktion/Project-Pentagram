@@ -40,13 +40,15 @@ void ParticleSystem::OnUpdate(const float& dt)
 	}
 }
 
-void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+void ParticleSystem::Draw(Camera& camera, const glm::mat4& parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!m_Active)
 	{
 		return;
 	}
+	// Get Particle(GameObject) Shader
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
 
 	shader.Activate();
 	shader.setMat4("u_View", camera.getViewMatrix());
@@ -91,7 +93,7 @@ void ParticleSystem::Draw(Shader& shader, Camera& camera, const glm::mat4& paren
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera, originModel);
+		childList[idx]->Draw(camera, originModel);
 	}
 }
 

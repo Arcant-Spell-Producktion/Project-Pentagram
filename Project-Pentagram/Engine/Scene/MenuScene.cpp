@@ -6,6 +6,7 @@ void MenuScene::GameSceneLoad()
 }
 
 GameObject* cur;
+Button* curButton;
 void MenuScene::GameSceneInit()
 {
 	std::string path = "Sprites/Fire_Mage.png";
@@ -70,6 +71,8 @@ void MenuScene::GameSceneInit()
 	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button->SetTexture("Sprites/Button_Test.png");
+	curButton = button;
 
 
 	Button* button2 = CreateButton("Exit_Button");
@@ -80,6 +83,7 @@ void MenuScene::GameSceneInit()
 	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button2->SetTexture("Sprites/Button_Test.png");
 
 	subUI->MakeChild(button);
 	subUI->MakeChild(button2);
@@ -103,11 +107,11 @@ void MenuScene::GameSceneUpdate(float dt)
 		// If not return will cause memory problem
 		return;
     }
-  else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
     {
         SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
     }
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_D) || Input::IsKeyBeginPressed(GLFW_KEY_A))
+	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->SetAnimationState(2);
 	}
@@ -126,6 +130,11 @@ void MenuScene::GameSceneUpdate(float dt)
 		cur->scale.x = -abs(cur->scale.x);
 		cur->position.x -= 100.0f * dt;
 	}
+
+	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_RIGHT)) { curButton->scale.x += dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_UP)) { curButton->scale.y += dt * 30.0f; }
+	if (Input::IsKeyPressed(GLFW_KEY_DOWN)) { curButton->scale.y -= dt * 30.0f; }
 
 
 	// Update GameObject
@@ -196,48 +205,6 @@ void MenuScene::GameSceneUpdate(float dt)
 		}
 		curObj->OnUpdate(dt);
 	}
-}
-
-void MenuScene::GameSceneDraw()
-{
-	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
-	// Render GameObject
-	for (GLuint idx = 0; idx < objectsList.size(); idx++)
-	{
-		// If current Object was child -> no need to draw
-		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
-		{
-			continue;
-		}
-
-		objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
-	}
-	// Render UI
-	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
-	{
-		// If current Object was child -> no need to draw
-		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
-		{
-			continue;
-		}
-
-		uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
-	}
-}
-
-void MenuScene::GameSceneUnload()
-{
-	// Unload GameObject
-	for (GLuint idx = 0; idx < objectsList.size(); idx++)
-	{
-		objectsList[idx]->UnloadMesh();
-	}
-	// Unload UI
-	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
-	{
-		uiObjectsList[idx]->UnloadMesh();
-	}
-	std::cout << "Menu Scene : UnLoad Mesh Completed\n";
 }
 
 void MenuScene::GameSceneFree()

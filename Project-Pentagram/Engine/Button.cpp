@@ -5,14 +5,17 @@ Button::Button(const std::string& objName)
 {
 	m_Tag = GameObjectTag::BUTTON;
 	uiList = nullptr;
+	border = 40.0f;
 }
 
-void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 {
 	if (!m_Active)
 	{
 		return;
 	}
+
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader;
 
 	glm::mat4 model = glm::mat4(1.0f);
 
@@ -35,13 +38,37 @@ void Button::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 
+	// Set Button Slicing
+	float minVal = std::min(scale.x, scale.y);
+	glm::vec2 u_dimension = glm::vec2(scale.x, scale.y);
+	glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
+	float u_border = (minVal >= 2 * border ? border : minVal / 2.0f);
+	shader.setVec2("u_Dimensions", u_dimension);
+	shader.setVec2("u_TextureBorder", u_textureBorder);
+	shader.setFloat("u_Border", u_border);
+	// ------ Debug --------
+	//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
+	//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+	if (m_Animation)
+	{
+		// SpriteSheet Offset
+		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
+		shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
+	}
+	else
+	{
+		// Default Offset (0.0f, 0.0f)
+		shader.setFloat("u_OffsetX", 0.0f);
+		shader.setFloat("u_OffsetY", 0.0f);
+	}
+
 	this->m_Mesh.Render();
 	m_Texture->UnBind();
 
 	textObject.RenderText(this->position);
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera);
+		childList[idx]->Draw(camera);
 	}
 }
 

@@ -24,9 +24,9 @@ class GameScene
 		virtual void GameSceneLoad() = 0;
 		virtual void GameSceneInit() = 0;
 		virtual void GameSceneUpdate(float dt) = 0;
-		virtual void GameSceneDraw() = 0;
-		virtual void GameSceneUnload() = 0;
-		virtual void GameSceneFree() = 0;
+		virtual void GameSceneDraw();
+		virtual void GameSceneUnload();
+		virtual void GameSceneFree();
 
 		// Create Object
 		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });

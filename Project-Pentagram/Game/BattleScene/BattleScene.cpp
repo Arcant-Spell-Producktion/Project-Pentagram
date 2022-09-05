@@ -6,7 +6,7 @@
 void BattleScene::CastStateUpdate(float dt)
 {
     CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
-    
+
     currentController->UpdateCaster(dt);
 
     if (currentController->GetState() >= CasterState::EndTurn)
@@ -85,48 +85,6 @@ void BattleScene::GameSceneUpdate(float dt)
         break;
     }
 
-}
-
-void BattleScene::GameSceneDraw()
-{
-    ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
-    // Render GameObject
-    for (GLuint idx = 0; idx < objectsList.size(); idx++)
-    {
-        // If current Object was child -> no need to draw
-        if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
-        {
-            continue;
-        }
-
-        objectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
-    }
-    // Render UI
-    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
-    {
-        // If current Object was child -> no need to draw
-        if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
-        {
-            continue;
-        }
-
-        uiObjectsList[idx]->Draw(shaderCollector->GameObjectShader, camera);
-    }
-}
-
-void BattleScene::GameSceneUnload()
-{
-    // Unload GameObject
-    for (GLuint idx = 0; idx < objectsList.size(); idx++)
-    {
-        objectsList[idx]->UnloadMesh();
-    }
-    // Unload UI
-    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
-    {
-        uiObjectsList[idx]->UnloadMesh();
-    }
-    std::cout << "Battle Scene : UnLoad Mesh Completed\n";
 }
 
 void BattleScene::GameSceneFree()

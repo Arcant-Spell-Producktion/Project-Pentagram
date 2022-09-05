@@ -15,16 +15,6 @@ void NodeScene::GameSceneUpdate(float dt)
 
 }
 
-void NodeScene::GameSceneDraw()
-{
-
-}
-
-void NodeScene::GameSceneUnload()
-{
-	std::cout << "Node Scene : UnLoad Mesh Completed\n";
-}
-
 void NodeScene::GameSceneFree()
 {
 	std::cout << "Node Scene : Free Memory\n";

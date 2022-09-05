@@ -34,22 +34,24 @@ void GameObject::OnUpdate(const float& dt)
 
 }
 
-void GameObject::Draw(Shader& shader, Camera& camera, const glm::mat4& parentModel)
+void GameObject::Draw(Camera& camera, const glm::mat4& parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!m_Active)
 	{
 		return;
 	}
+	// Get GameObject Shader
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
 
-	// Update MVP Matrixs
+	// Update MVP Matrix
 	glm::mat4 model = parentModel;
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	// !!Draw Child First(Only GameObject that draw child first)
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(shader, camera, model);
+		childList[idx]->Draw(camera, model);
 	}
 	// !!Not Set scale to child -> Messy to encounter with
 	model *= glm::scale(glm::mat4(1.0f), this->scale);
