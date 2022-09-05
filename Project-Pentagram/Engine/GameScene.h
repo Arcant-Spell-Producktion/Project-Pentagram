@@ -13,9 +13,14 @@
 
 class GameScene
 {
+	private:
+		void UpdateButtonOnClick();
+		void UpdateButtonOnHover();
+
 	protected:
 		std::vector<GameObject*> objectsList;
 		std::vector<UIObject*> uiObjectsList;
+		std::vector<Button*> buttonObjectsList;
 		Camera camera;
 
 	public:
@@ -35,4 +40,6 @@ class GameScene
 		UIObject* CreateUIObject(const std::string& objName = "");
 		TextObject* CreateTextObject(const std::string& objName = "");
 		Button* CreateButton(const std::string& objName = "");
+
+		void UpdateButtonEvents();
 };

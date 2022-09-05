@@ -230,6 +230,8 @@
     <ClInclude Include="Game\Player\PlayerData.h">
       <Filter>Game\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Engine\SoundSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

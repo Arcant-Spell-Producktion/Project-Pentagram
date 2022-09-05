@@ -71,6 +71,7 @@ void MenuScene::GameSceneInit()
 	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
 	button->SetTexture("Sprites/Button_Test.png");
 	curButton = button;
 
@@ -83,6 +84,7 @@ void MenuScene::GameSceneInit()
 	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button2->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
 	subUI->MakeChild(button);
@@ -94,6 +96,8 @@ void MenuScene::GameSceneInit()
 float t = 0.0f;
 void MenuScene::GameSceneUpdate(float dt)
 {
+	UpdateButtonEvents();
+
 	double time = glfwGetTime();
 	if (t >= 1.0f)
 	{
@@ -173,36 +177,6 @@ void MenuScene::GameSceneUpdate(float dt)
 		}
 
 		if (!curObj->isActive()) { continue; }
-
-		else if (curObj->name == "Options_Button")
-		{
-			Button* curButton = dynamic_cast<Button*>(curObj);
-			if (curButton->onHover())
-			{
-				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
-			}
-			else
-			{
-				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-			}
-		}
-		else if (curObj->name == "Exit_Button")
-		{
-			Button* curButton = dynamic_cast<Button*>(curObj);
-			if (curButton->onHover())
-			{
-				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
-			}
-			else
-			{
-				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-			}
-
-			if (curButton->onClick())
-			{
-				GameStateController::GetInstance()->currentState = GameState::GS_QUIT;
-			}
-		}
 		curObj->OnUpdate(dt);
 	}
 }

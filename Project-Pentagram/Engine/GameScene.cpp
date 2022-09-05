@@ -1,6 +1,6 @@
 #include "GameScene.h"
 
-// Creating Object
+// ------------------------ Creating Object ------------------------ 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
 	GameObject* obj;
@@ -76,12 +76,84 @@ Button* GameScene::CreateButton(const std::string& objName)
 	{
 		button = new Button(objName);
 	}
-	button->uiList = &uiObjectsList;
 	uiObjectsList.push_back(button);
+	buttonObjectsList.push_back(button);
 	return button;
 }
 
-// GameScene State
+// ------------------------ Button Events ------------------------ 
+
+void GameScene::UpdateButtonOnClick()
+{
+	if (!Input::IsKeyEndPressed(GLFW_MOUSE_BUTTON_LEFT))
+	{
+		return;
+	}
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+
+	float curX = (Input::mouseX - screen_width / 2.0f);
+	float curY = (screen_height / 2.0f - Input::mouseY);
+
+	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	{
+		Button* curObj = buttonObjectsList[idx];
+
+		// If current Object is inactive (Not Render) => No need to check collision
+		if (curObj == nullptr || !curObj->isActive())
+		{
+			continue;
+		}
+		float left = curObj->position.x - (curObj->scale.x / 2.0f);
+		float right = curObj->position.x + (curObj->scale.x / 2.0f);
+		float top = curObj->position.y + (curObj->scale.y / 2.0f);
+		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+
+		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+		{
+			curObj->onClick(curObj);
+		}
+	}
+}
+void GameScene::UpdateButtonOnHover()
+{
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+
+	float curX = (Input::mouseX - screen_width / 2.0f);
+	float curY = (screen_height / 2.0f - Input::mouseY);
+
+	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	{
+		Button* curObj = buttonObjectsList[idx];
+
+		// If current Object is inactive (Not Render) => No need to check collision
+		if (curObj == nullptr || !curObj->isActive())
+		{
+			continue;
+		}
+		float left = curObj->position.x - (curObj->scale.x / 2.0f);
+		float right = curObj->position.x + (curObj->scale.x / 2.0f);
+		float top = curObj->position.y + (curObj->scale.y / 2.0f);
+		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+
+		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+		{
+			curObj->onHover(curObj);
+		}
+		else
+		{
+			curObj->unHover(curObj);
+		}
+	}
+}
+void GameScene::UpdateButtonEvents()
+{
+	UpdateButtonOnHover();
+	UpdateButtonOnClick();
+}
+
+// ------------------------ GameScene State ------------------------ 
 void GameScene::GameSceneDraw()
 {
 	// Render GameObject
