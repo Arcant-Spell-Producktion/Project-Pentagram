@@ -7,19 +7,42 @@ void BattleScene::CastStateUpdate(float dt)
 {
     CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
 
-    if (dynamic_cast<PlayerController*>(currentController) != nullptr)
+    if (currentController->GetState() != CasterState::Passed)
     {
-        PlayerCastUpdate(dt);
+        if (dynamic_cast<PlayerController*>(currentController) != nullptr)
+        {
+            PlayerCastUpdate(dt);
+        }
+        else
+        {
+            std::cout << " ***************************\n\tCheck value : " << (int)currentController->GetState() << "\n\n";
+            SpellCaster* currentCaster = currentController->GetSpellCaster();
+
+            currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
+            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+
+            currentCaster->SetPentagramData({ 1, 1, 1, 1, 3 });
+            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+
+
+            currentController->EndTurn(true);
+            m_BattleManager->SwapCaster();
+        }
+    }
+    else
+    {
+        m_BattleManager->SwapCaster();
     }
 
-    
 }
 
 void BattleScene::PlayerCastUpdate(float dt)
 {
     CasterController* currentController = m_BattleManager->GetCurrentCaster();
     SpellCaster* currentCaster = currentController->GetSpellCaster();
-    CasterData* casterData = currentCaster->GetCasterData();
+
+    if (currentCaster == nullptr) currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
+
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_1))
     {
@@ -36,6 +59,8 @@ void BattleScene::PlayerCastUpdate(float dt)
     {
         if (canCostSpell >= 0)
         {
+            std::cout << "-----------------------\n\tCheck value : " << (int)currentCaster->GetCasterData()->GetPosition() << "\n\n";
+
             m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
             m_BattleManager->SetBattleState(BattleState::CastConfirmState);
             currentController->EndTurn();
@@ -48,6 +73,7 @@ void BattleScene::PlayerCastUpdate(float dt)
     if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
     {
         currentController->EndTurn(true);
+        m_BattleManager->SwapCaster();
     }
 }
 
@@ -55,9 +81,11 @@ void BattleScene::ResolveStateUpdate(float dt)
 {
     for (int i = 0; i < 10; i++)
     {
+        std::cout << "Resovel Track: " << i << "\n";
         SpellTimetrack* track = m_BattleManager->GetTimeline()->GetTimetrack(i);
+        std::cout << "\tGet Track: " << i << "\n";
         CasterPosition casterToResolve = track->GetWinCaster();
-
+        std::cout << "\tGet casterToResolve: " << (int)casterToResolve << "\n";
         //use casterToResolve play WillCompare Animation
 
         track->UpdateTimetrack();
@@ -77,7 +105,7 @@ void BattleScene::ResolveStateUpdate(float dt)
         }
         else
         {
-            return;
+            continue;
         }
     }
     m_BattleManager->GetTimeline()->UpdateTimeline();
@@ -86,7 +114,9 @@ void BattleScene::ResolveStateUpdate(float dt)
     //if(battle end)
     //{}
     //else
+    m_BattleManager->StandbyAllCaster();
     m_BattleManager->SetBattleState(BattleState::CastState);
+    m_BattleManager->SwapCaster();
 }
 
 void BattleScene::GameSceneLoad()
@@ -99,6 +129,7 @@ void BattleScene::GameSceneInit()
     m_BattleManager = BattleManager::GetInstance();
 
     m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
+    m_BattleManager->AddCaster(new CasterController({Element::Debug,CasterPosition::CasterB,1,1}));
 
     m_BattleManager->StartBattle();
     std::cout << "Battle Scene : Initialize Completed\n";
@@ -131,11 +162,17 @@ void BattleScene::GameSceneUpdate(float dt)
 
 }
 
+void BattleScene::GameSceneUnload()
+{
+    //Free Battle Manager
+    delete m_BattleManager;
+    GameScene::GameSceneUnload();
+}
+
 void BattleScene::GameSceneFree()
 {
 
-    //Free Battle Manager
-    delete m_BattleManager;
+    
 
     // Free GameObject
     for (GLuint idx = 0; idx < objectsList.size(); idx++)

@@ -25,6 +25,10 @@ public:
 
     virtual void StartTurn()
     {
+        if (m_CasterState == CasterState::Passed)
+        {
+            return;
+        }
         m_CasterState = CasterState::Idle;
         m_SpellCaster.SetPentagramData({ 1,1,1,1,1 });
     }

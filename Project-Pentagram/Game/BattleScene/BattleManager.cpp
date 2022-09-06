@@ -7,6 +7,7 @@ void BattleManager::AddCaster(CasterController* controller)
 
 void BattleManager::StartBattle()
 {
+    StandbyAllCaster();
     SetBattleState(BattleState::CastState);
 }
 

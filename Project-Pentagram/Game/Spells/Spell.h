@@ -9,7 +9,7 @@ class SideEffectType
 private:
     static const string enum_string[];
 public:
-    static enum Type
+    enum Type
     {
         None = 0,
         Mark,
@@ -30,7 +30,7 @@ class ChannelEffectType
 private:
     static const string enum_string[];
 public:
-    static enum Type
+    enum Type
     {
         None = 0,
         Wait,

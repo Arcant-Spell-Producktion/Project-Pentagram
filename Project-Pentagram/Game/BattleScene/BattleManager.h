@@ -38,6 +38,14 @@ public:
     void AddCaster(CasterController* controller);
     CasterController* GetCurrentCaster() { return m_Casters[m_CurrentCasterIndex]; }
     CasterController* GetNextCaster() { return m_Casters[(m_CurrentCasterIndex + 1) % m_Casters.size()]; }
+    void StandbyAllCaster()
+    { 
+        for (auto caster : m_Casters)
+        {
+        caster->SetState(CasterState::Idle); 
+        caster->GetSpellCaster()->ResetMana();
+        }
+    }
     
     ~BattleManager();
 };

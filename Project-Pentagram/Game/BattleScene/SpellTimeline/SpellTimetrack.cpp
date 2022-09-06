@@ -4,34 +4,39 @@ void SpellTimetrack::push_back(CastSpellDetail* spell)
 {
     if (m_WillCompareTable.find(spell->SpellOwner) == m_WillCompareTable.end())
     {
-        m_WillCompareTable[spell->SpellOwner] = spell->SelectedWill;
+        m_WillCompareTable.emplace(spell->SpellOwner, spell->SelectedWill);
     }
     else
     {
         m_WillCompareTable[spell->SpellOwner] += spell->SelectedWill;
     }
 
+    std::cout << "Add Spell For :" << (int)spell->SpellOwner << " or "<<(int)m_WillCompareTable.find(spell->SpellOwner)->first << "\n";
     m_Timetrack.push_back(spell);
 }
 
 CasterPosition SpellTimetrack::GetWinCaster()
 {
     CasterPosition mostWillCaster = CasterPosition::NONE;
-    for (auto it = m_WillCompareTable.begin(); it != m_WillCompareTable.end(); it++)
+    if (m_Timetrack.size() > 0)
     {
-        if (mostWillCaster == CasterPosition::NONE)
+        for (auto it = m_WillCompareTable.begin(); it != m_WillCompareTable.end(); it++)
         {
-            mostWillCaster = it->first;
-        }
-        else if (m_WillCompareTable[mostWillCaster] < it->second)
-        {
-            mostWillCaster = it->first;
-        }
-        else if (m_WillCompareTable[mostWillCaster] == it->second && mostWillCaster != it->first)
-        {
-            mostWillCaster = CasterPosition::TIED;
+            if (mostWillCaster == CasterPosition::NONE)
+            {
+                mostWillCaster = it->first;
+            }
+            else if (m_WillCompareTable[mostWillCaster] < it->second)
+            {
+                mostWillCaster = it->first;
+            }
+            else if (m_WillCompareTable[mostWillCaster] == it->second && mostWillCaster != it->first)
+            {
+                mostWillCaster = CasterPosition::TIED;
+            }
         }
     }
+
     return mostWillCaster;
 }
 
@@ -40,9 +45,12 @@ void SpellTimetrack::UpdateTimetrack()
     CasterPosition winCaster = GetWinCaster();
     if (winCaster <= CasterPosition::TIED)
     {
-        for (CastSpellDetail* csd : m_Timetrack)
+        if (m_Timetrack.size() > 0)
         {
-            csd->isCasted = true;
+            for (CastSpellDetail* csd : m_Timetrack)
+            {
+                csd->isCasted = true;
+            }
         }
         return;
     }
