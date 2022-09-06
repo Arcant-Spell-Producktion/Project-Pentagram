@@ -109,6 +109,7 @@
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Engine\SoundSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -339,5 +340,9 @@
     <Filter Include="Game\Player">
       <UniqueIdentifier>{aa602bac-6036-41d7-aa2c-a6247329fe4d}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
+    <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
   </ItemGroup>
 </Project>

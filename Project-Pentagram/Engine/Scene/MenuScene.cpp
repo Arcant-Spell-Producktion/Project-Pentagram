@@ -9,7 +9,7 @@ GameObject* cur;
 Button* curButton;
 void MenuScene::GameSceneInit()
 {
-	std::string path = "Sprites/Fire_Mage.png";
+	std::string path = "Sprites/Fire_Mage.png"; 
 
 	ParticleProps particleProp;
 	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
@@ -85,6 +85,7 @@ void MenuScene::GameSceneInit()
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
 	button2->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
 	subUI->MakeChild(button);
@@ -94,6 +95,7 @@ void MenuScene::GameSceneInit()
 }
 
 float t = 0.0f;
+int temp = 0;
 void MenuScene::GameSceneUpdate(float dt)
 {
 	UpdateButtonEvents();
@@ -115,6 +117,11 @@ void MenuScene::GameSceneUpdate(float dt)
     {
         SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
     }
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
+	{
+		soundSystem->PlayOnce("Audio/DarkButHopeful.wav", temp == 0 ? 0.1f : 1.0f);
+		temp = (temp == 0 ? 1 : 0);
+	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->SetAnimationState(2);
@@ -193,5 +200,6 @@ void MenuScene::GameSceneFree()
 	{
 		delete uiObjectsList[idx];
 	}
+	soundSystem->FreeSound();
 	std::cout << "Menu Scene : Free Memory Completed\n";
 }

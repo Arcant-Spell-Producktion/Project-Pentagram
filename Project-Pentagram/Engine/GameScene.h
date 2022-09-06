@@ -2,14 +2,14 @@
 
 #include <vector>
 
-#include "Input.h"
-#include "GameObjectTag.h"
-#include "GameObject.h"
-#include "ParticleSystem.h"
-#include "UIObject.h"
-#include "Renderer/TextObject.h"
-#include "Button.h"
-#include "Camera.h"
+#include "Engine/Input.h"
+#include "Engine/GameObjectTag.h"
+#include "Engine/GameObject.h"
+#include "Engine/ParticleSystem.h"
+#include "Engine/UIObject.h"
+#include "Engine/Renderer/TextObject.h"
+#include "Engine/Button.h"
+#include "Engine/Camera.h"
 
 class GameScene
 {
@@ -21,6 +21,7 @@ class GameScene
 		std::vector<GameObject*> objectsList;
 		std::vector<UIObject*> uiObjectsList;
 		std::vector<Button*> buttonObjectsList;
+		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
 
 	public:
