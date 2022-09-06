@@ -40,7 +40,10 @@ void SpellTimetrack::UpdateTimetrack()
     CasterPosition winCaster = GetWinCaster();
     if (winCaster <= CasterPosition::TIED)
     {
-        clear();
+        for (CastSpellDetail* csd : m_Timetrack)
+        {
+            csd->isCasted = true;
+        }
         return;
     }
 
@@ -48,25 +51,32 @@ void SpellTimetrack::UpdateTimetrack()
     int totalLostWill = m_WillCompareTable[lossCaster];
     for (CastSpellDetail* csd : m_Timetrack)
     {
-        int currentWill = csd->SelectedWill;
-        if (currentWill > 1)
+        if (csd->SpellOwner == winCaster)
         {
-            int extraWill = currentWill - 1;
-            if (totalLostWill - extraWill >= 0)
+            int currentWill = csd->SelectedWill;
+            if (currentWill > 1)
             {
-                csd->SelectedWill -= extraWill;
-                totalLostWill -= extraWill;
+                int extraWill = currentWill - 1;
+                if (totalLostWill - extraWill >= 0)
+                {
+                    csd->SelectedWill -= extraWill;
+                    totalLostWill -= extraWill;
+                }
+                else
+                {
+                    csd->SelectedWill -= totalLostWill;
+                    totalLostWill = 0;
+                }
             }
-            else
+
+            if (totalLostWill <= 0)
             {
-                csd->SelectedWill -= totalLostWill;
-                totalLostWill = 0;
+                break;
             }
         }
-
-        if (totalLostWill <= 0)
+        else
         {
-            break;
+            csd->isCasted = true;
         }
     }
 }

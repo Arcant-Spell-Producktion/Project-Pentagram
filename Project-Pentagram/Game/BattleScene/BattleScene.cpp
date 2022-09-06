@@ -53,6 +53,40 @@ void BattleScene::PlayerCastUpdate(float dt)
 
 void BattleScene::ResolveStateUpdate(float dt)
 {
+    for (int i = 0; i < 10; i++)
+    {
+        SpellTimetrack* track = m_BattleManager->GetTimeline()->GetTimetrack(i);
+        CasterPosition casterToResolve = track->GetWinCaster();
+
+        //use casterToResolve play WillCompare Animation
+
+        track->UpdateTimetrack();
+
+        if (casterToResolve >= CasterPosition::CasterA)
+        {
+            for (CastSpellDetail* spell: track->GetSpellList())
+            {
+                if (spell->isCasted) continue;
+
+                //TODO: resolve the spell
+
+                spell->isCasted = true;
+
+                //TODO: check battle end condition
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+    m_BattleManager->GetTimeline()->UpdateTimeline();
+
+
+    //if(battle end)
+    //{}
+    //else
+    m_BattleManager->SetBattleState(BattleState::CastState);
 }
 
 void BattleScene::GameSceneLoad()

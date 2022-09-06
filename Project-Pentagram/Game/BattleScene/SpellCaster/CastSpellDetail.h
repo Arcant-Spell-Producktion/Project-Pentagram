@@ -10,6 +10,7 @@ class CastSpellDetail
         int SelectedWill;
         int SelectedEffect;
         int SelectedTime;
+        bool isCasted = false;
 
         CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time) :
             SpellOwner(position),

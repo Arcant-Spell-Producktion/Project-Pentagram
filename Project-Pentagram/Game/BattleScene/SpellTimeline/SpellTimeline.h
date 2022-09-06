@@ -7,6 +7,9 @@ private:
     array<SpellTimetrack, 11> m_Timeline;
 
 public:
+
+    SpellTimetrack* GetTimetrack(int track_index) { return &m_Timeline[track_index]; }
+    
     void AddSpellToTimeline(CastSpellDetail* spell)
     {
         int array_index = spell->SelectedTime <= 10 ? (spell->SelectedTime - 1) : (11 - 1);
