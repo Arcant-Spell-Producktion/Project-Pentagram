@@ -1,5 +1,6 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 
+float t = 0.0f;
 void MenuScene::GameSceneLoad()
 {
 	std::cout << "Menu Scene : Load Completed\n";
@@ -9,7 +10,8 @@ GameObject* cur;
 Button* curButton;
 void MenuScene::GameSceneInit()
 {
-	std::string path = "Sprites/Fire_Mage.png"; 
+	t = 0.0f;
+	std::string path = "Sprites/Fire_Mage.png";
 
 	ParticleProps particleProp;
 	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
@@ -30,7 +32,7 @@ void MenuScene::GameSceneInit()
 	obj2->scale = { 1600.0f, 500.0f, 1.0f };
 	obj2->position.y = -400.0f;
 
-	GameObject* obj3 = CreateGameObject("SmileFace", 1, {5});
+	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/character_minion_idle.png");
 	obj3->position.x += 500.0f;
@@ -92,12 +94,13 @@ void MenuScene::GameSceneInit()
 	subUI->MakeChild(button2);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
+
+	soundSystem->PlayLoop("Audio/ConfidentPlayfulWithSideofDeception.wav", 0.2f);
 }
 
-float t = 0.0f;
-int temp = 0;
 void MenuScene::GameSceneUpdate(float dt)
 {
+	dt *= timeScale;
 	UpdateButtonEvents();
 
 	double time = glfwGetTime();
@@ -112,15 +115,10 @@ void MenuScene::GameSceneUpdate(float dt)
 		SceneManager::LoadScene(GameState::GS_RESTART);
 		// If not return will cause memory problem
 		return;
-    }
+	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
-    {
-        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-    }
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
 	{
-		soundSystem->PlayOnce("Audio/DarkButHopeful.wav", temp == 0 ? 0.1f : 1.0f);
-		temp = (temp == 0 ? 1 : 0);
+		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
@@ -179,6 +177,8 @@ void MenuScene::GameSceneUpdate(float dt)
 		{
 			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 			{
+				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
+				soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
 				curObj->SetActive(curObj->isActive() ? false : true);
 			}
 		}

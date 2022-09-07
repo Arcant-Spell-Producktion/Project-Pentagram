@@ -23,6 +23,7 @@ class GameScene
 		std::vector<Button*> buttonObjectsList;
 		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
+		float timeScale = 1.0f;
 
 	public:
 
