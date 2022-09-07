@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\AudioGroup.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
+    <ClCompile Include="Engine\AudioGroup.cpp" />
     <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />

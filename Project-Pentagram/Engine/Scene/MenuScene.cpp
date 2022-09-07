@@ -95,7 +95,7 @@ void MenuScene::GameSceneInit()
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayLoop("Audio/ConfidentPlayfulWithSideofDeception.wav", 0.2f);
+	soundSystem->PlayGroupAudio("BGM", { "Audio/DarkButHopeful.wav", "Audio/ConfidentPlayfulWithSideofDeception.wav" }, 0.2f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)
@@ -119,6 +119,10 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
+	{
+		soundSystem->FindAudioGroup("BGM")->RemoveAudio("Audio/DarkButHopeful.wav");
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{

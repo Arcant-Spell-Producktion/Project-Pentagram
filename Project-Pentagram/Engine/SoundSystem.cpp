@@ -27,6 +27,26 @@ bool SoundSystem::isAllPaused()
 	return m_IsPaused;
 }
 
+// Audio Grouping Implement
+AudioGroup* SoundSystem::PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume, const float& playbackSpeed)
+{
+	AudioGroup* audioGroup = new AudioGroup(groupName);
+	for (const std::string fileName : filePathList)
+	{
+		Audio* newSound = m_SoundEngine->play2D(m_SoundSourceList[fileName], true, false, true);
+		newSound->setVolume(volume);
+		newSound->setPlaybackSpeed(playbackSpeed);
+		m_SoundList[fileName] = newSound;
+		audioGroup->AddAudio(fileName, newSound);
+	}
+	m_AudioGroupList[groupName] = audioGroup;
+	return audioGroup;
+}
+AudioGroup* SoundSystem::FindAudioGroup(const std::string& groupName)
+{
+	return m_AudioGroupList[groupName];
+}
+
 // Audio Implement
 Audio* SoundSystem::PlayLoop(const std::string& filePath, const float& volume, const float& playbackSpeed)
 {
@@ -58,12 +78,22 @@ Audio* SoundSystem::GetSound(const std::string& filePath)
 void SoundSystem::FreeSound()
 {
 	m_IsPaused = false;
+	// Stop All Sound
 	m_SoundEngine->stopAllSounds();
+
+	// Clear All Sound List
 	for (auto it = m_SoundList.begin(); it != m_SoundList.end(); it++)
 	{
 		it->second->drop();
 	}
 	m_SoundList.clear();
+
+	// Clear Audio Group
+	for (auto it = m_AudioGroupList.begin(); it != m_AudioGroupList.end(); it++)
+	{
+		delete it->second;
+	}
+	m_AudioGroupList.clear();
 }
 
 void SoundSystem::FreeEngine()

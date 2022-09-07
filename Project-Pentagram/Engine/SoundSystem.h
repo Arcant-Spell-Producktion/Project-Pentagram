@@ -7,8 +7,7 @@
 #include <vector>
 #include <map>
 
-using Audio = irrklang::ISound;
-using AudioSource = irrklang::ISoundSource;
+#include "Engine/AudioGroup.h"
 
 class SoundSystem
 {
@@ -16,6 +15,7 @@ class SoundSystem
 		irrklang::ISoundEngine* m_SoundEngine;
 		std::map<std::string, AudioSource*> m_SoundSourceList;
 		std::map<std::string, Audio*> m_SoundList;
+		std::map<std::string, AudioGroup*> m_AudioGroupList;
 		bool m_IsPaused = false;
 
 		void InitSoundEngine();
@@ -26,6 +26,10 @@ class SoundSystem
 		void SetMasterVolume(const float& volume);
 		void SetPauseAll(const bool& willPaused);
 		bool isAllPaused();
+
+		// Audio Grouping
+		AudioGroup* PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume = 1.0f, const float& playbackSpeed = 1.0f);
+		AudioGroup* FindAudioGroup(const std::string& groupName);
 
 		// Audio Playing
 		Audio* PlayLoop(const std::string& filePath, const float& volume = 1.0f, const float& playbackSpeed = 1.0f);

@@ -110,6 +110,7 @@
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Engine\SoundSystem.cpp" />
+    <ClCompile Include="Engine\AudioGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -233,6 +234,7 @@
     </ClInclude>
     <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
+    <ClInclude Include="Engine\AudioGroup.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
