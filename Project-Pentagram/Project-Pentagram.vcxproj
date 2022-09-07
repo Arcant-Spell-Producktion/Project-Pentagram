@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\AudioGroup.h" />
+    <ClInclude Include="Engine\SoundSystem.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
@@ -63,6 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
+    <ClCompile Include="Engine\AudioGroup.cpp" />
+    <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
@@ -111,6 +115,10 @@
     <None Include="WorkingDir\Shader\GameObjVertex.shader" />
     <None Include="WorkingDir\Shader\TextFragment.shader" />
     <None Include="WorkingDir\Shader\TextVertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
+    <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,5 +1,6 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 
+float t = 0.0f;
 void MenuScene::GameSceneLoad()
 {
 	std::cout << "Menu Scene : Load Completed\n";
@@ -9,6 +10,7 @@ GameObject* cur;
 Button* curButton;
 void MenuScene::GameSceneInit()
 {
+	t = 0.0f;
 	std::string path = "Sprites/Fire_Mage.png";
 
 	ParticleProps particleProp;
@@ -30,7 +32,7 @@ void MenuScene::GameSceneInit()
 	obj2->scale = { 1600.0f, 500.0f, 1.0f };
 	obj2->position.y = -400.0f;
 
-	GameObject* obj3 = CreateGameObject("SmileFace", 1, {5});
+	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/character_minion_idle.png");
 	obj3->position.x += 500.0f;
@@ -71,6 +73,7 @@ void MenuScene::GameSceneInit()
 	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
 	button->SetTexture("Sprites/Button_Test.png");
 	curButton = button;
 
@@ -83,17 +86,23 @@ void MenuScene::GameSceneInit()
 	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
 	button2->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
+	button2->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
 	subUI->MakeChild(button);
 	subUI->MakeChild(button2);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
+
+	soundSystem->PlayGroupAudio("BGM", { "Audio/DarkButHopeful.wav", "Audio/ConfidentPlayfulWithSideofDeception.wav" }, 0.2f);
 }
 
-float t = 0.0f;
 void MenuScene::GameSceneUpdate(float dt)
 {
+	dt *= timeScale;
+	UpdateButtonEvents();
+
 	double time = glfwGetTime();
 	if (t >= 1.0f)
 	{
@@ -106,11 +115,15 @@ void MenuScene::GameSceneUpdate(float dt)
 		SceneManager::LoadScene(GameState::GS_RESTART);
 		// If not return will cause memory problem
 		return;
-    }
+	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
-    {
-        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-    }
+	{
+		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
+	{
+		soundSystem->FindAudioGroup("BGM")->RemoveAudio("Audio/DarkButHopeful.wav");
+	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->SetAnimationState(2);
@@ -168,41 +181,13 @@ void MenuScene::GameSceneUpdate(float dt)
 		{
 			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 			{
+				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
+				soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
 				curObj->SetActive(curObj->isActive() ? false : true);
 			}
 		}
 
 		if (!curObj->isActive()) { continue; }
-
-		else if (curObj->name == "Options_Button")
-		{
-			Button* curButton = dynamic_cast<Button*>(curObj);
-			if (curButton->onHover())
-			{
-				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
-			}
-			else
-			{
-				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-			}
-		}
-		else if (curObj->name == "Exit_Button")
-		{
-			Button* curButton = dynamic_cast<Button*>(curObj);
-			if (curButton->onHover())
-			{
-				curButton->color = { 0.9f, 0.9f, 0.9f, 1.0f };
-			}
-			else
-			{
-				curButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-			}
-
-			if (curButton->onClick())
-			{
-				GameStateController::GetInstance()->currentState = GameState::GS_QUIT;
-			}
-		}
 		curObj->OnUpdate(dt);
 	}
 }
@@ -219,5 +204,6 @@ void MenuScene::GameSceneFree()
 	{
 		delete uiObjectsList[idx];
 	}
+	soundSystem->FreeSound();
 	std::cout << "Menu Scene : Free Memory Completed\n";
 }

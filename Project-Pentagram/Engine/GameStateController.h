@@ -1,9 +1,9 @@
 ﻿#pragma once
 
-#include "GameState.h"
-#include "GameScene.h"
-#include "Scene/MenuScene.h"
-#include "Scene/NodeScene.h"
+#include "Engine/GameState.h"
+#include "Engine/GameScene.h"
+#include "Engine/Scene/MenuScene.h"
+#include "Engine/Scene/NodeScene.h"
 #include "Game/BattleScene/BattleScene.h"
 #include "Utilities/Singleton.h"
 

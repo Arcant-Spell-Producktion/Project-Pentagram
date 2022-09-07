@@ -109,6 +109,8 @@
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Engine\SoundSystem.cpp" />
+    <ClCompile Include="Engine\AudioGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -230,6 +232,9 @@
     <ClInclude Include="Game\Player\PlayerData.h">
       <Filter>Game\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Engine\SoundSystem.h" />
+    <ClInclude Include="Engine\AudioGroup.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -337,5 +342,9 @@
     <Filter Include="Game\Player">
       <UniqueIdentifier>{aa602bac-6036-41d7-aa2c-a6247329fe4d}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
+    <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
   </ItemGroup>
 </Project>

@@ -4,18 +4,22 @@
 #include "UIObject.h"
 #include "Renderer/TextObject.h"
 
+#include <functional>
+
 class Button : public UIObject
 {
 	public:
+		// OnHover Color
+		glm::vec4 hoverColor;
+		std::function<void(Button*)> onHover;
+		std::function<void(Button*)> onClick;
+		std::function<void(Button*)> unHover;
 		// Text
 		TextObject textObject;
 		// Button Border(Button Slicing)
 		float border;
-		// Pointer of Vector (Tracking Current Object in UIObjectList)
-		std::vector<UIObject*>* uiList;
+
 		
 		Button(const std::string& objName);
 		virtual void Draw(Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
-		bool onClick();
-		bool onHover();
 };
