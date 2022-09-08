@@ -4,8 +4,11 @@ Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
 	m_Tag = GameObjectTag::BUTTON;
-	uiList = nullptr;
 	border = 40.0f;
+	hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	onHover = [](Button* button) { std::cout << button->name << " : OnHover\n"; };
+	unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
+	onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
 }
 
 void Button::Draw(Camera& camera, const glm::mat4& parentModel)
@@ -33,7 +36,7 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 	shader.setMat4("u_Model", model);
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
-	shader.setVec4("u_Color", color);
+	shader.setVec4("u_Color", (hoverColor == glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) ? color : hoverColor));
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
@@ -69,74 +72,5 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
 		childList[idx]->Draw(camera);
-	}
-}
-
-bool Button::onClick()
-{
-	if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
-	{
-		return false;
-	}
-
-	return onHover();
-}
-
-bool Button::onHover()
-{
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
-
-	float curX = (Input::mouseX - screen_width / 2.0f);
-	float curY = (screen_height / 2.0f - Input::mouseY);
-
-	float left = position.x - (scale.x / 2.0f);
-	float right = position.x + (scale.x / 2.0f);
-	float top = position.y + (scale.y / 2.0f);
-	float bottom = position.y - (scale.y / 2.0f);
-
-	// Debug
-	/*
-		std::cout << "MOUSE : " << curX << " " << curY << "\n";
-		std::cout << "LEFT : " << left << "\n";
-		std::cout << "RIGHT : " << right << "\n";
-		std::cout << "TOP : " << top << "\n";
-		std::cout << "BOTTOM : " << bottom << "\n";
-		std::cout << "POS : " << position.x << " " << position.y << "\n\n";
-	*/
-
-
-	// If Mouse position hit with current Object
-	if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
-	{
-		for (int idx = uiList->size() - 1; uiList->at(idx) != this; idx--)
-		{
-			UIObject* curObj = uiList->at(idx);
-
-			// If current Object is inactive (Not Render) => No need to check collision
-			if (curObj == nullptr || !curObj->isActive())
-			{
-				continue;
-			}
-			// If current Object is TextObject or UIObject => No need to check
-			if (dynamic_cast<Button*>(curObj) != nullptr)
-			{
-				left = curObj->position.x - (curObj->scale.x / 2.0f);
-				right = curObj->position.x + (curObj->scale.x / 2.0f);
-				top = curObj->position.y + (curObj->scale.y / 2.0f);
-				bottom = curObj->position.y - (curObj->scale.y / 2.0f);
-
-				if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
-				{
-					return false;
-				}
-			}
-
-		}
-		return true;
-	}
-	else
-	{
-		return false;
 	}
 }

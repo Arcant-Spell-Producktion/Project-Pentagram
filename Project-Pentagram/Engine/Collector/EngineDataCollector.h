@@ -2,9 +2,10 @@
 
 #include "Utilities/Singleton.h"
 
-#include "ShaderCollector.h"
-#include "FontCollector.h"
-#include "TextureCollector.h"
+#include "Engine/Collector/ShaderCollector.h"
+#include "Engine/Collector/FontCollector.h"
+#include "Engine/Collector/TextureCollector.h"
+#include "Engine/SoundSystem.h"
 
 class EngineDataCollector : public Singleton<EngineDataCollector>
 {
@@ -12,12 +13,14 @@ class EngineDataCollector : public Singleton<EngineDataCollector>
 		ShaderCollector m_ShaderCollector;
 		FontCollector m_FontCollector;
 		TextureCollector m_TextureCollector;
+		SoundSystem m_SoundSystem;
 
 	public:
 		// Getter
 		ShaderCollector* GetShaderCollector();
 		FontCollector* GetFontCollector();
 		TextureCollector* GetTextureCollector();
+		SoundSystem* GetSoundSystem();
 
 		// Free Memory
 		void Free();

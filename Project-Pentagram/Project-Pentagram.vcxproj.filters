@@ -113,6 +113,8 @@
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\SoundSystem.cpp" />
+    <ClCompile Include="Engine\AudioGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -278,6 +280,9 @@
     <ClInclude Include="Game\BattleScene\BattleSceneData.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Engine\SoundSystem.h" />
+    <ClInclude Include="Engine\AudioGroup.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -394,5 +399,9 @@
     <Filter Include="Game\BattleScene\BattleState">
       <UniqueIdentifier>{e74b6370-3651-4e89-9a5a-87a5b1671b0c}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
+    <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
   </ItemGroup>
 </Project>
