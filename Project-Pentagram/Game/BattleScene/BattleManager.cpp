@@ -1,4 +1,5 @@
-﻿#include "BattleManager.h"
+﻿#pragma once
+#include "BattleManager.h"
 
 void BattleManager::AddCaster(CasterController* controller)
 {
@@ -7,7 +8,6 @@ void BattleManager::AddCaster(CasterController* controller)
 
 void BattleManager::StartBattle()
 {
-    StandbyAllCaster();
     SetBattleState(BattleState::CastState);
 }
 
@@ -32,4 +32,10 @@ BattleManager::~BattleManager()
         delete cc;
     }
     m_Casters.clear();
+
+    for (auto statePair: m_BattleStates)
+    {
+        delete statePair.second;
+    }
+    m_BattleStates.clear();
 }

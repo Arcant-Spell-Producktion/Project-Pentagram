@@ -1,33 +1,42 @@
 ﻿#pragma once
+#include <map>
 #include <vector>
+#include "Game/BattleScene/BattleStates/BattleStateModel.h"
 #include "Utilities/Singleton.h"
 #include "SpellTimeline/SpellTimeline.h"
 #include "SpellCaster/CasterController.h"
-
-enum class BattleState
-{
-    SetupState = 0,
-    CastState,
-    CastConfirmState,
-    ResolveState,
-    ResultState
-};
 
 class BattleManager : public Singleton<BattleManager>
 {
 private:
     BattleState m_CurrentState = BattleState::SetupState;
-    SpellTimeline m_Timeline;
-    std::vector<CasterController*> m_Casters;
+    std::map<BattleState, BaseBattleState*> m_BattleStates;
     int m_CurrentCasterIndex = 0;
+    std::vector<CasterController*> m_Casters;
+    SpellTimeline m_Timeline;
 
 public:
     void SetBattleState(BattleState state)
     {
+        BattleState OldState = m_CurrentState;
         m_CurrentState = state;
-        std::cout << "\n\t Battle State: " << (int)m_CurrentState << "\n\n";
+
+        m_BattleStates[OldState]->OnBattleStateOut();
+        m_BattleStates[m_CurrentState]->OnBattleStateIn(this);
+
+        std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to "<< (int)m_CurrentState <<"\n\n";
     }
-    BattleState GetBattleState() { return m_CurrentState; }
+    BaseBattleState* GetBattleStates() { return m_BattleStates[m_CurrentState]; }
+
+    void Init()
+    {
+        for (auto state : BattleStateModel::GetBattleStates())
+        {
+            m_BattleStates.emplace(state->StateID,state);
+        }
+
+        m_BattleStates[BattleState::SetupState]->OnBattleStateIn(this);
+    }
 
     void StartBattle();
     void SwapCaster();

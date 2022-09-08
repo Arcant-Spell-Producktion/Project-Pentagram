@@ -210,9 +210,6 @@
       <Filter>Utilities\TinyXml</Filter>
     </ClInclude>
     <ClInclude Include="Game\Spells\Element.h" />
-    <ClInclude Include="Game\BattleScene\BattleManager.h">
-      <Filter>Game\BattleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Game\BattleScene\BattleScene.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
@@ -257,6 +254,24 @@
       <Filter>Game\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\ResolveBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\SetupBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleManager.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -369,6 +384,9 @@
     </Filter>
     <Filter Include="Game\GameData\CasterData">
       <UniqueIdentifier>{315d151d-6d86-4b8a-a970-9720a78565ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\BattleState">
+      <UniqueIdentifier>{e74b6370-3651-4e89-9a5a-87a5b1671b0c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

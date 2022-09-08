@@ -128,11 +128,11 @@ void BattleScene::GameSceneInit()
 {
     m_BattleManager = BattleManager::GetInstance();
 
-    m_BattleManager->AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
-    m_BattleManager->AddCaster(new CasterController({Element::Debug,CasterPosition::CasterB,1,1}));
+    m_BattleManager->Init();
+
+    std::cout << "Battle Scene : Initialize Completed\n";
 
     m_BattleManager->StartBattle();
-    std::cout << "Battle Scene : Initialize Completed\n";
 }
 
 void BattleScene::GameSceneUpdate(float dt)
@@ -144,7 +144,7 @@ void BattleScene::GameSceneUpdate(float dt)
         return;
     }
 
-    switch (m_BattleManager->GetBattleState())
+    switch (m_BattleManager->GetBattleStates()->StateID)
     {
     case BattleState::CastState:
         CastStateUpdate(dt);
@@ -171,9 +171,6 @@ void BattleScene::GameSceneUnload()
 
 void BattleScene::GameSceneFree()
 {
-
-    
-
     // Free GameObject
     for (GLuint idx = 0; idx < objectsList.size(); idx++)
     {

@@ -1,4 +1,5 @@
-﻿#include "CasterData.h"
+﻿#pragma once
+#include "CasterData.h"
 
 class PlayerData: public CasterData  
 {

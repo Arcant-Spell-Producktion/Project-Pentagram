@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\ResolveBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\SetupBattleState.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
