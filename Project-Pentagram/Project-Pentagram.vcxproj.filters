@@ -109,6 +109,10 @@
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
     <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Engine\AudioGroup.cpp" />
   </ItemGroup>
@@ -211,9 +215,6 @@
       <Filter>Utilities\TinyXml</Filter>
     </ClInclude>
     <ClInclude Include="Game\Spells\Element.h" />
-    <ClInclude Include="Game\BattleScene\BattleManager.h">
-      <Filter>Game\BattleScene</Filter>
-    </ClInclude>
     <ClInclude Include="Game\BattleScene\BattleScene.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
@@ -229,8 +230,55 @@
     <ClInclude Include="Game\Spells\Element.h">
       <Filter>Game\Spells\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Player\PlayerData.h">
-      <Filter>Game\Player</Filter>
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimeline.h">
+      <Filter>Game\BattleScene\SpellTimeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\RuntimeGameData.h">
+      <Filter>Game\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\CasterData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\CasterPosition.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\EnemyData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\PlayerData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\MapData.h">
+      <Filter>Game\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\ResolveBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\SetupBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleManager.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleSceneData.h">
+      <Filter>Game\BattleScene</Filter>
     </ClInclude>
     <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
@@ -339,8 +387,17 @@
     <Filter Include="Game\BattleScene\SpellCaster">
       <UniqueIdentifier>{5056adb8-4763-48f9-834d-c814c385cd22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Player">
-      <UniqueIdentifier>{aa602bac-6036-41d7-aa2c-a6247329fe4d}</UniqueIdentifier>
+    <Filter Include="Game\BattleScene\SpellTimeline">
+      <UniqueIdentifier>{aa536545-9b87-4009-b92b-fdf47cf4275f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData">
+      <UniqueIdentifier>{851d5c60-5c86-40e1-b7c0-25542b9ed09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData\CasterData">
+      <UniqueIdentifier>{315d151d-6d86-4b8a-a970-9720a78565ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\BattleState">
+      <UniqueIdentifier>{e74b6370-3651-4e89-9a5a-87a5b1671b0c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

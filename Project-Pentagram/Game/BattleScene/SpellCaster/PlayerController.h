@@ -3,5 +3,5 @@
 class PlayerController : public CasterController
 {
 public:
-    PlayerController(CasterData caster) :CasterController(caster) {}
+    PlayerController(CasterData caster) : CasterController(caster){}
 };

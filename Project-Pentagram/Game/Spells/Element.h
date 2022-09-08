@@ -6,7 +6,7 @@ class Element
 private:
     static const std::string enum_string[];
 public:
-    static enum Type
+    enum Type
     {
         NULLTYPE = -1,
         Fire = 0,

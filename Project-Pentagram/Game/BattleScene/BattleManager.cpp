@@ -1,32 +1,37 @@
-﻿#include "BattleManager.h"
-
-void BattleManager::AddCaster(CasterController* controller)
-{
-    m_Casters.push_back(controller);
-}
+﻿#pragma once
+#include "BattleManager.h"
 
 void BattleManager::StartBattle()
 {
-    m_CurrentState = BattleState::InvokeState;
+    SetBattleState(BattleState::CastState);
 }
 
 void BattleManager::SwapCaster()
 {
     if (GetCurrentCaster()->GetState() == CasterState::Passed && GetNextCaster()->GetState() == CasterState::Passed)
     {
-        m_CurrentState = BattleState::ResolveState;
+        SetBattleState(BattleState::ResolveState);
         return;
     }
-    m_CurrentCasterIndex = (m_CurrentCasterIndex + 1) % m_Casters.size();
+    m_Data.CurrentCasterIndex = (m_Data.CurrentCasterIndex + 1) % m_Data.Casters.size();
 
     GetCurrentCaster()->StartTurn();
+
+    SetBattleState(BattleState::CastState);
 }
 
 BattleManager::~BattleManager()
 {
-    for(CasterController* cc : m_Casters)
+    for(CasterController* cc : m_Data.Casters)
     {
         delete cc;
     }
-    m_Casters.clear();
+    m_Data.Casters.clear();
+
+    for (auto statePair: m_BattleStates)
+    {
+        delete statePair.second;
+    }
+
+    m_BattleStates.clear();
 }

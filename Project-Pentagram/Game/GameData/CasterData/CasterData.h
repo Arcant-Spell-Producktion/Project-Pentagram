@@ -5,26 +5,29 @@
 class CasterData
 {
 private:
-    Element::Type m_Element = Element::NULLTYPE;
-    CasterPosition m_Position = CasterPosition::NONE;
+    Element::Type m_Element;
+    CasterPosition m_Position;
     int m_Health = 10;
     int m_Mana = 10;
 public:
-    CasterData(Element::Type element = Element::NULLTYPE, int health = 10, int mana = 10):
+    CasterData(Element::Type element = Element::NULLTYPE, CasterPosition position = CasterPosition::NONE, int health = 10, int mana = 10):
         m_Element(element),
+        m_Position(position),
         m_Health(health),
         m_Mana(mana)
     {}
 
     CasterData(const CasterData &casterData):
         m_Element(casterData.m_Element),
+        m_Position(casterData.m_Position),
         m_Health(casterData.m_Health),
         m_Mana(casterData.m_Mana)
     {}
 
-    CasterData& operator()(Element::Type element = Element::NULLTYPE, int health = 10, int mana = 10)
+    CasterData& operator()(Element::Type element = Element::NULLTYPE, CasterPosition position = CasterPosition::NONE, int health = 10, int mana = 10)
     {
         m_Element = element;
+        m_Position = position;
         m_Health = health;
         m_Mana = mana;
         return *this;
@@ -34,7 +37,7 @@ public:
 
     void SetElement(Element::Type element) { m_Element = element; }
 
-    virtual CasterPosition GetPosition() { return m_Position; }
+    CasterPosition GetPosition() { return m_Position; }
 
     void SetPosition(CasterPosition position) { m_Position = position; }
     

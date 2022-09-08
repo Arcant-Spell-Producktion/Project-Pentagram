@@ -14,4 +14,13 @@ public:
     {
      return SpellBooks.find(element)->second;
     }
+
+    ~SpellDatabase()
+    {
+        for (auto spellbookPair : SpellBooks)
+        {
+            delete spellbookPair.second;
+        }
+        SpellBooks.clear();
+    }
 };

@@ -15,7 +15,7 @@ public:
         return instance;
     }
 
-    void Free() { delete instance; }
+    void Free() { delete instance; instance = nullptr; }
 };
 
 template <class T>

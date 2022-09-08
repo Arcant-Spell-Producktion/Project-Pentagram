@@ -1,33 +1,56 @@
 ﻿#pragma once
-#include <vector>
-#include "SpellCaster/CasterController.h"
+#include <map>
 
-enum class BattleState
-{
-    SetupState = 0,
-    InvokeState,
-    ResolveState,
-    ResultState
-};
+#include "Game/BattleScene/BattleSceneData.h"
+#include "Game/BattleScene/BattleStates/BattleStateModel.h"
+#include "Utilities/Singleton.h"
 
-class BattleManager
+class BattleManager : public Singleton<BattleManager>
 {
 private:
+    BattleSceneData m_Data;
     BattleState m_CurrentState = BattleState::SetupState;
-    std::vector<CasterController*> m_Casters;
-    int m_CurrentCasterIndex = 0;
+    std::map<BattleState, BaseBattleState*> m_BattleStates;
 
 public:
-    void SetBattleState(BattleState state) { m_CurrentState = state; }
-    BattleState GetBattleState() { return m_CurrentState; }
+    BattleSceneData* GetData() { return &m_Data; }
+
+    void SetBattleState(BattleState state)
+    {
+        BattleState OldState = m_CurrentState;
+        m_CurrentState = state;
+
+        m_BattleStates[OldState]->OnBattleStateOut();
+        m_BattleStates[m_CurrentState]->OnBattleStateIn(&m_Data);
+
+        std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to "<< (int)m_CurrentState <<"\n\n";
+    }
+    BaseBattleState* GetBattleStates() { return m_BattleStates[m_CurrentState]; }
+
+    void Init()
+    {
+        for (auto state : BattleStateModel::GetBattleStates())
+        {
+            m_BattleStates.emplace(state->StateID, state);
+        }
+
+        m_BattleStates[BattleState::SetupState]->OnBattleStateIn(&m_Data);
+    }
 
     void StartBattle();
     void SwapCaster();
-    void EndBattle() { m_CurrentState = BattleState::ResultState;} //TODO
+    void EndBattle() { m_CurrentState = BattleState::ResultState; } //TODO
 
-    void AddCaster(CasterController* controller);
-    CasterController* GetCurrentCaster() { return m_Casters[m_CurrentCasterIndex]; }
-    CasterController* GetNextCaster() { return m_Casters[(m_CurrentCasterIndex + 1) % m_Casters.size()]; }
+    CasterController* GetCurrentCaster() { return m_Data.Casters[m_Data.CurrentCasterIndex]; }
+    CasterController* GetNextCaster() { return m_Data.Casters[(m_Data.CurrentCasterIndex + 1) % m_Data.Casters.size()]; }
+    void StandbyAllCaster()
+    { 
+        for (auto caster : m_Data.Casters)
+        {
+        caster->SetState(CasterState::Idle); 
+        caster->GetSpellCaster()->ResetMana();
+        }
+    }
     
     ~BattleManager();
 };

@@ -3,6 +3,7 @@
 enum class CasterPosition
 {
     NONE = -1,
-    CasterA = 0,
-    CasterB = 1,
+    TIED = 0,
+    CasterA = 1,
+    CasterB = 2,
 };

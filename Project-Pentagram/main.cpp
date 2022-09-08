@@ -35,7 +35,8 @@ int main()
     currentGame = RuntimeGameData::GetInstance();
 
     //Init player, TODO:: done in character select instead
-    currentGame->Player = new PlayerData(CasterData(Element::Debug,100,10));
+    //CasterData playerData(Element::Debug, CasterPosition::CasterA, 100, 10);
+    currentGame->Player = new PlayerData({ Element::Debug, CasterPosition::CasterA, 100, 10 });
 
 	double currTime = 0;
 	double prevTime = 0;
