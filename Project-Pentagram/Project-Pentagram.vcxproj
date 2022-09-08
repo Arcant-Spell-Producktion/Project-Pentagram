@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
+    <ClInclude Include="Game\BattleScene\BattleSceneData.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h" />
@@ -79,6 +80,7 @@
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp" />

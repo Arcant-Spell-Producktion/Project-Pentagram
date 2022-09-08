@@ -1,4 +1,5 @@
 ﻿#include "BattleScene.h"
+#include "Game/BattleScene/BattleStates/BattleStateModel.h"
 #include "Game/GameData/RuntimeGameData.h"
 #include "SpellCaster/PlayerController.h"
 
@@ -19,10 +20,10 @@ void BattleScene::CastStateUpdate(float dt)
             SpellCaster* currentCaster = currentController->GetSpellCaster();
 
             currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
 
             currentCaster->SetPentagramData({ 1, 1, 1, 1, 3 });
-            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
+            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
 
 
             currentController->EndTurn(true);
@@ -61,9 +62,9 @@ void BattleScene::PlayerCastUpdate(float dt)
         {
             std::cout << "-----------------------\n\tCheck value : " << (int)currentCaster->GetCasterData()->GetPosition() << "\n\n";
 
-            m_BattleManager->GetTimeline()->AddSpellToTimeline(currentController->CastSpell());
-            m_BattleManager->SetBattleState(BattleState::CastConfirmState);
+            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
             currentController->EndTurn();
+            m_BattleManager->SwapCaster();
         }
         else
         {
@@ -82,7 +83,7 @@ void BattleScene::ResolveStateUpdate(float dt)
     for (int i = 0; i < 10; i++)
     {
         std::cout << "Resovel Track: " << i << "\n";
-        SpellTimetrack* track = m_BattleManager->GetTimeline()->GetTimetrack(i);
+        SpellTimetrack* track = m_BattleManager->GetData()->Timeline.GetTimetrack(i);
         std::cout << "\tGet Track: " << i << "\n";
         CasterPosition casterToResolve = track->GetWinCaster();
         std::cout << "\tGet casterToResolve: " << (int)casterToResolve << "\n";
@@ -108,8 +109,7 @@ void BattleScene::ResolveStateUpdate(float dt)
             continue;
         }
     }
-    m_BattleManager->GetTimeline()->UpdateTimeline();
-
+    m_BattleManager->GetData()->Timeline.UpdateTimeline();
 
     //if(battle end)
     //{}
@@ -149,12 +149,6 @@ void BattleScene::GameSceneUpdate(float dt)
     case BattleState::CastState:
         CastStateUpdate(dt);
         break;
-    case BattleState::CastConfirmState:
-        if (m_BattleManager->GetCurrentCaster()->GetState() >= CasterState::EndTurn)
-        {
-            m_BattleManager->SwapCaster();
-        }
-        break;
     case BattleState::ResolveState:
         ResolveStateUpdate(dt);
         break;
@@ -165,7 +159,7 @@ void BattleScene::GameSceneUpdate(float dt)
 void BattleScene::GameSceneUnload()
 {
     //Free Battle Manager
-    delete m_BattleManager;
+    m_BattleManager->Free();
     GameScene::GameSceneUnload();
 }
 
