@@ -39,7 +39,7 @@ class ParticleSystem : public GameObject
 
 			bool active = false;
 		};
-		std::vector<Particle> m_ParticlePool;
+		Particle m_ParticlePool[1000];
 		float curSpawnTime;
 
 	public:
@@ -51,6 +51,7 @@ class ParticleSystem : public GameObject
 
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera &camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
+		virtual void UnloadMesh() override;
 
 		void Emit(const ParticleProps& particleProps);
 };

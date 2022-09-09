@@ -90,6 +90,10 @@ void GameObject::Draw(Camera& camera, const glm::mat4& parentModel)
 void GameObject::UnloadMesh()
 {
 	this->m_Mesh.Delete();
+	this->m_Texture = nullptr;
+	this->m_AnimCol.clear();
+	this->childList.clear();
+	this->parent= nullptr;
 }
 
 void GameObject::MakeChild(GameObject* gameObj)

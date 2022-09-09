@@ -3,7 +3,7 @@
 // ------------------------ Creating Object ------------------------ 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
-	GameObject* obj;
+	GameObject* obj = nullptr;
 	if (objName == "")
 	{
 		obj = new GameObject("GameObject_" + std::to_string(objectsList.size()), animRow, animCol);
@@ -35,7 +35,7 @@ ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticlePr
 
 UIObject* GameScene::CreateUIObject(const std::string& objName)
 {
-	UIObject* ui;
+	UIObject* ui = nullptr;
 	if (objName == "")
 	{
 		ui = new UIObject("UI_" + std::to_string(uiObjectsList.size()));
@@ -51,7 +51,7 @@ UIObject* GameScene::CreateUIObject(const std::string& objName)
 
 TextObject* GameScene::CreateTextObject(const std::string& objName)
 {
-	TextObject* textObj;
+	TextObject* textObj = nullptr;
 	if (objName == "")
 	{
 		textObj = new TextObject("TextObject_" + std::to_string(uiObjectsList.size()));
@@ -67,7 +67,7 @@ TextObject* GameScene::CreateTextObject(const std::string& objName)
 
 Button* GameScene::CreateButton(const std::string& objName)
 {
-	Button* button;
+	Button* button = nullptr;
 	if (objName == "")
 	{
 		button = new Button("Button_" + std::to_string(uiObjectsList.size()));

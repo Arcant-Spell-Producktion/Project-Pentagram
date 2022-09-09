@@ -5,7 +5,6 @@ ParticleSystem::ParticleSystem(const std::string& objName)
 {
 	m_Tag = GameObjectTag::PARTICLE;
 
-	m_ParticlePool.resize(1000);
 	m_PoolIndex = 999;
 
 	curSpawnTime = 0.0f;
@@ -97,6 +96,11 @@ void ParticleSystem::Draw(Camera& camera, const glm::mat4& parentModel)
 	}
 }
 
+void ParticleSystem::UnloadMesh()
+{
+	GameObject::UnloadMesh();
+}
+
 void ParticleSystem::Emit(const ParticleProps& particleProps)
 {
 
@@ -120,5 +124,5 @@ void ParticleSystem::Emit(const ParticleProps& particleProps)
 	particle.sizeBegin = particleProps.sizeBegin + particleProps.sizeVariation * (RANDOM_FLOAT - 0.5f);
 	particle.sizeEnd = particleProps.sizeEnd;
 
-	m_PoolIndex = (--m_PoolIndex >= m_ParticlePool.size() ? m_ParticlePool.size() - 1 : m_PoolIndex);
+	m_PoolIndex = (--m_PoolIndex >= 1000 ? 1000 - 1 : m_PoolIndex);
 }

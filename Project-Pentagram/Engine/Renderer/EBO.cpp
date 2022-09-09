@@ -5,6 +5,10 @@ EBO::EBO()
 	glGenBuffers(1, &m_ID);
 }
 
+EBO::~EBO()
+{
+
+}
 
 void EBO::Bind()
 {

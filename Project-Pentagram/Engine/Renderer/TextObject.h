@@ -44,6 +44,7 @@ class TextObject : public UIObject
 		TextObject(const std::string& objName);
 		virtual void Draw(Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f)) override;
 		virtual void OnUpdate(const float& dt) override;
+		virtual void UnloadMesh() override;
 
 		// Setter
 		void SetSlowRender(const float& renderTime);

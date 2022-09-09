@@ -27,6 +27,8 @@ class GameScene
 
 	public:
 
+		virtual ~GameScene() {}
+
 		// GameState Loop
 		virtual void GameSceneLoad() = 0;
 		virtual void GameSceneInit() = 0;

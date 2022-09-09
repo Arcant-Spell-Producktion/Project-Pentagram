@@ -6,6 +6,11 @@ VAO::VAO()
 	glGenVertexArrays(1, &m_ID);
 }
 
+VAO::~VAO()
+{
+
+}
+
 void VAO::Bind()
 {
 	glBindVertexArray(m_ID);

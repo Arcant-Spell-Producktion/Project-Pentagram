@@ -3,7 +3,6 @@
 GameStateController::GameStateController()
 	: currentState(GameState::GS_NONE), currentScene(nullptr)
 {
-
 }
 
 void GameStateController::Init(GameState state)
@@ -39,5 +38,9 @@ void GameStateController::Update()
 
 void GameStateController::Free()
 {
+	if (currentScene != nullptr)
+	{
+		delete currentScene;
+	}
 	Singleton::Free();
 }

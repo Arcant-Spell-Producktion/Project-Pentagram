@@ -8,6 +8,7 @@ class EBO
 		GLuint m_ID;
 	public:
 		EBO();
+		~EBO();
 		void Bind();
 		void UnBind();
 		void Delete();

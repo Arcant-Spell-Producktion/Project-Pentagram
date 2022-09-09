@@ -8,6 +8,7 @@ class VBO
 		GLuint m_ID;
 	public:
 		VBO();
+		~VBO();
 		void Bind();
 		void UnBind();
 		void Delete();

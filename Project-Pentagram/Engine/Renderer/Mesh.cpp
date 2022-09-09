@@ -46,6 +46,11 @@ Mesh::Mesh(const int& animRow, const int& animCol)
 	ebo.UnBind();
 }
 
+Mesh::~Mesh() 
+{
+
+}
+
 void Mesh::Render()
 {
 	vao.Bind();
@@ -55,7 +60,7 @@ void Mesh::Render()
 void Mesh::Delete()
 {
 	// Delete All of Buffers
-	glDeleteVertexArrays(1, vao.getID());
-	glDeleteBuffers(1, vbo.getID());
-	glDeleteBuffers(1, ebo.getID());
+	vao.Delete();
+	vbo.Delete();
+	ebo.Delete();
 }

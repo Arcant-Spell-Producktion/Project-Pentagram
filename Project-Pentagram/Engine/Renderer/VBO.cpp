@@ -6,6 +6,11 @@ VBO::VBO()
 	glGenBuffers(1, &m_ID);
 }
 
+VBO::~VBO()
+{
+
+}
+
 void VBO::Bind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_ID);

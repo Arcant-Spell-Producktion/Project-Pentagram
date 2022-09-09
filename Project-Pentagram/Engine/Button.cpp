@@ -74,3 +74,9 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 		childList[idx]->Draw(camera);
 	}
 }
+
+void Button::UnloadMesh()
+{
+	this->textObject.UnloadMesh();
+	GameObject::UnloadMesh();
+}

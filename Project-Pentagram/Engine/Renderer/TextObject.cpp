@@ -47,6 +47,13 @@ void TextObject::Draw(Camera& camera, const glm::mat4& parentModel)
 	}
 }
 
+void TextObject::UnloadMesh()
+{
+	this->m_TextSumX.clear();
+	this->text.clear();
+	GameObject::UnloadMesh();
+}
+
 void TextObject::SetSlowRender(const float& renderTime)
 {
 	m_SlowRender = true;

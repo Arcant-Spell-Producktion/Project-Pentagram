@@ -16,6 +16,7 @@ namespace SceneManager
 		}
 
 		delete gameStateController->currentScene;
+		gameStateController->currentScene = nullptr;
 
 		gameStateController->Init(newState);
 	}

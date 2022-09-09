@@ -14,6 +14,8 @@ class Camera
 
 	public:
 		Camera(const glm::vec3& position = glm::vec3(0.0f, 0.0f, 0.0f));
+		~Camera() {}
+
 		glm::mat4 getViewMatrix();
 		void Input(const float& deltaTime);
 

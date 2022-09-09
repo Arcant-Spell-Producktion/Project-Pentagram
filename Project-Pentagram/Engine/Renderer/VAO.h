@@ -9,6 +9,7 @@ class VAO
 		GLuint m_ID;
 	public:
 		VAO();
+		~VAO();
 		void Bind();
 		void UnBind();
 		void Delete();
