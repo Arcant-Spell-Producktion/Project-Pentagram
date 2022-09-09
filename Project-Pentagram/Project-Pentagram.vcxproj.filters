@@ -230,7 +230,6 @@
     <ClInclude Include="Game\Spells\Element.h">
       <Filter>Game\Spells\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
@@ -283,6 +282,9 @@
     <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
     <ClInclude Include="Engine\AudioGroup.h" />
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

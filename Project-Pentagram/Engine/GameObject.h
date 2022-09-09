@@ -41,7 +41,7 @@ class GameObject
 		glm::vec4 color;
 
 		GameObject(const std::string& objName, const int& animRow = 1, const std::vector<int>& animCol = { 1 });
-		virtual ~GameObject() {}
+		virtual ~GameObject();
 		virtual void OnUpdate(const float& dt);
 		virtual void Draw(Camera& camera, const glm::mat4& parentModel = glm::mat4(1.0f));
 		virtual void UnloadMesh();

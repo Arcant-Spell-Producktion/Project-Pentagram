@@ -1,5 +1,10 @@
 #include "GameScene.h"
 
+GameScene::~GameScene()
+{
+
+}
+
 // ------------------------ Creating Object ------------------------ 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {

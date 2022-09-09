@@ -29,6 +29,11 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	this->m_Texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
 }
 
+GameObject::~GameObject()
+{
+
+}
+
 void GameObject::OnUpdate(const float& dt)
 {
 

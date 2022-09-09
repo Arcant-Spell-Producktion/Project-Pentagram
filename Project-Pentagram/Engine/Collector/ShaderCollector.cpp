@@ -12,5 +12,4 @@ ShaderCollector::ShaderCollector()
 
 void ShaderCollector::Free()
 {
-
 }
