@@ -137,6 +137,10 @@
     <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
     <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="WorkingDir\Fonts\ARLRDBD.TTF" />
+    <Font Include="WorkingDir\Fonts\BAUHS93.TTF" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

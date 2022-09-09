@@ -113,8 +113,12 @@
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SoundSystem.cpp" />
-    <ClCompile Include="Engine\AudioGroup.cpp" />
+    <ClCompile Include="Engine\AudioGroup.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SoundSystem.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -280,10 +284,14 @@
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
     <ClInclude Include="Utilities\Color.h" />
-    <ClInclude Include="Engine\SoundSystem.h" />
-    <ClInclude Include="Engine\AudioGroup.h" />
     <ClInclude Include="Utilities\Color.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\AudioGroup.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SoundSystem.h">
+      <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -307,8 +315,12 @@
     <None Include="WorkingDir\Shader\GameObjFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
-    <None Include="WorkingDir\Shader\ButtonFragment.shader" />
-    <None Include="WorkingDir\Shader\ButtonVertex.shader" />
+    <None Include="WorkingDir\Shader\ButtonFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\ButtonVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -362,9 +374,6 @@
     <Filter Include="WorkingDir\Shader">
       <UniqueIdentifier>{9bb7899d-474a-4a9f-9bf5-b3ca78cfc583}</UniqueIdentifier>
     </Filter>
-    <Filter Include="WorkingDir\Shader\Font">
-      <UniqueIdentifier>{6e4de3bd-6dc1-40fe-b622-97ac24e63a26}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{adcd8aae-4966-4528-9230-58bf5cfa154a}</UniqueIdentifier>
     </Filter>
@@ -401,9 +410,27 @@
     <Filter Include="Game\BattleScene\BattleState">
       <UniqueIdentifier>{e74b6370-3651-4e89-9a5a-87a5b1671b0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WorkingDir\Audio">
+      <UniqueIdentifier>{73a2d1fd-78bc-4cb8-af9b-5e12f99d029e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Fonts">
+      <UniqueIdentifier>{6e4de3bd-6dc1-40fe-b622-97ac24e63a26}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav" />
-    <Media Include="WorkingDir\Audio\DarkButHopeful.wav" />
+    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav">
+      <Filter>WorkingDir\Audio</Filter>
+    </Media>
+    <Media Include="WorkingDir\Audio\DarkButHopeful.wav">
+      <Filter>WorkingDir\Audio</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="WorkingDir\Fonts\ARLRDBD.TTF">
+      <Filter>WorkingDir\Fonts</Filter>
+    </Font>
+    <Font Include="WorkingDir\Fonts\BAUHS93.TTF">
+      <Filter>WorkingDir\Fonts</Filter>
+    </Font>
   </ItemGroup>
 </Project>
