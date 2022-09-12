@@ -39,7 +39,7 @@ void ParticleSystem::OnUpdate(const float& dt)
 	}
 }
 
-void ParticleSystem::Draw(Camera& camera, const glm::mat4& parentModel)
+void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!m_Active)

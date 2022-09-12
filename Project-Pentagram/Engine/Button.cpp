@@ -11,7 +11,7 @@ Button::Button(const std::string& objName)
 	onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
 }
 
-void Button::Draw(Camera& camera, const glm::mat4& parentModel)
+void Button::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	if (!m_Active)
 	{
@@ -20,11 +20,11 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 
 	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader;
 
-	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 model = parentModel;
 
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-	model *= glm::scale(glm::mat4(1.0f), this->scale);
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
 	int screen_width = window->GetWidth();
@@ -33,7 +33,7 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	shader.setMat4("u_Model", model);
+	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
 	shader.setVec4("u_Color", (hoverColor == glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) ? color : hoverColor));
@@ -68,10 +68,10 @@ void Button::Draw(Camera& camera, const glm::mat4& parentModel)
 	this->m_Mesh.Render();
 	m_Texture->UnBind();
 
-	textObject.RenderText(this->position);
+	textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(camera);
+		childList[idx]->Draw(camera, model);
 	}
 }
 

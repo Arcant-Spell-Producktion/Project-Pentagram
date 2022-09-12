@@ -6,7 +6,7 @@ UIObject::UIObject(const std::string& objName)
 	m_Tag = GameObjectTag::UIOBJECT;
 }
 
-void UIObject::Draw(Camera& camera, const glm::mat4& parentModel)
+void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	if (!m_Active)
 	{
@@ -17,10 +17,10 @@ void UIObject::Draw(Camera& camera, const glm::mat4& parentModel)
 	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
 
 	// Update MVP Matrix
-	glm::mat4 model = glm::mat4(1.0f);
+	glm::mat4 model = parentModel;
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-	model *= glm::scale(glm::mat4(1.0f), this->scale);
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
 	int screen_width = window->GetWidth();
@@ -29,7 +29,7 @@ void UIObject::Draw(Camera& camera, const glm::mat4& parentModel)
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	shader.setMat4("u_Model", model);
+	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
 	shader.setVec4("u_Color", color);
@@ -55,6 +55,6 @@ void UIObject::Draw(Camera& camera, const glm::mat4& parentModel)
 
 	for (unsigned int idx = 0; idx < childList.size(); idx++)
 	{
-		childList[idx]->Draw(camera);
+		childList[idx]->Draw(camera, model);
 	}
 }
