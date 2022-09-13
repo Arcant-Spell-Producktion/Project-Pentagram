@@ -29,10 +29,13 @@ class GameObject
 		int m_CurAnimRow = 1, m_CurAnimCol = 1;
 		float m_Time = 0.0f;
 
+		// Child
+		std::vector<GameObject*> m_FrontChildList;
+		std::vector<GameObject*> m_BackChildList;
+
 	public:
 		std::string name;
 		GameObject* parent;
-		std::vector<GameObject*> childList;
 		// Transform
 		glm::vec3 position;
 		glm::vec3 scale;
@@ -46,7 +49,8 @@ class GameObject
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f));
 		virtual void UnloadMesh();
 
-		void SetChild(GameObject* gameObj);
+		void SetChildRenderFront(GameObject* gameObj);
+		void SetChildRenderBack(GameObject* gameObj);
 
 		// Getter
 		unsigned int GetTag();

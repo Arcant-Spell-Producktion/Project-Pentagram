@@ -34,6 +34,9 @@ namespace Input
 
 	void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
+		// In case of : FN + F1 to FN + F12
+		if (key < 0 || key >= GLFW_KEY_LAST) { return; }
+
 		if (action == GLFW_PRESS)
 		{
 			keyPressed[key] = true;
@@ -55,6 +58,8 @@ namespace Input
 
 	void mouseCallBack(GLFWwindow* window, int key, int action, int mods)
 	{
+		if (key < 0 || key >= GLFW_KEY_LAST) { return; }
+
 		if (action == GLFW_PRESS)
 		{
 			keyPressed[key] = true;
