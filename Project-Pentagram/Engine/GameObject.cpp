@@ -53,13 +53,15 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 model = parentModel;
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-	// !!Draw Child First(Only GameObject that draw child first)
-	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	
+	// Draw Back Child
+	for (unsigned int idx = 0; idx < m_BackChildList.size(); idx++)
 	{
-		childList[idx]->Draw(camera, model);
+		m_BackChildList[idx]->Draw(camera, model);
 	}
+
 	// !!Not Set scale to child -> Messy to encounter with
-	model *= glm::scale(glm::mat4(1.0f), this->scale);
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
 	int screen_width = window->GetWidth();
@@ -80,7 +82,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setFloat("u_OffsetX", 0.0f);
 		shader.setFloat("u_OffsetY", 0.0f);
 	}
-	shader.setMat4("u_Model", model);
+	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", view);
 	shader.setMat4("u_Projection", proj);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
@@ -90,6 +92,12 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 
 	this->m_Mesh.Render();
 	m_Texture->UnBind();
+
+	// Draw Front Child
+	for (unsigned int idx = 0; idx < m_FrontChildList.size(); idx++)
+	{
+		m_FrontChildList[idx]->Draw(camera, model);
+	}
 }
 
 void GameObject::UnloadMesh()
@@ -97,13 +105,19 @@ void GameObject::UnloadMesh()
 	this->m_Mesh.Delete();
 	this->m_Texture = nullptr;
 	this->m_AnimCol.clear();
-	this->childList.clear();
+	this->m_FrontChildList.clear();
+	this->m_BackChildList.clear();
 	this->parent= nullptr;
 }
 
-void GameObject::SetChild(GameObject* gameObj)
+void GameObject::SetChildRenderFront(GameObject* gameObj)
 {
-	childList.push_back(gameObj);
+	m_FrontChildList.push_back(gameObj);
+	gameObj->parent = this;
+}
+void GameObject::SetChildRenderBack(GameObject* gameObj)
+{
+	m_BackChildList.push_back(gameObj);
 	gameObj->parent = this;
 }
 
@@ -120,9 +134,13 @@ void GameObject::SetActive(const bool& active)
 	this->m_Active = active;
 
 	// Set Active on their childs
-	for (int idx = 0; idx < childList.size(); idx++)
+	for (int idx = 0; idx < m_FrontChildList.size(); idx++)
 	{
-		childList[idx]->SetActive(active);
+		m_FrontChildList[idx]->SetActive(active);
+	}
+	for (int idx = 0; idx < m_BackChildList.size(); idx++)
+	{
+		m_BackChildList[idx]->SetActive(active);
 	}
 }
 

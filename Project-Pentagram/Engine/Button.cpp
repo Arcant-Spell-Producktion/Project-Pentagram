@@ -24,6 +24,13 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	// Draw Back Child
+	for (unsigned int idx = 0; idx < m_BackChildList.size(); idx++)
+	{
+		m_BackChildList[idx]->Draw(camera, model);
+	}
+
+	// !!Not Set scale to child -> Messy to encounter with
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
@@ -69,9 +76,10 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	m_Texture->UnBind();
 
 	textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
-	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	// Draw Front Child
+	for (unsigned int idx = 0; idx < m_FrontChildList.size(); idx++)
 	{
-		childList[idx]->Draw(camera, model);
+		m_FrontChildList[idx]->Draw(camera, model);
 	}
 }
 

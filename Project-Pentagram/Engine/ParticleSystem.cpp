@@ -62,7 +62,16 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 originModel = parentModel;
 	originModel *= glm::translate(glm::mat4(1.0f), position);
 	originModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-	originModel *= glm::scale(glm::mat4(1.0f), scale);
+	
+	// Draw Back Child
+	for (unsigned int idx = 0; idx < m_BackChildList.size(); idx++)
+	{
+		m_BackChildList[idx]->Draw(camera, originModel);
+	}
+
+	// !!Not Set scale to child -> Messy to encounter with
+	
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), scale);
 	for (auto& particle : m_ParticlePool)
 	{
 		if (!particle.active)
@@ -78,7 +87,7 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		{
 			continue;
 		}
-		glm::mat4 model = originModel;
+		glm::mat4 model = originModel * scaleMat;
 		model *= glm::translate(glm::mat4(1.0f), glm::vec3(particle.position.x, particle.position.y, 0.0f));
 		model *= glm::rotate(glm::mat4(1.0f), glm::radians(particle.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		model *= glm::scale(glm::mat4(1.0f), glm::vec3(size, size, 1.0f));
@@ -90,9 +99,10 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		m_Mesh.Render();
 	}
 
-	for (unsigned int idx = 0; idx < childList.size(); idx++)
+	// Draw Front Child
+	for (unsigned int idx = 0; idx < m_FrontChildList.size(); idx++)
 	{
-		childList[idx]->Draw(camera, originModel);
+		m_FrontChildList[idx]->Draw(camera, originModel);
 	}
 }
 
