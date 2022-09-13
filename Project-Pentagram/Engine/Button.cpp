@@ -4,7 +4,7 @@ Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
 	m_Tag = GameObjectTag::BUTTON;
-	border = 40.0f;
+	m_IsSlicing = true;
 	hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	onHover = [](Button* button) { std::cout << button->name << " : OnHover\n"; };
 	unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
@@ -13,12 +13,12 @@ Button::Button(const std::string& objName)
 
 void Button::Draw(Camera& camera, glm::mat4 parentModel)
 {
-	if (!m_Active)
+	if (!m_IsActive)
 	{
 		return;
 	}
 
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader;
+	Shader& shader = (m_IsSlicing ? EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader : EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader);
 
 	glm::mat4 model = parentModel;
 
@@ -49,17 +49,21 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setInt("u_Texture", 0);
 
 	// Set Button Slicing
-	float minVal = std::min(scale.x, scale.y);
-	glm::vec2 u_dimension = glm::vec2(scale.x, scale.y);
-	glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
-	float u_border = (minVal >= 2 * border ? border : minVal / 2.0f);
-	shader.setVec2("u_Dimensions", u_dimension);
-	shader.setVec2("u_TextureBorder", u_textureBorder);
-	shader.setFloat("u_Border", u_border);
-	// ------ Debug --------
-	//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
-	//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
-	if (m_Animation)
+	if (m_IsSlicing)
+	{
+		float minVal = std::min(scale.x, scale.y);
+		glm::vec2 u_dimension = glm::vec2(scale.x, scale.y);
+		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
+		float u_border = (minVal >= 2 * m_Border ? m_Border : minVal / 2.0f);
+		shader.setVec2("u_Dimensions", u_dimension);
+		shader.setVec2("u_TextureBorder", u_textureBorder);
+		shader.setFloat("u_Border", u_border);
+		// ------ Debug --------
+		//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
+		//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+	}
+
+	if (m_IsAnimation)
 	{
 		// SpriteSheet Offset
 		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));

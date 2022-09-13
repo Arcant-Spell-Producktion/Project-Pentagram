@@ -16,9 +16,6 @@ class Button : public UIObject
 		std::function<void(Button*)> unHover;
 		// Text
 		TextObject textObject;
-		// Button Border(Button Slicing)
-		float border;
-
 		
 		Button(const std::string& objName);
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;

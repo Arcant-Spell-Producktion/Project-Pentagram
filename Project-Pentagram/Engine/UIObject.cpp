@@ -4,17 +4,19 @@ UIObject::UIObject(const std::string& objName)
 	: GameObject(objName)
 {
 	m_Tag = GameObjectTag::UIOBJECT;
+	m_IsSlicing = false;
+	m_Border = 40.0f;
 }
 
 void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 {
-	if (!m_Active)
+	if (!m_IsActive)
 	{
 		return;
 	}
 
-	// Get UI(GameObject) Shader
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
+	// Get UI(GameObject) Shader || Button Shader(Handle UI Slicing)
+	Shader& shader = (m_IsSlicing ? EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader : EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader);
 
 	// Update MVP Matrix
 	glm::mat4 model = parentModel;
@@ -41,8 +43,24 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setVec4("u_Color", color);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
-	shader.setInt("u_Texture", 0); 
-	if (m_Animation)
+	shader.setInt("u_Texture", 0);
+
+	// Set Button Slicing
+	if (m_IsSlicing)
+	{
+		float minVal = std::min(scale.x, scale.y);
+		glm::vec2 u_dimension = glm::vec2(scale.x, scale.y);
+		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
+		float u_border = (minVal >= 2 * m_Border ? m_Border : minVal / 2.0f);
+		shader.setVec2("u_Dimensions", u_dimension);
+		shader.setVec2("u_TextureBorder", u_textureBorder);
+		shader.setFloat("u_Border", u_border);
+		// ------ Debug --------
+		//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
+		//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+	}
+
+	if (m_IsAnimation)
 	{
 		// SpriteSheet Offset
 		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
@@ -65,3 +83,8 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 		m_FrontChildList[idx]->Draw(camera, model);
 	}
 }
+
+void UIObject::SetIsSlicing(const bool& isSlicing) { this->m_IsSlicing = isSlicing; }
+void UIObject::SetBorderSize(const float& borderSize) { this->m_Border = borderSize; }
+bool UIObject::IsSlicing() { return this->m_IsSlicing; }
+float UIObject::GetBorderSize() { return this->m_Border; }

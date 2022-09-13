@@ -6,7 +6,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	// Set GameObject Properties
 	name = objName;
 	m_Tag = GameObjectTag::GAMEOBJECT;
-	m_Active = true;
+	m_IsActive = true;
 	parent = nullptr;
 
 	// Set Transformation
@@ -23,7 +23,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	m_MaxAnimCol = *std::max_element(animCol.begin(), animCol.end());
 
 	// Set Current Sprite have animation or not
-	m_Animation = (m_AnimRow == 1 && m_AnimCol[0] == 1 ? false : true);
+	m_IsAnimation = (m_AnimRow == 1 && m_AnimCol[0] == 1 ? false : true);
 
 	// Set Texture
 	this->m_Texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
@@ -42,7 +42,7 @@ void GameObject::OnUpdate(const float& dt)
 void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	// If object is not-active -> no need to render
-	if (!m_Active)
+	if (!m_IsActive)
 	{
 		return;
 	}
@@ -70,7 +70,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 view = camera.getViewMatrix();
 
 	shader.Activate();
-	if (m_Animation)
+	if (m_IsAnimation)
 	{
 		// SpriteSheet Offset
 		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
@@ -123,15 +123,15 @@ void GameObject::SetChildRenderBack(GameObject* gameObj)
 
 // Implement Getter
 unsigned int GameObject::GetTag() { return this->m_Tag; }
-bool GameObject::isAnimation() { return this->m_Animation; }
-bool GameObject::isActive() { return this->m_Active; }
+bool GameObject::IsAnimation() { return this->m_IsAnimation; }
+bool GameObject::IsActive() { return this->m_IsActive; }
 
 // Implement Setter
-void GameObject::SetAnimation(const bool& active) { this->m_Animation = active; }
+void GameObject::SetAnimation(const bool& active) { this->m_IsAnimation = active; }
 void GameObject::SetActive(const bool& active) 
 { 
 	// Set Active on current Object
-	this->m_Active = active;
+	this->m_IsActive = active;
 
 	// Set Active on their childs
 	for (int idx = 0; idx < m_FrontChildList.size(); idx++)

@@ -163,13 +163,13 @@ void MenuScene::GameSceneUpdate(float dt)
 		GameObject*& curObj = objectsList[idx];
 
 		curObj->OnUpdate(dt);
-		if (curObj->isAnimation())
+		if (curObj->IsAnimation())
 		{
 			curObj->UpdateAnimation(dt);
 		}
 		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
 		{
-			curObj->SetActive(curObj->isActive() ? false : true);
+			curObj->SetActive(curObj->IsActive() ? false : true);
 		}
 	}
 
@@ -190,11 +190,11 @@ void MenuScene::GameSceneUpdate(float dt)
 			{
 				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
 				soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
-				curObj->SetActive(curObj->isActive() ? false : true);
+				curObj->SetActive(curObj->IsActive() ? false : true);
 			}
 		}
 
-		if (!curObj->isActive()) { continue; }
+		if (!curObj->IsActive()) { continue; }
 		curObj->OnUpdate(dt);
 	}
 }

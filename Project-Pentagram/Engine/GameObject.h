@@ -18,11 +18,11 @@ class GameObject
 	protected:
 		Mesh m_Mesh;
 		Texture* m_Texture;
-		bool m_Active;
+		bool m_IsActive;
 		unsigned int m_Tag;
 
 		// Animation
-		bool m_Animation;
+		bool m_IsAnimation;
 		int m_AnimRow;
 		std::vector<int> m_AnimCol;
 		int m_MaxAnimCol;
@@ -54,8 +54,8 @@ class GameObject
 
 		// Getter
 		unsigned int GetTag();
-		bool isAnimation();
-		bool isActive();
+		bool IsAnimation();
+		bool IsActive();
 
 		// Setter
 		void SetAnimation(const bool& active);

@@ -105,7 +105,7 @@ void GameScene::UpdateButtonOnClick()
 		Button* curObj = buttonObjectsList[idx];
 
 		// If current Object is inactive (Not Render) => No need to check collision
-		if (curObj == nullptr || !curObj->isActive())
+		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
@@ -134,7 +134,7 @@ void GameScene::UpdateButtonOnHover()
 		Button* curObj = buttonObjectsList[idx];
 
 		// If current Object is inactive (Not Render) => No need to check collision
-		if (curObj == nullptr || !curObj->isActive())
+		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
@@ -167,7 +167,7 @@ void GameScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
+		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->IsActive())
 		{
 			continue;
 		}
@@ -178,7 +178,7 @@ void GameScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
+		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->IsActive())
 		{
 			continue;
 		}
