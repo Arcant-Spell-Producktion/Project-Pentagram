@@ -14,6 +14,7 @@
 class GameScene
 {
 	private:
+		glm::vec3 FindButtonParentPosition(const Button* button);
 		void UpdateButtonOnClick();
 		void UpdateButtonOnHover();
 

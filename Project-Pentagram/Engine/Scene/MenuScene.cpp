@@ -8,6 +8,7 @@ void MenuScene::GameSceneLoad()
 
 GameObject* cur;
 Button* curButton;
+UIObject* curUI;
 void MenuScene::GameSceneInit()
 {
 	t = 0.0f;
@@ -64,6 +65,7 @@ void MenuScene::GameSceneInit()
 	subUI->scale = { 800.0f, 700.0f, 1.0f };
 	subUI->color = { 0.8f, 0.8f, 0.8f, 1.0f };
 	ui->SetChildRenderFront(subUI);
+	curUI = subUI;
 
 	Button* button = CreateButton("Options_Button");
 	button->scale = { 300.0f, 100.0f, 1.0f };
@@ -144,11 +146,13 @@ void MenuScene::GameSceneUpdate(float dt)
 	{
 		cur->scale.x = abs(cur->scale.x);
 		cur->position.x += 100.0f * dt;
+		curUI->position.x += 30.0f;
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->scale.x = -abs(cur->scale.x);
 		cur->position.x -= 100.0f * dt;
+		curUI->position.x -= 30.0f;
 	}
 
 	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }

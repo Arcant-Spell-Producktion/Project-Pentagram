@@ -88,6 +88,25 @@ Button* GameScene::CreateButton(const std::string& objName)
 
 // ------------------------ Button Events ------------------------ 
 
+glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
+{
+	if (button->parent == nullptr)
+	{
+		return button->position;
+	}
+	else
+	{
+		glm::vec3 curPos = button->position;
+		GameObject* curObj = button->parent;
+		while (curObj != nullptr)
+		{
+			curPos += curObj->position;
+			curObj = curObj->parent;
+		}
+		return curPos;
+	}
+}
+
 void GameScene::UpdateButtonOnClick()
 {
 	if (!Input::IsKeyEndPressed(GLFW_MOUSE_BUTTON_LEFT))
@@ -103,16 +122,17 @@ void GameScene::UpdateButtonOnClick()
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
 
 		// If current Object is inactive (Not Render) => No need to check collision
 		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
-		float left = curObj->position.x - (curObj->scale.x / 2.0f);
-		float right = curObj->position.x + (curObj->scale.x / 2.0f);
-		float top = curObj->position.y + (curObj->scale.y / 2.0f);
-		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+		float left = finalPos.x - (curObj->scale.x / 2.0f);
+		float right = finalPos.x + (curObj->scale.x / 2.0f);
+		float top = finalPos.y + (curObj->scale.y / 2.0f);
+		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -132,16 +152,17 @@ void GameScene::UpdateButtonOnHover()
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
 
 		// If current Object is inactive (Not Render) => No need to check collision
 		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
-		float left = curObj->position.x - (curObj->scale.x / 2.0f);
-		float right = curObj->position.x + (curObj->scale.x / 2.0f);
-		float top = curObj->position.y + (curObj->scale.y / 2.0f);
-		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+		float left = finalPos.x - (curObj->scale.x / 2.0f);
+		float right = finalPos.x + (curObj->scale.x / 2.0f);
+		float top = finalPos.y + (curObj->scale.y / 2.0f);
+		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
