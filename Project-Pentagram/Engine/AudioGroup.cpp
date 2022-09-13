@@ -13,6 +13,10 @@ void AudioGroup::AddAudio(const std::string& fileName, Audio* audio)
 
 void AudioGroup::RemoveAudio(const std::string& fileName)
 {
+	// Handle Error : fileName doesn't exist in this GroupAudio
+	// Fixed by check that you have add this fileName to GroupAudio or Mis-Spelling
+	ArcantAssert(m_SubSoundList.find(fileName) != m_SubSoundList.end(), fileName + " Doesn't exist in AudioGroup\n");
+	
 	m_SubSoundList[fileName]->stop();
 }
 
@@ -26,10 +30,22 @@ void AudioGroup::SetVolume(const float& volume)
 
 void AudioGroup::SetVolume(const std::string& fileName, const float& volume)
 {
+	// Handle Error : fileName doesn't exist in this GroupAudio
+	// Fixed by check that you have add this fileName to GroupAudio or Mis-Spelling
+	ArcantAssert(m_SubSoundList.find(fileName) != m_SubSoundList.end(), fileName + " Doesn't exist in AudioGroup\n");
+
 	m_SubSoundList[fileName]->setVolume(volume);
 }
 
 Audio* AudioGroup::GetAudio(const std::string & audio)
 {
+	// Handle Error : fileName doesn't exist in this GroupAudio
+	// Fixed by check that you have add this fileName to GroupAudio or Mis-Spelling
+	ArcantAssert(m_SubSoundList.find(audio) != m_SubSoundList.end(), audio + " Doesn't exist in AudioGroup\n");
+
 	return m_SubSoundList[audio];
+}
+std::string AudioGroup::GetGroupName()
+{
+	return m_Name;
 }

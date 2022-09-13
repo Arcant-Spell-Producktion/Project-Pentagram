@@ -283,7 +283,6 @@
     <ClInclude Include="Game\BattleScene\BattleSceneData.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Utilities\Color.h">
       <Filter>Utilities</Filter>
     </ClInclude>
@@ -292,6 +291,12 @@
     </ClInclude>
     <ClInclude Include="Engine\SoundSystem.h">
       <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\ArcantAssert.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -416,13 +421,19 @@
     <Filter Include="WorkingDir\Fonts">
       <UniqueIdentifier>{6e4de3bd-6dc1-40fe-b622-97ac24e63a26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WorkingDir\Audio\BGM">
+      <UniqueIdentifier>{9d127788-1145-488d-86d1-5947d2de71df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX">
+      <UniqueIdentifier>{81314559-bd99-4841-8cf6-10c99646fb12}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="WorkingDir\Audio\ConfidentPlayfulWithSideofDeception.wav">
-      <Filter>WorkingDir\Audio</Filter>
+    <Media Include="WorkingDir\Audio\BGM\DarkButHopeful.wav">
+      <Filter>WorkingDir\Audio\BGM</Filter>
     </Media>
-    <Media Include="WorkingDir\Audio\DarkButHopeful.wav">
-      <Filter>WorkingDir\Audio</Filter>
+    <Media Include="WorkingDir\Audio\BGM\ConfidentPlayfulWithSideofDeception.wav">
+      <Filter>WorkingDir\Audio\BGM</Filter>
     </Media>
   </ItemGroup>
   <ItemGroup>

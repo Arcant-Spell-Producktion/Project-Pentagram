@@ -7,6 +7,7 @@ void MenuScene::GameSceneLoad()
 }
 
 GameObject* cur;
+UIObject* curUI;
 Button* curButton;
 void MenuScene::GameSceneInit()
 {
@@ -24,7 +25,7 @@ void MenuScene::GameSceneInit()
 	GameObject* obj = CreateGameObject("SmileFace", 2, { 5,8 });
 	obj->scale = { 320.0f, 320.0f, 1.0f };
 	obj->SetTexture(path);
-	obj->MakeChild(particle);
+	obj->SetChild(particle);
 	cur = obj;
 
 	GameObject* obj2 = CreateGameObject("Floor");
@@ -63,7 +64,8 @@ void MenuScene::GameSceneInit()
 	UIObject* subUI = CreateUIObject();
 	subUI->scale = { 800.0f, 700.0f, 1.0f };
 	subUI->color = { 0.8f, 0.8f, 0.8f, 1.0f };
-	ui->MakeChild(subUI);
+	ui->SetChild(subUI);
+	curUI = subUI;
 
 	Button* button = CreateButton("Options_Button");
 	button->scale = { 300.0f, 100.0f, 1.0f };
@@ -90,12 +92,12 @@ void MenuScene::GameSceneInit()
 	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
-	subUI->MakeChild(button);
-	subUI->MakeChild(button2);
+	subUI->SetChild(button);
+	subUI->SetChild(button2);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("BGM", { "Audio/DarkButHopeful.wav", "Audio/ConfidentPlayfulWithSideofDeception.wav" }, 0.2f);
+	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/DarkButHopeful.wav", "Audio/BGM/ConfidentPlayfulWithSideofDeception.wav" }, 0.5f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)
@@ -122,7 +124,14 @@ void MenuScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
 	{
-		soundSystem->FindAudioGroup("BGM")->RemoveAudio("Audio/DarkButHopeful.wav");
+		if (soundSystem->IsMute("BGM", "Audio/BGM/DarkButHopeful.wav"))
+		{
+			soundSystem->UnMute("BGM", "Audio/BGM/DarkButHopeful.wav");
+		}
+		else
+		{
+			soundSystem->Mute("BGM", "Audio/BGM/DarkButHopeful.wav");
+		}
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
@@ -135,12 +144,14 @@ void MenuScene::GameSceneUpdate(float dt)
 
 	if (Input::IsKeyPressed(GLFW_KEY_D))
 	{
+		curUI->position.x -= 10.0f;
 		cur->scale.x = abs(cur->scale.x);
 		cur->position.x += 100.0f * dt;
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_A))
 	{
 		cur->scale.x = -abs(cur->scale.x);
+		curUI->position.x += 10.0f;
 		cur->position.x -= 100.0f * dt;
 	}
 

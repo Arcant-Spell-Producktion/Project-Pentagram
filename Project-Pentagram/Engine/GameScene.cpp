@@ -117,6 +117,7 @@ void GameScene::UpdateButtonOnClick()
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
 			curObj->onClick(curObj);
+			return;
 		}
 	}
 }
@@ -145,6 +146,7 @@ void GameScene::UpdateButtonOnHover()
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
 			curObj->onHover(curObj);
+			return;
 		}
 		else
 		{

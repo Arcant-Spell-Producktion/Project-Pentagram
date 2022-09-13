@@ -39,7 +39,7 @@ void GameObject::OnUpdate(const float& dt)
 
 }
 
-void GameObject::Draw(Camera& camera, const glm::mat4& parentModel)
+void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	// If object is not-active -> no need to render
 	if (!m_Active)
@@ -101,7 +101,7 @@ void GameObject::UnloadMesh()
 	this->parent= nullptr;
 }
 
-void GameObject::MakeChild(GameObject* gameObj)
+void GameObject::SetChild(GameObject* gameObj)
 {
 	childList.push_back(gameObj);
 	gameObj->parent = this;
