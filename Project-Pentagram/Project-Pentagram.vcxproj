@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\AudioGroup.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />

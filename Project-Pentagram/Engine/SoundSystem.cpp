@@ -29,13 +29,17 @@ bool SoundSystem::isAllPaused()
 	return m_IsPaused;
 }
 
-// Audio Grouping Implement
+// ----------------------- Audio Grouping Implement ----------------------- 
 AudioGroup* SoundSystem::PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume, const float& playbackSpeed)
 {
 	AudioGroup* audioGroup = new AudioGroup(groupName);
 	for (const std::string fileName : filePathList)
 	{
 		Audio* newSound = m_SoundEngine->play2D(m_BGMSourceList[fileName], true, false, true);
+		
+		// Handle Error in case fileName are not exist in Folder
+		ArcantAssert(newSound != nullptr, fileName + " Doesn't exist in Audio Folder\n");
+		
 		newSound->setVolume(volume);
 		newSound->setPlaybackSpeed(playbackSpeed);
 		m_BGMSoundList[fileName] = newSound;
@@ -46,66 +50,109 @@ AudioGroup* SoundSystem::PlayGroupAudio(const std::string& groupName, const std:
 }
 AudioGroup* SoundSystem::FindAudioGroup(const std::string& groupName)
 {
+	if (m_AudioGroupList.find(groupName) == m_AudioGroupList.end())
+	{
+		return nullptr;
+	}
+
 	return m_AudioGroupList[groupName];
 }
 
-// Audio Implement
-Audio* SoundSystem::PlayBGM(const std::string& filePath, const bool& isLoop, const float& playbackSpeed)
+// ----------------------- Audio Playing ----------------------- 
+Audio* SoundSystem::PlayBGM(const std::string& fileName, const bool& isLoop, const float& playbackSpeed)
 {
-	m_BGMSourceList[filePath]->setDefaultVolume(m_BGMVolume * m_MasterVolume);
-	Audio* newSound = m_SoundEngine->play2D(m_BGMSourceList[filePath], isLoop, false, true);
+	// Handle Error : fileName doesn't exist
+	ArcantAssert(m_BGMSourceList.find(fileName) == m_BGMSourceList.end(), fileName + " Doesn't exist in Audio Folder\n");
+
+	m_BGMSourceList[fileName]->setDefaultVolume(m_BGMVolume * m_MasterVolume);
+	Audio* newSound = m_SoundEngine->play2D(m_BGMSourceList[fileName], isLoop, false, true);
 	newSound->setVolume(m_BGMVolume * m_MasterVolume);
 	newSound->setPlaybackSpeed(playbackSpeed);
-	m_BGMSoundList[filePath] = newSound;
+	m_BGMSoundList[fileName] = newSound;
 	return newSound;
 }
-Audio* SoundSystem::PlaySFX(const std::string& filePath, const bool& isLoop, const float& playbackSpeed)
+Audio* SoundSystem::PlaySFX(const std::string& fileName, const bool& isLoop, const float& playbackSpeed)
 {
-	m_SFXSourceList[filePath]->setDefaultVolume(m_SFXVolume* m_MasterVolume);
-	Audio* newSound = m_SoundEngine->play2D(m_SFXSourceList[filePath], isLoop, false, true);
+	// Handle Error : fileName doesn't exist
+	ArcantAssert(m_SFXSourceList.find(fileName) == m_SFXSourceList.end(), fileName + " Doesn't exist in Audio Folder\n");
+
+	m_SFXSourceList[fileName]->setDefaultVolume(m_SFXVolume* m_MasterVolume);
+	Audio* newSound = m_SoundEngine->play2D(m_SFXSourceList[fileName], isLoop, false, true);
 	newSound->setVolume(m_SFXVolume * m_MasterVolume);
 	newSound->setPlaybackSpeed(playbackSpeed);
-	m_SFXSoundList[filePath] = newSound;
+	m_SFXSoundList[fileName] = newSound;
 	return newSound;
 }
 
-void SoundSystem::SetPause(const std::string& filePath, const bool& willPaused)
+// ----------------------- Audio Components ----------------------- 
+void SoundSystem::SetPause(const std::string& fileName, const bool& willPaused)
 {
-	if (m_BGMSoundList.find(filePath) != m_BGMSoundList.end())
+	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
 	{
-		m_BGMSoundList[filePath]->setIsPaused(willPaused);
+		m_BGMSoundList[fileName]->setIsPaused(willPaused);
+		return;
 	}
-	else if (m_SFXSoundList.find(filePath) != m_SFXSoundList.end())
+	else if (m_SFXSoundList.find(fileName) != m_SFXSoundList.end())
 	{
-		m_SFXSoundList[filePath]->setIsPaused(willPaused);
+		m_SFXSoundList[fileName]->setIsPaused(willPaused);
+		return;
 	}
+	
+	// Handle Error : fileName doesn't exist in List
+	// Fixed by checking that you already play this fileName before
+	ArcantAssert(nullptr, fileName + " Doesn't exist in SoundList\n");
 }
-bool SoundSystem::IsPause(const std::string& filePath)
+void SoundSystem::SetPause(const std::string& groupName, const std::string& fileName, const bool& willPaused)
 {
-	if (m_BGMSoundList.find(filePath) != m_BGMSoundList.end())
-	{
-		return m_BGMSoundList[filePath]->getIsPaused();
-	}
-	else if (m_SFXSoundList.find(filePath) != m_SFXSoundList.end())
-	{
-		return m_SFXSoundList[filePath]->getIsPaused();
-	}
-	return false;
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
+
+	m_AudioGroupList[groupName]->GetAudio(fileName)->setIsPaused(willPaused);
 }
-Audio* SoundSystem::GetSound(const std::string& filePath)
+bool SoundSystem::IsPause(const std::string& fileName)
 {
-	if (m_BGMSoundList.find(filePath) != m_BGMSoundList.end())
+	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
 	{
-		return m_BGMSoundList[filePath];
+		return m_BGMSoundList[fileName]->getIsPaused();
 	}
-	else if (m_SFXSoundList.find(filePath) != m_SFXSoundList.end())
+	else if (m_SFXSoundList.find(fileName) != m_SFXSoundList.end())
 	{
-		return m_SFXSoundList[filePath];
+		return m_SFXSoundList[fileName]->getIsPaused();
+	}
+
+	// Handle Error : fileName doesn't exist in List
+	// Fixed by checking that you already play this fileName before
+	ArcantAssert(nullptr, fileName + " Doesn't exist in SoundList\n");
+}
+bool SoundSystem::IsPause(const std::string& groupName, const std::string& fileName)
+{
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
+
+	return m_AudioGroupList[groupName]->GetAudio(fileName)->getIsPaused();
+}
+Audio* SoundSystem::GetSound(const std::string& fileName)
+{
+	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
+	{
+		return m_BGMSoundList[fileName];
+	}
+	else if (m_SFXSoundList.find(fileName) != m_SFXSoundList.end())
+	{
+		return m_SFXSoundList[fileName];
 	}
 	return nullptr;
 }
+Audio* SoundSystem::GetSound(const std::string& groupName, const std::string& fileName)
+{
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
 
-
+	return m_AudioGroupList[groupName]->GetAudio(fileName);
+}
 bool SoundSystem::IsMute(const std::string& fileName) 
 {
 	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
@@ -116,17 +163,44 @@ bool SoundSystem::IsMute(const std::string& fileName)
 	{
 		return m_SFXSoundList[fileName]->getVolume() < 0.0f;
 	}
+
+	// Handle Error : fileName doesn't exist in List
+	// Fixed by checking that you already play this fileName before
+	ArcantAssert(nullptr, fileName + " Doesn't exist in SoundList\n");
+}
+bool SoundSystem::IsMute(const std::string& groupName, const std::string& fileName) 
+{ 
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
+
+	return m_AudioGroupList[groupName]->GetAudio(fileName)->getVolume() < 0.0f; 
 }
 void SoundSystem::Mute(const std::string& fileName)
 {
 	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
 	{
 		m_BGMSoundList[fileName]->setVolume(MUTE);
+		return;
 	}
 	else if (m_SFXSoundList.find(fileName) != m_SFXSoundList.end())
 	{
 		m_SFXSoundList[fileName]->setVolume(MUTE);
+		return;
 	}
+
+	// Handle Error : fileName doesn't exist in List
+	// Fixed by checking that you already play this fileName before
+	ArcantAssert(nullptr, fileName + " Doesn't exist in SoundList\n");
+}
+void SoundSystem::Mute(const std::string& groupName, const std::string& fileName)
+{
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
+
+	Audio* curAudio = m_AudioGroupList[groupName]->GetAudio(fileName);
+	curAudio->setVolume(MUTE);
 }
 void SoundSystem::UnMute(const std::string& fileName)
 {
@@ -134,26 +208,30 @@ void SoundSystem::UnMute(const std::string& fileName)
 	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
 	{
 		m_BGMSoundList[fileName]->setVolume(m_BGMVolume * m_MasterVolume);
+		return;
 	}
 	else if (m_SFXSoundList.find(fileName) != m_SFXSoundList.end())
 	{
 		m_SFXSoundList[fileName]->setVolume(m_SFXVolume * m_MasterVolume);
+		return;
 	}
-}
 
-bool SoundSystem::IsMute(const std::string& groupName, const std::string& fileName) { return m_AudioGroupList[groupName]->GetAudio(fileName)->getVolume() < 0.0f; }
-void SoundSystem::Mute(const std::string& groupName, const std::string& fileName)
-{
-	Audio* curAudio = m_AudioGroupList[groupName]->GetAudio(fileName);
-	curAudio->setVolume(MUTE);
+	// Handle Error : fileName doesn't exist in List
+	// Fixed by checking that you already play this fileName before
+	ArcantAssert(nullptr, fileName + " Doesn't exist in SoundList\n");
 }
 void SoundSystem::UnMute(const std::string& groupName, const std::string& fileName)
 {
+	// Handle Error : groupName doesn't exist in List
+	// Fixed by checking that you already play this groupName before
+	ArcantAssert(m_AudioGroupList.find(groupName) != m_AudioGroupList.end(), groupName + " Doesn't exist in AudioGroup List\n");
+
 	Audio* curAudio = m_AudioGroupList[groupName]->GetAudio(fileName);
 	curAudio->setVolume(m_BGMVolume * m_MasterVolume);
 }
 
-// Getter - Setter Implement
+
+// ----------------------- Getter & Setter Implement ----------------------- 
 void SoundSystem::SetMasterVolume(const float& volume)
 {
 	this->m_MasterVolume = volume;
@@ -196,7 +274,7 @@ float SoundSystem::GetMasterVolume() { return m_MasterVolume; }
 float SoundSystem::GetSFXVolume() { return m_SFXVolume; }
 float SoundSystem::GetBGMVolume() { return m_BGMVolume; }
 
-// Free Memory
+// ----------------------- Free Memory ----------------------- 
 void SoundSystem::FreeSound()
 {
 	m_IsPaused = false;

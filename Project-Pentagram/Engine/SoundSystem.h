@@ -8,6 +8,7 @@
 #include <map>
 
 #include "Engine/AudioGroup.h"
+#include "Utilities/ArcantAssert.h"
 
 #define MUTE -1.0f
 
@@ -41,18 +42,21 @@ class SoundSystem
 		AudioGroup* FindAudioGroup(const std::string& groupName);
 
 		// Audio Playing
-		Audio* PlayBGM(const std::string& filePath, const bool& isLoop, const float& playbackSpeed = 1.0f);
-		Audio* PlaySFX(const std::string& filePath, const bool& isLoop, const float& playbackSpeed = 1.0f);
-		void SetPause(const std::string& filePath, const bool& willPaused);
-		bool IsPause(const std::string& filePath);
-		Audio* GetSound(const std::string& filePath);
-
+		Audio* PlayBGM(const std::string& fileName, const bool& isLoop, const float& playbackSpeed = 1.0f);
+		Audio* PlaySFX(const std::string& fileName, const bool& isLoop, const float& playbackSpeed = 1.0f);
+		void SetPause(const std::string& fileName, const bool& willPaused);
+		void SetPause(const std::string& groupName, const std::string& fileName, const bool& willPaused);
+		bool IsPause(const std::string& fileName);
+		bool IsPause(const std::string& groupName, const std::string& fileName);
+		Audio* GetSound(const std::string& fileName);
+		Audio* GetSound(const std::string& groupName, const std::string& fileName);
 		bool IsMute(const std::string& fileName);
-		void Mute(const std::string& fileName);
-		void UnMute(const std::string& fileName);
 		bool IsMute(const std::string& groupName, const std::string& fileName);
+		void Mute(const std::string& fileName);
 		void Mute(const std::string& groupName, const std::string& fileName);
+		void UnMute(const std::string& fileName);
 		void UnMute(const std::string& groupName, const std::string& fileName);
+
 
 		// Getter - Setter
 		void SetMasterVolume(const float& volume);

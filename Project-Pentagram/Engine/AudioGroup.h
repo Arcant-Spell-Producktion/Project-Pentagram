@@ -1,9 +1,12 @@
 #pragma once
 
 #include <irrklang/irrKlang.h>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
+
+#include "Utilities/ArcantAssert.h"
 
 using Audio = irrklang::ISound;
 using AudioSource = irrklang::ISoundSource;
@@ -20,5 +23,8 @@ class AudioGroup
 		void RemoveAudio(const std::string& fileName);
 		void SetVolume(const float& volume);
 		void SetVolume(const std::string& fileName, const float& volume);
+
 		Audio* GetAudio(const std::string& audio);
+		std::string GetGroupName();
+
 };

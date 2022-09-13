@@ -283,7 +283,6 @@
     <ClInclude Include="Game\BattleScene\BattleSceneData.h">
       <Filter>Game\BattleScene</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Utilities\Color.h">
       <Filter>Utilities</Filter>
     </ClInclude>
@@ -292,6 +291,12 @@
     </ClInclude>
     <ClInclude Include="Engine\SoundSystem.h">
       <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\ArcantAssert.h">
+      <Filter>Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
