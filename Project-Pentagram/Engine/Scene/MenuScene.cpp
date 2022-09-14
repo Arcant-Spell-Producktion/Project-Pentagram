@@ -9,6 +9,8 @@ void MenuScene::GameSceneLoad()
 GameObject* cur;
 Button* curButton;
 UIObject* curUI;
+Slider* slider;
+
 void MenuScene::GameSceneInit()
 {
 	t = 0.0f;
@@ -92,18 +94,24 @@ void MenuScene::GameSceneInit()
 	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
+	slider = CreateSlider("Sliding");
+	slider->color = AC_YELLOW;
+
 	subUI->SetChildRenderFront(button);
 	subUI->SetChildRenderFront(button2);
+	subUI->SetChildRenderFront(slider);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/DarkButHopeful.wav", "Audio/BGM/ConfidentPlayfulWithSideofDeception.wav" }, 0.0f);
+	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/DarkButHopeful.wav", "Audio/BGM/ConfidentPlayfulWithSideofDeception.wav" }, 0.5f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)
 {
 	dt *= timeScale;
 	UpdateButtonEvents();
+
+	soundSystem->SetBGMVolume(slider->GetValue());
 
 	double time = glfwGetTime();
 	if (t >= 1.0f)
@@ -132,6 +140,10 @@ void MenuScene::GameSceneUpdate(float dt)
 		{
 			soundSystem->Mute("BGM", "Audio/BGM/DarkButHopeful.wav");
 		}
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
+	{
+		slider->SetValue(0.75f);
 	}
 	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
 	{
@@ -193,7 +205,6 @@ void MenuScene::GameSceneUpdate(float dt)
 			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 			{
 				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
-				soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
 				curObj->SetActive(curObj->IsActive() ? false : true);
 			}
 		}

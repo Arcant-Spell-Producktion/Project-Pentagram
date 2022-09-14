@@ -9,6 +9,7 @@
 #include "Engine/UIObject.h"
 #include "Engine/Renderer/TextObject.h"
 #include "Engine/Button.h"
+#include "Engine/Slider.h"
 #include "Engine/Camera.h"
 
 class GameScene
@@ -17,6 +18,7 @@ class GameScene
 		glm::vec3 FindButtonParentPosition(const Button* button);
 		void UpdateButtonOnClick();
 		void UpdateButtonOnHover();
+		void UpdateButtonOnPress();
 
 	protected:
 		std::vector<GameObject*> objectsList;
@@ -45,6 +47,7 @@ class GameScene
 		UIObject* CreateUIObject(const std::string& objName = "");
 		TextObject* CreateTextObject(const std::string& objName = "");
 		Button* CreateButton(const std::string& objName = "");
+		Slider* CreateSlider(const std::string& objName = "");
 
 		void UpdateButtonEvents();
 };

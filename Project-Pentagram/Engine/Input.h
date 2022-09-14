@@ -8,6 +8,8 @@ namespace Input
 {
 	extern float mouseX;
 	extern float mouseY;
+	extern float deltaMouseX;
+	extern float deltaMouseY;
 	extern bool keyPressed[GLFW_KEY_LAST];
 	extern bool keyBeginPressed[GLFW_KEY_LAST];
 	extern bool keyEndPressed[GLFW_KEY_LAST];

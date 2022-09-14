@@ -4,6 +4,8 @@ namespace Input
 {
 	float mouseX;
 	float mouseY;
+	float deltaMouseX;
+	float deltaMouseY;
 	bool keyPressed[GLFW_KEY_LAST];
 	bool keyBeginPressed[GLFW_KEY_LAST];
 	bool keyEndPressed[GLFW_KEY_LAST];
@@ -25,6 +27,9 @@ namespace Input
 
 	void EndFrame()
 	{
+		deltaMouseX = 0.0f;
+		deltaMouseY = 0.0f;
+
 		for (int idx = 0; idx < GLFW_KEY_LAST; idx++)
 		{
 			keyBeginPressed[idx] = false;
@@ -52,6 +57,8 @@ namespace Input
 
 	void cursorCallBack(GLFWwindow* window, double xPos, double yPos)
 	{
+		deltaMouseX = xPos - mouseX;
+		deltaMouseY = yPos - mouseY;
 		mouseX = (float)xPos;
 		mouseY = (float)yPos;
 	}

@@ -86,6 +86,25 @@ Button* GameScene::CreateButton(const std::string& objName)
 	return button;
 }
 
+Slider* GameScene::CreateSlider(const std::string& objName)
+{
+	Slider* slider = nullptr;
+	if (objName == "")
+	{
+		slider = new Slider("Slider_" + std::to_string(uiObjectsList.size()));
+	}
+	else
+	{
+		slider = new Slider(objName);
+	}
+	uiObjectsList.push_back(slider);
+
+	Button* button = CreateButton("Button_" + (objName == "" ? "Sldier_" + std::to_string(uiObjectsList.size()) : objName));
+	slider->InitButton(button);
+
+	return slider;
+}
+
 // ------------------------ Button Events ------------------------ 
 
 glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
@@ -175,10 +194,56 @@ void GameScene::UpdateButtonOnHover()
 		}
 	}
 }
+void GameScene::UpdateButtonOnPress()
+{
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+
+	float curX = (Input::mouseX - screen_width / 2.0f);
+	float curY = (screen_height / 2.0f - Input::mouseY);
+
+	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	{
+		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
+
+		// If current Object is inactive (Not Render) => No need to check collision
+		if (curObj == nullptr || !curObj->IsActive())
+		{
+			continue;
+		}
+		float left = finalPos.x - (curObj->scale.x / 2.0f);
+		float right = finalPos.x + (curObj->scale.x / 2.0f);
+		float top = finalPos.y + (curObj->scale.y / 2.0f);
+		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
+
+		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+		{
+			if (Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->onPress(curObj);
+				return;
+			}
+			else if(!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->unPress(curObj);
+			}
+		}
+		else
+		{
+			if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->unPress(curObj);
+			}
+		}
+	}
+}
+
 void GameScene::UpdateButtonEvents()
 {
 	UpdateButtonOnHover();
 	UpdateButtonOnClick();
+	UpdateButtonOnPress();
 }
 
 // ------------------------ GameScene State ------------------------ 
