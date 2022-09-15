@@ -28,10 +28,15 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
         XMLElement* effectValueElement = currSpellElement->FirstChildElement("EffectValue")->FirstChildElement("Value");
 
         currSpell.SetSpellName(currSpellElement->FirstAttribute()->Value());
+
         currSpell.SetCastTime(stoi(castTimeElement->GetText()));
+
         currSpell.SetChannelTime(stoi(channelTimeElement->GetText()));
+
         currSpell.SetSideEffectType(SideEffectType::GetEnum(effectTypeElement->GetText()));
+
         currSpell.SetChannelEffectType(ChannelEffectType::GetEnum(channelTypeElement->GetText()));
+
         for (int array_index = 0; array_index < 6; array_index++)
         {
             currSpell.SetWillValue(array_index, stoi(willValueElement->GetText()));

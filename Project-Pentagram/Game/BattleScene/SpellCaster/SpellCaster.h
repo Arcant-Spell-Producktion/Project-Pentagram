@@ -19,10 +19,16 @@ protected:
 
 public:
     SpellCaster(CasterData caster);
-    void SetPentagramData(PentagramData_T pentagram);
-    void CommitSpell();
-    int GetSpellCost();
+
     CasterData* GetCasterData() { return &m_CurrentData; }
+
+    void CommitSpell();
+
+    int GetSpellCost();
+
+    PentagramData_T GetPentagramData() { return m_PentagramData; }
+
+    void SetPentagramData(PentagramData_T pentagram);
 
     int GetHealth() { return m_Health; }
 

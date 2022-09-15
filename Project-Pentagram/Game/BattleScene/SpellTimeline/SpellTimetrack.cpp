@@ -1,21 +1,23 @@
 ﻿#include "SpellTimetrack.h"
 
-void SpellTimetrack::push_back(CastSpellDetail* spell)
+void SpellTimetrack::push_back(CastSpellDetail* spell, bool doWillCompare = true)
 {
+    int willValue = doWillCompare ? spell->SelectedWill : 0;
+
     if (m_WillCompareTable.find(spell->SpellOwner) == m_WillCompareTable.end())
     {
-        m_WillCompareTable.emplace(spell->SpellOwner, spell->SelectedWill);
+        m_WillCompareTable.emplace(spell->SpellOwner, willValue);
     }
     else
     {
-        m_WillCompareTable[spell->SpellOwner] += spell->SelectedWill;
+        m_WillCompareTable[spell->SpellOwner] += willValue;
     }
 
-    std::cout << "Add Spell For :" << (int)spell->SpellOwner << " or "<<(int)m_WillCompareTable.find(spell->SpellOwner)->first << "\n";
+    std::cout << "Add Spell For :" << (int)spell->SpellOwner<< " Total will is: "<< m_WillCompareTable[spell->SpellOwner] << "\n";
     m_Timetrack.push_back(spell);
 }
 
-CasterPosition SpellTimetrack::GetWinCaster()
+CasterPosition SpellTimetrack::GetWillCompareResult()
 {
     CasterPosition mostWillCaster = CasterPosition::NONE;
     if (m_Timetrack.size() > 0)
@@ -42,7 +44,7 @@ CasterPosition SpellTimetrack::GetWinCaster()
 
 void SpellTimetrack::UpdateTimetrack()
 {
-    CasterPosition winCaster = GetWinCaster();
+    CasterPosition winCaster = GetWillCompareResult();
     if (winCaster <= CasterPosition::TIED)
     {
         if (m_Timetrack.size() > 0)

@@ -119,6 +119,11 @@
     <ClCompile Include="Engine\SoundSystem.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp">
+      <Filter>Game\BattleScene\GameObj</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -298,6 +303,9 @@
     <ClInclude Include="Utilities\ArcantAssert.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
+      <Filter>Game\BattleScene\GameObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -426,6 +434,9 @@
     </Filter>
     <Filter Include="WorkingDir\Audio\SFX">
       <UniqueIdentifier>{81314559-bd99-4841-8cf6-10c99646fb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\GameObj">
+      <UniqueIdentifier>{8073f655-794c-4f7b-ad3d-8ae7de013beb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

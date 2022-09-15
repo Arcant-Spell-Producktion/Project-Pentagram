@@ -24,7 +24,7 @@ void SpellCaster::SetPentagramData(PentagramData_T pentagram)
 {
     m_PentagramData = pentagram;
     UpdateCurrentSpell();
-    std::cout << "Selected Spell\n" << *m_CurrentSpell->OriginalSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
+    std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
 }
 
 void SpellCaster::CommitSpell()

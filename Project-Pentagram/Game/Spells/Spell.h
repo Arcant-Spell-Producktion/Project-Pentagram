@@ -18,7 +18,7 @@ public:
     static SideEffectType::Type GetEnum(string typeString) {
         for (int i = 0; i < 3; i++)
         {
-            if (typeString.compare(enum_string[i])) return SideEffectType::Type(i);
+            if (typeString.compare(enum_string[i]) == 0) return SideEffectType::Type(i);
         }
         return SideEffectType::None;
     }
@@ -33,13 +33,13 @@ public:
     enum Type
     {
         None = 0,
-        Wait,
-        Active
+        Wait = 1,
+        Active = 2
     };
     static ChannelEffectType::Type GetEnum(string typeString) {
         for (int i = 0; i < 3; i++)
         {
-            if (typeString.compare(enum_string[i])) return ChannelEffectType::Type(i);
+            if (typeString.compare(enum_string[i]) == 0) return (ChannelEffectType::Type)i;
         }
         return ChannelEffectType::None;
     }

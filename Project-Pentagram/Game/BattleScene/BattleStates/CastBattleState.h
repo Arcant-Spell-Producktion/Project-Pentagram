@@ -11,8 +11,7 @@ class CastBattleState : public BaseBattleState
 {
 public:
     CastBattleState() :BaseBattleState(BattleState::CastState) {}
-    virtual void OnBattleStateIn(BattleSceneData* currentBattleData) {
-        //BattleManager::GetInstance()->StandbyAllCaster(); 
-    }
-    virtual void OnBattleStateOut() override {}
+    virtual void OnBattleStateIn()override;
+    virtual void OnBattleStateUpdate(float dt) override;
+    virtual void OnBattleStateOut() override;
 };

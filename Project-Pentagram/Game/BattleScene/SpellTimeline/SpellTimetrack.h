@@ -17,9 +17,9 @@ public:
         return m_WillCompareTable[caster]; 
     }
 
-    void push_back(CastSpellDetail* spell);
+    void push_back(CastSpellDetail* spell,bool doWillCompare);
 
-    CasterPosition GetWinCaster();
+    CasterPosition GetWillCompareResult();
 
     void UpdateTimetrack();
 

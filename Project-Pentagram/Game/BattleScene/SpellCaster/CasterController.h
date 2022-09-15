@@ -37,7 +37,7 @@ public:
 
         CastSpellDetail* spell = m_SpellCaster.GetSpellDetail();
         m_SpellCaster.CommitSpell();
-        std::cout << "Casted:\n" << *spell->OriginalSpell << "\n"
+        std::cout << "Casted:\n" << *spell << "\n"
             << "\tRemained Mana: "<< m_SpellCaster.GetMana() <<"\n";
         EndTurn();
         return spell;
@@ -47,8 +47,6 @@ public:
     {
         m_CasterState = isPassed ? CasterState::Passed : CasterState::EndTurn;
     }
-
-
 
     ~CasterController()
     {
