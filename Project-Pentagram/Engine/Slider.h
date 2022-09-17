@@ -9,19 +9,22 @@
 class Slider : public UIObject
 {
 	protected:
-		Button* button;
+		Button* m_Button;
 		float m_Value;
 		bool m_IsPress;
 
 	public:
-		glm::vec4 filledColor;
-
 		Slider(const std::string& objName);
 		void InitButton(Button* button);
 
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 
+		// Setter
 		void SetValue(const float& value);
+
+		// Getter
 		float GetValue();
+		bool IsButtonPressed();
+		Button* GetSliderButton();
 };

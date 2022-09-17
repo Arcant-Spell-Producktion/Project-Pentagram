@@ -11,33 +11,33 @@ Slider::Slider(const std::string& objName)
 
 void Slider::InitButton(Button* button)
 {
-	this->button = button;
-	SetChildRenderFront(this->button);
+	this->m_Button = button;
+	SetChildRenderFront(this->m_Button);
 
-	this->button->scale = glm::vec3(50.0f, 75.0f, 1.0f);
-	this->button->color = glm::vec4(0.5f, 0.5f, 0.5f, 1.0f);
+	this->m_Button->scale = glm::vec3(30.0f, 75.0f, 1.0f);
+	this->m_Button->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	this->button->onPress = [this](Button* button) { this->m_IsPress = true; };
-	this->button->unPress = [this](Button* button) { this->m_IsPress = false; };
-	this->button->unHover = [this](Button* button) { if (!m_IsPress) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); } };
+	this->m_Button->onPress = [this](Button* button) { this->m_IsPress = true; };
+	this->m_Button->unPress = [this](Button* button) { this->m_IsPress = false; };
+	this->m_Button->unHover = [this](Button* button) { if (!m_IsPress) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); } };
 }
 
 void Slider::OnUpdate(const float& dt)
 {
 	if (m_IsPress)
 	{
-		this->button->position.x += Input::deltaMouseX;
-		if (this->button->position.x > this->position.x + this->scale.x / 2.0f)
+		this->m_Button->position.x += Input::deltaMouseX;
+		if (this->m_Button->position.x > this->position.x + this->scale.x / 2.0f)
 		{
-			this->button->position.x = this->position.x + this->scale.x / 2.0f;
+			this->m_Button->position.x = this->position.x + this->scale.x / 2.0f;
 		}
-		else if (this->button->position.x < this->position.x - this->scale.x / 2.0f)
+		else if (this->m_Button->position.x < this->position.x - this->scale.x / 2.0f)
 		{
-			this->button->position.x = this->position.x - this->scale.x / 2.0f;
+			this->m_Button->position.x = this->position.x - this->scale.x / 2.0f;
 		}
 	}
 
-	this->m_Value = (this->button->position.x - (this->position.x - this->scale.x / 2.0f)) / this->scale.x;
+	this->m_Value = (this->m_Button->position.x - (this->position.x - this->scale.x / 2.0f)) / this->scale.x;
 }
 
 void Slider::Draw(Camera& camera, glm::mat4 parentModel)
@@ -116,8 +116,14 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	}
 }
 
+
+// Setter Implement
 void Slider::SetValue(const float& value)
 {
-	this->button->position.x = ((this->position.x + this->scale.x) * value) - this->scale.x / 2.0f;
+	this->m_Button->position.x = ((this->position.x + this->scale.x) * value) - this->scale.x / 2.0f;
 }
+
+// Getter Implement
 float Slider::GetValue() { return this->m_Value; }
+bool Slider::IsButtonPressed() { return this->m_IsPress; }
+Button* Slider::GetSliderButton() { return this->m_Button; }
