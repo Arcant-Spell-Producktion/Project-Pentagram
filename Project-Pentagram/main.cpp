@@ -36,7 +36,7 @@ int main()
 
     //Init player, TODO:: done in character select instead
     //CasterData playerData(Element::Debug, CasterPosition::CasterA, 100, 10);
-    currentGame->Player = new PlayerData({ Element::Debug, CasterPosition::CasterA, 100, 10 });
+    currentGame->Player = new PlayerData({ Element::Fire, CasterPosition::CasterA, 100, 10 });
 
 	double currTime = 0;
 	double prevTime = 0;

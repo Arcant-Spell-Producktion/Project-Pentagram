@@ -34,8 +34,6 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
             {
                 if (spell->isCasted) continue;
 
-                spell->isCasted = true;
-
                 switch (spell->OriginalSpell->GetChannelEffectType())
                 {
                 case ChannelEffectType::None:
@@ -64,6 +62,8 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     break;
                 }
                 
+                spell->isCasted = true;
+
                 if (spell->doCast)
                 {
                     CasterController* caster = battleManager->GetData()->GetCaster(casterPosition);
