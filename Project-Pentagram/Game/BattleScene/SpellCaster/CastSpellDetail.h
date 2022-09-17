@@ -11,13 +11,18 @@ class CastSpellDetail
         int SelectedEffect;
         int SelectedTime;
         bool isCasted = false;
+        bool doCast = false;
 
-        CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time) :
+        int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
+
+        CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time,bool isCted = false, bool do_cast = false) :
             SpellOwner(position),
             OriginalSpell(spell),
             SelectedWill(will),
             SelectedEffect(effect),
-            SelectedTime(time)
+            SelectedTime(time),
+            isCasted(isCted),
+            doCast(do_cast)
         {}
 
         friend ostream& operator<<(ostream& os, const CastSpellDetail& detail)
@@ -26,7 +31,7 @@ class CastSpellDetail
 
             os << "\tWill: " << detail.SelectedWill << "\n";
 
-            os << "\tDamage:  " << detail.OriginalSpell->GetWillValue(detail.SelectedWill -1) << " \n";
+            os << "\tDamage:  " << detail.GetDamage() << " \n";
 
             os << "\tEffect Type: " << SideEffectType::GetString(detail.OriginalSpell->GetSideEffectType()) << "\n";
            

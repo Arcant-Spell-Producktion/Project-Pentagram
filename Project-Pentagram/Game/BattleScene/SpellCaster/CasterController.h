@@ -43,6 +43,17 @@ public:
         return spell;
     }
 
+    void TakeDamage(int value)
+    {
+        int totalDamage = -value;
+        m_SpellCaster.ChangeHealth(totalDamage);
+
+        std::cout << "Caster:" << (int)m_SpellCaster.GetCasterData()->GetPosition()
+            << "\tDmg taken: " << value
+            << "\tRemained Hp: " << m_SpellCaster.GetHealth()<< "\n";
+        m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
+    }
+
     void EndTurn(bool isPassed = false)
     {
         m_CasterState = isPassed ? CasterState::Passed : CasterState::EndTurn;

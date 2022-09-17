@@ -1,6 +1,6 @@
 ﻿#include "CastBattleState.h"
 #include "Game/BattleScene/BattleManager.h"
-#include "Game/BattleScene/SpellCaster/PlayerController.h""
+#include "Game/BattleScene/SpellCaster/PlayerController.h"
 
 void PlayerCastUpdate(float dt)
 {
@@ -24,6 +24,7 @@ void PlayerCastUpdate(float dt)
 
 void CastBattleState::OnBattleStateIn()
 {
+    BattleManager::GetInstance()->GetData()->StandbyAllCaster();
 }
 
 void CastBattleState::OnBattleStateUpdate(float dt)
@@ -53,7 +54,7 @@ void CastBattleState::OnBattleStateUpdate(float dt)
             currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
             battleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
 
-            currentCaster->SetPentagramData({ 1, 1, 1, 1, 3 });
+            currentCaster->SetPentagramData({ 1, 1, 3, 1, 3 });
             battleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
 
 

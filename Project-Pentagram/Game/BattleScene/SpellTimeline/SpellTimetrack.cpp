@@ -57,10 +57,20 @@ void SpellTimetrack::UpdateTimetrack()
         return;
     }
 
-    CasterPosition lossCaster = winCaster == CasterPosition::CasterA ? CasterPosition::CasterB : CasterPosition::CasterA;
+    CasterPosition lossCaster = (winCaster == CasterPosition::CasterB) ? CasterPosition::CasterA : CasterPosition::CasterB;
     int totalLostWill = m_WillCompareTable[lossCaster];
     for (CastSpellDetail* csd : m_Timetrack)
     {
+        if (csd->SpellOwner == lossCaster)
+        {
+            csd->isCasted = true;
+        }
+
+        if (totalLostWill <= 0)
+        {
+            continue;
+        }
+
         if (csd->SpellOwner == winCaster)
         {
             int currentWill = csd->SelectedWill;
@@ -78,16 +88,7 @@ void SpellTimetrack::UpdateTimetrack()
                     totalLostWill = 0;
                 }
             }
-
-            if (totalLostWill <= 0)
-            {
-                break;
-            }
-        }
-        else
-        {
-            csd->isCasted = true;
-        }
+        } 
     }
 }
 
