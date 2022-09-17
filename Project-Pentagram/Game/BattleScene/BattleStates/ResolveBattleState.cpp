@@ -15,46 +15,86 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
         SpellTimetrack* track = battleManager->GetData()->Timeline.GetTimetrack(i);
         std::cout << "\tGet Track: " << i << "\n";
-
+        std::cout << "\tTrack Size: " << track->GetSpellList().size() << "\n";
        /* for (auto csd : track->GetSpellList())
         {
             std::cout << *csd << "\n";
         }*/
 
-        CasterPosition casterToResolve = track->GetWillCompareResult();
-        std::cout << "\tGet casterToResolve: " << (int)casterToResolve << "\n";
+        CasterPosition casterPosition = track->GetWillCompareResult();
+        CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
+        std::cout << "\tGet casterToResolve: " << (int)casterPosition << "\n";
         //use casterToResolve play WillCompare Animation
 
         track->UpdateTimetrack();
 
-        if (casterToResolve >= CasterPosition::CasterA)
+        if (casterPosition >= CasterPosition::CasterA)
         {
             for (CastSpellDetail* spell : track->GetSpellList())
             {
                 if (spell->isCasted) continue;
 
-                //TODO: resolve the spell
-
                 spell->isCasted = true;
+
+                switch (spell->OriginalSpell->GetChannelEffectType())
+                {
+                case ChannelEffectType::None:
+                    spell->doCast = true;
+                    break;
+                case ChannelEffectType::Wait:
+                    if (!spell->doCast)
+                    {
+                    CastSpellDetail* newSpell = new CastSpellDetail(*spell);
+                    newSpell->SelectedTime += newSpell->OriginalSpell->GetChannelTime();
+                    newSpell->doCast = true;
+                    battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell,true);
+                    break;
+                    }
+                case ChannelEffectType::Active:
+                    if (!spell->doCast)
+                    {
+                        for (int i = spell->SelectedTime +1; i <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); i++)
+                        {
+                        CastSpellDetail* newSpell = new CastSpellDetail(*spell);
+                        newSpell->SelectedTime = i;
+                        newSpell->doCast = true;
+                        battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell, true);
+                        }
+                    }
+                    break;
+                }
+                
+                if (spell->doCast)
+                {
+                    CasterController* caster = battleManager->GetData()->GetCaster(casterPosition);
+                    CasterController* target = battleManager->GetData()->GetCaster(targetPosition);
+
+                    //Damage Calculation
+                    target->TakeDamage(spell->GetDamage());
+
+                    //TODO: resolve the spell effect
+                }
 
                 //TODO: check battle end condition
             }
         }
         else
         {
+            std::cout << "\n\tTIED OR NONE\n\n";
             continue;
         }
     }
-    battleManager->GetData()->Timeline.UpdateTimeline();
+    
 
     //if(battle end)
     //{}
     //else
-    battleManager->GetData()->StandbyAllCaster();
     battleManager->SetBattleState(BattleState::CastState);
-    battleManager->SwapCaster();
+    //battleManager->SwapCaster();
 }
 
 void ResolveBattleState::OnBattleStateOut()
 {
+    BattleManager* battleManager = BattleManager::GetInstance();
+    battleManager->GetData()->Timeline.UpdateTimeline();
 }

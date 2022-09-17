@@ -31,20 +31,23 @@ void BattleScene::GameSceneInit()
     GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Fire_Mage.png");
-    obj->position.x -= 500.0f;
+    obj->position.x -= 700.0f;
     obj->SetChildRenderBack(particle);
 
     GameObject* obj2 = CreateGameObject("Floor");
     obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-    obj2->scale = { 1600.0f, 500.0f, 1.0f };
+    obj2->scale = { 1920.0f, 500.0f, 1.0f };
     obj2->position.y = -400.0f;
 
     GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/character_minion_idle.png");
-    obj3->position.x += 500.0f;
-    
+    obj3->position.x += 700.0f;
+
     battleManager->GetData()->pentragramController = new PentragramController(this);
+
+    battleManager->GetData()->GetCaster(CasterPosition::CasterA)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterA));
+    battleManager->GetData()->GetCaster(CasterPosition::CasterB)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterB));
 
     std::cout << "Battle Scene : Initialize Completed\n";
 

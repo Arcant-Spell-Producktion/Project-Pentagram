@@ -13,6 +13,19 @@ public:
 
     PentragramController* pentragramController;
 
+    CasterController* GetCaster(CasterPosition position) 
+    {
+        CasterController* caster = nullptr;
+        for (auto c: Casters)
+        {
+            if (c->GetSpellCaster()->GetCasterData()->GetPosition() == position)
+            {
+                caster = c;
+                break;
+            }
+        }
+        return caster;
+    }
     CasterController* GetCurrentCaster() { return Casters[CurrentCasterIndex]; }
     CasterController* GetNextCaster() { return Casters[(CurrentCasterIndex + 1) % Casters.size()]; }
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }

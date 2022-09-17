@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "SpellCaster.h"
+#include "Game/BattleScene/GameObject/CasterUIController.h"
 
 enum class CasterState
 {
@@ -15,7 +16,17 @@ class CasterController
 protected:
     CasterState m_CasterState = CasterState::Idle;
     SpellCaster m_SpellCaster;
+    CasterUIController* m_CasterUI = nullptr;
 public:
+
+    CasterUIController* GetCasterUI() { return m_CasterUI; }
+    void SetCasterUI(CasterUIController* ui)
+    {
+        m_CasterUI = ui;
+        m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
+        m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
+    }
+
     CasterController(CasterData caster):m_SpellCaster(caster){}
 
     SpellCaster* GetSpellCaster() {return &m_SpellCaster;}
@@ -39,8 +50,20 @@ public:
         m_SpellCaster.CommitSpell();
         std::cout << "Casted:\n" << *spell << "\n"
             << "\tRemained Mana: "<< m_SpellCaster.GetMana() <<"\n";
+        m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
         EndTurn();
         return spell;
+    }
+
+    void TakeDamage(int value)
+    {
+        int totalDamage = -value;
+        m_SpellCaster.ChangeHealth(totalDamage);
+
+        std::cout << "Caster:" << (int)m_SpellCaster.GetCasterData()->GetPosition()
+            << "\tDmg taken: " << value
+            << "\tRemained Hp: " << m_SpellCaster.GetHealth()<< "\n";
+        m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
     }
 
     void EndTurn(bool isPassed = false)
