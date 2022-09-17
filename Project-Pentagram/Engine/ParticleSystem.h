@@ -14,7 +14,7 @@
 #include "Camera.h"
 #include "GameObject.h"
 
-struct ParticleProps
+struct ParticleProperty
 {
 	glm::vec2 position = glm::vec2(0.0f, 0.0f);
 	glm::vec2 velocity = glm::vec2(0.0f, 0.0f), velocityVariation = glm::vec2(0.0f, 0.0f);
@@ -40,11 +40,11 @@ class ParticleSystem : public GameObject
 			bool active = false;
 		};
 		Particle m_ParticlePool[1000];
-		float curSpawnTime;
+		float m_CurrentSpawnTime = 0.0f;
 
 	public:
 		GLuint m_PoolIndex = 999;
-		ParticleProps baseParticle;
+		ParticleProperty baseParticle;
 		float spawnTime;
 
 		ParticleSystem(const std::string& objName);
@@ -53,5 +53,5 @@ class ParticleSystem : public GameObject
 		virtual void Draw(Camera &camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 		virtual void UnloadMesh() override;
 
-		void Emit(const ParticleProps& particleProps);
+		void Emit(const ParticleProperty& particleProperty);
 };

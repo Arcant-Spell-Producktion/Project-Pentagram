@@ -9,15 +9,15 @@
 class ArcantEngine : public Singleton<ArcantEngine>
 {
 	private:
-		Window window;
+		Window m_Window;
 
 	public:
 		ArcantEngine();
-		Window* GetWindow();
 
 		void Init();
 		void Free();
 
-		bool IsRunning();
+		Window* GetWindow();
+		bool IsRunning() const;
 
 };

@@ -3,7 +3,7 @@
 TextObject::TextObject(const std::string& objName)
 	: UIObject(objName)
 {
-	m_Tag = GameObjectTag::TEXT;
+	this->m_Tag = GameObjectTag::TEXT;
 	
 	this->m_Fonts = "Fonts/ARLRDBD.ttf";
 	this->fontSize = 48; 
@@ -17,11 +17,15 @@ TextObject::TextObject(const std::string& objName)
 
 void TextObject::OnUpdate(const float& dt)
 {
-	m_CurrentTime += dt;
+	this->m_CurrentTime += dt;
 }
-
 void TextObject::Draw(Camera& camera, glm::mat4 parentModel)
 {
+	if (!m_IsActive)
+	{
+		return;
+	}
+
 	if (m_SlowRender)
 	{
 		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f), 0, m_CurrentTextIndex + 1);
@@ -46,7 +50,6 @@ void TextObject::Draw(Camera& camera, glm::mat4 parentModel)
 		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f));
 	}
 }
-
 void TextObject::UnloadMesh()
 {
 	this->m_TextSumX.clear();
@@ -54,22 +57,23 @@ void TextObject::UnloadMesh()
 	GameObject::UnloadMesh();
 }
 
+// ----------------- Setter -----------------
 void TextObject::SetSlowRender(const float& renderTime)
 {
-	m_SlowRender = true;
-	m_CurrentTextIndex = 0;
-	m_RenderTime = renderTime;
+	this->m_SlowRender = true;
+	this->m_CurrentTextIndex = 0;
+	this->m_RenderTime = renderTime;
 }
-
-void TextObject::SetFonts(const std::string& fontsPath)
+void TextObject::SetFonts(const std::string& fontPath)
 {
-	m_Fonts = fontsPath;
+	this->m_Fonts = fontPath;
 }
 
+// ----------------- Render Text -----------------
 void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 {
 	start = (start == -1 ? 0 : start);
-	end = (end == -1 ? text.size() : end);
+	end = (end == -1 ? this->text.size() : end);
 
 	// Calculate Glyph Structure
 	CalculateGlyphText(end);
@@ -86,19 +90,19 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
-	shader.setVec4("u_TextColor", color);
-	shader.setVec4("u_OutlineColor", outlineColor);
+	shader.setVec4("u_TextColor", this->color);
+	shader.setVec4("u_OutlineColor", this->outlineColor);
 	shader.setInt("u_Texture", 0);
 
-	float x = position.x;
-	float y = position.y;
-	float lineSpace = BASE_FONT_SIZE * m_FontScale * lineSpacing;
+	float x = this->position.x;
+	float y = this->position.y;
+	float lineSpace = BASE_FONT_SIZE * m_FontScale * this->lineSpacing;
 	int countLine = 0;
 	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Iterate through all characters
 	for (unsigned int idx = start; idx < end; idx++)
 	{
-		char c = text[idx];
+		char c = this->text[idx];
 		// If current character is tab no need to render
 		if (c == 9) { continue; }
 
@@ -106,7 +110,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		if (c == '\n')
 		{
 			countLine++;
-			x = position.x;
+			x = this->position.x;
 			continue;
 		}
 		Character& ch = characters->at(c);
@@ -139,17 +143,18 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		shader.setMat4("u_Model", model);
 
 		// Render quad
-		this->m_Mesh.Render();
+		m_Mesh.Render();
 
 		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
 		x += (ch.advance >> 6) * m_FontScale;	// bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
 	}
 }
 
+// ----------------- Private Function -----------------
 void TextObject::CalculateGlyphText(const int& endIndex)
 {
 	m_TextMaxY = 0.0f;
-	m_FontScale = fontSize / BASE_FONT_SIZE;
+	m_FontScale = this->fontSize / BASE_FONT_SIZE;
 
 	float curTextSumX = 0.0f;
 	int countLine = 0;
@@ -157,7 +162,7 @@ void TextObject::CalculateGlyphText(const int& endIndex)
 	// Pre-Calculated for justify text alignment
 	for (unsigned int idx = 0; idx < endIndex; idx++)
 	{
-		char c = text[idx];
+		char c = this->text[idx];
 		Character& ch = characters->at(c);
 		// If current character is tab no need to render
 		if (c == 9) { continue; }

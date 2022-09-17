@@ -6,5 +6,6 @@ enum GameObjectTag
 	PARTICLE,
 	UIOBJECT,
 	TEXT,
-	BUTTON
+	BUTTON,
+	SLIDER
 };

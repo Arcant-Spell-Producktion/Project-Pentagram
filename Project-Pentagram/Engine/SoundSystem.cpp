@@ -19,17 +19,7 @@ SoundSystem::SoundSystem()
 	}
 }
 
-void SoundSystem::SetPauseAll(const bool& willPaused)
-{
-	m_SoundEngine->setAllSoundsPaused(willPaused);
-	m_IsPaused = willPaused;
-}
-bool SoundSystem::isAllPaused()
-{
-	return m_IsPaused;
-}
-
-// ----------------------- Audio Grouping Implement ----------------------- 
+// ----------------- Audio Grouping ----------------- 
 AudioGroup* SoundSystem::PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume, const float& playbackSpeed)
 {
 	AudioGroup* audioGroup = new AudioGroup(groupName);
@@ -58,7 +48,7 @@ AudioGroup* SoundSystem::FindAudioGroup(const std::string& groupName)
 	return m_AudioGroupList[groupName];
 }
 
-// ----------------------- Audio Playing ----------------------- 
+// ----------------- Audio Playing ----------------- 
 Audio* SoundSystem::PlayBGM(const std::string& fileName, const bool& isLoop, const float& playbackSpeed)
 {
 	// Handle Error : fileName doesn't exist
@@ -84,7 +74,7 @@ Audio* SoundSystem::PlaySFX(const std::string& fileName, const bool& isLoop, con
 	return newSound;
 }
 
-// ----------------------- Audio Components ----------------------- 
+// ----------------- Audio Components -----------------
 void SoundSystem::SetPause(const std::string& fileName, const bool& willPaused)
 {
 	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
@@ -230,8 +220,7 @@ void SoundSystem::UnMute(const std::string& groupName, const std::string& fileNa
 	curAudio->setVolume(m_BGMVolume * m_MasterVolume);
 }
 
-
-// ----------------------- Getter & Setter Implement ----------------------- 
+// ----------------- Getter ----------------- 
 void SoundSystem::SetMasterVolume(const float& volume)
 {
 	this->m_MasterVolume = volume;
@@ -269,12 +258,31 @@ void SoundSystem::SetBGMVolume(const float& volume)
 		it->second->setVolume(m_MasterVolume * m_BGMVolume);
 	}
 }
+void SoundSystem::SetPauseAll(const bool& willPaused)
+{
+	m_SoundEngine->setAllSoundsPaused(willPaused);
+	m_IsPaused = willPaused;
+}
 
-float SoundSystem::GetMasterVolume() { return m_MasterVolume; }
-float SoundSystem::GetSFXVolume() { return m_SFXVolume; }
-float SoundSystem::GetBGMVolume() { return m_BGMVolume; }
+// ----------------- Setter ----------------- 
+float SoundSystem::GetMasterVolume() const 
+{ 
+	return m_MasterVolume; 
+}
+float SoundSystem::GetSFXVolume() const 
+{ 
+	return m_SFXVolume; 
+}
+float SoundSystem::GetBGMVolume() const 
+{ 
+	return m_BGMVolume; 
+}
+bool SoundSystem::isAllPaused() const
+{
+	return m_IsPaused;
+}
 
-// ----------------------- Free Memory ----------------------- 
+// ----------------- Free Memory ----------------- 
 void SoundSystem::FreeSound()
 {
 	m_IsPaused = false;
@@ -300,12 +308,13 @@ void SoundSystem::FreeSound()
 	}
 	m_AudioGroupList.clear();
 }
-
 void SoundSystem::FreeEngine()
 {
 	m_SoundEngine->drop();
 }
 
+
+// ----------------- Private Function----------------- 
 void SoundSystem::InitSoundEngine()
 {
 	m_SoundEngine = irrklang::createIrrKlangDevice();

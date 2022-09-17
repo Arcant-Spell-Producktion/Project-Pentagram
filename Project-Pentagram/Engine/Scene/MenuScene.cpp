@@ -14,9 +14,8 @@ Slider* slider;
 void MenuScene::GameSceneInit()
 {
 	t = 0.0f;
-	std::string path = "Sprites/Fire_Mage.png";
 
-	ParticleProps particleProp;
+	ParticleProperty particleProp;
 	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
 	particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
 	particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
@@ -26,7 +25,8 @@ void MenuScene::GameSceneInit()
 
 	GameObject* obj = CreateGameObject("SmileFace", 2, { 5,8 });
 	obj->scale = { 320.0f, 320.0f, 1.0f };
-	obj->SetTexture(path);
+	obj->SetTexture("Sprites/Fire_Mage.png");
+	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
 	cur = obj;
 
@@ -38,6 +38,7 @@ void MenuScene::GameSceneInit()
 	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/character_minion_idle.png");
+	obj3->SetIsAnimationObject(true);
 	obj3->position.x += 500.0f;
 
 	// GameObject* obj2 = CreateGameObject("SmileFace");
@@ -134,27 +135,6 @@ void MenuScene::GameSceneUpdate(float dt)
 	{
 		slider->SetValue(0.75f);
 	}
-	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
-	{
-		cur->SetAnimationState(2);
-	}
-	else
-	{
-		cur->SetAnimationState(1);
-	}
-
-	if (Input::IsKeyPressed(GLFW_KEY_D))
-	{
-		cur->scale.x = abs(cur->scale.x);
-		cur->position.x += 100.0f * dt;
-		curUI->position.x += 30.0f;
-	}
-	else if (Input::IsKeyPressed(GLFW_KEY_A))
-	{
-		cur->scale.x = -abs(cur->scale.x);
-		cur->position.x -= 100.0f * dt;
-		curUI->position.x -= 30.0f;
-	}
 
 	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
 	if (Input::IsKeyPressed(GLFW_KEY_RIGHT)) { curButton->scale.x += dt * 30.0f; }
@@ -168,7 +148,7 @@ void MenuScene::GameSceneUpdate(float dt)
 		GameObject*& curObj = objectsList[idx];
 
 		curObj->OnUpdate(dt);
-		if (curObj->IsAnimation())
+		if (curObj->IsAnimationObject())
 		{
 			curObj->UpdateAnimation(dt);
 		}

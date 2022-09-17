@@ -15,15 +15,19 @@
 class GameScene
 {
 	private:
+		// ----------------- Button Events -----------------
 		glm::vec3 FindButtonParentPosition(const Button* button);
 		void UpdateButtonOnClick();
 		void UpdateButtonOnHover();
 		void UpdateButtonOnPress();
 
 	protected:
+		// ----------------- Rendering Component List -----------------
 		std::vector<GameObject*> objectsList;
 		std::vector<UIObject*> uiObjectsList;
 		std::vector<Button*> buttonObjectsList;
+
+		// ----------------- Utilities -----------------
 		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
 		float timeScale = 1.0f;
@@ -32,7 +36,7 @@ class GameScene
 
 		virtual ~GameScene();
 
-		// GameState Loop
+		// ----------------- GameState Loop -----------------
 		virtual void GameSceneLoad() = 0;
 		virtual void GameSceneInit() = 0;
 		virtual void GameSceneUpdate(float dt) = 0;
@@ -40,10 +44,10 @@ class GameScene
 		virtual void GameSceneUnload();
 		virtual void GameSceneFree();
 
-		// Create Object
+		// ----------------- Creating Object -----------------
 		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
-		ParticleSystem* CreateParticle(ParticleProps& particleProps);
-		ParticleSystem* CreateParticle(const std::string& objName, ParticleProps& particleProps);
+		ParticleSystem* CreateParticle(ParticleProperty& particleProperty);
+		ParticleSystem* CreateParticle(const std::string& objName, ParticleProperty& particleProperty);
 		UIObject* CreateUIObject(const std::string& objName = "");
 		TextObject* CreateTextObject(const std::string& objName = "");
 		Button* CreateButton(const std::string& objName = "");

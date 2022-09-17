@@ -16,31 +16,38 @@
 class GameObject
 {
 	protected:
+		// ----------------- Rendering -----------------
 		Mesh m_Mesh;
 		Texture* m_Texture;
 		bool m_IsActive;
 		unsigned int m_Tag;
 
-		// Animation
-		bool m_IsAnimation;
-		int m_AnimRow;
-		std::vector<int> m_AnimCol;
-		int m_MaxAnimCol;
-		int m_CurAnimRow = 1, m_CurAnimCol = 1;
-		float m_Time = 0.0f;
+		// ----------------- Animation -----------------
+		bool m_IsAnimationPlayed;
+		bool m_IsAnimationObject;
+		bool m_IsSpriteSheet;
 
-		// Child
-		std::vector<GameObject*> m_FrontChildList;
-		std::vector<GameObject*> m_BackChildList;
+		int m_AnimationRow;
+		std::vector<int> m_AnimationColumn;
+		
+		int m_MaxAnimationColumn;
+		int m_CurrentAnimationRow = 1, m_CurrentAnimationColumn = 1;
+		float m_AnimationPlayTime = 0.1f;
+		float m_CurrentPlayTime = 0.0f;
+
+		// ----------------- Child -----------------
+		std::vector<GameObject*> m_FrontRenderedChildList;
+		std::vector<GameObject*> m_BackRenderedChildList;
 
 	public:
+		// ----------------- General ----------------- 
 		std::string name;
 		GameObject* parent;
-		// Transform
+		// ----------------- Transform ----------------- 
 		glm::vec3 position;
 		glm::vec3 scale;
 		float rotation;
-		// Color
+		// ----------------- Color ----------------- 
 		glm::vec4 color;
 
 		GameObject(const std::string& objName, const int& animRow = 1, const std::vector<int>& animCol = { 1 });
@@ -49,23 +56,40 @@ class GameObject
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f));
 		virtual void UnloadMesh();
 
+
+		// ----------------- Getter ----------------- 
+		// Rendering
+		unsigned int GetTag() const;
+		bool IsActive() const;
+		Texture* GetTexture() const;
+		// Animation
+		int GetCurrentAnimationRow() const;
+		int GetCurrentAnimationColumn() const;
+		glm::ivec2 GetCurrentAnimationIndex() const;
+		int GetAnimationRow() const;
+		int GetAnimationColumn(const int& row) const;
+		float GetAnimationPlayTime() const;
+		float GetCurrentAnimationPlayTime() const;
+		bool IsAnimationObject() const;
+		bool IsAnimationPlayed() const;
+		bool IsSpriteSheet() const;
+
+		// ----------------- Setter ----------------- 
+		// Rendering
+		void SetActive(const bool& active);
 		void SetChildRenderFront(GameObject* gameObj);
 		void SetChildRenderBack(GameObject* gameObj);
-
-		// Getter
-		unsigned int GetTag();
-		bool IsAnimation();
-		bool IsActive();
-
-		// Setter
-		void SetAnimation(const bool& active);
-		void SetActive(const bool& active);
-
+		// Animation
+		void SetIsAnimationObject(const bool& active);
+		void SetAnimationSpriteByIndex(const int& animationRow, const int& animationColumn);
+		void SetSpriteByIndex(const int& row, const int& column);
+		void SetAnimationPlayTime(const float& animationPlayTime);
 		// Texture
 		// override in ParticleSystem.h
-		virtual void SetTexture(const std::string& path);
+		virtual void SetTexture(const std::string& filePath);
+		virtual void SetTexture(Texture* texture);
 
-		// Animation
-		void UpdateAnimation(const float& time, const float& animTime = 0.1f);
-		void SetAnimationState(const int& animCol);
+
+		// ----------------- Animation Update ----------------- 
+		void UpdateAnimation(const float& deltaTime);
 };

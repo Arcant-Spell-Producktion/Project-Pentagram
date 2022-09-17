@@ -5,7 +5,7 @@ GameScene::~GameScene()
 
 }
 
-// ------------------------ Creating Object ------------------------ 
+// ----------------- Creating Object ----------------- 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
 	GameObject* obj = nullptr;
@@ -21,23 +21,20 @@ GameObject* GameScene::CreateGameObject(const std::string& objName, const int& a
 	objectsList.push_back(obj);
 	return obj;
 }
-
-ParticleSystem* GameScene::CreateParticle(ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem("Particle_" + std::to_string(objectsList.size()));
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
-ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem(objName);
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
 UIObject* GameScene::CreateUIObject(const std::string& objName)
 {
 	UIObject* ui = nullptr;
@@ -53,7 +50,6 @@ UIObject* GameScene::CreateUIObject(const std::string& objName)
 	uiObjectsList.push_back(ui);
 	return ui;
 }
-
 TextObject* GameScene::CreateTextObject(const std::string& objName)
 {
 	TextObject* textObj = nullptr;
@@ -69,7 +65,6 @@ TextObject* GameScene::CreateTextObject(const std::string& objName)
 	return textObj;
 
 }
-
 Button* GameScene::CreateButton(const std::string& objName)
 {
 	Button* button = nullptr;
@@ -85,7 +80,6 @@ Button* GameScene::CreateButton(const std::string& objName)
 	buttonObjectsList.push_back(button);
 	return button;
 }
-
 Slider* GameScene::CreateSlider(const std::string& objName)
 {
 	Slider* slider = nullptr;
@@ -105,7 +99,7 @@ Slider* GameScene::CreateSlider(const std::string& objName)
 	return slider;
 }
 
-// ------------------------ Button Events ------------------------ 
+// ----------------- Button Events ----------------- 
 
 glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
 {
@@ -246,7 +240,7 @@ void GameScene::UpdateButtonEvents()
 	UpdateButtonOnPress();
 }
 
-// ------------------------ GameScene State ------------------------ 
+// ----------------- GameScene State ----------------- 
 void GameScene::GameSceneDraw()
 {
 	// Render GameObject
@@ -272,7 +266,6 @@ void GameScene::GameSceneDraw()
 		uiObjectsList[idx]->Draw(camera);
 	}
 }
-
 void GameScene::GameSceneUnload()
 {
 	// Unload GameObject
@@ -287,7 +280,6 @@ void GameScene::GameSceneUnload()
 	}
 	std::cout << "Game Scene(Default) : UnLoad Mesh Completed\n";
 }
-
 void GameScene::GameSceneFree()
 {
 	// Free GameObject

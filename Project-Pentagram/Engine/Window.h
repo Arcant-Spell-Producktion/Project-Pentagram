@@ -28,10 +28,7 @@ class Window
 		void MakeContextCurrent();
 		void PollEvents();
 		void SwapBuffers();
-
 		void Close();
-		bool IsNull();
-		bool IsRunning();
 
 		// Setter
 		void SetWidth(const int& width);
@@ -41,10 +38,12 @@ class Window
 
 		// Getter
 		GLFWwindow* getWindow();
-		int GetWidth();
-		int GetHeight();
-		glm::vec2 GetWindowRatio();
-		bool IsClose();
+		int GetWidth() const;
+		int GetHeight() const;
+		glm::vec2 GetWindowRatio() const;
+		bool IsClose() const;
+		bool IsNull() const;
+		bool IsRunning() const;
 
 		// Core-Loop
 		void Init();
