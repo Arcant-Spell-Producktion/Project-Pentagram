@@ -251,4 +251,6 @@ void PentragramController::SetPentagramValue(int value)
         m_currentData.time = caster->GetSpellDetail()->OriginalSpell->GetCastTime();
         caster->SetPentagramData(m_currentData);
     }
+
+    BattleManager::GetInstance()->GetData()->GetCurrentCaster()->GetCasterUI()->SetManaText((caster->GetMana() - caster->GetSpellCost()), caster->GetCasterData()->GetMana());
 }
