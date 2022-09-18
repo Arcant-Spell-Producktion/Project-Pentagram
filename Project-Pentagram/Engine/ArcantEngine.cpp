@@ -1,28 +1,26 @@
 #include "ArcantEngine.h"
 
 ArcantEngine::ArcantEngine()
-	: window(WINDOW_WIDTH, WINDOW_HEIGHT, TITLE)
+	: m_Window(WINDOW_WIDTH, WINDOW_HEIGHT, TITLE)
 {
 }
 
 void ArcantEngine::Init()
 {
 	srand(time(NULL));
-	this->window.Init();
+	this->m_Window.Init();
 }
-
 void ArcantEngine::Free()
 {
-	this->window.Destroy();
+	this->m_Window.Destroy();
 	Singleton::Free();
-}
-
-bool ArcantEngine::IsRunning()
-{
-	return this->window.IsRunning();
 }
 
 Window* ArcantEngine::GetWindow()
 {
-	return &(this->window);
+	return &(this->m_Window);
+}
+bool ArcantEngine::IsRunning() const
+{
+	return this->m_Window.IsRunning();
 }

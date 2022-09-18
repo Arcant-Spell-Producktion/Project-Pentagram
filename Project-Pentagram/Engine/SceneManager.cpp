@@ -20,7 +20,6 @@ namespace SceneManager
 
 		gameStateController->Init(newState);
 	}
-
 	void QuitGame()
 	{
 		GameStateController* gameStateController = GameStateController::GetInstance();

@@ -19,12 +19,12 @@ class AudioGroup
 	
 	public:
 		AudioGroup(const std::string& groupName);
-		void AddAudio(const std::string& fileName, Audio* audio);
-		void RemoveAudio(const std::string& fileName);
+		void AddAudio(const std::string& filePath, Audio* audio);
+		void RemoveAudio(const std::string& filePath);
 		void SetVolume(const float& volume);
-		void SetVolume(const std::string& fileName, const float& volume);
+		void SetVolume(const std::string& filePath, const float& volume);
 
 		Audio* GetAudio(const std::string& audio);
-		std::string GetGroupName();
+		std::string GetGroupName() const;
 
 };

@@ -119,7 +119,9 @@
     <ClCompile Include="Engine\SoundSystem.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Slider.cpp" />
+    <ClCompile Include="Engine\Slider.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -299,7 +301,9 @@
     <ClInclude Include="Utilities\ArcantAssert.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Slider.h" />
+    <ClInclude Include="Engine\Slider.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

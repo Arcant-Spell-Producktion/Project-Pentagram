@@ -1,6 +1,5 @@
 #include "EngineDataCollector.h"
 
-
 // Getter Implement
 ShaderCollector* EngineDataCollector::GetShaderCollector()
 {
@@ -14,7 +13,6 @@ TextureCollector* EngineDataCollector::GetTextureCollector()
 {
 	return &m_TextureCollector;
 }
-
 SoundSystem* EngineDataCollector::GetSoundSystem()
 {
 	return &m_SoundSystem;

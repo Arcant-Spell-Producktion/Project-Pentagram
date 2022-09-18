@@ -14,12 +14,10 @@ namespace Input
 	{
 		return keyPressed[key];
 	}
-
 	bool IsKeyBeginPressed(const int& key)
 	{
 		return keyBeginPressed[key];
 	}
-
 	bool IsKeyEndPressed(const int& key)
 	{
 		return keyEndPressed[key];
@@ -37,6 +35,7 @@ namespace Input
 		}
 	}
 
+	// ----------------- Callback Function -----------------
 	void keyCallBack(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		// In case of : FN + F1 to FN + F12
@@ -54,7 +53,6 @@ namespace Input
 			keyBeginPressed[key] = false;
 		}
 	}
-
 	void cursorCallBack(GLFWwindow* window, double xPos, double yPos)
 	{
 		deltaMouseX = xPos - mouseX;
@@ -62,7 +60,6 @@ namespace Input
 		mouseX = (float)xPos;
 		mouseY = (float)yPos;
 	}
-
 	void mouseCallBack(GLFWwindow* window, int key, int action, int mods)
 	{
 		if (key < 0 || key >= GLFW_KEY_LAST) { return; }

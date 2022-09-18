@@ -26,7 +26,7 @@ struct Character
 class FontCollector
 {
 	private:
-		FT_Library ft;
+		FT_Library m_FreeTypeLib;
 		// Load New Fonts
 		void LoadFont(const std::string& path);
 
@@ -35,5 +35,5 @@ class FontCollector
 	public:
 		FontCollector();
 		void Free();
-		std::map<GLchar, Character>* GetFonts(const std::string& fontsPath);
+		std::map<GLchar, Character>* GetFonts(const std::string& fontPath);
 };

@@ -20,11 +20,11 @@ class Slider : public UIObject
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 
-		// Setter
-		void SetValue(const float& value);
-
-		// Getter
+		// ----------------- Getter ----------------- 
 		float GetValue();
 		bool IsButtonPressed();
 		Button* GetSliderButton();
+
+		// ----------------- Setter ----------------- 
+		void SetValue(const float& value);
 };

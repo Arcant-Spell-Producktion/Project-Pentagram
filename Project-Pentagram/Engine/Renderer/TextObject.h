@@ -19,15 +19,15 @@ enum class TextAlignment
 class TextObject : public UIObject
 {
 	private:
-		// Fonts
+		// ----------------- Font -----------------
 		std::string m_Fonts;
 
-		// Conatining Glyph Structure
+		// ----------------- Glyph Components -----------------
 		std::vector<float> m_TextSumX;
 		float m_TextMaxY;
 		float m_FontScale;
 
-		// Making Text Animation
+		// ----------------- Text Rendering Animation -----------------
 		int m_CurrentTextIndex;
 		float m_CurrentTime;
 		float m_RenderTime;
@@ -46,11 +46,11 @@ class TextObject : public UIObject
 		virtual void OnUpdate(const float& dt) override;
 		virtual void UnloadMesh() override;
 
-		// Setter
+		// ----------------- Setter -----------------
 		void SetSlowRender(const float& renderTime);
-		void SetFonts(const std::string& fontsPath);
+		void SetFonts(const std::string& fontPath);
 
-		// RenderText in box
+		// ----------------- Render Text -----------------
 		void RenderText(glm::vec3 positionOffset, int start = -1, int end = -1);
 
 };

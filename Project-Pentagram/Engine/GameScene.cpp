@@ -5,7 +5,7 @@ GameScene::~GameScene()
 
 }
 
-// ------------------------ Creating Object ------------------------ 
+// ----------------- Creating Object ----------------- 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
 	GameObject* obj = nullptr;
@@ -21,23 +21,20 @@ GameObject* GameScene::CreateGameObject(const std::string& objName, const int& a
 	objectsList.push_back(obj);
 	return obj;
 }
-
-ParticleSystem* GameScene::CreateParticle(ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem("Particle_" + std::to_string(objectsList.size()));
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
-ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem(objName);
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
 UIObject* GameScene::CreateUIObject(const std::string& objName)
 {
 	UIObject* ui = nullptr;
@@ -53,7 +50,6 @@ UIObject* GameScene::CreateUIObject(const std::string& objName)
 	uiObjectsList.push_back(ui);
 	return ui;
 }
-
 TextObject* GameScene::CreateTextObject(const std::string& objName)
 {
 	TextObject* textObj = nullptr;
@@ -69,7 +65,6 @@ TextObject* GameScene::CreateTextObject(const std::string& objName)
 	return textObj;
 
 }
-
 Button* GameScene::CreateButton(const std::string& objName)
 {
 	Button* button = nullptr;
@@ -85,7 +80,6 @@ Button* GameScene::CreateButton(const std::string& objName)
 	buttonObjectsList.push_back(button);
 	return button;
 }
-
 Slider* GameScene::CreateSlider(const std::string& objName)
 {
 	Slider* slider = nullptr;
@@ -105,7 +99,7 @@ Slider* GameScene::CreateSlider(const std::string& objName)
 	return slider;
 }
 
-// ------------------------ Button Events ------------------------ 
+// ----------------- Button Events ----------------- 
 
 glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
 {
@@ -135,6 +129,8 @@ void GameScene::UpdateButtonOnClick()
 	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
 	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
 
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
@@ -148,10 +144,10 @@ void GameScene::UpdateButtonOnClick()
 		{
 			continue;
 		}
-		float left = finalPos.x - (curObj->scale.x / 2.0f);
-		float right = finalPos.x + (curObj->scale.x / 2.0f);
-		float top = finalPos.y + (curObj->scale.y / 2.0f);
-		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -168,6 +164,8 @@ void GameScene::UpdateButtonOnHover()
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
@@ -178,10 +176,10 @@ void GameScene::UpdateButtonOnHover()
 		{
 			continue;
 		}
-		float left = finalPos.x - (curObj->scale.x / 2.0f);
-		float right = finalPos.x + (curObj->scale.x / 2.0f);
-		float top = finalPos.y + (curObj->scale.y / 2.0f);
-		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -202,6 +200,8 @@ void GameScene::UpdateButtonOnPress()
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
@@ -212,10 +212,10 @@ void GameScene::UpdateButtonOnPress()
 		{
 			continue;
 		}
-		float left = finalPos.x - (curObj->scale.x / 2.0f);
-		float right = finalPos.x + (curObj->scale.x / 2.0f);
-		float top = finalPos.y + (curObj->scale.y / 2.0f);
-		float bottom = finalPos.y - (curObj->scale.y / 2.0f);
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -246,7 +246,7 @@ void GameScene::UpdateButtonEvents()
 	UpdateButtonOnPress();
 }
 
-// ------------------------ GameScene State ------------------------ 
+// ----------------- GameScene State ----------------- 
 void GameScene::GameSceneDraw()
 {
 	// Render GameObject
@@ -272,7 +272,6 @@ void GameScene::GameSceneDraw()
 		uiObjectsList[idx]->Draw(camera);
 	}
 }
-
 void GameScene::GameSceneUnload()
 {
 	// Unload GameObject
@@ -287,7 +286,6 @@ void GameScene::GameSceneUnload()
 	}
 	std::cout << "Game Scene(Default) : UnLoad Mesh Completed\n";
 }
-
 void GameScene::GameSceneFree()
 {
 	// Free GameObject

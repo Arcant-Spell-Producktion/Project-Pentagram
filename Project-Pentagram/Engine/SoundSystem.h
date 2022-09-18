@@ -34,16 +34,15 @@ class SoundSystem
 	public:
 		SoundSystem();
 
-		void SetPauseAll(const bool& willPaused);
-		bool isAllPaused();
-
-		// Audio Grouping
+		// ----------------- Audio Grouping ----------------- 
 		AudioGroup* PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume = 1.0f, const float& playbackSpeed = 1.0f);
 		AudioGroup* FindAudioGroup(const std::string& groupName);
 
-		// Audio Playing
+		// ----------------- Audio Playing ----------------- 
 		Audio* PlayBGM(const std::string& fileName, const bool& isLoop, const float& playbackSpeed = 1.0f);
 		Audio* PlaySFX(const std::string& fileName, const bool& isLoop, const float& playbackSpeed = 1.0f);
+
+		// ----------------- Audio Components -----------------
 		void SetPause(const std::string& fileName, const bool& willPaused);
 		void SetPause(const std::string& groupName, const std::string& fileName, const bool& willPaused);
 		bool IsPause(const std::string& fileName);
@@ -57,17 +56,19 @@ class SoundSystem
 		void UnMute(const std::string& fileName);
 		void UnMute(const std::string& groupName, const std::string& fileName);
 
+		// ----------------- Getter ----------------- 
+		float GetMasterVolume() const;
+		float GetSFXVolume() const;
+		float GetBGMVolume() const;
+		bool isAllPaused() const;
 
-		// Getter - Setter
+		// ----------------- Setter ----------------- 
 		void SetMasterVolume(const float& volume);
 		void SetSFXVolume(const float& volume);
 		void SetBGMVolume(const float& volume);
+		void SetPauseAll(const bool& willPaused);
 
-		float GetMasterVolume();
-		float GetSFXVolume();
-		float GetBGMVolume();
-
-		// Free Memory
+		// ----------------- Free Memory ----------------- 
 		void FreeSound();
 		void FreeEngine();
 };

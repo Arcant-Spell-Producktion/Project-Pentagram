@@ -3,7 +3,7 @@
 FontCollector::FontCollector()
 {
 	// Initialize FreeType
-	if (FT_Init_FreeType(&ft))
+	if (FT_Init_FreeType(&m_FreeTypeLib))
 	{
 		std::cout << "Error : Failed Initialize FreeType Library\n";
 		exit(EXIT_FAILURE);
@@ -16,25 +16,25 @@ FontCollector::FontCollector()
 
 void FontCollector::Free()
 {
-	FT_Done_FreeType(ft);
+	FT_Done_FreeType(m_FreeTypeLib);
 }
-
-std::map<GLchar, Character>* FontCollector::GetFonts(const std::string& fontsPath)
+std::map<GLchar, Character>* FontCollector::GetFonts(const std::string& fontPath)
 {
-	return &fonts[fontsPath];
+	return &(fonts[fontPath]);
 }
 
-void FontCollector::LoadFont(const std::string& path)
+// ----------------- Private Function ----------------- 
+void FontCollector::LoadFont(const std::string& fontPath)
 {
 	// Init FT_Face & FT_Stroker
 	FT_Face face;
-	if (FT_New_Face(ft, path.c_str(), 0, &face))
+	if (FT_New_Face(m_FreeTypeLib, fontPath.c_str(), 0, &face))
 	{
 		std::cout << "Error : Failed to Load Font\n";
 		exit(EXIT_FAILURE);
 	}
 	FT_Stroker stroker;
-	if (FT_Stroker_New(ft, &stroker))
+	if (FT_Stroker_New(m_FreeTypeLib, &stroker))
 	{
 		std::cout << "Error : Failed to Init Stroke Text"; 
 		FT_Done_Face(face);
@@ -134,7 +134,7 @@ void FontCollector::LoadFont(const std::string& path)
 		characters[c] = character;
 	}
 
-	fonts[path] = characters;
+	fonts[fontPath] = characters;
 
 	// Delete FT_FACE
 	FT_Done_Face(face);
