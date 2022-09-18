@@ -326,10 +326,10 @@
     <None Include="WorkingDir\Shader\GameObjFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
-    <None Include="WorkingDir\Shader\ButtonFragment.shader">
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
-    <None Include="WorkingDir\Shader\ButtonVertex.shader">
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
   </ItemGroup>

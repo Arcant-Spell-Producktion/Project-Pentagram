@@ -4,7 +4,7 @@ ShaderCollector::ShaderCollector()
 	// Load each shader of object
 	: GameObjectShader("Shader/GameObjVertex.shader","Shader/GameObjFragment.shader"),
 	  TextShader("Shader/TextVertex.shader", "Shader/TextFragment.shader"),
-	  ButtonShader("Shader/ButtonVertex.shader", "Shader/ButtonFragment.shader")
+	  UISlicingShader("Shader/UISlicingVertex.shader", "Shader/UISlicingFragment.shader")
 {
 	
 }

@@ -129,8 +129,8 @@
     <Image Include="Engine\Texture\default.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WorkingDir\Shader\ButtonFragment.shader" />
-    <None Include="WorkingDir\Shader\ButtonVertex.shader" />
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader" />
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader" />
     <None Include="WorkingDir\Shader\GameObjFragment.shader" />
     <None Include="WorkingDir\Shader\GameObjVertex.shader" />
     <None Include="WorkingDir\Shader\TextFragment.shader" />

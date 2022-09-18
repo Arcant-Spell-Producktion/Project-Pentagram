@@ -27,7 +27,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 		return;
 	}
 
-	Shader& shader = (m_IsSlicing ? EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader : EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader);
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->UISlicingShader;
 
 	glm::mat4 model = parentModel;
 
@@ -56,6 +56,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
+	shader.setBool("u_IsSlicing", m_IsSlicing);
 
 	// Set Button Slicing
 	if (m_IsSlicing)
