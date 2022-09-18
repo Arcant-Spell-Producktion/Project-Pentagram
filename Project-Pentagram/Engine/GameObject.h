@@ -23,7 +23,7 @@ class GameObject
 		unsigned int m_Tag;
 
 		// ----------------- Animation -----------------
-		bool m_IsAnimationPlayed;
+		bool m_IsAnimationPlaying;
 		bool m_IsAnimationObject;
 		bool m_IsSpriteSheet;
 
@@ -71,7 +71,7 @@ class GameObject
 		float GetAnimationPlayTime() const;
 		float GetCurrentAnimationPlayTime() const;
 		bool IsAnimationObject() const;
-		bool IsAnimationPlayed() const;
+		bool IsAnimationPlaying() const;
 		bool IsSpriteSheet() const;
 
 		// ----------------- Setter ----------------- 

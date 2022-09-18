@@ -23,7 +23,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	this->m_MaxAnimationColumn = *std::max_element(animCol.begin(), animCol.end());
 
 	this->m_IsAnimationObject = false;
-	this->m_IsAnimationPlayed = false;
+	this->m_IsAnimationPlaying = false;
 	this->m_IsSpriteSheet = (m_AnimationRow == 1 && m_AnimationColumn[0] == 1 ? false : true);
 
 	// Set Texture
@@ -154,9 +154,9 @@ bool GameObject::IsAnimationObject() const
 { 
 	return this->m_IsAnimationObject; 
 }
-bool GameObject::IsAnimationPlayed() const 
+bool GameObject::IsAnimationPlaying() const
 {
-	return this->m_IsAnimationPlayed; 
+	return this->m_IsAnimationPlaying;
 }
 bool GameObject::IsSpriteSheet() const
 {
@@ -192,7 +192,7 @@ void GameObject::SetChildRenderBack(GameObject* gameObj)
 void GameObject::SetIsAnimationObject(const bool& active) 
 { 
 	this->m_IsAnimationObject = active; 
-	this->m_IsAnimationPlayed = (active == false ? false : m_IsAnimationPlayed);
+	this->m_IsAnimationPlaying = (active == false ? false : m_IsAnimationPlaying);
 }
 void GameObject::SetAnimationSpriteByIndex(const int& animationRow, const int& animationColumn)
 {
@@ -227,7 +227,7 @@ void GameObject::UpdateAnimation(const float& deltaTime)
 	}
 
 	// Set IsPlaying
-	m_IsAnimationPlayed = true;
+	m_IsAnimationPlaying = true;
 
 	// Increment Time
 	m_CurrentPlayTime += deltaTime;
