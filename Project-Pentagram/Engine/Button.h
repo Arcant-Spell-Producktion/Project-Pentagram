@@ -9,14 +9,17 @@
 class Button : public UIObject
 {
 	public:
-		// OnHover Color
+		// ----------------- OnHover Color -----------------
 		glm::vec4 hoverColor;
+
+		// ----------------- Button Events -----------------
 		std::function<void(Button*)> onHover;
 		std::function<void(Button*)> unHover;
 		std::function<void(Button*)> onClick;
 		std::function<void(Button*)> onPress;
 		std::function<void(Button*)> unPress;
-		// Text
+
+		// ----------------- Text -----------------
 		TextObject textObject;
 		
 		Button(const std::string& objName);

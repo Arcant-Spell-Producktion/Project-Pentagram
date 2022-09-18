@@ -13,6 +13,9 @@ class Slider : public UIObject
 		float m_Value;
 		bool m_IsPress;
 
+		// ----------------- Slider Events -----------------
+		std::function<void(Slider*)> onValueChanged;
+
 	public:
 		Slider(const std::string& objName);
 		void InitButton(Button* button);

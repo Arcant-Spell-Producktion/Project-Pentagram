@@ -7,7 +7,9 @@ Slider::Slider(const std::string& objName)
 	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
 	this->scale = glm::vec3(500.0f, 50.0f, 1.0f);
 	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+
 	this->m_Value = 0.5f;
+	this->onValueChanged = [](Slider* slider) {};
 }
 
 void Slider::InitButton(Button* button)
@@ -35,6 +37,9 @@ void Slider::OnUpdate(const float& dt)
 		{
 			this->m_Button->position.x = this->position.x - this->scale.x / 2.0f;
 		}
+
+		// Value Change by Mouse Position
+		this->onValueChanged(this);
 	}
 
 	this->m_Value = (this->m_Button->position.x - (this->position.x - this->scale.x / 2.0f)) / this->scale.x;
@@ -133,4 +138,7 @@ void Slider::SetValue(const float& value)
 {
 	this->m_Button->position.x = ((this->position.x + this->scale.x) * value) - this->scale.x / 2.0f;
 	this->m_Value = value;
+
+	// Value Change from Setter
+	this->onValueChanged(this);
 }
