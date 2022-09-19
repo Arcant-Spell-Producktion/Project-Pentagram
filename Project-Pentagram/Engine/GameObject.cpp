@@ -73,7 +73,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	if (m_IsSpriteSheet)
 	{
 		// SpriteSheet Offset
-		shader.setFloat("u_OffsetX", m_CurrentAnimationColumn * (1.0f / m_MaxAnimationColumn));
+		shader.setFloat("u_OffsetX", (m_CurrentAnimationColumn - 1) * (1.0f / m_MaxAnimationColumn));
 		shader.setFloat("u_OffsetY", (m_CurrentAnimationRow - 1) * (1.0f / m_AnimationRow));
 	}
 	else
@@ -194,12 +194,12 @@ void GameObject::SetIsAnimationObject(const bool& active)
 	this->m_IsAnimationObject = active; 
 	this->m_IsAnimationPlaying = (active == false ? false : m_IsAnimationPlaying);
 }
-void GameObject::SetAnimationSpriteByIndex(const int& animationRow, const int& animationColumn)
-{
-	this->m_CurrentAnimationRow = animationRow;
-	this->m_CurrentAnimationColumn = animationColumn;
-}
 void GameObject::SetSpriteByIndex(const int& row, const int& column)
+{
+	this->m_CurrentAnimationRow = row + 1;
+	this->m_CurrentAnimationColumn = column + 1;
+}
+void GameObject::SetSpriteByValue(const int& row, const int& column)
 {
 	this->m_CurrentAnimationRow = row;
 	this->m_CurrentAnimationColumn = column;

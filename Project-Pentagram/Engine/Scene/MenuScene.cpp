@@ -104,13 +104,12 @@ void MenuScene::GameSceneInit()
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/Water_Theme.wav" }, 0.5f);
+	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water_Standard_BassArp.wav", "Audio/BGM/Water_Standard_Chord.wav", "Audio/BGM/Water_Standard_Violin.wav" }, 0.5f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)
 {
-	dt *= timeScale;
-	UpdateButtonEvents();
+	GameScene::GameSceneUpdate(dt);
 
 	soundSystem->SetBGMVolume(slider->GetValue());
 
@@ -126,6 +125,39 @@ void MenuScene::GameSceneUpdate(float dt)
 		SceneManager::LoadScene(GameState::GS_RESTART);
 		// If not return will cause memory problem
 		return;
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_1))
+	{
+		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav"))
+		{
+			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav");
+		}
+		else
+		{
+			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav");
+		}
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_2))
+	{
+		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav"))
+		{
+			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav");
+		}
+		else
+		{
+			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav");
+		}
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_3))
+	{
+		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav"))
+		{
+			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav");
+		}
+		else
+		{
+			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav");
+		}
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
@@ -152,7 +184,7 @@ void MenuScene::GameSceneUpdate(float dt)
 		{
 			curObj->UpdateAnimation(dt);
 		}
-		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
+		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_4))
 		{
 			curObj->SetActive(curObj->IsActive() ? false : true);
 		}
