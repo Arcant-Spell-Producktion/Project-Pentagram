@@ -81,8 +81,8 @@ class GameObject
 		void SetChildRenderBack(GameObject* gameObj);
 		// Animation
 		void SetIsAnimationObject(const bool& active);
-		void SetAnimationSpriteByIndex(const int& animationRow, const int& animationColumn);
 		void SetSpriteByIndex(const int& row, const int& column);
+		void SetSpriteByValue(const int& row, const int& column);
 		void SetAnimationPlayTime(const float& animationPlayTime);
 		// Texture
 		// override in ParticleSystem.h
