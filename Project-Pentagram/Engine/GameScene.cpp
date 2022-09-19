@@ -247,6 +247,11 @@ void GameScene::UpdateButtonEvents()
 }
 
 // ----------------- GameScene State ----------------- 
+void GameScene::GameSceneUpdate(float dt)
+{
+	UpdateScaleDeltaTime(dt);
+	UpdateButtonEvents();
+}
 void GameScene::GameSceneDraw()
 {
 	// Render GameObject
@@ -299,4 +304,9 @@ void GameScene::GameSceneFree()
 		delete uiObjectsList[idx];
 	}
 	std::cout << "Game Scene(Default) : Free Memory Completed\n";
+}
+
+void GameScene::UpdateScaleDeltaTime(float deltaTime)
+{
+	this->scaledDeltaTime = deltaTime * timeScale;
 }

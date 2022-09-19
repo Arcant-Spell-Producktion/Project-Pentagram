@@ -31,6 +31,7 @@ class GameScene
 		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
 		float timeScale = 1.0f;
+		float scaledDeltaTime;
 
 	public:
 
@@ -39,7 +40,7 @@ class GameScene
 		// ----------------- GameState Loop -----------------
 		virtual void GameSceneLoad() = 0;
 		virtual void GameSceneInit() = 0;
-		virtual void GameSceneUpdate(float dt) = 0;
+		virtual void GameSceneUpdate(float dt);
 		virtual void GameSceneDraw();
 		virtual void GameSceneUnload();
 		virtual void GameSceneFree();
@@ -54,4 +55,5 @@ class GameScene
 		Slider* CreateSlider(const std::string& objName = "");
 
 		void UpdateButtonEvents();
+		void UpdateScaleDeltaTime(float deltaTime);
 };
