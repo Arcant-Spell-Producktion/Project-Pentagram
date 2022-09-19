@@ -120,8 +120,6 @@ void BattleScene::GameSceneUpdate(float dt)
 void BattleScene::GameSceneUnload()
 {
     //Free Battle Manager
-
-    delete battleManager->GetData()->pentragramController;
     battleManager->Free();
     GameScene::GameSceneUnload();
 }
