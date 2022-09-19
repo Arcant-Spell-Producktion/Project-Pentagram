@@ -23,21 +23,40 @@ void InvokeSpell()
         break;
     }
 
-    bm->GetData()->Timeline.AddSpellToTimeline(spell,true);
+    bm->GetData()->Timeline.AddSpellToTimeline(spell, true);
     bm->GetData()->GetCurrentCaster()->EndTurn();
     bm->SwapCaster();
 }
 
-PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),GameObject("PentagramController")
+PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene), GameObject("PentagramController")
 {
+    float x_offset = 0.0f;
+    float y_offset = 80.0f;
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        float radius = 460.0f;
+
+        GameObject* circle = m_Scene->CreateGameObject("Circle_" + std::to_string(i), 4, { 3,3,3,3 });
+
+        circle->SetIsAnimationObject(false);
+        circle->position = { x_offset,y_offset,0.0f };
+        circle->scale = { radius,radius,1.0f };
+        circle->SetSpriteByIndex(i, 0);
+        circle->SetTexture("Sprites/ui_magic_circle_sheet.png");
+        circle->SetActive(!(i > 1));
+        if (i > 0)
+        {
+            circle->color.a = 0.8f;
+        }
+
+        m_PentragramObj.push_back(circle);
+    }
 
     for (size_t i = 0; i < 5; i++)
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
-        
         float radius = 200.0f;
-        float x_offset = 0.0f;
-        float y_offset = 80.0f;
         float _scale = 0.0f;
 
         std::string name;
@@ -73,12 +92,12 @@ PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),G
         }
 
         Button* button = m_Scene->CreateButton("Field_" + std::to_string(i));
-        
+
         button->textObject.text = name;
 
         button->onClick = [this, field_value](Button* button) {SetPentagramField(field_value); };
-        
-        button->position = { radius * sinf(theta) + x_offset,radius * cosf(theta)+y_offset ,0.0f };
+
+        button->position = { radius * sinf(theta) + x_offset,radius * cosf(theta) + y_offset ,0.0f };
         button->scale = { _scale, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.textAlignment = TextAlignment::MID;
@@ -95,7 +114,7 @@ PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),G
     for (size_t i = 1; i <= 6; i++)
     {
         Button* button = m_Scene->CreateButton("Num_" + std::to_string(i));
-        button->position = {-420.0f + ( i * 120.0f),-250.0f,0.0f};
+        button->position = { -420.0f + (i * 120.0f),-250.0f,0.0f };
         button->scale = { 80.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.text = std::to_string(i);
@@ -105,7 +124,7 @@ PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),G
         button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
         button->SetTexture(ButtonTexturePath);
 
-        button->onClick = [this,i](Button* button) {SetPentagramValue(i); };
+        button->onClick = [this, i](Button* button) {SetPentagramValue(i); };
 
         m_IntButtons.push_back(button);
     }
@@ -172,6 +191,16 @@ PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),G
 
 }
 
+void PentragramController::OnUpdate(const float& dt)
+{
+    float speed = 10.0f;
+    for (size_t i = 1; i < 4; i++)
+    {
+        int direction = i % 2 == 0 ? 1 : -1;
+        m_PentragramObj[i]->rotation += (dt * speed * i * direction);
+    }
+}
+
 void PentragramController::SetPentagramField(PentagramField selectedField)
 {
     m_currentField = selectedField;
@@ -188,7 +217,7 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
                 continue;
             }
             m_IntButtons[i]->SetActive(true);
-            m_IntButtons[i]->position = { -250.0f + ((i+1) * 120.0f),-250.0f,0.0f };
+            m_IntButtons[i]->position = { -250.0f + ((i + 1) * 120.0f),-250.0f,0.0f };
         }
         for (size_t i = 0; i < 2; i++)
         {
@@ -227,9 +256,21 @@ void PentragramController::SetPentagramValue(int value)
     {
     case PentagramField::Circle:
         m_currentData.circle = value;
+        for (size_t i = 0; i < 4; i++)
+        {
+            if (i == 0)
+            {
+                m_PentragramObj[i]->SetSpriteByIndex(i, value - 1);
+            }
+            m_PentragramObj[i]->SetActive(i <= value);
+        }
         break;
     case PentagramField::Complex:
         m_currentData.complex = value;
+        for (size_t i = 1; i < 4; i++)
+        {
+            m_PentragramObj[i]->SetSpriteByIndex(i, value - 1);
+        }
         break;
     case PentagramField::Will:
         m_currentData.will = value;

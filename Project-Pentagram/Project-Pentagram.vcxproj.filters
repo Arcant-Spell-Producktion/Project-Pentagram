@@ -122,6 +122,18 @@
     <ClCompile Include="Engine\Slider.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\CasterUIController.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -304,6 +316,12 @@
     <ClInclude Include="Engine\Slider.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -432,6 +450,9 @@
     </Filter>
     <Filter Include="WorkingDir\Audio\SFX">
       <UniqueIdentifier>{81314559-bd99-4841-8cf6-10c99646fb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\Objects">
+      <UniqueIdentifier>{1ac92bc4-88be-41b7-8c1a-fb2ff660a4a5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
