@@ -1,5 +1,6 @@
 #include "Window.h"
 
+// ----------------- Callback Function ----------------- 
 void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 {
 	Window* currentWindow = (Window*)glfwGetWindowUserPointer(window);
@@ -8,7 +9,6 @@ void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 	currentWindow->SetHeight(newHeight);
 	glViewport(0, 0, newWidth, newHeight);
 }
-
 void windowCloseCallback(GLFWwindow* window)
 {
 	Window* currentWindow = (Window*)glfwGetWindowUserPointer(window);
@@ -25,50 +25,66 @@ void Window::MakeContextCurrent()
 {
 	glfwMakeContextCurrent(m_Window);
 }
-
 void Window::PollEvents()
 {
 	glfwPollEvents();
 }
-
 void Window::SwapBuffers()
 {
 	glfwSwapBuffers(m_Window);
 }
-
 void Window::Close()
 {
 	glfwSetWindowShouldClose(m_Window, true);
 }
 
-void Window::Destroy()
-{
-	glfwTerminate();
-	m_Window = nullptr;
+// Setter Implement
+void Window::SetWidth(const int& width) 
+{ 
+	this->m_Width = width; 
+}
+void Window::SetHeight(const int& height) 
+{ 
+	this->m_Height = height; 
+}
+void Window::SetWindowRatio(const glm::vec2& ratio) 
+{ 
+	this->m_windowRatio = ratio; 
+}
+void Window::SetClose(const bool& close) 
+{ 
+	this->m_Close = close; 
 }
 
-bool Window::IsNull()
+// Getter Implement
+GLFWwindow* Window::getWindow() 
+{ 
+	return m_Window; 
+}
+int Window::GetWidth() const 
+{ 
+	return m_Width; 
+}
+int Window::GetHeight() const 
+{ 
+	return m_Height; 
+}
+glm::vec2 Window::GetWindowRatio() const 
+{ 
+	return m_windowRatio; 
+}
+bool Window::IsClose() const 
+{ 
+	return m_Close; 
+}
+bool Window::IsNull() const
 {
 	return (m_Window == nullptr ? true : false);
 }
-
-bool Window::IsRunning()
+bool Window::IsRunning() const
 {
 	return !m_Close;
 }
-
-// Setter Implement
-void Window::SetWidth(const int& width) { this->m_Width = width; }
-void Window::SetHeight(const int& height) { this->m_Height = height; }
-void Window::SetWindowRatio(const glm::vec2& ratio) { this->m_windowRatio = ratio; }
-void Window::SetClose(const bool& close) { this->m_Close = close; }
-
-// Getter Implement
-GLFWwindow* Window::getWindow() { return m_Window; }
-int Window::GetWidth() { return m_Width; }
-int Window::GetHeight() { return m_Height; }
-glm::vec2 Window::GetWindowRatio() { return m_windowRatio; };
-bool Window::IsClose() { return m_Close; }
 
 void Window::Init()
 {
@@ -100,4 +116,9 @@ void Window::Init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glViewport(0, 0, m_Width, m_Height);
+}
+void Window::Destroy()
+{
+	glfwTerminate();
+	m_Window = nullptr;
 }

@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
+    <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\AudioGroup.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
     <ClCompile Include="Engine\AudioGroup.cpp" />
+    <ClCompile Include="Engine\Slider.cpp" />
     <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
@@ -133,8 +135,8 @@
     <Image Include="Engine\Texture\default.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WorkingDir\Shader\ButtonFragment.shader" />
-    <None Include="WorkingDir\Shader\ButtonVertex.shader" />
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader" />
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader" />
     <None Include="WorkingDir\Shader\GameObjFragment.shader" />
     <None Include="WorkingDir\Shader\GameObjVertex.shader" />
     <None Include="WorkingDir\Shader\TextFragment.shader" />

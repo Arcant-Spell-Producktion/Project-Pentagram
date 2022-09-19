@@ -10,7 +10,6 @@ void GameStateController::Init(GameState state)
 	currentState = state;
 	Update();
 }
-
 void GameStateController::Update()
 {
 	if (currentState == GameState::GS_QUIT)
@@ -35,7 +34,6 @@ void GameStateController::Update()
 	currentScene->GameSceneInit();
 
 }
-
 void GameStateController::Free()
 {
 	if (currentScene != nullptr)

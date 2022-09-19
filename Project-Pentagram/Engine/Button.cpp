@@ -3,31 +3,40 @@
 Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
+	// Set-up Button Default
 	m_Tag = GameObjectTag::BUTTON;
-	border = 40.0f;
+	m_IsSlicing = true;
+	color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	onHover = [](Button* button) { std::cout << button->name << " : OnHover\n"; };
+	onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
 	unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
 	onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
+	onPress = [](Button* button) {};
+	unPress = [](Button* button) {};
+
+	// Set-up Text Default
+	textObject.textAlignment = TextAlignment::MID;
+	textObject.position = glm::vec3(0.0f, 0.0f, 0.0f);
+	textObject.color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Button::Draw(Camera& camera, glm::mat4 parentModel)
 {
-	if (!m_Active)
+	if (!m_IsActive)
 	{
 		return;
 	}
 
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->ButtonShader;
+	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->UISlicingShader;
 
 	glm::mat4 model = parentModel;
 
 	model *= glm::translate(glm::mat4(1.0f), this->position);
 	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	// Draw Back Child
-	for (unsigned int idx = 0; idx < m_BackChildList.size(); idx++)
+	for (unsigned int idx = 0; idx < m_BackRenderedChildList.size(); idx++)
 	{
-		m_BackChildList[idx]->Draw(camera, model);
+		m_BackRenderedChildList[idx]->Draw(camera, model);
 	}
 
 	// !!Not Set scale to child -> Messy to encounter with
@@ -37,33 +46,38 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	int screen_width = window->GetWidth();
 	int screen_height = window->GetHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-	glm::mat4 view = camera.getViewMatrix();
+	glm::mat4 view = camera.GetViewMatrix();
 
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
-	shader.setVec4("u_Color", (hoverColor == glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) ? color : hoverColor));
+	shader.setVec4("u_Color", (this->hoverColor == glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) ? this->color : this->hoverColor));
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
+	shader.setBool("u_IsSlicing", m_IsSlicing);
 
 	// Set Button Slicing
-	float minVal = std::min(scale.x, scale.y);
-	glm::vec2 u_dimension = glm::vec2(scale.x, scale.y);
-	glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
-	float u_border = (minVal >= 2 * border ? border : minVal / 2.0f);
-	shader.setVec2("u_Dimensions", u_dimension);
-	shader.setVec2("u_TextureBorder", u_textureBorder);
-	shader.setFloat("u_Border", u_border);
-	// ------ Debug --------
-	//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
-	//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
-	if (m_Animation)
+	if (m_IsSlicing)
+	{
+		float minVal = std::min(this->scale.x, this->scale.y);
+		glm::vec2 u_dimension = glm::vec2(this->scale.x, this->scale.y);
+		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
+		float u_slicingBorder = (minVal >= 2 * m_SlicingBorder ? m_SlicingBorder : minVal / 2.0f);
+		shader.setVec2("u_Dimensions", u_dimension);
+		shader.setVec2("u_TextureBorder", u_textureBorder);
+		shader.setFloat("u_Border", u_slicingBorder);
+		// ------ Debug --------
+		//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
+		//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+	}
+
+	if (m_IsSpriteSheet)
 	{
 		// SpriteSheet Offset
-		shader.setFloat("u_OffsetX", m_CurAnimCol * (1.0f / m_MaxAnimCol));
-		shader.setFloat("u_OffsetY", (m_CurAnimRow - 1) * (1.0f / m_AnimRow));
+		shader.setFloat("u_OffsetX", m_CurrentAnimationColumn * (1.0f / m_CurrentAnimationColumn));
+		shader.setFloat("u_OffsetY", (m_CurrentAnimationRow - 1) * (1.0f / m_CurrentAnimationRow));
 	}
 	else
 	{
@@ -72,17 +86,17 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setFloat("u_OffsetY", 0.0f);
 	}
 
-	this->m_Mesh.Render();
+	m_Mesh.Render();
 	m_Texture->UnBind();
 
-	textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+	this->textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+
 	// Draw Front Child
-	for (unsigned int idx = 0; idx < m_FrontChildList.size(); idx++)
+	for (unsigned int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
 	{
-		m_FrontChildList[idx]->Draw(camera, model);
+		m_FrontRenderedChildList[idx]->Draw(camera, model);
 	}
 }
-
 void Button::UnloadMesh()
 {
 	this->textObject.UnloadMesh();

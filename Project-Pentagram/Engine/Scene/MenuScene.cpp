@@ -8,12 +8,14 @@ void MenuScene::GameSceneLoad()
 
 GameObject* cur;
 Button* curButton;
+UIObject* curUI;
+Slider* slider;
+
 void MenuScene::GameSceneInit()
 {
 	t = 0.0f;
-	std::string path = "Sprites/Fire_Mage.png";
 
-	ParticleProps particleProp;
+	ParticleProperty particleProp;
 	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
 	particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
 	particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
@@ -23,7 +25,8 @@ void MenuScene::GameSceneInit()
 
 	GameObject* obj = CreateGameObject("SmileFace", 2, { 5,8 });
 	obj->scale = { 320.0f, 320.0f, 1.0f };
-	obj->SetTexture(path);
+	obj->SetTexture("Sprites/Fire_Mage.png");
+	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
 	cur = obj;
 
@@ -35,6 +38,7 @@ void MenuScene::GameSceneInit()
 	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/character_minion_idle.png");
+	obj3->SetIsAnimationObject(true);
 	obj3->position.x += 500.0f;
 
 	// GameObject* obj2 = CreateGameObject("SmileFace");
@@ -64,6 +68,7 @@ void MenuScene::GameSceneInit()
 	subUI->scale = { 800.0f, 700.0f, 1.0f };
 	subUI->color = { 0.8f, 0.8f, 0.8f, 1.0f };
 	ui->SetChildRenderFront(subUI);
+	curUI = subUI;
 
 	Button* button = CreateButton("Options_Button");
 	button->scale = { 300.0f, 100.0f, 1.0f };
@@ -90,18 +95,24 @@ void MenuScene::GameSceneInit()
 	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
+	slider = CreateSlider("Sliding");
+	slider->color = AC_YELLOW;
+
 	subUI->SetChildRenderFront(button);
 	subUI->SetChildRenderFront(button2);
+	subUI->SetChildRenderFront(slider);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/DarkButHopeful.wav", "Audio/BGM/ConfidentPlayfulWithSideofDeception.wav" }, 0.0f);
+	soundSystem->PlayGroupAudio("BGM", { "Audio/BGM/Water_Theme.wav" }, 0.5f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)
 {
 	dt *= timeScale;
 	UpdateButtonEvents();
+
+	soundSystem->SetBGMVolume(slider->GetValue());
 
 	double time = glfwGetTime();
 	if (t >= 1.0f)
@@ -120,35 +131,9 @@ void MenuScene::GameSceneUpdate(float dt)
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
 	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_T))
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
-		if (soundSystem->IsMute("BGM", "Audio/BGM/DarkButHopeful.wav"))
-		{
-			soundSystem->UnMute("BGM", "Audio/BGM/DarkButHopeful.wav");
-		}
-		else
-		{
-			soundSystem->Mute("BGM", "Audio/BGM/DarkButHopeful.wav");
-		}
-	}
-	else if (Input::IsKeyPressed(GLFW_KEY_D) || Input::IsKeyPressed(GLFW_KEY_A))
-	{
-		cur->SetAnimationState(2);
-	}
-	else
-	{
-		cur->SetAnimationState(1);
-	}
-
-	if (Input::IsKeyPressed(GLFW_KEY_D))
-	{
-		cur->scale.x = abs(cur->scale.x);
-		cur->position.x += 100.0f * dt;
-	}
-	else if (Input::IsKeyPressed(GLFW_KEY_A))
-	{
-		cur->scale.x = -abs(cur->scale.x);
-		cur->position.x -= 100.0f * dt;
+		slider->SetValue(0.75f);
 	}
 
 	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
@@ -163,13 +148,13 @@ void MenuScene::GameSceneUpdate(float dt)
 		GameObject*& curObj = objectsList[idx];
 
 		curObj->OnUpdate(dt);
-		if (curObj->isAnimation())
+		if (curObj->IsAnimationObject())
 		{
 			curObj->UpdateAnimation(dt);
 		}
 		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
 		{
-			curObj->SetActive(curObj->isActive() ? false : true);
+			curObj->SetActive(curObj->IsActive() ? false : true);
 		}
 	}
 
@@ -189,12 +174,11 @@ void MenuScene::GameSceneUpdate(float dt)
 			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 			{
 				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
-				soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
-				curObj->SetActive(curObj->isActive() ? false : true);
+				curObj->SetActive(curObj->IsActive() ? false : true);
 			}
 		}
 
-		if (!curObj->isActive()) { continue; }
+		if (!curObj->IsActive()) { continue; }
 		curObj->OnUpdate(dt);
 	}
 }

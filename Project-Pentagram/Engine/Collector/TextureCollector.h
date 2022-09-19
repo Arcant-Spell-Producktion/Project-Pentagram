@@ -11,11 +11,13 @@
 class TextureCollector
 {
 	private:
-		std::map<std::string, Texture*> textures;
+		std::map<std::string, Texture*> m_Textures;
 
-		void LoadTexture(const std::string& path);
+		void LoadTexture(const std::string& filePath);
+
 	public:
 		TextureCollector();
-		Texture* GetTexture(const std::string& name);
+		Texture* GetTexture(const std::string& filePath);
+		
 		void Free();
 };

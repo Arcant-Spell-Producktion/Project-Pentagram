@@ -125,6 +125,9 @@
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterUIController.cpp" />
+    <ClCompile Include="Engine\Slider.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -304,6 +307,8 @@
     <ClInclude Include="Utilities\ArcantAssert.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Slider.h">
+      <Filter>Engine\etc\Header File</Filter>
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
       <Filter>Game\BattleScene\GameObj</Filter>
     </ClInclude>
@@ -332,10 +337,10 @@
     <None Include="WorkingDir\Shader\GameObjFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
-    <None Include="WorkingDir\Shader\ButtonFragment.shader">
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
-    <None Include="WorkingDir\Shader\ButtonVertex.shader">
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
   </ItemGroup>

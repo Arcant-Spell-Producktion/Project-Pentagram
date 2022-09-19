@@ -7,17 +7,17 @@ ParticleSystem::ParticleSystem(const std::string& objName)
 
 	m_PoolIndex = 999;
 
-	curSpawnTime = 0.0f;
+	m_CurrentSpawnTime = 0.0f;
 	spawnTime = 0.005f;
 }
 
 void ParticleSystem::OnUpdate(const float& dt)
 {
-	curSpawnTime += dt;
-	if (curSpawnTime >= spawnTime)
+	m_CurrentSpawnTime += dt;
+	if (m_CurrentSpawnTime >= spawnTime)
 	{
 		this->Emit(this->baseParticle);
-		curSpawnTime = 0.0f;
+		m_CurrentSpawnTime = 0.0f;
 	}
 
 	for (auto& particle : m_ParticlePool)
@@ -38,11 +38,10 @@ void ParticleSystem::OnUpdate(const float& dt)
 		particle.rotation += dt * ROTATION_SPD;
 	}
 }
-
 void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 {
 	// If object is not-active -> no need to render
-	if (!m_Active)
+	if (!m_IsActive)
 	{
 		return;
 	}
@@ -50,28 +49,30 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
 
 	shader.Activate();
-	shader.setMat4("u_View", camera.getViewMatrix());
-	m_Texture->Activate(GL_TEXTURE0);
+
 	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
 	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
+	this->m_Texture->Activate(GL_TEXTURE0);
+	
+	shader.setMat4("u_View", camera.GetViewMatrix());
 	shader.setMat4("u_Projection", proj);
 	shader.setInt("u_Texture", 0);
 
 	// Render
 	glm::mat4 originModel = parentModel;
-	originModel *= glm::translate(glm::mat4(1.0f), position);
-	originModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+	originModel *= glm::translate(glm::mat4(1.0f), this->position);
+	originModel *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 	
 	// Draw Back Child
-	for (unsigned int idx = 0; idx < m_BackChildList.size(); idx++)
+	for (unsigned int idx = 0; idx < m_BackRenderedChildList.size(); idx++)
 	{
-		m_BackChildList[idx]->Draw(camera, originModel);
+		m_BackRenderedChildList[idx]->Draw(camera, originModel);
 	}
 
 	// !!Not Set scale to child -> Messy to encounter with
 	
-	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), scale);
+	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 	for (auto& particle : m_ParticlePool)
 	{
 		if (!particle.active)
@@ -96,43 +97,42 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setMat4("u_Model", model);
 		shader.setVec4("u_Color", color);
 
-		m_Mesh.Render();
+		this->m_Mesh.Render();
 	}
 
 	// Draw Front Child
-	for (unsigned int idx = 0; idx < m_FrontChildList.size(); idx++)
+	for (unsigned int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
 	{
-		m_FrontChildList[idx]->Draw(camera, originModel);
+		m_FrontRenderedChildList[idx]->Draw(camera, originModel);
 	}
 }
-
 void ParticleSystem::UnloadMesh()
 {
 	GameObject::UnloadMesh();
 }
 
-void ParticleSystem::Emit(const ParticleProps& particleProps)
+void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 {
 
 	// RANDOM_FLOAT will random between [0.0f, 1.0f]
 	Particle& particle = m_ParticlePool[m_PoolIndex];
 	particle.active = true;
-	particle.position = particleProps.position;
+	particle.position = particleProperty.position;
 	particle.rotation = (RANDOM_FLOAT * 360.0f);
 
 	// Velocity
-	particle.velocity = particleProps.velocity;
-	particle.velocity.x += particleProps.velocityVariation.x * (RANDOM_FLOAT - 0.5f);
-	particle.velocity.y += particleProps.velocityVariation.y * (RANDOM_FLOAT - 0.5f);
+	particle.velocity = particleProperty.velocity;
+	particle.velocity.x += particleProperty.velocityVariation.x * (RANDOM_FLOAT - 0.5f);
+	particle.velocity.y += particleProperty.velocityVariation.y * (RANDOM_FLOAT - 0.5f);
 
 	// Color
-	particle.colorBegin = particleProps.colorBegin;
-	particle.colorEnd = particleProps.colorEnd;
+	particle.colorBegin = particleProperty.colorBegin;
+	particle.colorEnd = particleProperty.colorEnd;
 
-	particle.lifeTime = particleProps.lifeTime;
-	particle.lifeRemaining = particleProps.lifeTime;
-	particle.sizeBegin = particleProps.sizeBegin + particleProps.sizeVariation * (RANDOM_FLOAT - 0.5f);
-	particle.sizeEnd = particleProps.sizeEnd;
+	particle.lifeTime = particleProperty.lifeTime;
+	particle.lifeRemaining = particleProperty.lifeTime;
+	particle.sizeBegin = particleProperty.sizeBegin + particleProperty.sizeVariation * (RANDOM_FLOAT - 0.5f);
+	particle.sizeEnd = particleProperty.sizeEnd;
 
-	m_PoolIndex = (--m_PoolIndex >= 1000 ? 1000 - 1 : m_PoolIndex);
+	this->m_PoolIndex = (--m_PoolIndex >= 1000 ? 1000 - 1 : m_PoolIndex);
 }

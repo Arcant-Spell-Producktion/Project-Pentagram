@@ -5,7 +5,7 @@ GameScene::~GameScene()
 
 }
 
-// ------------------------ Creating Object ------------------------ 
+// ----------------- Creating Object ----------------- 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
 	GameObject* obj = nullptr;
@@ -21,23 +21,20 @@ GameObject* GameScene::CreateGameObject(const std::string& objName, const int& a
 	objectsList.push_back(obj);
 	return obj;
 }
-
-ParticleSystem* GameScene::CreateParticle(ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem("Particle_" + std::to_string(objectsList.size()));
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
-ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProps& particleProps)
+ParticleSystem* GameScene::CreateParticle(const std::string& objName, ParticleProperty& particleProperty)
 {
 	ParticleSystem* particle = new ParticleSystem(objName);
-	particle->baseParticle = particleProps;
+	particle->baseParticle = particleProperty;
 	objectsList.push_back(particle);
 	return particle;
 }
-
 UIObject* GameScene::CreateUIObject(const std::string& objName)
 {
 	UIObject* ui = nullptr;
@@ -53,7 +50,6 @@ UIObject* GameScene::CreateUIObject(const std::string& objName)
 	uiObjectsList.push_back(ui);
 	return ui;
 }
-
 TextObject* GameScene::CreateTextObject(const std::string& objName)
 {
 	TextObject* textObj = nullptr;
@@ -69,7 +65,6 @@ TextObject* GameScene::CreateTextObject(const std::string& objName)
 	return textObj;
 
 }
-
 Button* GameScene::CreateButton(const std::string& objName)
 {
 	Button* button = nullptr;
@@ -85,8 +80,45 @@ Button* GameScene::CreateButton(const std::string& objName)
 	buttonObjectsList.push_back(button);
 	return button;
 }
+Slider* GameScene::CreateSlider(const std::string& objName)
+{
+	Slider* slider = nullptr;
+	if (objName == "")
+	{
+		slider = new Slider("Slider_" + std::to_string(uiObjectsList.size()));
+	}
+	else
+	{
+		slider = new Slider(objName);
+	}
+	uiObjectsList.push_back(slider);
 
-// ------------------------ Button Events ------------------------ 
+	Button* button = CreateButton("Button_" + (objName == "" ? "Sldier_" + std::to_string(uiObjectsList.size()) : objName));
+	slider->InitButton(button);
+
+	return slider;
+}
+
+// ----------------- Button Events ----------------- 
+
+glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
+{
+	if (button->parent == nullptr)
+	{
+		return button->position;
+	}
+	else
+	{
+		glm::vec3 curPos = button->position;
+		GameObject* curObj = button->parent;
+		while (curObj != nullptr)
+		{
+			curPos += curObj->position;
+			curObj = curObj->parent;
+		}
+		return curPos;
+	}
+}
 
 void GameScene::UpdateButtonOnClick()
 {
@@ -97,22 +129,25 @@ void GameScene::UpdateButtonOnClick()
 	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
 	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
 
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
 
 		// If current Object is inactive (Not Render) => No need to check collision
-		if (curObj == nullptr || !curObj->isActive())
+		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
-		float left = curObj->position.x - (curObj->scale.x / 2.0f);
-		float right = curObj->position.x + (curObj->scale.x / 2.0f);
-		float top = curObj->position.y + (curObj->scale.y / 2.0f);
-		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -129,19 +164,22 @@ void GameScene::UpdateButtonOnHover()
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
 
 		// If current Object is inactive (Not Render) => No need to check collision
-		if (curObj == nullptr || !curObj->isActive())
+		if (curObj == nullptr || !curObj->IsActive())
 		{
 			continue;
 		}
-		float left = curObj->position.x - (curObj->scale.x / 2.0f);
-		float right = curObj->position.x + (curObj->scale.x / 2.0f);
-		float top = curObj->position.y + (curObj->scale.y / 2.0f);
-		float bottom = curObj->position.y - (curObj->scale.y / 2.0f);
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -154,20 +192,68 @@ void GameScene::UpdateButtonOnHover()
 		}
 	}
 }
+void GameScene::UpdateButtonOnPress()
+{
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+
+	float curX = (Input::mouseX - screen_width / 2.0f);
+	float curY = (screen_height / 2.0f - Input::mouseY);
+
+	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+
+	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	{
+		Button* curObj = buttonObjectsList[idx];
+		glm::vec3 finalPos = FindButtonParentPosition(curObj);
+
+		// If current Object is inactive (Not Render) => No need to check collision
+		if (curObj == nullptr || !curObj->IsActive())
+		{
+			continue;
+		}
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
+
+		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+		{
+			if (Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->onPress(curObj);
+				return;
+			}
+			else if(!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->unPress(curObj);
+			}
+		}
+		else
+		{
+			if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				curObj->unPress(curObj);
+			}
+		}
+	}
+}
+
 void GameScene::UpdateButtonEvents()
 {
 	UpdateButtonOnHover();
 	UpdateButtonOnClick();
+	UpdateButtonOnPress();
 }
 
-// ------------------------ GameScene State ------------------------ 
+// ----------------- GameScene State ----------------- 
 void GameScene::GameSceneDraw()
 {
 	// Render GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->isActive())
+		if (objectsList[idx]->parent != nullptr || !objectsList[idx]->IsActive())
 		{
 			continue;
 		}
@@ -178,7 +264,7 @@ void GameScene::GameSceneDraw()
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
 		// If current Object was child -> no need to draw
-		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->isActive())
+		if (uiObjectsList[idx]->parent != nullptr || !uiObjectsList[idx]->IsActive())
 		{
 			continue;
 		}
@@ -186,7 +272,6 @@ void GameScene::GameSceneDraw()
 		uiObjectsList[idx]->Draw(camera);
 	}
 }
-
 void GameScene::GameSceneUnload()
 {
 	// Unload GameObject
@@ -201,7 +286,6 @@ void GameScene::GameSceneUnload()
 	}
 	std::cout << "Game Scene(Default) : UnLoad Mesh Completed\n";
 }
-
 void GameScene::GameSceneFree()
 {
 	// Free GameObject
