@@ -3,6 +3,7 @@
 
 SpellDatabase::SpellDatabase()
 {
+    AddSpellBook(Element::Fire, "Spellbook_Fire");
     AddSpellBook(Element::Debug,"Ligma");
 }
 

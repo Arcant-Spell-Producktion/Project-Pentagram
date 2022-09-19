@@ -5,8 +5,8 @@
 SpellCaster::SpellCaster(CasterData caster)
 {
     m_CurrentData = caster;
-    m_Health = m_CurrentData.GetHealth();
-    m_Mana = m_CurrentData.GetMana();
+    m_CurrentHealth = m_CurrentData.GetHealth();
+    m_CurrentMana = m_CurrentData.GetMana();
     m_CurrentBook = SpellDatabase::GetInstance()->GetBookByElement(m_CurrentData.GetElement());
     m_PentagramData = {1,1,1,1,1};
     UpdateCurrentSpell();
@@ -24,7 +24,7 @@ void SpellCaster::SetPentagramData(PentagramData_T pentagram)
 {
     m_PentagramData = pentagram;
     UpdateCurrentSpell();
-    std::cout << "Selected Spell\n" << *m_CurrentSpell->OriginalSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
+    std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
 }
 
 void SpellCaster::CommitSpell()

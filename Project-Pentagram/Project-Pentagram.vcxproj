@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\AudioGroup.h" />
@@ -87,7 +89,11 @@
     <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterUIController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp" />

@@ -1,6 +1,17 @@
 ﻿#pragma once
 #include "BattleManager.h"
 
+void BattleManager::SetBattleState(BattleState state)
+{
+    BattleState OldState = m_CurrentState;
+    m_CurrentState = state;
+
+    m_BattleStates[OldState]->OnBattleStateOut();
+    m_BattleStates[m_CurrentState]->OnBattleStateIn();
+
+    std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to " << (int)m_CurrentState << "\n\n";
+}
+
 void BattleManager::StartBattle()
 {
     SetBattleState(BattleState::CastState);
@@ -8,16 +19,17 @@ void BattleManager::StartBattle()
 
 void BattleManager::SwapCaster()
 {
-    if (GetCurrentCaster()->GetState() == CasterState::Passed && GetNextCaster()->GetState() == CasterState::Passed)
+    if (m_Data.GetCurrentCaster()->GetState() == CasterState::Passed && m_Data.GetNextCaster()->GetState() == CasterState::Passed)
     {
+
+        std::cout << "\t GO TO RESOLVE\n";
+
         SetBattleState(BattleState::ResolveState);
         return;
     }
     m_Data.CurrentCasterIndex = (m_Data.CurrentCasterIndex + 1) % m_Data.Casters.size();
 
-    GetCurrentCaster()->StartTurn();
-
-    SetBattleState(BattleState::CastState);
+    m_Data.GetCurrentCaster()->StartTurn();
 }
 
 BattleManager::~BattleManager()

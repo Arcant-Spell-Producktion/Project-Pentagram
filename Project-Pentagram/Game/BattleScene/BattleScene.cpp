@@ -1,142 +1,63 @@
 ﻿#include "BattleScene.h"
 #include "Game/BattleScene/BattleStates/BattleStateModel.h"
+
 #include "Game/GameData/RuntimeGameData.h"
 #include "SpellCaster/PlayerController.h"
+#include "Game/BattleScene/BattleManager.h"
 
+float track_t = 0.0f;
 
-void BattleScene::CastStateUpdate(float dt)
-{
-    CasterController* currentController = m_BattleManager->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
-
-    if (currentController->GetState() != CasterState::Passed)
-    {
-        if (dynamic_cast<PlayerController*>(currentController) != nullptr)
-        {
-            PlayerCastUpdate(dt);
-        }
-        else
-        {
-            std::cout << " ***************************\n\tCheck value : " << (int)currentController->GetState() << "\n\n";
-            SpellCaster* currentCaster = currentController->GetSpellCaster();
-
-            currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
-
-            currentCaster->SetPentagramData({ 1, 1, 1, 1, 3 });
-            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
-
-
-            currentController->EndTurn(true);
-            m_BattleManager->SwapCaster();
-        }
-    }
-    else
-    {
-        m_BattleManager->SwapCaster();
-    }
-
-}
-
-void BattleScene::PlayerCastUpdate(float dt)
-{
-    CasterController* currentController = m_BattleManager->GetCurrentCaster();
-    SpellCaster* currentCaster = currentController->GetSpellCaster();
-
-    if (currentCaster == nullptr) currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-
-
-    if (Input::IsKeyBeginPressed(GLFW_KEY_1))
-    {
-        currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-    }
-    if (Input::IsKeyBeginPressed(GLFW_KEY_2))
-    {
-        currentCaster->SetPentagramData({ 1, 1, 2, 2, 5 });
-    }
-
-    int spellCost = currentCaster->GetSpellCost();
-    int canCostSpell = currentCaster->GetMana() - spellCost;
-    if (Input::IsKeyBeginPressed(GLFW_KEY_3)) //Invoke
-    {
-        if (canCostSpell >= 0)
-        {
-            std::cout << "-----------------------\n\tCheck value : " << (int)currentCaster->GetCasterData()->GetPosition() << "\n\n";
-
-            m_BattleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
-            currentController->EndTurn();
-            m_BattleManager->SwapCaster();
-        }
-        else
-        {
-            std::cout << "NO MANA\n";
-        }
-    }
-    if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
-    {
-        currentController->EndTurn(true);
-        m_BattleManager->SwapCaster();
-    }
-}
-
-void BattleScene::ResolveStateUpdate(float dt)
-{
-    for (int i = 0; i < 10; i++)
-    {
-        std::cout << "Resovel Track: " << i << "\n";
-        SpellTimetrack* track = m_BattleManager->GetData()->Timeline.GetTimetrack(i);
-        std::cout << "\tGet Track: " << i << "\n";
-        CasterPosition casterToResolve = track->GetWinCaster();
-        std::cout << "\tGet casterToResolve: " << (int)casterToResolve << "\n";
-        //use casterToResolve play WillCompare Animation
-
-        track->UpdateTimetrack();
-
-        if (casterToResolve >= CasterPosition::CasterA)
-        {
-            for (CastSpellDetail* spell: track->GetSpellList())
-            {
-                if (spell->isCasted) continue;
-
-                //TODO: resolve the spell
-
-                spell->isCasted = true;
-
-                //TODO: check battle end condition
-            }
-        }
-        else
-        {
-            continue;
-        }
-    }
-    m_BattleManager->GetData()->Timeline.UpdateTimeline();
-
-    //if(battle end)
-    //{}
-    //else
-    m_BattleManager->StandbyAllCaster();
-    m_BattleManager->SetBattleState(BattleState::CastState);
-    m_BattleManager->SwapCaster();
-}
+BattleManager* battleManager;
 
 void BattleScene::GameSceneLoad()
 {
+    track_t = 0.0f;
+    battleManager = BattleManager::GetInstance();
     std::cout << "Battle Scene : Load Completed\n";
 }
 
 void BattleScene::GameSceneInit()
 {
-    m_BattleManager = BattleManager::GetInstance();
+    battleManager->Init();
 
-    m_BattleManager->Init();
+    ParticleProps particleProp;
+    particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
+    particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
+    particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
+    particleProp.velocityVariation = { 600.0f, 600.0f };
+    particleProp.velocity = { 0.0f, 300.0f };
+    ParticleSystem* particle = CreateParticle(particleProp);
+
+    GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
+    obj->scale = { 320.0f, 320.0f, 1.0f };
+    obj->SetTexture("Sprites/Fire_Mage.png");
+    obj->position.x -= 700.0f;
+    obj->SetChildRenderBack(particle);
+
+    GameObject* obj2 = CreateGameObject("Floor");
+    obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+    obj2->scale = { 1920.0f, 500.0f, 1.0f };
+    obj2->position.y = -400.0f;
+
+    GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
+    obj3->scale = { -320.0f, 320.0f, 1.0f };
+    obj3->SetTexture("Sprites/character_minion_idle.png");
+    obj3->position.x += 700.0f;
+
+    battleManager->GetData()->pentragramController = new PentragramController(this);
+
+    battleManager->GetData()->GetCaster(CasterPosition::CasterA)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterA));
+    battleManager->GetData()->GetCaster(CasterPosition::CasterB)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterB));
 
     std::cout << "Battle Scene : Initialize Completed\n";
 
-    m_BattleManager->StartBattle();
+    battleManager->StartBattle();
 }
 
 void BattleScene::GameSceneUpdate(float dt)
 {
+    UpdateButtonEvents();
+
     if (Input::IsKeyBeginPressed(GLFW_KEY_R))
     {
         SceneManager::LoadScene(GameState::GS_RESTART);
@@ -144,22 +65,61 @@ void BattleScene::GameSceneUpdate(float dt)
         return;
     }
 
-    switch (m_BattleManager->GetBattleStates()->StateID)
+    battleManager->GetBattleStates()->OnBattleStateUpdate(dt);
+
+    if (track_t >= 1.0f)
     {
-    case BattleState::CastState:
-        CastStateUpdate(dt);
-        break;
-    case BattleState::ResolveState:
-        ResolveStateUpdate(dt);
-        break;
+        track_t = 0.0f;
+    }
+    track_t += dt;
+    // Update GameObject
+    for (GLuint idx = 0; idx < objectsList.size(); idx++)
+    {
+        GameObject*& curObj = objectsList[idx];
+
+        curObj->OnUpdate(dt);
+        if (curObj->isAnimation())
+        {
+            curObj->UpdateAnimation(dt);
+        }
+        if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
+        {
+            curObj->SetActive(curObj->isActive() ? false : true);
+        }
     }
 
+    // Update UI
+    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
+    {
+        UIObject*& curObj = uiObjectsList[idx];
+
+        if (curObj->name == "INFO_Text" && track_t >= 1.0f)
+        {
+            dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt)) + "\n" +
+                "GameObject : " + std::to_string(objectsList.size()) + "\n" +
+                "UIObject : " + std::to_string(uiObjectsList.size());
+        }
+        else if (curObj->name == "BigUI_1")
+        {
+            if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
+            {
+                timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
+                soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
+                curObj->SetActive(curObj->isActive() ? false : true);
+            }
+        }
+
+        if (!curObj->isActive()) { continue; }
+        curObj->OnUpdate(dt);
+    }
 }
 
 void BattleScene::GameSceneUnload()
 {
     //Free Battle Manager
-    m_BattleManager->Free();
+
+    delete battleManager->GetData()->pentragramController;
+    battleManager->Free();
     GameScene::GameSceneUnload();
 }
 
@@ -175,5 +135,6 @@ void BattleScene::GameSceneFree()
     {
         delete uiObjectsList[idx];
     }
+
     std::cout << "Battle Scene : Free Memory Completed\n";
 }

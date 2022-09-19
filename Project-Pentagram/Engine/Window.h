@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
@@ -8,8 +8,8 @@
 
 #include "Input.h"
 
-#define WINDOW_WIDTH 1600
-#define WINDOW_HEIGHT 900
+#define WINDOW_WIDTH 1920
+#define WINDOW_HEIGHT 1080
 #define TITLE "Arcant Engine"
 
 class Window

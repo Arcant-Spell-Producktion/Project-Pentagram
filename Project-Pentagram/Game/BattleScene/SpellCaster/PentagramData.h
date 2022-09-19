@@ -7,3 +7,12 @@ struct PentagramData_T
     int effect = 1;
     int time = 1;
 };
+
+enum class PentagramField
+{
+    Circle = 0,
+    Complex,
+    Will,
+    Effect,
+    Time
+};

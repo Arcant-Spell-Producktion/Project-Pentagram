@@ -5,7 +5,8 @@ class ResolveBattleState : public BaseBattleState
 {
 public:
     ResolveBattleState() :BaseBattleState(BattleState::ResolveState) {}
-    virtual void OnBattleStateIn(BattleSceneData* currentBattleData) override {};
-    virtual void OnBattleStateOut() override {}
+    virtual void OnBattleStateIn()override;
+    virtual void OnBattleStateUpdate(float dt) override;
+    virtual void OnBattleStateOut() override;
 
 };

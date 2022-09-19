@@ -14,29 +14,36 @@ protected:
     SpellBook* m_CurrentBook = nullptr;
     CastSpellDetail* m_CurrentSpell = nullptr;
 
-    int m_Health = 0;
-    int m_Mana = 0;
+    int m_CurrentHealth = 0;
+    int m_CurrentMana = 0;
+
 
 public:
     SpellCaster(CasterData caster);
-    void SetPentagramData(PentagramData_T pentagram);
-    void CommitSpell();
-    int GetSpellCost();
+
     CasterData* GetCasterData() { return &m_CurrentData; }
 
-    int GetHealth() { return m_Health; }
+    void CommitSpell();
 
-    void SetHealth(int health) { m_Health = health; }
+    int GetSpellCost();
 
-    void ChangeHealth(int health) { m_Health += health; }
+    PentagramData_T GetPentagramData() { return m_PentagramData; }
 
-    int GetMana() { return m_Mana; }
+    void SetPentagramData(PentagramData_T pentagram);
 
-    void SetMana(int mana) { m_Mana = mana; }
+    int GetHealth() { return m_CurrentHealth; }
 
-    void ChangeMana(int mana) { m_Mana += mana; }
+    void SetHealth(int health) { m_CurrentHealth = health; }
 
-    void ResetMana() { m_Mana = m_CurrentData.GetMana(); }
+    void ChangeHealth(int health) { m_CurrentHealth += health; }
+
+    int GetMana() { return m_CurrentMana; }
+
+    void SetMana(int mana) { m_CurrentMana = mana; }
+
+    void ChangeMana(int mana) { m_CurrentMana += mana; }
+
+    void ResetMana() { m_CurrentMana = m_CurrentData.GetMana(); }
 
     CastSpellDetail* GetSpellDetail()
     {

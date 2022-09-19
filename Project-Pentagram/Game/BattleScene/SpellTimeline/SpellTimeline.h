@@ -10,10 +10,10 @@ public:
 
     SpellTimetrack* GetTimetrack(int track_index) { return &m_Timeline[track_index]; }
     
-    void AddSpellToTimeline(CastSpellDetail* spell)
+    void AddSpellToTimeline(CastSpellDetail* spell,bool doCompare = true)
     {
         int array_index = spell->SelectedTime <= 10 ? (spell->SelectedTime - 1) : (11 - 1);
-        m_Timeline[array_index].push_back(spell);
+        m_Timeline[array_index].push_back(spell, doCompare);
 
         cout << "Add Spell to Timetrack index: " << array_index << "\n";
     }
