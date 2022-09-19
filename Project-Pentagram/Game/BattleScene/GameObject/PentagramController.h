@@ -11,6 +11,7 @@ private:
     PentagramField m_currentField = PentagramField::Will;
     PentagramData_T m_currentData;
 
+    std::vector<GameObject*> m_PentragramObj;
     std::vector<Button*> m_PentragramButtons;
     std::vector<Button*> m_IntButtons;
     std::vector<Button*> m_ArrowButtons;
@@ -19,6 +20,9 @@ private:
     Button* m_PassButton;
 public:
     PentragramController(BattleScene* scene);
+
+    virtual void OnUpdate(const float& dt) override;
+
     void SetPentagramField(PentagramField selectedField);
     void SetPentagramValue(int value);
     

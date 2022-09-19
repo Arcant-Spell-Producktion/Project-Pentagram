@@ -20,7 +20,7 @@ void BattleScene::GameSceneInit()
 {
     battleManager->Init();
 
-    ParticleProps particleProp;
+    ParticleProperty particleProp;
     particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
     particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
     particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
@@ -29,6 +29,7 @@ void BattleScene::GameSceneInit()
     ParticleSystem* particle = CreateParticle(particleProp);
 
     GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
+    obj->SetIsAnimationObject(true);
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Fire_Mage.png");
     obj->position.x -= 700.0f;
@@ -40,11 +41,13 @@ void BattleScene::GameSceneInit()
     obj2->position.y = -400.0f;
 
     GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
+    obj3->SetIsAnimationObject(true);
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/character_minion_idle.png");
     obj3->position.x += 700.0f;
 
     battleManager->GetData()->pentragramController = new PentragramController(this);
+    objectsList.push_back(battleManager->GetData()->pentragramController);
 
     battleManager->GetData()->GetCaster(CasterPosition::CasterA)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterA));
     battleManager->GetData()->GetCaster(CasterPosition::CasterB)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterB));
@@ -78,13 +81,13 @@ void BattleScene::GameSceneUpdate(float dt)
         GameObject*& curObj = objectsList[idx];
 
         curObj->OnUpdate(dt);
-        if (curObj->isAnimation())
+        if (curObj->IsAnimationObject())
         {
             curObj->UpdateAnimation(dt);
         }
         if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
         {
-            curObj->SetActive(curObj->isActive() ? false : true);
+            curObj->SetActive(curObj->IsActive() ? false : true);
         }
     }
 
@@ -105,11 +108,11 @@ void BattleScene::GameSceneUpdate(float dt)
             {
                 timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
                 soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
-                curObj->SetActive(curObj->isActive() ? false : true);
+                curObj->SetActive(curObj->IsActive() ? false : true);
             }
         }
 
-        if (!curObj->isActive()) { continue; }
+        if (!curObj->IsActive()) { continue; }
         curObj->OnUpdate(dt);
     }
 }

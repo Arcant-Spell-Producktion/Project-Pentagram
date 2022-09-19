@@ -30,14 +30,33 @@ void InvokeSpell()
 
 PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),GameObject("PentagramController")
 {
+    float x_offset = 0.0f;
+    float y_offset = 80.0f;
+
+    for (size_t i = 0; i < 4; i++)
+    {
+        float radius = 460.0f;
+
+        GameObject* circle = m_Scene->CreateGameObject("Circle_" + std::to_string(i), 4, {3,3,3,3});
+
+        circle->SetIsAnimationObject(false);
+        circle->position = { x_offset,y_offset,0.0f };
+        circle->scale = { radius,radius,1.0f };
+        circle->SetSpriteByIndex(i+1,0);
+        circle->SetTexture("Sprites/ui_magic_circle_sheet.png");
+        circle->SetActive(!(i > 1));
+        if (i > 0)
+        {
+            circle->color.a = 0.8f;
+        }
+
+        m_PentragramObj.push_back(circle);
+    }
 
     for (size_t i = 0; i < 5; i++)
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
-        
         float radius = 200.0f;
-        float x_offset = 0.0f;
-        float y_offset = 80.0f;
         float _scale = 0.0f;
 
         std::string name;
@@ -172,6 +191,16 @@ PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene),G
 
 }
 
+void PentragramController::OnUpdate(const float& dt)
+{
+    float speed = 10.0f;
+    for (size_t i = 1; i < 4; i++)
+    {
+        int direction = i % 2 == 0 ? 1 : -1;
+        m_PentragramObj[i]->rotation += (dt * speed *i* direction);
+    }
+}
+
 void PentragramController::SetPentagramField(PentagramField selectedField)
 {
     m_currentField = selectedField;
@@ -227,9 +256,21 @@ void PentragramController::SetPentagramValue(int value)
     {
     case PentagramField::Circle:
         m_currentData.circle = value;
+        for (size_t i = 0; i < 4; i++)
+        {
+            if (i == 0)
+            {
+                m_PentragramObj[i]->SetSpriteByIndex(i+1,value-1);
+            }
+            m_PentragramObj[i]->SetActive(i <= value);
+        }
         break;
     case PentagramField::Complex:
         m_currentData.complex = value;
+        for (size_t i = 1; i < 4; i++)
+        {
+            m_PentragramObj[i]->SetSpriteByIndex(i + 1, value - 1);
+        }
         break;
     case PentagramField::Will:
         m_currentData.will = value;
