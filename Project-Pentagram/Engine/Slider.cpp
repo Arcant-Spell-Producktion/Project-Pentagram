@@ -100,8 +100,8 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	if (m_IsSpriteSheet)
 	{
 		// SpriteSheet Offset
-		shader.setFloat("u_OffsetX", m_CurrentAnimationColumn * (1.0f / m_CurrentAnimationColumn));
-		shader.setFloat("u_OffsetY", (m_CurrentAnimationRow - 1) * (1.0f / m_CurrentAnimationRow));
+		shader.setFloat("u_OffsetX", (m_CurrentAnimationColumn - 1) * (1.0f / m_MaxAnimationColumn));
+		shader.setFloat("u_OffsetY", (m_CurrentAnimationRow - 1) * (1.0f / m_AnimationRow));
 	}
 	else
 	{
