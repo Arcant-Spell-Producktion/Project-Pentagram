@@ -11,11 +11,14 @@ class GameStateController : public Singleton<GameStateController>
 {
 	public:
 		GameScene* currentScene;
+
 		GameState currentState;
+		GameState nextState;
 
 		GameStateController();
-		void Init(GameState state);
-		void Update();
+		void InitGameScene(GameState state);
+		void UpdateGameScene();
+		void UpdateGameState();
 
 		void Free();
 };

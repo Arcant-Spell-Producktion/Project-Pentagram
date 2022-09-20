@@ -20,7 +20,7 @@ int main()
 
 	// Initialize gameStateController
 	gameStateController = GameStateController::GetInstance();
-	gameStateController->Init(GameState::GS_MENU_SCENE);
+	gameStateController->InitGameScene(GameState::GS_MENU_SCENE);
 
 	// Initialize ShaderCollector(For collecting type of Shader)
 	// Initialize FontCollector(For collecting type of Font)
@@ -59,11 +59,10 @@ int main()
 
 		gameStateController->currentScene->GameSceneDraw();
 
-		// Clear User-Input
+		// End Frame
 		Input::EndFrame();
-
 		engine->GetWindow()->SwapBuffers();
-
+		gameStateController->UpdateGameState();
 		prevTime = currTime;
 	}
 	gameStateController->currentScene->GameSceneUnload();
