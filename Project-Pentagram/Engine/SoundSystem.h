@@ -31,8 +31,11 @@ class SoundSystem
 
 		void InitSoundEngine();
 
+		void LoadFile(const std::string& filePath, std::map<std::string, AudioSource*>& listContainer);
+			
 	public:
 		SoundSystem();
+		void LoadResource();
 
 		// ----------------- Audio Grouping ----------------- 
 		AudioGroup* PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume = 1.0f, const float& playbackSpeed = 1.0f);

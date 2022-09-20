@@ -330,6 +330,7 @@
     <Image Include="Engine\Texture\default.png">
       <Filter>WorkingDir\Sprites</Filter>
     </Image>
+    <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WorkingDir\Shader\TextFragment.shader">
@@ -464,10 +465,10 @@
     </Media>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="WorkingDir\Fonts\ARLRDBD.TTF">
+    <Font Include="WorkingDir\Fonts\ARLRDBD.ttf">
       <Filter>WorkingDir\Fonts</Filter>
     </Font>
-    <Font Include="WorkingDir\Fonts\BAUHS93.TTF">
+    <Font Include="WorkingDir\Fonts\BAUHS93.ttf">
       <Filter>WorkingDir\Fonts</Filter>
     </Font>
   </ItemGroup>

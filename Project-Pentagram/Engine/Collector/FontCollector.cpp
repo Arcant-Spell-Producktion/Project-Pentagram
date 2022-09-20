@@ -8,10 +8,11 @@ FontCollector::FontCollector()
 		std::cout << "Error : Failed Initialize FreeType Library\n";
 		exit(EXIT_FAILURE);
 	}
-
+}
+void FontCollector::LoadResource()
+{
 	// Load Font from Asset
-	LoadFont("Fonts/ARLRDBD.ttf");
-	LoadFont("Fonts/BAUHS93.ttf");
+	LoadFile("Fonts");
 }
 
 void FontCollector::Free()
@@ -24,6 +25,23 @@ std::map<GLchar, Character>* FontCollector::GetFonts(const std::string& fontPath
 }
 
 // ----------------- Private Function ----------------- 
+void FontCollector::LoadFile(const std::string& filePath)
+{
+	// Load All Fonts in Folder
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		if (dirEntry.is_directory())
+		{
+			LoadFile(filePathString);
+		}
+		else
+		{
+			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+			LoadFont(filePathString);
+		}
+	}
+}
 void FontCollector::LoadFont(const std::string& fontPath)
 {
 	// Init FT_Face & FT_Stroker

@@ -1,5 +1,12 @@
 #include "EngineDataCollector.h"
 
+void EngineDataCollector::LoadResource()
+{
+	m_FontCollector.LoadResource();
+	m_TextureCollector.LoadResource();
+	m_SoundSystem.LoadResource();
+}
+
 // Getter Implement
 ShaderCollector* EngineDataCollector::GetShaderCollector()
 {
