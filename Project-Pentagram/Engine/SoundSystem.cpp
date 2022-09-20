@@ -4,19 +4,9 @@ SoundSystem::SoundSystem()
 {
 	InitSoundEngine();
 	// Load All BGM
-	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator("Audio/BGM"))
-	{
-		std::string filePathString = (dirEntry.path()).string();
-		std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
-		m_BGMSourceList[filePathString] = m_SoundEngine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);
-	}
+	LoadFile("Audio/BGM", m_BGMSourceList);
 	// Load All SFX
-	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator("Audio/SFX"))
-	{
-		std::string filePathString = (dirEntry.path()).string();
-		std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
-		m_SFXSourceList[filePathString] = m_SoundEngine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);
-	}
+	LoadFile("Audio/SFX", m_SFXSourceList);
 }
 
 // ----------------- Audio Grouping ----------------- 
@@ -323,5 +313,22 @@ void SoundSystem::InitSoundEngine()
 	{
 		std::cerr << "Error : Failed to Initialize Sound Engine\n";
 		exit(EXIT_FAILURE);
+	}
+}
+
+void SoundSystem::LoadFile(const std::string& filePath, std::map<std::string, AudioSource*>& listContainer)
+{
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		if (dirEntry.is_directory())
+		{
+			LoadFile(filePathString, listContainer);
+		}
+		else
+		{
+			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+			listContainer[filePathString] = m_SoundEngine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);
+		}
 	}
 }

@@ -6,6 +6,7 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <iostream>
+#include <filesystem>
 #include <string>
 #include <vector>
 #include <map>
@@ -28,7 +29,8 @@ class FontCollector
 	private:
 		FT_Library m_FreeTypeLib;
 		// Load New Fonts
-		void LoadFont(const std::string& path);
+		void LoadFont(const std::string& fontPath);
+		void LoadFile(const std::string& filePath);
 
 		// Collecting each characters' data of each fonts
 		std::map<std::string, std::map<GLchar, Character>> fonts;

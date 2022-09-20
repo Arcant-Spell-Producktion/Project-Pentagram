@@ -147,8 +147,8 @@
     <Media Include="WorkingDir\Audio\BGM\DarkButHopeful.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="WorkingDir\Fonts\ARLRDBD.TTF" />
-    <Font Include="WorkingDir\Fonts\BAUHS93.TTF" />
+    <Font Include="WorkingDir\Fonts\ARLRDBD.ttf" />
+    <Font Include="WorkingDir\Fonts\BAUHS93.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

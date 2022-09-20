@@ -31,6 +31,8 @@ class SoundSystem
 
 		void InitSoundEngine();
 
+		void LoadFile(const std::string& filePath, std::map<std::string, AudioSource*>& listContainer);
+			
 	public:
 		SoundSystem();
 

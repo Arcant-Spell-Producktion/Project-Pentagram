@@ -2,13 +2,7 @@
 
 TextureCollector::TextureCollector()
 {
-	// Load All Sprites Texture in Folder
-	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator("Sprites"))
-	{
-		std::string filePathString = (dirEntry.path()).string();
-		std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
-		LoadTexture(filePathString);
-	}
+	LoadFile("Sprites");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& filePath)
@@ -28,4 +22,21 @@ void TextureCollector::Free()
 void TextureCollector::LoadTexture(const std::string& filePath)
 {
 	m_Textures[filePath] = new Texture(filePath.c_str());
+}
+void TextureCollector::LoadFile(const std::string& filePath)
+{
+	// Load All Sprites Texture in Folder
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		if (dirEntry.is_directory())
+		{
+			LoadFile(filePathString);
+		}
+		else
+		{
+			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+			LoadTexture(filePathString);
+		}
+	}
 }

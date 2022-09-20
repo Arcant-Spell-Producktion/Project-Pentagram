@@ -14,6 +14,7 @@ class TextureCollector
 		std::map<std::string, Texture*> m_Textures;
 
 		void LoadTexture(const std::string& filePath);
+		void LoadFile(const std::string& filePath);
 
 	public:
 		TextureCollector();
