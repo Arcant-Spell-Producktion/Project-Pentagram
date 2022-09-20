@@ -6,5 +6,6 @@
 namespace SceneManager
 {
 	void LoadScene(GameState newState);
+	void RestartScene();
 	void QuitGame();
 }

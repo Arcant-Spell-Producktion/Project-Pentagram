@@ -122,9 +122,7 @@ void MenuScene::GameSceneUpdate(float dt)
 
 	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
 	{
-		SceneManager::LoadScene(GameState::GS_RESTART);
-		// If not return will cause memory problem
-		return;
+		SceneManager::RestartScene();
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_1))
 	{
@@ -162,7 +160,6 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-        return;
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{

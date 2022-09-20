@@ -1,16 +1,18 @@
 ﻿#include "GameStateController.h"
 
 GameStateController::GameStateController()
-	: currentState(GameState::GS_NONE), currentScene(nullptr)
+	: currentState(GameState::GS_NONE), 
+	  nextState(GameState::GS_NONE), 
+	  currentScene(nullptr)
 {
 }
 
-void GameStateController::Init(GameState state)
+void GameStateController::InitGameScene(GameState state)
 {
 	currentState = state;
-	Update();
+	UpdateGameScene();
 }
-void GameStateController::Update()
+void GameStateController::UpdateGameScene()
 {
 	if (currentState == GameState::GS_QUIT)
 	{
@@ -34,6 +36,26 @@ void GameStateController::Update()
 	currentScene->GameSceneInit();
 
 }
+void GameStateController::UpdateGameState()
+{
+	if (this->nextState != GameState::GS_NONE)
+	{
+		// Unload and Free Old Scene
+		this->currentScene->GameSceneUnload();
+		this->currentScene->GameSceneFree();
+		
+		// Free-Memory on Old Scene
+		delete this->currentScene;
+		this->currentScene = nullptr;
+
+		// Create New Scene from nextState
+		this->InitGameScene(nextState);
+
+		// Reset nextState to Default (GS::NONE)
+		this->nextState = GameState::GS_NONE;
+	}
+}
+
 void GameStateController::Free()
 {
 	if (currentScene != nullptr)

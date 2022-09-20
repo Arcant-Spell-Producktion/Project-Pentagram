@@ -5,20 +5,16 @@ namespace SceneManager
 	void LoadScene(GameState newState)
 	{
 		GameStateController* gameStateController = GameStateController::GetInstance();
-
-		// Unload and Free Old Scene
-		gameStateController->currentScene->GameSceneUnload();
-		gameStateController->currentScene->GameSceneFree();
-
 		if (newState == GameState::GS_RESTART)
 		{
 			newState = gameStateController->currentState;
 		}
-
-		delete gameStateController->currentScene;
-		gameStateController->currentScene = nullptr;
-
-		gameStateController->Init(newState);
+		gameStateController->nextState = newState;
+	}
+	void RestartScene()
+	{
+		GameStateController* gameStateController = GameStateController::GetInstance();
+		gameStateController->nextState = gameStateController->currentState;
 	}
 	void QuitGame()
 	{
