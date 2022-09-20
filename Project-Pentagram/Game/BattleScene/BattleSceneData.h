@@ -35,6 +35,7 @@ public:
         {
             caster->SetState(CasterState::Idle);
             caster->GetSpellCaster()->ResetMana();
+            caster->UpdateCasterUI();
         }
     }
 };

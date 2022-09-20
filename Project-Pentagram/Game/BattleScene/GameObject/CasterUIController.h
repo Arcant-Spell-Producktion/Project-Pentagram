@@ -5,6 +5,8 @@
 class CasterUIController
 {
 private:
+    GameScene* m_Scene;
+
     int m_CurrentHealth = 0;
     int m_MaxHealth = 0;
 
@@ -14,7 +16,7 @@ private:
     TextObject* m_HealthText;
     TextObject* m_ManaText;
 public:
-    CasterUIController(BattleScene* scene,CasterPosition position);
+    CasterUIController(CasterPosition position);
     void SetHealthText(int cur, int max);
     void SetManaText(int cur, int max);
 };

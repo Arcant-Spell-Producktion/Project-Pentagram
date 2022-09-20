@@ -162,6 +162,7 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+        return;
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
@@ -227,6 +228,6 @@ void MenuScene::GameSceneFree()
 	{
 		delete uiObjectsList[idx];
 	}
-	soundSystem->FreeSound();
+	//soundSystem->FreeSound();
 	std::cout << "Menu Scene : Free Memory Completed\n";
 }

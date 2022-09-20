@@ -6,7 +6,7 @@
 class PentragramController: public GameObject
 {
 private:
-    BattleScene* m_Scene;
+    GameScene* m_Scene;
 
     PentagramField m_currentField = PentagramField::Will;
     PentagramData_T m_currentData;
@@ -19,7 +19,7 @@ private:
     Button* m_InvokeButton;
     Button* m_PassButton;
 public:
-    PentragramController(BattleScene* scene);
+    PentragramController();
 
     virtual void OnUpdate(const float& dt) override;
 
@@ -27,5 +27,7 @@ public:
     void SetPentagramValue(int value);
     
     void SetInvokeButtonActive(bool isActive) { m_InvokeButton->SetActive(isActive); }
+
+    PentagramData_T ResetPentagram();
 
 };

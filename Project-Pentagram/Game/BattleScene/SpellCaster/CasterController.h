@@ -20,28 +20,35 @@ protected:
 public:
 
     CasterUIController* GetCasterUI() { return m_CasterUI; }
-    void SetCasterUI(CasterUIController* ui)
+
+    void UpdateCasterUI()
     {
-        m_CasterUI = ui;
         m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
         m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
     }
 
-    CasterController(CasterData caster):m_SpellCaster(caster){}
+    CasterController(CasterData caster):m_SpellCaster(caster)
+    {
+        m_CasterUI = new CasterUIController(m_SpellCaster.GetCasterData()->GetPosition());
+        m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
+        m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
+    }
 
     SpellCaster* GetSpellCaster() {return &m_SpellCaster;}
 
     CasterState GetState() { return m_CasterState; }
     void SetState(CasterState state) { m_CasterState = state; }
 
-    virtual void StartTurn()
+    virtual void StartTurn(PentagramData_T data)
     {
         if (m_CasterState == CasterState::Passed)
         {
             return;
         }
         m_CasterState = CasterState::Idle;
-        m_SpellCaster.SetPentagramData({ 1,1,1,1,1 });
+        m_SpellCaster.SetPentagramData(data);
+
+        UpdateCasterUI();
     }
 
     CastSpellDetail* CastSpell() {

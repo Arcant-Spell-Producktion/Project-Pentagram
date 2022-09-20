@@ -46,12 +46,10 @@ void BattleScene::GameSceneInit()
     obj3->SetTexture("Sprites/character_minion_idle.png");
     obj3->position.x += 700.0f;
 
-    battleManager->GetData()->pentragramController = new PentragramController(this);
+    battleManager->GetData()->pentragramController = new PentragramController();
     objectsList.push_back(battleManager->GetData()->pentragramController);
 
-    battleManager->GetData()->GetCaster(CasterPosition::CasterA)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterA));
-    battleManager->GetData()->GetCaster(CasterPosition::CasterB)->SetCasterUI(new CasterUIController(this, CasterPosition::CasterB));
-
+    
     std::cout << "Battle Scene : Initialize Completed\n";
 
     battleManager->StartBattle();

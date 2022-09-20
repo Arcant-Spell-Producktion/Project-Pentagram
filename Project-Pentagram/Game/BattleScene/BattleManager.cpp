@@ -28,8 +28,8 @@ void BattleManager::SwapCaster()
         return;
     }
     m_Data.CurrentCasterIndex = (m_Data.CurrentCasterIndex + 1) % m_Data.Casters.size();
-
-    m_Data.GetCurrentCaster()->StartTurn();
+  
+    m_Data.GetCurrentCaster()->StartTurn(m_Data.pentragramController->ResetPentagram());
 }
 
 BattleManager::~BattleManager()

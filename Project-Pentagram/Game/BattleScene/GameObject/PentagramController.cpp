@@ -28,7 +28,7 @@ void InvokeSpell()
     bm->SwapCaster();
 }
 
-PentragramController::PentragramController(BattleScene* scene) :m_Scene(scene), GameObject("PentagramController")
+PentragramController::PentragramController() :m_Scene(GameStateController::GetInstance()->currentScene), GameObject("PentagramController")
 {
     float x_offset = 0.0f;
     float y_offset = 80.0f;
@@ -251,6 +251,11 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
 
 void PentragramController::SetPentagramValue(int value)
 {
+
+    auto battleManager = BattleManager::GetInstance();
+    auto currentCaster = battleManager->GetData()->GetCurrentCaster();
+    auto spellCaster = currentCaster->GetSpellCaster();
+
     std::cout << "Value: " << value << "\n";
     switch (m_currentField)
     {
@@ -284,14 +289,27 @@ void PentragramController::SetPentagramValue(int value)
         break;
     }
 
-    auto caster = BattleManager::GetInstance()->GetData()->GetCurrentCaster()->GetSpellCaster();
-    caster->SetPentagramData(m_currentData);
+    spellCaster->SetPentagramData(m_currentData);
 
     if (m_currentField == PentagramField::Circle || m_currentField == PentagramField::Complex)
     {
-        m_currentData.time = caster->GetSpellDetail()->OriginalSpell->GetCastTime();
-        caster->SetPentagramData(m_currentData);
+        m_currentData.time = spellCaster->GetSpellDetail()->OriginalSpell->GetCastTime();
+        spellCaster->SetPentagramData(m_currentData);
     }
 
-    BattleManager::GetInstance()->GetData()->GetCurrentCaster()->GetCasterUI()->SetManaText((caster->GetMana() - caster->GetSpellCost()), caster->GetCasterData()->GetMana());
+    currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
+}
+
+PentagramData_T PentragramController::ResetPentagram()
+{
+    SetPentagramField(PentagramField::Circle);
+    SetPentagramValue(1);
+    SetPentagramField(PentagramField::Complex);
+    SetPentagramValue(1);
+    SetPentagramField(PentagramField::Will);
+    SetPentagramValue(1);
+    SetPentagramField(PentagramField::Effect);
+    SetPentagramValue(1);
+
+    return m_currentData;
 }
