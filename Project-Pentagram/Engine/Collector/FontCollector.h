@@ -36,6 +36,7 @@ class FontCollector
 		std::map<std::string, std::map<GLchar, Character>> fonts;
 	public:
 		FontCollector();
+		void LoadResource();
 		void Free();
 		std::map<GLchar, Character>* GetFonts(const std::string& fontPath);
 };

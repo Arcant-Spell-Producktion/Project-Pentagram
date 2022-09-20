@@ -330,6 +330,7 @@
     <Image Include="Engine\Texture\default.png">
       <Filter>WorkingDir\Sprites</Filter>
     </Image>
+    <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WorkingDir\Shader\TextFragment.shader">

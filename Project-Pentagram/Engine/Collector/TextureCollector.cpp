@@ -2,6 +2,10 @@
 
 TextureCollector::TextureCollector()
 {
+}
+
+void TextureCollector::LoadResource()
+{
 	LoadFile("Sprites");
 }
 

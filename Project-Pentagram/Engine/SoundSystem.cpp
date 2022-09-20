@@ -3,6 +3,9 @@
 SoundSystem::SoundSystem()
 {
 	InitSoundEngine();
+}
+void SoundSystem::LoadResource()
+{
 	// Load All BGM
 	LoadFile("Audio/BGM", m_BGMSourceList);
 	// Load All SFX

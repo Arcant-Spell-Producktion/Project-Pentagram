@@ -8,7 +8,9 @@ FontCollector::FontCollector()
 		std::cout << "Error : Failed Initialize FreeType Library\n";
 		exit(EXIT_FAILURE);
 	}
-
+}
+void FontCollector::LoadResource()
+{
 	// Load Font from Asset
 	LoadFile("Fonts");
 }

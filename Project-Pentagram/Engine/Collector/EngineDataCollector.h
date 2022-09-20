@@ -16,6 +16,8 @@ class EngineDataCollector : public Singleton<EngineDataCollector>
 		SoundSystem m_SoundSystem;
 
 	public:
+		void LoadResource();
+
 		// Getter
 		ShaderCollector* GetShaderCollector();
 		FontCollector* GetFontCollector();

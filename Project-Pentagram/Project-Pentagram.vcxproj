@@ -133,6 +133,7 @@
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png" />
     <Image Include="Engine\Texture\default.png" />
+    <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="WorkingDir\Shader\UISlicingFragment.shader" />
