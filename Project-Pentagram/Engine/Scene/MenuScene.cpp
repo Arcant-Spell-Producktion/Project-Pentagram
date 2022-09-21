@@ -104,7 +104,7 @@ void MenuScene::GameSceneInit()
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water_Standard_BassArp.wav", "Audio/BGM/Water_Standard_Chord.wav", "Audio/BGM/Water_Standard_Violin.wav" }, 0.5f);
+	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water/Water_Standard_BassArp.wav", "Audio/BGM/Water/Water_Standard_Chord.wav", "Audio/BGM/Water/Water_Standard_Violin.wav" }, 0.5f);
 }
 
 void MenuScene::GameSceneUpdate(float dt)

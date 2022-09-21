@@ -33,11 +33,7 @@ void TextureCollector::LoadFile(const std::string& filePath)
 	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
 	{
 		std::string filePathString = (dirEntry.path()).string();
-		if (dirEntry.is_directory())
-		{
-			LoadFile(filePathString);
-		}
-		else
+		if (!dirEntry.is_directory())
 		{
 			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
 			LoadTexture(filePathString);

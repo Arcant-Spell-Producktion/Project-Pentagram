@@ -144,10 +144,6 @@
     <None Include="WorkingDir\Shader\TextVertex.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="WorkingDir\Audio\BGM\ConfidentPlayfulWithSideofDeception.wav" />
-    <Media Include="WorkingDir\Audio\BGM\DarkButHopeful.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <Font Include="WorkingDir\Fonts\ARLRDBD.ttf" />
     <Font Include="WorkingDir\Fonts\BAUHS93.ttf" />
   </ItemGroup>

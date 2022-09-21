@@ -324,11 +324,7 @@ void SoundSystem::LoadFile(const std::string& filePath, std::map<std::string, Au
 	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
 	{
 		std::string filePathString = (dirEntry.path()).string();
-		if (dirEntry.is_directory())
-		{
-			LoadFile(filePathString, listContainer);
-		}
-		else
+		if (!dirEntry.is_directory())
 		{
 			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
 			listContainer[filePathString] = m_SoundEngine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);

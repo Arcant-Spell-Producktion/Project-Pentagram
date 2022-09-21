@@ -455,14 +455,126 @@
     <Filter Include="Game\BattleScene\Objects">
       <UniqueIdentifier>{1ac92bc4-88be-41b7-8c1a-fb2ff660a4a5}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="WorkingDir\Audio\BGM\DarkButHopeful.wav">
-      <Filter>WorkingDir\Audio\BGM</Filter>
-    </Media>
-    <Media Include="WorkingDir\Audio\BGM\ConfidentPlayfulWithSideofDeception.wav">
-      <Filter>WorkingDir\Audio\BGM</Filter>
-    </Media>
+    <Filter Include="WorkingDir\Sprites\Character">
+      <UniqueIdentifier>{a03f8f67-580b-4562-8918-bf8b5668a1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage">
+      <UniqueIdentifier>{211409b9-acef-42d2-87e9-1b582e0c6d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Particle">
+      <UniqueIdentifier>{3c783f97-41a1-4e8f-b2a9-93cea6e521b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell">
+      <UniqueIdentifier>{d7dd1cb7-57ba-40a3-8d17-b70b20d0ed32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI">
+      <UniqueIdentifier>{f4be92e7-d6d1-4117-b92a-89834bdd8cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Boss">
+      <UniqueIdentifier>{e164fc54-7c38-4aa8-b44f-4fea5b48a989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Minion">
+      <UniqueIdentifier>{7037e51d-8030-4ce1-b2c8-b1164953da57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Player">
+      <UniqueIdentifier>{e5340a0d-3dc1-4810-9ef1-481c641faa01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Earth">
+      <UniqueIdentifier>{aeded1d3-a8a9-4688-839c-6720d22c033d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Fire">
+      <UniqueIdentifier>{320e039e-1aa5-4a90-817e-7c1d83ad5d7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Water">
+      <UniqueIdentifier>{40e52b58-1037-417f-be8a-ab71c4b1e02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Wind">
+      <UniqueIdentifier>{4d7a6379-01db-449c-816f-3a7eef411552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Earth">
+      <UniqueIdentifier>{c56231c9-217a-4184-832f-77366a19cc15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Fire">
+      <UniqueIdentifier>{24ac05ed-6c6c-43f7-b59a-85380a8f3631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Water">
+      <UniqueIdentifier>{bab96e1b-5e7c-4812-a606-68178c626461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Wind">
+      <UniqueIdentifier>{eadba255-2fa0-47d7-a918-230c239c1839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game">
+      <UniqueIdentifier>{04102b95-988f-45fd-b7eb-3ce176e18fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable">
+      <UniqueIdentifier>{6270544f-4f36-43a4-af1d-9ca3b2dcc2e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game\Caster">
+      <UniqueIdentifier>{4cdb628c-691d-4472-b225-44fabf97e6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game\Timeline">
+      <UniqueIdentifier>{3d0782dc-97ff-439d-946b-c8496f355025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Button">
+      <UniqueIdentifier>{f9b6079b-1450-4868-b863-c4b577700151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider">
+      <UniqueIdentifier>{c82dfe56-5e45-4b51-a4a5-295596425ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider\bar">
+      <UniqueIdentifier>{62492150-6474-48d7-94ad-3951e8f3b2bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider\handle">
+      <UniqueIdentifier>{b831d72a-d4a0-4628-a298-41900d1f01fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Earth">
+      <UniqueIdentifier>{3e935ce9-865e-4865-8785-d8238d98c2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Fire">
+      <UniqueIdentifier>{593dbcb0-2a1e-47e5-9a6a-a5809a1c9ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Wind">
+      <UniqueIdentifier>{d6a28447-6d90-47b5-ab34-0bacbcf76707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Water">
+      <UniqueIdentifier>{dabbd573-115c-4833-8bef-20f2b17dbbeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay">
+      <UniqueIdentifier>{d03b2578-faee-49cf-8018-90047a55e7c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\General">
+      <UniqueIdentifier>{9616d0c3-e494-42d2-b1b0-245d8bef70e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI">
+      <UniqueIdentifier>{3b250a56-426a-49b9-ae79-1f049135bb52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Compare">
+      <UniqueIdentifier>{40c3b977-92cf-401d-a382-2dae90078097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Effect">
+      <UniqueIdentifier>{7b0f0978-8f61-446d-8f11-98f9e57f1c83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell">
+      <UniqueIdentifier>{dc2c87e5-df38-43b1-9445-8c2a0616861a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Earth">
+      <UniqueIdentifier>{2e85c15c-68f5-4bf6-9c9b-e2688c767aa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Fire">
+      <UniqueIdentifier>{22a330b1-3306-4e38-b3b3-d7be45f5d439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Wind">
+      <UniqueIdentifier>{89e92a3e-be9c-4ccc-a34c-3f2225bb8f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Water">
+      <UniqueIdentifier>{1737bb5a-8d3e-4438-a235-87d4123678bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI\Game">
+      <UniqueIdentifier>{c4e8af7e-3ccc-4453-bc8a-bb5fb9583633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI\Interactable">
+      <UniqueIdentifier>{bd6547d6-9924-4ba6-bfed-2644e0767872}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Font Include="WorkingDir\Fonts\ARLRDBD.ttf">
