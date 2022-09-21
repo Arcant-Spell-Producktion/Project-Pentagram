@@ -25,7 +25,7 @@ void MenuScene::GameSceneInit()
 
 	GameObject* obj = CreateGameObject("SmileFace", 2, { 5,8 });
 	obj->scale = { 320.0f, 320.0f, 1.0f };
-	obj->SetTexture("Sprites/Fire_Mage.png");
+	obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
 	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
 	cur = obj;
@@ -37,7 +37,7 @@ void MenuScene::GameSceneInit()
 
 	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
-	obj3->SetTexture("Sprites/character_minion_idle.png");
+	obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
 	obj3->SetIsAnimationObject(true);
 	obj3->position.x += 500.0f;
 

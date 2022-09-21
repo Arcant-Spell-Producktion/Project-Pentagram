@@ -31,7 +31,7 @@ void BattleScene::GameSceneInit()
     GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
     obj->SetIsAnimationObject(true);
     obj->scale = { 320.0f, 320.0f, 1.0f };
-    obj->SetTexture("Sprites/Fire_Mage.png");
+    obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
     obj->position.x -= 700.0f;
     obj->SetChildRenderBack(particle);
 
@@ -43,7 +43,7 @@ void BattleScene::GameSceneInit()
     GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
     obj3->SetIsAnimationObject(true);
     obj3->scale = { -320.0f, 320.0f, 1.0f };
-    obj3->SetTexture("Sprites/character_minion_idle.png");
+    obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
     obj3->position.x += 700.0f;
 
     battleManager->GetData()->pentragramController = new PentragramController();

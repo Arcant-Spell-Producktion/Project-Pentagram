@@ -43,7 +43,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         circle->position = { x_offset,y_offset,0.0f };
         circle->scale = { radius,radius,1.0f };
         circle->SetSpriteByIndex(i, 0);
-        circle->SetTexture("Sprites/ui_magic_circle_sheet.png");
+        circle->SetTexture("Sprites/UI/Game/ui_game_pentagram.png");
         circle->SetActive(!(i > 1));
         if (i > 0)
         {

@@ -1,4 +1,5 @@
-#include "TextureCollector.h"
+﻿#include "TextureCollector.h"
+#include <iostream>
 
 TextureCollector::TextureCollector()
 {
@@ -37,6 +38,7 @@ void TextureCollector::LoadFile(const std::string& filePath)
 		{
 			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
 			LoadTexture(filePathString);
+            std::cout << filePathString << "\n";
 		}
 	}
 }
