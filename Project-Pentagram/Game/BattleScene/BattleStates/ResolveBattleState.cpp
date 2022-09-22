@@ -36,10 +36,10 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
                 switch (spell->OriginalSpell->GetChannelEffectType())
                 {
-                case ChannelEffectType::None:
+                case ChannelEffectEnum::None:
                     spell->doCast = true;
                     break;
-                case ChannelEffectType::Wait:
+                case ChannelEffectEnum::Wait:
                     if (!spell->doCast)
                     {
                     CastSpellDetail* newSpell = new CastSpellDetail(*spell);
@@ -48,7 +48,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell,true);
                     break;
                     }
-                case ChannelEffectType::Active:
+                case ChannelEffectEnum::Active:
                     if (!spell->doCast)
                     {
                         for (int i = spell->SelectedTime +1; i <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); i++)

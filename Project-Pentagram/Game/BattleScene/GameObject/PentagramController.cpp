@@ -12,13 +12,13 @@ void InvokeSpell()
     bool doCompare = true;
     switch (spell->OriginalSpell->GetChannelEffectType())
     {
-    case ChannelEffectType::None:
+    case ChannelEffectEnum::None:
         doCompare = true;
         break;
-    case ChannelEffectType::Wait:
+    case ChannelEffectEnum::Wait:
         doCompare = false;
         break;
-    case ChannelEffectType::Active:
+    case ChannelEffectEnum::Active:
         doCompare = true;
         break;
     }

@@ -22,7 +22,7 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
 
         XMLElement* castTimeElement = currSpellElement->FirstChildElement("CastTime");
         XMLElement* channelTimeElement = currSpellElement->FirstChildElement("ChannelTime");
-        XMLElement* effectTypeElement = currSpellElement->FirstChildElement("SideEffect");
+        XMLElement* effectTypeElement = currSpellElement->FirstChildElement("SpellEffect");
         XMLElement* channelTypeElement = currSpellElement->FirstChildElement("ChannelEffect");
         XMLElement* willValueElement = currSpellElement->FirstChildElement("WillValue")->FirstChildElement("Value");
         XMLElement* effectValueElement = currSpellElement->FirstChildElement("EffectValue")->FirstChildElement("Value");
@@ -33,14 +33,14 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
 
         currSpell.SetChannelTime(stoi(channelTimeElement->GetText()));
 
-        currSpell.SetSideEffectType(SideEffectType::GetEnum(effectTypeElement->GetText()));
+        currSpell.SetSpellEffectType(SpellEffectType::GetEnum(effectTypeElement->GetText()));
 
         currSpell.SetChannelEffectType(ChannelEffectType::GetEnum(channelTypeElement->GetText()));
 
         for (int array_index = 0; array_index < 6; array_index++)
         {
             currSpell.SetWillValue(array_index, stoi(willValueElement->GetText()));
-            currSpell.SetSideEffectValue(array_index, stoi(effectValueElement->GetText()));
+            currSpell.SetSpellEffectValue(array_index, stoi(effectValueElement->GetText()));
 
             willValueElement = willValueElement->NextSiblingElement();
             effectValueElement = effectValueElement->NextSiblingElement();

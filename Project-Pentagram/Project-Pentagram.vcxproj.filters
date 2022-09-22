@@ -134,6 +134,13 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\Spells\ChannelEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\SpellEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -321,6 +328,19 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
       <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectFactory.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\ChannelEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\SpellEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -574,6 +594,9 @@
     </Filter>
     <Filter Include="WorkingDir\Audio\SFX\UI\Interactable">
       <UniqueIdentifier>{bd6547d6-9924-4ba6-bfed-2644e0767872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect">
+      <UniqueIdentifier>{86a72964-26ab-42aa-8443-5d2b406bef98}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

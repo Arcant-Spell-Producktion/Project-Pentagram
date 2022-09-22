@@ -33,11 +33,11 @@ class CastSpellDetail
 
             os << "\tDamage:  " << detail.GetDamage() << " \n";
 
-            os << "\tEffect Type: " << SideEffectType::GetString(detail.OriginalSpell->GetSideEffectType()) << "\n";
+            os << "\tEffect Type: " << SpellEffectType::GetString(detail.OriginalSpell->GetSpellEffectType()) << "\n";
            
             os << "\tEffect: " << detail.SelectedEffect << "\n";
 
-            os << "\tEffect V:  " << detail.OriginalSpell->GetSideEffectValue(detail.SelectedEffect -1) << " \n";
+            os << "\tEffect V:  " << detail.OriginalSpell->GetSpellEffectValue(detail.SelectedEffect -1) << " \n";
 
             os << "\tCast Time: " << detail.SelectedTime << "(" << detail.OriginalSpell->GetCastTime() << ")" << "\n";
 
