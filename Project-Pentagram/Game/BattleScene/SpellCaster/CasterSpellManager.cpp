@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 #include <cmath>
-#include "SpellCaster.h"
+#include "CasterSpellManager.h"
 
-SpellCaster::SpellCaster(CasterData caster)
+CasterSpellManager::CasterSpellManager(CasterData caster)
 {
     m_CurrentData = caster;
     m_CurrentHealth = m_CurrentData.GetHealth();
@@ -12,7 +12,7 @@ SpellCaster::SpellCaster(CasterData caster)
     UpdateCurrentSpell();
 }
 
-void SpellCaster::UpdateCurrentSpell()
+void CasterSpellManager::UpdateCurrentSpell()
 {
     int spellIndex = ((m_PentagramData.circle - 1) * 3) + (m_PentagramData.complex - 1);
     Spell* selectedSpell = m_CurrentBook->GetSpellByIndex(spellIndex);
@@ -20,14 +20,14 @@ void SpellCaster::UpdateCurrentSpell()
     m_CurrentSpell = new CastSpellDetail(m_CurrentData.GetPosition(),selectedSpell,m_PentagramData.will,m_PentagramData.effect, m_PentagramData.time);
 }
 
-void SpellCaster::SetPentagramData(PentagramData_T pentagram)
+void CasterSpellManager::SetPentagramData(PentagramData_T pentagram)
 {
     m_PentagramData = pentagram;
     UpdateCurrentSpell();
     std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
 }
 
-void SpellCaster::CommitSpell()
+void CasterSpellManager::CommitSpell()
 {
     ChangeMana(-GetSpellCost());
     m_CurrentSpell = nullptr;
@@ -35,7 +35,7 @@ void SpellCaster::CommitSpell()
     //SpellTimeline::GetInstance()->AddSpellToTimeline(m_CurrentSpell);
 }
 
-int SpellCaster::GetSpellCost()
+int CasterSpellManager::GetSpellCost()
 {
 
     int sum = 1;//All spell start with value 1

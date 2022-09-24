@@ -22,6 +22,16 @@
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\MarkSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
+    <ClInclude Include="Game\Spells\ChannelEffectType.h" />
+    <ClInclude Include="Game\Spells\SpellEffectType.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\AudioGroup.h" />
     <ClInclude Include="Engine\SoundSystem.h" />
@@ -37,7 +47,7 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h" />
-    <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterSpellManager.h" />
     <ClInclude Include="Engine\ArcantEngine.h" />
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
@@ -89,6 +99,7 @@
     <ClCompile Include="Engine\SoundSystem.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
@@ -96,7 +107,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
-    <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterSpellManager.cpp" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />
     <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />
@@ -122,11 +133,14 @@
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
     <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
     <ClCompile Include="Game\Spells\SpellBook.cpp" />
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
+    <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

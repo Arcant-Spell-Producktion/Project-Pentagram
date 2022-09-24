@@ -10,7 +10,7 @@
         <Value>20</Value>
         <Value>30</Value>
       </WillValue>
-      <SideEffect>Mark</SideEffect>
+      <SpellEffect>Mark</SpellEffect>
       <EffectValue>
         <Value>10</Value>
         <Value>20</Value>
@@ -32,7 +32,7 @@
         <Value>35</Value>
         <Value>40</Value>
       </WillValue>
-      <SideEffect>Mark</SideEffect>
+      <SpellEffect>Mark</SpellEffect>
       <EffectValue>
         <Value>25</Value>
         <Value>25</Value>
@@ -54,7 +54,7 @@
         <Value>55</Value>
         <Value>60</Value>
       </WillValue>
-      <SideEffect>Mark</SideEffect>
+      <SpellEffect>Mark</SpellEffect>
       <EffectValue>
         <Value>30</Value>
         <Value>30</Value>
@@ -76,7 +76,7 @@
         <Value>40</Value>
         <Value>45</Value>
       </WillValue>
-      <SideEffect>Burn</SideEffect>
+      <SpellEffect>Burn</SpellEffect>
       <EffectValue>
         <Value>10</Value>
         <Value>10</Value>
@@ -98,7 +98,7 @@
         <Value>60</Value>
         <Value>65</Value>
       </WillValue>
-      <SideEffect>Mark</SideEffect>
+      <SpellEffect>Mark</SpellEffect>
       <EffectValue>
         <Value>30</Value>
         <Value>40</Value>
@@ -120,7 +120,7 @@
         <Value>80</Value>
         <Value>85</Value>
       </WillValue>
-      <SideEffect>Burn</SideEffect>
+      <SpellEffect>Burn</SpellEffect>
       <EffectValue>
         <Value>20</Value>
         <Value>30</Value>
@@ -142,7 +142,7 @@
         <Value>65</Value>
         <Value>70</Value>
       </WillValue>
-      <SideEffect>Burn</SideEffect>
+      <SpellEffect>Burn</SpellEffect>
       <EffectValue>
         <Value>10</Value>
         <Value>20</Value>
@@ -164,7 +164,7 @@
         <Value>85</Value>
         <Value>90</Value>
       </WillValue>
-      <SideEffect>Mark</SideEffect>
+      <SpellEffect>Mark</SpellEffect>
       <EffectValue>
         <Value>45</Value>
         <Value>50</Value>
@@ -186,7 +186,7 @@
         <Value>180</Value>
         <Value>200</Value>
       </WillValue>
-      <SideEffect>Burn</SideEffect>
+      <SpellEffect>Burn</SpellEffect>
       <EffectValue>
         <Value>30</Value>
         <Value>30</Value>

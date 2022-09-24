@@ -36,10 +36,10 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
                 switch (spell->OriginalSpell->GetChannelEffectType())
                 {
-                case ChannelEffectType::None:
+                case ChannelEffectEnum::None:
                     spell->doCast = true;
                     break;
-                case ChannelEffectType::Wait:
+                case ChannelEffectEnum::Wait:
                     if (!spell->doCast)
                     {
                     CastSpellDetail* newSpell = new CastSpellDetail(*spell);
@@ -48,7 +48,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell,true);
                     break;
                     }
-                case ChannelEffectType::Active:
+                case ChannelEffectEnum::Active:
                     if (!spell->doCast)
                     {
                         for (int i = spell->SelectedTime +1; i <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); i++)
@@ -70,8 +70,18 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     CasterController* target = battleManager->GetData()->GetCaster(targetPosition);
 
                     //Damage Calculation
-                    target->TakeDamage(spell->GetDamage());
+                    int damage = spell->GetDamage();
+                    target->GetEffectManager()->ResolveEffect(EffectResolveType::OnDamageCalculation, 1, &damage);
+                    target->TakeDamage(damage);
 
+                    if (SpellEffectType::IsEffectTargetEnemy(spell->OriginalSpell->GetSpellEffectType()))
+                    {
+                        target->GetEffectManager()->AppliedEffect(spell->OriginalSpell->GetSpellEffectType(), spell->GetEffectValue());
+                    }
+                    else
+                    {
+                        caster->GetEffectManager()->AppliedEffect(spell->OriginalSpell->GetSpellEffectType(), spell->GetEffectValue());
+                    }
                     //TODO: resolve the spell effect
                 }
 

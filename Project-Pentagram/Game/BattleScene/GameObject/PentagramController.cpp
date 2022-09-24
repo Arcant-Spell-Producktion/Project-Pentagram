@@ -12,13 +12,13 @@ void InvokeSpell()
     bool doCompare = true;
     switch (spell->OriginalSpell->GetChannelEffectType())
     {
-    case ChannelEffectType::None:
+    case ChannelEffectEnum::None:
         doCompare = true;
         break;
-    case ChannelEffectType::Wait:
+    case ChannelEffectEnum::Wait:
         doCompare = false;
         break;
-    case ChannelEffectType::Active:
+    case ChannelEffectEnum::Active:
         doCompare = true;
         break;
     }
@@ -30,8 +30,10 @@ void InvokeSpell()
 
 PentragramController::PentragramController() :m_Scene(GameStateController::GetInstance()->currentScene), GameObject("PentagramController")
 {
+    this->color.a = 0.0f;
+
     float x_offset = 0.0f;
-    float y_offset = 80.0f;
+    float y_offset = 0.0f;
 
     for (size_t i = 0; i < 4; i++)
     {
@@ -114,12 +116,11 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     for (size_t i = 1; i <= 6; i++)
     {
         Button* button = m_Scene->CreateButton("Num_" + std::to_string(i));
-        button->position = { -420.0f + (i * 120.0f),-250.0f,0.0f };
+        button->position = { -420.0f + (i * 120.0f),-280.0f,0.0f };
         button->scale = { 80.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.text = std::to_string(i);
         button->textObject.textAlignment = TextAlignment::MID;
-        button->textObject.position = { 0.0f, 0.0f, 0.0f };
         button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
         button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
         button->SetTexture(ButtonTexturePath);
@@ -132,7 +133,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     for (size_t i = 0; i < 2; i++)
     {
         Button* button = m_Scene->CreateButton("Arrow_" + std::to_string(i));
-        button->position = { -80.0f + (i * 160.0f),-250.0f,0.0f };
+        button->position = { -80.0f + (i * 160.0f),-280.0f,0.0f };
         button->scale = { 120.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.textAlignment = TextAlignment::MID;
@@ -158,7 +159,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     }
 
     m_InvokeButton = m_Scene->CreateButton("Invoke");
-    m_InvokeButton->position = { -120.0f,-360.0f,0.0f };
+    m_InvokeButton->position = { -120.0f,-400.0f,0.0f };
     m_InvokeButton->scale = { 160.0f, 80.0f, 1.0f };
     m_InvokeButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
     m_InvokeButton->textObject.textAlignment = TextAlignment::MID;
@@ -173,7 +174,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     };
 
     m_PassButton = m_Scene->CreateButton("Pass");
-    m_PassButton->position = { 120.0f,-360.0f,0.0f };
+    m_PassButton->position = { 120.0f,-400.0f,0.0f };
     m_PassButton->scale = { 160.0f, 80.0f, 1.0f };
     m_PassButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
     m_PassButton->textObject.textAlignment = TextAlignment::MID;
@@ -191,13 +192,23 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
 
 }
 
+int expand = 1;
 void PentragramController::OnUpdate(const float& dt)
 {
     float speed = 10.0f;
+    float scale = m_PentragramObj[1]->scale.x + dt * 20.0f * expand;
+    if (scale < 450.0f || scale > 480.0f)
+    {
+        expand *= -1;
+    }
+
     for (size_t i = 1; i < 4; i++)
     {
         int direction = i % 2 == 0 ? 1 : -1;
         m_PentragramObj[i]->rotation += (dt * speed * i * direction);
+
+        
+        m_PentragramObj[i]->scale = { scale,scale,1.0f };
     }
 }
 
@@ -217,7 +228,7 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
                 continue;
             }
             m_IntButtons[i]->SetActive(true);
-            m_IntButtons[i]->position = { -250.0f + ((i + 1) * 120.0f),-250.0f,0.0f };
+            m_IntButtons[i]->position.x = -250.0f + ((i + 1) * 120.0f);
         }
         for (size_t i = 0; i < 2; i++)
         {
@@ -229,7 +240,7 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
         for (size_t i = 0; i < 6; i++)
         {
             m_IntButtons[i]->SetActive(true);
-            m_IntButtons[i]->position = { -420.0f + ((i + 1) * 120.0f),-250.0f,0.0f };
+            m_IntButtons[i]->position.x = -420.0f + ((i + 1) * 120.0f);
         }
         for (size_t i = 0; i < 2; i++)
         {
@@ -254,7 +265,7 @@ void PentragramController::SetPentagramValue(int value)
 
     auto battleManager = BattleManager::GetInstance();
     auto currentCaster = battleManager->GetData()->GetCurrentCaster();
-    auto spellCaster = currentCaster->GetSpellCaster();
+    auto spellCaster = currentCaster->GetSpellManager();
 
     std::cout << "Value: " << value << "\n";
     switch (m_currentField)

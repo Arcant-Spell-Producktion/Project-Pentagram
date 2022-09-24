@@ -102,7 +102,7 @@
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\SpellCaster\SpellCaster.cpp">
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterSpellManager.cpp">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClCompile>
     <ClCompile Include="Game\Spells\Element.cpp">
@@ -134,6 +134,14 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\Spells\ChannelEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\SpellEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -243,7 +251,7 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
-    <ClInclude Include="Game\BattleScene\SpellCaster\SpellCaster.h">
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterSpellManager.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
     <ClInclude Include="Game\Spells\Element.h">
@@ -321,6 +329,32 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
       <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\ChannelEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\SpellEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\MarkSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -574,6 +608,12 @@
     </Filter>
     <Filter Include="WorkingDir\Audio\SFX\UI\Interactable">
       <UniqueIdentifier>{bd6547d6-9924-4ba6-bfed-2644e0767872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect">
+      <UniqueIdentifier>{86a72964-26ab-42aa-8443-5d2b406bef98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect\Effects">
+      <UniqueIdentifier>{8e08e294-e6e7-4bad-a6fb-74e182482132}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

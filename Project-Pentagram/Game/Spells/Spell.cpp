@@ -3,18 +3,6 @@
 
 using namespace std;
 
-const string SideEffectType::enum_string[] = {
-    "None",
-    "Mark",
-    "Burn"
-};
-
-const string ChannelEffectType::enum_string[] = {
-    "None",
-    "Wait",
-    "Active"
-};
-
 ostream& operator<<(ostream& os, const Spell& spell)
 {
     os << "Spell: " << spell.m_Name << "\n";
@@ -30,12 +18,12 @@ ostream& operator<<(ostream& os, const Spell& spell)
     }
     os << " ]\n";
 
-    os << "Effect Type: " << SideEffectType::GetString(spell.m_SideEffectType) << "\n";
+    os << "Effect Type: " << SpellEffectType::GetString(spell.m_SpellEffectType) << "\n";
 
     os << "Effect:[ ";
     for (int i = 0; i < 6; i++)
     {
-        os << spell.m_SideEffectValues[i];
+        os << spell.m_SpellEffectValues[i];
         if (i < 5)
         {
             os << " , ";

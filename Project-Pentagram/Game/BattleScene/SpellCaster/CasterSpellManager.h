@@ -4,7 +4,7 @@
 #include "Game/Spells/SpellDatabase.h"
 #include "CastSpellDetail.h"
 #include "PentagramData.h"
-class SpellCaster
+class CasterSpellManager
 {
 private:
     void UpdateCurrentSpell();
@@ -19,7 +19,7 @@ protected:
 
 
 public:
-    SpellCaster(CasterData caster);
+    CasterSpellManager(CasterData caster);
 
     CasterData* GetCasterData() { return &m_CurrentData; }
 
@@ -50,7 +50,7 @@ public:
        return m_CurrentSpell;
     }
 
-  /*  ~SpellCaster()
+  /*  ~CasterSpellManager()
     {
         delete m_CurrentSpell;
     }*/
