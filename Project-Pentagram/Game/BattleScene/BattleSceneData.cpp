@@ -5,7 +5,7 @@ CasterController* BattleSceneData::GetCaster(CasterPosition position)
     CasterController* caster = nullptr;
     for (auto c : Casters)
     {
-        if (c->GetSpellCaster()->GetCasterData()->GetPosition() == position)
+        if (c->GetSpellManager()->GetCasterData()->GetPosition() == position)
         {
             caster = c;
             break;
@@ -19,7 +19,8 @@ void BattleSceneData::StandbyAllCaster()
     for (auto caster : Casters)
     {
         caster->SetState(CasterState::Idle);
-        caster->GetSpellCaster()->ResetMana();
+        caster->GetSpellManager()->ResetMana();
+        caster->GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, caster);
         caster->UpdateCasterUI();
     }
 }

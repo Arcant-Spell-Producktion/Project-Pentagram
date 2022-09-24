@@ -14,6 +14,7 @@ class CastSpellDetail
         bool doCast = false;
 
         int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
+        int GetEffectValue() const { return OriginalSpell->GetSpellEffectValue(SelectedEffect - 1); }
 
         CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time,bool isCted = false, bool do_cast = false) :
             SpellOwner(position),

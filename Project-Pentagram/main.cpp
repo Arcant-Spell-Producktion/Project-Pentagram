@@ -1,4 +1,7 @@
-﻿#include "Engine/ArcantEngine.h"
+﻿#include <cstdlib>
+#include <time.h>
+
+#include "Engine/ArcantEngine.h"
 #include "Engine/GameStateController.h"
 #include "Engine/Collector/EngineDataCollector.h"
 
@@ -38,6 +41,8 @@ int main()
     //Init player, TODO:: done in character select instead
     //CasterData playerData(Element::Debug, CasterPosition::CasterA, 100, 10);
     currentGame->Player = new PlayerData({ Element::Fire, CasterPosition::CasterA, 100, 10 });
+
+    srand(time(0));
 
 	double currTime = 0;
 	double prevTime = 0;

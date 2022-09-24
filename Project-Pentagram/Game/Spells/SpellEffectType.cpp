@@ -14,3 +14,8 @@ SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
     }
     return SpellEffectEnum::None;
 }
+
+bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
+{
+    return true;
+}

@@ -1,6 +1,7 @@
 ﻿#pragma once
-#include "SpellCaster.h"
+#include "CasterSpellManager.h"
 #include "Game/BattleScene/GameObject/CasterUIController.h"
+#include "Game/BattleScene/SpellCaster/CasterEffectManager.h"
 
 enum class CasterState
 {
@@ -15,7 +16,8 @@ class CasterController
 {
 protected:
     CasterState m_CasterState = CasterState::Idle;
-    SpellCaster m_SpellCaster;
+    CasterSpellManager m_SpellCaster;
+    CasterEffectManager m_EffectManager;
     CasterUIController* m_CasterUI = nullptr;
 public:
 
@@ -34,7 +36,9 @@ public:
         m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
     }
 
-    SpellCaster* GetSpellCaster() {return &m_SpellCaster;}
+    CasterSpellManager* GetSpellManager() {return &m_SpellCaster;}
+    CasterEffectManager* GetEffectManager() { return &m_EffectManager; }
+
 
     CasterState GetState() { return m_CasterState; }
     void SetState(CasterState state) { m_CasterState = state; }

@@ -10,6 +10,7 @@ public:
     map<Element::Type, SpellBook*> SpellBooks;
 
     SpellDatabase();
+
     SpellBook* GetBookByElement(Element::Type element)
     {
      return SpellBooks.find(element)->second;

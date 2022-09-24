@@ -70,8 +70,18 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     CasterController* target = battleManager->GetData()->GetCaster(targetPosition);
 
                     //Damage Calculation
-                    target->TakeDamage(spell->GetDamage());
+                    int damage = spell->GetDamage();
+                    target->GetEffectManager()->ResolveEffect(EffectResolveType::OnDamageCalculation, 1, &damage);
+                    target->TakeDamage(damage);
 
+                    if (SpellEffectType::IsEffectTargetEnemy(spell->OriginalSpell->GetSpellEffectType()))
+                    {
+                        target->GetEffectManager()->AppliedEffect(spell->OriginalSpell->GetSpellEffectType(), spell->GetEffectValue());
+                    }
+                    else
+                    {
+                        caster->GetEffectManager()->AppliedEffect(spell->OriginalSpell->GetSpellEffectType(), spell->GetEffectValue());
+                    }
                     //TODO: resolve the spell effect
                 }
 

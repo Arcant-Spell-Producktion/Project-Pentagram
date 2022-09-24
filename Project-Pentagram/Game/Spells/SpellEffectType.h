@@ -14,6 +14,8 @@ private:
     static const std::string enum_string[];
 public:
     static SpellEffectEnum GetEnum(std::string typeString);
-
+    
     static std::string GetString(SpellEffectEnum type) { return enum_string[(int)type]; }
+
+    static bool IsEffectTargetEnemy(SpellEffectEnum type);
 };

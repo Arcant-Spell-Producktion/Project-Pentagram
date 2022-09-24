@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "SpellBook.h"
-#include "../../Utilities/TinyXml/tinyxml2.h"
+#include "Utilities/TinyXml/tinyxml2.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>

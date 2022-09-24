@@ -20,6 +20,16 @@ void BattleScene::GameSceneInit()
 {
     battleManager->Init();
 
+    GameObject* bg = CreateGameObject("Background");
+    bg->scale = { 1920.0f, 1080.0f, 1.0f };
+    //bg->position.y += 60.0f;
+    bg->SetTexture("Sprites/Stage/Water/stage_water_background.png");
+
+    GameObject* obj2 = CreateGameObject("Floor");
+    obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
+    obj2->scale = { 1920.0f, 320.0f, 1.0f };
+    obj2->position.y -= 380.0f;
+
     ParticleProperty particleProp;
     particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
     particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
@@ -33,18 +43,16 @@ void BattleScene::GameSceneInit()
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
     obj->position.x -= 700.0f;
+    obj->position.y -= 90.0f;
     obj->SetChildRenderBack(particle);
-
-    GameObject* obj2 = CreateGameObject("Floor");
-    obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-    obj2->scale = { 1920.0f, 500.0f, 1.0f };
-    obj2->position.y = -400.0f;
+    
 
     GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
     obj3->SetIsAnimationObject(true);
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
     obj3->position.x += 700.0f;
+    obj3->position.y -= 90.0f;
 
     battleManager->GetData()->pentragramController = new PentragramController();
     objectsList.push_back(battleManager->GetData()->pentragramController);
