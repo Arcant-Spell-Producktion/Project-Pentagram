@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <vector>
-#include "Game/BattleScene/BattleScene.h"
-#include <Game/BattleScene/SpellCaster/PentagramData.h>
+#include "Engine/GameScene.h"
+#include "Game/BattleScene/SpellCaster/PentagramData.h"
 
 class PentragramController: public GameObject
 {
@@ -18,6 +18,9 @@ private:
 
     Button* m_InvokeButton;
     Button* m_PassButton;
+
+    UIObject* m_Scroll_1;
+    UIObject* m_Scroll_2;
 public:
     PentragramController();
 

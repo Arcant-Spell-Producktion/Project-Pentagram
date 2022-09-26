@@ -29,6 +29,7 @@
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\MarkSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
+    <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
     <ClInclude Include="main.h" />
@@ -135,6 +136,7 @@
     <ClCompile Include="Engine\GameScene.cpp" />
     <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
     <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
