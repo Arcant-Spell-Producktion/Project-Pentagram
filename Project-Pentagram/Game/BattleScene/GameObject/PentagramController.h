@@ -18,6 +18,9 @@ private:
 
     Button* m_InvokeButton;
     Button* m_PassButton;
+
+    UIObject* m_Scroll_1;
+    UIObject* m_Scroll_2;
 public:
     PentragramController();
 

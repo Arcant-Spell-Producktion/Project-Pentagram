@@ -13,6 +13,9 @@ private:
     int m_CurrentMana = 0;
     int m_MaxMana = 0;
 
+    UIObject* m_Health;
+    UIObject* m_Mana;
+
     TextObject* m_HealthText;
     TextObject* m_ManaText;
 public:

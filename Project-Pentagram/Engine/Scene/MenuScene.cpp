@@ -1,4 +1,5 @@
 ﻿#include "Engine/Scene/MenuScene.h"
+#include <Game/Objects/StageObject.h>
 
 float t = 0.0f;
 void MenuScene::GameSceneLoad()
@@ -15,6 +16,8 @@ void MenuScene::GameSceneInit()
 {
 	t = 0.0f;
 
+    objectsList.push_back(new StageObject(Element::Water));
+
 	ParticleProperty particleProp;
 	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
 	particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
@@ -29,11 +32,6 @@ void MenuScene::GameSceneInit()
 	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
 	cur = obj;
-
-	GameObject* obj2 = CreateGameObject("Floor");
-	obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-	obj2->scale = { 1600.0f, 500.0f, 1.0f };
-	obj2->position.y = -400.0f;
 
 	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
 	obj3->scale = { 320.0f, 320.0f, 1.0f };

@@ -35,6 +35,13 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     float x_offset = 0.0f;
     float y_offset = 0.0f;
 
+    m_Scroll_1 = m_Scene->CreateUIObject("Scroll_1");
+    m_Scroll_1->SetIsSlicing(true);
+    m_Scroll_1->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
+    m_Scroll_1->SetSlicingBorderSize(160.0f);
+    m_Scroll_1->position = { 0.0f,-300.0f,0.0f };
+    m_Scroll_1->scale = { 800.0f, 160.0f,0.0f };
+
     for (size_t i = 0; i < 4; i++)
     {
         float radius = 460.0f;
@@ -116,7 +123,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     for (size_t i = 1; i <= 6; i++)
     {
         Button* button = m_Scene->CreateButton("Num_" + std::to_string(i));
-        button->position = { -420.0f + (i * 120.0f),-280.0f,0.0f };
+        button->position = { -420.0f + (i * 120.0f),-300.0f,0.0f };
         button->scale = { 80.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.text = std::to_string(i);
@@ -133,7 +140,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     for (size_t i = 0; i < 2; i++)
     {
         Button* button = m_Scene->CreateButton("Arrow_" + std::to_string(i));
-        button->position = { -80.0f + (i * 160.0f),-280.0f,0.0f };
+        button->position = { -80.0f + (i * 160.0f),-300.0f,0.0f };
         button->scale = { 120.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
         button->textObject.textAlignment = TextAlignment::MID;
@@ -159,24 +166,30 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     }
 
     m_InvokeButton = m_Scene->CreateButton("Invoke");
-    m_InvokeButton->position = { -120.0f,-400.0f,0.0f };
-    m_InvokeButton->scale = { 160.0f, 80.0f, 1.0f };
+    m_InvokeButton->SetIsSlicing(true);
+    m_InvokeButton->SetSlicingBorderSize(160.0f);
+    m_InvokeButton->position = { -160.0f,-460.0f,0.0f };
+    m_InvokeButton->scale = { 240.0f, 160.0f, 1.0f };
     m_InvokeButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_InvokeButton->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+    m_InvokeButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
+    m_InvokeButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
     m_InvokeButton->textObject.text = "Invoke";
-    m_InvokeButton->SetTexture(ButtonTexturePath);
+    m_InvokeButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
     m_InvokeButton->onClick = [](Button* button)
     {
         InvokeSpell();
     };
 
     m_PassButton = m_Scene->CreateButton("Pass");
-    m_PassButton->position = { 120.0f,-400.0f,0.0f };
-    m_PassButton->scale = { 160.0f, 80.0f, 1.0f };
+    m_PassButton->SetIsSlicing(true);
+    m_PassButton->SetSlicingBorderSize(160.0f);
+    m_PassButton->position = { 160.0f,-460.0f,0.0f };
+    m_PassButton->scale = { 240.0f, 160.0f, 1.0f };
     m_PassButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_PassButton->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+    m_PassButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
+    m_PassButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
     m_PassButton->textObject.text = "Pass";
-    m_PassButton->SetTexture(ButtonTexturePath);
+    m_PassButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
     m_PassButton->onClick = [](Button* button)
     {
         auto bm = BattleManager::GetInstance();
@@ -222,12 +235,13 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
                 continue;
             }
             m_IntButtons[i]->SetActive(true);
-            m_IntButtons[i]->position.x = -250.0f + ((i + 1) * 120.0f);
+            m_IntButtons[i]->position.x = -240.0f + ((i + 1) * 120.0f);
         }
         for (size_t i = 0; i < 2; i++)
         {
             m_ArrowButtons[i]->SetActive(false);
         }
+        m_Scroll_1->scale = { 420.0f, 160.0f,0.0f };
         break;
     case PentagramField::Will:
     case PentagramField::Effect:
@@ -240,6 +254,7 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
         {
             m_ArrowButtons[i]->SetActive(false);
         }
+        m_Scroll_1->scale = { 800.0f, 160.0f,0.0f };
         break;
     case PentagramField::Time:
         for (size_t i = 0; i < 6; i++)
@@ -250,6 +265,7 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
         {
             m_ArrowButtons[i]->SetActive(true);
         }
+        m_Scroll_1->scale = { 400.0f, 160.0f,0.0f };
         break;
     }
 }
