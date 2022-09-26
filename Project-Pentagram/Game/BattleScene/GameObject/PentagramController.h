@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <vector>
-#include "Game/BattleScene/BattleScene.h"
-#include <Game/BattleScene/SpellCaster/PentagramData.h>
+#include "Engine/GameScene.h"
+#include "Game/BattleScene/SpellCaster/PentagramData.h"
 
 class PentragramController: public GameObject
 {

@@ -9,16 +9,17 @@ std::string TextFormat(int a, int b)
 CasterUIController::CasterUIController(CasterPosition position):m_Scene(GameStateController::GetInstance()->currentScene)
 {
     int flip = position == CasterPosition::CasterA ? 1 : -1;
+    float y_position = -460.0f;
 
     m_HealthText = m_Scene->CreateTextObject("m_HealthText_" + std::to_string((int)position));
     m_HealthText->textAlignment = TextAlignment::MID;
-    m_HealthText->position = { -700.0f * flip, -280.0f, 0.0f };
+    m_HealthText->position = { -700.0f * flip, y_position, 0.0f };
     m_HealthText->color = AC_RED;
     SetHealthText(0,0);
     
     m_ManaText = m_Scene->CreateTextObject("m_ManaText_" + std::to_string((int)position));
     m_ManaText->textAlignment = TextAlignment::MID;
-    m_ManaText->position = { -500.0f * flip, -280.0f, 0.0f };
+    m_ManaText->position = { -500.0f * flip, y_position, 0.0f };
     m_ManaText->color = AC_BLUE;
     SetManaText(0, 0);
 }

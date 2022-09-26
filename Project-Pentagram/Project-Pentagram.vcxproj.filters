@@ -142,6 +142,7 @@
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
+    <ClCompile Include="Game\Objects\StageObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -355,6 +356,9 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h">
       <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\StageObject.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -9,10 +9,10 @@ public:
     enum Type
     {
         NULLTYPE = -1,
-        Fire = 0,
+        Earth = 0,
+        Fire,
         Water,
         Wind,
-        Earth,
         Debug
     };
     static Element::Type GetEnum(std::string typeString) {

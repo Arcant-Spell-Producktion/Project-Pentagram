@@ -4,6 +4,7 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "SpellCaster/PlayerController.h"
 #include "Game/BattleScene/BattleManager.h"
+#include <Game/Objects/StageObject.h>
 
 float track_t = 0.0f;
 
@@ -20,15 +21,7 @@ void BattleScene::GameSceneInit()
 {
     battleManager->Init();
 
-    GameObject* bg = CreateGameObject("Background");
-    bg->scale = { 1920.0f, 1080.0f, 1.0f };
-    //bg->position.y += 60.0f;
-    bg->SetTexture("Sprites/Stage/Water/stage_water_background.png");
-
-    GameObject* obj2 = CreateGameObject("Floor");
-    obj2->color = glm::vec4(0.0f, 1.0f, 0.0f, 1.0f);
-    obj2->scale = { 1920.0f, 320.0f, 1.0f };
-    obj2->position.y -= 380.0f;
+    objectsList.push_back(new StageObject(Element::Water));
 
     ParticleProperty particleProp;
     particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
@@ -38,12 +31,13 @@ void BattleScene::GameSceneInit()
     particleProp.velocity = { 0.0f, 300.0f };
     ParticleSystem* particle = CreateParticle(particleProp);
 
+    float player_y_offset = 150.0f;
     GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
     obj->SetIsAnimationObject(true);
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
     obj->position.x -= 700.0f;
-    obj->position.y -= 90.0f;
+    obj->position.y -= player_y_offset;
     obj->SetChildRenderBack(particle);
     
 
@@ -52,7 +46,7 @@ void BattleScene::GameSceneInit()
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
     obj3->position.x += 700.0f;
-    obj3->position.y -= 90.0f;
+    obj3->position.y -= player_y_offset;
 
     battleManager->GetData()->pentragramController = new PentragramController();
     objectsList.push_back(battleManager->GetData()->pentragramController);

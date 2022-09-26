@@ -162,9 +162,6 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_InvokeButton->position = { -120.0f,-400.0f,0.0f };
     m_InvokeButton->scale = { 160.0f, 80.0f, 1.0f };
     m_InvokeButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_InvokeButton->textObject.textAlignment = TextAlignment::MID;
-    m_InvokeButton->textObject.position = { 0.0f, 0.0f, 0.0f };
-    m_InvokeButton->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
     m_InvokeButton->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
     m_InvokeButton->textObject.text = "Invoke";
     m_InvokeButton->SetTexture(ButtonTexturePath);
@@ -177,9 +174,6 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_PassButton->position = { 120.0f,-400.0f,0.0f };
     m_PassButton->scale = { 160.0f, 80.0f, 1.0f };
     m_PassButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_PassButton->textObject.textAlignment = TextAlignment::MID;
-    m_PassButton->textObject.position = { 0.0f, 0.0f, 0.0f };
-    m_PassButton->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
     m_PassButton->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
     m_PassButton->textObject.text = "Pass";
     m_PassButton->SetTexture(ButtonTexturePath);
