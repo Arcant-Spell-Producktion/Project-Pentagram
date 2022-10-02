@@ -20,7 +20,6 @@ public:
         m_Effects[type]->AppliedEffect(value);
     }
 
-
     void ResolveEffect(EffectResolveType resolveType, int argc = 0, ...)
     {
         std::va_list args;
