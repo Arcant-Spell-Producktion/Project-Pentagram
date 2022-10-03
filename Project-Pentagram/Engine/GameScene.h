@@ -46,6 +46,9 @@ class GameScene
 		virtual void GameSceneFree();
 
 		// ----------------- Creating Object -----------------
+		template <typename T>
+		T* CreateObject(T* object);
+
 		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
 		ParticleSystem* CreateParticle(ParticleProperty& particleProperty);
 		ParticleSystem* CreateParticle(const std::string& objName, ParticleProperty& particleProperty);
