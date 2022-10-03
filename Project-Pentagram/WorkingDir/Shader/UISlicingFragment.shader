@@ -19,13 +19,16 @@ float processAxis(float coord, float textureBorder, float windowBorder)
 {
     if (coord < windowBorder)
     {
-        return map(coord, 0, windowBorder, 0, textureBorder);
+        return map(coord, 0.0f, windowBorder, 0.0f, textureBorder);
     }
-    if (coord < 1 - windowBorder)
+    else if (coord < 1.0f - windowBorder)
     {
-        return map(coord, windowBorder, 1 - windowBorder, textureBorder, 1 - textureBorder);
+        return map(coord, windowBorder, 1.0f - windowBorder, textureBorder, 1.0f - textureBorder);
     }
-    return map(coord, 1 - windowBorder, 1, 1 - textureBorder, 1);
+    else
+    {
+        return map(coord, 1.0f - windowBorder, 1.0f, 1.0f - textureBorder, 1.0f);
+    }
 }
 
 void main() 

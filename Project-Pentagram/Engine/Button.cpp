@@ -61,16 +61,17 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	// Set Button Slicing
 	if (m_IsSlicing)
 	{
-		float minVal = std::min(this->scale.x, this->scale.y);
+		// Set PixelPerUnit by multiply with both u_dimension and u_slicingBorder
 		glm::vec2 u_dimension = glm::vec2(this->scale.x, this->scale.y);
-		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
-		float u_slicingBorder = (minVal >= 2 * m_SlicingBorder ? m_SlicingBorder : minVal / 2.0f);
+		float u_slicingBorder = m_SlicingBorder;
+		glm::vec2 u_textureBorder = glm::vec2(u_slicingBorder / m_Texture->GetImageSize());
 		shader.setVec2("u_Dimensions", u_dimension);
 		shader.setVec2("u_TextureBorder", u_textureBorder);
 		shader.setFloat("u_Border", u_slicingBorder);
 		// ------ Debug --------
-		//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
-		//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+		//std::cout << "u_Dimensions : " << u_dimension.x << ", " << u_dimension.y << "\n";
+		//std::cout << "u_Texture : " << u_textureBorder.x << ", " << u_textureBorder.y << "\n";
+		//std::cout << "u_Border : " << u_slicingBorder << "\n";
 	}
 
 	if (m_IsSpriteSheet)
