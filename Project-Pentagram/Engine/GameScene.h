@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 
@@ -47,7 +47,23 @@ class GameScene
 
 		// ----------------- Creating Object -----------------
 		template <typename T>
-		T* CreateObject(T* object);
+        T* CreateObject(T* object)
+        {
+            if (Button* button = dynamic_cast<Button*>(object))
+            {
+                uiObjectsList.push_back(button);
+                buttonObjectsList.push_back(button);
+            }
+            else if (UIObject* ui = dynamic_cast<UIObject*>(object))
+            {
+                uiObjectsList.push_back(ui);
+            }
+            else if (GameObject* gameObj = dynamic_cast<GameObject*>(object))
+            {
+                objectsList.push_back(gameObj);
+            }
+            return object;
+        }
 
 		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
 		ParticleSystem* CreateParticle(ParticleProperty& particleProperty);

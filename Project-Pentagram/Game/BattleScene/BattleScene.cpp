@@ -32,7 +32,7 @@ void BattleScene::GameSceneInit()
     ParticleSystem* particle = CreateParticle(particleProp);
 
     float player_y_offset = 150.0f;
-    GameObject* obj = CreateGameObject("Player", 2, { 5,8 });
+    GameObject* obj = CreateGameObject("Player", 3, { 5 , 12 , 8 });
     obj->SetIsAnimationObject(true);
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
@@ -41,16 +41,16 @@ void BattleScene::GameSceneInit()
     obj->SetChildRenderBack(particle);
     
 
-    GameObject* obj3 = CreateGameObject("Minion", 1, { 5 });
+    GameObject* obj3 = CreateGameObject("Minion", 3, { 5,6,6 });
     obj3->SetIsAnimationObject(true);
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
     obj3->position.x += 700.0f;
     obj3->position.y -= player_y_offset;
 
-    battleManager->GetData()->pentragramController = new PentragramController();
-    objectsList.push_back(battleManager->GetData()->pentragramController);
 
+    battleManager->GetData()->pentragramController = CreateObject<PentragramController>(new PentragramController());
+    
     
     std::cout << "Battle Scene : Initialize Completed\n";
 

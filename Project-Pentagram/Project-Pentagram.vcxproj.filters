@@ -143,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -359,6 +362,9 @@
     </ClInclude>
     <ClInclude Include="Game\Objects\StageObject.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h">
+      <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,24 +6,6 @@ GameScene::~GameScene()
 }
 
 // ----------------- Creating Object ----------------- 
-template <typename T>
-T* GameScene::CreateObject(T* object)
-{
-	if (dynamic_cast<Button*>(object) != nullptr)
-	{
-		uiObjectsList.push_back(object);
-		buttonObjectsList.push_back(object);
-	}
-	else if(dynamic_cast<UIObject*>(object) != nullptr)
-	{
-		uiObjectsList.push_back(object);
-	}
-	else if (dynamic_cast<GameObject*>(object) != nullptr)
-	{
-		objectsList.push_back(object);
-	}
-	return object;
-}
 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 {
