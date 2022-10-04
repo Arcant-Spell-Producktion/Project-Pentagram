@@ -94,6 +94,10 @@ float UIObject::GetBorderSize() const
 { 
 	return this->m_SlicingBorder; 
 }
+float UIObject::GetSlicingBorderMultiplier() const
+{
+	return this->m_SlicingBorderMultiplier;
+}
 
 // ----------------- Setter ----------------- 
 void UIObject::SetIsSlicing(const bool& active)
@@ -103,4 +107,8 @@ void UIObject::SetIsSlicing(const bool& active)
 void UIObject::SetSlicingBorderSize(const float& slicingBorderSize) 
 { 
 	this->m_SlicingBorder = slicingBorderSize; 
+}
+void UIObject::GetSlicingBorderMultiplier(const float& slicingBorderMultiplier)
+{
+	this->m_SlicingBorderMultiplier = slicingBorderMultiplier;
 }

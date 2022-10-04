@@ -11,6 +11,7 @@ class UIObject : public GameObject
 	protected:
 		bool m_IsSlicing = false;
 		float m_SlicingBorder = 40.0f;
+		float m_SlicingBorderMultiplier = 1.0f;
 
 	public:
 
@@ -20,8 +21,10 @@ class UIObject : public GameObject
 		// ----------------- Getter ----------------- 
 		bool IsSlicing() const;
 		float GetBorderSize() const;
+		float GetSlicingBorderMultiplier() const;
 
 		// ----------------- Setter ----------------- 
 		void SetIsSlicing(const bool& active);
 		void SetSlicingBorderSize(const float& slicingBorderSize);
+		void GetSlicingBorderMultiplier(const float& slicingBorderMultiplier);
 };

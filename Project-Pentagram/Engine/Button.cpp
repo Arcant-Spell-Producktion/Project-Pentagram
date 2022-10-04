@@ -70,8 +70,9 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setFloat("u_Border", u_slicingBorder);
 		// ------ Debug --------
 		//std::cout << "u_Dimensions : " << u_dimension.x << ", " << u_dimension.y << "\n";
+		//std::cout << "DBUG Border : " << (u_slicingBorder / u_dimension).x << ", " << (u_slicingBorder / u_dimension).y << "\n";
 		//std::cout << "u_Texture : " << u_textureBorder.x << ", " << u_textureBorder.y << "\n";
-		//std::cout << "u_Border : " << u_slicingBorder << "\n";
+		//std::cout << "u_Border : " << u_slicingBorder << "\n\n";
 	}
 
 	if (m_IsSpriteSheet)
