@@ -128,7 +128,7 @@ void GameScene::DeleteObjectByPointer(GameObject* objPtr)
 GameObject* GameScene::FindObject(const std::string& objName)
 {
 	// Find in objectsList
-	for (GameObject*& currentObj : objectsList)
+	for (GameObject* currentObj : objectsList)
 	{
 		if (currentObj->name == objName)
 		{
@@ -137,7 +137,7 @@ GameObject* GameScene::FindObject(const std::string& objName)
 	}
 
 	// Find in uiObjectsList
-	for (UIObject*& currentUIObj : uiObjectsList)
+	for (UIObject* currentUIObj : uiObjectsList)
 	{
 		if (currentUIObj->name == objName)
 		{
