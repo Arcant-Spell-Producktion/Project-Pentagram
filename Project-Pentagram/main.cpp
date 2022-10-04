@@ -33,6 +33,7 @@ int main()
 
     // Initialize SpellDatabase (For collecting all spell data)
     spellDatabase = SpellDatabase::GetInstance();
+    spellDatabase->LoadResource();
 
 
     //Initialize GameData (For data management during runtime)

@@ -14,13 +14,13 @@ void SpellTimetrack::push_back(CastSpellDetail* spell, bool doWillCompare = true
     }
 
     std::cout << "Add Spell For :" << (int)spell->SpellOwner<< " Total will is: "<< m_WillCompareTable[spell->SpellOwner] << "\n";
-    m_Timetrack.push_back(spell);
+    m_TrackSpells.push_back(spell);
 }
 
 CasterPosition SpellTimetrack::GetWillCompareResult()
 {
     CasterPosition mostWillCaster = CasterPosition::NONE;
-    if (m_Timetrack.size() > 0)
+    if (m_TrackSpells.size() > 0)
     {
         for (auto it = m_WillCompareTable.begin(); it != m_WillCompareTable.end(); it++)
         {
@@ -47,9 +47,9 @@ void SpellTimetrack::UpdateTimetrack()
     CasterPosition winCaster = GetWillCompareResult();
     if (winCaster <= CasterPosition::TIED)
     {
-        if (m_Timetrack.size() > 0)
+        if (m_TrackSpells.size() > 0)
         {
-            for (CastSpellDetail* csd : m_Timetrack)
+            for (CastSpellDetail* csd : m_TrackSpells)
             {
                 csd->isCasted = true;
             }
@@ -59,7 +59,7 @@ void SpellTimetrack::UpdateTimetrack()
 
     CasterPosition lossCaster = (winCaster == CasterPosition::CasterB) ? CasterPosition::CasterA : CasterPosition::CasterB;
     int totalLostWill = m_WillCompareTable[lossCaster];
-    for (CastSpellDetail* csd : m_Timetrack)
+    for (CastSpellDetail* csd : m_TrackSpells)
     {
         if (csd->SpellOwner == lossCaster)
         {
@@ -98,11 +98,11 @@ void SpellTimetrack::clear(bool doDelete)
 
     if (doDelete)
     {
-        for (CastSpellDetail* csd : m_Timetrack)
+        for (CastSpellDetail* csd : m_TrackSpells)
         {
             delete csd;
         }
     }
 
-    m_Timetrack.clear();
+    m_TrackSpells.clear();
 }

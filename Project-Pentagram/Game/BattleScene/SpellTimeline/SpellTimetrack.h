@@ -6,11 +6,11 @@
 class SpellTimetrack
 {
 private:
-    vector<CastSpellDetail*> m_Timetrack;
+    vector<CastSpellDetail*> m_TrackSpells;
     map<CasterPosition, int> m_WillCompareTable;
 public:
 
-    vector<CastSpellDetail*> GetSpellList() { return m_Timetrack; }
+    vector<CastSpellDetail*> GetSpellList() { return m_TrackSpells; }
 
     int GetCasterWill(CasterPosition caster)
     {

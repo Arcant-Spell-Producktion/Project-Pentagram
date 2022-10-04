@@ -9,7 +9,7 @@ class SpellDatabase:public Singleton<SpellDatabase>
 public:
     map<Element::Type, SpellBook*> SpellBooks;
 
-    SpellDatabase();
+    void LoadResource();
 
     SpellBook* GetBookByElement(Element::Type element)
     {

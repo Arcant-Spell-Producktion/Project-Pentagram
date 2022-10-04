@@ -18,7 +18,7 @@ protected:
     CasterState m_CasterState = CasterState::Idle;
     CasterSpellManager m_SpellCaster;
     CasterEffectManager m_EffectManager;
-    CasterUIController* m_CasterUI = nullptr;
+    CasterUIController* m_CasterUI;
 public:
 
     CasterUIController* GetCasterUI() { return m_CasterUI; }

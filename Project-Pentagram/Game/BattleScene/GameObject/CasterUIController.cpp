@@ -32,6 +32,8 @@ CasterUIController::CasterUIController(CasterPosition position):m_Scene(GameStat
     m_ManaText->position = manaPos;
     m_ManaText->position.x += 45.0f;
     SetManaText(0, 0);
+
+    m_DetailBox = new SpellDetailUI(flip);
 }
 
 void CasterUIController::SetHealthText(int cur, int max)

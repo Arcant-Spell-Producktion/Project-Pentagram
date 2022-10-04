@@ -197,7 +197,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         bm->SwapCaster();
     };
 
-    m_SpellIcon = new SpellIconUI("PentagramIcon");
+    m_SpellIcon = m_Scene->CreateObject(new SpellIconUI("PentagramIcon"));
 }
 
 int expand = 1;
@@ -320,6 +320,7 @@ void PentragramController::SetPentagramValue(int value)
         m_SpellIcon->SetIcon(spellCaster->GetCasterData()->GetElement(), (m_currentData.circle - 1) * 3 + m_currentData.complex - 1);
     }
 
+    m_SpellIcon->SetDetail(spellCaster->GetSpellDetail());
     currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
 }
 

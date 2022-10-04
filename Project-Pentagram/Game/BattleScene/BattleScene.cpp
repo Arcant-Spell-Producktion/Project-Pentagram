@@ -51,7 +51,6 @@ void BattleScene::GameSceneInit()
 
     battleManager->GetData()->pentragramController = CreateObject<PentragramController>(new PentragramController());
     
-    
     std::cout << "Battle Scene : Initialize Completed\n";
 
     battleManager->StartBattle();
