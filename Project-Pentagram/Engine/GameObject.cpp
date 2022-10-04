@@ -1,5 +1,35 @@
 #include "GameObject.h"
 
+GameObject::GameObject(const std::string& objName)
+{	
+	// Set GameObject Properties
+	this->name = objName;
+	this->m_Tag = GameObjectTag::GAMEOBJECT;
+	this->m_IsActive = true;
+	this->parent = nullptr;
+
+	// Set Transformation
+	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
+	this->rotation = 0.0f;
+	this->scale = glm::vec3(1.0f, 1.0f, 1.0f);
+
+	// Set Color
+	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+
+	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
+
+	// Set Row & Coloumn of SpriteSheet
+	this->m_AnimationRow = texture->GetImageRow();
+	this->m_AnimationColumn = texture->GetImageColumn();
+	this->m_MaxAnimationColumn = texture->GetMaxImageColumn();
+
+	this->m_IsAnimationObject = false;
+	this->m_IsAnimationPlaying = false;
+	this->m_IsSpriteSheet = (m_AnimationRow == 1 && m_AnimationColumn[0] == 1 ? false : true);
+
+	// Set Texture
+	this->m_Texture = texture;
+}
 GameObject::GameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 	: m_Mesh(animRow, *std::max_element(animCol.begin(), animCol.end()))
 {
@@ -266,7 +296,16 @@ void GameObject::SetAnimationPlayTime(const float& animationPlayTime)
 }
 void GameObject::SetTexture(const std::string& filePath)
 {
-	this->m_Texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
+	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
+	
+	this->m_Texture = texture;
+	// Set Row & Coloumn of SpriteSheet
+	this->m_AnimationRow = texture->GetImageRow();
+	this->m_AnimationColumn = texture->GetImageColumn();
+	this->m_MaxAnimationColumn = texture->GetMaxImageColumn();
+	this->m_IsSpriteSheet = (m_AnimationRow == 1 && m_AnimationColumn[0] == 1 ? false : true);
+
+	m_Mesh.SetTextureCoord(m_AnimationRow, m_MaxAnimationColumn);
 }
 void GameObject::SetTexture(Texture* texture)
 {
