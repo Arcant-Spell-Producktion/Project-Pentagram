@@ -100,6 +100,54 @@ Slider* GameScene::CreateSlider(const std::string& objName)
 	return slider;
 }
 
+// ----------------- Modify Object -----------------
+void GameScene::DeleteObjectByName(const std::string& objName)
+{
+	// Find Object in objectsList
+	for (auto obj = objectsList.begin(); obj != objectsList.end(); obj++)
+	{
+		if ((*obj)->name == objName)
+		{
+			objectsToDeleteList.push_back(*obj);
+		}
+	}
+
+	// Find Object in uiObjectsList
+	for (auto uiObj = uiObjectsList.begin(); uiObj != uiObjectsList.end(); uiObj++)
+	{
+		if ((*uiObj)->name == objName)
+		{
+			objectsToDeleteList.push_back(*uiObj);
+		}
+	}
+}
+void GameScene::DeleteObjectByPointer(GameObject* objPtr)
+{
+	objectsToDeleteList.push_back(objPtr);
+}
+GameObject* GameScene::FindObject(const std::string& objName)
+{
+	// Find in objectsList
+	for (GameObject*& currentObj : objectsList)
+	{
+		if (currentObj->name == objName)
+		{
+			return currentObj;
+		}
+	}
+
+	// Find in uiObjectsList
+	for (UIObject*& currentUIObj : uiObjectsList)
+	{
+		if (currentUIObj->name == objName)
+		{
+			return currentUIObj;
+		}
+	}
+
+	return nullptr;
+}
+
 // ----------------- Button Events ----------------- 
 
 glm::vec3 GameScene::FindButtonParentPosition(const Button* button)
@@ -251,6 +299,7 @@ void GameScene::UpdateButtonEvents()
 void GameScene::GameSceneUpdate(float dt)
 {
 	UpdateScaleDeltaTime(dt);
+	UpdateDeleteObject();
 	UpdateButtonEvents();
 }
 void GameScene::GameSceneDraw()
@@ -310,4 +359,51 @@ void GameScene::GameSceneFree()
 void GameScene::UpdateScaleDeltaTime(float deltaTime)
 {
 	this->scaledDeltaTime = deltaTime * timeScale;
+}
+void GameScene::UpdateDeleteObject()
+{
+	if (!objectsToDeleteList.empty())
+	{
+		for (int idx = 0; idx < objectsToDeleteList.size(); idx++)
+		{
+			GameObject* deleteObject = objectsToDeleteList[idx];
+			// ----------------- Hierarchy Session ----------------- 
+			// If deleteObject have parent
+			if (deleteObject->parent != nullptr)
+			{
+				deleteObject->parent->RemoveChild(deleteObject);
+			}
+			// If deleteObject have child
+			if (deleteObject->GetChildSize() != 0)
+			{
+				std::vector<GameObject*> childList = deleteObject->GetChildList();
+				for (GameObject* childObj : childList)
+				{
+					// Set child->parent to nullptr = current parent will be deleted
+					childObj->parent = nullptr;
+					objectsToDeleteList.push_back(childObj);
+				}
+			}
+
+			// ----------------- Delete Session -----------------
+			if (dynamic_cast<Button*>(deleteObject) != nullptr)
+			{
+				buttonObjectsList.erase(std::remove(buttonObjectsList.begin(), buttonObjectsList.end(), deleteObject), buttonObjectsList.end());
+				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject), uiObjectsList.end());
+			}
+			else if (dynamic_cast<UIObject*>(deleteObject) != nullptr)
+			{
+				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject), uiObjectsList.end());
+			}
+			else if (dynamic_cast<GameObject*>(deleteObject) != nullptr)
+			{
+				objectsList.erase(std::remove(objectsList.begin(), objectsList.end(), deleteObject), objectsList.end());
+			}
+
+			deleteObject->UnloadMesh();
+			delete deleteObject;
+		}
+
+		objectsToDeleteList.clear();
+	}
 }
