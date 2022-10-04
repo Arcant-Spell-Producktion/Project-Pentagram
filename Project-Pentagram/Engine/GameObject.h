@@ -50,7 +50,8 @@ class GameObject
 		// ----------------- Color ----------------- 
 		glm::vec4 color;
 
-		GameObject(const std::string& objName, const int& animRow = 1, const std::vector<int>& animCol = { 1 });
+		GameObject(const std::string& objName);
+		GameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol);
 		virtual ~GameObject();
 		virtual void OnUpdate(const float& dt);
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f));
