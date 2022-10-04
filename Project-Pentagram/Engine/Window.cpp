@@ -55,6 +55,32 @@ void Window::SetClose(const bool& close)
 { 
 	this->m_Close = close; 
 }
+void Window::SetFullScreen(const bool fullscreen)
+{
+	// If currentScreen already fullscreen or window
+	if (IsFullScreen() == fullscreen)
+		return;
+
+	if (fullscreen)
+	{
+		// backup window position and window size
+		glfwGetWindowPos(m_Window, &prevPos[0], &prevPos[1]);
+		glfwGetWindowSize(m_Window, &prevScale[0], &prevScale[1]);
+
+		// get resolution of monitor
+		const GLFWvidmode* mode = glfwGetVideoMode(m_Monitor);
+
+		// switch to full screen
+		glfwSetWindowMonitor(m_Window, m_Monitor, 0, 0, mode->width, mode->height, 0);
+	}
+	else
+	{
+		// restore last window size and position		
+		glfwSetWindowMonitor(m_Window, nullptr, prevPos.x, prevPos.y, prevScale.x, prevScale.y, 0);
+
+	}
+	std::cout << m_Width << " " << m_Height << "\n";
+}
 
 // Getter Implement
 GLFWwindow* Window::getWindow() 
@@ -85,6 +111,10 @@ bool Window::IsRunning() const
 {
 	return !m_Close;
 }
+bool Window::IsFullScreen() const
+{
+	return glfwGetWindowMonitor(m_Window) != nullptr;
+}
 
 void Window::Init()
 {
@@ -102,6 +132,8 @@ void Window::Init()
 	glfwSetKeyCallback(m_Window, Input::keyCallBack);
 	glfwSetCursorPosCallback(m_Window, Input::cursorCallBack);
 	glfwSetMouseButtonCallback(m_Window, Input::mouseCallBack);
+
+	m_Monitor = glfwGetPrimaryMonitor();
 
 	this->MakeContextCurrent();
 

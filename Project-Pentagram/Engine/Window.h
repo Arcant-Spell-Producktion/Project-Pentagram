@@ -16,11 +16,15 @@ class Window
 {
 	private:
 		GLFWwindow* m_Window;
+		GLFWmonitor* m_Monitor;
 		int m_Width;
 		int m_Height;
 		const char* m_Title;
 		glm::vec2 m_windowRatio = glm::vec2(1.0f, 1.0f);
 		bool m_Close = false;
+
+		glm::ivec2 prevScale;
+		glm::ivec2 prevPos;
 
 	public:
 		Window(const int &width, const int &height, const char* title);
@@ -35,6 +39,7 @@ class Window
 		void SetHeight(const int& height);
 		void SetWindowRatio(const glm::vec2& ratio);
 		void SetClose(const bool& close);
+		void SetFullScreen(const bool fullscreen);
 
 		// Getter
 		GLFWwindow* getWindow();
@@ -44,6 +49,7 @@ class Window
 		bool IsClose() const;
 		bool IsNull() const;
 		bool IsRunning() const;
+		bool IsFullScreen() const;
 
 		// Core-Loop
 		void Init();
