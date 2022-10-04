@@ -62,6 +62,11 @@ class GameObject
 		unsigned int GetTag() const;
 		bool IsActive() const;
 		Texture* GetTexture() const;
+		GameObject* FindChildObject(const std::string& childObjectName);
+		unsigned int GetChildSize() const;
+		unsigned int GetFrontRenderChildSize() const;
+		unsigned int GetBackRenderChildSize() const;
+		std::vector<GameObject*> GetChildList() const;
 		// Animation
 		int GetCurrentAnimationRow() const;
 		int GetCurrentAnimationColumn() const;
@@ -79,6 +84,7 @@ class GameObject
 		void SetActive(const bool& active);
 		void SetChildRenderFront(GameObject* gameObj);
 		void SetChildRenderBack(GameObject* gameObj);
+		void RemoveChild(GameObject* gameObj);
 		// Animation
 		void SetIsAnimationObject(const bool& active);
 		void SetSpriteByIndex(const int& row, const int& column);

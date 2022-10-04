@@ -27,6 +27,8 @@ class GameScene
 		std::vector<UIObject*> uiObjectsList;
 		std::vector<Button*> buttonObjectsList;
 
+		std::vector<GameObject*> objectsToDeleteList;
+
 		// ----------------- Utilities -----------------
 		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
@@ -73,6 +75,12 @@ class GameScene
 		Button* CreateButton(const std::string& objName = "");
 		Slider* CreateSlider(const std::string& objName = "");
 
+		// ----------------- Modify Object -----------------
+		void DeleteObjectByName(const std::string& objName);
+		void DeleteObjectByPointer(GameObject* objPtr);
+		GameObject* FindObject(const std::string& objName);
+
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);
+		void UpdateDeleteObject();
 };

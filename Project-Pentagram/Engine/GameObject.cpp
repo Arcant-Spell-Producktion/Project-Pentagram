@@ -122,6 +122,46 @@ Texture* GameObject::GetTexture() const
 { 
 	return this->m_Texture; 
 }
+GameObject* GameObject::FindChildObject(const std::string& childObjectName)
+{
+	// Find in BackRenderedChildList
+	for (int idx = 0; idx < m_BackRenderedChildList.size(); idx++)
+	{
+		GameObject* childObj = m_BackRenderedChildList[idx];
+		if (childObj->name == childObjectName)
+		{
+			return childObj;
+		}
+	}
+	// Find in FrontRenderedChildList
+	for (int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
+	{
+		GameObject* childObj = m_FrontRenderedChildList[idx];
+		if (childObj->name == childObjectName)
+		{
+			return childObj;
+		}
+	}
+}
+unsigned int GameObject::GetChildSize() const
+{
+	return this->m_BackRenderedChildList.size() + this->m_FrontRenderedChildList.size();
+}
+unsigned int GameObject::GetFrontRenderChildSize() const
+{
+	return this->m_FrontRenderedChildList.size();
+}
+unsigned int GameObject::GetBackRenderChildSize() const
+{
+	return this->m_BackRenderedChildList.size();
+}
+std::vector<GameObject*> GameObject::GetChildList() const
+{
+	std::vector<GameObject*> childList;
+	childList.insert(childList.end(), m_BackRenderedChildList.begin(), m_BackRenderedChildList.end());
+	childList.insert(childList.end(), m_FrontRenderedChildList.begin(), m_FrontRenderedChildList.end());
+	return childList;
+}
 int GameObject::GetCurrentAnimationRow() const 
 { 
 	return this->m_CurrentAnimationRow; 
@@ -188,6 +228,22 @@ void GameObject::SetChildRenderBack(GameObject* gameObj)
 {
 	m_BackRenderedChildList.push_back(gameObj);
 	gameObj->parent = this;
+}
+void GameObject::RemoveChild(GameObject* gameObj)
+{
+	auto it = std::find(m_FrontRenderedChildList.begin(), m_FrontRenderedChildList.end(), gameObj);
+	if (it != m_FrontRenderedChildList.end())
+	{
+		m_FrontRenderedChildList.erase(it);
+		return;
+	}
+
+	it = std::find(m_BackRenderedChildList.begin(), m_BackRenderedChildList.end(), gameObj);
+	if (it != m_BackRenderedChildList.end())
+	{
+		m_BackRenderedChildList.erase(it);
+		return;
+	}
 }
 void GameObject::SetIsAnimationObject(const bool& active) 
 { 
