@@ -7,7 +7,7 @@ const std::string ButtonTexturePath = "Sprites/Button_Test.png";
 void InvokeSpell()
 {
     auto bm = BattleManager::GetInstance();
-    auto spell = bm->GetData()->GetCurrentCaster()->CastSpell();
+    auto spell = bm->Data.GetCurrentCaster()->CastSpell();
 
     bool doCompare = true;
     switch (spell->OriginalSpell->GetChannelEffectType())
@@ -23,8 +23,8 @@ void InvokeSpell()
         break;
     }
 
-    bm->GetData()->Timeline.AddSpellToTimeline(spell, true);
-    bm->GetData()->GetCurrentCaster()->EndTurn();
+    bm->Data.Timeline.AddSpellToTimeline(spell, true);
+    bm->Data.GetCurrentCaster()->EndTurn();
     bm->SwapCaster();
 }
 
@@ -193,11 +193,16 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_PassButton->onClick = [](Button* button)
     {
         auto bm = BattleManager::GetInstance();
-        bm->GetData()->GetCurrentCaster()->EndTurn(true);
+        bm->Data.GetCurrentCaster()->EndTurn(true);
         bm->SwapCaster();
     };
 
     m_SpellIcon = m_Scene->CreateObject(new SpellIconUI("PentagramIcon"));
+}
+
+void PentragramController::SetActive(const bool& active)
+{
+    GameObject::SetActive(active);
 }
 
 int expand = 1;
@@ -275,7 +280,7 @@ void PentragramController::SetPentagramValue(int value)
 {
 
     auto battleManager = BattleManager::GetInstance();
-    auto currentCaster = battleManager->GetData()->GetCurrentCaster();
+    auto currentCaster = battleManager->Data.GetCurrentCaster();
     auto spellCaster = currentCaster->GetSpellManager();
 
     std::cout << "Value: " << value << "\n";

@@ -19,7 +19,7 @@ void BattleManager::StartBattle()
 
 void BattleManager::SwapCaster()
 {
-    if (m_Data.GetCurrentCaster()->GetState() == CasterState::Passed && m_Data.GetNextCaster()->GetState() == CasterState::Passed)
+    if (Data.GetCurrentCaster()->GetState() == CasterState::Passed && Data.GetNextCaster()->GetState() == CasterState::Passed)
     {
 
         std::cout << "\t GO TO RESOLVE\n";
@@ -27,18 +27,18 @@ void BattleManager::SwapCaster()
         SetBattleState(BattleState::ResolveState);
         return;
     }
-    m_Data.CurrentCasterIndex = (m_Data.CurrentCasterIndex + 1) % m_Data.Casters.size();
+    Data.CurrentCasterIndex = (Data.CurrentCasterIndex + 1) % Data.Casters.size();
   
-    m_Data.GetCurrentCaster()->StartTurn(m_Data.pentragramController->ResetPentagram());
+    Data.GetCurrentCaster()->StartTurn(Data.Pentagram->ResetPentagram());
 }
 
 BattleManager::~BattleManager()
 {
-    for(CasterController* cc : m_Data.Casters)
+    for(CasterController* cc : Data.Casters)
     {
         delete cc;
     }
-    m_Data.Casters.clear();
+    Data.Casters.clear();
 
     for (auto statePair: m_BattleStates)
     {

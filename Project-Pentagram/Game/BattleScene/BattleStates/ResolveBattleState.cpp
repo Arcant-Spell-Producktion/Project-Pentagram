@@ -13,7 +13,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
     {
         std::cout << "Resovel Track: " << i << "\n";
 
-        SpellTimetrack* track = battleManager->GetData()->Timeline.GetTimetrack(i);
+        SpellTimetrack* track = battleManager->Data.Timeline.GetTimetrack(i);
         std::cout << "\tGet Track: " << i << "\n";
         std::cout << "\tTrack Size: " << track->GetSpellList().size() << "\n";
        /* for (auto csd : track->GetSpellList())
@@ -45,7 +45,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                     CastSpellDetail* newSpell = new CastSpellDetail(*spell);
                     newSpell->SelectedTime += newSpell->OriginalSpell->GetChannelTime();
                     newSpell->doCast = true;
-                    battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell,true);
+                    battleManager->Data.Timeline.AddSpellToTimeline(newSpell,true);
                     break;
                     }
                 case ChannelEffectEnum::Active:
@@ -56,7 +56,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
                         CastSpellDetail* newSpell = new CastSpellDetail(*spell);
                         newSpell->SelectedTime = i;
                         newSpell->doCast = true;
-                        battleManager->GetData()->Timeline.AddSpellToTimeline(newSpell, true);
+                        battleManager->Data.Timeline.AddSpellToTimeline(newSpell, true);
                         }
                     }
                     break;
@@ -66,8 +66,8 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
                 if (spell->doCast)
                 {
-                    CasterController* caster = battleManager->GetData()->GetCaster(casterPosition);
-                    CasterController* target = battleManager->GetData()->GetCaster(targetPosition);
+                    CasterController* caster = battleManager->Data.GetCaster(casterPosition);
+                    CasterController* target = battleManager->Data.GetCaster(targetPosition);
 
                     //Damage Calculation
                     int damage = spell->GetDamage();
@@ -106,5 +106,5 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 void ResolveBattleState::OnBattleStateOut()
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->GetData()->Timeline.UpdateTimeline();
+    battleManager->Data.Timeline.UpdateTimeline();
 }

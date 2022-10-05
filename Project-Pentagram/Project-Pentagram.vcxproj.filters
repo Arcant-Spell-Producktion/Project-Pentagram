@@ -149,6 +149,12 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -370,6 +376,12 @@
       <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
   </ItemGroup>

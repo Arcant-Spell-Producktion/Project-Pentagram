@@ -27,6 +27,8 @@ private:
 public:
     PentragramController();
 
+    void SetActive(const bool& active);
+
     virtual void OnUpdate(const float& dt) override;
 
     void SetPentagramField(PentagramField selectedField);

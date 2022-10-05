@@ -18,6 +18,7 @@ SpellDetailUI::SpellDetailUI(int flip) :m_Scene(GameStateController::GetInstance
        m_Texts[i]->color = AC_WHITE;
        m_Texts[i]->position.x = m_Box->position.x - (m_Box->scale.x / 2.0f)*0.9f;
        m_Texts[i]->position.y = m_Box->position.y + (i * 60.0f) - 60.0f;
+       m_Box->SetChildRenderFront(m_Texts[i]);
     }
 
     m_Texts[0]->text = "Name: ";

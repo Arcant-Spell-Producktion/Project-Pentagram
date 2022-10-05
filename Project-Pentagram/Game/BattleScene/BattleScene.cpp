@@ -49,7 +49,8 @@ void BattleScene::GameSceneInit()
     obj3->position.y -= player_y_offset;
 
 
-    battleManager->GetData()->pentragramController = CreateObject<PentragramController>(new PentragramController());
+    battleManager->Data.Pentagram = CreateObject<PentragramController>(new PentragramController());
+    battleManager->Data.Timeline.UI = CreateObject<TimelineController>(new TimelineController());
     
     std::cout << "Battle Scene : Initialize Completed\n";
 

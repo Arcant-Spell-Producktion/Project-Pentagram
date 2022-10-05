@@ -8,14 +8,11 @@
 class BattleManager : public Singleton<BattleManager>
 {
 private:
-    BattleSceneData m_Data;
     BattleState m_CurrentState = BattleState::SetupState;
     std::map<BattleState, BaseBattleState*> m_BattleStates;
 
-
-
 public:
-    BattleSceneData* GetData() { return &m_Data; }
+    BattleSceneData Data;
 
     void SetBattleState(BattleState state);
 

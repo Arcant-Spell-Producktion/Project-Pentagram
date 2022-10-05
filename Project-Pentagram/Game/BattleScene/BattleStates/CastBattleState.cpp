@@ -5,7 +5,7 @@
 void PlayerCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    CasterController* currentController = battleManager->GetData()->GetCurrentCaster();
+    CasterController* currentController = battleManager->Data.GetCurrentCaster();
     CasterSpellManager* currentCaster = currentController->GetSpellManager();
 
     if (currentCaster == nullptr) currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
@@ -13,7 +13,7 @@ void PlayerCastUpdate(float dt)
     int spellCost = currentCaster->GetSpellCost();
     int canCostSpell = currentCaster->GetMana() - spellCost;
 
-    battleManager->GetData()->pentragramController->SetInvokeButtonActive(canCostSpell >= 0);
+    battleManager->Data.Pentagram->SetInvokeButtonActive(canCostSpell >= 0);
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
     {
@@ -25,15 +25,15 @@ void PlayerCastUpdate(float dt)
 void CastBattleState::OnBattleStateIn()
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->GetData()->StandbyAllCaster();
+    battleManager->Data.StandbyAllCaster();
 
-    battleManager->GetData()->GetCurrentCaster()->StartTurn(battleManager->GetData()->pentragramController->ResetPentagram());
+    battleManager->Data.GetCurrentCaster()->StartTurn(battleManager->Data.Pentagram->ResetPentagram());
 }
 
 void CastBattleState::OnBattleStateUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    CasterController* currentController = battleManager->GetData()->GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
+    CasterController* currentController = battleManager->Data.GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
 
     if (currentController->GetSpellManager()->GetMana() <= 0)
     {
@@ -55,10 +55,10 @@ void CastBattleState::OnBattleStateUpdate(float dt)
             CasterSpellManager* currentCaster = currentController->GetSpellManager();
 
             /*currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-            battleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());
+            battleManager->Data.Timeline.AddSpellToTimeline(currentController->CastSpell());
 
             currentCaster->SetPentagramData({ 1, 1, 3, 1, 3 });
-            battleManager->GetData()->Timeline.AddSpellToTimeline(currentController->CastSpell());*/
+            battleManager->Data.Timeline.AddSpellToTimeline(currentController->CastSpell());*/
 
 
             currentController->EndTurn(true);

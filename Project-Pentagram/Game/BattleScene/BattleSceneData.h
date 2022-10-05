@@ -11,7 +11,7 @@ public:
     std::vector<CasterController*> Casters;
     SpellTimeline Timeline;
 
-    PentragramController* pentragramController;
+    PentragramController* Pentagram;
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 

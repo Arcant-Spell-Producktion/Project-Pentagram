@@ -24,6 +24,8 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
@@ -110,6 +112,8 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterSpellManager.cpp" />

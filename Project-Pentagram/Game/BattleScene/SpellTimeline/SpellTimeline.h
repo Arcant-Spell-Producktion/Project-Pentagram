@@ -1,5 +1,6 @@
 ﻿#include <array>
 #include "SpellTimetrack.h"
+#include <Game/BattleScene/GameObject/TimelineController.h>
 
 class SpellTimeline 
 {
@@ -7,6 +8,7 @@ private:
     array<SpellTimetrack, 11> m_Timeline;
 
 public:
+    TimelineController* UI;
 
     SpellTimetrack* GetTimetrack(int track_index) { return &m_Timeline[track_index]; }
     
@@ -14,6 +16,9 @@ public:
     {
         int array_index = spell->SelectedTime <= 10 ? (spell->SelectedTime - 1) : (11 - 1);
         m_Timeline[array_index].push_back(spell, doCompare);
+
+        std::cout << "ADD ICON 1\n";
+        UI->AddIconToTrack(array_index, spell);
 
         cout << "Add Spell to Timetrack index: " << array_index << "\n";
     }

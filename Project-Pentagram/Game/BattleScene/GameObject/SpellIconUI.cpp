@@ -39,6 +39,7 @@ void SpellIconUI::SetPosition(glm::vec3 position)
 void SpellIconUI::SetDetail(CastSpellDetail* spellDetail)
 {
     m_SpellDetail = spellDetail;
+    SetIcon(m_SpellDetail->OriginalSpell->m_Element,m_SpellDetail->OriginalSpell->m_Index);
 }
 
 void SpellIconUI::UpdateIcon()
@@ -51,7 +52,7 @@ void SpellIconUI::UpdateDetail()
     if (m_SpellDetail)
     {
         CasterPosition pos = m_SpellDetail->SpellOwner;
-        auto caster = BattleManager::GetInstance()->GetData()->GetCaster(pos);
+        auto caster = BattleManager::GetInstance()->Data.GetCaster(pos);
         if (caster)
         {
             caster->GetCasterUI()->SetDetail(m_SpellDetail);
