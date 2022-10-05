@@ -8,6 +8,7 @@
 
 #include "Input.h"
 
+#define WINDOW_RATIO (16.0f / 9.0f)
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 #define TITLE "Arcant Engine"
@@ -35,6 +36,8 @@ class Window
 		void Close();
 
 		// Setter
+		void SetWindowSize(const glm::ivec2 windowSize);
+		void SetWindowSize(const int& windowWidth, const int& windowHeight);
 		void SetWidth(const int& width);
 		void SetHeight(const int& height);
 		void SetWindowRatio(const glm::vec2& ratio);
