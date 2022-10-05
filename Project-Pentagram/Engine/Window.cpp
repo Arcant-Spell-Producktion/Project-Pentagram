@@ -165,6 +165,11 @@ void Window::Init()
 	
 	m_Monitor = glfwGetPrimaryMonitor();
 
+	GLFWimage images[1];
+	images[0].pixels = stbi_load("DUCK.png", &images[0].width, &images[0].height, 0, 4); //rgba channels 
+	glfwSetWindowIcon(m_Window, 1, images);
+	stbi_image_free(images[0].pixels);
+
 	this->MakeContextCurrent();
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
