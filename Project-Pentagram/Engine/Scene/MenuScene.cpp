@@ -162,6 +162,7 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
 		slider->SetValue(0.75f);
+		ArcantEngine::GetInstance()->GetWindow()->SetFullScreen(ArcantEngine::GetInstance()->GetWindow()->IsFullScreen() ? false : true);
 	}
 
 	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
