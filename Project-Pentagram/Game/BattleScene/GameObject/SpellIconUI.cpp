@@ -17,11 +17,12 @@ SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetI
     this->color.a = 0.0f;
     this->scale = { 120.0f,120.0f ,1.0f };
 
-    m_IconObject = m_Scene->CreateGameObject(objName + "_icon", 4, { 9,9,9,9 });
+    m_IconObject = m_Scene->CreateUIObject(objName + "_icon");
     m_IconObject->SetIsAnimationObject(false);
     m_IconObject->SetTexture(iconPath);
     m_IconObject->SetSpriteByIndex(0, 0);
     m_IconObject->scale = { 100.0f,100.0f ,1.0f };
+    this->SetChildRenderBack(m_IconObject);
 }
 
 void SpellIconUI::SetIcon(Element::Type element, int spellIndex)

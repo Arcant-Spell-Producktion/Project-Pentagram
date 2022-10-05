@@ -8,7 +8,6 @@ TimelineController::TimelineController():m_Scene(GameStateController::GetInstanc
     box = m_Scene->CreateUIObject("TimelineUIBOX");
     box->scale = { 1920.0f,360.0f,1.0f };
     box->color.a = 0.5f;
-    this->SetChildRenderFront(box);
 
     box->position.y += 440.0f;
 
