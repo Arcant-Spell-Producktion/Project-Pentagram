@@ -61,16 +61,15 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	// Set Button Slicing
 	if (m_IsSlicing)
 	{
-		// Set PixelPerUnit by multiply with both u_dimension and u_slicingBorder
 		glm::vec2 u_dimension = glm::vec2(this->scale.x, this->scale.y);
-		float u_slicingBorder = m_SlicingBorder;
-		glm::vec2 u_textureBorder = glm::vec2(u_slicingBorder / m_Texture->GetImageSize());
+		glm::vec2 u_textureBorder = glm::vec2(m_SlicingBorder / m_Texture->GetImageSize());
 		shader.setVec2("u_Dimensions", u_dimension);
 		shader.setVec2("u_TextureBorder", u_textureBorder);
-		shader.setFloat("u_Border", u_slicingBorder);
+		shader.setFloat("u_Border", m_SlicingBorder);
+		shader.setFloat("u_SlicingMultiplier", m_SlicingBorderMultiplier);
 		// ------ Debug --------
 		//std::cout << "u_Dimensions : " << u_dimension.x << ", " << u_dimension.y << "\n";
-		//std::cout << "DBUG Border : " << (u_slicingBorder / u_dimension).x << ", " << (u_slicingBorder / u_dimension).y << "\n";
+		//std::cout << "DBUG Border : " << (m_SlicingBorder / u_dimension).x << ", " << (m_SlicingBorder / u_dimension).y << "\n";
 		//std::cout << "u_Texture : " << u_textureBorder.x << ", " << u_textureBorder.y << "\n";
 		//std::cout << "u_Border : " << u_slicingBorder << "\n\n";
 	}

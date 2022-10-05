@@ -6,6 +6,7 @@ uniform sampler2D u_Texture;
 uniform vec2 u_Dimensions;
 uniform vec2 u_TextureBorder;
 uniform float u_Border;
+uniform float u_SlicingMultiplier;
 uniform bool u_IsSlicing;
 
 in vec2 TexCoord;
@@ -36,7 +37,7 @@ void main()
     vec4 textureResult;
     if (u_IsSlicing)
     {
-        vec2 borders = vec2(u_Border) / u_Dimensions.xy;
+        vec2 borders = vec2(u_Border) / u_Dimensions.xy * u_SlicingMultiplier;
         vec2 newUV = vec2(
                 processAxis(TexCoord.x, u_TextureBorder.x, borders.x),
                 processAxis(TexCoord.y, u_TextureBorder.y, borders.y)
