@@ -322,10 +322,9 @@ void PentragramController::SetPentagramValue(int value)
     {
         m_currentData.time = spellCaster->GetSpellDetail()->OriginalSpell->GetCastTime();
         spellCaster->SetPentagramData(m_currentData);
-        m_SpellIcon->SetIcon(spellCaster->GetCasterData()->GetElement(), (m_currentData.circle - 1) * 3 + m_currentData.complex - 1);
     }
 
-    m_SpellIcon->SetDetail(spellCaster->GetSpellDetail());
+    m_SpellIcon->SetIcon(spellCaster->GetSpellDetail());
     currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
 }
 

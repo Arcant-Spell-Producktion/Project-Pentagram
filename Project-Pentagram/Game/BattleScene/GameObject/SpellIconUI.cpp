@@ -25,10 +25,9 @@ SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetI
     this->SetChildRenderBack(m_IconObject);
 }
 
-void SpellIconUI::SetIcon(Element::Type element, int spellIndex)
+void SpellIconUI::SetIcon(CastSpellDetail* spellDetail)
 {
-    m_CurrentElement = element;
-    m_CurrentSpellIndex = spellIndex;
+    SpellDetail = spellDetail;
     UpdateIcon();
 }
 
@@ -37,32 +36,35 @@ void SpellIconUI::SetPosition(glm::vec3 position)
     m_IconObject->position = position;
 }
 
-void SpellIconUI::SetDetail(CastSpellDetail* spellDetail)
-{
-    m_SpellDetail = spellDetail;
-    SetIcon(m_SpellDetail->OriginalSpell->m_Element,m_SpellDetail->OriginalSpell->m_Index);
-}
 
 void SpellIconUI::UpdateIcon()
 {
+    m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
+    m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
+
     m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+
+    if (SpellDetail->isCasted)
+    {
+        m_IconObject->color.a = 0.8f;
+    }
 }
 
 void SpellIconUI::UpdateDetail()
 {
-    if (m_SpellDetail)
+    if (SpellDetail)
     {
-        CasterPosition pos = m_SpellDetail->SpellOwner;
+        CasterPosition pos = SpellDetail->SpellOwner;
         auto caster = BattleManager::GetInstance()->Data.GetCaster(pos);
         if (caster)
         {
-            caster->GetCasterUI()->SetDetail(m_SpellDetail);
+            caster->GetCasterUI()->SetDetail(SpellDetail);
         }
         
     }
- /*   if (m_SpellDetail != nullptr)
+ /*   if (SpellDetail != nullptr)
     {
-        std::cout << *m_SpellDetail;
+        std::cout << *SpellDetail;
     }*/
 
 }

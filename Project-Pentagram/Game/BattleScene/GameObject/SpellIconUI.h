@@ -13,15 +13,14 @@ private:
 
     Element::Type m_CurrentElement = Element::NULLTYPE;
     int m_CurrentSpellIndex = -1;
-    CastSpellDetail* m_SpellDetail = nullptr;
 public:
+    CastSpellDetail* SpellDetail = nullptr;
+
     SpellIconUI(std::string objName);
 
-    void SetIcon(Element::Type element,int spellIndex);
+    void SetIcon(CastSpellDetail* spellDetail);
 
     void SetPosition(glm::vec3 position);
-
-    void SetDetail(CastSpellDetail* spellDetail);
 
     void UpdateIcon();
 

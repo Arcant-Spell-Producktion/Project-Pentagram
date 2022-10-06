@@ -25,6 +25,11 @@ public:
 
     void UpdateTimeline()
     {
+        UI->UpdateAllTracks();
+    }
+
+    void CompleteTimeline()
+    {
         ResetTimeline();
         auto spellList = m_Timeline[10].GetSpellList();
         m_Timeline[10].clear(false);
@@ -45,5 +50,7 @@ public:
         {
             m_Timeline[i].clear();
         }
+
+        UI->ClearAllTrack();
     }
 };

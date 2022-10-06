@@ -59,7 +59,7 @@ void BattleScene::GameSceneInit()
 
 void BattleScene::GameSceneUpdate(float dt)
 {
-    UpdateButtonEvents();
+    GameScene::GameSceneUpdate(dt);
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_R))
     {
