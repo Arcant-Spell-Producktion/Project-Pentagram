@@ -6,12 +6,19 @@
 #include "GameObject.h"
 #include "Collector/EngineDataCollector.h"
 
+enum class SlicingType
+{
+	STRETCH = 0,
+	REPEAT
+};
+
 class UIObject : public GameObject
 {
 	protected:
 		bool m_IsSlicing = false;
 		float m_SlicingBorder = 40.0f;
 		float m_SlicingBorderMultiplier = 1.0f;
+		SlicingType m_SlicingType = SlicingType::STRETCH;
 
 	public:
 
@@ -22,9 +29,11 @@ class UIObject : public GameObject
 		bool IsSlicing() const;
 		float GetBorderSize() const;
 		float GetSlicingBorderMultiplier() const;
+		SlicingType GetSlicingType() const;
 
 		// ----------------- Setter ----------------- 
 		void SetIsSlicing(const bool& active);
 		void SetSlicingBorderSize(const float& slicingBorderSize);
-		void GetSlicingBorderMultiplier(const float& slicingBorderMultiplier);
+		void SetSlicingBorderMultiplier(const float& slicingBorderMultiplier);
+		void SetSlicingType(const SlicingType& slicingType);
 };
