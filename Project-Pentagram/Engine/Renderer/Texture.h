@@ -37,7 +37,7 @@ class Texture
 		void Delete();
 
 		// ----------------- Getter -----------------
-		glm::ivec2 GetImageSize() const;
+		glm::vec2 GetImageSize() const;
 		GLuint GetImageWidth() const;
 		GLuint GetImageHeight() const;
 		int GetImageRow() const;

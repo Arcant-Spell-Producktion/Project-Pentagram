@@ -118,7 +118,7 @@ void Texture::Delete()
 }
 
 // ----------------- Getter -----------------
-glm::ivec2 Texture::GetImageSize() const
+glm::vec2 Texture::GetImageSize() const
 {
 	return glm::ivec2(this->m_Width, this->m_Height);
 }
