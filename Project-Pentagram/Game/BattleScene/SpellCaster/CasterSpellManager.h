@@ -17,7 +17,6 @@ protected:
     int m_CurrentHealth = 0;
     int m_CurrentMana = 0;
 
-
 public:
     CasterSpellManager(CasterData caster);
 

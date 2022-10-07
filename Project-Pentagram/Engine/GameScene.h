@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <vector>
 
@@ -27,6 +27,8 @@ class GameScene
 		std::vector<UIObject*> uiObjectsList;
 		std::vector<Button*> buttonObjectsList;
 
+		std::vector<GameObject*> objectsToDeleteList;
+
 		// ----------------- Utilities -----------------
 		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
 		Camera camera;
@@ -46,6 +48,25 @@ class GameScene
 		virtual void GameSceneFree();
 
 		// ----------------- Creating Object -----------------
+		template <typename T>
+        T* CreateObject(T* object)
+        {
+            if (Button* button = dynamic_cast<Button*>(object))
+            {
+                uiObjectsList.push_back(button);
+                buttonObjectsList.push_back(button);
+            }
+            else if (UIObject* ui = dynamic_cast<UIObject*>(object))
+            {
+                uiObjectsList.push_back(ui);
+            }
+            else if (GameObject* gameObj = dynamic_cast<GameObject*>(object))
+            {
+                objectsList.push_back(gameObj);
+            }
+            return object;
+        }
+
 		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
 		ParticleSystem* CreateParticle(ParticleProperty& particleProperty);
 		ParticleSystem* CreateParticle(const std::string& objName, ParticleProperty& particleProperty);
@@ -54,6 +75,12 @@ class GameScene
 		Button* CreateButton(const std::string& objName = "");
 		Slider* CreateSlider(const std::string& objName = "");
 
+		// ----------------- Modify Object -----------------
+		void DeleteObjectByName(const std::string& objName);
+		void DeleteObjectByPointer(GameObject* objPtr);
+		GameObject* FindObject(const std::string& objName);
+
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);
+		void UpdateDeleteObject();
 };

@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <vector>
 #include "Engine/GameScene.h"
+#include "SpellIconUI.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
 class PentragramController: public GameObject
@@ -21,6 +22,8 @@ private:
 
     UIObject* m_Scroll_1;
     UIObject* m_Scroll_2;
+
+    SpellIconUI* m_SpellIcon;
 public:
     PentragramController();
 

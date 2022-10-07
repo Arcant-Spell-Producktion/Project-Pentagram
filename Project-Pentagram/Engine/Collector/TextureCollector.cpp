@@ -36,9 +36,12 @@ void TextureCollector::LoadFile(const std::string& filePath)
 		std::string filePathString = (dirEntry.path()).string();
 		if (!dirEntry.is_directory())
 		{
-			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
-			LoadTexture(filePathString);
-            std::cout << filePathString << "\n";
+			std::string fileType = filePathString.substr(filePathString.rfind("."), filePathString.size() - 1);
+			if (fileType == ".png" || fileType == ".jpg" || fileType == ".jpeg")
+			{
+				std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+				LoadTexture(filePathString);
+			}
 		}
 	}
 }

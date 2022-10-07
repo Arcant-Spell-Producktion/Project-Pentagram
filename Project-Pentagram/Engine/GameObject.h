@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -50,7 +50,8 @@ class GameObject
 		// ----------------- Color ----------------- 
 		glm::vec4 color;
 
-		GameObject(const std::string& objName, const int& animRow = 1, const std::vector<int>& animCol = { 1 });
+		GameObject(const std::string& objName);
+		GameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol);
 		virtual ~GameObject();
 		virtual void OnUpdate(const float& dt);
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f));
@@ -62,6 +63,11 @@ class GameObject
 		unsigned int GetTag() const;
 		bool IsActive() const;
 		Texture* GetTexture() const;
+		GameObject* FindChildObject(const std::string& childObjectName);
+		unsigned int GetChildSize() const;
+		unsigned int GetFrontRenderChildSize() const;
+		unsigned int GetBackRenderChildSize() const;
+		std::vector<GameObject*> GetChildList() const;
 		// Animation
 		int GetCurrentAnimationRow() const;
 		int GetCurrentAnimationColumn() const;
@@ -79,6 +85,7 @@ class GameObject
 		void SetActive(const bool& active);
 		void SetChildRenderFront(GameObject* gameObj);
 		void SetChildRenderBack(GameObject* gameObj);
+		void RemoveChild(GameObject* gameObj);
 		// Animation
 		void SetIsAnimationObject(const bool& active);
 		void SetSpriteByIndex(const int& row, const int& column);

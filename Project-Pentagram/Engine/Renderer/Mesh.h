@@ -27,8 +27,11 @@ class Mesh
 		EBO ebo;
 
 	public:
+		Mesh();
 		Mesh(const int& animRow, const int& animCol);
 		~Mesh();
 		void Render();
 		void Delete();
+
+		void SetTextureCoord(const int& animRow, const int& animCol);
 };

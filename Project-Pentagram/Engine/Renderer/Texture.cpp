@@ -11,6 +11,7 @@ Texture::Texture(const char* path)
 	// Generate Texture
 	glGenTextures(1, &ID);
 	this->SetTexture(path);
+	this->ReadMeta(path);
 }
 void Texture::SetTexture(const char* path)
 {
@@ -52,6 +53,34 @@ void Texture::SetTexture(const char* path)
 	// free data
 	stbi_image_free(data);
 }
+void Texture::ReadMeta(const std::string& filePath)
+{
+	std::ifstream file(filePath + ".meta");
+	if (!file.is_open())
+	{
+		this->m_ImageRow = 1;
+		this->m_ImageColumn.push_back(1);
+		this->m_MaxImageColumn = 1;
+		std::cerr << "Warning : File " << filePath + ".meta " << "are not exist in folder\n";
+	}
+	else
+	{
+		int row;
+		file >> row;
+		this->m_ImageRow = row;
+
+		for (int idx = 0; idx < row; idx++)
+		{
+			int curCol;
+			file >> curCol;
+			this->m_ImageColumn.push_back(curCol);
+		}
+
+		this->m_MaxImageColumn = *std::max_element(m_ImageColumn.begin(), m_ImageColumn.end());
+
+		file.close();
+	}
+}
 
 void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const void* data)
 {
@@ -88,10 +117,10 @@ void Texture::Delete()
 	glDeleteTextures(1, &ID);
 }
 
-// ----------------- Getter ----------------- 
-glm::vec2 Texture::GetImageSize() const
+// ----------------- Getter -----------------
+glm::ivec2 Texture::GetImageSize() const
 {
-	return glm::vec2(this->m_Width, this->m_Height);
+	return glm::ivec2(this->m_Width, this->m_Height);
 }
 GLuint Texture::GetImageWidth() const
 {
@@ -100,4 +129,16 @@ GLuint Texture::GetImageWidth() const
 GLuint Texture::GetImageHeight() const
 {
 	return this->m_Height;
+}
+int Texture::GetImageRow() const
+{
+	return this->m_ImageRow;
+}
+std::vector<int> Texture::GetImageColumn() const
+{
+	return this->m_ImageColumn;
+}
+int Texture::GetMaxImageColumn() const
+{
+	return this->m_MaxImageColumn;
 }

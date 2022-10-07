@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "SpellDatabase.h"
 
-SpellDatabase::SpellDatabase()
+void SpellDatabase::LoadResource()
 {
     AddSpellBook(Element::Fire, "Spellbook_Fire");
     AddSpellBook(Element::Debug,"Ligma");

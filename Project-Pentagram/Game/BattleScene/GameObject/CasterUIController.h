@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Game/BattleScene/BattleScene.h"
 #include "Game/GameData/CasterData/CasterPosition.h"
+#include "SpellDetailUI.h"
 
 class CasterUIController
 {
@@ -18,8 +19,14 @@ private:
 
     TextObject* m_HealthText;
     TextObject* m_ManaText;
+
+    SpellDetailUI* m_DetailBox;
 public:
     CasterUIController(CasterPosition position);
     void SetHealthText(int cur, int max);
     void SetManaText(int cur, int max);
+
+    void SetDetail(CastSpellDetail* detail) { m_DetailBox->SetDetail(detail); };
+
+    ~CasterUIController() { delete m_DetailBox; }
 };

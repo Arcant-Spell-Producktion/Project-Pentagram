@@ -26,14 +26,14 @@ void MenuScene::GameSceneInit()
 	particleProp.velocity = { 0.0f, 300.0f };
 	ParticleSystem* particle = CreateParticle(particleProp);
 
-	GameObject* obj = CreateGameObject("SmileFace", 2, { 5,8 });
+	GameObject* obj = CreateGameObject("SmileFace");
 	obj->scale = { 320.0f, 320.0f, 1.0f };
 	obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
 	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
 	cur = obj;
 
-	GameObject* obj3 = CreateGameObject("SmileFace", 1, { 5 });
+	GameObject* obj3 = CreateGameObject("SmileFace");
 	obj3->scale = { 320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
 	obj3->SetIsAnimationObject(true);
@@ -162,6 +162,7 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
 		slider->SetValue(0.75f);
+		ArcantEngine::GetInstance()->GetWindow()->SetFullScreen(ArcantEngine::GetInstance()->GetWindow()->IsFullScreen() ? false : true);
 	}
 
 	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }

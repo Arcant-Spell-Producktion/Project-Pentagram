@@ -78,12 +78,12 @@
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
-        <Value>10</Value>
-        <Value>10</Value>
-        <Value>20</Value>
-        <Value>20</Value>
-        <Value>30</Value>
-        <Value>30</Value>
+        <Value>1</Value>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>3</Value>
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -122,12 +122,12 @@
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
-        <Value>20</Value>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>40</Value>
-        <Value>40</Value>
-        <Value>50</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>4</Value>
+        <Value>5</Value>
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>3</ChannelTime>
@@ -144,12 +144,12 @@
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
-        <Value>10</Value>
-        <Value>20</Value>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>40</Value>
+        <Value>1</Value>
+        <Value>2</Value>
+        <Value>3</Value>
+        <Value>3</Value>
+        <Value>3</Value>
+        <Value>4</Value>
       </EffectValue>
       <CastTime>2</CastTime>
       <ChannelTime>4</ChannelTime>
@@ -188,12 +188,12 @@
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>40</Value>
-        <Value>50</Value>
-        <Value>50</Value>
-        <Value>60</Value>
+        <Value>3</Value>
+        <Value>3</Value>
+        <Value>4</Value>
+        <Value>5</Value>
+        <Value>5</Value>
+        <Value>6</Value>
       </EffectValue>
       <CastTime>1</CastTime>
       <ChannelTime>9</ChannelTime>
