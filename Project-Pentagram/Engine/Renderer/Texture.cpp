@@ -13,7 +13,6 @@ Texture::Texture(const char* path)
 	this->SetTexture(path);
 	this->ReadMeta(path);
 }
-
 void Texture::SetTexture(const char* path)
 {
 	// Create width & height to handle image size
@@ -23,6 +22,9 @@ void Texture::SetTexture(const char* path)
 
 	// If cannot load data(wrong source file)
 	assert(data != NULL);
+
+	this->m_Width = width;
+	this->m_Height = height;
 
 	GLenum format;
 	if (nrChannels == 1)
@@ -42,7 +44,7 @@ void Texture::SetTexture(const char* path)
 	glBindTexture(GL_TEXTURE_2D, ID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// Specific Texture with image data
 	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
@@ -102,24 +104,21 @@ void Texture::Activate(GLenum TextureSlot)
 	glActiveTexture(TextureSlot);
 	glBindTexture(GL_TEXTURE_2D, ID);
 }
-
 void Texture::Bind()
 {
 	glBindTexture(GL_TEXTURE_2D, ID);
 }
-
 void Texture::UnBind()
 {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
-
 void Texture::Delete()
 {
 	glDeleteTextures(1, &ID);
 }
 
 // ----------------- Getter -----------------
-glm::ivec2 Texture::GetImageSize() const
+glm::vec2 Texture::GetImageSize() const
 {
 	return glm::ivec2(this->m_Width, this->m_Height);
 }

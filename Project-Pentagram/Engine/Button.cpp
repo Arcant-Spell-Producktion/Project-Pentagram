@@ -61,16 +61,28 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	// Set Button Slicing
 	if (m_IsSlicing)
 	{
-		float minVal = std::min(this->scale.x, this->scale.y);
+		const float Offset = 0.5f;
+		const float u_SlicingBorder = m_SlicingBorder + Offset;
+
+		shader.setInt("u_SlicingType", (int)m_SlicingType);
+
 		glm::vec2 u_dimension = glm::vec2(this->scale.x, this->scale.y);
-		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
-		float u_slicingBorder = (minVal >= 2 * m_SlicingBorder ? m_SlicingBorder : minVal / 2.0f);
+		glm::vec2 u_textureBorder = glm::vec2(u_SlicingBorder / m_Texture->GetImageSize());
 		shader.setVec2("u_Dimensions", u_dimension);
 		shader.setVec2("u_TextureBorder", u_textureBorder);
-		shader.setFloat("u_Border", u_slicingBorder);
+		shader.setFloat("u_Border", u_SlicingBorder);
+		shader.setFloat("u_SlicingMultiplier", m_SlicingBorderMultiplier);
+		
+		if (m_SlicingType == SlicingType::REPEAT)
+		{
+			glm::vec2 detailDimension = glm::vec2(u_dimension - u_SlicingBorder * m_SlicingBorderMultiplier);
+			glm::vec2 detailTexture = glm::vec2(m_Texture->GetImageSize() - u_SlicingBorder * m_SlicingBorderMultiplier);
+			shader.setVec2("u_SlicingRepeatValue", glm::vec2(detailDimension / detailTexture));
+		}
 		// ------ Debug --------
-		//std::cout << "u_Dimensions : " << dimension.x << ", " << dimension.y << "\n";
-		//std::cout << "u_Border : " << border.x << "," << border.y << "\n";
+		//std::cout << "u_Dimensions : " << u_dimension.x << ", " << u_dimension.y << "\n";
+		//std::cout << "DBUG Border : " << (m_SlicingBorder / u_dimension).x << ", " << (m_SlicingBorder / u_dimension).y << "\n";
+		//std::cout << "u_Border : " << u_slicingBorder << "\n\n";
 	}
 
 	if (m_IsSpriteSheet)
