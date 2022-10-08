@@ -4,7 +4,7 @@
 #include "SpellIconUI.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
-class PentragramController: public GameObject
+class PentragramController: public UIObject
 {
 private:
     GameScene* m_Scene;
@@ -12,7 +12,7 @@ private:
     PentagramField m_currentField = PentagramField::Will;
     PentagramData_T m_currentData;
 
-    std::vector<GameObject*> m_PentragramObj;
+    std::vector<UIObject*> m_PentragramObj;
     std::vector<Button*> m_PentragramButtons;
     std::vector<Button*> m_IntButtons;
     std::vector<Button*> m_ArrowButtons;

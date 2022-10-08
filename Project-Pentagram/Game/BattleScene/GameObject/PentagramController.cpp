@@ -28,7 +28,7 @@ void InvokeSpell()
     bm->SwapCaster();
 }
 
-PentragramController::PentragramController() :m_Scene(GameStateController::GetInstance()->currentScene), GameObject("PentagramController")
+PentragramController::PentragramController() :m_Scene(GameStateController::GetInstance()->currentScene), UIObject("PentagramController")
 {
     this->color.a = 0.0f;
 
@@ -41,12 +41,14 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_Scroll_1->SetSlicingBorderSize(160.0f);
     m_Scroll_1->position = { 0.0f,-300.0f,0.0f };
     m_Scroll_1->scale = { 800.0f, 160.0f,0.0f };
+    this->SetChildRenderBack(m_Scroll_1);
+
 
     for (size_t i = 0; i < 4; i++)
     {
         float radius = 460.0f;
 
-        GameObject* circle = m_Scene->CreateGameObject("Circle_" + std::to_string(i), 4, { 3,3,3,3 });
+        UIObject* circle = m_Scene->CreateUIObject("Circle_" + std::to_string(i));
 
         circle->SetIsAnimationObject(false);
         circle->position = { x_offset,y_offset,0.0f };
@@ -60,6 +62,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         }
 
         m_PentragramObj.push_back(circle);
+        this->SetChildRenderBack(circle);
     }
 
     for (size_t i = 0; i < 5; i++)
@@ -117,6 +120,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
 
 
         m_PentragramButtons.push_back(button);
+        this->SetChildRenderBack(button);
 
     }
 
@@ -135,6 +139,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         button->onClick = [this, i](Button* button) {SetPentagramValue(i); };
 
         m_IntButtons.push_back(button);
+        this->SetChildRenderBack(button);
     }
 
     for (size_t i = 0; i < 2; i++)
@@ -163,6 +168,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         button->SetActive(false);
 
         m_ArrowButtons.push_back(button);
+        this->SetChildRenderBack(button);
     }
 
     m_InvokeButton = m_Scene->CreateButton("Invoke");
@@ -197,12 +203,20 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         bm->SwapCaster();
     };
 
+    this->SetChildRenderBack(m_InvokeButton);
+    this->SetChildRenderBack(m_PassButton);
+
     m_SpellIcon = m_Scene->CreateObject(new SpellIconUI("PentagramIcon"));
+    this->SetChildRenderBack(m_SpellIcon);
 }
 
 void PentragramController::SetActive(const bool& active)
 {
     GameObject::SetActive(active);
+    if (active)
+    {
+        PentragramController::SetPentagramField(m_currentField);
+    }
 }
 
 int expand = 1;
@@ -326,6 +340,8 @@ void PentragramController::SetPentagramValue(int value)
 
     m_SpellIcon->SetIcon(spellCaster->GetSpellDetail());
     currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
+
+    battleManager->Data.Timeline.UI->UpdatePreviewIcon(spellCaster->GetSpellDetail()->SelectedTime, spellCaster->GetSpellDetail());
 }
 
 PentagramData_T PentragramController::ResetPentagram()

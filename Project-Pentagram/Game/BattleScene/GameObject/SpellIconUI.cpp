@@ -22,7 +22,15 @@ SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetI
     m_IconObject->SetTexture(iconPath);
     m_IconObject->SetSpriteByIndex(0, 0);
     m_IconObject->scale = { 100.0f,100.0f ,1.0f };
-    this->SetChildRenderBack(m_IconObject);
+
+    this->SetChildRenderFront(m_IconObject);
+
+    m_IconBorder = m_Scene->CreateUIObject(objName + "_iconBorder");
+    m_IconBorder->SetIsAnimationObject(false);
+    m_IconBorder->SetTexture(iconPath);
+    m_IconBorder->SetSpriteByIndex(0, 0);
+    m_IconBorder->scale = { 100.0f,100.0f ,1.0f };
+    this->SetChildRenderFront(m_IconBorder);
 }
 
 void SpellIconUI::SetIcon(CastSpellDetail* spellDetail)
@@ -36,6 +44,11 @@ void SpellIconUI::SetPosition(glm::vec3 position)
     m_IconObject->position = position;
 }
 
+void SpellIconUI::SetTransparency(bool flag)
+{
+    m_IconObject->color.a = flag ? 0.8f : 1.0f;
+}
+
 
 void SpellIconUI::UpdateIcon()
 {
@@ -43,11 +56,9 @@ void SpellIconUI::UpdateIcon()
     m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
 
     m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+    SetTransparency(SpellDetail->isCasted);
 
-    if (SpellDetail->isCasted)
-    {
-        m_IconObject->color.a = 0.8f;
-    }
+    m_IconBorder->color = SpellDetail->SpellOwner == CasterPosition::CasterA ? AC_RED : AC_BLUE;
 }
 
 void SpellIconUI::UpdateDetail()

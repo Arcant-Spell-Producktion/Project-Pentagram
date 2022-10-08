@@ -17,7 +17,7 @@ SpellDetailUI::SpellDetailUI(int flip) :m_Scene(GameStateController::GetInstance
        m_Texts[i]->fontSize = 36;
        m_Texts[i]->color = AC_WHITE;
        m_Texts[i]->position.x = m_Box->position.x - (m_Box->scale.x / 2.0f)*0.9f;
-       m_Texts[i]->position.y = m_Box->position.y + (i * 60.0f) - 60.0f;
+       m_Texts[i]->position.y = m_Box->position.y + (i * -60.0f) + 60.0f;
        m_Box->SetChildRenderFront(m_Texts[i]);
     }
 
@@ -35,10 +35,10 @@ void SpellDetailUI::SetDetail(CastSpellDetail* details)
         std::string effName = SpellEffectType::GetString(m_CurrentDetails->OriginalSpell->GetSpellEffectType());
         std::stringstream ssDmg;
         std::stringstream ssEff;
-        ssDmg << "Damage: " << m_CurrentDetails->GetDamage();
-        ssEff << "Effect: " << effName << " (" << m_CurrentDetails->GetEffectValue() << ")";
-        m_Texts[2]->text = "Name: " + m_CurrentDetails->OriginalSpell->GetSpellName();
+        ssDmg << "Damage ["<< m_CurrentDetails->SelectedWill <<"]: " << m_CurrentDetails->GetDamage();
+        ssEff << "Effect [" << m_CurrentDetails->SelectedEffect << "]: " << effName << " (" << m_CurrentDetails->GetEffectValue() << ")";
+        m_Texts[0]->text = "Name: " + m_CurrentDetails->OriginalSpell->GetSpellName();
         m_Texts[1]->text = ssDmg.str();
-        m_Texts[0]->text = ssEff.str();
+        m_Texts[2]->text = ssEff.str();
     }
 }

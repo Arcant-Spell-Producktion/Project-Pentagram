@@ -12,6 +12,7 @@ private:
 public:
     TimelineController();
 
+    void UpdatePreviewIcon(int index, CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);
     void ClearTrack(int index);
     void UpdateAllTracks();

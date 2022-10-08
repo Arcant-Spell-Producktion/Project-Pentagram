@@ -9,7 +9,8 @@ class SpellIconUI: public Button
 private:
     GameScene* m_Scene;
 
-    GameObject* m_IconObject;
+    UIObject* m_IconObject;
+    UIObject* m_IconBorder;
 
     Element::Type m_CurrentElement = Element::NULLTYPE;
     int m_CurrentSpellIndex = -1;
@@ -21,6 +22,8 @@ public:
     void SetIcon(CastSpellDetail* spellDetail);
 
     void SetPosition(glm::vec3 position);
+
+    void SetTransparency(bool flag);
 
     void UpdateIcon();
 

@@ -28,11 +28,10 @@ void ResolveBattleState::ResolveTrack()
     {
         std::cout << "\n\tTIED OR NONE\n\n";
         m_State = ResolveState::Waiting;
-        m_Timer = 1.0f;
+        m_Timer = 0.5f;
     }
 
 }
-
 
 void ResolveBattleState::ResolveSpell()
 {
@@ -100,17 +99,20 @@ void ResolveBattleState::ResolveSpell()
 
             m_Timer = 3.0f;
         }
+        else
+        {
+            m_Timer = 0.0f;
+        }
     }
     else
     {
-        m_Timer = 0.5f;
+        m_Timer = 1.0f;
     }
 
     m_ResolveBattleManager->Data.Timeline.UpdateTimeline();
     m_State = ResolveState::Waiting;
  
 }
-
 
 void ResolveBattleState::OnBattleStateIn()
 {

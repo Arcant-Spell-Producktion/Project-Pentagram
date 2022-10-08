@@ -21,6 +21,18 @@ TimelineController::TimelineController():m_Scene(GameStateController::GetInstanc
     }
 }
 
+void TimelineController::UpdatePreviewIcon(int time, CastSpellDetail* spell)
+{
+    int index = time - 1;
+
+    if (index >= 10) index = 10;
+
+    for (size_t i = 0; i < 11; i++)
+    {
+        m_Tracks[i]->PreviewIcon(i == index, spell);
+    }
+}
+
 void TimelineController::AddIconToTrack(int index, CastSpellDetail* spell)
 {
     std::cout << "ADD ICON 2\n";

@@ -28,6 +28,8 @@ void CastBattleState::OnBattleStateIn()
     battleManager->Data.StandbyAllCaster();
 
     battleManager->Data.GetCurrentCaster()->StartTurn(battleManager->Data.Pentagram->ResetPentagram());
+
+    battleManager->Data.Pentagram->SetActive(true);
 }
 
 void CastBattleState::OnBattleStateUpdate(float dt)
@@ -73,4 +75,7 @@ void CastBattleState::OnBattleStateUpdate(float dt)
 
 void CastBattleState::OnBattleStateOut()
 {
+    BattleManager* battleManager = BattleManager::GetInstance();
+    battleManager->Data.Pentagram->SetActive(false);
+    battleManager->Data.Timeline.UI->UpdatePreviewIcon(0);
 }
