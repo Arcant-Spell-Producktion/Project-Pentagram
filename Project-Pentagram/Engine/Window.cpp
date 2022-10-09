@@ -4,25 +4,34 @@
 void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 {
 	Window* currentWindow = (Window*)glfwGetWindowUserPointer(window);
-	currentWindow->SetWindowRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
-	currentWindow->SetWidth(newWidth);
-	currentWindow->SetHeight(newHeight);
+	currentWindow->SetWindowDiffRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
+	currentWindow->SetWindowWidth(newWidth);
+	currentWindow->SetWindowHeight(newHeight);
 
 	if ((float)newWidth / newHeight == WINDOW_RATIO)
 	{
 		glViewport(0, 0, newWidth, newHeight);
+		currentWindow->SetViewportWidth(newWidth);
+		currentWindow->SetViewportHeight(newHeight);
+		currentWindow->SetViewportDiffRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
 	}
 	else if (newWidth * (1.0f / WINDOW_RATIO) <= newHeight)
 	{
 		int ratioHeight = newWidth * (1.0f / WINDOW_RATIO);
 		int offsetHeight = std::abs(newHeight - ratioHeight);
 		glViewport(0, offsetHeight / 2, newWidth, ratioHeight);
+		currentWindow->SetViewportWidth(newWidth);
+		currentWindow->SetViewportHeight(ratioHeight);
+		currentWindow->SetViewportDiffRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)ratioHeight / WINDOW_HEIGHT));
 	}
 	else
 	{
 		int ratioWidth = newHeight * WINDOW_RATIO;
 		int offsetWidth = std::abs(newWidth - ratioWidth);
 		glViewport(offsetWidth / 2, 0, ratioWidth, newHeight);
+		currentWindow->SetViewportWidth(ratioWidth);
+		currentWindow->SetViewportHeight(newHeight);
+		currentWindow->SetViewportDiffRatio(glm::vec2((float)ratioWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
 	}
 }
 void windowCloseCallback(GLFWwindow* window)
@@ -67,19 +76,31 @@ void Window::SetWindowSize(const int& windowWidth, const int& windowHeight)
 	this->m_Height = windowHeight;
 	glfwSetWindowSize(m_Window, m_Width, m_Height);
 }
-void Window::SetWidth(const int& width) 
+void Window::SetWindowWidth(const int& width)
 { 
 	this->m_Width = width;
 	glfwSetWindowSize(m_Window, m_Width, m_Height);
 }
-void Window::SetHeight(const int& height) 
+void Window::SetWindowHeight(const int& height)
 { 
 	this->m_Height = height;
 	glfwSetWindowSize(m_Window, m_Width, m_Height);
 }
-void Window::SetWindowRatio(const glm::vec2& ratio) 
+void Window::SetViewportWidth(const int& width)
+{
+	this->m_ViewportWidth = width;
+}
+void Window::SetViewportHeight(const int& height)
+{
+	this->m_ViewportHeight = height;
+}
+void Window::SetWindowDiffRatio(const glm::vec2& ratio)
 { 
-	this->m_windowRatio = ratio; 
+	this->m_WindowRatio = ratio;
+}
+void Window::SetViewportDiffRatio(const glm::vec2& ratio)
+{
+	this->m_ViewportRatio = ratio;
 }
 void Window::SetClose(const bool& close) 
 { 
@@ -117,17 +138,29 @@ GLFWwindow* Window::getWindow()
 { 
 	return m_Window; 
 }
-int Window::GetWidth() const 
+int Window::GetWindowWidth() const
 { 
 	return m_Width; 
 }
-int Window::GetHeight() const 
+int Window::GetWindowHeight() const
 { 
 	return m_Height; 
 }
-glm::vec2 Window::GetWindowRatio() const 
+int Window::GetViewportWidth() const
+{
+	return m_ViewportWidth;
+}
+int Window::GetViewportHeight() const
+{
+	return m_ViewportHeight;
+}
+glm::vec2 Window::GetWindowDiffRatio() const
 { 
-	return m_windowRatio; 
+	return m_WindowRatio;
+}
+glm::vec2 Window::GetViewportDiffRatio() const
+{
+	return m_ViewportRatio;
 }
 bool Window::IsClose() const 
 { 
@@ -154,6 +187,9 @@ void Window::Init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
+
+	this->m_ViewportWidth = m_Width;
+	this->m_ViewportHeight = m_Height;
 
 	glfwSetWindowUserPointer((GLFWwindow*)m_Window, (void*)&m_Window);
 
