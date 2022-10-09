@@ -5,6 +5,20 @@ GameScene::~GameScene()
 
 }
 
+void GameScene::AddGameObjectToList(GameObject* object)
+{
+	objectsList.push_back(object);
+}
+void GameScene::AddUIObjectToList(UIObject* object)
+{
+	uiObjectsList.push_back(object);
+}
+void GameScene::AddButtonToList(Button* object)
+{
+	uiObjectsList.push_back(object);
+	buttonObjectsList.push_back(object);
+}
+
 // ----------------- Creating Object ----------------- 
 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)

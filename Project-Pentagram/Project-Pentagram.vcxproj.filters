@@ -372,6 +372,9 @@
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\IGameObjectManager.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
