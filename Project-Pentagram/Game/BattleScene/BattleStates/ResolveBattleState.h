@@ -19,6 +19,7 @@ private:
 
     float m_Timer = 0.0f;
 
+    void Step();
     void ResolveTrack();
     void ResolveSpell();
 public:

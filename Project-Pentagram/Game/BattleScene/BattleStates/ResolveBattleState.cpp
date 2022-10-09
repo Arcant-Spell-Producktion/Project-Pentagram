@@ -4,6 +4,21 @@
 
 BattleManager* m_ResolveBattleManager = nullptr;
 
+void ResolveBattleState::Step()
+{
+    if (m_SpellResolveIndex + 1 < m_CurrentTrack->GetSpellList().size())
+    {
+        m_SpellResolveIndex++;
+        m_State = ResolveState::ResolveSpell;
+    }
+    else
+    {
+        m_SpellResolveIndex = 0;
+        m_TrackResolveIndex++;
+        m_State = ResolveState::ResolveTrack;
+    }
+}
+
 void ResolveBattleState::ResolveTrack()
 {
     std::cout << "Resovel Track: " << m_TrackResolveIndex << "\n";
@@ -96,21 +111,20 @@ void ResolveBattleState::ResolveSpell()
                 caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
             }
             //TODO: resolve the spell effect
-
             m_Timer = 3.0f;
         }
         else
         {
-            m_Timer = 0.0f;
+            m_Timer = 1.0f;
         }
+            m_State = ResolveState::Waiting;
     }
     else
     {
-        m_Timer = 1.0f;
+        Step();
     }
 
     m_ResolveBattleManager->Data.Timeline.UpdateTimeline();
-    m_State = ResolveState::Waiting;
  
 }
 
@@ -138,17 +152,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
         if (m_Timer <= 0)
         {
             m_Timer = 0;
-            if (m_SpellResolveIndex + 1 < m_CurrentTrack->GetSpellList().size())
-            {
-                m_SpellResolveIndex++;
-                m_State = ResolveState::ResolveSpell;
-            }
-            else
-            {
-                m_SpellResolveIndex = 0;
-                m_TrackResolveIndex++;
-                m_State = ResolveState::ResolveTrack;
-            }
+            Step();
         }
         break;
     default:
