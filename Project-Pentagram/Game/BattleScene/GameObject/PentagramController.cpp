@@ -39,6 +39,8 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_Scroll_1->SetIsSlicing(true);
     m_Scroll_1->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
     m_Scroll_1->SetSlicingBorderSize(160.0f);
+    m_Scroll_1->SetSlicingBorderMultiplier(0.25f);
+    m_Scroll_1->SetSlicingType(SlicingType::REPEAT);
     m_Scroll_1->position = { 0.0f,-300.0f,0.0f };
     m_Scroll_1->scale = { 800.0f, 160.0f,0.0f };
     this->SetChildRenderBack(m_Scroll_1);
@@ -174,6 +176,8 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_InvokeButton = m_Scene->CreateButton("Invoke");
     m_InvokeButton->SetIsSlicing(true);
     m_InvokeButton->SetSlicingBorderSize(160.0f);
+    m_InvokeButton->SetSlicingBorderMultiplier(0.25f);
+    m_InvokeButton->SetSlicingType(SlicingType::REPEAT);
     m_InvokeButton->position = { -160.0f,-460.0f,0.0f };
     m_InvokeButton->scale = { 240.0f, 160.0f, 1.0f };
     m_InvokeButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -189,6 +193,8 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     m_PassButton = m_Scene->CreateButton("Pass");
     m_PassButton->SetIsSlicing(true);
     m_PassButton->SetSlicingBorderSize(160.0f);
+    m_PassButton->SetSlicingBorderMultiplier(0.25f);
+    m_PassButton->SetSlicingType(SlicingType::REPEAT);
     m_PassButton->position = { 160.0f,-460.0f,0.0f };
     m_PassButton->scale = { 240.0f, 160.0f, 1.0f };
     m_PassButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
