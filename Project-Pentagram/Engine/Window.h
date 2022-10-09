@@ -19,10 +19,17 @@ class Window
 	private:
 		GLFWwindow* m_Window;
 		GLFWmonitor* m_Monitor;
+
+		// Window Size
 		int m_Width;
 		int m_Height;
+		// Viewport Size
+		int m_ViewportWidth;
+		int m_ViewportHeight;
+
 		const char* m_Title;
-		glm::vec2 m_windowRatio = glm::vec2(1.0f, 1.0f);
+		glm::vec2 m_WindowRatio = glm::vec2(1.0f, 1.0f);
+		glm::vec2 m_ViewportRatio = glm::vec2(1.0f, 1.0f);
 		bool m_Close = false;
 
 		glm::ivec2 prevScale;
@@ -39,17 +46,23 @@ class Window
 		// Setter
 		void SetWindowSize(const glm::ivec2 windowSize);
 		void SetWindowSize(const int& windowWidth, const int& windowHeight);
-		void SetWidth(const int& width);
-		void SetHeight(const int& height);
-		void SetWindowRatio(const glm::vec2& ratio);
+		void SetWindowWidth(const int& width);
+		void SetWindowHeight(const int& height);
+		void SetViewportWidth(const int& width);
+		void SetViewportHeight(const int& height);
+		void SetWindowDiffRatio(const glm::vec2& ratio);
+		void SetViewportDiffRatio(const glm::vec2& ratio);
 		void SetClose(const bool& close);
 		void SetFullScreen(const bool fullscreen);
 
 		// Getter
 		GLFWwindow* getWindow();
-		int GetWidth() const;
-		int GetHeight() const;
-		glm::vec2 GetWindowRatio() const;
+		int GetWindowWidth() const;
+		int GetWindowHeight() const;
+		int GetViewportWidth() const;
+		int GetViewportHeight() const;
+		glm::vec2 GetWindowDiffRatio() const;
+		glm::vec2 GetViewportDiffRatio() const;
 		bool IsClose() const;
 		bool IsNull() const;
 		bool IsRunning() const;
