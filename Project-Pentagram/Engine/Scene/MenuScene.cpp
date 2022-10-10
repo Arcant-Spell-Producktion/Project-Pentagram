@@ -10,6 +10,7 @@ void MenuScene::GameSceneLoad()
 GameObject* cur;
 Button* curButton;
 UIObject* curUI;
+UIObject* gObject;
 Slider* slider;
 
 void MenuScene::GameSceneInit()
@@ -26,45 +27,47 @@ void MenuScene::GameSceneInit()
 	particleProp.velocity = { 0.0f, 300.0f };
 	ParticleSystem* particle = CreateParticle(particleProp);
 
-	GameObject* obj = CreateGameObject("SmileFace");
+	GameObject* obj = CreateGameObject("FireMage");
 	obj->scale = { 320.0f, 320.0f, 1.0f };
 	obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
 	obj->SetIsAnimationObject(true);
 	obj->SetChildRenderBack(particle);
+	obj->position = { -500.0f, -150.0f, 0.0f };
 	cur = obj;
 
-	GameObject* obj3 = CreateGameObject("SmileFace");
-	obj3->scale = { 320.0f, 320.0f, 1.0f };
+	GameObject* obj3 = CreateGameObject("WaterKiki");
+	obj3->scale = { -320.0f, 320.0f, 1.0f };
 	obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
 	obj3->SetIsAnimationObject(true);
-	obj3->position.x += 500.0f;
+	obj3->position = { 500.0f, -150.0f, 0.0f };
 
 	// GameObject* obj2 = CreateGameObject("SmileFace");
 	// obj2->scale = { 10.0f, 10.0f, 1.0f };
 	// obj2->SetTexture("Sprites/awesomeface.png");
 
 	TextObject* textObj = CreateTextObject("INFO_Text");
-	textObj->position = { -750.0f, 400.0f, 0.0f };
+	textObj->position = { -900.0f, 500.0f, 0.0f };
 	textObj->color = AC_RED;
 	textObj->outlineColor = AC_BLUE;
 	textObj->textAlignment = TextAlignment::LEFT;
 	textObj->SetFonts("Fonts/BAUHS93.ttf");
 
 	TextObject* textObj2 = CreateTextObject("Test_Text");
-	textObj2->position = { -600.0f, -250.0f, 0.0f };
-	textObj2->color = AC_RED;
+	textObj2->position = { -500.0f, -425.0f, 0.0f };
+	textObj2->color = AC_WHITE;
 	textObj2->textAlignment = TextAlignment::LEFT;
 	textObj2->text = R"(Hello! My name is Helia. I am Fire Mage?
 						Who are you? Are you Blue Kiki?)";
 	textObj2->SetSlowRender(0.075f);
 
 	UIObject* ui = CreateUIObject("BigUI_1");
-	ui->scale = { 1600.0f, 900.0f, 1.0f };
+	ui->scale = { 1920.0f, 1080.0f, 1.0f };
 	ui->color = { 0.0f, 0.0f, 0.0f, 0.5f };
 
 	UIObject* subUI = CreateUIObject();
 	subUI->scale = { 800.0f, 700.0f, 1.0f };
 	subUI->color = { 0.8f, 0.8f, 0.8f, 1.0f };
+	subUI->position.y += 100.0f;
 	ui->SetChildRenderFront(subUI);
 	curUI = subUI;
 
@@ -72,6 +75,7 @@ void MenuScene::GameSceneInit()
 	button->scale = { 300.0f, 100.0f, 1.0f };
 	button->position = { 0.0f, 150.0f, 0.0f };
 	button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+	button->SetSlicingBorderMultiplier(0.25f);
 	button->textObject.text = "Options";
 	button->textObject.textAlignment = TextAlignment::MID;
 	button->textObject.position = { 0.0f, 0.0f, 0.0f };
@@ -80,11 +84,11 @@ void MenuScene::GameSceneInit()
 	button->SetTexture("Sprites/Button_Test.png");
 	curButton = button;
 
-
 	Button* button2 = CreateButton("Exit_Button");
 	button2->scale = { 300.0f, 100.0f, 1.0f };
 	button2->position = { 0.0f, -150.0f, 0.0f };
 	button2->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+	button2->SetSlicingBorderMultiplier(0.25f);
 	button2->textObject.text = "Exit";
 	button2->textObject.textAlignment = TextAlignment::MID;
 	button2->textObject.position = { 0.0f, 0.0f, 0.0f };
@@ -93,12 +97,23 @@ void MenuScene::GameSceneInit()
 	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
+	UIObject* gradiant = CreateUIObject("Gradiant");
+	gradiant->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_hp-bar.png");
+	gradiant->SetStartGradiantTexture("Sprites/GradientMap/gradiant-map_green.png");
+	gradiant->SetEndGradiantTexture("Sprites/GradientMap/gradiant-map_red.png");
+	gradiant->SetIsGradiant(true);
+	gradiant->scale = { 1280.0f, 320.0f, 1.0f };
+	gradiant->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+	gradiant->position = { 0.0f, -500.0f, 0.0f};
+	gObject = gradiant;
+
 	slider = CreateSlider("Sliding");
 	slider->color = AC_YELLOW;
 
 	subUI->SetChildRenderFront(button);
 	subUI->SetChildRenderFront(button2);
 	subUI->SetChildRenderFront(slider);
+	subUI->SetChildRenderFront(gradiant);
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
@@ -109,7 +124,7 @@ void MenuScene::GameSceneUpdate(float dt)
 {
 	GameScene::GameSceneUpdate(dt);
 
-	soundSystem->SetBGMVolume(slider->GetValue());
+	gObject->SetGradiantValue(slider->GetValue());
 
 	double time = glfwGetTime();
 	if (t >= 1.0f)
@@ -164,12 +179,6 @@ void MenuScene::GameSceneUpdate(float dt)
 		slider->SetValue(0.75f);
 		ArcantEngine::GetInstance()->GetWindow()->SetFullScreen(ArcantEngine::GetInstance()->GetWindow()->IsFullScreen() ? false : true);
 	}
-
-	if (Input::IsKeyPressed(GLFW_KEY_LEFT)) { curButton->scale.x -= dt * 30.0f; }
-	if (Input::IsKeyPressed(GLFW_KEY_RIGHT)) { curButton->scale.x += dt * 30.0f; }
-	if (Input::IsKeyPressed(GLFW_KEY_UP)) { curButton->scale.y += dt * 30.0f; }
-	if (Input::IsKeyPressed(GLFW_KEY_DOWN)) { curButton->scale.y -= dt * 30.0f; }
-
 
 	// Update GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)

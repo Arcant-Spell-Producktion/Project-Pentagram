@@ -9,6 +9,7 @@ class ShaderCollector
 		Shader GameObjectShader;
 		Shader TextShader;
 		Shader UISlicingShader;
+		Shader GradiantShader;
 
 		ShaderCollector();
 		void Free();

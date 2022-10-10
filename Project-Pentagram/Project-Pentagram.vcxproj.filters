@@ -404,6 +404,12 @@
     <None Include="WorkingDir\Shader\UISlicingVertex.shader">
       <Filter>WorkingDir\Shader</Filter>
     </None>
+    <None Include="WorkingDir\Shader\GradiantVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GradiantFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">

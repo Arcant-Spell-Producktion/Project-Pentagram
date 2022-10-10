@@ -18,6 +18,10 @@ class UIObject : public GameObject
 		bool m_IsSlicing = false;
 		float m_SlicingBorder = 40.0f;
 		float m_SlicingBorderMultiplier = 1.0f;
+		Texture* m_StartGradiantTexture;
+		Texture* m_EndGradiantTexture;
+		bool m_IsGradiant = false;
+		float m_GradiantValue = 0.0f;
 		SlicingType m_SlicingType = SlicingType::STRETCH;
 
 	public:
@@ -30,10 +34,18 @@ class UIObject : public GameObject
 		float GetBorderSize() const;
 		float GetSlicingBorderMultiplier() const;
 		SlicingType GetSlicingType() const;
+		bool IsGradiant() const;
+		float GetGradiantValue() const;
+		Texture* GetStartGradiantTexture() const;
+		Texture* GetEndGradiantTexture() const;
 
 		// ----------------- Setter ----------------- 
 		void SetIsSlicing(const bool& active);
 		void SetSlicingBorderSize(const float& slicingBorderSize);
 		void SetSlicingBorderMultiplier(const float& slicingBorderMultiplier);
 		void SetSlicingType(const SlicingType& slicingType);
+		void SetIsGradiant(const bool& active);
+		void SetGradiantValue(const float& gradiantValue);
+		void SetStartGradiantTexture(const std::string& filePath);
+		void SetEndGradiantTexture(const std::string& filePath);
 };
