@@ -9,7 +9,7 @@ class SpellDispatcher
 private:
     std::map<CastSpellDetail* ,BaseSpellObject*> m_Spells;
 
-    GameScene* m_Scene;
+    GameScene* m_ObjectManager;
 public:
     SpellController* SpawnSpell(CastSpellDetail* detail, CasterPosition target);
     void DestroySpell(CastSpellDetail* detail);

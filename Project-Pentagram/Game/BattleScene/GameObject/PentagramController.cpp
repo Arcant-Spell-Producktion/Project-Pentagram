@@ -1,4 +1,5 @@
-﻿#include "PentagramController.h"
+﻿#include "Engine/GameStateController.h"
+#include "PentagramController.h"
 #include <Game/BattleScene/BattleManager.h>
 #include <math.h>
 
@@ -28,14 +29,14 @@ void InvokeSpell()
     bm->SwapCaster();
 }
 
-PentragramController::PentragramController() :m_Scene(GameStateController::GetInstance()->currentScene), UIObject("PentagramController")
+PentragramController::PentragramController() :m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("PentagramController")
 {
     this->color.a = 0.0f;
 
     float x_offset = 0.0f;
     float y_offset = 0.0f;
 
-    m_Scroll_1 = m_Scene->CreateUIObject("Scroll_1");
+    m_Scroll_1 = m_ObjectManager->CreateUIObject("Scroll_1");
     m_Scroll_1->SetIsSlicing(true);
     m_Scroll_1->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
     m_Scroll_1->SetSlicingBorderSize(160.0f);
@@ -50,7 +51,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     {
         float radius = 460.0f;
 
-        UIObject* circle = m_Scene->CreateUIObject("Circle_" + std::to_string(i));
+        UIObject* circle = m_ObjectManager->CreateUIObject("Circle_" + std::to_string(i));
 
         circle->SetIsAnimationObject(false);
         circle->position = { x_offset,y_offset,0.0f };
@@ -105,7 +106,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
             break;
         }
 
-        Button* button = m_Scene->CreateButton("Field_" + std::to_string(i));
+        Button* button = m_ObjectManager->CreateButton("Field_" + std::to_string(i));
 
         button->textObject.text = name;
 
@@ -128,7 +129,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
 
     for (size_t i = 1; i <= 6; i++)
     {
-        Button* button = m_Scene->CreateButton("Num_" + std::to_string(i));
+        Button* button = m_ObjectManager->CreateButton("Num_" + std::to_string(i));
         button->position = { -420.0f + (i * 120.0f),-300.0f,0.0f };
         button->scale = { 80.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -146,7 +147,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
 
     for (size_t i = 0; i < 2; i++)
     {
-        Button* button = m_Scene->CreateButton("Arrow_" + std::to_string(i));
+        Button* button = m_ObjectManager->CreateButton("Arrow_" + std::to_string(i));
         button->position = { -80.0f + (i * 160.0f),-300.0f,0.0f };
         button->scale = { 120.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -173,7 +174,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         this->SetChildRenderBack(button);
     }
 
-    m_InvokeButton = m_Scene->CreateButton("Invoke");
+    m_InvokeButton = m_ObjectManager->CreateButton("Invoke");
     m_InvokeButton->SetIsSlicing(true);
     m_InvokeButton->SetSlicingBorderSize(160.0f);
     m_InvokeButton->SetSlicingBorderMultiplier(0.25f);
@@ -190,7 +191,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
         InvokeSpell();
     };
 
-    m_PassButton = m_Scene->CreateButton("Pass");
+    m_PassButton = m_ObjectManager->CreateButton("Pass");
     m_PassButton->SetIsSlicing(true);
     m_PassButton->SetSlicingBorderSize(160.0f);
     m_PassButton->SetSlicingBorderMultiplier(0.25f);
@@ -212,7 +213,7 @@ PentragramController::PentragramController() :m_Scene(GameStateController::GetIn
     this->SetChildRenderBack(m_InvokeButton);
     this->SetChildRenderBack(m_PassButton);
 
-    m_SpellIcon = m_Scene->CreateObject(new SpellIconUI("PentagramIcon"));
+    m_SpellIcon = m_ObjectManager->CreateObject(new SpellIconUI("PentagramIcon"));
     this->SetChildRenderBack(m_SpellIcon);
 }
 

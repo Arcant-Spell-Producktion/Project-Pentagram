@@ -1,12 +1,12 @@
 ﻿#pragma once
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellTimeline/SpellTimetrack.h"
 #include <Game/BattleScene/GameObject/SpellIconUI.h>
 
 class TimetrackUI : public UIObject
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     UIObject* m_Box;
     SpellTimetrack* m_TrackPtr;

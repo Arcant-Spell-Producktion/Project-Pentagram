@@ -1,11 +1,11 @@
 ﻿#pragma once
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "TimetrackUI.h"
 
 class TimelineController : public UIObject
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     UIObject* box;
     vector<TimetrackUI*> m_Tracks;

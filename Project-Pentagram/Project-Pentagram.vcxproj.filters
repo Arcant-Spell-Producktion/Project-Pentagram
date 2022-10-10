@@ -165,9 +165,6 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp">
       <Filter>Game\BattleScene\SpellObject\Fire</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.cpp">
-      <Filter>Game\BattleScene\SpellObject\Fire\Objects</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -412,9 +409,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h">
       <Filter>Game\BattleScene\SpellObject\Fire</Filter>
     </ClInclude>
-    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.h">
-      <Filter>Game\BattleScene\SpellObject\Fire\Objects</Filter>
-    </ClInclude>
+    <ClInclude Include="Engine\IGameObjectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -679,9 +674,6 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellObject\Fire">
       <UniqueIdentifier>{0cf6e220-fe9d-4c1f-b82d-ae760b0e4108}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\BattleScene\SpellObject\Fire\Objects">
-      <UniqueIdentifier>{71ce807e-1f6d-41d0-b333-1bf1e95f0d7c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

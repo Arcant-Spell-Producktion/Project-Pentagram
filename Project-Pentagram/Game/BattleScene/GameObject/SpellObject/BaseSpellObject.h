@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <Game/BattleScene/GameObject/SpellObject/SpellController.h>
 #include <Game/GameData/CasterData/CasterPosition.h>
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 
 #include <queue>
 #include <functional>

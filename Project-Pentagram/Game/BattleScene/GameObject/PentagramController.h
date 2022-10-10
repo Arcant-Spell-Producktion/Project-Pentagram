@@ -1,13 +1,13 @@
 ﻿#pragma once
 #include <vector>
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "SpellIconUI.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
 class PentragramController: public UIObject
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     PentagramField m_currentField = PentagramField::Will;
     PentagramData_T m_currentData;

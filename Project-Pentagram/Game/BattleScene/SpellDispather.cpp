@@ -11,7 +11,7 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
         break;
     case Element::Fire:
         newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
-        m_Spells.emplace(detail, m_Scene->CreateObject<BaseSpellObject>(newSpell));
+        m_Spells.emplace(detail, m_ObjectManager->CreateObject<BaseSpellObject>(newSpell));
         break;
     case Element::Water:
         break;
@@ -25,9 +25,9 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
 
 void SpellDispatcher::DestroySpell(CastSpellDetail* detail)
 {
-    m_Scene->DeleteObjectByPointer(m_Spells[detail]);
+    m_ObjectManager->DeleteObjectByPointer(m_Spells[detail]);
 }
 
-SpellDispatcher::SpellDispatcher():m_Scene(GameStateController::GetInstance()->currentScene)
+SpellDispatcher::SpellDispatcher():m_ObjectManager(GameStateController::GetInstance()->currentScene)
 {
 }

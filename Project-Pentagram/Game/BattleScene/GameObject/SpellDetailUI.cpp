@@ -2,9 +2,9 @@
 #include "Engine/GameStateController.h"
 #include <sstream>
 
-SpellDetailUI::SpellDetailUI(int flip) :m_Scene(GameStateController::GetInstance()->currentScene)
+SpellDetailUI::SpellDetailUI(int flip) :m_ObjectManager(GameStateController::GetInstance()->currentScene)
 {
-    m_Box = m_Scene->CreateUIObject("DetailBox");
+    m_Box = m_ObjectManager->CreateUIObject("DetailBox");
     m_Box->position = { flip* -650.0f,120.0f,0.0f };
    
     
@@ -13,7 +13,7 @@ SpellDetailUI::SpellDetailUI(int flip) :m_Scene(GameStateController::GetInstance
 
     for (size_t i = 0; i < 3; i++)
     {
-       m_Texts[i] = m_Scene->CreateTextObject("DetailBox_Text_" + i); \
+       m_Texts[i] = m_ObjectManager->CreateTextObject("DetailBox_Text_" + i); \
        m_Texts[i]->fontSize = 36;
        m_Texts[i]->color = AC_WHITE;
        m_Texts[i]->position.x = m_Box->position.x - (m_Box->scale.x / 2.0f)*0.9f;

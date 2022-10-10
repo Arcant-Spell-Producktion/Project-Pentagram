@@ -1,5 +1,6 @@
 ﻿#include "FireSpellObjects.h"
-
+#include "Engine/IGameObjectManager.h"
+#include "Engine/GameStateController.h"
 
 BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition target)
 {

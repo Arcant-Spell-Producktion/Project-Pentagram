@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "Game/Spells/Element.h"
 #include <string>
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
@@ -7,7 +7,7 @@
 class SpellIconUI: public Button
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;
     UIObject* m_IconBorder;

@@ -4,7 +4,7 @@
 
 const std::string iconPath = "Sprites/UI/Game/ui_game_spell-icons.png";
 
-SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetInstance()->currentScene), Button(objName)
+SpellIconUI::SpellIconUI(std::string objName) :m_ObjectManager(GameStateController::GetInstance()->currentScene), Button(objName)
 {
     this->onHover = [this](Button* button)
     {
@@ -17,7 +17,7 @@ SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetI
     this->color.a = 0.0f;
     this->scale = { 120.0f,120.0f ,1.0f };
 
-    m_IconObject = m_Scene->CreateUIObject(objName + "_icon");
+    m_IconObject = m_ObjectManager->CreateUIObject(objName + "_icon");
     m_IconObject->SetIsAnimationObject(false);
     m_IconObject->SetTexture(iconPath);
     m_IconObject->SetSpriteByIndex(0, 0);
@@ -25,7 +25,7 @@ SpellIconUI::SpellIconUI(std::string objName) :m_Scene(GameStateController::GetI
 
     this->SetChildRenderFront(m_IconObject);
 
-    m_IconBorder = m_Scene->CreateUIObject(objName + "_iconBorder");
+    m_IconBorder = m_ObjectManager->CreateUIObject(objName + "_iconBorder");
     m_IconBorder->SetIsAnimationObject(false);
     m_IconBorder->SetTexture(iconPath);
     m_IconBorder->SetSpriteByIndex(0, 0);
