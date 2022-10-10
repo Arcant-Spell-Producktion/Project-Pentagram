@@ -24,9 +24,15 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellDispather.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h" />
@@ -112,6 +118,9 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
@@ -142,7 +151,9 @@
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellDispather.cpp" />
     <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />

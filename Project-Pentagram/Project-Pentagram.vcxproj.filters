@@ -155,6 +155,19 @@
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellDispather.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellTimeline.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp">
+      <Filter>Game\BattleScene\SpellObject\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.cpp">
+      <Filter>Game\BattleScene\SpellObject\Fire\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -383,6 +396,24 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h">
       <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.h">
+      <Filter>Game\BattleScene\SpellObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h">
+      <Filter>Game\BattleScene\SpellObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellDispather.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h">
+      <Filter>Game\BattleScene\SpellObject\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.h">
+      <Filter>Game\BattleScene\SpellObject\Fire\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -642,6 +673,15 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellEffect\Effects">
       <UniqueIdentifier>{8e08e294-e6e7-4bad-a6fb-74e182482132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject">
+      <UniqueIdentifier>{9dc4fa57-b747-44b6-8298-2f3b210acbae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject\Fire">
+      <UniqueIdentifier>{0cf6e220-fe9d-4c1f-b82d-ae760b0e4108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject\Fire\Objects">
+      <UniqueIdentifier>{71ce807e-1f6d-41d0-b333-1bf1e95f0d7c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

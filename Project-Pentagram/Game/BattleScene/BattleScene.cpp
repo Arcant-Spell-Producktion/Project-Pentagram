@@ -32,7 +32,7 @@ void BattleScene::GameSceneInit()
     ParticleSystem* particle = CreateParticle(particleProp);
 
     float player_y_offset = 150.0f;
-    GameObject* obj = CreateGameObject("Player", 3, { 5 , 12 , 8 });
+    GameObject* obj = CreateGameObject("Player");
     obj->SetIsAnimationObject(true);
     obj->scale = { 320.0f, 320.0f, 1.0f };
     obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
@@ -41,7 +41,7 @@ void BattleScene::GameSceneInit()
     obj->SetChildRenderBack(particle);
     
 
-    GameObject* obj3 = CreateGameObject("Minion", 3, { 5,6,6 });
+    GameObject* obj3 = CreateGameObject("Minion");
     obj3->SetIsAnimationObject(true);
     obj3->scale = { -320.0f, 320.0f, 1.0f };
     obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
