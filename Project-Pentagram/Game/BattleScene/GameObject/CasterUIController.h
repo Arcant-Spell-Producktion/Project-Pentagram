@@ -1,12 +1,12 @@
 ﻿#pragma once
-#include "Game/BattleScene/BattleScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "Game/GameData/CasterData/CasterPosition.h"
 #include "SpellDetailUI.h"
 
 class CasterUIController
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     int m_CurrentHealth = 0;
     int m_MaxHealth = 0;
