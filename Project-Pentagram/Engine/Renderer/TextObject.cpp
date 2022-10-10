@@ -28,7 +28,7 @@ void TextObject::Draw(Camera& camera, glm::mat4 parentModel)
 
 	if (m_SlowRender)
 	{
-		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f), 0, m_CurrentTextIndex + 1);
+		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f), camera, parentModel, 0, m_CurrentTextIndex + 1);
 		if (m_CurrentTime >= m_RenderTime)
 		{
 			m_CurrentTextIndex++;
@@ -47,7 +47,7 @@ void TextObject::Draw(Camera& camera, glm::mat4 parentModel)
 	}
 	else if(!m_SlowRender)
 	{
-		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f));
+		this->RenderText(glm::vec3(0.0f, 0.0f, 0.0f), camera, parentModel);
 	}
 }
 void TextObject::UnloadMesh()
@@ -70,7 +70,7 @@ void TextObject::SetFonts(const std::string& fontPath)
 }
 
 // ----------------- Render Text -----------------
-void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
+void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 parentModel, int start, int end)
 {
 	start = (start == -1 ? 0 : start);
 	end = (end == -1 ? this->text.size() : end);
@@ -81,6 +81,17 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 	// Activate corresponding render state
 	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->TextShader;
 	shader.Activate();
+
+	// Update MVP Matrix
+	glm::mat4 model = parentModel;
+	model *= glm::translate(glm::mat4(1.0f), this->position);
+	model *= glm::rotate(glm::mat4(1.0f), glm::radians(this->rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+
+	// Draw Back Child
+	for (unsigned int idx = 0; idx < m_BackRenderedChildList.size(); idx++)
+	{
+		m_BackRenderedChildList[idx]->Draw(camera, model);
+	}
 
 	// Set Uniform in shader
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
@@ -125,28 +136,35 @@ void TextObject::RenderText(glm::vec3 positionOffset, int start, int end)
 		ch.texture.Activate(GL_TEXTURE0);
 
 		// Set Uniform in shader
-		glm::mat4 model = glm::translate(glm::mat4(1.0f), positionOffset);
+		glm::mat4 textModel = parentModel;
+		textModel *= glm::translate(glm::mat4(1.0f), positionOffset);
 		if (textAlignment == TextAlignment::LEFT)
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f), ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
+			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f), ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
 		else if (textAlignment == TextAlignment::MID)
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine] / 2.0f, ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
+			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine] / 2.0f, ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
 		else
 		{
-			model *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine], ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
+			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine], ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
-		model *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-		model *= glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 1.0f));
-		shader.setMat4("u_Model", model);
+		textModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+		textModel *= glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 1.0f));
+		shader.setMat4("u_Model", textModel);
 
 		// Render quad
 		m_Mesh.Render();
 
 		// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
 		x += (ch.advance >> 6) * m_FontScale;	// bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
+	}
+
+	// Draw Front Child
+	for (unsigned int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
+	{
+		m_FrontRenderedChildList[idx]->Draw(camera, model);
 	}
 }
 
