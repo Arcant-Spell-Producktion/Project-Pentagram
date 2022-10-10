@@ -1,18 +1,18 @@
 ﻿#pragma once
 #include <vector>
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include "SpellIconUI.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
-class PentragramController: public GameObject
+class PentragramController: public UIObject
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     PentagramField m_currentField = PentagramField::Will;
     PentagramData_T m_currentData;
 
-    std::vector<GameObject*> m_PentragramObj;
+    std::vector<UIObject*> m_PentragramObj;
     std::vector<Button*> m_PentragramButtons;
     std::vector<Button*> m_IntButtons;
     std::vector<Button*> m_ArrowButtons;
@@ -26,6 +26,8 @@ private:
     SpellIconUI* m_SpellIcon;
 public:
     PentragramController();
+
+    void SetActive(const bool& active);
 
     virtual void OnUpdate(const float& dt) override;
 

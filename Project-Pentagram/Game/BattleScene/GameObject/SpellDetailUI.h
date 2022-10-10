@@ -1,10 +1,10 @@
 ﻿#pragma once
-#include "Engine/GameScene.h"
+#include "Engine/IGameObjectManager.h"
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
 class SpellDetailUI
 {
 private:
-    GameScene* m_Scene;
+    IGameObjectManager* m_ObjectManager;
 
     UIObject* m_Box;
     TextObject* m_Texts[3];

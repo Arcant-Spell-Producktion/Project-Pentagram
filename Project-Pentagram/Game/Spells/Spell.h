@@ -4,6 +4,7 @@
 #include <string>
 #include "SpellEffectType.h"
 #include "ChannelEffectType.h"
+#include "Game/Spells/Element.h"
 
 using namespace std;
 
@@ -18,8 +19,12 @@ private:
     ChannelEffectEnum m_ChannelEffectType = ChannelEffectEnum::None;
     int m_ChannelTime = 0;
 public:
+    Element::Type m_Element;
+    int m_Index;
 
-    Spell() :
+    Spell(Element::Type element = Element::Debug, int index = -1) :
+        m_Element(element),
+        m_Index(index),
         m_Name("New Spell"),
         m_WillValues{ 0,0,0,0,0,0 },
         m_SpellEffectType(SpellEffectEnum::None),

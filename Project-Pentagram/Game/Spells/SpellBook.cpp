@@ -18,7 +18,7 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
     XMLElement* currSpellElement = SpellList->FirstChildElement("Spell");
     for (int spell_index = 0; spell_index < 9; spell_index++)
     {
-        Spell currSpell;
+        Spell currSpell(element, spell_index);
 
         XMLElement* castTimeElement = currSpellElement->FirstChildElement("CastTime");
         XMLElement* channelTimeElement = currSpellElement->FirstChildElement("ChannelTime");

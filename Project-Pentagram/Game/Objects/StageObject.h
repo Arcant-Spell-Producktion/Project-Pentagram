@@ -5,7 +5,7 @@
 class StageObject :public GameObject
 {
 private:
-    GameScene* m_Scene;
+    GameScene* m_ObjectManager;
     Element::Type m_Element;
 
     GameObject* m_Background;
