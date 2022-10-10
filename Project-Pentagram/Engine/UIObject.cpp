@@ -8,8 +8,8 @@ UIObject::UIObject(const std::string& objName)
 	this->m_IsSlicing = false;
 	this->m_SlicingBorder = 40.0f;
 	this->m_SlicingBorderMultiplier = 1.0f;
-	this->m_IsGradiant = false;
-	this->m_GradiantValue = 0.0f;
+	this->m_IsGradient = false;
+	this->m_GradientValue = 0.0f;
 }
 
 void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
@@ -21,7 +21,7 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 
 	// Get UI(GameObject) Shader || Button Shader(Handle UI Slicing)
 	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
-	Shader& shader = (m_IsGradiant ? shaderCollector->GradiantShader : shaderCollector->UISlicingShader);
+	Shader& shader = (m_IsGradient ? shaderCollector->GradientShader : shaderCollector->UISlicingShader);
 
 	// Update MVP Matrix
 	glm::mat4 model = parentModel;
@@ -78,15 +78,15 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 		//std::cout << "u_Texture : " << u_textureBorder.x << ", " << u_textureBorder.y << "\n";
 		//std::cout << "u_Border : " << u_slicingBorder << "\n\n";
 	}
-	else if (m_IsGradiant)
+	else if (m_IsGradient)
 	{
-		m_StartGradiantTexture->Activate(GL_TEXTURE1);
-		shader.setInt("u_StartGradiant", 1);
+		m_StartGradientTexture->Activate(GL_TEXTURE1);
+		shader.setInt("u_StartGradient", 1);
 		
-		m_EndGradiantTexture->Activate(GL_TEXTURE2);
-		shader.setInt("u_EndGradiant", 2);
+		m_EndGradientTexture->Activate(GL_TEXTURE2);
+		shader.setInt("u_EndGradient", 2);
 
-		shader.setFloat("u_InterpolateValue", m_GradiantValue);
+		shader.setFloat("u_InterpolateValue", m_GradientValue);
 	}
 
 	if (m_IsSpriteSheet)
@@ -129,21 +129,21 @@ SlicingType UIObject::GetSlicingType() const
 {
 	return this->m_SlicingType;
 }
-bool UIObject::IsGradiant() const
+bool UIObject::IsGradient() const
 {
-	return this->m_IsGradiant;
+	return this->m_IsGradient;
 }
-float UIObject::GetGradiantValue() const 
+float UIObject::GetGradientValue() const 
 {
-	return this->m_GradiantValue;
+	return this->m_GradientValue;
 }
-Texture* UIObject::GetStartGradiantTexture() const
+Texture* UIObject::GetStartGradientTexture() const
 {
-	return this->m_StartGradiantTexture;
+	return this->m_StartGradientTexture;
 }
-Texture* UIObject::GetEndGradiantTexture() const
+Texture* UIObject::GetEndGradientTexture() const
 {
-	return this->m_EndGradiantTexture;
+	return this->m_EndGradientTexture;
 }
 
 // ----------------- Setter ----------------- 
@@ -163,24 +163,24 @@ void UIObject::SetSlicingType(const SlicingType& slicingType)
 {
 	this->m_SlicingType = slicingType;
 }
-void UIObject::SetIsGradiant(const bool& active)
+void UIObject::SetIsGradient(const bool& active)
 {
-	this->m_IsGradiant = active;
+	this->m_IsGradient = active;
 }
-void UIObject::SetGradiantValue(const float& gradiantValue)
+void UIObject::SetGradientValue(const float& gradiantValue)
 {
 	float gradiantClampValue = glm::clamp(gradiantValue, 0.0f, 1.0f);
-	this->m_GradiantValue = gradiantClampValue;
+	this->m_GradientValue = gradiantClampValue;
 }
-void UIObject::SetStartGradiantTexture(const std::string& filePath) 
+void UIObject::SetStartGradientTexture(const std::string& filePath) 
 {
 	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
 
-	this->m_StartGradiantTexture = texture;
+	this->m_StartGradientTexture = texture;
 }
-void UIObject::SetEndGradiantTexture(const std::string& filePath)
+void UIObject::SetEndGradientTexture(const std::string& filePath)
 {
 	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
 
-	this->m_EndGradiantTexture = texture;
+	this->m_EndGradientTexture = texture;
 }

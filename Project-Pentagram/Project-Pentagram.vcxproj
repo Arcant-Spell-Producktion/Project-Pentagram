@@ -170,8 +170,8 @@
     <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="WorkingDir\Shader\GradiantFragment.shader" />
-    <None Include="WorkingDir\Shader\GradiantVertex.shader" />
+    <None Include="WorkingDir\Shader\GradientFragment.shader" />
+    <None Include="WorkingDir\Shader\GradientVertex.shader" />
     <None Include="WorkingDir\Shader\UISlicingFragment.shader" />
     <None Include="WorkingDir\Shader\UISlicingVertex.shader" />
     <None Include="WorkingDir\Shader\GameObjFragment.shader" />

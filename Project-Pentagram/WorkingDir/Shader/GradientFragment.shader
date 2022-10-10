@@ -3,10 +3,10 @@
 uniform vec4 u_Color;
 // Use for converting to Grayscale
 uniform sampler2D u_Texture;
-// For Mapping current Gradiant Color
-uniform sampler2D u_StartGradiant;
-uniform sampler2D u_EndGradiant;
-// Interpolate Value between u_StartGradiant and u_EndGradiant [0, 1]
+// For Mapping current Gradient Color
+uniform sampler2D u_StartGradient;
+uniform sampler2D u_EndGradient;
+// Interpolate Value between u_StartGradient and u_EndGradient [0, 1]
 uniform float u_InterpolateValue;
 
 in vec2 TexCoord;
@@ -50,20 +50,20 @@ void main()
 
 	float greyScale = ToGreyScale(baseTexture.rgb);
 
-	vec3 startGradiant = texture(u_StartGradiant, vec2(greyScale, 0.5f)).rgb;
-	vec3 endGradiant = texture(u_EndGradiant, vec2(greyScale, 0.5f)).rgb;
+	vec3 startGradient = texture(u_StartGradient, vec2(greyScale, 0.5f)).rgb;
+	vec3 endGradient = texture(u_EndGradient, vec2(greyScale, 0.5f)).rgb;
 
 	// Convtert to HSV
-	startGradiant = rgb2hsv(startGradiant);
-	endGradiant = rgb2hsv(endGradiant);
+	startGradient = rgb2hsv(startGradient);
+	endGradient = rgb2hsv(endGradient);
 
-	// Gradiant from Higher Hue to Lower Hue
-	if (endGradiant.r > startGradiant.r)
+	// Gradient from Higher Hue to Lower Hue
+	if (endGradient.r > startGradient.r)
 	{
-		startGradiant.r += 1.0f;
+		startGradient.r += 1.0f;
 	}
 
-	vec3 finalColor = mix(startGradiant, endGradiant, u_InterpolateValue);
+	vec3 finalColor = mix(startGradient, endGradient, u_InterpolateValue);
 
 	// finalColor.hue must be [0, 1]
 	if (finalColor.r > 1.0f)

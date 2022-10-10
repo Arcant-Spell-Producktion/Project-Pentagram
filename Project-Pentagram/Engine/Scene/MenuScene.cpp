@@ -97,11 +97,11 @@ void MenuScene::GameSceneInit()
 	button2->onClick = [](Button* button) { SceneManager::QuitGame(); };
 	button2->SetTexture("Sprites/Button_Test.png");
 
-	UIObject* gradiant = CreateUIObject("Gradiant");
+	UIObject* gradiant = CreateUIObject("Gradient");
 	gradiant->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_hp-bar.png");
-	gradiant->SetStartGradiantTexture("Sprites/GradientMap/gradiant-map_green.png");
-	gradiant->SetEndGradiantTexture("Sprites/GradientMap/gradiant-map_red.png");
-	gradiant->SetIsGradiant(true);
+	gradiant->SetStartGradientTexture("Sprites/GradientMap/gradiant-map_green.png");
+	gradiant->SetEndGradientTexture("Sprites/GradientMap/gradiant-map_red.png");
+	gradiant->SetIsGradient(true);
 	gradiant->scale = { 1280.0f, 320.0f, 1.0f };
 	gradiant->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	gradiant->position = { 0.0f, -500.0f, 0.0f};
@@ -124,7 +124,7 @@ void MenuScene::GameSceneUpdate(float dt)
 {
 	GameScene::GameSceneUpdate(dt);
 
-	gObject->SetGradiantValue(slider->GetValue());
+	gObject->SetGradientValue(slider->GetValue());
 
 	double time = glfwGetTime();
 	if (t >= 1.0f)
