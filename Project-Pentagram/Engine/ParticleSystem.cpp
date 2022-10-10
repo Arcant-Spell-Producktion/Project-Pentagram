@@ -36,6 +36,23 @@ void ParticleSystem::OnUpdate(const float& dt)
 		particle.lifeRemaining -= dt;
 		particle.position += particle.velocity * dt;
 		particle.rotation += dt * ROTATION_SPD;
+
+		// Increment Time
+		particle.animPlayTime += dt;
+
+		// m_Time reach AnimationTime or not?
+		if (particle.animPlayTime >= m_AnimationPlayTime)
+		{
+			// Increment Column & Check Condition
+			particle.curAnimCol++;
+			if (particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1])
+			{
+				particle.curAnimCol = 1;
+			}
+
+			// Restart m_CurrentPlayTime
+			particle.animPlayTime = 0.0f;
+		}
 	}
 }
 void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
@@ -99,6 +116,20 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setMat4("u_Model", model);
 		shader.setVec4("u_Color", color);
 
+		if (m_IsSpriteSheet)
+		{
+			// SpriteSheet Offset
+			shader.setFloat("u_OffsetX", (particle.curAnimCol - 1) * (1.0f / m_MaxAnimationColumn));
+			shader.setFloat("u_OffsetY", (particle.curAnimRow - 1) * (1.0f / m_AnimationRow));
+		}
+		else
+		{
+			// Default Offset (0.0f, 0.0f)
+			shader.setFloat("u_OffsetX", 0.0f);
+			shader.setFloat("u_OffsetY", 0.0f);
+		}
+
+
 		this->m_Mesh.Render();
 	}
 
@@ -111,6 +142,16 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 void ParticleSystem::UnloadMesh()
 {
 	GameObject::UnloadMesh();
+}
+
+
+void ParticleSystem::SetSpawnTime(const float& spawnTime)
+{
+	this->spawnTime = spawnTime;
+}
+float ParticleSystem::GetSpawnTime() const
+{
+	return this->spawnTime;
 }
 
 void ParticleSystem::Emit(const ParticleProperty& particleProperty)

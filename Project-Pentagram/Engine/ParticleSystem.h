@@ -37,21 +37,29 @@ class ParticleSystem : public GameObject
 			float lifeTime = 1.0f;
 			float lifeRemaining = 0.0f;
 
+			int curAnimCol = 1;
+			int curAnimRow = 1;
+
+			float animPlayTime = 0.0f;
+
 			bool active = false;
 		};
 		Particle m_ParticlePool[1000];
 		float m_CurrentSpawnTime = 0.0f;
+		float spawnTime;
 
 	public:
 		GLuint m_PoolIndex = 999;
 		ParticleProperty baseParticle;
-		float spawnTime;
 
 		ParticleSystem(const std::string& objName);
 
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera &camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 		virtual void UnloadMesh() override;
+
+		void SetSpawnTime(const float& spawnTime);
+		float GetSpawnTime() const;
 
 		void Emit(const ParticleProperty& particleProperty);
 };
