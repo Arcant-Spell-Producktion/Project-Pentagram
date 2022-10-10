@@ -14,6 +14,8 @@ private:
     int m_CurrentMana = 0;
     int m_MaxMana = 0;
 
+    UIObject* m_CasterBar;
+
     UIObject* m_Health;
     UIObject* m_Mana;
 
