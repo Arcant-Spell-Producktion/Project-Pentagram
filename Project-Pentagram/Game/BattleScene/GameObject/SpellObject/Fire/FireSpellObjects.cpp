@@ -21,8 +21,11 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
         /*
     case 4:
         break;
+        */
     case 5:
+        object = new FireSpell6(target);
         break;
+        /*
     case 6:
         break;
     case 7:
@@ -166,5 +169,74 @@ void FireSpell4::Initialize()
         }
     );
 
+    QueueDoneEvent();
+}
+
+void FireSpell6::Initialize()
+{
+    std::cout << "Fire Storm::Init\n";
+    float size = 640.0f;
+    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = 0.0f;
+    this->scale = { size / 2 ,size,1.0f };
+    this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
+    this->SetIsAnimationObject(true);
+
+    float timePerFrame = 0.1f;
+    this->SetAnimationPlayTime(timePerFrame);
+
+    int count = 0;
+    count = this->GetAnimationColumn(0);
+    float chargeTime = timePerFrame * (count - 1);
+    QueueUpdateFunction(
+        [this, chargeTime](float dt)
+        {
+            if (m_TotalTime >= chargeTime)
+            {
+                Next();
+                return;
+            }
+        }
+    );
+
+    QueueHitEvent();
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByValue(1, 0);
+            Next();
+        }
+    );
+
+    float spinTime = 2.0f;
+    QueueUpdateFunction(
+        [this, spinTime](float dt)
+        {
+            if (m_TotalTime >= spinTime)
+            {
+                Next();
+            }
+        }
+    );
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByValue(1, 0);
+            Next();
+        }
+    );
+
+    count = this->GetAnimationColumn(2);
+    float endTime = timePerFrame * (count - 1);
+    QueueUpdateFunction(
+        [this, endTime](float dt)
+        {
+            if (m_TotalTime >= endTime)
+            {
+                Next();
+            }
+        }
+    );
     QueueDoneEvent();
 }
