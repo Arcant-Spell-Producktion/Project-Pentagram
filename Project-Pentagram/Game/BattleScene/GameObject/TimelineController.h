@@ -7,10 +7,17 @@ class TimelineController : public UIObject
 private:
     IGameObjectManager* m_ObjectManager;
 
+    UIObject* top;
     UIObject* box;
+
+    UIObject* trackMarker;
+
     vector<TimetrackUI*> m_Tracks;
 public:
     TimelineController();
+
+    void SetTrackerActive(bool isActive);
+    void SetTrackerPositionByIndex(int index);
 
     void UpdatePreviewIcon(int index, CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);

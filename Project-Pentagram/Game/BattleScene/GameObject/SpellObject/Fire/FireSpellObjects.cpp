@@ -61,7 +61,6 @@ void FireSpell1::Initialize()
     QueueUpdateFunction(
         [this, startPos, direction, travelTime](float dt)
         {
-            std::cout << "\tSpell::Move\n";
             if (m_TotalTime >= travelTime)
             {
                 Next();
@@ -145,12 +144,9 @@ void FireSpell4::Initialize()
 
     QueueHitEvent();
 
-    float localTimer = 0.0f;
     QueueUpdateFunction(
-        [this, &localTimer, count](float dt)
+        [this, count](float dt)
         {
-            
-
             if (m_TotalTime >= 2.0f)
             {
                 Next();
@@ -161,8 +157,9 @@ void FireSpell4::Initialize()
             this->SetSpriteByValue(1, count);
 
             localTimer += dt;
-            if (localTimer >= 0.25f)
+            if (localTimer >= 0.1f)
             {
+                std::cout << "\tFLIP\n";
                 this->scale.x = this->scale.x * -1;
                 localTimer = 0.0f;
             }

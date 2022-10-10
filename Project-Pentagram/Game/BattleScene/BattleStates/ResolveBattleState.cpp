@@ -24,6 +24,7 @@ void ResolveBattleState::ResolveTrack()
     std::cout << "Resovel Track: " << m_TrackResolveIndex << "\n";
 
     m_CurrentTrack = m_ResolveBattleManager->Data.Timeline.GetTimetrack(m_TrackResolveIndex);
+    m_ResolveBattleManager->Data.Timeline.UI->SetTrackerPositionByIndex(m_TrackResolveIndex);
     std::cout << "\tGet Track: " << m_TrackResolveIndex << "\n";
     std::cout << "\tTrack Size: " << m_CurrentTrack->GetSpellList().size() << "\n";
 
@@ -145,6 +146,9 @@ void ResolveBattleState::OnBattleStateIn()
     m_TrackResolveIndex = 0;
     m_SpellResolveIndex = 0;
     m_Timer = 0.0f;
+
+    m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(true);
+    m_ResolveBattleManager->Data.Timeline.UI->SetTrackerPositionByIndex(0);
 }
 
 void ResolveBattleState::OnBattleStateUpdate(float dt)
@@ -190,5 +194,6 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
 void ResolveBattleState::OnBattleStateOut()
 {
+    m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(false);
     m_ResolveBattleManager->Data.Timeline.CompleteTimeline();
 }

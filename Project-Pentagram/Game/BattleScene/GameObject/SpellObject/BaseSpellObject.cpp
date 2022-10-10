@@ -2,7 +2,6 @@
 
 void BaseSpellObject::Next()
 {
-    std::cout << "\tSpell::Next\n";
     m_TotalTime = 0.0f;
     if (m_SpellUpdateQueue.size() == 0) { m_SpellState = SpellObjectState::Done; return; }
     m_CurrentUpdateFunc = m_SpellUpdateQueue.front();
@@ -11,8 +10,6 @@ void BaseSpellObject::Next()
 
 void BaseSpellObject::OnUpdate(const float& dt)
 {
-    std::cout << "Spell State: " << (int)m_SpellState << " , " << m_SpellUpdateQueue.size() << "\n";
-    std::cout << "Spell :: Check Init or Done\n";
     if (m_SpellState == SpellObjectState::Init || m_SpellState == SpellObjectState::Done) return;
     if (m_CurrentUpdateFunc == nullptr) Next();
     m_TotalTime += dt;
@@ -21,8 +18,6 @@ void BaseSpellObject::OnUpdate(const float& dt)
 
 void BaseSpellObject::QueueUpdateFunction(SpellUpdateFunc func)
 {
-    std::cout << "Spell:: Add Update \n";
-
     m_SpellUpdateQueue.push(func);
 }
 
@@ -33,8 +28,6 @@ void BaseSpellObject::Initialize()
 
 BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, std::string spellTexturePath) :GameObject(spellName)
 {
-    std::cout << "Spell State: " << (int)m_SpellState << " , " << m_SpellUpdateQueue.size() << "\n";
-
     m_SpellState = SpellObjectState::Init;
 
     if (target == CasterPosition::CasterA) m_SpellTarget = 1;

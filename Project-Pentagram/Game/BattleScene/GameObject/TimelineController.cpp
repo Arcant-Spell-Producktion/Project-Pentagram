@@ -7,6 +7,17 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     this->color.a = 0.0f;
     this->position.y += 440.0f;
 
+    top = m_ObjectManager->CreateUIObject("TimelineUITOP");
+    top->scale = { 1375.0f,80.0f,1.0f };
+    top->position.y += 110.0f;
+    top->color = AC_BLACK;
+    this->SetChildRenderFront(top);
+
+    trackMarker = m_ObjectManager->CreateUIObject("Timeline_Track_Marker");
+    trackMarker->scale = { 50.0f,50.0f,1.0f };
+    trackMarker->SetActive(false);
+    top->SetChildRenderFront(trackMarker);
+
     box = m_ObjectManager->CreateUIObject("TimelineUIBOX");
     box->scale = { 1920.0f,360.0f,1.0f };
     box->color.a = 0.5f;
@@ -19,6 +30,16 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }
+}
+
+void TimelineController::SetTrackerActive(bool isActive)
+{
+    trackMarker->SetActive(isActive);
+}
+
+void TimelineController::SetTrackerPositionByIndex(int index)
+{
+    trackMarker->position.x = index * 125.0f - 625.0f;
 }
 
 void TimelineController::UpdatePreviewIcon(int time, CastSpellDetail* spell)
