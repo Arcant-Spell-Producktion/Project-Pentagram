@@ -1,6 +1,23 @@
 ﻿#pragma once
 #include <Game/BattleScene/GameObject/SpellObject/BaseSpellObject.h>
 
+class FireSpell6 : public BaseSpellObject
+{
+private:
+    void Initialize();
+public:
+    FireSpell6(CasterPosition target) :BaseSpellObject(
+        target,
+        "Firestorm_Object",
+        "Sprites/Spell/Fire/spell_fire_6.png")
+    {
+        std::cout << "Spell:: Create Firewall\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
+
 class FireSpell4 : public BaseSpellObject
 {
 private:
