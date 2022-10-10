@@ -414,8 +414,6 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\Objects\FireballObject.h">
       <Filter>Game\BattleScene\SpellObject\Fire\Objects</Filter>
-    <ClInclude Include="Engine\IGameObjectManager.h">
-      <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
