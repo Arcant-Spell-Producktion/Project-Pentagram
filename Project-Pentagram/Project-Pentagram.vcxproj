@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\IGameObjectManager.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />

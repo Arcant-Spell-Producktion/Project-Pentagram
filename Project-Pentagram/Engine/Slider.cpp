@@ -68,8 +68,8 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWidth();
-	int screen_height = window->GetHeight();
+	int screen_width = window->GetWindowWidth();
+	int screen_height = window->GetWindowHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 
 	shader.Activate();
@@ -77,7 +77,7 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", proj);
 	shader.setVec4("u_Color", this->color);
-	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 	shader.setBool("u_IsSlicing", m_IsSlicing);

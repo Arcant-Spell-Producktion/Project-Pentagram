@@ -50,14 +50,16 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 
 	shader.Activate();
 
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	int screen_width = window->GetWindowWidth();
+	int screen_height = window->GetWindowHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	this->m_Texture->Activate(GL_TEXTURE0);
 	
 	shader.setMat4("u_View", camera.GetViewMatrix());
 	shader.setMat4("u_Projection", proj);
 	shader.setInt("u_Texture", 0);
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 
 	// Render
 	glm::mat4 originModel = parentModel;
