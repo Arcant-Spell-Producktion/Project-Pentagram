@@ -3,16 +3,10 @@
 #include <vector>
 
 #include "Engine/Input.h"
-#include "Engine/GameObjectTag.h"
-#include "Engine/GameObject.h"
-#include "Engine/ParticleSystem.h"
-#include "Engine/UIObject.h"
-#include "Engine/Renderer/TextObject.h"
-#include "Engine/Button.h"
-#include "Engine/Slider.h"
 #include "Engine/Camera.h"
+#include "Engine/IGameObjectManager.h"
 
-class GameScene
+class GameScene : public IGameObjectManager
 {
 	private:
 		// ----------------- Button Events -----------------
@@ -35,6 +29,10 @@ class GameScene
 		float timeScale = 1.0f;
 		float scaledDeltaTime;
 
+		virtual void AddGameObjectToList(GameObject* object) override;
+		virtual void AddUIObjectToList(UIObject* object) override;
+		virtual void AddButtonToList(Button* object) override;
+
 	public:
 
 		virtual ~GameScene();
@@ -48,37 +46,19 @@ class GameScene
 		virtual void GameSceneFree();
 
 		// ----------------- Creating Object -----------------
-		template <typename T>
-        T* CreateObject(T* object)
-        {
-            if (Button* button = dynamic_cast<Button*>(object))
-            {
-                uiObjectsList.push_back(button);
-                buttonObjectsList.push_back(button);
-            }
-            else if (UIObject* ui = dynamic_cast<UIObject*>(object))
-            {
-                uiObjectsList.push_back(ui);
-            }
-            else if (GameObject* gameObj = dynamic_cast<GameObject*>(object))
-            {
-                objectsList.push_back(gameObj);
-            }
-            return object;
-        }
 
-		GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 });
-		ParticleSystem* CreateParticle(ParticleProperty& particleProperty);
-		ParticleSystem* CreateParticle(const std::string& objName, ParticleProperty& particleProperty);
-		UIObject* CreateUIObject(const std::string& objName = "");
-		TextObject* CreateTextObject(const std::string& objName = "");
-		Button* CreateButton(const std::string& objName = "");
-		Slider* CreateSlider(const std::string& objName = "");
+		virtual GameObject* CreateGameObject(const std::string& objName = "", const int& animRow = 1, const std::vector<int>& animCol = { 1 }) override;
+		virtual ParticleSystem* CreateParticle(ParticleProperty& particleProperty) override;
+		virtual ParticleSystem* CreateParticle(const std::string& objName, ParticleProperty& particleProperty) override;
+		virtual UIObject* CreateUIObject(const std::string& objName = "") override;
+		virtual TextObject* CreateTextObject(const std::string& objName = "") override;
+		virtual Button* CreateButton(const std::string& objName = "") override;
+		virtual Slider* CreateSlider(const std::string& objName = "") override;
 
 		// ----------------- Modify Object -----------------
-		void DeleteObjectByName(const std::string& objName);
-		void DeleteObjectByPointer(GameObject* objPtr);
-		GameObject* FindObject(const std::string& objName);
+		virtual void DeleteObjectByName(const std::string& objName) override;
+		virtual void DeleteObjectByPointer(GameObject* objPtr) override;
+		virtual GameObject* FindObject(const std::string& objName) override;
 
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);

@@ -94,8 +94,8 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWidth();
-	int screen_height = window->GetHeight();
+	int screen_width = window->GetWindowWidth();
+	int screen_height = window->GetWindowHeight();
 	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	glm::mat4 view = camera.GetViewMatrix();
 
@@ -115,7 +115,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", view);
 	shader.setMat4("u_Projection", proj);
-	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowRatio(), 1.0f)));
+	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 	shader.setVec4("u_Color", this->color);
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);

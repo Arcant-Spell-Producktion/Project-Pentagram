@@ -5,6 +5,20 @@ GameScene::~GameScene()
 
 }
 
+void GameScene::AddGameObjectToList(GameObject* object)
+{
+	objectsList.push_back(object);
+}
+void GameScene::AddUIObjectToList(UIObject* object)
+{
+	uiObjectsList.push_back(object);
+}
+void GameScene::AddButtonToList(Button* object)
+{
+	uiObjectsList.push_back(object);
+	buttonObjectsList.push_back(object);
+}
+
 // ----------------- Creating Object ----------------- 
 
 GameObject* GameScene::CreateGameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
@@ -175,10 +189,10 @@ void GameScene::UpdateButtonOnClick()
 	{
 		return;
 	}
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
 
-	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
@@ -193,10 +207,10 @@ void GameScene::UpdateButtonOnClick()
 		{
 			continue;
 		}
-		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
-		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
-		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
-		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * viewportScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * viewportScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
@@ -207,13 +221,15 @@ void GameScene::UpdateButtonOnClick()
 }
 void GameScene::UpdateButtonOnHover()
 {
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
-	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+	bool isHover = false;
+
+	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
 
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
@@ -225,15 +241,15 @@ void GameScene::UpdateButtonOnHover()
 		{
 			continue;
 		}
-		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
-		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
-		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
-		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * viewportScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * viewportScale.y;
 
-		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
+		if (!isHover && (curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
 			curObj->onHover(curObj);
-			return;
+			isHover = true;
 		}
 		else
 		{
@@ -243,13 +259,13 @@ void GameScene::UpdateButtonOnHover()
 }
 void GameScene::UpdateButtonOnPress()
 {
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetHeight();
+	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
-	glm::vec2 windowScale = ArcantEngine::GetInstance()->GetWindow()->GetWindowRatio();
+	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
 
 	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
 	{
@@ -261,10 +277,10 @@ void GameScene::UpdateButtonOnPress()
 		{
 			continue;
 		}
-		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * windowScale.x;
-		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * windowScale.x;
-		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * windowScale.y;
-		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * windowScale.y;
+		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * viewportScale.x;
+		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * viewportScale.y;
+		float bottom = (finalPos.y - (curObj->scale.y / 2.0f)) * viewportScale.y;
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
