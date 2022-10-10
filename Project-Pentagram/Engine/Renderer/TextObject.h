@@ -51,6 +51,6 @@ class TextObject : public UIObject
 		void SetFonts(const std::string& fontPath);
 
 		// ----------------- Render Text -----------------
-		void RenderText(glm::vec3 positionOffset, int start = -1, int end = -1);
+		void RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 parentModel, int start = -1, int end = -1);
 
 };

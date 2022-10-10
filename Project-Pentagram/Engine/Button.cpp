@@ -101,7 +101,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	m_Mesh.Render();
 	m_Texture->UnBind();
 
-	this->textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f));
+	this->textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f), camera, model);
 
 	// Draw Front Child
 	for (unsigned int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
