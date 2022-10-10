@@ -10,7 +10,7 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
     case Element::Earth:
         break;
     case Element::Fire:
-        newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Element, target);
+        newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
         m_Spells.emplace(detail, m_Scene->CreateObject<BaseSpellObject>(newSpell));
         break;
     case Element::Water:

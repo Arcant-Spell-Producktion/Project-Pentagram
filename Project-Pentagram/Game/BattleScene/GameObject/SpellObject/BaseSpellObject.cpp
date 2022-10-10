@@ -37,8 +37,8 @@ BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, s
 
     m_SpellState = SpellObjectState::Init;
 
-    if (target == CasterPosition::CasterB) m_SpellTarget = -1;
-    this->scale.x = m_SpellTarget;
+    if (target == CasterPosition::CasterA) m_SpellTarget = 1;
+    else if (target == CasterPosition::CasterB) m_SpellTarget = -1;
 
     this->SetTexture(spellTexturePath);
 };

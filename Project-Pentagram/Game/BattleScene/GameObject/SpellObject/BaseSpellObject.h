@@ -14,7 +14,7 @@ private:
     SpellUpdateFunc  m_CurrentUpdateFunc = nullptr;
     std::queue<SpellUpdateFunc> m_SpellUpdateQueue;
 protected:
-    int m_SpellTarget = 1;
+    int m_SpellTarget = 0; // 1 if A, -1 if B
     float m_TotalTime = 0.0f;
 
     void Next();
