@@ -6,8 +6,6 @@ SpellDetailUI::SpellDetailUI(int flip) :m_ObjectManager(GameStateController::Get
 {
     m_Box = m_ObjectManager->CreateUIObject("DetailBox");
     m_Box->position = { flip* -650.0f,120.0f,0.0f };
-   
-    
     m_Box->scale = { 520.0f,220.0f,1.0f };
     m_Box->color = flip == 1?AC_RED:AC_BLUE;
 
@@ -16,8 +14,8 @@ SpellDetailUI::SpellDetailUI(int flip) :m_ObjectManager(GameStateController::Get
        m_Texts[i] = m_ObjectManager->CreateTextObject("DetailBox_Text_" + i); \
        m_Texts[i]->fontSize = 36;
        m_Texts[i]->color = AC_WHITE;
-       m_Texts[i]->position.x = m_Box->position.x - (m_Box->scale.x / 2.0f)*0.9f;
-       m_Texts[i]->position.y = m_Box->position.y + (i * -60.0f) + 60.0f;
+       m_Texts[i]->position.x -= (m_Box->scale.x / 2.0f)*0.9f;
+       m_Texts[i]->position.y = (i * -60.0f) + 60.0f;
        m_Box->SetChildRenderFront(m_Texts[i]);
     }
 
