@@ -182,14 +182,13 @@ void FireSpell6::Initialize()
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    int count = 0;
-    count = this->GetAnimationColumn(0);
-    float chargeTime = timePerFrame * (count - 1);
     QueueUpdateFunction(
-        [this, chargeTime](float dt)
+        [this](float dt)
         {
-            if (m_TotalTime >= chargeTime)
+            if (this->GetCurrentAnimationColumn() == 8)
             {
+                this->SetSpriteByIndex(0, 8);
+                this->SetIsAnimationObject(false);
                 Next();
                 return;
             }
@@ -198,42 +197,55 @@ void FireSpell6::Initialize()
 
     QueueHitEvent();
 
+    QueueWaitEvent(timePerFrame);
+
     QueueUpdateFunction(
         [this](float dt)
         {
-            this->SetSpriteByValue(1, 0);
+            this->SetIsAnimationObject(true);
+            this->SetSpriteByIndex(1, 0);
             Next();
         }
     );
 
-    float spinTime = 2.0f;
-    QueueUpdateFunction(
-        [this, spinTime](float dt)
-        {
-            if (m_TotalTime >= spinTime)
-            {
-                Next();
-            }
-        }
-    );
+    int spinCount = 2;
+    float spinTime = spinCount * timePerFrame * 6;
+    QueueWaitEvent(spinTime);
+
     QueueUpdateFunction(
         [this](float dt)
         {
-            this->SetSpriteByValue(1, 0);
+            this->SetIsAnimationObject(false);
+            this->SetSpriteByIndex(2, 0);
             Next();
         }
     );
 
-    count = this->GetAnimationColumn(2);
-    float endTime = timePerFrame * (count - 1);
+    QueueWaitEvent(timePerFrame);
+
     QueueUpdateFunction(
-        [this, endTime](float dt)
+        [this](float dt)
         {
-            if (m_TotalTime >= endTime)
+            this->SetSpriteByIndex(2, 1);
+            Next();
+        }
+    );
+
+    QueueWaitEvent(timePerFrame);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            if (this->GetCurrentAnimationColumn() == 2)
             {
+                this->SetSpriteByIndex(2, 2);
+                this->SetIsAnimationObject(false);
                 Next();
             }
         }
     );
+
+    QueueWaitEvent(timePerFrame);
+
     QueueDoneEvent();
 }

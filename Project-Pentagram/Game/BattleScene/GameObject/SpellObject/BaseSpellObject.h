@@ -23,6 +23,17 @@ protected:
 
     void QueueUpdateFunction(SpellUpdateFunc func);
 
+    void QueueWaitEvent(float t)
+    {
+        QueueUpdateFunction([this,t](float dt)
+            {
+                if (m_TotalTime >= t)
+                {
+                    Next();
+                }
+            });
+    }
+
     void QueueHitEvent()
     {
         QueueUpdateFunction([this](float dt)

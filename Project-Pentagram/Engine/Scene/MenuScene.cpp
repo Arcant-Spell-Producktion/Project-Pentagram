@@ -117,7 +117,8 @@ void MenuScene::GameSceneInit()
 	ui->SetActive(false);
 	std::cout << "Menu Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water/Water_Standard_BassArp.wav", "Audio/BGM/Water/Water_Standard_Chord.wav", "Audio/BGM/Water/Water_Standard_Violin.wav" }, 0.5f);
+	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" }, 0.5f);
+    soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
 }
 
 void MenuScene::GameSceneUpdate(float dt)
@@ -139,35 +140,15 @@ void MenuScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_1))
 	{
-		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav"))
+		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav"))
 		{
-			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav");
+			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav");
+            soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
 		}
 		else
 		{
-			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_BassArp.wav");
-		}
-	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_2))
-	{
-		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav"))
-		{
-			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav");
-		}
-		else
-		{
-			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Chord.wav");
-		}
-	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_3))
-	{
-		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav"))
-		{
-			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav");
-		}
-		else
-		{
-			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water_Standard_Violin.wav");
+            soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav");
+            soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
 		}
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
