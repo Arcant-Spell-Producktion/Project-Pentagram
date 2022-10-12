@@ -20,6 +20,8 @@ struct ParticleProperty
 	glm::vec2 velocity = glm::vec2(0.0f, 0.0f), velocityVariation = glm::vec2(0.0f, 0.0f);
 	glm::vec4 colorBegin = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f), colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	float sizeBegin = 1.0f, sizeEnd = 1.0f, sizeVariation = 0.0f;
+	// Rotation (Degree)
+	float rotation = 0.0f, rotationVariation = (RANDOM_FLOAT * 360.0f);
 	float lifeTime = 1.0f;
 };
 
@@ -47,6 +49,7 @@ class ParticleSystem : public GameObject
 		Particle m_ParticlePool[1000];
 		float m_CurrentSpawnTime = 0.0f;
 		float spawnTime;
+		bool m_IsFixRotation = false;
 
 	public:
 		GLuint m_PoolIndex = 999;
@@ -59,7 +62,9 @@ class ParticleSystem : public GameObject
 		virtual void UnloadMesh() override;
 
 		void SetSpawnTime(const float& spawnTime);
+		void SetIsFixRotation(const bool& active);
 		float GetSpawnTime() const;
+		bool IsFixRotation() const;
 
 		void Emit(const ParticleProperty& particleProperty);
 };

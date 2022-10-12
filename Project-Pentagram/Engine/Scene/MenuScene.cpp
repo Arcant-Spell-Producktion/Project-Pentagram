@@ -20,12 +20,20 @@ void MenuScene::GameSceneInit()
     objectsList.push_back(new StageObject(Element::Water));
 
 	ParticleProperty particleProp;
-	particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
-	particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
-	particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
-	particleProp.velocityVariation = { 600.0f, 600.0f };
-	particleProp.velocity = { 0.0f, 300.0f };
+	particleProp.position = { 0.0f, 600.0f };
+	particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+	particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
+	particleProp.sizeBegin = particleProp.sizeEnd = 600.0f;
+	particleProp.rotation = -45.0f;
+	particleProp.rotationVariation = 0.0f;
+	particleProp.velocity = { 700.0f, -1000.0f };
+	particleProp.velocityVariation = { 700.0f, 100.0f };
+	particleProp.lifeTime = 1.5f;
 	ParticleSystem* particle = CreateParticle(particleProp);
+	particle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
+	particle->SetIsAnimationObject(true);
+	particle->SetIsFixRotation(true);
+	particle->SetSpawnTime(0.25f);
 
 	GameObject* obj = CreateGameObject("FireMage");
 	obj->scale = { 320.0f, 320.0f, 1.0f };

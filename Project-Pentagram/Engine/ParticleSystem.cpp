@@ -35,7 +35,7 @@ void ParticleSystem::OnUpdate(const float& dt)
 
 		particle.lifeRemaining -= dt;
 		particle.position += particle.velocity * dt;
-		particle.rotation += dt * ROTATION_SPD;
+		if (!m_IsFixRotation) { particle.rotation += ROTATION_SPD * dt; }
 
 		// Increment Time
 		particle.animPlayTime += dt;
@@ -149,11 +149,18 @@ void ParticleSystem::SetSpawnTime(const float& spawnTime)
 {
 	this->spawnTime = spawnTime;
 }
+void ParticleSystem::SetIsFixRotation(const bool& active)
+{
+	this->m_IsFixRotation = active;
+}
 float ParticleSystem::GetSpawnTime() const
 {
 	return this->spawnTime;
 }
-
+bool ParticleSystem::IsFixRotation() const
+{
+	return this->m_IsFixRotation;
+}
 void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 {
 
@@ -161,7 +168,7 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 	Particle& particle = m_ParticlePool[m_PoolIndex];
 	particle.active = true;
 	particle.position = particleProperty.position;
-	particle.rotation = (RANDOM_FLOAT * 360.0f);
+	particle.rotation = particleProperty.rotation + (particleProperty.rotationVariation * (RANDOM_FLOAT - 0.5f));
 
 	// Velocity
 	particle.velocity = particleProperty.velocity;
@@ -176,6 +183,12 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 	particle.lifeRemaining = particleProperty.lifeTime;
 	particle.sizeBegin = particleProperty.sizeBegin + particleProperty.sizeVariation * (RANDOM_FLOAT - 0.5f);
 	particle.sizeEnd = particleProperty.sizeEnd;
+
+
+	particle.curAnimCol = 1;
+	particle.curAnimRow = 1;
+
+	particle.animPlayTime = 0.0f;
 
 	this->m_PoolIndex = (--m_PoolIndex >= 1000 ? 1000 - 1 : m_PoolIndex);
 }
