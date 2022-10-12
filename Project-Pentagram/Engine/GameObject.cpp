@@ -284,11 +284,15 @@ void GameObject::SetSpriteByIndex(const int& row, const int& column)
 {
 	this->m_CurrentAnimationRow = row + 1;
 	this->m_CurrentAnimationColumn = column + 1;
+	// Restart m_CurrentPlayTime
+	m_CurrentPlayTime = 0.0f;
 }
 void GameObject::SetSpriteByValue(const int& row, const int& column)
 {
 	this->m_CurrentAnimationRow = row;
 	this->m_CurrentAnimationColumn = column;
+	// Restart m_CurrentPlayTime
+	m_CurrentPlayTime = 0.0f;
 }
 void GameObject::SetAnimationPlayTime(const float& animationPlayTime)
 {
