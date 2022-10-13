@@ -20,6 +20,7 @@ class Camera
 		float m_ShakeCurrentTime = 0.0f;
 		float m_ShakeTimeFrequency;
 		int m_ShakeFrequency;
+		int m_ShakeFrequencyCount = 0;
 		glm::vec2 m_ShakeVariation;
 
 		void UpdateShake(const float& dt);
@@ -31,6 +32,7 @@ class Camera
 		void OnUpdate(const float& dt);
 
 		void Input(const float& deltaTime);
+		// In [shakeTime] (seconds) camera will shake [shakeFrequency] times
 		void Shake(const float& shakeTime, const int& shakeFrequency, glm::vec2 variation);
 
 		// ----------------- Setter -----------------
@@ -44,4 +46,6 @@ class Camera
 		glm::vec3 GetPosition() const;
 		float GetZoom() const;
 		bool IsShake() const;
+		int GetShakeFrequency() const;
+		int GetShakeFrequencyCount() const;
 };

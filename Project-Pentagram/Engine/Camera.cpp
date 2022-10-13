@@ -32,6 +32,7 @@ void Camera::Shake(const float& shakeTime, const int& shakeFrequency, glm::vec2 
 	this->m_ShakeFrequency = shakeFrequency;
 	this->m_ShakeVariation = variation;
 	this->m_ShakeTimeFrequency = shakeTime / shakeFrequency;
+	this->m_ShakeFrequencyCount = 0;
 }
 
 // ----------------- Setter Implement -----------------
@@ -74,6 +75,14 @@ bool Camera::IsShake() const
 {
 	return this->m_IsShake;
 }
+int Camera::GetShakeFrequency() const
+{
+	return this->m_ShakeFrequency;
+}
+int Camera::GetShakeFrequencyCount() const
+{
+	return this->m_ShakeFrequencyCount;
+}
 
 // ----------------- Private Function -----------------
 void Camera::UpdateShake(const float& dt)
@@ -95,10 +104,10 @@ void Camera::UpdateShake(const float& dt)
 		m_Position.x = randX;
 		m_Position.y = randY;
 
-		m_ShakeFrequency--;
+		m_ShakeFrequencyCount++;
 		m_ShakeCurrentTime = 0.0f;
 
-		if (m_ShakeFrequency <= 0)
+		if (m_ShakeFrequencyCount >= m_ShakeFrequency)
 		{
 			ResetPosition();
 			m_IsShake = false;
