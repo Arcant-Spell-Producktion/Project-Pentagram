@@ -174,6 +174,10 @@ void MenuScene::GameSceneUpdate(float dt)
 			camera.SetZoom(1.0f);
 		}
 	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_X))
+	{
+		camera.Shake(5.0f, 80, { 10.0f, 10.0f });
+	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
 		slider->SetValue(0.75f);

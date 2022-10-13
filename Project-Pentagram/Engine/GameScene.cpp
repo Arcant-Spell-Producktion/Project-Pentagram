@@ -317,6 +317,7 @@ void GameScene::GameSceneUpdate(float dt)
 	UpdateScaleDeltaTime(dt);
 	UpdateDeleteObject();
 	UpdateButtonEvents();
+	camera.OnUpdate(dt);
 }
 void GameScene::GameSceneDraw()
 {
@@ -422,4 +423,15 @@ void GameScene::UpdateDeleteObject()
 
 		objectsToDeleteList.clear();
 	}
+}
+
+
+// ----------------- Getter Implement -----------------
+SoundSystem* GameScene::GetSoundSystem() const
+{
+	return this->soundSystem;
+}
+Camera* GameScene::GetCamera()
+{
+	return &(this->camera);
 }
