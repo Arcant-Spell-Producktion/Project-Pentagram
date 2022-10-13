@@ -3,12 +3,13 @@
 ParticleSystem::ParticleSystem(const std::string& objName)
 	: GameObject(objName)
 {
-	m_Tag = GameObjectTag::PARTICLE;
+	this->m_Tag = GameObjectTag::PARTICLE;
+	this->m_IsZoomObject = true;
 
-	m_PoolIndex = 999;
+	this->m_PoolIndex = 999;
 
-	m_CurrentSpawnTime = 0.0f;
-	spawnTime = 0.005f;
+	this->m_CurrentSpawnTime = 0.0f;
+	this->spawnTime = 0.005f;
 }
 
 void ParticleSystem::OnUpdate(const float& dt)
@@ -68,13 +69,10 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.Activate();
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWindowWidth();
-	int screen_height = window->GetWindowHeight();
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
 	this->m_Texture->Activate(GL_TEXTURE0);
 	
 	shader.setMat4("u_View", camera.GetViewMatrix());
-	shader.setMat4("u_Projection", proj);
+	shader.setMat4("u_Projection", camera.GetProjectionMatrix(m_IsZoomObject));
 	shader.setInt("u_Texture", 0);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 
@@ -143,7 +141,6 @@ void ParticleSystem::UnloadMesh()
 {
 	GameObject::UnloadMesh();
 }
-
 
 void ParticleSystem::SetSpawnTime(const float& spawnTime)
 {

@@ -4,20 +4,21 @@ Button::Button(const std::string& objName)
 	: UIObject(objName), textObject("Text_" + objName)
 {
 	// Set-up Button Default
-	m_Tag = GameObjectTag::BUTTON;
-	m_IsSlicing = true;
-	color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-	onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
-	unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
-	onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
-	onPress = [](Button* button) {};
-	unPress = [](Button* button) {};
+	this->m_Tag = GameObjectTag::BUTTON;
+	this->m_IsZoomObject = false;
+	this->m_IsSlicing = true;
+	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	this->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	this->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+	this->unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
+	this->onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
+	this->onPress = [](Button* button) {};
+	this->unPress = [](Button* button) {};
 
 	// Set-up Text Default
-	textObject.textAlignment = TextAlignment::MID;
-	textObject.position = glm::vec3(0.0f, 0.0f, 0.0f);
-	textObject.color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
+	this->textObject.textAlignment = TextAlignment::MID;
+	this->textObject.position = glm::vec3(0.0f, 0.0f, 0.0f);
+	this->textObject.color = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 void Button::Draw(Camera& camera, glm::mat4 parentModel)
@@ -43,15 +44,11 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWindowWidth();
-	int screen_height = window->GetWindowHeight();
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-	glm::mat4 view = camera.GetViewMatrix();
 
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", glm::mat4(1.0f));
-	shader.setMat4("u_Projection", proj);
+	shader.setMat4("u_Projection", camera.GetProjectionMatrix(m_IsZoomObject));
 	shader.setVec4("u_Color", (this->hoverColor == glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) ? this->color : this->hoverColor));
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
