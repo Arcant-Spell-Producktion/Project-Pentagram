@@ -63,4 +63,8 @@ class GameScene : public IGameObjectManager
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);
 		void UpdateDeleteObject();
+
+		// ----------------- Getter -----------------
+		SoundSystem* GetSoundSystem() const;
+		Camera* GetCamera();
 };

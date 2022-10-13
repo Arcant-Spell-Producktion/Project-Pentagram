@@ -163,6 +163,21 @@ void MenuScene::GameSceneUpdate(float dt)
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
 	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_Z))
+	{
+		if (camera.GetZoom() == 1.0f)
+		{
+			camera.SetZoom(1.25f);
+		}
+		else
+		{
+			camera.SetZoom(1.0f);
+		}
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_X))
+	{
+		camera.Shake(5.0f, 80, { 10.0f, 10.0f });
+	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
 		slider->SetValue(0.75f);

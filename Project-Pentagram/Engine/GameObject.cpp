@@ -7,6 +7,7 @@ GameObject::GameObject(const std::string& objName)
 	this->m_Tag = GameObjectTag::GAMEOBJECT;
 	this->m_IsActive = true;
 	this->parent = nullptr;
+	this->m_IsZoomObject = true;
 
 	// Set Transformation
 	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -38,6 +39,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	this->m_Tag = GameObjectTag::GAMEOBJECT;
 	this->m_IsActive = true;
 	this->parent = nullptr;
+	this->m_IsZoomObject = true;
 
 	// Set Transformation
 	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -94,10 +96,6 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWindowWidth();
-	int screen_height = window->GetWindowHeight();
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-	glm::mat4 view = camera.GetViewMatrix();
 
 	shader.Activate();
 	if (m_IsSpriteSheet)
@@ -113,8 +111,8 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 		shader.setFloat("u_OffsetY", 0.0f);
 	}
 	shader.setMat4("u_Model", model * scaleMat);
-	shader.setMat4("u_View", view);
-	shader.setMat4("u_Projection", proj);
+	shader.setMat4("u_View", camera.GetViewMatrix());
+	shader.setMat4("u_Projection", camera.GetProjectionMatrix(m_IsZoomObject));
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 	shader.setVec4("u_Color", this->color);
 	m_Texture->Activate(GL_TEXTURE0);
@@ -191,6 +189,10 @@ std::vector<GameObject*> GameObject::GetChildList() const
 	childList.insert(childList.end(), m_BackRenderedChildList.begin(), m_BackRenderedChildList.end());
 	childList.insert(childList.end(), m_FrontRenderedChildList.begin(), m_FrontRenderedChildList.end());
 	return childList;
+}
+bool GameObject::IsZoomObject() const
+{
+	return this->m_IsZoomObject;
 }
 int GameObject::GetCurrentAnimationRow() const 
 { 
@@ -274,6 +276,10 @@ void GameObject::RemoveChild(GameObject* gameObj)
 		m_BackRenderedChildList.erase(it);
 		return;
 	}
+}
+void GameObject::SetIsZoomObject(const bool& active)
+{
+	this->m_IsZoomObject = active;
 }
 void GameObject::SetIsAnimationObject(const bool& active) 
 { 

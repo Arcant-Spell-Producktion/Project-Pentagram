@@ -4,6 +4,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 #include "Input.h"
+#include "ArcantEngine.h"
 
 class Camera
 {
@@ -11,17 +12,40 @@ class Camera
 		glm::vec3 m_Position;
 		glm::vec3 m_Direction;
 		glm::vec3 m_Up;
+		// ----------------- Camera Zoom Properties -----------------
+		float m_Zoom = 1.0f;
+		// ----------------- Camera Shake Properties -----------------
+		float m_IsShake = false;
+		float m_ShakeTime;
+		float m_ShakeCurrentTime = 0.0f;
+		float m_ShakeTimeFrequency;
+		int m_ShakeFrequency;
+		int m_ShakeFrequencyCount = 0;
+		glm::vec2 m_ShakeVariation;
+
+		void UpdateShake(const float& dt);
 
 	public:
 		Camera(const glm::vec3& position = glm::vec3(0.0f, 0.0f, 0.0f));
 		~Camera() {}
 
-		glm::mat4 GetViewMatrix();
+		void OnUpdate(const float& dt);
+
 		void Input(const float& deltaTime);
+		// In [shakeTime] (seconds) camera will shake [shakeFrequency] times
+		void Shake(const float& shakeTime, const int& shakeFrequency, glm::vec2 variation);
 
-		// Setter
+		// ----------------- Setter -----------------
 		void SetPosition(const glm::vec3& position);
+		void ResetPosition();
+		void SetZoom(const float& zoom);
 
-		// Getter
-		glm::vec3 GetPosition();
+		// ----------------- Getter -----------------
+		glm::mat4 GetViewMatrix();
+		glm::mat4 GetProjectionMatrix(const bool& isZoom);
+		glm::vec3 GetPosition() const;
+		float GetZoom() const;
+		bool IsShake() const;
+		int GetShakeFrequency() const;
+		int GetShakeFrequencyCount() const;
 };

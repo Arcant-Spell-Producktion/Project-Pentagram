@@ -21,6 +21,7 @@ class GameObject
 		Texture* m_Texture;
 		bool m_IsActive;
 		unsigned int m_Tag;
+		bool m_IsZoomObject;
 
 		// ----------------- Animation -----------------
 		bool m_IsAnimationPlaying;
@@ -68,6 +69,7 @@ class GameObject
 		unsigned int GetFrontRenderChildSize() const;
 		unsigned int GetBackRenderChildSize() const;
 		std::vector<GameObject*> GetChildList() const;
+		bool IsZoomObject() const;
 		// Animation
 		int GetCurrentAnimationRow() const;
 		int GetCurrentAnimationColumn() const;
@@ -86,6 +88,7 @@ class GameObject
 		void SetChildRenderFront(GameObject* gameObj);
 		void SetChildRenderBack(GameObject* gameObj);
 		void RemoveChild(GameObject* gameObj);
+		void SetIsZoomObject(const bool& active);
 		// Animation
 		void SetIsAnimationObject(const bool& active);
 		void SetSpriteByIndex(const int& row, const int& column);

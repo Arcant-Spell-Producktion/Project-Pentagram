@@ -4,6 +4,7 @@ Slider::Slider(const std::string& objName)
 	: UIObject(objName)
 {
 	this->m_Tag = GameObjectTag::SLIDER;
+	this->m_IsZoomObject = false;
 	this->position = glm::vec3(0.0f, 0.0f, 0.0f);
 	this->scale = glm::vec3(500.0f, 50.0f, 1.0f);
 	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -68,14 +69,11 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
-	int screen_width = window->GetWindowWidth();
-	int screen_height = window->GetWindowHeight();
-	glm::mat4 proj = glm::ortho(-screen_width / 2.0f, screen_width / 2.0f, -screen_height / 2.0f, screen_height / 2.0f, -10.0f, 10.0f);
-
+	
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);
 	shader.setMat4("u_View", glm::mat4(1.0f));
-	shader.setMat4("u_Projection", proj);
+	shader.setMat4("u_Projection", camera.GetProjectionMatrix(m_IsZoomObject));
 	shader.setVec4("u_Color", this->color);
 	shader.setMat4("u_WindowRatio", glm::scale(glm::mat4(1.0f), glm::vec3(window->GetWindowDiffRatio(), 1.0f)));
 	m_Texture->Activate(GL_TEXTURE0);
