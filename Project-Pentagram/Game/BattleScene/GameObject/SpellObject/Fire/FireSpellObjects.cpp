@@ -1,6 +1,7 @@
 ﻿#include "FireSpellObjects.h"
 #include "Engine/IGameObjectManager.h"
 #include "Engine/GameStateController.h"
+#include <vector>
 
 BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition target)
 {
@@ -19,10 +20,9 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
     case 3:
         object = new FireSpell4(target);
         break;
-        /*
     case 4:
-        break;
-        */
+        object = new FireSpell5(target);
+        break;    
     case 5:
         object = new FireSpell6(target);
         break;
@@ -117,9 +117,7 @@ void FireSpell2::Initialize()
 
 void FireSpell3::Initialize()
 {
-    float lifeTime = 1.5f;
-    float spawnTime = 0.2f;
-    int amount = 20;
+    this->color.a = 0.0f;
 
     ParticleProperty particleProp;
     particleProp.position = { 0.0f, 600.0f};
@@ -132,7 +130,7 @@ void FireSpell3::Initialize()
     particleProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
     particleProp.lifeTime = 1.5f;
     ParticleSystem* particle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
-    particle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
+    particle->SetTexture(this->m_TexturePath);
     particle->SetIsAnimationObject(true);
     particle->SetIsFixRotation(true);
     particle->SetSpawnTime(0.25f);
@@ -214,6 +212,78 @@ void FireSpell4::Initialize()
     QueueDoneEvent();
 }
 
+void FireSpell5::Initialize()
+{
+    auto scene = GameStateController::GetInstance()->currentScene;
+    
+    float spawnDelay = 0.15f;
+
+    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = 0.0f;
+    float fps = 0.1f;
+
+
+    for (size_t i = 0; i < m_SpawnCount; i++)
+    {
+        int flip = i % 2 == 0 ? 1 : -1;
+        
+        auto obj = scene->CreateGameObject("snap");
+        obj->SetTexture(m_TexturePath);
+        obj->position = { xPos,-160.0f,0.0f };
+        obj->scale = { 640.0f * flip,320.0f,1.0f };
+        obj->SetIsAnimationObject(false);
+        obj->SetAnimationPlayTime(0.1f);
+        obj->SetActive(false);
+
+        this->SetChildRenderFront(obj);
+        m_objectList.push_back(obj);
+        std::cout << "Snap create: " << i << "\n";
+
+    }
+
+    QueueUpdateFunction(
+        [this,  scene , spawnDelay,xPos](float dt)
+        {
+            if (m_DoneCount < m_SnapCount)
+            {
+                m_localTimer += dt;
+                if (m_localTimer > spawnDelay)
+                {
+                    std::cout << "Snap spawn: " << m_SnapCount << "\n";
+                    auto obj = this->m_objectList[m_SnapCount % m_SpawnCount];
+                    obj->SetActive(true);
+                    obj->SetIsAnimationObject(true);
+                    m_SnapCount++;
+
+                    m_localTimer = 0;
+                }
+            }
+
+            for (auto obj : m_objectList)
+            {
+                if (obj->GetCurrentAnimationColumn() == 9 && obj->IsActive())
+                {
+                    scene->GetCamera()->Shake( 0.25f , 3, { 50.0f,50.0f });
+                    obj->SetActive(false);
+                    obj->SetIsAnimationObject(false);
+                    m_DoneCount++;
+                }
+            }
+            std::cout << "Snap Done: " << m_DoneCount << "\n";
+
+            if (m_DoneCount >= m_SpawnCount)
+            {
+                Next();
+            }
+        }
+    );
+
+    QueueHitEvent();
+
+    QueueDoneEvent();
+
+}
+
 void FireSpell6::Initialize()
 {
     std::cout << "Fire Storm::Init\n";
@@ -283,4 +353,5 @@ void FireSpell6::Initialize()
     QueueDoneEvent();
 
 }
+
 

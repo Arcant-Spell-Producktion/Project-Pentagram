@@ -17,6 +17,8 @@ protected:
     int m_SpellTarget = 0; // 1 if A, -1 if B
     float m_TotalTime = 0.0f;
 
+    std::string m_TexturePath;
+
     void Next();
 
     void OnUpdate(const float& dt) override;

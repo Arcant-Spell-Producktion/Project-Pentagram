@@ -36,6 +36,10 @@ public:
 class FireSpell3: public BaseSpellObject
 {
 private:
+    float lifeTime = 1.5f;
+    float spawnTime = 0.2f;
+    int amount = 20;
+
     void Initialize();
 public:
     FireSpell3(CasterPosition target) :BaseSpellObject(
@@ -66,6 +70,28 @@ public:
     };
 };
 
+class FireSpell5 : public BaseSpellObject
+{
+private:
+    std::vector<GameObject*> m_objectList;
+
+    float m_localTimer = 0.0f;
+    const int m_SpawnCount = 10;
+    int m_SnapCount = 10;
+    int m_DoneCount = 0;
+    void Initialize();
+public:
+    FireSpell5(CasterPosition target) :BaseSpellObject(
+        target,
+        "Firesnap_Object",
+        "Sprites/Spell/Fire/spell_fire_5.png")
+    {
+        std::cout << "Spell:: Create Firesnap\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
 class FireSpell6 : public BaseSpellObject
 {
 private:
@@ -81,8 +107,6 @@ public:
         BaseSpellObject::Initialize();
     };
 };
-
-
 
 class FireSpellObject
 {
