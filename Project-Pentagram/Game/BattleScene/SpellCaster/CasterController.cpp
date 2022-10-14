@@ -1,4 +1,5 @@
 ﻿#include "CasterController.h"
+#include "Game/BattleScene/BattleManager.h"
 
 CasterController::CasterController(CasterData caster):m_SpellCaster(caster)
 {
@@ -25,7 +26,7 @@ void CasterController::StartTurn(PentagramData_T data)
     UpdateCasterUI();
 }
 
-void CasterController::TakeDamage(int value)
+bool CasterController::TakeDamage(int value)
 {
     int totalDamage = -value;
     m_SpellCaster.ChangeHealth(totalDamage);
@@ -37,8 +38,10 @@ void CasterController::TakeDamage(int value)
 
     if (m_SpellCaster.GetHealth() <= 0)
     {
-
+        BattleManager::GetInstance()->EndBattle();
+        return false;
     }
+    return true;
 }
 
 CastSpellDetail* CasterController::CastSpell()

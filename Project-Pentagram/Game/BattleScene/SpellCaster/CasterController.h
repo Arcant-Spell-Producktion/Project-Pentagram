@@ -37,7 +37,7 @@ public:
 
     virtual void StartTurn(PentagramData_T data);
 
-    void TakeDamage(int value);
+    bool TakeDamage(int value); // True if Alive
 
     CastSpellDetail* CastSpell();
 

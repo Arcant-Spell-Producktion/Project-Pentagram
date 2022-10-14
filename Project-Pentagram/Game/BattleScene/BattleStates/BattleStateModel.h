@@ -3,6 +3,7 @@
 #include "SetupBattleState.h"
 #include "CastBattleState.h"
 #include "ResolveBattleState.h"
+#include "ResultBattleState.h"
 
 class BattleStateModel
 {
@@ -13,7 +14,8 @@ public:
          {
              new SetupBattleState(),
              new CastBattleState(),
-             new ResolveBattleState()
+             new ResolveBattleState(),
+             new ResultBattleState()
          };
 
          return states;
