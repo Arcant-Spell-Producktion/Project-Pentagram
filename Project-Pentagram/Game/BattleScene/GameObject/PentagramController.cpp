@@ -72,55 +72,34 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
         float radius = 200.0f;
-        float _scale = 0.0f;
 
-        std::string name;
         PentagramField field_value;
 
         switch (i)
         {
         case 0:
-            name = "Will";
-            field_value = PentagramField::Will;
-            _scale = 120.0f;
+            field_value = PentagramField::Time;
             break;
         case 1:
-            name = "Complex";
             field_value = PentagramField::Complex;
-            _scale = 220.0f;
             break;
         case 2:
-            name = "Effect";
             field_value = PentagramField::Effect;
-            _scale = 180.0f;
             break;
         case 3:
-            name = "Time";
-            field_value = PentagramField::Time;
-            _scale = 160.0f;
+            field_value = PentagramField::Will;
             break;
         case 4:
-            name = "Circle";
             field_value = PentagramField::Circle;
-            _scale = 180.0f;
             break;
         }
 
-        Button* button = m_ObjectManager->CreateButton("Field_" + std::to_string(i));
-
-        button->textObject.text = name;
+        PentagramFieldButton* button = m_ObjectManager->CreateObject(new PentagramFieldButton(field_value,Element::Fire));
 
         button->onClick = [this, field_value](Button* button) {SetPentagramField(field_value); };
 
         button->position = { radius * sinf(theta) + x_offset,radius * cosf(theta) + y_offset ,0.0f };
-        button->scale = { _scale, 80.0f, 1.0f };
-        button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-        button->textObject.textAlignment = TextAlignment::MID;
-        button->textObject.position = { 0.0f, 0.0f, 0.0f };
-        button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
-        button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
-        button->SetTexture(ButtonTexturePath);
-
+        
 
         m_PentragramButtons.push_back(button);
         this->SetChildRenderBack(button);
@@ -133,6 +112,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
         button->position = { -420.0f + (i * 120.0f),-300.0f,0.0f };
         button->scale = { 80.0f, 80.0f, 1.0f };
         button->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+        button->SetIsSlicing(false);
         button->textObject.text = std::to_string(i);
         button->textObject.textAlignment = TextAlignment::MID;
         button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
@@ -156,6 +136,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
         button->textObject.color = { 0.0f, 0.0f, 0.0f, 1.0f };
         button->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
         button->SetTexture(ButtonTexturePath);
+        button->SetIsSlicing(false);
 
         if (i == 1)
         {
@@ -186,6 +167,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
     m_InvokeButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
     m_InvokeButton->textObject.text = "Invoke";
     m_InvokeButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
+    m_InvokeButton->SetIsSlicing(false);
     m_InvokeButton->onClick = [](Button* button)
     {
         InvokeSpell();
@@ -203,6 +185,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
     m_PassButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
     m_PassButton->textObject.text = "Pass";
     m_PassButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
+    m_PassButton->SetIsSlicing(false);
     m_PassButton->onClick = [](Button* button)
     {
         auto bm = BattleManager::GetInstance();
@@ -215,6 +198,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
 
     m_SpellIcon = m_ObjectManager->CreateObject(new SpellIconUI("PentagramIcon"));
     this->SetChildRenderBack(m_SpellIcon);
+
 }
 
 void PentragramController::SetActive(const bool& active)
@@ -229,6 +213,12 @@ void PentragramController::SetActive(const bool& active)
 
         PentragramController::SetPentagramField(PentagramField::Complex);
         PentragramController::SetPentagramValue(m_currentData.complex);
+
+        PentragramController::SetPentagramField(PentagramField::Will);
+        PentragramController::SetPentagramValue(m_currentData.will);
+
+        PentragramController::SetPentagramField(PentagramField::Effect);
+        PentragramController::SetPentagramValue(m_currentData.effect);
 
         PentragramController::SetPentagramField(field);
     }
@@ -303,6 +293,12 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
         m_Scroll_1->scale = { 400.0f, 160.0f,0.0f };
         break;
     }
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        penButton->SetToggle(penButton->GetButtonField() == selectedField);
+    }
+
 }
 
 void PentragramController::SetPentagramValue(int value)
@@ -357,6 +353,14 @@ void PentragramController::SetPentagramValue(int value)
     currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
 
     battleManager->Data.Timeline.UI->UpdatePreviewIcon(spellCaster->GetSpellDetail()->SelectedTime, spellCaster->GetSpellDetail());
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        if (penButton->GetButtonField() == m_currentField)
+        {
+            penButton->SetRuneActive(m_currentField == PentagramField::Time ? spellCaster->GetTimeCost() : value);
+        }
+    }
 }
 
 PentagramData_T PentragramController::ResetPentagram()
@@ -369,6 +373,11 @@ PentagramData_T PentragramController::ResetPentagram()
     SetPentagramValue(1);
     SetPentagramField(PentagramField::Effect);
     SetPentagramValue(1);
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        penButton->SetRuneActive(penButton->GetButtonField() == PentagramField::Time ? 0 : 1);
+    }
 
     return m_currentData;
 }

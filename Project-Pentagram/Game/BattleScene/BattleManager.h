@@ -30,7 +30,7 @@ public:
 
     void StartBattle();
     void SwapCaster();
-    void EndBattle() { m_CurrentState = BattleState::ResultState; } //TODO
+    void EndBattle() { SetBattleState(BattleState::ResultState); } //TODO
 
 
     ~BattleManager();

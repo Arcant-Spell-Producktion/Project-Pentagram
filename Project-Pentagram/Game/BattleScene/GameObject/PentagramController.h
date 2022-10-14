@@ -2,7 +2,7 @@
 #include <vector>
 #include "Engine/IGameObjectManager.h"
 #include "SpellIconUI.h"
-#include "Game/BattleScene/SpellCaster/PentagramData.h"
+#include "PentagramFieldButton.h"
 
 class PentragramController: public UIObject
 {
@@ -13,7 +13,7 @@ private:
     PentagramData_T m_currentData;
 
     std::vector<UIObject*> m_PentragramObj;
-    std::vector<Button*> m_PentragramButtons;
+    std::vector<PentagramFieldButton*> m_PentragramButtons;
     std::vector<Button*> m_IntButtons;
     std::vector<Button*> m_ArrowButtons;
 
@@ -32,6 +32,7 @@ public:
     virtual void OnUpdate(const float& dt) override;
 
     void SetPentagramField(PentagramField selectedField);
+
     void SetPentagramValue(int value);
     
     void SetInvokeButtonActive(bool isActive) { m_InvokeButton->SetActive(isActive); }

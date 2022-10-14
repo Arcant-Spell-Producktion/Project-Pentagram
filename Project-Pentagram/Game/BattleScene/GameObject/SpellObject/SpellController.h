@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <atomic>
+
 enum class SpellObjectState
 {
     Init = 0,
@@ -11,7 +13,7 @@ enum class SpellObjectState
 class SpellController
 { 
 protected:
-    SpellObjectState m_SpellState = SpellObjectState::Init;
+    std::atomic<SpellObjectState> m_SpellState = SpellObjectState::Init;
 public:
     SpellObjectState GetSpellState() const { return m_SpellState; }
     bool IsSpellHit() { return m_SpellState == SpellObjectState::Hit; }

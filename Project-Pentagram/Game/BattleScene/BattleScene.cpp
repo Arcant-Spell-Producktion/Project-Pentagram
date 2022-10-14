@@ -96,6 +96,11 @@ void BattleScene::GameSceneUpdate(float dt)
     {
         UIObject*& curObj = uiObjectsList[idx];
 
+        if (curObj->IsAnimationObject())
+        {
+            curObj->UpdateAnimation(dt);
+        }
+
         if (curObj->name == "INFO_Text" && track_t >= 1.0f)
         {
             dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt)) + "\n" +

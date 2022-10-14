@@ -10,9 +10,9 @@ struct PentagramData_T
 
 enum class PentagramField
 {
-    Circle = 0,
+    Time = 0,
+    Circle,
     Complex,
     Will,
     Effect,
-    Time
 };

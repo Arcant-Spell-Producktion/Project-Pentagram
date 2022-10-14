@@ -24,6 +24,8 @@ public:
 
     void CommitSpell();
 
+    int GetTimeCost();
+
     int GetSpellCost();
 
     PentagramData_T GetPentagramData() { return m_PentagramData; }

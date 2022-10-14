@@ -125,7 +125,8 @@ void ResolveBattleState::ResolveDamgeCalculation()
     //Damage Calculation
     int damage = m_CurrentSpellDetail->GetDamage();
     target->GetEffectManager()->ResolveEffect(EffectResolveType::OnDamageCalculation, 1, &damage);
-    target->TakeDamage(damage);
+
+    if (!target->TakeDamage(damage)) return;
 
     auto effectType = m_CurrentSpellDetail->OriginalSpell->GetSpellEffectType();
     auto effectValue = m_CurrentSpellDetail->GetEffectValue();
