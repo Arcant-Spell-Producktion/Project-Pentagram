@@ -28,10 +28,12 @@ void BaseSpellObject::Initialize()
 
 BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, std::string spellTexturePath) :GameObject(spellName)
 {
+
     m_SpellState = SpellObjectState::Init;
 
     if (target == CasterPosition::CasterA) m_SpellTarget = 1;
     else if (target == CasterPosition::CasterB) m_SpellTarget = -1;
 
+    m_TexturePath = spellTexturePath;
     this->SetTexture(spellTexturePath);
 };
