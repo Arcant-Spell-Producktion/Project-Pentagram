@@ -166,6 +166,7 @@
       <Filter>Game\BattleScene\SpellObject\Fire</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -412,6 +413,7 @@
     </ClInclude>
     <ClInclude Include="Engine\IGameObjectManager.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

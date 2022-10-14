@@ -3,9 +3,21 @@
 
 const std::string PentagramFieldButtonPath = "Sprites/UI/Game/ui_game_pentagram-buttons.png";
 
-void PentagramFieldButton::OnUpdate(float dt)
+void PentagramFieldButton::OnUpdate(const float& dt)
 {
-    
+    float speed = 0.3f;
+    for (auto rune : m_RuneList)
+    {
+        rune->Theta += speed * dt;
+        rune->UpdateRadialPosition();
+        SetRuneActive(m_ActiveRune);
+    }
+}
+
+void PentagramFieldButton::SetActive(const bool& active)
+{
+    GameObject::SetActive(active);
+    if(m_SelectedField != PentagramField::Complex) ComplexRune->SetActive(false);
 }
 
 void PentagramFieldButton::SetToggle(bool isToggle)
@@ -19,6 +31,15 @@ void PentagramFieldButton::SetToggle(bool isToggle)
     {
         m_buttonState = ButtonState::Idle;
         ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+    }
+}
+
+void PentagramFieldButton::SetRuneActive(int amount)
+{
+    m_ActiveRune = amount;
+    for (size_t i = 0; i < m_RuneList.size(); i++)
+    {
+        m_RuneList[i]->SetActive( i+1 <= m_ActiveRune);
     }
 }
 
@@ -50,7 +71,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     int fieldIndex = (int)m_SelectedField + 1;
     int elementIndex = (int)m_CurrentElement + 1;
 
-    float size = 120.0f;
+    float size = 100.0f;
     this->SetTexture(PentagramFieldButtonPath);
     this->scale = { size ,size , 1.0f };
     this->SetIsSlicing(false);
@@ -74,10 +95,53 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
     ButtonCover->SetIsAnimationObject(false);
 
+    ComplexRune = GameObjManager->CreateObject<RuneObject>(new RuneObject(0));
+    ComplexRune->SetActive(false);
+    ComplexRune->SetIsAnimationObject(true);
+    ComplexRune->SetAnimationPlayTime(0.5f);
+
     this->SetChildRenderFront(ButtonCover);
 
     this->SetChildRenderFront(FieldSignature);
      
+    this->SetChildRenderFront(ComplexRune);
+
     this->SetChildRenderFront(ElementSignature);
-    
+
+
+    switch (m_SelectedField)
+    {
+    case PentagramField::Circle:
+        m_RuneList = RuneObjectFactory::CreateRunes("ARM");
+
+        break;
+    case PentagramField::Complex:
+        m_RuneList = RuneObjectFactory::CreateRunes("TUN");
+        ComplexRune->SetActive(true);
+
+        break;
+    case PentagramField::Will:
+        m_RuneList = RuneObjectFactory::CreateRunes("FLAMEZ");
+
+        break;
+    case PentagramField::Effect:
+        m_RuneList = RuneObjectFactory::CreateRunes("AMOGUS");
+
+        break;
+    case PentagramField::Time:
+        m_RuneList = RuneObjectFactory::CreateRunes("DAPINGPREAWAMAMAYMON");
+
+        break;
+    }
+    float radius = 60.0f;
+    int rune_i = 0;
+    for (auto rune : m_RuneList)
+    {
+        this->SetChildRenderFront(rune);
+        rune->Radius = radius;
+        rune->Theta = 2.0f * 3.142526 * rune_i / m_RuneList.size();
+        rune->UpdateRadialPosition();
+        rune_i++;
+        rune->SetActive(false);
+    }
 }

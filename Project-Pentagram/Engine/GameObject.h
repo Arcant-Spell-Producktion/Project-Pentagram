@@ -84,7 +84,7 @@ class GameObject
 
 		// ----------------- Setter ----------------- 
 		// Rendering
-		void SetActive(const bool& active);
+		virtual void SetActive(const bool& active);
 		void SetChildRenderFront(GameObject* gameObj);
 		void SetChildRenderBack(GameObject* gameObj);
 		void RemoveChild(GameObject* gameObj);

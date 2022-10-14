@@ -2,6 +2,7 @@
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 #include "Game/Spells/Element.h"
+#include "RuneObject.h"
 
 class PentagramFieldButton : public Button
 {
@@ -21,10 +22,20 @@ private:
     UIObject* FieldSignature;
     UIObject* ElementSignature;
 
-    void OnUpdate(float dt);
+    std::vector<RuneObject*> m_RuneList;
+
+    RuneObject* ComplexRune;
+
+    int m_ActiveRune = 0;
+
+    virtual void OnUpdate(const float& dt) override;
 public:
 
+    void SetActive(const bool& active) override;
+
     void SetToggle(bool isToggle);
+
+    void SetRuneActive(int amount);
 
     PentagramField GetButtonField() const { return m_SelectedField; }
 

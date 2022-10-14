@@ -198,6 +198,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
 
     m_SpellIcon = m_ObjectManager->CreateObject(new SpellIconUI("PentagramIcon"));
     this->SetChildRenderBack(m_SpellIcon);
+
 }
 
 void PentragramController::SetActive(const bool& active)
@@ -212,6 +213,12 @@ void PentragramController::SetActive(const bool& active)
 
         PentragramController::SetPentagramField(PentagramField::Complex);
         PentragramController::SetPentagramValue(m_currentData.complex);
+
+        PentragramController::SetPentagramField(PentagramField::Will);
+        PentragramController::SetPentagramValue(m_currentData.will);
+
+        PentragramController::SetPentagramField(PentagramField::Effect);
+        PentragramController::SetPentagramValue(m_currentData.effect);
 
         PentragramController::SetPentagramField(field);
     }
@@ -346,6 +353,14 @@ void PentragramController::SetPentagramValue(int value)
     currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
 
     battleManager->Data.Timeline.UI->UpdatePreviewIcon(spellCaster->GetSpellDetail()->SelectedTime, spellCaster->GetSpellDetail());
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        if (penButton->GetButtonField() == m_currentField)
+        {
+            penButton->SetRuneActive(m_currentField == PentagramField::Time ? spellCaster->GetTimeCost() : value);
+        }
+    }
 }
 
 PentagramData_T PentragramController::ResetPentagram()
@@ -358,6 +373,11 @@ PentagramData_T PentragramController::ResetPentagram()
     SetPentagramValue(1);
     SetPentagramField(PentagramField::Effect);
     SetPentagramValue(1);
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        penButton->SetRuneActive(penButton->GetButtonField() == PentagramField::Time ? 0 : 1);
+    }
 
     return m_currentData;
 }

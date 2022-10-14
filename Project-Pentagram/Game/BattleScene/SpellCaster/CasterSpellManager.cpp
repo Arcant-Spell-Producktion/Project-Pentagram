@@ -35,6 +35,11 @@ void CasterSpellManager::CommitSpell()
     //SpellTimeline::GetInstance()->AddSpellToTimeline(m_CurrentSpell);
 }
 
+int CasterSpellManager::GetTimeCost()
+{
+    return std::abs(m_CurrentSpell->OriginalSpell->GetCastTime() - m_PentagramData.time);
+}
+
 int CasterSpellManager::GetSpellCost()
 {
 
@@ -44,7 +49,7 @@ int CasterSpellManager::GetSpellCost()
     sum += m_PentagramData.complex - 1;
     sum += m_PentagramData.will - 1;
     sum += m_PentagramData.effect - 1;
-    sum += std::abs(m_CurrentSpell->OriginalSpell->GetCastTime() - m_PentagramData.time);
+    sum += GetTimeCost();
 
     return sum;
 }
