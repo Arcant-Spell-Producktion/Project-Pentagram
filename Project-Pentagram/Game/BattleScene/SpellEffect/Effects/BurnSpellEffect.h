@@ -4,7 +4,7 @@
 class BurnSpellEffect :public BaseSpellEffect
 {
 private:
-    const int damageMultiplier = 2;
+    const int BurnDamagePerStack = 10;
 
 public:
     BurnSpellEffect() :BaseSpellEffect(SpellEffectEnum::Burn,EffectResolveType::OnStartTurn)
