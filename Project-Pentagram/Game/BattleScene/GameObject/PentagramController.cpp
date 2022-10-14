@@ -222,7 +222,15 @@ void PentragramController::SetActive(const bool& active)
     GameObject::SetActive(active);
     if (active)
     {
-        PentragramController::SetPentagramField(m_currentField);
+        auto field = m_currentField;
+
+        PentragramController::SetPentagramField(PentagramField::Circle);
+        PentragramController::SetPentagramValue(m_currentData.circle);
+
+        PentragramController::SetPentagramField(PentagramField::Complex);
+        PentragramController::SetPentagramValue(m_currentData.complex);
+
+        PentragramController::SetPentagramField(field);
     }
 }
 
