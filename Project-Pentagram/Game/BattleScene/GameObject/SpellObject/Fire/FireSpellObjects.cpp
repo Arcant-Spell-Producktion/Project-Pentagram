@@ -13,8 +13,9 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
     case 1:
         object = new FireSpell2(target);
         break;
-   /* case 2:
-        break;*/
+    case 2:
+        object = new FireSpell3(target);
+        break;
     case 3:
         object = new FireSpell4(target);
         break;
@@ -114,6 +115,50 @@ void FireSpell2::Initialize()
     QueueDoneEvent();
 }
 
+void FireSpell3::Initialize()
+{
+    float lifeTime = 1.5f;
+    float spawnTime = 0.2f;
+    int amount = 20;
+
+    ParticleProperty particleProp;
+    particleProp.position = { 0.0f, 600.0f};
+    particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+    particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
+    particleProp.sizeBegin = particleProp.sizeEnd = 600.0f;
+    particleProp.rotation = m_SpellTarget == 1?-135.0f:-45.0f;
+    particleProp.rotationVariation = 0.0f;
+    particleProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
+    particleProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+    particleProp.lifeTime = 1.5f;
+    ParticleSystem* particle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    particle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
+    particle->SetIsAnimationObject(true);
+    particle->SetIsFixRotation(true);
+    particle->SetSpawnTime(0.25f);
+
+
+    this->SetChildRenderFront(particle);
+
+    QueueWaitEvent(lifeTime);
+
+    QueueHitEvent();
+
+    QueueWaitEvent(spawnTime * amount);
+
+    QueueUpdateFunction(
+        [this, particle](float dt)
+        {
+            particle->SetSpawnTime(99);
+            Next();
+        });
+
+    QueueWaitEvent(lifeTime);
+
+    QueueDoneEvent();
+
+}
+
 void FireSpell4::Initialize()
 {
     std::cout << "FireWall::Init\n";
@@ -188,7 +233,7 @@ void FireSpell6::Initialize()
             if (this->GetCurrentAnimationColumn() == 8)
             {
                 this->SetSpriteByIndex(0, 8);
-                this->SetIsAnimationObject(false);
+                //this->SetIsAnimationObject(false);
                 Next();
                 return;
             }
@@ -199,39 +244,28 @@ void FireSpell6::Initialize()
 
     QueueWaitEvent(timePerFrame);
 
+    int spinCount = 2;
+    float spinTime = spinCount * timePerFrame * 6;
     QueueUpdateFunction(
-        [this](float dt)
+        [this, spinTime](float dt)
         {
+            auto scene = GameStateController::GetInstance()->currentScene;
+            scene->GetCamera()->Shake(spinTime, 16, { 50.0f,0.0f });
             this->SetIsAnimationObject(true);
             this->SetSpriteByIndex(1, 0);
             Next();
         }
     );
 
-    int spinCount = 2;
-    float spinTime = spinCount * timePerFrame * 6;
     QueueWaitEvent(spinTime);
 
     QueueUpdateFunction(
         [this](float dt)
         {
-            this->SetIsAnimationObject(false);
             this->SetSpriteByIndex(2, 0);
             Next();
         }
     );
-
-    QueueWaitEvent(timePerFrame);
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(2, 1);
-            Next();
-        }
-    );
-
-    QueueWaitEvent(timePerFrame);
 
     QueueUpdateFunction(
         [this](float dt)
@@ -246,6 +280,7 @@ void FireSpell6::Initialize()
     );
 
     QueueWaitEvent(timePerFrame);
-
     QueueDoneEvent();
+
 }
+

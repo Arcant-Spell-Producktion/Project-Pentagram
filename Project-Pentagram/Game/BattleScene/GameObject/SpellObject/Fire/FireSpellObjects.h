@@ -33,6 +33,22 @@ public:
     };
 };
 
+class FireSpell3: public BaseSpellObject
+{
+private:
+    void Initialize();
+public:
+    FireSpell3(CasterPosition target) :BaseSpellObject(
+        target,
+        "Firewall_Object",
+        "Sprites/Spell/Fire/spell_fire_3.png")
+    {
+        std::cout << "Spell:: Create Firestorm\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
 class FireSpell4 : public BaseSpellObject
 {
 private:
