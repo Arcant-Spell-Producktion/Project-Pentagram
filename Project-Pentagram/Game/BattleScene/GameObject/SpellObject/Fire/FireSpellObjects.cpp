@@ -26,9 +26,10 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
     case 5:
         object = new FireSpell6(target);
         break;
-        /*
     case 6:
+        object = new FireSpell7(target);
         break;
+        /*
     case 7:
         break;
     case 8:
@@ -43,7 +44,7 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
 void FireSpell1::Initialize()
 {
     std::cout << "Fireball::Init\n";
-    float size = 800.0f;
+    float size = 400.0f;
     float speed = 10.0f;
     float startX = (600.0f) * m_SpellTarget; // Assume A shooter
     float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
@@ -80,7 +81,7 @@ void FireSpell1::Initialize()
 void FireSpell2::Initialize()
 {
     std::cout << "FireArrow::Init\n";
-    float size = 800.0f;
+    float size = 500.0f;
     float speed = 10.0f;
     float startX = (600.0f) * m_SpellTarget; // Assume A shooter
     float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
@@ -354,4 +355,54 @@ void FireSpell6::Initialize()
 
 }
 
+void FireSpell7::Initialize()
+{
+    std::cout << "Meteor::Init\n";
+    float size = 800.0f;
+    float speed = 10.0f;
+    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
+    float yPos = -160.0f;
+    this->scale = { -size * m_SpellTarget,size,1.0f };
+    glm::vec3 startPos = { startX ,yPos + 1600.0f ,0.0f };
+    glm::vec3 endPos = { endX ,yPos + 160.0f,0.0f };
 
+    this->position = startPos;
+    this->SetIsAnimationObject(true);
+
+    //Move A to B
+    glm::vec3 direction = endPos - startPos;
+    float travelTime = 1.0f;
+
+    QueueUpdateFunction(
+        [this, startPos, direction, travelTime](float dt)
+        {
+            if (m_TotalTime >= travelTime)
+            {
+                Next();
+                return;
+            }
+            float progress = m_TotalTime / travelTime;
+
+            this->position.x = startPos.x + direction.x * progress;
+            this->position.y = startPos.y + direction.y * progress;
+        }
+    );
+
+    QueueHitEvent();
+
+    float shakeTime = 1.5f;
+    QueueUpdateFunction(
+        [this, shakeTime](float dt)
+        {
+            auto scene = GameStateController::GetInstance()->currentScene;
+            scene->GetCamera()->Shake(shakeTime, 30, { 300.0f, 100.0f });
+            Next();
+
+        }
+    );
+
+    QueueWaitEvent(shakeTime);
+
+    QueueDoneEvent();
+}
