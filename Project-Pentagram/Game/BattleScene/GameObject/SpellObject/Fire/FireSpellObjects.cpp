@@ -44,7 +44,7 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
 void FireSpell1::Initialize()
 {
     std::cout << "Fireball::Init\n";
-    float size = 400.0f;
+    float size = 300.0f;
     float speed = 10.0f;
     float startX = (600.0f) * m_SpellTarget; // Assume A shooter
     float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
@@ -81,7 +81,7 @@ void FireSpell1::Initialize()
 void FireSpell2::Initialize()
 {
     std::cout << "FireArrow::Init\n";
-    float size = 500.0f;
+    float size = 400.0f;
     float speed = 10.0f;
     float startX = (600.0f) * m_SpellTarget; // Assume A shooter
     float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
