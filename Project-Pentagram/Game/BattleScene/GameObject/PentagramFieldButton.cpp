@@ -3,8 +3,47 @@
 
 const std::string PentagramFieldButtonPath = "Sprites/UI/Game/ui_game_pentagram-buttons.png";
 
+void PentagramFieldButton::OnUpdate(float dt)
+{
+    
+}
+
+void PentagramFieldButton::SetToggle(bool isToggle)
+{
+    if (isToggle)
+    {
+        m_buttonState = ButtonState::Down;
+        ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+    }
+    else
+    {
+        m_buttonState = ButtonState::Idle;
+        ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+    }
+}
+
 PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type element) :Button("Pentagram_Button_"+ (int)field), m_SelectedField(field),m_CurrentElement(element)
 {
+   
+    m_buttonState = ButtonState::Idle;
+
+    this->onHover = [this](Button* button)
+    {
+        if (m_buttonState == ButtonState::Idle)
+        {
+            m_buttonState = ButtonState::Hover;
+            ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+        }
+    };
+
+    this->unHover = [this](Button* button)
+    {
+        if (m_buttonState == ButtonState::Hover)
+        {
+            m_buttonState = ButtonState::Idle;
+            ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+        }
+    };
 
     auto GameObjManager = GameStateController::GetInstance()->currentScene;
 
@@ -32,12 +71,13 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ButtonCover = GameObjManager->CreateUIObject("ButtonCover");
     ButtonCover->SetTexture(PentagramFieldButtonPath);
     ButtonCover->scale = { size ,size , 1.0f };
-    ButtonCover->SetSpriteByIndex(0, (int)ButtonState::Idle);
+    ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
     ButtonCover->SetIsAnimationObject(false);
+
+    this->SetChildRenderFront(ButtonCover);
 
     this->SetChildRenderFront(FieldSignature);
      
     this->SetChildRenderFront(ElementSignature);
     
-    this->SetChildRenderFront(ButtonCover);
 }

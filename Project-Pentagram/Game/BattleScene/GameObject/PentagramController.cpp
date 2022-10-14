@@ -286,6 +286,12 @@ void PentragramController::SetPentagramField(PentagramField selectedField)
         m_Scroll_1->scale = { 400.0f, 160.0f,0.0f };
         break;
     }
+
+    for (auto penButton : m_PentragramButtons)
+    {
+        penButton->SetToggle(penButton->GetButtonField() == selectedField);
+    }
+
 }
 
 void PentragramController::SetPentagramValue(int value)
