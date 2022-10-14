@@ -108,6 +108,23 @@ public:
     };
 };
 
+class FireSpell7 : public BaseSpellObject
+{
+private:
+    void Initialize();
+public:
+    FireSpell7(CasterPosition target) :BaseSpellObject(
+        target,
+        "FireMeteor_Object",
+        "Sprites/Spell/Fire/spell_fire_7.png")
+    {
+        std::cout << "Spell:: Create Meteor\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
+
 class FireSpellObject
 {
 public:
