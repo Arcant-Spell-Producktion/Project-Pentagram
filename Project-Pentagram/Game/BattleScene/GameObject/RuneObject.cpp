@@ -14,7 +14,7 @@ RuneObject::RuneObject(int runeIndex) :UIObject("RuneObj")
     this->SetTexture("Sprites/UI/Game/ui_game_runes.png");
     this->SetIsAnimationObject(false);
     this->SetSpriteByIndex(0,runeIndex);
-    this->color = { 0.0f,1.0f, 0.0f, 1.0f };
+    this->color = { 0.0f,0.0f, 0.0f, 1.0f };
 }
 
 std::vector<RuneObject*> RuneObjectFactory::CreateRunes(const std::string text)
