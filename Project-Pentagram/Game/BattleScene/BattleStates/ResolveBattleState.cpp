@@ -93,9 +93,6 @@ void ResolveBattleState::ResolveSpell()
         if (m_CurrentSpellDetail->doCast)
         {
             m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
-            while (m_CurrentSpellController == nullptr)continue;
-            m_CurrentSpellController->Activate();
-            //
             //TODO: resolve the m_CurrentSpellDetail effect
             m_State = ResolveState::PlaySpell;
         }

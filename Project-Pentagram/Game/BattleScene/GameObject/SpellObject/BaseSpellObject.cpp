@@ -24,6 +24,8 @@ void BaseSpellObject::QueueUpdateFunction(SpellUpdateFunc func)
 void BaseSpellObject::Initialize()
 {
     m_SpellState = SpellObjectState::Ready;
+    this->Activate();
+
 }
 
 BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, std::string spellTexturePath) :GameObject(spellName)

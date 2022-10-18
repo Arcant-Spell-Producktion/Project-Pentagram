@@ -9,7 +9,7 @@ class PentagramFieldButton : public Button
 private:
     enum class ButtonState
     {
-        Idle = 1,
+        Idle = 2,
         Hover,
         Down
     };

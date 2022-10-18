@@ -26,11 +26,13 @@ void PentagramFieldButton::SetToggle(bool isToggle)
     {
         m_buttonState = ButtonState::Down;
         ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+        this->SetSpriteByIndex(0, 1);
     }
     else
     {
         m_buttonState = ButtonState::Idle;
         ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
+        this->SetSpriteByIndex(0, 0);
     }
 }
 
@@ -100,11 +102,12 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ComplexRune->SetIsAnimationObject(true);
     ComplexRune->SetAnimationPlayTime(0.5f);
 
-    this->SetChildRenderFront(ButtonCover);
 
     this->SetChildRenderFront(FieldSignature);
      
     this->SetChildRenderFront(ComplexRune);
+
+    this->SetChildRenderFront(ButtonCover);
 
     this->SetChildRenderFront(ElementSignature);
 
