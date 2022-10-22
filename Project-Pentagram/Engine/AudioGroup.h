@@ -25,6 +25,7 @@ class AudioGroup
 		void SetVolume(const std::string& filePath, const float& volume);
 
 		Audio* GetAudio(const std::string& audio);
+		std::map<std::string, Audio*>* GetAllSoundList();
 		std::string GetGroupName() const;
 
 };

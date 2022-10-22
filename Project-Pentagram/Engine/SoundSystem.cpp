@@ -15,8 +15,14 @@ void SoundSystem::LoadResource()
 // ----------------- Audio Grouping ----------------- 
 AudioGroup* SoundSystem::PlayGroupAudio(const std::string& groupName, const std::vector<std::string>& filePathList, const float& volume, const float& playbackSpeed)
 {
-	if (m_AudioGroupList[groupName] != nullptr)
+	if (m_AudioGroupList.find(groupName) != m_AudioGroupList.end())
 	{
+		std::map<std::string, Audio*>* allAudioInGroup = m_AudioGroupList[groupName]->GetAllSoundList();
+		for (auto audio : *allAudioInGroup)
+		{
+			this->SetIsPause(groupName, audio.first, false);
+			this->UnMute(groupName, audio.first);
+		}
 		return m_AudioGroupList[groupName];
 	}
 
@@ -52,8 +58,10 @@ Audio* SoundSystem::PlayBGM(const std::string& fileName, const bool& isLoop, con
 	// Handle Error : fileName doesn't exist
 	ArcantAssert(m_BGMSourceList.find(fileName) == m_BGMSourceList.end(), fileName + " Doesn't exist in Audio Folder\n");
 
-	if (m_BGMSoundList[fileName] != nullptr)
+	if (m_BGMSoundList.find(fileName) != m_BGMSoundList.end())
 	{
+		this->SetIsPause(fileName, false);
+		this->UnMute(fileName);
 		return m_BGMSoundList[fileName];
 	}
 

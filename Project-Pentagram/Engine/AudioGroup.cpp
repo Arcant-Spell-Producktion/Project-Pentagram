@@ -42,6 +42,10 @@ Audio* AudioGroup::GetAudio(const std::string & audio)
 
 	return m_SubSoundList[audio];
 }
+std::map<std::string, Audio*>* AudioGroup::GetAllSoundList()
+{
+	return &(this->m_SubSoundList);
+}
 std::string AudioGroup::GetGroupName() const
 {
 	return m_Name;
