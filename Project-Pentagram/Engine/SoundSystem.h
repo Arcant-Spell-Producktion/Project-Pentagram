@@ -46,8 +46,8 @@ class SoundSystem
 		Audio* PlaySFX(const std::string& fileName, const bool& isLoop, const float& playbackSpeed = 1.0f);
 
 		// ----------------- Audio Components -----------------
-		void SetPause(const std::string& fileName, const bool& willPaused);
-		void SetPause(const std::string& groupName, const std::string& fileName, const bool& willPaused);
+		void SetIsPause(const std::string& fileName, const bool& willPaused);
+		void SetIsPause(const std::string& groupName, const std::string& fileName, const bool& willPaused);
 		bool IsPause(const std::string& fileName);
 		bool IsPause(const std::string& groupName, const std::string& fileName);
 		Audio* GetSound(const std::string& fileName);
