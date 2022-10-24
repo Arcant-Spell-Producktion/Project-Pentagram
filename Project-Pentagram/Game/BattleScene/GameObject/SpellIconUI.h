@@ -4,9 +4,18 @@
 #include <string>
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
 
+enum class IconType
+{
+    Normal,
+    Extra,
+};
+
 class SpellIconUI: public Button
 {
 private:
+
+    IconType m_Type = IconType::Normal;
+
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;
@@ -20,6 +29,8 @@ public:
     SpellIconUI(std::string objName);
 
     void SetIcon(CastSpellDetail* spellDetail);
+
+    void SetIconType(IconType type) { m_Type = type; };
 
     void SetPosition(glm::vec3 position);
 

@@ -52,10 +52,18 @@ void SpellIconUI::SetTransparency(bool flag)
 
 void SpellIconUI::UpdateIcon()
 {
-    m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
-    m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
-
-    m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+    switch (m_Type)
+    {
+    case IconType::Normal:
+        m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
+        m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
+        m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+        m_IconObject->color = AC_WHITE;
+        break;
+    case IconType::Extra:
+        m_IconObject->color = AC_GREEN;
+        break;
+    }
     SetTransparency(SpellDetail->isCasted);
 
     m_IconBorder->color = SpellDetail->SpellOwner == CasterPosition::CasterA ? AC_RED : AC_BLUE;

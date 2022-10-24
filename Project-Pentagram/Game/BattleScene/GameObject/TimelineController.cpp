@@ -26,7 +26,8 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     auto bm = BattleManager::GetInstance();
     for (size_t i = 0; i < 11; i++)
     {
-        auto track = m_ObjectManager->CreateObject<TimetrackUI>(new TimetrackUI(i,bm->Data.Timeline.GetTimetrack(i)));
+        std::function<void()> expandFunc = [this, i]() {ExpandTracks(i); };
+        auto track = m_ObjectManager->CreateObject<TimetrackUI>(new TimetrackUI(i, bm->Data.Timeline.GetTimetrack(i), expandFunc));
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }
@@ -40,6 +41,14 @@ void TimelineController::SetTrackerActive(bool isActive)
 void TimelineController::SetTrackerPositionByIndex(int index)
 {
     trackMarker->position.x = index * 125.0f - 625.0f;
+}
+
+void TimelineController::ExpandTracks(int TrackIndex)
+{
+    for (size_t i = 0; i < 11; i++)
+    {
+        m_Tracks[i]->ExpandTrack(i == TrackIndex);
+    }
 }
 
 void TimelineController::UpdatePreviewIcon(int time, CastSpellDetail* spell)
