@@ -41,6 +41,7 @@ protected:
                 float progress = m_TotalTime / travelTime;
 
                 this->position.x = startPos.x + direction.x * progress;
+                this->position.y = startPos.y + direction.y * progress;
             }
         );
     }
