@@ -58,19 +58,7 @@ void FireSpell1::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
     QueueDoneEvent();
@@ -95,20 +83,7 @@ void FireSpell2::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            std::cout << "\tSpell::Move\n";
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
     QueueDoneEvent();
@@ -372,20 +347,7 @@ void FireSpell7::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-            this->position.y = startPos.y + direction.y * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
 
