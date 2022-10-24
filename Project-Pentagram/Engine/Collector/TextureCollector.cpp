@@ -5,6 +5,11 @@ TextureCollector::TextureCollector()
 {
 }
 
+void TextureCollector::PreLoadResource()
+{
+	LoadFile("Sprites/PreLoad");
+}
+
 void TextureCollector::LoadResource()
 {
 	LoadFile("Sprites");
@@ -26,6 +31,11 @@ void TextureCollector::Free()
 
 void TextureCollector::LoadTexture(const std::string& filePath)
 {
+	if (m_Textures[filePath] != nullptr)
+	{
+		return;
+	}
+
 	m_Textures[filePath] = new Texture(filePath.c_str());
 }
 void TextureCollector::LoadFile(const std::string& filePath)

@@ -18,6 +18,7 @@ class TextureCollector
 
 	public:
 		TextureCollector();
+		void PreLoadResource();
 		void LoadResource();
 
 		Texture* GetTexture(const std::string& filePath);

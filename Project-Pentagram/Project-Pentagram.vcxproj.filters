@@ -168,6 +168,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
+    <ClCompile Include="Engine\Scene\LoadScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -416,6 +417,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Engine\Scene\LoadScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
