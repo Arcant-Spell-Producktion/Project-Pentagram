@@ -1,13 +1,12 @@
 ﻿#pragma once
 #include "CasterSpellManager.h"
-#include "Game/BattleScene/GameObject/CasterUIController.h"
+#include "Game/BattleScene/GameObject/CasterObject.h"
+#include "Game/BattleScene/SpellCaster/CasterUIController.h"
 #include "Game/BattleScene/SpellCaster/CasterEffectManager.h"
 
 enum class CasterState
 {
     Idle,
-    Chant,
-    Cast,
     EndTurn,
     Passed
 };
@@ -18,12 +17,15 @@ protected:
     CasterState m_CasterState = CasterState::Idle;
     CasterSpellManager m_SpellCaster;
     CasterEffectManager m_EffectManager;
+    CasterObject* m_CasterObject;
     CasterUIController* m_CasterUI;
 public:
 
     CasterController(CasterData caster);
 
     void UpdateCasterUI();
+
+    CasterObject* GetCasterObject() { return m_CasterObject; }
    
     CasterUIController* GetCasterUI() { return m_CasterUI; }
 
@@ -40,7 +42,6 @@ public:
     bool TakeDamage(int value); // True if Alive
 
     CastSpellDetail* CastSpell();
-
 
     void EndTurn(bool isPassed = false)
     {

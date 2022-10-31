@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Engine/IGameObjectManager.h"
 #include "Game/GameData/CasterData/CasterPosition.h"
-#include "SpellDetailUI.h"
+#include "Game/BattleScene/GameObject/SpellDetailUI.h"
 
 class CasterUIController
 {

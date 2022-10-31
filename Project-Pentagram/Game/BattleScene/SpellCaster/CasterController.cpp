@@ -1,8 +1,12 @@
 ﻿#include "CasterController.h"
+#include "Engine/GameStateController.h"
 #include "Game/BattleScene/BattleManager.h"
 
 CasterController::CasterController(CasterData caster):m_SpellCaster(caster)
 {
+    auto scene = GameStateController::GetInstance()->currentScene;
+    m_CasterObject = scene->CreateObject<CasterObject>(new CasterObject());
+
     m_CasterUI = new CasterUIController(m_SpellCaster.GetCasterData()->GetPosition());
     m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
     m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());

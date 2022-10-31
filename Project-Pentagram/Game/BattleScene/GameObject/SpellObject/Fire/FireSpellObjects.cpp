@@ -141,17 +141,24 @@ void FireSpell4::Initialize()
     this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
     this->SetIsAnimationObject(true);
     
-    float timePerFrame = 0.1f;
-    int count = this->GetAnimationColumn(0);
+    float timePerFrame = 0.15f;
+
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    float totalTime = timePerFrame * (count-1);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(0, 0);
+            Next();
+        }
+    );
+
 
     QueueUpdateFunction(
-        [this, totalTime](float dt)
+        [this](float dt)
         {
-            if (m_TotalTime >= totalTime)
+            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 3)
             {
                 Next();
                 return;
@@ -162,7 +169,7 @@ void FireSpell4::Initialize()
     QueueHitEvent();
 
     QueueUpdateFunction(
-        [this, count](float dt)
+        [this](float dt)
         {
             if (m_TotalTime >= 2.0f)
             {
@@ -171,7 +178,7 @@ void FireSpell4::Initialize()
             }
 
             this->SetIsAnimationObject(false);
-            this->SetSpriteByValue(1, count);
+            this->SetSpriteByValue(1, this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) );
 
             localTimer += dt;
             if (localTimer >= 0.1f)

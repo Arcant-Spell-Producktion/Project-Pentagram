@@ -91,10 +91,15 @@ void ResolveBattleState::ResolveSpell()
         m_CurrentSpellDetail->isCasted = true;
 
         if (m_CurrentSpellDetail->doCast)
-        {
+        {    
             m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
-            //TODO: resolve the m_CurrentSpellDetail effect
             m_State = ResolveState::PlaySpell;
+
+            m_ResolveBattleManager->Data.GetCaster(casterPosition)->GetCasterObject()->PlayAttackAnim(
+                [this]()
+                {
+                    m_CurrentSpellController->Activate();
+                });
         }
         else
         {
