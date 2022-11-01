@@ -9,13 +9,13 @@
 #include "Engine/Input.h"
 #include "Engine/Collector/EngineDataCollector.h"
 #include "Utilities/Color.h"
+#include "Utilities/Thread.h"
 
 class LoadScene : public GameScene
 {
 	protected:
-		std::thread loadThread;
+		Thread loadThread;
 		std::atomic<bool> isLoadDone = false;
-		GLFWwindow* offscreen_context;
 	public:
 		void GameSceneLoadResource(EngineDataCollector* engineDataCollector);
 

@@ -105,6 +105,7 @@
     <ClInclude Include="SOIL.h" />
     <ClInclude Include="Utilities\Color.h" />
     <ClInclude Include="Utilities\Singleton.h" />
+    <ClInclude Include="Utilities\Thread.h" />
     <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
   </ItemGroup>
   <ItemGroup>

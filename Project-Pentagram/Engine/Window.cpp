@@ -134,7 +134,7 @@ void Window::SetFullScreen(const bool fullscreen)
 }
 
 // Getter Implement
-GLFWwindow* Window::getWindow() 
+GLFWwindow* Window::GetWindowPointer() 
 { 
 	return m_Window; 
 }

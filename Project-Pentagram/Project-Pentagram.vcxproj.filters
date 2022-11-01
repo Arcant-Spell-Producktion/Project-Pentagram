@@ -418,6 +418,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
     <ClInclude Include="Engine\Scene\LoadScene.h" />
+    <ClInclude Include="Utilities\Thread.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
