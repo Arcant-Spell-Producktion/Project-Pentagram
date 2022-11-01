@@ -24,12 +24,12 @@ int main()
 	// Initialize ShaderCollector(For collecting type of Shader)
 	// Initialize FontCollector(For collecting type of Font)
 	// Initialize TextureCollector(For collecting all of texture in game)
+	// engineDataCollector->LoadResource() was already in LoadScene
 	engineDataCollector = EngineDataCollector::GetInstance();
-	engineDataCollector->LoadResource();
 
 	// Initialize gameStateController
 	gameStateController = GameStateController::GetInstance();
-	gameStateController->InitGameScene(GameState::GS_MENU_SCENE);
+	gameStateController->InitGameScene(GameState::GS_LOAD_SCENE);
 
     // Initialize SpellDatabase (For collecting all spell data)
     spellDatabase = SpellDatabase::GetInstance();

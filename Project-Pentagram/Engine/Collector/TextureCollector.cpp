@@ -7,7 +7,20 @@ TextureCollector::TextureCollector()
 
 void TextureCollector::PreLoadResource()
 {
-	LoadFile("Sprites/PreLoad");
+	// Load All Sprites Texture in Folder
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::directory_iterator("Sprites"))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		if (!dirEntry.is_directory())
+		{
+			std::string fileType = filePathString.substr(filePathString.rfind("."), filePathString.size() - 1);
+			if (fileType == ".png" || fileType == ".jpg" || fileType == ".jpeg")
+			{
+				std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+				LoadTexture(filePathString);
+			}
+		}
+	}
 }
 
 void TextureCollector::LoadResource()

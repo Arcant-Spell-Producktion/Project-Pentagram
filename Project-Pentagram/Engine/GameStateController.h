@@ -4,6 +4,7 @@
 #include "Engine/GameScene.h"
 #include "Engine/Scene/MenuScene.h"
 #include "Engine/Scene/NodeScene.h"
+#include "Engine/Scene/LoadScene.h"
 #include "Game/BattleScene/BattleScene.h"
 #include "Utilities/Singleton.h"
 
