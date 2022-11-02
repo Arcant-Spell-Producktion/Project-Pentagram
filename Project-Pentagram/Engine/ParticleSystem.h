@@ -67,4 +67,7 @@ class ParticleSystem : public GameObject
 		bool IsFixRotation() const;
 
 		void Emit(const ParticleProperty& particleProperty);
+
+		// ----------------- Animation Update ----------------- 
+		virtual void UpdateAnimation(const float& deltaTime) override;
 };

@@ -27,6 +27,7 @@ class GameObject
 		bool m_IsAnimationPlaying;
 		bool m_IsAnimationObject;
 		bool m_IsSpriteSheet;
+		bool m_IsAnimationLoop;
 
 		int m_AnimationRow;
 		std::vector<int> m_AnimationColumn;
@@ -81,6 +82,7 @@ class GameObject
 		bool IsAnimationObject() const;
 		bool IsAnimationPlaying() const;
 		bool IsSpriteSheet() const;
+		bool IsAnimationLoop() const;
 
 		// ----------------- Setter ----------------- 
 		// Rendering
@@ -91,6 +93,7 @@ class GameObject
 		void SetIsZoomObject(const bool& active);
 		// Animation
 		void SetIsAnimationObject(const bool& active);
+		void SetIsAnimationLoop(const bool& active);
 		void SetSpriteByIndex(const int& row, const int& column);
 		void SetSpriteByValue(const int& row, const int& column);
 		void SetAnimationPlayTime(const float& animationPlayTime);
@@ -101,5 +104,5 @@ class GameObject
 
 
 		// ----------------- Animation Update ----------------- 
-		void UpdateAnimation(const float& deltaTime);
+		virtual void UpdateAnimation(const float& deltaTime);
 };

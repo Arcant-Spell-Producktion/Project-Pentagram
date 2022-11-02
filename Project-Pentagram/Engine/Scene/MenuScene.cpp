@@ -32,6 +32,7 @@ void MenuScene::GameSceneInit()
 	ParticleSystem* particle = CreateParticle(particleProp);
 	particle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
 	particle->SetIsAnimationObject(true);
+	particle->SetIsAnimationLoop(false);
 	particle->SetIsFixRotation(true);
 	particle->SetSpawnTime(0.25f);
 
