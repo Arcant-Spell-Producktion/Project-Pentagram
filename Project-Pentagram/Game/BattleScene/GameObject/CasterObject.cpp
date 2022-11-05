@@ -46,7 +46,14 @@ void CasterObject::OnUpdate(const float& dt)
 
     if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
     {
-        SetState(m_NextState);
+        if (m_ChannelCounter > 0)
+        {
+            SetState(CasterObjectState::Cast);
+        }
+        else
+        {
+            SetState(m_NextState);
+        }
     }
 
 }
@@ -72,8 +79,32 @@ void CasterObject::SetCaster(CasterObjectType type, Element::Type element, Caste
 
 }
 
-void CasterObject::PlayAttackAnim(std::function<void()> atk_callback)
+void CasterObject::PlayChannelAnim(int ChannelCount)
 {
+    if (ChannelCount != 0)
+    {
+        m_ChannelCounter += ChannelCount;
+        SetState(CasterObjectState::Cast);
+    }
+    else
+    {
+        SetState(CasterObjectState::Cast, CasterObjectState::Idle);
+    }
+
+}
+
+void CasterObject::PlayAttackAnim(bool isChannelSpell,std::function<void()> callback)
+{
+    std::function<void()> atk_callback = [this,isChannelSpell, callback]()
+    {
+        if (isChannelSpell)
+        {
+            m_ChannelCounter--;
+        }
+
+        callback();
+    };
+
     m_atk_callback = atk_callback;
     SetState(CasterObjectState::Attack, CasterObjectState::Idle);
 }

@@ -28,6 +28,7 @@ private:
     CasterObjectState m_State = CasterObjectState::Idle;
     CasterObjectState m_NextState = CasterObjectState::Idle;
 
+    int m_ChannelCounter = 0;
     bool m_doLoop = false;
 public:
     CasterObject();
@@ -36,7 +37,9 @@ public:
 
     void SetCaster(CasterObjectType type, Element::Type element, CasterPosition pos);
 
-    void PlayAttackAnim(std::function<void()> atk_callback);
+    void PlayChannelAnim(int ChannelCount = 0);
+
+    void PlayAttackAnim(bool isChannelSpell,std::function<void()> callback);
 
     void SetState(CasterObjectState state);
 
