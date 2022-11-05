@@ -81,10 +81,6 @@ protected:
 public:
     BaseSpellObject(CasterPosition target, std::string spellName, std::string spellTexturePath);
 
-    void Activate() override
-    {
-        while (m_SpellState != SpellObjectState::Ready) continue;
-        m_TotalTime = 0.0f;
-        m_SpellState = SpellObjectState::Activate;
-    }
+    void Activate() override;
+   
 };

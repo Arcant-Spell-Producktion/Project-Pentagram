@@ -122,9 +122,6 @@
     <ClCompile Include="Engine\Slider.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\GameObject\CasterUIController.cpp">
-      <Filter>Game\BattleScene\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClCompile>
@@ -168,6 +165,8 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -350,9 +349,6 @@
     <ClInclude Include="Engine\Slider.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h">
-      <Filter>Game\BattleScene\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
       <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
@@ -416,6 +412,8 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

@@ -19,35 +19,9 @@ void BattleScene::GameSceneLoad()
 
 void BattleScene::GameSceneInit()
 {
-    battleManager->Init();
-
     objectsList.push_back(new StageObject(Element::Water));
 
-    ParticleProperty particleProp;
-    particleProp.colorBegin = { 1.0f, 0.0f, 0.0f, 1.0f };
-    particleProp.colorEnd = { 1.0f, 0.5f, 0.0f, 0.0f };
-    particleProp.sizeBegin = particleProp.sizeEnd = 10.0f;
-    particleProp.velocityVariation = { 600.0f, 600.0f };
-    particleProp.velocity = { 0.0f, 300.0f };
-    ParticleSystem* particle = CreateParticle(particleProp);
-
-    float player_y_offset = 150.0f;
-    GameObject* obj = CreateGameObject("Player");
-    obj->SetIsAnimationObject(true);
-    obj->scale = { 320.0f, 320.0f, 1.0f };
-    obj->SetTexture("Sprites/Character/Player/character_player_fire.png");
-    obj->position.x -= 700.0f;
-    obj->position.y -= player_y_offset;
-    obj->SetChildRenderBack(particle);
-    
-
-    GameObject* obj3 = CreateGameObject("Minion");
-    obj3->SetIsAnimationObject(true);
-    obj3->scale = { -320.0f, 320.0f, 1.0f };
-    obj3->SetTexture("Sprites/Character/Minion/character_minion_water.png");
-    obj3->position.x += 700.0f;
-    obj3->position.y -= player_y_offset;
-
+    battleManager->Init();
 
     battleManager->Data.Pentagram = CreateObject<PentragramController>(new PentragramController());
     battleManager->Data.Timeline.UI = CreateObject<TimelineController>(new TimelineController());
