@@ -30,6 +30,10 @@ private:
 
     int m_ChannelCounter = 0;
     bool m_doLoop = false;
+
+    void SetState(CasterObjectState state);
+
+    void SetState(CasterObjectState state, CasterObjectState nextState);
 public:
     CasterObject();
 
@@ -41,7 +45,6 @@ public:
 
     void PlayAttackAnim(bool isChannelSpell,std::function<void()> callback);
 
-    void SetState(CasterObjectState state);
+    void PlayDiedAnim();
 
-    void SetState(CasterObjectState state, CasterObjectState nextState);
 };

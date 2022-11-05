@@ -23,11 +23,23 @@ const std::string CasterSpritePath[3][4] =
     }
 };
 
+void CasterObject::SetState(CasterObjectState state)
+{
+    SetState(state, state);
+}
+
+void CasterObject::SetState(CasterObjectState state, CasterObjectState nextState)
+{
+    m_State = state;
+    m_NextState = nextState;
+    SetSpriteByIndex((int)m_State, 0);
+    SetAnimationPlayTime(0.1f);
+}
+
 CasterObject::CasterObject(): GameObject("CasterObject")
 {
     std::cout << "CREATE CASTER\n";
 
-    
     this->SetIsAnimationObject(true);
     this->scale = { 320.0f, 320.0f, 1.0f };
 }
@@ -46,6 +58,12 @@ void CasterObject::OnUpdate(const float& dt)
 
     if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
     {
+        if (m_State == CasterObjectState::Die)
+        {
+            this->SetIsAnimationLoop(false);
+            return;
+        }
+
         if (m_ChannelCounter > 0)
         {
             SetState(CasterObjectState::Cast);
@@ -109,16 +127,9 @@ void CasterObject::PlayAttackAnim(bool isChannelSpell,std::function<void()> call
     SetState(CasterObjectState::Attack, CasterObjectState::Idle);
 }
 
-void CasterObject::SetState(CasterObjectState state)
+void CasterObject::PlayDiedAnim()
 {
-    SetState(state, state);
+    SetState(CasterObjectState::Die);
 }
 
 
-void CasterObject::SetState(CasterObjectState state, CasterObjectState nextState)
-{
-    m_State = state;
-    m_NextState = nextState;
-    SetSpriteByIndex((int)m_State, 0);
-    SetAnimationPlayTime(0.1f);
-}

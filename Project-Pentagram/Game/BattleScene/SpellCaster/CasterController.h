@@ -19,6 +19,8 @@ protected:
     CasterEffectManager m_EffectManager;
     CasterObject* m_CasterObject;
     CasterUIController* m_CasterUI;
+
+    void CasterDied();
 public:
 
     CasterController(CasterData caster);
