@@ -17,6 +17,7 @@ protected:
     int m_CurrentHealth = 0;
     int m_CurrentMana = 0;
 
+    int m_TimeDebuff = 0;
 public:
     CasterSpellManager(CasterData caster);
 
@@ -45,6 +46,10 @@ public:
     void ChangeMana(int mana) { m_CurrentMana += mana; }
 
     void ResetMana() { m_CurrentMana = m_CurrentData.GetMana(); }
+
+    void SetTimeDebuff(int debuff) { m_TimeDebuff = debuff; }
+
+    void ResetTimeDebuff() { m_TimeDebuff = 0; }
 
     CastSpellDetail* GetSpellDetail()
     {

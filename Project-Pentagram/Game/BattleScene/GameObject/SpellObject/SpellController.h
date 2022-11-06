@@ -13,7 +13,7 @@ enum class SpellObjectState
 class SpellController
 { 
 protected:
-    std::atomic<SpellObjectState> m_SpellState = SpellObjectState::Init;
+   SpellObjectState m_SpellState = SpellObjectState::Init;
 public:
     SpellObjectState GetSpellState() const { return m_SpellState; }
     bool IsSpellHit() { return m_SpellState == SpellObjectState::Hit; }

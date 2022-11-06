@@ -20,6 +20,7 @@ void BattleSceneData::StandbyAllCaster()
     {
         caster->SetState(CasterState::Idle);
         caster->GetSpellManager()->ResetMana();
+        caster->GetSpellManager()->ResetTimeDebuff();
         caster->GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, caster);
         caster->UpdateCasterUI();
     }
