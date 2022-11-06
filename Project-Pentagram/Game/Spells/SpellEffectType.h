@@ -5,7 +5,9 @@ enum class SpellEffectEnum
 {
     None = 0,
     Mark,
-    Burn
+    Burn,
+    Overflow,
+    Freeze,
 };
 
 class SpellEffectType
