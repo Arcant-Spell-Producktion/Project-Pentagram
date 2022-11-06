@@ -10,11 +10,12 @@ public:
     {
         NULLTYPE = -1,
         Earth = 0,
-        Fire,
-        Water,
-        Wind,
-        Debug
+        Fire = 1,
+        Water = 2,
+        Wind = 3,
+        Debug = 1
     };
+
     static Element::Type GetEnum(std::string typeString) {
         for (int i = 0; i < 3; i++)
         {

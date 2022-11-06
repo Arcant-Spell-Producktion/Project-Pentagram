@@ -138,7 +138,6 @@
     <ClCompile Include="Game\Spells\SpellEffectType.cpp">
       <Filter>Game\Spells\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp">
       <Filter>Game\BattleScene\Objects</Filter>
@@ -167,6 +166,7 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -365,18 +365,12 @@
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h">
       <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
     </ClInclude>
-    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\MarkSpellEffect.h">
-      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
-    </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h">
       <Filter>Game\BattleScene\SpellEffect</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h">
-      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
     </ClInclude>
     <ClInclude Include="Game\Objects\StageObject.h">
       <Filter>Game</Filter>
@@ -693,5 +687,10 @@
     <Font Include="WorkingDir\Fonts\BAUHS93.ttf">
       <Filter>WorkingDir\Fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="WorkingDir\Spellbooks\Ligma.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Fire.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Water.xml" />
   </ItemGroup>
 </Project>
