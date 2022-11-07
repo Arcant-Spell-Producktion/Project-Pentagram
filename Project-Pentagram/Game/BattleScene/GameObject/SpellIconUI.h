@@ -26,7 +26,7 @@ private:
 public:
     CastSpellDetail* SpellDetail = nullptr;
 
-    SpellIconUI(std::string objName);
+    SpellIconUI(std::string objName,float scale = 100.0f);
 
     void SetIcon(CastSpellDetail* spellDetail);
 

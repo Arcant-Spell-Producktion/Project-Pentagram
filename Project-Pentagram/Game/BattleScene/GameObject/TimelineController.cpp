@@ -5,22 +5,22 @@
 TimelineController::TimelineController():m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TimelineUI")
 {
     this->color.a = 0.0f;
-    this->position.y += 440.0f;
+    this->position.y += 400.0f;
 
-    top = m_ObjectManager->CreateUIObject("TimelineUITOP");
-    top->scale = { 1375.0f,80.0f,1.0f };
-    top->position.y += 110.0f;
-    top->color = AC_BLACK;
+    top = m_ObjectManager->CreateUIObject("Timeline_UI_Banner");
+    top->scale = { 1320.0f,40.0f,1.0f };
+    top->position.y += 120.0f;
+    top->color.a = 0.0f;
     this->SetChildRenderFront(top);
 
     trackMarker = m_ObjectManager->CreateUIObject("Timeline_Track_Marker");
-    trackMarker->scale = { 50.0f,50.0f,1.0f };
+    trackMarker->scale = { 20.0f,20.0f,1.0f };
     trackMarker->SetActive(false);
     top->SetChildRenderFront(trackMarker);
 
     box = m_ObjectManager->CreateUIObject("TimelineUIBOX");
-    box->scale = { 1920.0f,360.0f,1.0f };
-    box->color.a = 0.5f;
+    box->scale = { 1920.0f,280,1.0f };
+    box->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_header.png");
     this->SetChildRenderBack(box);
 
     auto bm = BattleManager::GetInstance();
@@ -40,7 +40,7 @@ void TimelineController::SetTrackerActive(bool isActive)
 
 void TimelineController::SetTrackerPositionByIndex(int index)
 {
-    trackMarker->position.x = index * 125.0f - 625.0f;
+    trackMarker->position.x = index * 120.0f - 600.0f;
 }
 
 void TimelineController::ExpandTracks(int TrackIndex)

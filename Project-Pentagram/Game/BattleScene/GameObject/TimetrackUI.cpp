@@ -3,49 +3,69 @@
 
 const int maxIcon = 7;
 
+const float trackY = 20.0f;
+
 const float trackWidth = 120.0f;
 
-const float scaleDefault = 140.0f;
+const float scaleDefault = 160.0f;
+const float iconSize = 80.0f;
 const float iconGap = 20.0f;
 
-
+std::string TimelineTrackSprite[2] =
+{
+    "Sprites/UI/Game/Timeline/ui_game_timeline_banner-borderless.png",
+    "Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png"
+};
 
 TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_"+index)
 {
     m_TrackIndex = index;
 
     this->position.x = m_TrackIndex * trackWidth - (trackWidth * 5);
+    this->position.y = trackY;
     this->color.a = 0.0f;
 
     m_Box = m_ObjectManager->CreateUIObject("TrackUI_Box_" + m_TrackIndex);
     m_Box->scale = { trackWidth,scaleDefault,1.0f };
-    m_Box->color = AC_RED;
-    m_Box->color.a = 0.5f + (0.5f * m_TrackIndex / 10.0f);
+
+    m_Box->SetTexture(TimelineTrackSprite[0]);
+    m_Box->SetIsSlicing(true);
+    m_Box->SetSlicingBorderSize(50.0f);
+    m_Box->SetSlicingBorderMultiplier(0.4f);
+    m_Box->SetSlicingType(SlicingType::REPEAT);
+
     this->SetChildRenderBack(m_Box);
 
-    m_PreviewIcon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI("PreviewIcon_"+ m_TrackIndex));
+    m_PreviewIcon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI("PreviewIcon_"+ m_TrackIndex,iconSize));
     m_PreviewIcon->SetActive(false);
     this->SetChildRenderFront(m_PreviewIcon);
 
     m_ExpandButton = m_ObjectManager->CreateButton("Expand_" + m_TrackIndex);
-    m_ExpandButton->scale = { trackWidth , 30.0f , 1.0f };
+    m_ExpandButton->SetIsSlicing(false);
+    m_ExpandButton->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_button.png");
+    m_ExpandButton->SetIsAnimationObject(false);
+    m_ExpandButton->scale = { trackWidth , trackWidth/4.0f , 1.0f };
+    m_ExpandButton->SetSpriteByIndex(0,0);
 
     m_ExpandButton->onHover = [this](Button* button)
     {
-        m_ExpandButton->color = { 0.5f,0.5f ,0.5f ,0.5f };
-        SetExpandButtonScale(60.0f);
+        int index = !m_IsExpanded ? 0 : 1;
+        m_ExpandButton->SetSpriteByIndex(index, 1);
     };
 
     m_ExpandButton->unHover = [this](Button* button)
     {
-        m_ExpandButton->color = AC_WHITE;
-        SetExpandButtonScale(30.0f);
+        int index = !m_IsExpanded ? 0 : 1;
+        m_ExpandButton->SetSpriteByIndex(index, 0);
     };
 
     m_ExpandButton->onClick = [this, expand](Button* button)
     {
         std::cout << "TRY EXPAND" << m_TrackIndex << "\n";
         expand();
+
+        auto index = m_ExpandButton->GetCurrentAnimationIndex();
+        m_ExpandButton->SetSpriteByIndex((index.x + 1)%2, 0);
     };
 
     m_Box->SetChildRenderFront(m_ExpandButton);
@@ -138,9 +158,7 @@ void TimetrackUI::UpdateTrack()
         case 0:
         case 1:
         case 2:
-           break;
         case 3:
-            newScale += 10.0f;
             break;
         case 4:
             newScale += 30.0f;
@@ -158,25 +176,28 @@ void TimetrackUI::UpdateTrack()
     else
     {
         int i = 0;
+
         for (auto icon : m_Icons)
         {
-            icon->position.y = -100.0f * i;
+            icon->position.y = iconSize /4.0f - (iconSize * i);
             icon->UpdateIcon();
             i++;
         }
-        newScale += m_Icons.size() * 100.0f;
+
+        newScale += m_Icons.size() * iconSize;
     }
 
     m_Box->scale.y = newScale;
 
     m_Box->position.y = (newScale - scaleDefault) / -2.0f;
-    
+
+    SetExpandButtonScale(30.0f);
 }
 
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
 {
     PreviewIcon(false);
-    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->OriginalSpell->GetSpellName()));
+    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->OriginalSpell->GetSpellName() + "_icon", iconSize));
     icon->SetIcon(spell);
     this->SetChildRenderBack(icon);
     m_Icons.push_back(icon);
