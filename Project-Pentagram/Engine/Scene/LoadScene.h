@@ -14,10 +14,12 @@
 class LoadScene : public GameScene
 {
 	protected:
-		Thread loadThread;
-		std::atomic<bool> isLoadDone = false;
+		Thread textureThread;
+		Thread utilityThread;
+		std::atomic<int> loadDoneCount = 0;
 	public:
-		void GameSceneLoadResource(EngineDataCollector* engineDataCollector);
+		void GameSceneLoadTextureResource(EngineDataCollector* engineDataCollector);
+		void GameSceneLoadUtilityResource(EngineDataCollector* engineDataCollector);
 
 		virtual void GameSceneLoad() override;
 		virtual void GameSceneInit() override;

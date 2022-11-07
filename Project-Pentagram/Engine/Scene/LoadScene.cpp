@@ -1,10 +1,16 @@
 #include "LoadScene.h"
 
-void LoadScene::GameSceneLoadResource(EngineDataCollector* engineDataCollector)
+void LoadScene::GameSceneLoadTextureResource(EngineDataCollector* engineDataCollector)
 {
-	loadThread.MakeContext();
-	engineDataCollector->LoadResource();
-	isLoadDone = true;
+	textureThread.MakeContext();
+	engineDataCollector->LoadTextureResource();
+	loadDoneCount++;
+}
+void LoadScene::GameSceneLoadUtilityResource(EngineDataCollector* engineDataCollector)
+{
+	utilityThread.MakeContext();
+	engineDataCollector->LoadUtilityResource();
+	loadDoneCount++;
 }
 
 void LoadScene::GameSceneLoad()
@@ -18,7 +24,8 @@ void LoadScene::GameSceneInit()
 {
 	EngineDataCollector* engineDataCollector = EngineDataCollector::GetInstance();
 	engineDataCollector->GetTextureCollector()->PreLoadResource();
-	loadThread.SetFunction(std::thread(&LoadScene::GameSceneLoadResource, this, engineDataCollector));
+	utilityThread.SetFunction(std::thread(&LoadScene::GameSceneLoadUtilityResource, this, engineDataCollector));
+	textureThread.SetFunction(std::thread(&LoadScene::GameSceneLoadTextureResource, this, engineDataCollector));
 	obj = CreateGameObject("Object");
 	obj->scale = { 100.0f, 100.0f, 1.0f };
 	std::cout << "LoadScene : Initialize Completed\n";
@@ -27,9 +34,10 @@ void LoadScene::GameSceneInit()
 void LoadScene::GameSceneUpdate(float dt)
 {
 	GameScene::GameSceneUpdate(dt);
-	if (isLoadDone)
+	if (loadDoneCount == 2)
 	{
-		loadThread.Join();
+		textureThread.Join();
+		utilityThread.Join();
 		SceneManager::LoadScene(GameState::GS_MENU_SCENE);
 	}
 	obj->rotation += 100.0f * dt;
