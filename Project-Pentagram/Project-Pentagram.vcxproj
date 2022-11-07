@@ -22,7 +22,7 @@
     <ClInclude Include="Engine\IGameObjectManager.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
-    <ClInclude Include="Game\BattleScene\GameObject\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
@@ -35,11 +35,10 @@
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\SpellDispather.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
-    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.h" />
-    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\MarkSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
@@ -118,7 +117,7 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
-    <ClCompile Include="Game\BattleScene\GameObject\CasterUIController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
@@ -129,6 +128,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterSpellManager.cpp" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />
@@ -157,7 +157,7 @@
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
     <ClCompile Include="Game\BattleScene\SpellDispather.cpp" />
-    <ClCompile Include="Game\BattleScene\SpellEffect\Effects\BurnSpellEffect.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
@@ -188,6 +188,11 @@
   <ItemGroup>
     <Font Include="WorkingDir\Fonts\ARLRDBD.ttf" />
     <Font Include="WorkingDir\Fonts\BAUHS93.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="WorkingDir\Spellbooks\Ligma.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Fire.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Water.xml" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

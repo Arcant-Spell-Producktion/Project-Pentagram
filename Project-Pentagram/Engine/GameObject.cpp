@@ -23,6 +23,7 @@ GameObject::GameObject(const std::string& objName)
 	this->m_AnimationRow = texture->GetImageRow();
 	this->m_AnimationColumn = texture->GetImageColumn();
 	this->m_MaxAnimationColumn = texture->GetMaxImageColumn();
+	this->m_IsAnimationLoop = true;
 
 	this->m_IsAnimationObject = false;
 	this->m_IsAnimationPlaying = false;
@@ -57,6 +58,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	this->m_IsAnimationObject = false;
 	this->m_IsAnimationPlaying = false;
 	this->m_IsSpriteSheet = (m_AnimationRow == 1 && m_AnimationColumn[0] == 1 ? false : true);
+	this->m_IsAnimationLoop = true;
 
 	// Set Texture
 	this->m_Texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
@@ -234,6 +236,10 @@ bool GameObject::IsSpriteSheet() const
 {
 	return this->m_IsSpriteSheet;
 }
+bool GameObject::IsAnimationLoop() const
+{
+	return this->m_IsAnimationLoop;
+}
 
 // ----------------- Setter ----------------- 
 void GameObject::SetActive(const bool& active) 
@@ -286,6 +292,10 @@ void GameObject::SetIsAnimationObject(const bool& active)
 	this->m_IsAnimationObject = active; 
 	this->m_IsAnimationPlaying = (active == false ? false : m_IsAnimationPlaying);
 }
+void GameObject::SetIsAnimationLoop(const bool& active)
+{
+	this->m_IsAnimationLoop = active;
+}
 void GameObject::SetSpriteByIndex(const int& row, const int& column)
 {
 	this->m_CurrentAnimationRow = row + 1;
@@ -326,7 +336,7 @@ void GameObject::SetTexture(Texture* texture)
 void GameObject::UpdateAnimation(const float& deltaTime)
 {
 	// If Current Object are not AnimationObject or doesn't play Animation
-	if (!m_IsAnimationObject)
+	if (!m_IsAnimationObject || (m_CurrentAnimationColumn >= m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
 	{
 		return;
 	}
@@ -343,8 +353,8 @@ void GameObject::UpdateAnimation(const float& deltaTime)
 		// Increment Column & Check Condition
 		m_CurrentAnimationColumn++;
 		if (m_CurrentAnimationColumn >= m_AnimationColumn[m_CurrentAnimationRow - 1]) 
-		{ 
-			m_CurrentAnimationColumn = 1; 
+		{
+			m_CurrentAnimationColumn = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
 		}
 
 		// Restart m_CurrentPlayTime
