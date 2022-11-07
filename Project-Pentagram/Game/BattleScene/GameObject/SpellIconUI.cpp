@@ -4,7 +4,7 @@
 
 const std::string iconPath = "Sprites/UI/Game/ui_game_spell-icons.png";
 
-SpellIconUI::SpellIconUI(std::string objName) :m_ObjectManager(GameStateController::GetInstance()->currentScene), Button(objName)
+SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(GameStateController::GetInstance()->currentScene), Button(objName)
 {
     this->onHover = [this](Button* button)
     {
@@ -15,13 +15,13 @@ SpellIconUI::SpellIconUI(std::string objName) :m_ObjectManager(GameStateControll
         UpdateDetail();
     };
     this->color.a = 0.0f;
-    this->scale = { 120.0f,120.0f ,1.0f };
+    this->scale = { _scale,_scale ,1.0f };
 
     m_IconObject = m_ObjectManager->CreateUIObject(objName + "_icon");
     m_IconObject->SetIsAnimationObject(false);
     m_IconObject->SetTexture(iconPath);
     m_IconObject->SetSpriteByIndex(0, 0);
-    m_IconObject->scale = { 100.0f,100.0f ,1.0f };
+    m_IconObject->scale = { _scale,_scale ,1.0f };
 
     this->SetChildRenderFront(m_IconObject);
 
@@ -52,10 +52,18 @@ void SpellIconUI::SetTransparency(bool flag)
 
 void SpellIconUI::UpdateIcon()
 {
-    m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
-    m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
-
-    m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+    switch (m_Type)
+    {
+    case IconType::Normal:
+        m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
+        m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
+        m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+        m_IconObject->color = AC_WHITE;
+        break;
+    case IconType::Extra:
+        m_IconObject->color = AC_GREEN;
+        break;
+    }
     SetTransparency(SpellDetail->isCasted);
 
     m_IconBorder->color = SpellDetail->SpellOwner == CasterPosition::CasterA ? AC_RED : AC_BLUE;
