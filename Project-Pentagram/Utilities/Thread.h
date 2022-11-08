@@ -9,6 +9,7 @@ class Thread
 {
 	private:
 		std::thread m_Thread;
+		bool m_IsThreadJoin = false;
 		GLFWwindow* m_ThreadWindow;
 
 	public:
@@ -26,11 +27,16 @@ class Thread
 		}
 		~Thread()
 		{
+			if (m_IsThreadJoin == false)
+			{
+				m_Thread.detach();
+			}
 			glfwDestroyWindow(m_ThreadWindow);
 		}
 
 		void Join()
 		{
+			m_IsThreadJoin = true;
 			m_Thread.join();
 		}
 		void MakeContext()

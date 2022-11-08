@@ -1,14 +1,10 @@
 #include "EngineDataCollector.h"
 
-void EngineDataCollector::LoadUtilityResource()
+void EngineDataCollector::LoadResource()
 {
 	m_FontCollector.LoadResource();
 	m_SoundSystem.LoadResource();
-}
-
-void EngineDataCollector::LoadTextureResource()
-{
-	m_TextureCollector.LoadResource();
+	// m_Texture.LoadResource was Loaded in LoadScene.cpp
 }
 
 // Getter Implement

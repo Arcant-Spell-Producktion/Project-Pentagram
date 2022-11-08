@@ -21,11 +21,7 @@ void TextureCollector::PreLoadResource()
 			}
 		}
 	}
-}
-
-void TextureCollector::LoadResource()
-{
-	LoadFile("Sprites");
+	LoadFile("Sprites/PreLoad");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& filePath)
@@ -37,8 +33,12 @@ void TextureCollector::Free()
 {
 	for (auto it = m_Textures.begin(); it != m_Textures.end(); it++)
 	{
-		(it->second)->Delete();
-		delete it->second;
+		if (it->second)
+		{
+			(it->second)->Delete();
+			delete it->second;
+		}
+		
 	}
 }
 
