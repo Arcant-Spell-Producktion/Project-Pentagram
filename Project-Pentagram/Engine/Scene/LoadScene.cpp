@@ -27,11 +27,6 @@ GameObject* obj;
 
 void LoadScene::GameSceneInit()
 {
-	GLenum err;
-	if ((err = glGetError()) != GL_NO_ERROR)
-	{
-		std::cout << err << "\n";
-	}
 	EngineDataCollector* engineDataCollector = EngineDataCollector::GetInstance();
 	engineDataCollector->GetTextureCollector()->PreLoadResource();
 
@@ -44,7 +39,6 @@ void LoadScene::GameSceneInit()
 		std::string filePathString = (dirEntry.path()).string();
 		if (dirEntry.is_directory())
 		{
-			std::cout << "CHECK : " + filePathString + "\n";
 			Thread* curThread = new Thread();
 			curThread->SetFunction(&LoadScene::GameSceneLoadTextureResource, this, curThread, engineDataCollector, filePathString);
 			m_TextureThread.push_back(curThread);
