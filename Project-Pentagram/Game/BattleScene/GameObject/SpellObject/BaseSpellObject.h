@@ -32,7 +32,6 @@ protected:
         QueueUpdateFunction(
             [this, startPos, direction, travelTime](float dt)
             {
-                std::cout << "\tSpell::Move\n";
                 if (m_TotalTime >= travelTime)
                 {
                     Next();

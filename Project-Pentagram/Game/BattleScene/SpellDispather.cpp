@@ -1,6 +1,7 @@
 ﻿#include "SpellDispather.h"
 #include "Engine/GameStateController.h"
 #include "Game/BattleScene/GameObject/SpellObject/Fire/FireSpellObjects.h"
+#include "Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h"
 
 SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosition target)
 {
@@ -14,7 +15,7 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
         m_Spells.emplace(detail, m_ObjectManager->CreateObject<BaseSpellObject>(newSpell));
         break;
     case Element::Water:
-        newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
+        newSpell = WaterSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
         m_Spells.emplace(detail, m_ObjectManager->CreateObject<BaseSpellObject>(newSpell));
         break;
     case Element::Wind:

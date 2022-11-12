@@ -167,6 +167,9 @@
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp">
+      <Filter>Game\BattleScene\SpellObject\Water</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -408,6 +411,9 @@
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.h">
+      <Filter>Game\BattleScene\SpellObject\Water</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -678,6 +684,9 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellObject\Fire">
       <UniqueIdentifier>{0cf6e220-fe9d-4c1f-b82d-ae760b0e4108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject\Water">
+      <UniqueIdentifier>{b925cc52-93d6-48d2-af2b-b9524ed81d35}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
