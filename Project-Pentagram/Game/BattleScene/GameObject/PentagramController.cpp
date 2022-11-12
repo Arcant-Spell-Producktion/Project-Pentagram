@@ -25,6 +25,7 @@ void InvokeSpell()
     }
 
     bm->Data.Timeline.AddSpellToTimeline(spell, true);
+    bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
     bm->Data.GetCurrentCaster()->EndTurn();
     bm->SwapCaster();
 }

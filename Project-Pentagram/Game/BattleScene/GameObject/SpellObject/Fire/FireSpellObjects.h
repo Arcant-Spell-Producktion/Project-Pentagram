@@ -124,6 +124,38 @@ public:
     };
 };
 
+class FireSpell8 : public BaseSpellObject
+{
+private:
+    void Initialize();
+public:
+    FireSpell8(CasterPosition target) :BaseSpellObject(
+        target,
+        "FireDragon_Object",
+        "Sprites/Spell/Fire/spell_fire_8.png")
+    {
+        std::cout << "Spell:: Create Dragon\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
+class FireSpell9 : public BaseSpellObject
+{
+private:
+    void Initialize();
+public:
+    FireSpell9(CasterPosition target) :BaseSpellObject(
+        target,
+        "Hell_Object",
+        "Sprites/Spell/Fire/spell_fire_9.png")
+    {
+        std::cout << "Spell:: Create Hell\n";
+        Initialize();
+        BaseSpellObject::Initialize();
+    };
+};
+
 
 class FireSpellObject
 {

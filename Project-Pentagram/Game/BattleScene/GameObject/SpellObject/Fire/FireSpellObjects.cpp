@@ -29,13 +29,11 @@ BaseSpellObject* FireSpellObject::CreateSpellObject(int index, CasterPosition ta
     case 6:
         object = new FireSpell7(target);
         break;
-        /*
     case 7:
+        object = new FireSpell8(target);
         break;
     case 8:
-        break;*/
-    default:
-        object = new FireSpell1(target);
+        object = new FireSpell9(target);
         break;
     }
     return object;
@@ -60,19 +58,7 @@ void FireSpell1::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
     QueueDoneEvent();
@@ -97,20 +83,7 @@ void FireSpell2::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            std::cout << "\tSpell::Move\n";
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
     QueueDoneEvent();
@@ -168,17 +141,24 @@ void FireSpell4::Initialize()
     this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
     this->SetIsAnimationObject(true);
     
-    float timePerFrame = 0.1f;
-    int count = this->GetAnimationColumn(0);
+    float timePerFrame = 0.15f;
+
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    float totalTime = timePerFrame * (count-1);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(0, 0);
+            Next();
+        }
+    );
+
 
     QueueUpdateFunction(
-        [this, totalTime](float dt)
+        [this](float dt)
         {
-            if (m_TotalTime >= totalTime)
+            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 3)
             {
                 Next();
                 return;
@@ -189,7 +169,7 @@ void FireSpell4::Initialize()
     QueueHitEvent();
 
     QueueUpdateFunction(
-        [this, count](float dt)
+        [this](float dt)
         {
             if (m_TotalTime >= 2.0f)
             {
@@ -198,7 +178,7 @@ void FireSpell4::Initialize()
             }
 
             this->SetIsAnimationObject(false);
-            this->SetSpriteByValue(1, count);
+            this->SetSpriteByValue(1, this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) );
 
             localTimer += dt;
             if (localTimer >= 0.1f)
@@ -374,20 +354,7 @@ void FireSpell7::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    QueueUpdateFunction(
-        [this, startPos, direction, travelTime](float dt)
-        {
-            if (m_TotalTime >= travelTime)
-            {
-                Next();
-                return;
-            }
-            float progress = m_TotalTime / travelTime;
-
-            this->position.x = startPos.x + direction.x * progress;
-            this->position.y = startPos.y + direction.y * progress;
-        }
-    );
+    QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
 
@@ -403,6 +370,105 @@ void FireSpell7::Initialize()
     );
 
     QueueWaitEvent(shakeTime);
+
+    QueueDoneEvent();
+}
+
+void FireSpell8::Initialize()
+{
+    std::cout << "FireDragon::Init\n";
+    float size = 1000.0f;
+    float speed = 2.0f;
+    float startX = (400.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-700.0f + size / 2) * m_SpellTarget; // Assume B recieve
+    float yPos = -160.0f;
+    float animSpeed = 1/12.0f;
+    this->scale = { -size * m_SpellTarget,size / 2,1.0f };
+    glm::vec3 startPos = { startX ,yPos,0.0f };
+    glm::vec3 endPos = { endX ,yPos,0.0f };
+
+    this->position = startPos;
+    this->SetAnimationPlayTime(animSpeed);
+    this->SetIsAnimationObject(true);
+
+    float distant = glm::distance(startX, endX);
+    float travelTime = distant / (distant * speed);
+
+    int col = this->GetAnimationColumn(0) - 1;
+
+    QueueWaitEvent(col * animSpeed);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(1, 0);
+            Next();
+            return;
+        }
+    );
+
+    QueueMoveEvent(startPos, endPos, travelTime);
+
+    QueueHitEvent();
+
+    glm::vec3 newEndPos = endPos;
+    newEndPos.x -= size * m_SpellTarget;
+
+    float newDistant = glm::distance(startPos, newEndPos);
+
+    startPos = endPos;
+    endPos = newEndPos;
+
+    travelTime += travelTime * (distant / newDistant);
+
+    QueueMoveEvent(startPos, endPos, travelTime);
+
+    QueueDoneEvent();
+}
+
+void FireSpell9::Initialize()
+{
+    std::cout << "Hell::Init\n";
+    auto scene = GameStateController::GetInstance()->currentScene;
+
+    float size = 2000.0f;
+    float speed = 2.0f;
+    float startX = (-280.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = -160.0f;
+    float animSpeed = 1 / 12.0f;
+    this->scale = { -size * m_SpellTarget,size / 3,1.0f };
+    this->position = { startX ,yPos,0.0f };
+     
+    this->SetAnimationPlayTime(animSpeed);
+    this->SetIsAnimationObject(true);
+
+    int col = this->GetAnimationColumn(0) - 1;
+
+    QueueWaitEvent(col * animSpeed);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(1, 0);
+            Next();
+            return;
+        }
+    );
+
+    QueueHitEvent();
+
+    float blastTime = 1.5f;
+
+    QueueUpdateFunction(
+        [this, scene, blastTime](float dt)
+        {
+            scene->GetCamera()->Shake(blastTime, 25, { 50.0f,100.0f });
+            Next();
+            return;
+        }
+    );
+
+    QueueWaitEvent(1.5f);
 
     QueueDoneEvent();
 }

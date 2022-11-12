@@ -57,7 +57,10 @@ void ResolveBattleState::ResolveSpell()
 
     if (!m_CurrentSpellDetail->isCasted)
     {
-        switch (m_CurrentSpellDetail->OriginalSpell->GetChannelEffectType())
+        int ChannelCount = 0;
+        auto spellChannelType = m_CurrentSpellDetail->OriginalSpell->GetChannelEffectType();
+
+        switch (spellChannelType)
         {
         case ChannelEffectEnum::None:
             m_CurrentSpellDetail->doCast = true;
@@ -69,12 +72,14 @@ void ResolveBattleState::ResolveSpell()
                 newSpell->SelectedTime += newSpell->OriginalSpell->GetChannelTime();
                 newSpell->doCast = true;
                 m_ResolveBattleManager->Data.Timeline.AddSpellToTimeline(newSpell, true);
+                ChannelCount = 1;
                 break;
             }
         case ChannelEffectEnum::Active:
             if (!m_CurrentSpellDetail->doCast)
             {
-                for (int i = m_CurrentSpellDetail->SelectedTime + 1; i <= m_CurrentSpellDetail->SelectedTime + m_CurrentSpellDetail->OriginalSpell->GetChannelTime(); i++)
+                ChannelCount = m_CurrentSpellDetail->OriginalSpell->GetChannelTime();
+                for (int i = m_CurrentSpellDetail->SelectedTime + 1; i <= m_CurrentSpellDetail->SelectedTime + ChannelCount; i++)
                 {
                     CastSpellDetail* newSpell = new CastSpellDetail(*m_CurrentSpellDetail);
                     newSpell->SelectedTime = i;
@@ -88,16 +93,24 @@ void ResolveBattleState::ResolveSpell()
         CasterPosition casterPosition = m_CurrentTrack->GetWillCompareResult();
         CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
 
+        auto caster = m_ResolveBattleManager->Data.GetCaster(casterPosition)->GetCasterObject();
         m_CurrentSpellDetail->isCasted = true;
 
         if (m_CurrentSpellDetail->doCast)
-        {
+        {    
             m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
-            //TODO: resolve the m_CurrentSpellDetail effect
             m_State = ResolveState::PlaySpell;
+
+            caster->PlayAttackAnim(
+                spellChannelType != ChannelEffectEnum::None,
+                [this]()
+                {
+                    m_CurrentSpellController->Activate();
+                });
         }
         else
         {
+            caster->PlayChannelAnim(ChannelCount);
             m_Timer = 1.0f;
             m_State = ResolveState::Waiting;
         }

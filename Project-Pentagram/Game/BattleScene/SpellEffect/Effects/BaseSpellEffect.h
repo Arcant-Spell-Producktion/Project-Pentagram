@@ -65,6 +65,7 @@ public:
     void OnEndRound()
     {
         if (m_IsEffectStackDecreaseOnEndRound) m_EffectStack -= 1;
+        if (m_IsEffectActiveOnce) { m_IsEffectStack = 0; }
         if (m_IsEffectStack == 0) ResetEffect();
     }
 

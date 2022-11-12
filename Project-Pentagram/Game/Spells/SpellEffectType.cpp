@@ -3,7 +3,9 @@
 const std::string SpellEffectType::enum_string[] = {
     "None",
     "Mark",
-    "Burn"
+    "Burn",
+    "Overflow",
+    "Freeze",
 };
 
 SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
@@ -17,5 +19,14 @@ SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
 
 bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
 {
-    return true;
+    switch (type)
+    {
+    case SpellEffectEnum::None:
+    case SpellEffectEnum::Mark:
+    case SpellEffectEnum::Burn:
+    case SpellEffectEnum::Freeze:
+        return true;
+    case SpellEffectEnum::Overflow:
+        return false;
+    }
 }

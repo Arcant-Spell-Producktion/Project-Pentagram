@@ -37,23 +37,6 @@ void ParticleSystem::OnUpdate(const float& dt)
 		particle.lifeRemaining -= dt;
 		particle.position += particle.velocity * dt;
 		if (!m_IsFixRotation) { particle.rotation += ROTATION_SPD * dt; }
-
-		// Increment Time
-		particle.animPlayTime += dt;
-
-		// m_Time reach AnimationTime or not?
-		if (particle.animPlayTime >= m_AnimationPlayTime)
-		{
-			// Increment Column & Check Condition
-			particle.curAnimCol++;
-			if (particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1])
-			{
-				particle.curAnimCol = 1;
-			}
-
-			// Restart m_CurrentPlayTime
-			particle.animPlayTime = 0.0f;
-		}
 	}
 }
 void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
@@ -188,4 +171,40 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 	particle.animPlayTime = 0.0f;
 
 	this->m_PoolIndex = (--m_PoolIndex >= 1000 ? 1000 - 1 : m_PoolIndex);
+}
+
+void ParticleSystem::UpdateAnimation(const float& deltaTime)
+{
+	if (!m_IsAnimationObject)
+	{
+		return;
+	}
+
+	for (auto& particle : m_ParticlePool)
+	{
+		if (!particle.active || 
+			particle.lifeRemaining <= 0.0f || 
+			(particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
+		{
+			continue;
+		}
+
+		// Increment Time
+		particle.animPlayTime += deltaTime;
+
+		// m_Time reach AnimationTime or not?
+		if (particle.animPlayTime >= m_AnimationPlayTime)
+		{
+			// Increment Column & Check Condition
+			particle.curAnimCol++;
+			if (particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1])
+			{
+				particle.curAnimCol = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
+			}
+
+			// Restart m_CurrentPlayTime
+			particle.animPlayTime = 0.0f;
+		}
+	}
+
 }

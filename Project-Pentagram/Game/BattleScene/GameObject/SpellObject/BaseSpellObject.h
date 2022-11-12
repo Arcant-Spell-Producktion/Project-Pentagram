@@ -25,6 +25,27 @@ protected:
 
     void QueueUpdateFunction(SpellUpdateFunc func);
 
+    void QueueMoveEvent(glm::vec3 startPos, glm::vec3 endPos, float travelTime)
+    {
+        glm::vec3 direction = endPos - startPos;
+
+        QueueUpdateFunction(
+            [this, startPos, direction, travelTime](float dt)
+            {
+                std::cout << "\tSpell::Move\n";
+                if (m_TotalTime >= travelTime)
+                {
+                    Next();
+                    return;
+                }
+                float progress = m_TotalTime / travelTime;
+
+                this->position.x = startPos.x + direction.x * progress;
+                this->position.y = startPos.y + direction.y * progress;
+            }
+        );
+    }
+
     void QueueWaitEvent(float t)
     {
         QueueUpdateFunction([this,t](float dt)
@@ -60,10 +81,6 @@ protected:
 public:
     BaseSpellObject(CasterPosition target, std::string spellName, std::string spellTexturePath);
 
-    void Activate() override
-    {
-        while (m_SpellState != SpellObjectState::Ready) continue;
-        m_TotalTime = 0.0f;
-        m_SpellState = SpellObjectState::Activate;
-    }
+    void Activate() override;
+   
 };

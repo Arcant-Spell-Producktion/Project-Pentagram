@@ -1,1 +1,8 @@
+Standard
+
 1-4 replace 1-1 when lowhp
+
+
+Boss
+
+(Ref Jira)
