@@ -164,6 +164,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
+    <ClCompile Include="Engine\Scene\LoadScene.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
@@ -406,6 +407,8 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Engine\Scene\LoadScene.h" />
+    <ClInclude Include="Utilities\Thread.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
   </ItemGroup>

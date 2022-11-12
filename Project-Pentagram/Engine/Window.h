@@ -56,7 +56,7 @@ class Window
 		void SetFullScreen(const bool fullscreen);
 
 		// Getter
-		GLFWwindow* getWindow();
+		GLFWwindow* GetWindowPointer();
 		int GetWindowWidth() const;
 		int GetWindowHeight() const;
 		int GetViewportWidth() const;

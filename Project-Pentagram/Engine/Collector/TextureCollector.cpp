@@ -5,9 +5,23 @@ TextureCollector::TextureCollector()
 {
 }
 
-void TextureCollector::LoadResource()
+void TextureCollector::PreLoadResource()
 {
-	LoadFile("Sprites");
+	// Load All Sprites Texture in Folder
+	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::directory_iterator("Sprites"))
+	{
+		std::string filePathString = (dirEntry.path()).string();
+		if (!dirEntry.is_directory())
+		{
+			std::string fileType = filePathString.substr(filePathString.rfind("."), filePathString.size() - 1);
+			if (fileType == ".png" || fileType == ".jpg" || fileType == ".jpeg")
+			{
+				std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
+				LoadTexture(filePathString);
+			}
+		}
+	}
+	LoadFile("Sprites/PreLoad");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& filePath)
@@ -19,13 +33,22 @@ void TextureCollector::Free()
 {
 	for (auto it = m_Textures.begin(); it != m_Textures.end(); it++)
 	{
-		(it->second)->Delete();
-		delete it->second;
+		if (it->second)
+		{
+			(it->second)->Delete();
+			delete it->second;
+		}
+		
 	}
 }
 
 void TextureCollector::LoadTexture(const std::string& filePath)
 {
+	if (m_Textures[filePath] != nullptr)
+	{
+		return;
+	}
+
 	m_Textures[filePath] = new Texture(filePath.c_str());
 }
 void TextureCollector::LoadFile(const std::string& filePath)
