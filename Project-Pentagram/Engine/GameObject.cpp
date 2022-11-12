@@ -336,7 +336,7 @@ void GameObject::SetTexture(Texture* texture)
 void GameObject::UpdateAnimation(const float& deltaTime)
 {
 	// If Current Object are not AnimationObject or doesn't play Animation
-	if (!m_IsAnimationObject || (m_CurrentAnimationColumn >= m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
+	if (!m_IsAnimationObject || (m_CurrentAnimationColumn > m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
 	{
 		return;
 	}
@@ -352,7 +352,7 @@ void GameObject::UpdateAnimation(const float& deltaTime)
 	{
 		// Increment Column & Check Condition
 		m_CurrentAnimationColumn++;
-		if (m_CurrentAnimationColumn >= m_AnimationColumn[m_CurrentAnimationRow - 1]) 
+		if (m_CurrentAnimationColumn > m_AnimationColumn[m_CurrentAnimationRow - 1]) 
 		{
 			m_CurrentAnimationColumn = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
 		}

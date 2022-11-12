@@ -184,7 +184,7 @@ void ParticleSystem::UpdateAnimation(const float& deltaTime)
 	{
 		if (!particle.active || 
 			particle.lifeRemaining <= 0.0f || 
-			(particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
+			(particle.curAnimCol > m_AnimationColumn[m_CurrentAnimationRow - 1] && !m_IsAnimationLoop))
 		{
 			continue;
 		}
@@ -197,7 +197,7 @@ void ParticleSystem::UpdateAnimation(const float& deltaTime)
 		{
 			// Increment Column & Check Condition
 			particle.curAnimCol++;
-			if (particle.curAnimCol >= m_AnimationColumn[m_CurrentAnimationRow - 1])
+			if (particle.curAnimCol > m_AnimationColumn[m_CurrentAnimationRow - 1])
 			{
 				particle.curAnimCol = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
 			}
