@@ -2,12 +2,15 @@
 
 void LoadScene::GameSceneLoadUtilityResource(Thread& thread, EngineDataCollector* engineDataCollector)
 {
+	mtx.lock();
 	thread.MakeContext();
 	engineDataCollector->LoadResource();
 	m_IsLoadDone++;
+	mtx.unlock();
 }
 void LoadScene::GameSceneLoadTextureResource(Thread* thread, EngineDataCollector* engineDataCollector, const std::string& filePath)
 {
+	mtx.lock();
 	thread->MakeContext();
 	std::string start = "START : " + filePath + "\n\n";
 	std::cout << start;
@@ -16,6 +19,7 @@ void LoadScene::GameSceneLoadTextureResource(Thread* thread, EngineDataCollector
 	engineDataCollector->GetTextureCollector()->LoadFile(curFilePath);
 	//std::cout << "LOG : " << curFilePath << " is DONE!!!!\n";
 	m_IsLoadDone++;
+	mtx.unlock();
 }
 
 void LoadScene::GameSceneLoad()
@@ -35,7 +39,7 @@ void LoadScene::GameSceneInit()
 
 	// Load Texture Resource
 	Thread* curThread = new Thread();
-	curThread->SetFunction(&LoadScene::GameSceneLoadTextureResource, this, curThread, engineDataCollector, "Sprites");
+	curThread->SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadTextureResource(curThread, engineDataCollector, "Sprites"); }, this);
 	m_TextureThread.push_back(curThread);
 
 	obj = CreateGameObject("Object");
