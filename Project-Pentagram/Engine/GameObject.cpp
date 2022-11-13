@@ -1,4 +1,4 @@
-﻿#include "GameObject.h"
+#include "GameObject.h"
 
 GameObject::GameObject(const std::string& objName)
 {	
@@ -352,12 +352,9 @@ void GameObject::UpdateAnimation(const float& deltaTime)
 	{
 		// Increment Column & Check Condition
 		m_CurrentAnimationColumn++;
-		if (m_CurrentAnimationColumn > m_AnimationColumn[m_CurrentAnimationRow - 1]) 
+		if (m_CurrentAnimationColumn >= m_AnimationColumn[m_CurrentAnimationRow - 1]) 
 		{
-            if (m_IsAnimationLoop)
-            {
-                SetSpriteByIndex(m_CurrentAnimationRow,0);
-            }
+			m_CurrentAnimationColumn = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
 		}
 
 		// Restart m_CurrentPlayTime
