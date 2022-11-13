@@ -92,7 +92,7 @@ void WaterSpell2::Initialize()
     QueueUpdateFunction(
         [this](float dt)
         {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 1)
+            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1))
             {
                 Next();
                 return;
@@ -140,7 +140,7 @@ void WaterSpell3::Initialize()
     QueueUpdateFunction(
         [this](float dt)
         {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 1)
+            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1))
             {
                 Next();
                 return;
@@ -163,9 +163,9 @@ void WaterSpell4::Initialize()
     this->scale = { size * -m_SpellTarget  ,size / 2,1.0f };
     this->position = { x_Positions[x_index] * m_SpellTarget,yPos,1.0f };
     this->SetIsAnimationObject(true);
-    //this->SetIsAnimationLoop(false);
+    this->SetIsAnimationLoop(true);
     
-    float timePerFrame = 0.5f;
+    float timePerFrame = 0.15f;
 
 
     this->SetAnimationPlayTime(timePerFrame);
@@ -178,26 +178,54 @@ void WaterSpell4::Initialize()
         }
     );
 
+    QueueUpdateFunction(
+        [this, yPos](float dt)
+        {
+            if (this->GetCurrentAnimationColumn() == 5)
+            { 
+                canMove = true;
+            }
+            else if(this->GetCurrentAnimationColumn() == 1 && canMove)
+            {
+                if (x_index < 3)
+                {
+                    float xPos = x_Positions[x_index] * m_SpellTarget;
+                    x_index++;
+                    this->position = { xPos ,yPos,1.0f };
+                }
+                else
+                {
+                    auto scene = GameStateController::GetInstance()->currentScene;
+                    scene->GetCamera()->Shake(0.5f, 8, { 50.0f,0.0f });
+                    x_index = 2;
+                    this->scale.x *= -1;
+                    Next();
+                }
+                canMove = false;
+            } 
+        }
+    );
 
     QueueUpdateFunction(
         [this, yPos](float dt)
         {
             if (this->GetCurrentAnimationColumn() == 5)
             {
-                if (x_index < 3)
+                canMove = true;
+            }
+            else if (this->GetCurrentAnimationColumn() == 1 && canMove)
+            {
+                if (x_index > 0)
                 {
-                    this->SetSpriteByIndex(0, 0);
-                    x_index++;
+                    x_index--;
                     float xPos = x_Positions[x_index] * m_SpellTarget;
                     this->position = { xPos ,yPos,1.0f };
                 }
-                else 
+                else
                 {
                     Next();
-                    x_index = 0;
-                    this->scale.x *= -1;
                 }
-                return;
+                canMove = false;
             }
         }
     );
