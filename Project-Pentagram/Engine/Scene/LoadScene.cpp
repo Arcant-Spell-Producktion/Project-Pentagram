@@ -34,16 +34,9 @@ void LoadScene::GameSceneInit()
 	m_LoadUtilityThread.SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadUtilityResource(m_LoadUtilityThread, engineDataCollector); }, this);
 
 	// Load Texture Resource
-	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::directory_iterator("Sprites"))
-	{
-		std::string filePathString = (dirEntry.path()).string();
-		if (dirEntry.is_directory())
-		{
-			Thread* curThread = new Thread();
-			curThread->SetFunction(&LoadScene::GameSceneLoadTextureResource, this, curThread, engineDataCollector, filePathString);
-			m_TextureThread.push_back(curThread);
-		}
-	}
+	Thread* curThread = new Thread();
+	curThread->SetFunction(&LoadScene::GameSceneLoadTextureResource, this, curThread, engineDataCollector, "Sprites");
+	m_TextureThread.push_back(curThread);
 
 	obj = CreateGameObject("Object");
 	obj->SetTexture("Sprites/PreLoad/Loading.png");
