@@ -21,6 +21,9 @@ void GameStateController::UpdateGameScene()
 
 	switch (currentState)
 	{
+		case GameState::GS_LOAD_SCENE :
+			currentScene = new LoadScene();
+			break;
 		case GameState::GS_MENU_SCENE :
 			currentScene = new MenuScene();
 			break;

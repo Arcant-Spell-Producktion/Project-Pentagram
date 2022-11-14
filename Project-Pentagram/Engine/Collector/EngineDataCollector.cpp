@@ -3,8 +3,8 @@
 void EngineDataCollector::LoadResource()
 {
 	m_FontCollector.LoadResource();
-	m_TextureCollector.LoadResource();
 	m_SoundSystem.LoadResource();
+	// m_Texture.LoadResource was Loaded in LoadScene.cpp
 }
 
 // Getter Implement
