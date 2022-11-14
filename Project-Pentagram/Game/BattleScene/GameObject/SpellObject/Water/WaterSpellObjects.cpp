@@ -296,24 +296,41 @@ void WaterSpell5::Initialize()
 
 void WaterSpell6::Initialize()
 {
-    std::cout << "Fire Storm::Init\n";
-    float size = 640.0f;
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    std::cout << "Water Beam::Init\n";
+    float size = 480.0f;
+    float xPos = (800.0f) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
-    this->scale = { size / 2 ,size,1.0f };
-    this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
-    this->SetIsAnimationObject(true);
+    this->scale = { size ,size,1.0f };
+    this->position = { xPos,yPos,1.0f };
+    this->color.a = 0.0f;
+    this->SetIsAnimationObject(false);
 
+    auto scene = GameStateController::GetInstance()->currentScene;
+    for (size_t i = 0; i < 4; i++)
+    {
+        auto _section = scene->CreateGameObject("WaterBeam"+i);
+
+        _section->scale = { size * -m_SpellTarget ,size,1.0f };
+        _section->position.x = size * i * -m_SpellTarget;
+        _section->SetTexture(this->m_TexturePath);
+        _section->SetSpriteByIndex(i, 0);
+        _section->SetIsAnimationObject(true);
+
+        this->SetChildRenderFront(_section);
+        m_Section.push_back(_section);
+    }
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
     QueueUpdateFunction(
         [this](float dt)
         {
-            if (this->GetCurrentAnimationColumn() == 8)
+            if (m_Section[3]->GetCurrentAnimationColumn() == 7)
             {
-                this->SetSpriteByIndex(0, 8);
-                //this->SetIsAnimationObject(false);
+                for (size_t i = 0; i < 4; i++)
+                {
+                    m_Section[i]->SetSpriteByIndex(i + 4, 0);
+                }
                 Next();
                 return; 
             }
@@ -322,84 +339,53 @@ void WaterSpell6::Initialize()
 
     QueueHitEvent();
 
-    QueueWaitEvent(timePerFrame);
+    QueueWaitEvent(3.0f);
 
-    int spinCount = 2;
-    float spinTime = spinCount * timePerFrame * 6;
-    QueueUpdateFunction(
-        [this, spinTime](float dt)
-        {
-            auto scene = GameStateController::GetInstance()->currentScene;
-            scene->GetCamera()->Shake(spinTime, 16, { 50.0f,0.0f });
-            this->SetIsAnimationObject(true);
-            this->SetSpriteByIndex(1, 0);
-            Next();
-        }
-    );
-
-    QueueWaitEvent(spinTime);
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(2, 0);
-            Next();
-        }
-    );
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == 2)
-            {
-                this->SetSpriteByIndex(2, 2);
-                this->SetIsAnimationObject(false);
-                Next();
-            }
-        }
-    );
-
-    QueueWaitEvent(timePerFrame);
     QueueDoneEvent();
 
 }
 
 void WaterSpell7::Initialize()
 {
-    std::cout << "Meteor::Init\n";
-    float size = 800.0f;
-    float speed = 10.0f;
-    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
-    float yPos = -160.0f;
-    this->scale = { -size * m_SpellTarget,size,1.0f };
-    glm::vec3 startPos = { startX ,yPos + 1600.0f ,0.0f };
-    glm::vec3 endPos = { endX ,yPos + 160.0f,0.0f };
-
-    this->position = startPos;
+    float size = 320.0f;
+    float startX = (540.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-640.0f + size / 4) * m_SpellTarget;
+    float yPos = -size / 2;
+    this->scale = { size * 2 * -m_SpellTarget ,size ,1.0f };
+    this->position = { startX,yPos,1.0f };
     this->SetIsAnimationObject(true);
 
-    //Move A to B
-    glm::vec3 direction = endPos - startPos;
-    float travelTime = 1.0f;
+
+    glm::vec3 startPos = { startX ,yPos,0.0f };
+    glm::vec3 endPos = { endX ,yPos,0.0f };
+    float travelTime = 1.5f;
+
+
+    float timePerFrame = 0.15f;
+    this->SetAnimationPlayTime(timePerFrame);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            if (this->GetCurrentAnimationColumn() == 4)
+            {
+                Next();
+                return;
+            }
+        }
+    );
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(1, 0);
+            Next();
+        }
+    );
 
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
-
-    float shakeTime = 1.5f;
-    QueueUpdateFunction(
-        [this, shakeTime](float dt)
-        {
-            auto scene = GameStateController::GetInstance()->currentScene;
-            scene->GetCamera()->Shake(shakeTime, 30, { 300.0f, 100.0f });
-            Next();
-
-        }
-    );
-
-    QueueWaitEvent(shakeTime);
-
     QueueDoneEvent();
 }
 

@@ -11,7 +11,7 @@ public:
         "Fireball_Object",
         "Sprites/Spell/Water/spell_water_1.png")
     {
-        std::cout << "Spell:: Create Fireball\n";
+        std::cout << "Spell:: Create WaterBall\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
@@ -27,7 +27,7 @@ public:
         "Firearrow_Object",
         "Sprites/Spell/Water/spell_water_2.png")
     {
-        std::cout << "Spell:: Create FireArrow\n";
+        std::cout << "Spell:: Create Barrage\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
@@ -43,7 +43,7 @@ public:
         "Firewall_Object",
         "Sprites/Spell/Water/spell_water_3.png")
     {
-        std::cout << "Spell:: Create Firestorm\n";
+        std::cout << "Spell:: Create Dew\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
@@ -62,7 +62,7 @@ public:
         "Firewall_Object",
         "Sprites/Spell/Water/spell_water_4.png")
     {
-        std::cout << "Spell:: Create Firewall\n";
+        std::cout << "Spell:: Create Rebound\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
@@ -84,7 +84,7 @@ public:
         "Firesnap_Object",
         "Sprites/Spell/Water/spell_water_5.png")
     {
-        std::cout << "Spell:: Create Firesnap\n";
+        std::cout << "Spell:: Create Calm\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
@@ -93,14 +93,15 @@ public:
 class WaterSpell6 : public BaseSpellObject
 {
 private:
+    std::vector<GameObject*> m_Section;
     void Initialize();
 public:
     WaterSpell6(CasterPosition target) :BaseSpellObject(
         target,
-        "Firestorm_Object",
+        "Waterbeam_object",
         "Sprites/Spell/Water/spell_water_6.png")
     {
-        std::cout << "Spell:: Create Firewall\n";
+        std::cout << "Spell:: Create Beam\n";
         Initialize();
         BaseSpellObject::Initialize();
     };
