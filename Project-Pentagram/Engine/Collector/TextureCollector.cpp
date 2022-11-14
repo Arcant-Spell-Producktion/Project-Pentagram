@@ -49,6 +49,7 @@ void TextureCollector::LoadTexture(const std::string& filePath)
 		return;
 	}
 
+	std::cout << "Texture Loaded : " << filePath << "\n";
 	m_Textures[filePath] = new Texture(filePath.c_str());
 }
 void TextureCollector::LoadFile(const std::string& filePath)

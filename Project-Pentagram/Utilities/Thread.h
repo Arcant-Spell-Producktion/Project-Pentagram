@@ -10,7 +10,8 @@ class Thread
 	private:
 		std::thread m_Thread;
 		bool m_IsThreadJoin = false;
-		GLFWwindow* m_ThreadWindow;
+		bool m_IsWindowReady = false;
+		GLFWwindow* m_ThreadWindow = nullptr;
 
 	public:
 		template<class Function, class ...Args>
