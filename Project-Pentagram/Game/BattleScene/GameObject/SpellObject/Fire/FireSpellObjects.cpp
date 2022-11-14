@@ -107,6 +107,7 @@ void FireSpell3::Initialize()
     particle->SetTexture(this->m_TexturePath);
     particle->SetIsAnimationObject(true);
     particle->SetIsFixRotation(true);
+    particle->SetIsAnimationLoop(true);
     particle->SetSpawnTime(0.25f);
 
 
@@ -135,53 +136,32 @@ void FireSpell4::Initialize()
 {
     std::cout << "FireWall::Init\n";
     float size = 640.0f;
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-720.0f) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
     this->scale = { size/2 ,size,1.0f };
-    this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
+    this->position = { xPos,yPos,1.0f };
     this->SetIsAnimationObject(true);
+    this->SetIsAnimationLoop(false);
     
     float timePerFrame = 0.15f;
 
-
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(0, 0);
-            Next();
-        }
-    );
-
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 3)
-            {
-                Next();
-                return;
-            }
-        }
-    );
+    QueueWaitTillFrameEvent(false,false,7);
 
     QueueHitEvent();
 
     QueueUpdateFunction(
-        [this](float dt)
+        [this, timePerFrame](float dt)
         {
-            if (m_TotalTime >= 2.0f)
+            if (m_TotalTime >= timePerFrame * 15)
             {
                 Next();
                 return;
             }
 
-            this->SetIsAnimationObject(false);
-            this->SetSpriteByValue(1, this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) );
-
             localTimer += dt;
-            if (localTimer >= 0.1f)
+            if (localTimer >= timePerFrame)
             {
                 std::cout << "\tFLIP\n";
                 this->scale.x = this->scale.x * -1;
@@ -278,18 +258,7 @@ void FireSpell6::Initialize()
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == 8)
-            {
-                this->SetSpriteByIndex(0, 8);
-                //this->SetIsAnimationObject(false);
-                Next();
-                return;
-            }
-        }
-    );
+    QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
 
@@ -303,7 +272,6 @@ void FireSpell6::Initialize()
             auto scene = GameStateController::GetInstance()->currentScene;
             scene->GetCamera()->Shake(spinTime, 16, { 50.0f,0.0f });
             this->SetIsAnimationObject(true);
-            this->SetSpriteByIndex(1, 0);
             Next();
         }
     );
@@ -318,17 +286,7 @@ void FireSpell6::Initialize()
         }
     );
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == 2)
-            {
-                this->SetSpriteByIndex(2, 2);
-                this->SetIsAnimationObject(false);
-                Next();
-            }
-        }
-    );
+    QueueWaitTillFrameEvent();
 
     QueueWaitEvent(timePerFrame);
     QueueDoneEvent();
@@ -394,18 +352,8 @@ void FireSpell8::Initialize()
     float distant = glm::distance(startX, endX);
     float travelTime = distant / (distant * speed);
 
-    int col = this->GetAnimationColumn(0) - 1;
-
-    QueueWaitEvent(col * animSpeed);
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-            return;
-        }
-    );
+    QueueWaitTillFrameEvent(true);
+    QueueWaitEvent(animSpeed);
 
     QueueMoveEvent(startPos, endPos, travelTime);
 
@@ -442,18 +390,7 @@ void FireSpell9::Initialize()
     this->SetAnimationPlayTime(animSpeed);
     this->SetIsAnimationObject(true);
 
-    int col = this->GetAnimationColumn(0) - 1;
-
-    QueueWaitEvent(col * animSpeed);
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-            return;
-        }
-    );
+    QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
 

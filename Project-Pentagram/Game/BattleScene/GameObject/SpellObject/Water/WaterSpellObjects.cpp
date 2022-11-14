@@ -80,34 +80,8 @@ void WaterSpell2::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(0, 0);
-            Next();
-        }
-    );
-
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1))
-            {
-                Next();
-                return;
-            }
-        }
-    );
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-        }
-    );
-
+    QueueWaitTillFrameEvent(true);
+    QueueWaitEvent(timePerFrame);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -117,10 +91,10 @@ void WaterSpell2::Initialize()
 void WaterSpell3::Initialize()
 {
     float size = 640.0f;
-    float xPos = (700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
     this->scale = { size / 2 ,size,1.0f };
-    this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
+    this->position = { xPos ,yPos,1.0f };
     this->SetIsAnimationObject(true);
 
     float timePerFrame = 0.15f;
@@ -128,25 +102,7 @@ void WaterSpell3::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(0, 0);
-            Next();
-        }
-    );
-
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1))
-            {
-                Next();
-                return;
-            }
-        }
-    );
+    QueueWaitTillFrameEvent();
 
     QueueHitEvent();
 
@@ -169,14 +125,6 @@ void WaterSpell4::Initialize()
 
 
     this->SetAnimationPlayTime(timePerFrame);
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(0, 0);
-            Next();
-        }
-    );
 
     QueueUpdateFunction(
         [this, yPos](float dt)
@@ -249,46 +197,11 @@ void WaterSpell5::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(0, 0);
-            Next();
-        }
-    );
-
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == 7)
-            {
-                Next();
-                return;
-            }
-        }
-    );
+    QueueWaitTillFrameEvent(true);
     
     QueueHitEvent();
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-        }
-    );
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1) - 1)
-            {
-                Next();
-                return;
-            }
-        }
-    );
+    QueueWaitTillFrameEvent();
 
     QueueDoneEvent();
 
@@ -329,7 +242,7 @@ void WaterSpell6::Initialize()
             {
                 for (size_t i = 0; i < 4; i++)
                 {
-                    m_Section[i]->SetSpriteByIndex(i + 4, 0);
+                    m_Section[i]->SetSpriteByIndex(i + 4, 0,true);
                 }
                 Next();
                 return; 
@@ -364,28 +277,12 @@ void WaterSpell7::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            if (this->GetCurrentAnimationColumn() == 4)
-            {
-                Next();
-                return;
-            }
-        }
-    );
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-        }
-    );
+    QueueWaitTillFrameEvent(true);
 
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
+
     QueueDoneEvent();
 }
 
