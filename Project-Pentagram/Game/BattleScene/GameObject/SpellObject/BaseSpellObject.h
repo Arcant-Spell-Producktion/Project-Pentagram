@@ -45,6 +45,26 @@ protected:
         );
     }
 
+    void QueueWaitTillFrameEvent(bool doNextCol = false,bool waitLastFrame = true, int targetFrame = -1)
+    {
+        int lastFrame = this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1);
+
+        if (waitLastFrame || targetFrame == -1) targetFrame = lastFrame;
+
+        QueueUpdateFunction(
+            [this, targetFrame,doNextCol](float dt)
+            {
+                int curFrame = this->GetCurrentAnimationColumn();
+                if (curFrame == targetFrame)
+                {
+                    if (doNextCol) this->SetSpriteByIndex(this->GetCurrentAnimationRow(), 0 , true);
+                    Next();
+                    return;
+                }
+            }
+        );
+    }
+
     void QueueWaitEvent(float t)
     {
         QueueUpdateFunction([this,t](float dt)
