@@ -23,6 +23,8 @@ void Texture::SetTexture(const char* path)
 	// If cannot load data(wrong source file)
 	assert(data != NULL);
 
+	glFlush();
+
 	this->m_Width = width;
 	this->m_Height = height;
 
@@ -84,14 +86,14 @@ void Texture::ReadMeta(const std::string& filePath)
 
 void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const void* data)
 {
+	glFlush();
+
 	// Binding and setting-up texture
 	glBindTexture(GL_TEXTURE_2D, ID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, 0);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	// Specific Texture with image data
