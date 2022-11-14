@@ -36,7 +36,6 @@ void LoadScene::GameSceneInit()
 
 	// Load Texture Resource
 	m_TextureThread.SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadTextureResource(engineDataCollector, "Sprites"); }, this);
-	
 
 	obj = CreateGameObject("Object");
 	obj->SetTexture("Sprites/PreLoad/Loading.png");

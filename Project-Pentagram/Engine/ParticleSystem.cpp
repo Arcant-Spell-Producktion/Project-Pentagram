@@ -195,11 +195,20 @@ void ParticleSystem::UpdateAnimation(const float& deltaTime)
 		// m_Time reach AnimationTime or not?
 		if (particle.animPlayTime >= m_AnimationPlayTime)
 		{
-			// Increment Column & Check Condition
-			particle.curAnimCol++;
-			if (particle.curAnimCol > m_AnimationColumn[m_CurrentAnimationRow - 1])
+			if (m_DoChangeToNextFrame)
 			{
-				particle.curAnimCol = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
+				m_CurrentAnimationRow = m_NextFrameRow;
+				m_CurrentAnimationColumn = m_NextFrameColumn;
+				m_DoChangeToNextFrame = false;
+			}
+			else
+			{
+				// Increment Column & Check Condition
+				particle.curAnimCol++;
+				if (particle.curAnimCol > m_AnimationColumn[m_CurrentAnimationRow - 1])
+				{
+					particle.curAnimCol = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
+				}
 			}
 
 			// Restart m_CurrentPlayTime

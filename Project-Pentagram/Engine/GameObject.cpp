@@ -296,19 +296,41 @@ void GameObject::SetIsAnimationLoop(const bool& active)
 {
 	this->m_IsAnimationLoop = active;
 }
-void GameObject::SetSpriteByIndex(const int& row, const int& column)
+void GameObject::SetSpriteByIndex(const int& row, const int& column, const bool& doChangeNextFrame)
 {
-	this->m_CurrentAnimationRow = row + 1;
-	this->m_CurrentAnimationColumn = column + 1;
-	// Restart m_CurrentPlayTime
-	m_CurrentPlayTime = 0.0f;
+	// Change on Next Frame
+	if (doChangeNextFrame)
+	{
+		m_DoChangeToNextFrame = true;
+		m_NextFrameRow = row + 1;
+		m_NextFrameColumn = column + 1;
+	}
+	// Change Frame Immediate
+	else
+	{
+		this->m_CurrentAnimationRow = row + 1;
+		this->m_CurrentAnimationColumn = column + 1;
+		// Restart m_CurrentPlayTime
+		m_CurrentPlayTime = 0.0f;
+	}
 }
-void GameObject::SetSpriteByValue(const int& row, const int& column)
+void GameObject::SetSpriteByValue(const int& row, const int& column, const bool& doChangeNextFrame)
 {
-	this->m_CurrentAnimationRow = row;
-	this->m_CurrentAnimationColumn = column;
-	// Restart m_CurrentPlayTime
-	m_CurrentPlayTime = 0.0f;
+	// Change on Next Frame
+	if (doChangeNextFrame)
+	{
+		m_DoChangeToNextFrame = true;
+		m_NextFrameRow = row;
+		m_NextFrameColumn = column;
+	}
+	// Change Frame Immediate
+	else
+	{
+		this->m_CurrentAnimationRow = row;
+		this->m_CurrentAnimationColumn = column;
+		// Restart m_CurrentPlayTime
+		m_CurrentPlayTime = 0.0f;
+	}
 }
 void GameObject::SetAnimationPlayTime(const float& animationPlayTime)
 {
@@ -350,11 +372,20 @@ void GameObject::UpdateAnimation(const float& deltaTime)
 	// m_Time reach AnimationTime or not?
 	if (m_CurrentPlayTime >= m_AnimationPlayTime)
 	{
-		// Increment Column & Check Condition
-		m_CurrentAnimationColumn++;
-		if (m_CurrentAnimationColumn > m_AnimationColumn[m_CurrentAnimationRow - 1]) 
+		if (m_DoChangeToNextFrame)
 		{
-			m_CurrentAnimationColumn = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
+			m_CurrentAnimationRow = m_NextFrameRow;
+			m_CurrentAnimationColumn = m_NextFrameColumn;
+			m_DoChangeToNextFrame = false;
+		}
+		else
+		{
+			// Increment Column & Check Condition
+			m_CurrentAnimationColumn++;
+			if (m_CurrentAnimationColumn > m_AnimationColumn[m_CurrentAnimationRow - 1]) 
+			{
+				m_CurrentAnimationColumn = (m_IsAnimationLoop ? 1 : m_AnimationColumn[m_CurrentAnimationRow - 1]);
+			}
 		}
 
 		// Restart m_CurrentPlayTime
