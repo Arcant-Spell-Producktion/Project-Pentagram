@@ -28,12 +28,14 @@ class GameObject
 		bool m_IsAnimationObject;
 		bool m_IsSpriteSheet;
 		bool m_IsAnimationLoop;
+		bool m_DoChangeToNextFrame = false;
 
 		int m_AnimationRow;
 		std::vector<int> m_AnimationColumn;
 		
 		int m_MaxAnimationColumn;
 		int m_CurrentAnimationRow = 1, m_CurrentAnimationColumn = 1;
+		int m_NextFrameRow = 1, m_NextFrameColumn = 1;
 		float m_AnimationPlayTime = 0.1f;
 		float m_CurrentPlayTime = 0.0f;
 
@@ -94,8 +96,8 @@ class GameObject
 		// Animation
 		void SetIsAnimationObject(const bool& active);
 		void SetIsAnimationLoop(const bool& active);
-		void SetSpriteByIndex(const int& row, const int& column);
-		void SetSpriteByValue(const int& row, const int& column);
+		void SetSpriteByIndex(const int& row, const int& column, const bool& doChangeNextFrame = false);
+		void SetSpriteByValue(const int& row, const int& column, const bool& doChangeNextFrame = false);
 		void SetAnimationPlayTime(const float& animationPlayTime);
 		// Texture
 		// override in ParticleSystem.h
