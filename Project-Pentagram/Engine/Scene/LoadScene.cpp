@@ -1,19 +1,17 @@
 #include "LoadScene.h"
 
-void LoadScene::GameSceneLoadUtilityResource(Thread& thread, EngineDataCollector* engineDataCollector)
+void LoadScene::GameSceneLoadUtilityResource(EngineDataCollector* engineDataCollector)
 {
-	thread.MakeContext();
+	m_LoadUtilityThread.MakeContext();
 	engineDataCollector->LoadResource();
 	m_IsLoadDone++;
 }
-void LoadScene::GameSceneLoadTextureResource(Thread* thread, EngineDataCollector* engineDataCollector, const std::string& filePath)
+void LoadScene::GameSceneLoadTextureResource(EngineDataCollector* engineDataCollector, const std::string& filePath)
 {
-	thread->MakeContext();
+	m_TextureThread.MakeContext();
 	std::string start = "START : " + filePath + "\n\n";
 	std::cout << start;
-	std::string curFilePath = filePath;
-	std::replace(curFilePath.begin(), curFilePath.end(), '\\', '/');
-	engineDataCollector->GetTextureCollector()->LoadFile(curFilePath);
+	engineDataCollector->GetTextureCollector()->LoadFile(filePath);
 	//std::cout << "LOG : " << curFilePath << " is DONE!!!!\n";
 	m_IsLoadDone++;
 }
@@ -30,13 +28,15 @@ void LoadScene::GameSceneInit()
 	EngineDataCollector* engineDataCollector = EngineDataCollector::GetInstance();
 	engineDataCollector->GetTextureCollector()->PreLoadResource();
 
+	// engineDataCollector->LoadResource();
+	// engineDataCollector->GetTextureCollector()->LoadFile("Sprites");
+
 	// Load Utility Resource (Sound, Font)
-	m_LoadUtilityThread.SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadUtilityResource(m_LoadUtilityThread, engineDataCollector); }, this);
+	m_LoadUtilityThread.SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadUtilityResource(engineDataCollector); }, this);
 
 	// Load Texture Resource
-	Thread* curThread = new Thread();
-	curThread->SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadTextureResource(curThread, engineDataCollector, "Sprites"); }, this);
-	m_TextureThread.push_back(curThread);
+	m_TextureThread.SetFunction([&](LoadScene* loadScene) {loadScene->GameSceneLoadTextureResource(engineDataCollector, "Sprites"); }, this);
+	
 
 	obj = CreateGameObject("Object");
 	obj->SetTexture("Sprites/PreLoad/Loading.png");
@@ -47,13 +47,10 @@ void LoadScene::GameSceneInit()
 void LoadScene::GameSceneUpdate(float dt)
 {
 	GameScene::GameSceneUpdate(dt);
-	if (m_IsLoadDone == m_TextureThread.size() + 1)
+	if (m_IsLoadDone == 2)
 	{
 		m_LoadUtilityThread.Join();
-		for (int idx = 0; idx < m_TextureThread.size(); idx++)
-		{
-			m_TextureThread[idx]->Join();
-		}
+		m_TextureThread.Join();
 		SceneManager::LoadScene(GameState::GS_MENU_SCENE);
 	}
 	obj->rotation += 100.0f * dt;
@@ -62,11 +59,6 @@ void LoadScene::GameSceneUpdate(float dt)
 void LoadScene::GameSceneFree()
 {
 	GameScene::GameSceneFree();
-
-	for (int idx = 0; idx < m_TextureThread.size(); idx++)
-	{
-		delete m_TextureThread[idx];
-	}
 
 	std::cout << "LoadScene : Free Memory\n";
 }

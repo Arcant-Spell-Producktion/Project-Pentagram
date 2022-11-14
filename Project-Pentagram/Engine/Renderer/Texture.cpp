@@ -23,8 +23,6 @@ void Texture::SetTexture(const char* path)
 	// If cannot load data(wrong source file)
 	assert(data != NULL);
 
-	glFlush();
-
 	this->m_Width = width;
 	this->m_Height = height;
 
@@ -48,9 +46,13 @@ void Texture::SetTexture(const char* path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	
+	glFlush();
+
 	// Specific Texture with image data
 	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 	glGenerateMipmap(GL_TEXTURE_2D);
+
 
 	// free data
 	stbi_image_free(data);
@@ -86,8 +88,6 @@ void Texture::ReadMeta(const std::string& filePath)
 
 void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const void* data)
 {
-	glFlush();
-
 	// Binding and setting-up texture
 	glBindTexture(GL_TEXTURE_2D, ID);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
@@ -95,11 +95,14 @@ void Texture::SetFontTexture(const GLuint& width, const GLuint& height, const vo
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+	glFlush();
+
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	// Specific Texture with image data
 	// Read with GL_RG pattern(16-bit / 2 bytes)
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RG8, width, height, 0, GL_RG, GL_UNSIGNED_BYTE, data);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+
 }
 
 void Texture::Activate(GLenum TextureSlot)
