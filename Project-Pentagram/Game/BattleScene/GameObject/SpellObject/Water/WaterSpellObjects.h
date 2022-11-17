@@ -126,9 +126,12 @@ public:
 class WaterSpell8 : public BaseSpellObject
 {
 private:
-    float lifeTime = 1.5f;
+    float lifeTime = 3.0f;
     float spawnTime = 0.2f;
     int amount = 20;
+
+    ParticleSystem* m_WindParticle = nullptr;
+    ParticleSystem* m_HailParticle = nullptr;
 
     void Initialize();
 public:

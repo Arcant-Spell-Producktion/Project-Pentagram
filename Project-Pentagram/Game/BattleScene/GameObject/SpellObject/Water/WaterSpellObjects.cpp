@@ -292,70 +292,72 @@ void WaterSpell8::Initialize()
 
     ParticleProperty windProp;
     windProp.position = { 0.0f, 400.0f };
+    windProp.positionVariation = { 500.0f,0.0f };
     windProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
     windProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
     windProp.sizeBegin = windProp.sizeEnd = 180.0f;
     windProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     windProp.rotationVariation = 0.0f;
     windProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
-    windProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+    windProp.velocityVariation = {100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
-    ParticleSystem* windParticle = GameStateController::GetInstance()->currentScene->CreateParticle(windProp);
-    windParticle->SetTexture("Sprites/Spell/Water/spell_water_8-2.png");
-    windParticle->SetIsAnimationObject(true);
-    windParticle->SetIsFixRotation(true);
-    windParticle->SetIsAnimationLoop(true);
-    windParticle->SetSpawnTime(0.3f);
 
-    
+    m_WindParticle = GameStateController::GetInstance()->currentScene->CreateParticle(windProp);
+    m_WindParticle->SetTexture("Sprites/Spell/Water/spell_water_8-2.png");
+    m_WindParticle->SetIsAnimationObject(true);
+    m_WindParticle->SetIsFixRotation(true);
+    m_WindParticle->SetIsAnimationLoop(true);
+    m_WindParticle->SetSpawnTime(0.15f);
 
+    this->SetChildRenderFront(m_WindParticle);
 
-    this->SetChildRenderFront(windParticle);
-
-    QueueWaitEvent(lifeTime);
+    QueueWaitEvent(1.5f);
 
     QueueUpdateFunction(
         [this](float dt)
         {
             ParticleProperty hailProp;
-            hailProp.position = { 0.0f, 600.0f };
+            hailProp.position = { 0.0f, 200.0f };
+            hailProp.positionVariation = { 250.0f,0.0f };
             hailProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
             hailProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
             hailProp.sizeBegin = hailProp.sizeEnd = 80.0f;
-            hailProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
+            hailProp.rotation = m_SpellTarget == 1 ? -125.0f : -35.0f;
             hailProp.rotationVariation = 0.0f;
-            hailProp.velocity = { -1000.0f * m_SpellTarget, -1000.0f };
-            hailProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+            hailProp.velocity = { -800.0f * m_SpellTarget, -800.0f };
+            hailProp.velocityVariation = { 100.0f, 100.0f };
             hailProp.lifeTime = 1.5f;
-            ParticleSystem* hailParticle = GameStateController::GetInstance()->currentScene->CreateParticle(hailProp);
-            hailParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
-            hailParticle->SetIsAnimationObject(true);
-            hailParticle->SetIsFixRotation(true);
-            hailParticle->SetIsAnimationLoop(false);
-            hailParticle->SetSpawnTime(0.1f);
-            this->SetChildRenderFront(hailParticle);
+
+            m_HailParticle = GameStateController::GetInstance()->currentScene->CreateParticle(hailProp);
+            m_HailParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
+            m_HailParticle->SetIsAnimationObject(true);
+            m_HailParticle->SetIsFixRotation(true);
+            m_HailParticle->SetIsAnimationLoop(false);
+            m_HailParticle->SetSpawnTime(0.075f);
+
+            this->SetChildRenderFront(m_HailParticle);
             Next();
         });
 
     QueueHitEvent();
 
-    QueueWaitEvent(spawnTime * amount);
+    QueueWaitEvent(3.0f);
 
     QueueUpdateFunction(
-        [this, windParticle](float dt)
+        [this](float dt)
         {
-            windParticle->SetSpawnTime(99);
+            m_WindParticle->SetSpawnTime(99);
+            m_HailParticle->SetSpawnTime(99);
             Next();
         });
 
-    QueueWaitEvent(lifeTime);
+    QueueWaitEvent(2.5f);
 
     QueueDoneEvent();
 }
 
 void WaterSpell9::Initialize()
 {
-    std::cout << "Hell::Init\n";
     auto scene = GameStateController::GetInstance()->currentScene;
 
     float size = 2000.0f;

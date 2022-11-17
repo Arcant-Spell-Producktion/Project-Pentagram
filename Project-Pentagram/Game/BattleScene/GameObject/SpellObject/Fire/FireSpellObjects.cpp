@@ -94,20 +94,22 @@ void FireSpell3::Initialize()
     this->color.a = 0.0f;
 
     ParticleProperty particleProp;
-    particleProp.position = { 0.0f, 600.0f};
+    particleProp.position = { 0.0f, 200.0f };
+    particleProp.positionVariation = { 250.0f,0.0f };
     particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.sizeBegin = particleProp.sizeEnd = 600.0f;
-    particleProp.rotation = m_SpellTarget == 1?-135.0f:-45.0f;
+    particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     particleProp.rotationVariation = 0.0f;
     particleProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
-    particleProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+    particleProp.velocityVariation = { 50.0f, 50.0f };
     particleProp.lifeTime = 1.5f;
+
     ParticleSystem* particle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
     particle->SetTexture(this->m_TexturePath);
     particle->SetIsAnimationObject(true);
     particle->SetIsFixRotation(true);
-    particle->SetIsAnimationLoop(true);
+    particle->SetIsAnimationLoop(false);
     particle->SetSpawnTime(0.25f);
 
 
