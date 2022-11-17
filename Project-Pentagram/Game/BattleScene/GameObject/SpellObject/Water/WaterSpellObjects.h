@@ -126,6 +126,10 @@ public:
 class WaterSpell8 : public BaseSpellObject
 {
 private:
+    float lifeTime = 1.5f;
+    float spawnTime = 0.2f;
+    int amount = 20;
+
     void Initialize();
 public:
     WaterSpell8(CasterPosition target) :BaseSpellObject(

@@ -288,52 +288,67 @@ void WaterSpell7::Initialize()
 
 void WaterSpell8::Initialize()
 {
-    std::cout << "FireDragon::Init\n";
-    float size = 1000.0f;
-    float speed = 2.0f;
-    float startX = (400.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 2) * m_SpellTarget; // Assume B recieve
-    float yPos = -160.0f;
-    float animSpeed = 1/12.0f;
-    this->scale = { -size * m_SpellTarget,size / 2,1.0f };
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    this->color.a = 0.0f;
 
-    this->position = startPos;
-    this->SetAnimationPlayTime(animSpeed);
-    this->SetIsAnimationObject(true);
+    ParticleProperty windProp;
+    windProp.position = { 0.0f, 400.0f };
+    windProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+    windProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
+    windProp.sizeBegin = windProp.sizeEnd = 180.0f;
+    windProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
+    windProp.rotationVariation = 0.0f;
+    windProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
+    windProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+    windProp.lifeTime = 1.5f;
+    ParticleSystem* windParticle = GameStateController::GetInstance()->currentScene->CreateParticle(windProp);
+    windParticle->SetTexture("Sprites/Spell/Water/spell_water_8-2.png");
+    windParticle->SetIsAnimationObject(true);
+    windParticle->SetIsFixRotation(true);
+    windParticle->SetIsAnimationLoop(true);
+    windParticle->SetSpawnTime(0.3f);
 
-    float distant = glm::distance(startX, endX);
-    float travelTime = distant / (distant * speed);
+    
 
-    int col = this->GetAnimationColumn(0) - 1;
 
-    QueueWaitEvent(col * animSpeed);
+    this->SetChildRenderFront(windParticle);
+
+    QueueWaitEvent(lifeTime);
 
     QueueUpdateFunction(
         [this](float dt)
         {
-            this->SetSpriteByIndex(1, 0);
+            ParticleProperty hailProp;
+            hailProp.position = { 0.0f, 600.0f };
+            hailProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+            hailProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
+            hailProp.sizeBegin = hailProp.sizeEnd = 80.0f;
+            hailProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
+            hailProp.rotationVariation = 0.0f;
+            hailProp.velocity = { -1000.0f * m_SpellTarget, -1000.0f };
+            hailProp.velocityVariation = { -700.0f * m_SpellTarget, 100.0f };
+            hailProp.lifeTime = 1.5f;
+            ParticleSystem* hailParticle = GameStateController::GetInstance()->currentScene->CreateParticle(hailProp);
+            hailParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
+            hailParticle->SetIsAnimationObject(true);
+            hailParticle->SetIsFixRotation(true);
+            hailParticle->SetIsAnimationLoop(false);
+            hailParticle->SetSpawnTime(0.1f);
+            this->SetChildRenderFront(hailParticle);
             Next();
-            return;
-        }
-    );
-
-    QueueMoveEvent(startPos, endPos, travelTime);
+        });
 
     QueueHitEvent();
 
-    glm::vec3 newEndPos = endPos;
-    newEndPos.x -= size * m_SpellTarget;
+    QueueWaitEvent(spawnTime * amount);
 
-    float newDistant = glm::distance(startPos, newEndPos);
+    QueueUpdateFunction(
+        [this, windParticle](float dt)
+        {
+            windParticle->SetSpawnTime(99);
+            Next();
+        });
 
-    startPos = endPos;
-    endPos = newEndPos;
-
-    travelTime += travelTime * (distant / newDistant);
-
-    QueueMoveEvent(startPos, endPos, travelTime);
+    QueueWaitEvent(lifeTime);
 
     QueueDoneEvent();
 }
