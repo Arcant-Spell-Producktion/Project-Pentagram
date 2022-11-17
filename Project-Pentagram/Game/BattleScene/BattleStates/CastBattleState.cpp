@@ -13,7 +13,7 @@ void PlayerCastUpdate(float dt)
     int spellCost = currentCaster->GetSpellCost();
     int canCostSpell = currentCaster->GetMana() - spellCost;
 
-    battleManager->Data.Pentagram->SetInvokeButtonActive(canCostSpell >= 0);
+    battleManager->Data.Pentagram->SetCastButtonActive(canCostSpell >= 0);
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
     {

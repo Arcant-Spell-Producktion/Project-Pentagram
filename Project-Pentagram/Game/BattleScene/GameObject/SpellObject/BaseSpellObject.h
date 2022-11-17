@@ -32,7 +32,6 @@ protected:
         QueueUpdateFunction(
             [this, startPos, direction, travelTime](float dt)
             {
-                std::cout << "\tSpell::Move\n";
                 if (m_TotalTime >= travelTime)
                 {
                     Next();
@@ -44,6 +43,40 @@ protected:
                 this->position.y = startPos.y + direction.y * progress;
             }
         );
+    }
+
+    void QueueWaitTillFrameEvent(bool doNextCol = false,bool waitLastFrame = true, int targetFrame = -1)
+    {
+        QueueUpdateFunction(
+            [this, doNextCol, waitLastFrame , targetFrame](float dt)
+            {
+                int _target = targetFrame;
+                int currentRow = this->GetCurrentAnimationRow() - 1;
+                int lastFrame = this->GetAnimationColumn(currentRow);
+
+                if (waitLastFrame || _target == -1) _target = lastFrame;
+
+                int curFrame = this->GetCurrentAnimationColumn();
+                if (curFrame == _target)
+                {
+                    if (doNextCol) this->SetSpriteByIndex(currentRow + 1, 0 , true);
+                    Next();
+                    return;
+                }
+            }
+        );
+    }
+
+    void QueueFadeOutEvent(float t)
+    {
+        QueueUpdateFunction([this, t](float dt)
+            {
+                this->color.a = 1.0f - (m_TotalTime / t);
+                if (m_TotalTime >= t)
+                {
+                    Next();
+                }
+            });
     }
 
     void QueueWaitEvent(float t)

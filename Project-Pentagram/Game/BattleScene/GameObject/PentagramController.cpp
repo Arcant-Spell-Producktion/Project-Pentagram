@@ -5,7 +5,7 @@
 
 const std::string ButtonTexturePath = "Sprites/Button_Test.png";
 
-void InvokeSpell()
+void CastSpell()
 {
     auto bm = BattleManager::GetInstance();
     auto spell = bm->Data.GetCurrentCaster()->CastSpell();
@@ -40,7 +40,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
     m_Scroll_1 = m_ObjectManager->CreateUIObject("Scroll_1");
     m_Scroll_1->SetIsSlicing(true);
     m_Scroll_1->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
-    m_Scroll_1->SetSlicingBorderSize(160.0f);
+    m_Scroll_1->SetSlicingBorderSize(200.0f);
     m_Scroll_1->SetSlicingBorderMultiplier(0.25f);
     m_Scroll_1->SetSlicingType(SlicingType::REPEAT);
     m_Scroll_1->position = { 0.0f,-300.0f,0.0f };
@@ -156,22 +156,22 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
         this->SetChildRenderBack(button);
     }
 
-    m_InvokeButton = m_ObjectManager->CreateButton("Invoke");
-    m_InvokeButton->SetIsSlicing(true);
-    m_InvokeButton->SetSlicingBorderSize(160.0f);
-    m_InvokeButton->SetSlicingBorderMultiplier(0.25f);
-    m_InvokeButton->SetSlicingType(SlicingType::REPEAT);
-    m_InvokeButton->position = { -160.0f,-460.0f,0.0f };
-    m_InvokeButton->scale = { 240.0f, 160.0f, 1.0f };
-    m_InvokeButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_InvokeButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
-    m_InvokeButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
-    m_InvokeButton->textObject.text = "Invoke";
-    m_InvokeButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
-    m_InvokeButton->SetIsSlicing(false);
-    m_InvokeButton->onClick = [](Button* button)
+    m_CastButton = m_ObjectManager->CreateButton("Cast");
+    m_CastButton->SetIsSlicing(true);
+    m_CastButton->SetSlicingBorderSize(160.0f);
+    m_CastButton->SetSlicingBorderMultiplier(0.25f);
+    m_CastButton->SetSlicingType(SlicingType::REPEAT);
+    m_CastButton->position = { -160.0f,-460.0f,0.0f };
+    m_CastButton->scale = { 240.0f, 160.0f, 1.0f };
+    m_CastButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
+    m_CastButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
+    m_CastButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
+    m_CastButton->textObject.text = "Cast";
+    m_CastButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
+    m_CastButton->SetIsSlicing(false);
+    m_CastButton->onClick = [](Button* button)
     {
-        InvokeSpell();
+        CastSpell();
     };
 
     m_PassButton = m_ObjectManager->CreateButton("Pass");
@@ -194,7 +194,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
         bm->SwapCaster();
     };
 
-    this->SetChildRenderBack(m_InvokeButton);
+    this->SetChildRenderBack(m_CastButton);
     this->SetChildRenderBack(m_PassButton);
 
     m_SpellIcon = m_ObjectManager->CreateObject(new SpellIconUI("PentagramIcon"));

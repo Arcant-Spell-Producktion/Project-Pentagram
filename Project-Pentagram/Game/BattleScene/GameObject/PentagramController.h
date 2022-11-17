@@ -17,7 +17,7 @@ private:
     std::vector<Button*> m_IntButtons;
     std::vector<Button*> m_ArrowButtons;
 
-    Button* m_InvokeButton;
+    Button* m_CastButton;
     Button* m_PassButton;
 
     UIObject* m_Scroll_1;
@@ -35,7 +35,7 @@ public:
 
     void SetPentagramValue(int value);
     
-    void SetInvokeButtonActive(bool isActive) { m_InvokeButton->SetActive(isActive); }
+    void SetCastButtonActive(bool isActive) { m_CastButton->SetActive(isActive); }
 
     PentagramData_T ResetPentagram();
 
