@@ -1,7 +1,7 @@
 #pragma once
 
 #define GLM_ENABLE_EXPERIMENTAL
-#define RANDOM_FLOAT ((float)rand() / (float)(RAND_MAX))
+#define RANDOM_FLOAT(Min, Max) (((float)rand() / (float)(RAND_MAX)) * (Max - Min)) + Min
 #define ROTATION_SPD 100.0f
 
 #include <glm/glm.hpp>
@@ -17,11 +17,12 @@
 struct ParticleProperty
 {
 	glm::vec2 position = glm::vec2(0.0f, 0.0f);
+	glm::vec2 positionVariation = glm::vec2(0.0f, 0.0f);
 	glm::vec2 velocity = glm::vec2(0.0f, 0.0f), velocityVariation = glm::vec2(0.0f, 0.0f);
 	glm::vec4 colorBegin = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f), colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	float sizeBegin = 1.0f, sizeEnd = 1.0f, sizeVariation = 0.0f;
 	// Rotation (Degree)
-	float rotation = 0.0f, rotationVariation = (RANDOM_FLOAT * 360.0f);
+	float rotation = 0.0f, rotationVariation = (RANDOM_FLOAT(-1.0, 1.0f) * 180.0f);
 	float lifeTime = 1.0f;
 };
 

@@ -147,13 +147,13 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 	// RANDOM_FLOAT will random between [0.0f, 1.0f]
 	Particle& particle = m_ParticlePool[m_PoolIndex];
 	particle.active = true;
-	particle.position = particleProperty.position;
-	particle.rotation = particleProperty.rotation + (particleProperty.rotationVariation * (RANDOM_FLOAT - 0.5f));
+	particle.position = particleProperty.position + particleProperty.positionVariation * (RANDOM_FLOAT(-1.0f, 1.0f));
+	particle.rotation = particleProperty.rotation + particleProperty.rotationVariation * (RANDOM_FLOAT(-1.0f, 1.0f));
 
 	// Velocity
 	particle.velocity = particleProperty.velocity;
-	particle.velocity.x += particleProperty.velocityVariation.x * (RANDOM_FLOAT - 0.5f);
-	particle.velocity.y += particleProperty.velocityVariation.y * (RANDOM_FLOAT - 0.5f);
+	particle.velocity.x += particleProperty.velocityVariation.x * RANDOM_FLOAT(-1.0f, 1.0f);
+	particle.velocity.y += particleProperty.velocityVariation.y * RANDOM_FLOAT(-1.0f, 1.0f);
 
 	// Color
 	particle.colorBegin = particleProperty.colorBegin;
@@ -161,7 +161,7 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 
 	particle.lifeTime = particleProperty.lifeTime;
 	particle.lifeRemaining = particleProperty.lifeTime;
-	particle.sizeBegin = particleProperty.sizeBegin + particleProperty.sizeVariation * (RANDOM_FLOAT - 0.5f);
+	particle.sizeBegin = particleProperty.sizeBegin + particleProperty.sizeVariation * RANDOM_FLOAT(-1.0f, 1.0f);
 	particle.sizeEnd = particleProperty.sizeEnd;
 
 
