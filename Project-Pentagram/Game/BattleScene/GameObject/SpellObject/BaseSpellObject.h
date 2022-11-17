@@ -47,22 +47,36 @@ protected:
 
     void QueueWaitTillFrameEvent(bool doNextCol = false,bool waitLastFrame = true, int targetFrame = -1)
     {
-        int lastFrame = this->GetAnimationColumn(this->GetCurrentAnimationRow() - 1);
-
-        if (waitLastFrame || targetFrame == -1) targetFrame = lastFrame;
-
         QueueUpdateFunction(
-            [this, targetFrame,doNextCol](float dt)
+            [this, doNextCol, waitLastFrame , targetFrame](float dt)
             {
+                int _target = targetFrame;
+                int currentRow = this->GetCurrentAnimationRow() - 1;
+                int lastFrame = this->GetAnimationColumn(currentRow);
+
+                if (waitLastFrame || _target == -1) _target = lastFrame;
+
                 int curFrame = this->GetCurrentAnimationColumn();
-                if (curFrame == targetFrame)
+                if (curFrame == _target)
                 {
-                    if (doNextCol) this->SetSpriteByIndex(this->GetCurrentAnimationRow(), 0 , true);
+                    if (doNextCol) this->SetSpriteByIndex(currentRow + 1, 0 , true);
                     Next();
                     return;
                 }
             }
         );
+    }
+
+    void QueueFadeOutEvent(float t)
+    {
+        QueueUpdateFunction([this, t](float dt)
+            {
+                this->color.a = 1.0f - (m_TotalTime / t);
+                if (m_TotalTime >= t)
+                {
+                    Next();
+                }
+            });
     }
 
     void QueueWaitEvent(float t)

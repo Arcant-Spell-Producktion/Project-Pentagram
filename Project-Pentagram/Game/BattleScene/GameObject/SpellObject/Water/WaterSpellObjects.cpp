@@ -360,33 +360,65 @@ void WaterSpell9::Initialize()
 {
     auto scene = GameStateController::GetInstance()->currentScene;
 
-    float size = 2000.0f;
+    float size = 1920.0f;
     float speed = 2.0f;
-    float startX = (-280.0f) * m_SpellTarget; // Assume A shooter
-    float yPos = -160.0f;
-    float animSpeed = 1 / 12.0f;
+    float startX = (0.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = 0.0f;
+    float animSpeed = 0.15f;
     this->scale = { -size * m_SpellTarget,size / 3,1.0f };
     this->position = { startX ,yPos,0.0f };
      
     this->SetAnimationPlayTime(animSpeed);
-    this->SetIsAnimationObject(true);
+    this->SetIsAnimationObject(false);
+    this->color.a = 0.0f;
 
     int col = this->GetAnimationColumn(0) - 1;
 
-    QueueWaitEvent(col * animSpeed);
+    GameObject* _bubbleObj = scene->CreateGameObject("bubble");
+    _bubbleObj->SetTexture("Sprites/Spell/Water/spell_water_9-2.png");
+    _bubbleObj->scale = { 320.0f,320.0f ,1.0f };
+    _bubbleObj->position = { 700.0f * m_SpellTarget, -160.0f, 0.0f };
+    _bubbleObj->SetAnimationPlayTime(animSpeed);
+    _bubbleObj->SetIsAnimationObject(true);
+    _bubbleObj->SetIsAnimationLoop(false);
 
+
+    _bubbleObj->position -= this->position;
+    this->SetChildRenderBack(_bubbleObj);
+
+    int lastBubbleFrame = _bubbleObj->GetAnimationColumn(_bubbleObj->GetCurrentAnimationRow() - 1);
     QueueUpdateFunction(
-        [this](float dt)
+        [this, _bubbleObj, lastBubbleFrame](float dt)
         {
-            this->SetSpriteByIndex(1, 0);
-            Next();
-            return;
+            int curFrame = _bubbleObj->GetCurrentAnimationColumn();
+            if (curFrame == lastBubbleFrame)
+            {
+                this->SetIsAnimationObject(true);
+                this->color.a = 1.0f;
+                Next();
+                return;
+            }
         }
     );
 
-    QueueHitEvent();
+    QueueWaitTillFrameEvent(true);
+    
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            int lastFrame = this->GetAnimationColumn(1);
 
-    float blastTime = 1.5f;
+            int curFrame = this->GetCurrentAnimationColumn();
+            if (curFrame == lastFrame)
+            {
+               this->SetSpriteByIndex(2, 0, true);
+                Next();
+                return;
+            }
+        }
+    );
+
+    float blastTime = 3.0f;
 
     QueueUpdateFunction(
         [this, scene, blastTime](float dt)
@@ -397,7 +429,9 @@ void WaterSpell9::Initialize()
         }
     );
 
-    QueueWaitEvent(1.5f);
+    QueueWaitEvent(blastTime);
+
+    QueueFadeOutEvent(blastTime/2.0f);
 
     QueueDoneEvent();
 }

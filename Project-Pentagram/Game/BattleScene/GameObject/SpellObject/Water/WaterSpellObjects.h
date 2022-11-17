@@ -154,7 +154,7 @@ public:
     WaterSpell9(CasterPosition target) :BaseSpellObject(
         target,
         "Hell_Object",
-        "Sprites/Spell/Water/spell_water_9.png")
+        "Sprites/Spell/Water/spell_water_9-1.png")
     {
         std::cout << "Spell:: Create Hell\n";
         Initialize();
