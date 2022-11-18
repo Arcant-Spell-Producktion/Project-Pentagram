@@ -417,6 +417,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.h">
       <Filter>Game\BattleScene\SpellObject\Water</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Event.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
