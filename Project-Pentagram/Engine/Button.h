@@ -1,5 +1,5 @@
-#pragma once
-
+﻿#pragma once
+#include "Event.h"
 #include "Input.h"
 #include "UIObject.h"
 #include "Renderer/TextObject.h"
@@ -13,11 +13,11 @@ class Button : public UIObject
 		glm::vec4 hoverColor;
 
 		// ----------------- Button Events -----------------
-		std::function<void(Button*)> onHover;
-		std::function<void(Button*)> unHover;
-		std::function<void(Button*)> onClick;
-		std::function<void(Button*)> onPress;
-		std::function<void(Button*)> unPress;
+		Event<Button*> onHover;
+		Event<Button*> unHover;
+        Event<Button*> onClick;
+		Event<Button*> onPress;
+		Event<Button*> unPress;
 
 		// ----------------- Text -----------------
 		TextObject textObject;

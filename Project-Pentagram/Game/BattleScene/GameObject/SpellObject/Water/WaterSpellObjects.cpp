@@ -402,7 +402,9 @@ void WaterSpell9::Initialize()
     );
 
     QueueWaitTillFrameEvent(true);
-    
+
+    QueueWaitEvent(animSpeed);
+
     QueueUpdateFunction(
         [this](float dt)
         {

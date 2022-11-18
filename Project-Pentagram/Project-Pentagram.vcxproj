@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Event.h" />
     <ClInclude Include="Engine\IGameObjectManager.h" />
     <ClInclude Include="Engine\Scene\LoadScene.h" />
     <ClInclude Include="Engine\Slider.h" />
