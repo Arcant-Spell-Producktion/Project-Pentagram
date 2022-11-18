@@ -210,9 +210,9 @@ void WaterSpell5::Initialize()
 void WaterSpell6::Initialize()
 {
     std::cout << "Water Beam::Init\n";
-    float size = 480.0f;
-    float xPos = (800.0f) * m_SpellTarget; // Assume A shooter
-    float yPos = 0.0f;
+    float size = 400.0f;
+    float xPos = (400.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = -200.0f;
     this->scale = { size ,size,1.0f };
     this->position = { xPos,yPos,1.0f };
     this->color.a = 0.0f;
