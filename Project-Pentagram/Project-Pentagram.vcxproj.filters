@@ -171,6 +171,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp">
       <Filter>Game\BattleScene\SpellObject\Water</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Scene\DemoScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -418,6 +419,7 @@
       <Filter>Game\BattleScene\SpellObject\Water</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Event.h" />
+    <ClInclude Include="Engine\Scene\DemoScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

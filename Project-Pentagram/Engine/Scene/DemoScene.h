@@ -5,7 +5,7 @@
 #include "Engine/Input.h"
 #include "Utilities/Color.h"
 
-class MenuScene : public GameScene
+class DemoScene: public GameScene
 {
 	public:
 		virtual void GameSceneLoad() override;
