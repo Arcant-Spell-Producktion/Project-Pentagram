@@ -9,6 +9,11 @@ namespace SceneManager
 		{
 			newState = gameStateController->currentState;
 		}
+		else if (newState == GameState::GS_QUIT)
+		{
+			gameStateController->currentState = GameState::GS_QUIT;
+			return;
+		}
 		gameStateController->nextState = newState;
 	}
 	void RestartScene()

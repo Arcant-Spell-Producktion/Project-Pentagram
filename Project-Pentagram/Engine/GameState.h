@@ -7,6 +7,7 @@ enum class GameState
 	GS_MENU_SCENE,
 	GS_NODE_SCENE,
 	GS_BATTLE_SCENE,
+	GS_DEMO_SCENE,
 
 	GS_RESTART,
 	GS_QUIT,

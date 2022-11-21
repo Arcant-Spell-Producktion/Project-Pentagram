@@ -30,6 +30,9 @@ void GameStateController::UpdateGameScene()
 		case GameState::GS_NODE_SCENE :
 			currentScene = new NodeScene();
 			break;
+		case GameState::GS_DEMO_SCENE :
+			currentScene = new DemoScene();
+			break;
 		case GameState::GS_BATTLE_SCENE :
             currentScene = new BattleScene();
 			break;

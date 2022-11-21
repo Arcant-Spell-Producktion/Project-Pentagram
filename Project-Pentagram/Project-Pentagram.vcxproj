@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Engine\Event.h" />
     <ClInclude Include="Engine\IGameObjectManager.h" />
+    <ClInclude Include="Engine\Scene\DemoScene.h" />
     <ClInclude Include="Engine\Scene\LoadScene.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
@@ -112,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
     <ClCompile Include="Engine\AudioGroup.cpp" />
+    <ClCompile Include="Engine\Scene\DemoScene.cpp" />
     <ClCompile Include="Engine\Scene\LoadScene.cpp" />
     <ClCompile Include="Engine\Slider.cpp" />
     <ClCompile Include="Engine\SoundSystem.cpp" />
