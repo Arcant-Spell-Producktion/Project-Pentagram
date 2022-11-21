@@ -2,21 +2,29 @@
 #include "Engine/GameStateController.h"
 #include <sstream>
 
-SpellDetailUI::SpellDetailUI(int flip) :m_ObjectManager(GameStateController::GetInstance()->currentScene)
+SpellDetailUI::SpellDetailUI(int position) :UIObject("SpellDetailUI_"+position)
 {
-    m_Box = m_ObjectManager->CreateUIObject("DetailBox");
-    m_Box->position = { flip* -650.0f,120.0f,0.0f };
-    m_Box->scale = { 520.0f,220.0f,1.0f };
-    m_Box->color = flip == 1?AC_RED:AC_BLUE;
+    auto scene = GameStateController::GetInstance()->currentScene;
+    int flip = position == 0 ? 1 : -1;
+    float box_x = 520.0f;
+
+
+    this->position = { -650.0f * flip,120.0f,0.0f };
+
+    m_Box = scene->CreateUIObject("DetailBox_"+position);
+    m_Box->scale = { -box_x * flip,220.0f,1.0f };
+    m_Box->SetTexture("Sprites/UI/Game/ui_game_detail-box.png");
+    m_Box->SetSpriteByIndex(position, 0);
+    this->SetChildRenderFront(m_Box);
 
     for (size_t i = 0; i < 3; i++)
     {
-       m_Texts[i] = m_ObjectManager->CreateTextObject("DetailBox_Text_" + i); \
+       m_Texts[i] = scene->CreateTextObject("DetailBox_Text_" + i); 
        m_Texts[i]->fontSize = 36;
        m_Texts[i]->color = AC_WHITE;
-       m_Texts[i]->position.x -= (m_Box->scale.x / 2.0f)*0.9f;
+       m_Texts[i]->position.x -= (box_x / 2.0f)*0.9f;
        m_Texts[i]->position.y = (i * -60.0f) + 60.0f;
-       m_Box->SetChildRenderFront(m_Texts[i]);
+       this->SetChildRenderFront(m_Texts[i]);
     }
 
     m_Texts[0]->text = "Name: ";

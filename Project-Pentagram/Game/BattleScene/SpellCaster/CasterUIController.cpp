@@ -4,9 +4,9 @@
 CasterUIController::CasterUIController(CasterPosition position)
 {
     auto scene = GameStateController::GetInstance()->currentScene;
-    int flip = (int)position == 0 ? 1 : -1;
-    m_StatUI = scene->CreateObject(new CasterDetailUI((int)position - 1));
-    m_DetailBox = new SpellDetailUI(flip);
+    int pos = (int)position - 1;
+    m_StatUI = scene->CreateObject(new CasterDetailUI(pos));
+    m_DetailBox = scene->CreateObject(new SpellDetailUI(pos));
 }
 
 void CasterUIController::SetStat(CasterStat stat)

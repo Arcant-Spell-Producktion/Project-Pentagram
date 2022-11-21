@@ -17,6 +17,7 @@ private:
     Event<CasterStat> OnStatUpdate;
 
 protected:
+    
     CasterManager m_CasterManager;
     CasterState m_CasterState = CasterState::Idle;
     CasterEffectManager m_EffectManager;
