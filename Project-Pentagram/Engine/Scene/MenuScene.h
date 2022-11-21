@@ -7,6 +7,21 @@
 
 class MenuScene : public GameScene
 {
+	private:
+		UIObject* m_FadeScreen = nullptr;
+		GameState m_NextState;
+		float m_FadeTime;
+		float m_FadeCurrentTime = 0.0f;
+		bool m_IsFadeOut = false;
+
+		void FadeOut(const float& fadeTime, GameState nextState) 
+		{ 
+			m_NextState = nextState;
+			m_FadeTime = fadeTime;
+			m_IsFadeOut = true;
+		}
+		void FadeUpdate(const float& dt);
+
 	public:
 		virtual void GameSceneLoad() override;
 		virtual void GameSceneInit() override;

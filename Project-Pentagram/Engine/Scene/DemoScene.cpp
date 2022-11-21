@@ -160,10 +160,6 @@ void DemoScene::GameSceneUpdate(float dt)
 			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
 		}
 	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
-	{
-		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Z))
 	{
 		if (camera.GetZoom() == 1.0f)
