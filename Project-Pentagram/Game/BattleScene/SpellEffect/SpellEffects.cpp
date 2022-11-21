@@ -34,7 +34,7 @@ void OverflowSpellEffect::ResolveEffect(std::va_list args)
     if (!m_IsEffectActive) return;
 
     CasterController* caster = va_arg(args, CasterController*);
-    caster->GetSpellManager()->ChangeMana(m_EffectStack);
+    caster->GetCasterManager()->ChangeMana(m_EffectStack);
 
 }
 
@@ -43,5 +43,5 @@ void FreezeSpellEffect::ResolveEffect(std::va_list args)
     if (!m_IsEffectActive) return;
 
     CasterController* caster = va_arg(args, CasterController*);
-    caster->GetSpellManager()->SetTimeDebuff(m_EffectStack);
+    caster->GetCasterManager()->SetTimeDebuff(m_EffectStack);
 }

@@ -97,7 +97,7 @@ PentragramController::PentragramController() :m_ObjectManager(GameStateControlle
 
         PentagramFieldButton* button = m_ObjectManager->CreateObject(new PentagramFieldButton(field_value,Element::Fire));
 
-        button->onClick = [this, field_value](Button* button) {SetPentagramField(field_value); };
+        button->onClick = [this, field_value](Button* button) { SetPentagramField(field_value); };
 
         button->position = { radius * sinf(theta) + x_offset,radius * cosf(theta) + y_offset ,0.0f };
         
@@ -307,7 +307,7 @@ void PentragramController::SetPentagramValue(int value)
 
     auto battleManager = BattleManager::GetInstance();
     auto currentCaster = battleManager->Data.GetCurrentCaster();
-    auto spellCaster = currentCaster->GetSpellManager();
+    auto spellCaster = currentCaster->GetCasterManager();
 
     std::cout << "Value: " << value << "\n";
     switch (m_currentField)
@@ -351,7 +351,7 @@ void PentragramController::SetPentagramValue(int value)
     }
 
     m_SpellIcon->SetIcon(spellCaster->GetSpellDetail());
-    currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
+    //currentCaster->GetCasterUI()->SetManaText((spellCaster->GetMana() - spellCaster->GetSpellCost()), spellCaster->GetCasterData()->GetMana());
 
     battleManager->Data.Timeline.UI->UpdatePreviewIcon(spellCaster->GetSpellDetail()->SelectedTime, spellCaster->GetSpellDetail());
 

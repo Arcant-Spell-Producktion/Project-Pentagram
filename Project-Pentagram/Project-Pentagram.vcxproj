@@ -25,6 +25,7 @@
     <ClInclude Include="Engine\Scene\LoadScene.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
@@ -64,7 +65,7 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h" />
-    <ClInclude Include="Game\BattleScene\SpellCaster\CasterSpellManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterManager.h" />
     <ClInclude Include="Engine\ArcantEngine.h" />
     <ClInclude Include="Engine\Button.h" />
     <ClInclude Include="Engine\Camera.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
@@ -138,7 +140,7 @@
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
-    <ClCompile Include="Game\BattleScene\SpellCaster\CasterSpellManager.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterManager.cpp" />
     <ClCompile Include="Engine\ArcantEngine.cpp" />
     <ClCompile Include="Engine\Button.cpp" />
     <ClCompile Include="Engine\Camera.cpp" />

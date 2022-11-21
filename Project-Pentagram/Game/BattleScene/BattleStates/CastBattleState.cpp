@@ -6,7 +6,7 @@ void PlayerCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
-    CasterSpellManager* currentCaster = currentController->GetSpellManager();
+    CasterManager* currentCaster = currentController->GetCasterManager();
 
     if (currentCaster == nullptr) currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
 
@@ -37,7 +37,7 @@ void CastBattleState::OnBattleStateUpdate(float dt)
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
 
-    if (currentController->GetSpellManager()->GetMana() <= 0)
+    if (currentController->GetCasterManager()->GetMana() <= 0)
     {
         std::cout << "FORCED PASS\n";
         currentController->EndTurn(true);
@@ -54,7 +54,7 @@ void CastBattleState::OnBattleStateUpdate(float dt)
         else
         {
             std::cout << " ***************************\n\tCheck value : " << (int)currentController->GetState() << "\n\n";
-            CasterSpellManager* currentCaster = currentController->GetSpellManager();
+            CasterManager* currentCaster = currentController->GetCasterManager();
 
             /*currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
             battleManager->Data.Timeline.AddSpellToTimeline(currentController->CastSpell());
