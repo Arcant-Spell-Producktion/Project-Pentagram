@@ -113,10 +113,7 @@
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\AudioGroup.cpp">
-      <Filter>Engine\etc\Source File</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\SoundSystem.cpp">
+    <ClCompile Include="Engine\Audio\AudioEngine.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Slider.cpp">
@@ -172,6 +169,7 @@
       <Filter>Game\BattleScene\SpellObject\Water</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Scene\DemoScene.cpp" />
+    <ClCompile Include="Engine\Audio\AudioController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -339,10 +337,7 @@
     <ClInclude Include="Utilities\Color.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\AudioGroup.h">
-      <Filter>Engine\etc\Header File</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SoundSystem.h">
+    <ClInclude Include="Engine\Audio\AudioEngine.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Utilities\Color.h">
@@ -420,6 +415,7 @@
     </ClInclude>
     <ClInclude Include="Engine\Event.h" />
     <ClInclude Include="Engine\Scene\DemoScene.h" />
+    <ClInclude Include="Engine\Audio\AudioController.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

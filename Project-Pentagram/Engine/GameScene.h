@@ -5,6 +5,7 @@
 #include "Engine/Input.h"
 #include "Engine/Camera.h"
 #include "Engine/IGameObjectManager.h"
+#include "Engine/Audio/AudioController.h"
 
 class GameScene : public IGameObjectManager
 {
@@ -24,7 +25,7 @@ class GameScene : public IGameObjectManager
 		std::vector<GameObject*> objectsToDeleteList;
 
 		// ----------------- Utilities -----------------
-		SoundSystem* soundSystem = EngineDataCollector::GetInstance()->GetSoundSystem();
+		AudioController* audioController = AudioController::GetInstance();
 		Camera camera;
 		float timeScale = 1.0f;
 		float scaledDeltaTime;
@@ -65,6 +66,6 @@ class GameScene : public IGameObjectManager
 		void UpdateDeleteObject();
 
 		// ----------------- Getter -----------------
-		SoundSystem* GetSoundSystem() const;
+		AudioController* GetAudioController() const;
 		Camera* GetCamera();
 };
