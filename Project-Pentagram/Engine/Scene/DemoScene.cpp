@@ -125,10 +125,6 @@ void DemoScene::GameSceneInit()
 	subUI->SetChildRenderFront(gradiant);
 	ui->SetActive(false);
 
-	BGMController* bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" },
-													{ 1.0f, 1.0f, 1.0f, 1.0f });
-	bgm->Play();
-
 	std::cout << "Demo Scene : Initialize Completed\n";
 }
 

@@ -20,10 +20,33 @@ class BGMAudio
 		{
 			m_Audio->drop();
 		}
-		void ChangeVolume(const float& volume)
+
+		void Pause()
+		{
+			m_Audio->setIsPaused(true);
+		}
+		void Resume()
+		{
+			m_Audio->setIsPaused(false);
+		}
+		// ------------------ Setter ------------------
+		void SetPlaybackSpeed(const float& speed)
+		{
+			m_Audio->setPlaybackSpeed(speed);
+		}
+		void SetVolume(const float& volume)
 	{
 		m_Audio->setVolume(volume);
 	}
+		// ------------------ Getter ------------------
+		float GetPlaybackSpeed() const
+		{
+			return m_Audio->getPlaybackSpeed();
+		}
+		float GetVolume() const
+		{
+			return m_Audio->getVolume();
+		}
 };
 
 class BGMController
@@ -69,7 +92,7 @@ class BGMController
 			m_BGMLocalVolume = volume;
 		}
 
-		BGMAudio*& operator[](int index)
+		BGMAudio* operator[](int index)
 		{
 			return m_BGMAudioList[index];
 		}
