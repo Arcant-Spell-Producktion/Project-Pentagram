@@ -427,9 +427,9 @@ void GameScene::UpdateDeleteObject()
 
 
 // ----------------- Getter Implement -----------------
-SoundSystem* GameScene::GetSoundSystem() const
+AudioController* GameScene::GetAudioController() const
 {
-	return this->soundSystem;
+	return this->audioController;
 }
 Camera* GameScene::GetCamera()
 {

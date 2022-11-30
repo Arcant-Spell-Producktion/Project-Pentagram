@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Audio\AudioController.h" />
     <ClInclude Include="Engine\Event.h" />
     <ClInclude Include="Engine\IGameObjectManager.h" />
     <ClInclude Include="Engine\Scene\DemoScene.h" />
@@ -50,8 +51,7 @@
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
-    <ClInclude Include="Engine\AudioGroup.h" />
-    <ClInclude Include="Engine\SoundSystem.h" />
+    <ClInclude Include="Engine\Audio\AudioEngine.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
     <ClInclude Include="Game\BattleScene\BattleScene.h" />
     <ClInclude Include="Game\BattleScene\BattleSceneData.h" />
@@ -112,11 +112,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\GLAD\src\glad.c" />
-    <ClCompile Include="Engine\AudioGroup.cpp" />
+    <ClCompile Include="Engine\Audio\AudioController.cpp" />
     <ClCompile Include="Engine\Scene\DemoScene.cpp" />
     <ClCompile Include="Engine\Scene\LoadScene.cpp" />
     <ClCompile Include="Engine\Slider.cpp" />
-    <ClCompile Include="Engine\SoundSystem.cpp" />
+    <ClCompile Include="Engine\Audio\AudioEngine.cpp" />
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />

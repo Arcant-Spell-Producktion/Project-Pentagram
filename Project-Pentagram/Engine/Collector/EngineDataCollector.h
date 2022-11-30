@@ -5,7 +5,7 @@
 #include "Engine/Collector/ShaderCollector.h"
 #include "Engine/Collector/FontCollector.h"
 #include "Engine/Collector/TextureCollector.h"
-#include "Engine/SoundSystem.h"
+#include "Engine/Audio/AudioEngine.h"
 
 class EngineDataCollector : public Singleton<EngineDataCollector>
 {
@@ -13,7 +13,6 @@ class EngineDataCollector : public Singleton<EngineDataCollector>
 		ShaderCollector m_ShaderCollector;
 		FontCollector m_FontCollector;
 		TextureCollector m_TextureCollector;
-		SoundSystem m_SoundSystem;
 
 	public:
 		void LoadResource();
@@ -22,7 +21,6 @@ class EngineDataCollector : public Singleton<EngineDataCollector>
 		ShaderCollector* GetShaderCollector();
 		FontCollector* GetFontCollector();
 		TextureCollector* GetTextureCollector();
-		SoundSystem* GetSoundSystem();
 
 		// Free Memory
 		void Free();

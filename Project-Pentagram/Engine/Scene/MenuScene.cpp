@@ -54,6 +54,16 @@ void MenuScene::GameSceneInit()
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
 	m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
 
+	BGMController* bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" },
+		{ 1.0f, 1.0f, 1.0f, 1.0f });
+
+	/*
+	Usage of BGMController
+		(*bgm)[2]->SetVolume(0.5f);
+	*/
+
+	bgm->Play();
+
 	std::cout << "Menu Scene : Initialize Completed\n";
 }
 
