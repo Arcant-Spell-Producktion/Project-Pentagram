@@ -47,7 +47,7 @@ class TextObject : public UIObject
 		virtual void UnloadMesh() override;
 
 		// ----------------- Setter -----------------
-		void SetSlowRender(const float& renderTime);
+		void SetRenderTime(const float& renderTime);
 		void SetFonts(const std::string& fontPath);
 
 		// ----------------- Render Text -----------------

@@ -67,7 +67,7 @@ void DemoScene::GameSceneInit()
 	textObj2->textAlignment = TextAlignment::LEFT;
 	textObj2->text = R"(Hello! My name is Helia. I am Fire Mage?
 						Who are you? Are you Blue Kiki?)";
-	textObj2->SetSlowRender(0.075f);
+	textObj2->SetRenderTime(0.075f);
 
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1920.0f, 1080.0f, 1.0f };
