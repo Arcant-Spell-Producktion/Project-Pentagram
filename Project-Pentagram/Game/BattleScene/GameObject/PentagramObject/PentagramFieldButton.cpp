@@ -14,6 +14,42 @@ void PentagramFieldButton::OnUpdate(const float& dt)
     }
 }
 
+void PentagramFieldButton::SetElement(Element::Type element)
+{
+    m_CurrentElement = element;
+
+    int fieldIndex = (int)m_SelectedField + 1;
+    int elementIndex = (int)m_CurrentElement + 1;
+
+    ElementSignature->SetSpriteByIndex(fieldIndex, elementIndex);
+
+    if (m_SelectedField == PentagramField::Will)
+    {
+        std::string rune_text = "";
+
+        switch (m_CurrentElement)
+        {
+        case Element::Earth:
+            rune_text = "QUAKEX";
+            break;
+        case Element::Fire:
+            rune_text = "BLAZES";
+            break;
+        case Element::Water:
+            rune_text = "WATERZ";
+            break;
+        case Element::Wind:
+            rune_text = "STORME";
+            break;
+        }
+
+        for (int i = 0;i < 6; i++)
+        {
+            m_RuneList[i]->SetRune(rune_text[i]);
+        }
+    }
+}
+
 void PentagramFieldButton::SetActive(const bool& active)
 {
     GameObject::SetActive(active);
@@ -88,7 +124,6 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ElementSignature = GameObjManager->CreateUIObject("ElementIcon");
     ElementSignature->SetTexture(PentagramFieldButtonPath);
     ElementSignature->scale = { size ,size , 1.0f };
-    ElementSignature->SetSpriteByIndex(fieldIndex, elementIndex);
     ElementSignature->SetIsAnimationObject(false);
 
     ButtonCover = GameObjManager->CreateUIObject("ButtonCover");
@@ -102,7 +137,6 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ComplexRune->SetIsAnimationObject(true);
     ComplexRune->SetAnimationPlayTime(0.5f);
 
-
     this->SetChildRenderFront(FieldSignature);
      
     this->SetChildRenderFront(ComplexRune);
@@ -110,7 +144,6 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     this->SetChildRenderFront(ButtonCover);
 
     this->SetChildRenderFront(ElementSignature);
-
 
     switch (m_SelectedField)
     {
@@ -124,8 +157,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
         break;
     case PentagramField::Will:
-        m_RuneList = RuneObjectFactory::CreateRunes("FLAMEZ");
-
+        m_RuneList = RuneObjectFactory::CreateRunes("ABCDEF");
         break;
     case PentagramField::Effect:
         m_RuneList = RuneObjectFactory::CreateRunes("AMOGUS");
@@ -136,6 +168,9 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
         break;
     }
+
+    SetElement(m_CurrentElement);
+
     float radius = 60.0f;
     int rune_i = 0;
     for (auto rune : m_RuneList)

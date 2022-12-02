@@ -43,7 +43,7 @@ public:
 
     void SetState(CasterState state) { m_CasterState = state; }
 
-    virtual void StartTurn(PentagramData_T data);
+    virtual void StartTurn();
 
     bool TakeDamage(int value); // True if Alive
 

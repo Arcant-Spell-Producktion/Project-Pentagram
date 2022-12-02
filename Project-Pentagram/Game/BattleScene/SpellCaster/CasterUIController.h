@@ -15,5 +15,4 @@ public:
     void SetStat(CasterStat stat);
     void SetDetail(CastSpellDetail* detail);
 
-    ~CasterUIController() { delete m_DetailBox; }
 };

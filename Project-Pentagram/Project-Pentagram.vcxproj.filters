@@ -122,9 +122,6 @@
     <ClCompile Include="Engine\Slider.cpp">
       <Filter>Engine\etc\Source File</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\GameObject\PentagramController.cpp">
-      <Filter>Game\BattleScene\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp">
       <Filter>Game\BattleScene\BattleState</Filter>
     </ClCompile>
@@ -161,7 +158,6 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp">
       <Filter>Game\BattleScene\SpellObject\Fire</Filter>
     </ClCompile>
-    <ClCompile Include="Game\BattleScene\GameObject\PentagramFieldButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Engine\Scene\LoadScene.cpp" />
@@ -173,6 +169,18 @@
     </ClCompile>
     <ClCompile Include="Engine\Scene\DemoScene.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -355,9 +363,6 @@
     <ClInclude Include="Engine\Slider.h">
       <Filter>Engine\etc\Header File</Filter>
     </ClInclude>
-    <ClInclude Include="Game\BattleScene\GameObject\PentagramController.h">
-      <Filter>Game\BattleScene\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="main.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h">
       <Filter>Game\BattleScene\SpellEffect</Filter>
@@ -409,7 +414,6 @@
       <Filter>Game\BattleScene\SpellObject\Fire</Filter>
     </ClInclude>
     <ClInclude Include="Engine\IGameObjectManager.h" />
-    <ClInclude Include="Game\BattleScene\GameObject\PentagramFieldButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
     <ClInclude Include="Engine\Scene\LoadScene.h" />
@@ -422,6 +426,24 @@
     <ClInclude Include="Engine\Event.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
     <ClInclude Include="Engine\Scene\DemoScene.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -695,6 +717,9 @@
     </Filter>
     <Filter Include="Game\BattleScene\SpellObject\Water">
       <UniqueIdentifier>{b925cc52-93d6-48d2-af2b-b9524ed81d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\Objects\Pentagram">
+      <UniqueIdentifier>{133a299c-bec3-4c3b-9d65-964f4e0a82c9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

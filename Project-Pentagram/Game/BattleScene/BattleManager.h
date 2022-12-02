@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <map>
 #include <vector>
+#include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/BattleSceneData.h"
 #include "Game/BattleScene/BattleStates/BattleStateModel.h"
 #include "Utilities/Singleton.h"
@@ -18,15 +19,7 @@ public:
 
     BaseBattleState* GetBattleStates() { return m_BattleStates[m_CurrentState]; }
 
-    void Init()
-    {
-        for (auto state : BattleStateModel::GetBattleStates())
-        {
-            m_BattleStates.emplace(state->StateID, state);
-        }
-
-        m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
-    }
+    void Init(IGameObjectManager* scene);
 
     void StartBattle();
     void SwapCaster();

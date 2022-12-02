@@ -16,3 +16,12 @@ enum class PentagramField
     Will,
     Effect,
 };
+
+struct PentagramEvent
+{
+    PentagramField Field;
+    int Value;
+
+    PentagramEvent(PentagramField _field, int _value) :
+        Field(_field), Value(_value) {}
+};

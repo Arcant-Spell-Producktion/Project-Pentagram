@@ -21,10 +21,7 @@ void BattleScene::GameSceneInit()
 {
     objectsList.push_back(new StageObject(Element::Water));
 
-    battleManager->Init();
-
-    battleManager->Data.Pentagram = CreateObject<PentragramController>(new PentragramController());
-    battleManager->Data.Timeline.UI = CreateObject<TimelineController>(new TimelineController());
+    battleManager->Init(this);
     
     std::cout << "Battle Scene : Initialize Completed\n";
 
@@ -98,23 +95,15 @@ void BattleScene::GameSceneUpdate(float dt)
 
 void BattleScene::GameSceneUnload()
 {
-    //Free Battle Manager
-    battleManager->Free();
     GameScene::GameSceneUnload();
 }
 
 void BattleScene::GameSceneFree()
 {
-    // Free GameObject
-    for (GLuint idx = 0; idx < objectsList.size(); idx++)
-    {
-        delete objectsList[idx];
-    }
-    // Free UI
-    for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
-    {
-        delete uiObjectsList[idx];
-    }
+    GameScene::GameSceneFree();
+
+    //Free Battle Manager
+    battleManager->Free();
 
     std::cout << "Battle Scene : Free Memory Completed\n";
 }

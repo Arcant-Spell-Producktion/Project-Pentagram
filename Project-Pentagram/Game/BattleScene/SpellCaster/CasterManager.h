@@ -8,7 +8,6 @@
 class CasterManager
 {
 private:
-    void UpdateCurrentSpell();
 protected:
     CasterData m_CurrentData;
     PentagramData_T m_PentagramData;
@@ -16,6 +15,8 @@ protected:
     CastSpellDetail* m_CurrentSpell = nullptr;
 
     int m_TimeDebuff = 0;
+
+    int GetTimeCost();
 public:
     CasterManager(CasterData caster);
 
@@ -23,13 +24,17 @@ public:
 
     void CommitSpell();
 
-    int GetTimeCost();
+    int GetFieldCost(PentagramField field);
 
     int GetSpellCost();
 
+    int GetRemainMana();
+
     PentagramData_T GetPentagramData() { return m_PentagramData; }
 
-    void SetPentagramData(PentagramData_T pentagram);
+    bool SetPentagramData(PentagramData_T pentagram);
+
+    bool UpdateCurrentSpell();
 
     int const GetHealth() { return m_CurrentData.Stat().CurrentHealth; }
 

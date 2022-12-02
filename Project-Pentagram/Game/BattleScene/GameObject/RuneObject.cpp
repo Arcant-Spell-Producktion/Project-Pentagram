@@ -2,6 +2,16 @@
 #include "Engine/GameStateController.h"
 #include "RuneObject.h"
 
+int CharToIndex(char c)
+{
+    return std::tolower(c) - 'a';
+}
+
+void RuneObject::SetRune(char runeChar)
+{
+    SetRune(CharToIndex(runeChar));
+}
+
 void RuneObject::SetRune(int runeIndex)
 {
     this->SetSpriteByIndex(0, runeIndex);
@@ -24,7 +34,7 @@ std::vector<RuneObject*> RuneObjectFactory::CreateRunes(const std::string text)
 
     for (auto _char :text)
     {
-        int index = std::tolower(_char) - 'a';
+        int index = CharToIndex(_char);
         runeList.push_back(
             GameObjManager->CreateObject<RuneObject>(new RuneObject(index))
         );

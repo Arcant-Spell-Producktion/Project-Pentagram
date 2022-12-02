@@ -21,15 +21,14 @@ void CasterController::UpdateCasterUI()
     OnStatUpdate.Invoke((m_CasterManager.Data().Stat()));
 }
 
-void CasterController::StartTurn(PentagramData_T data)
+void CasterController::StartTurn()
 {
     if (m_CasterState == CasterState::Passed)
     {
         return;
     }
     m_CasterState = CasterState::Idle;
-    m_CasterManager.SetPentagramData(data);
-
+    
     UpdateCasterUI();
 }
 
@@ -54,7 +53,6 @@ bool CasterController::TakeDamage(int value)
 
 CastSpellDetail* CasterController::CastSpell()
 {
-
     CastSpellDetail* spell = m_CasterManager.GetSpellDetail();
     m_CasterManager.CommitSpell();
     std::cout << "Casted:\n" << *spell << "\n"

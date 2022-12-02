@@ -25,11 +25,12 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
 
     this->SetChildRenderFront(m_IconObject);
 
+    float borderScale = _scale / 100.0f * 114.0f;
     m_IconBorder = m_ObjectManager->CreateUIObject(objName + "_iconBorder");
     m_IconBorder->SetIsAnimationObject(false);
     m_IconBorder->SetTexture(iconPath);
     m_IconBorder->SetSpriteByIndex(0, 0);
-    m_IconBorder->scale = { 100.0f,100.0f ,1.0f };
+    m_IconBorder->scale = { borderScale , borderScale , 1.0f };
     this->SetChildRenderFront(m_IconBorder);
 }
 
