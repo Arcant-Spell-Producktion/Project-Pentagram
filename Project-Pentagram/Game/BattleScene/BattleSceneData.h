@@ -2,16 +2,16 @@
 #include <vector>
 #include "Game/BattleScene/SpellCaster/CasterController.h"
 #include "Game/BattleScene/SpellTimeline/SpellTimeline.h"
-#include "Game/BattleScene/GameObject/PentagramController.h"
+#include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
 
 class BattleSceneData
 {
 public:
     int CurrentCasterIndex = 0;
     std::vector<CasterController*> Casters;
-    SpellTimeline Timeline;
 
-    PentragramController* Pentagram;
+    SpellTimeline Timeline;
+    PentragramController* Pentagram = nullptr;
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 

@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "CasterSpellManager.h"
+#include "CasterManager.h"
 #include "Game/BattleScene/GameObject/CasterObject.h"
 #include "Game/BattleScene/SpellCaster/CasterUIController.h"
 #include "Game/BattleScene/SpellCaster/CasterEffectManager.h"
@@ -13,13 +13,17 @@ enum class CasterState
 
 class CasterController
 {
-protected:
-    CasterState m_CasterState = CasterState::Idle;
-    CasterSpellManager m_SpellCaster;
-    CasterEffectManager m_EffectManager;
-    CasterObject* m_CasterObject;
-    CasterUIController* m_CasterUI;
+private:
+    Event<CasterStat> OnStatUpdate;
 
+protected:
+    
+    CasterManager m_CasterManager;
+    CasterState m_CasterState = CasterState::Idle;
+    CasterEffectManager m_EffectManager;
+    CasterUIController m_CasterUI;
+
+    CasterObject* m_CasterObject;
     void CasterDied();
 public:
 
@@ -29,9 +33,9 @@ public:
 
     CasterObject* GetCasterObject() { return m_CasterObject; }
    
-    CasterUIController* GetCasterUI() { return m_CasterUI; }
+    CasterManager* GetCasterManager() { return &m_CasterManager; }
 
-    CasterSpellManager* GetSpellManager() {return &m_SpellCaster;}
+    CasterUIController* GetCasterUI() { return &m_CasterUI; }//Todo:: obsure this
     
     CasterEffectManager* GetEffectManager() { return &m_EffectManager; }
 
@@ -39,7 +43,7 @@ public:
 
     void SetState(CasterState state) { m_CasterState = state; }
 
-    virtual void StartTurn(PentagramData_T data);
+    virtual void StartTurn();
 
     bool TakeDamage(int value); // True if Alive
 

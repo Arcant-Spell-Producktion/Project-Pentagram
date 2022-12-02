@@ -41,7 +41,7 @@ int main()
 
     //Init player, TODO:: done in character select instead
     //CasterData playerData(Element::Debug, CasterPosition::CasterA, 100, 10);
-    currentGame->Player = new PlayerData({ Element::Water, CasterPosition::CasterA, 100, 10 });
+    currentGame->Player = new PlayerData({ {300, 15}, Element::Fire, CasterPosition::CasterA, });
 
     srand(time(0));
 

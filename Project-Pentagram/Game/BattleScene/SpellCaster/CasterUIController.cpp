@@ -1,64 +1,21 @@
 ﻿#include "Engine/GameStateController.h"
 #include "CasterUIController.h"
 
-std::string TextFormat(int a, int b)
+CasterUIController::CasterUIController(CasterPosition position)
 {
-    std::string text = std::to_string(a) + "/" + std::to_string(b);
-    return text;
+    auto scene = GameStateController::GetInstance()->currentScene;
+    int pos = (int)position - 1;
+    m_StatUI = scene->CreateObject(new CasterDetailUI(pos));
+    m_DetailBox = scene->CreateObject(new SpellDetailUI(pos));
 }
 
-CasterUIController::CasterUIController(CasterPosition position):m_ObjectManager(GameStateController::GetInstance()->currentScene)
+void CasterUIController::SetStat(CasterStat stat)
 {
-    int flip = position == CasterPosition::CasterA ? 1 : -1;
-
-    m_CasterBar = m_ObjectManager->CreateUIObject("m_CasterBar_" + std::to_string((int)position));
-    m_CasterBar->position = { -600.0f * flip, -460.0f , 0.0f };
-    m_CasterBar->color.a = 0.0f;
-
-    m_Health = m_ObjectManager->CreateUIObject("m_Health_" + std::to_string((int)position));
-    m_Health->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_hp-bar.png");
-    m_Health->SetStartGradientTexture("Sprites/GradientMap/gradiant-map_green.png");
-    m_Health->SetEndGradientTexture("Sprites/GradientMap/gradiant-map_red.png");
-    m_Health->SetIsGradient(true);
-    m_Health->position = { -100 * flip , -20.0f , 0.0f };
-    m_Health->scale = { 440.0f, 110.0f, 1.0f };
-    m_Health->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_CasterBar->SetChildRenderFront(m_Health);
-
-    m_HealthText = m_ObjectManager->CreateTextObject("m_HealthText_" + std::to_string((int)position));
-    m_HealthText->textAlignment = TextAlignment::MID;
-    m_HealthText->outlineColor = AC_BLACK;
-    m_Health->SetChildRenderFront(m_HealthText);
-    SetHealthText(0,0);
-    
-    m_Mana = m_ObjectManager->CreateUIObject("m_Mana_" + std::to_string((int)position));
-    m_Mana->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_mana-stone.png");
-    m_Mana->position = { 100 * flip , 0.0f , 0.0f };
-    m_Mana->scale = {180.0f,180.0f,1.0f};
-    m_CasterBar->SetChildRenderFront(m_Mana);
-
-    m_ManaText = m_ObjectManager->CreateTextObject("m_ManaText_" + std::to_string((int)position));
-    m_ManaText->fontSize = 36.0f;
-    m_ManaText->outlineColor = AC_BLACK;
-    m_ManaText->textAlignment = TextAlignment::RIGHT;
-    m_ManaText->position.x += 45.0f;
-    m_Mana->SetChildRenderFront(m_ManaText);
-    SetManaText(0, 0);
-
-    m_DetailBox = new SpellDetailUI(flip);
+    m_StatUI->SetHealthText(stat.CurrentHealth,stat.MaxHealth);
+    m_StatUI->SetManaText(stat.CurrentMana, stat.MaxMana);
 }
 
-void CasterUIController::SetHealthText(int cur, int max)
+void CasterUIController::SetDetail(CastSpellDetail* detail)
 {
-    m_CurrentHealth = cur;
-    m_MaxHealth = max;
-    m_HealthText->text = TextFormat(m_CurrentHealth, m_MaxHealth);
-    m_Health->SetGradientValue(1.0f - m_CurrentHealth / (float)m_MaxHealth);
-}
-
-void CasterUIController::SetManaText(int cur, int max)
-{
-    m_CurrentMana = cur;
-    m_MaxMana = max;
-    m_ManaText->text = TextFormat(m_CurrentMana, m_MaxMana);
+    m_DetailBox->SetDetail(detail);
 }

@@ -8,7 +8,7 @@ void SetupBattleState::OnBattleStateIn()
 {
     BattleManager* bm = BattleManager::GetInstance();
     bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
-    bm->Data.AddCaster(new PlayerController({ Element::Fire,CasterPosition::CasterB,100,10 }));
+    bm->Data.AddCaster(new PlayerController({ {450,15}, Element::Water,CasterPosition::CasterB }));
 }
 
 void SetupBattleState::OnBattleStateUpdate(float dt)

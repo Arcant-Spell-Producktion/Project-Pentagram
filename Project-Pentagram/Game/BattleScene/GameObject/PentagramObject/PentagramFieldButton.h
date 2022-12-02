@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
+#include "Game/BattleScene/GameObject/RuneObject.h"
 #include "Game/Spells/Element.h"
-#include "RuneObject.h"
 
 class PentagramFieldButton : public Button
 {
@@ -30,6 +30,8 @@ private:
 
     virtual void OnUpdate(const float& dt) override;
 public:
+
+    void SetElement(Element::Type element);
 
     void SetActive(const bool& active) override;
 

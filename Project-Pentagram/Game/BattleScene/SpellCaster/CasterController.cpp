@@ -2,14 +2,12 @@
 #include "Engine/GameStateController.h"
 #include "Game/BattleScene/BattleManager.h"
 
-CasterController::CasterController(CasterData caster):m_SpellCaster(caster)
+CasterController::CasterController(CasterData caster):m_CasterManager(caster), m_CasterUI(m_CasterManager.Data().Position())
 {
     auto scene = GameStateController::GetInstance()->currentScene;
     m_CasterObject = scene->CreateObject<CasterObject>(new CasterObject());
 
-    m_CasterUI = new CasterUIController(m_SpellCaster.GetCasterData()->GetPosition());
-    m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
-    m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
+    OnStatUpdate.AddListenner([this](CasterStat stat) {m_CasterUI.SetStat(stat); });
 }
 
 void CasterController::CasterDied()
@@ -20,33 +18,32 @@ void CasterController::CasterDied()
 
 void CasterController::UpdateCasterUI()
 {
-    m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
-    m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
+    OnStatUpdate.Invoke((m_CasterManager.Data().Stat()));
 }
 
-void CasterController::StartTurn(PentagramData_T data)
+void CasterController::StartTurn()
 {
     if (m_CasterState == CasterState::Passed)
     {
         return;
     }
     m_CasterState = CasterState::Idle;
-    m_SpellCaster.SetPentagramData(data);
-
+    
     UpdateCasterUI();
 }
 
 bool CasterController::TakeDamage(int value)
 {
     int totalDamage = -value;
-    m_SpellCaster.ChangeHealth(totalDamage);
+    m_CasterManager.ChangeHealth(totalDamage);
 
-    std::cout << "Caster:" << (int)m_SpellCaster.GetCasterData()->GetPosition()
+    std::cout << "Caster:" << (int)m_CasterManager.Data().Position()
         << "\tDmg taken: " << value
-        << "\tRemained Hp: " << m_SpellCaster.GetHealth() << "\n";
-    m_CasterUI->SetHealthText(m_SpellCaster.GetHealth(), m_SpellCaster.GetCasterData()->GetHealth());
+        << "\tRemained Hp: " << m_CasterManager.GetHealth() << "\n";
 
-    if (m_SpellCaster.GetHealth() <= 0)
+    UpdateCasterUI();
+
+    if (m_CasterManager.GetHealth() <= 0)
     {
         CasterDied();
         return false;
@@ -56,12 +53,13 @@ bool CasterController::TakeDamage(int value)
 
 CastSpellDetail* CasterController::CastSpell()
 {
-
-    CastSpellDetail* spell = m_SpellCaster.GetSpellDetail();
-    m_SpellCaster.CommitSpell();
+    CastSpellDetail* spell = m_CasterManager.GetSpellDetail();
+    m_CasterManager.CommitSpell();
     std::cout << "Casted:\n" << *spell << "\n"
-        << "\tRemained Mana: " << m_SpellCaster.GetMana() << "\n";
-    m_CasterUI->SetManaText(m_SpellCaster.GetMana(), m_SpellCaster.GetCasterData()->GetMana());
+        << "\tRemained Mana: " << m_CasterManager.GetMana() << "\n";
+
+    UpdateCasterUI();
+
     EndTurn();
     return spell;
 }

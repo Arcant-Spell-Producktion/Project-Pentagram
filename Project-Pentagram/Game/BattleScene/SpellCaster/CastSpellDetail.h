@@ -13,10 +13,11 @@ class CastSpellDetail
         bool isCasted = false;
         bool doCast = false;
 
+        int GetIndex() const { return OriginalSpell->GetSpellIndex(); }
         int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
         int GetEffectValue() const { return OriginalSpell->GetSpellEffectValue(SelectedEffect - 1); }
 
-        CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time,bool isCted = false, bool do_cast = false) :
+        CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time = 0,bool isCted = false, bool do_cast = false) :
             SpellOwner(position),
             OriginalSpell(spell),
             SelectedWill(will),
@@ -24,7 +25,19 @@ class CastSpellDetail
             SelectedTime(time),
             isCasted(isCted),
             doCast(do_cast)
-        {}
+        {
+            if (SelectedTime == 0)
+            {
+                SelectedTime = OriginalSpell->GetCastTime();
+            }
+        }
+
+        void UpdateDetail(int will, int effect, int time)
+        {
+            SelectedWill = will;
+            SelectedEffect = effect;
+            SelectedTime = time;
+        }
 
         friend ostream& operator<<(ostream& os, const CastSpellDetail& detail)
         {

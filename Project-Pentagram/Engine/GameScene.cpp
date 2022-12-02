@@ -214,7 +214,7 @@ void GameScene::UpdateButtonOnClick()
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			curObj->onClick(curObj);
+			curObj->onClick.Invoke(curObj);
 			return;
 		}
 	}

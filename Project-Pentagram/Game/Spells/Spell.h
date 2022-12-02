@@ -34,26 +34,27 @@ public:
         m_ChannelTime(0)
     {}
 
+    const int GetSpellIndex() { return m_Index; }
     void SetSpellName(std::string name) { m_Name = name; }
-    std::string GetSpellName() { return m_Name; }
+    const std::string GetSpellName() { return m_Name; }
 
     void SetWillValue(int i, int value) { m_WillValues[i] = value; }
-    int GetWillValue(int i) { return m_WillValues[i]; }
+    const int GetWillValue(int i) { return m_WillValues[i]; }
 
     void SetSpellEffectType(SpellEffectEnum type) { m_SpellEffectType = type; }
-    SpellEffectEnum GetSpellEffectType() { return m_SpellEffectType; }
+    const SpellEffectEnum GetSpellEffectType() { return m_SpellEffectType; }
 
     void SetSpellEffectValue(int i, int value) { m_SpellEffectValues[i] = value; }
-    int GetSpellEffectValue(int i) { return m_SpellEffectValues[i]; }
+    const int GetSpellEffectValue(int i) { return m_SpellEffectValues[i]; }
 
     void SetCastTime(int time) { m_OriginalCastTime = time; }
-    int GetCastTime() { return m_OriginalCastTime; }
+    const int GetCastTime() { return m_OriginalCastTime; }
 
     void SetChannelEffectType(ChannelEffectEnum type) { m_ChannelEffectType = type; }
-    ChannelEffectEnum GetChannelEffectType() { return m_ChannelEffectType; }
+    const ChannelEffectEnum GetChannelEffectType() { return m_ChannelEffectType; }
 
     void SetChannelTime(int time) { m_ChannelTime = time; }
-    int GetChannelTime() { return m_ChannelTime; }
+    const int GetChannelTime() { return m_ChannelTime; }
 
     friend ostream& operator<<(ostream& os, const Spell& dt);
 };
