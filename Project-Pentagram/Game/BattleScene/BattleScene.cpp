@@ -72,23 +72,8 @@ void BattleScene::GameSceneUpdate(float dt)
             curObj->UpdateAnimation(dt);
         }
 
-        if (curObj->name == "INFO_Text" && track_t >= 1.0f)
-        {
-            dynamic_cast<TextObject*>(curObj)->text = "FPS : " + std::to_string(int(1.0f / dt)) + "\n" +
-                "GameObject : " + std::to_string(objectsList.size()) + "\n" +
-                "UIObject : " + std::to_string(uiObjectsList.size());
-        }
-        else if (curObj->name == "BigUI_1")
-        {
-            if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
-            {
-                timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
-                soundSystem->SetPauseAll(soundSystem->isAllPaused() ? false : true);
-                curObj->SetActive(curObj->IsActive() ? false : true);
-            }
-        }
-
         if (!curObj->IsActive()) { continue; }
+
         curObj->OnUpdate(dt);
     }
 }

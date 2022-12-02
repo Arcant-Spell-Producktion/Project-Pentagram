@@ -67,7 +67,7 @@ void DemoScene::GameSceneInit()
 	textObj2->textAlignment = TextAlignment::LEFT;
 	textObj2->text = R"(Hello! My name is Helia. I am Fire Mage?
 						Who are you? Are you Blue Kiki?)";
-	textObj2->SetSlowRender(0.075f);
+	textObj2->SetRenderTime(0.075f);
 
 	UIObject* ui = CreateUIObject("BigUI_1");
 	ui->scale = { 1920.0f, 1080.0f, 1.0f };
@@ -124,10 +124,8 @@ void DemoScene::GameSceneInit()
 	subUI->SetChildRenderFront(slider);
 	subUI->SetChildRenderFront(gradiant);
 	ui->SetActive(false);
-	std::cout << "Demo Scene : Initialize Completed\n";
 
-	soundSystem->PlayGroupAudio("Water_Theme_BGM", { "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" }, 0.5f);
-	soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
+	std::cout << "Demo Scene : Initialize Completed\n";
 }
 
 void DemoScene::GameSceneUpdate(float dt)
@@ -149,16 +147,7 @@ void DemoScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_1))
 	{
-		if (soundSystem->IsMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav"))
-		{
-			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav");
-			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
-		}
-		else
-		{
-			soundSystem->Mute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-1.wav");
-			soundSystem->UnMute("Water_Theme_BGM", "Audio/BGM/Water/bgm_water_1-4.wav");
-		}
+		audioController->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Z))
 	{
@@ -196,7 +185,6 @@ void DemoScene::GameSceneUpdate(float dt)
 			curObj->SetActive(curObj->IsActive() ? false : true);
 		}
 	}
-
 	// Update UI
 	for (GLuint idx = 0; idx < uiObjectsList.size(); idx++)
 	{
@@ -236,4 +224,6 @@ void DemoScene::GameSceneFree()
 	}
 	//soundSystem->FreeSound();
 	std::cout << "Demo Scene : Free Memory Completed\n";
+
+	audioController->Free();
 }

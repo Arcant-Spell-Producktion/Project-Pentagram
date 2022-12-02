@@ -59,7 +59,7 @@ void TextObject::UnloadMesh()
 }
 
 // ----------------- Setter -----------------
-void TextObject::SetSlowRender(const float& renderTime)
+void TextObject::SetRenderTime(const float& renderTime)
 {
 	this->m_SlowRender = true;
 	this->m_CurrentTextIndex = 0;
