@@ -17,7 +17,7 @@ private:
     CasterController* m_currentCaster = nullptr;
     PentagramData_T m_currentData = {1,1,1,1,0};
 
-    PentagramField m_currentField = PentagramField::Will;
+    PentagramField m_currentField = PentagramField::Time;
 
     PentagramCircleUI* m_PentragramCircle;
     PentagramFieldButtonUI* m_PentragramFieldButtons;

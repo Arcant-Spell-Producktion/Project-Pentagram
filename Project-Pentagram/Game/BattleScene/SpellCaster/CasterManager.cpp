@@ -97,3 +97,8 @@ int CasterManager::GetRemainMana()
 {
     return GetMana() - GetSpellCost();
 }
+
+bool CasterManager::CanCastSpell()
+{
+    return GetSpellCost() >= GetRemainMana();
+}

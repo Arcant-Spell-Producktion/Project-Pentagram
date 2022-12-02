@@ -114,30 +114,11 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
 
 void PentragramController::SetActive(const bool& active)
 {
-    /*if (active)
-    {
-        auto field = m_currentField;
-
-        PentragramController::SetPentagramField(PentagramField::Circle);
-        PentragramController::SetPentagramValue(m_currentData.circle);
-
-        PentragramController::SetPentagramField(PentagramField::Complex);
-        PentragramController::SetPentagramValue(m_currentData.complex);
-
-        PentragramController::SetPentagramField(PentagramField::Will);
-        PentragramController::SetPentagramValue(m_currentData.will);
-
-        PentragramController::SetPentagramField(PentagramField::Effect);
-        PentragramController::SetPentagramValue(m_currentData.effect);
-
-        PentragramController::SetPentagramField(field);
-    }*/
-
-    //m_PentragramCircle->SetActive(active);
-    //m_PentragramFieldButtons->SetActive(active);
-    //m_PentagramScrollButton->SetActive(active);
-    //m_CastButton->SetActive(active);
-    //m_PassButton->SetActive(active);
+    m_PentragramCircle->SetActive(active);
+    m_PentragramFieldButtons->SetActive(active);
+    m_PentagramScrollButton->SetActive(active);
+    m_CastButton->SetActive(active);
+    m_PassButton->SetActive(active);
 
 }               
 
@@ -175,6 +156,8 @@ void PentragramController::SetPentagramValue(int value)
     BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail()->SelectedTime, m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldCost(m_currentField));
+
+    m_CastButton->SetActive(m_currentCaster->GetCasterManager()->CanCastSpell());
 }
 
 void PentragramController::SetPentagramOwner(CasterController* caster)

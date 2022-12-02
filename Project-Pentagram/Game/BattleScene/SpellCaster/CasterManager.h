@@ -30,6 +30,8 @@ public:
 
     int GetRemainMana();
 
+    bool CanCastSpell();
+
     PentagramData_T GetPentagramData() { return m_PentagramData; }
 
     bool SetPentagramData(PentagramData_T pentagram);
