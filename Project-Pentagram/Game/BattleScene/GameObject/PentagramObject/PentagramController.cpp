@@ -119,7 +119,6 @@ void PentragramController::SetActive(const bool& active)
     m_PentagramScrollButton->SetActive(active);
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);
-
 }               
 
 void PentragramController::SetPentagramField(PentagramField selectedField)
@@ -179,6 +178,5 @@ void PentragramController::ResetPentagram()
     BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail()->SelectedTime, m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->ResetFieldRune();
-
 }
 

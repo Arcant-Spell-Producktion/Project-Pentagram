@@ -6,7 +6,10 @@
 
 enum class IconType
 {
-    Normal,
+    Normal = 0,
+    Active = 1,
+    Wait = 2,
+    Preview = 3,
     Extra,
 };
 
@@ -19,10 +22,17 @@ private:
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;
+    UIObject* m_IconOverlay;
     UIObject* m_IconBorder;
 
     Element::Type m_CurrentElement = Element::NULLTYPE;
+
+    bool m_isPreview = false;
     int m_CurrentSpellIndex = -1;
+
+    void SetTransparency(bool flag);
+
+    void SetIconType(IconType type);
 public:
     CastSpellDetail* SpellDetail = nullptr;
 
@@ -30,11 +40,9 @@ public:
 
     void SetIcon(CastSpellDetail* spellDetail);
 
-    void SetIconType(IconType type) { m_Type = type; };
+    void SetIsPreview(bool isPreview);
 
     void SetPosition(glm::vec3 position);
-
-    void SetTransparency(bool flag);
 
     void UpdateIcon();
 

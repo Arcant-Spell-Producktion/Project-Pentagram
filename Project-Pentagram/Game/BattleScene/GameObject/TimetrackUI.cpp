@@ -88,8 +88,11 @@ void TimetrackUI::ExpandTrack(bool isExpand)
 
 void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
 {
-    static int previewPosition;
-    if (spell != nullptr) m_PreviewIcon->SetIcon(spell);
+    if (spell != nullptr)
+    {
+        m_PreviewIcon->SetIcon(spell);
+        m_PreviewIcon->SetIsPreview(true);
+    }
     
     if (!m_PreviewIcon->IsActive() && active)
     {
@@ -110,14 +113,16 @@ void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
         auto found = std::find(m_Icons.begin(), m_Icons.end(), m_PreviewIcon) != m_Icons.end();
         if (found)
         {
-            if (m_Icons.size() > maxIcon)
-            {
-                m_Icons.erase(m_Icons.begin() + maxIcon);
-            }
-            else
-            {
-                m_Icons.pop_back();
-            }
+            m_Icons.pop_back();
+
+            //if (m_Icons.size() > maxIcon)
+            //{
+            //    m_Icons.erase(m_Icons.begin() + maxIcon);
+            //}
+            //else
+            //{
+            //    m_Icons.pop_back();
+            //}
         }
     }
 
@@ -129,28 +134,15 @@ void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
 void TimetrackUI::UpdateTrack()
 {
     float newScale = scaleDefault;
+    float gap = iconGap;
+    int topIconIndex = 0;
 
     if (!m_IsExpanded)
     {
-        m_PreviewIcon->SetTransparency(true);
-
         if (m_Icons.size() > maxIcon)
         {
-            m_Icons[maxIcon-1]->SetIconType(IconType::Extra);
-        }
-
-        for (int i = 0; i < m_Icons.size(); i++)
-        {
-            auto icon = m_Icons[i];
-            icon->position.y = -iconGap * (i - 1);
-            if (i < maxIcon)
-            {
-                icon->UpdateIcon();
-            }
-            else
-            {
-                icon->SetActive(false);
-            }
+            topIconIndex = m_Icons.size() - maxIcon;
+            m_Icons[topIconIndex]->SetIconType(IconType::Extra);
         }
 
         switch (m_Icons.size())
@@ -175,16 +167,77 @@ void TimetrackUI::UpdateTrack()
     }
     else
     {
-        int i = 0;
+        gap = 80.0f;
 
-        for (auto icon : m_Icons)
+        switch (m_Icons.size())
         {
-            icon->position.y = iconSize /4.0f - (iconSize * i);
-            icon->UpdateIcon();
-            i++;
+        case 0:
+        case 1:
+            break;
+        case 2:
+            newScale += 20.0f;
+            break;
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            newScale += 80.0f *( m_Icons.size() -1) ;
+            break;
+        case 8:
+            newScale += 500.0f;
+            break;
+        case 9:
+            newScale += 600.0f;
+            break;
+        case 10:
+            newScale += 680.0f;
+            break;
+        case 11:
+        case 12:
+        case 13:
+            gap = 95.0f;
+            break;
+        case 14:
+            gap = 90.0f;
+            break;
+        case 15:
+            gap = 85.0f;
+            break;
+        case 16:
+            gap = 80.0f;
+            break;
+        case 17:
+            gap = 76.0f;
+            break;
+        case 18:
+            gap = 72.0f;
+            break;
+        case 19:
+            gap = 70.0f;
+            break;
+        case 20:
+            gap = 68.0f;
+            break;
         }
 
-        newScale += m_Icons.size() * iconSize;
+        if (m_Icons.size() > 10)
+        newScale += 840.0f;
+    }
+
+    for (int i = 0; i < m_Icons.size(); i++)
+    {
+        auto icon = m_Icons[i];
+        icon->position.y = 40.0f - (gap * topIconIndex - i);
+        if (i < topIconIndex || m_IsExpanded)
+        {
+            icon->SetActive(true);
+            icon->UpdateIcon();
+        }
+        else
+        {
+            icon->SetActive(false);
+        }
     }
 
     m_Box->scale.y = newScale;

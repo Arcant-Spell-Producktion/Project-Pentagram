@@ -3,6 +3,8 @@
 #include <Game/BattleScene/BattleManager.h>
 
 const std::string iconPath = "Sprites/UI/Game/ui_game_spell-icons.png";
+const std::string iconBorderPath = "Sprites/UI/Game/ui_game_spell-icon_border.png";
+
 
 SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(GameStateController::GetInstance()->currentScene), Button(objName)
 {
@@ -28,10 +30,15 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     float borderScale = _scale / 100.0f * 114.0f;
     m_IconBorder = m_ObjectManager->CreateUIObject(objName + "_iconBorder");
     m_IconBorder->SetIsAnimationObject(false);
-    m_IconBorder->SetTexture(iconPath);
+    m_IconBorder->SetTexture(iconBorderPath);
     m_IconBorder->SetSpriteByIndex(0, 0);
     m_IconBorder->scale = { borderScale , borderScale , 1.0f };
     this->SetChildRenderFront(m_IconBorder);
+}
+
+void SpellIconUI::SetTransparency(bool flag)
+{
+    m_IconObject->color.a = flag ? 0.8f : 1.0f;
 }
 
 void SpellIconUI::SetIcon(CastSpellDetail* spellDetail)
@@ -40,34 +47,32 @@ void SpellIconUI::SetIcon(CastSpellDetail* spellDetail)
     UpdateIcon();
 }
 
+void SpellIconUI::SetIsPreview(bool isPreview)
+{
+    m_isPreview = isPreview;
+    UpdateIcon();
+}
+
+void SpellIconUI::SetIconType(IconType type)
+{
+    m_Type = type;
+    UpdateIcon();
+}
+
 void SpellIconUI::SetPosition(glm::vec3 position)
 {
     m_IconObject->position = position;
 }
 
-void SpellIconUI::SetTransparency(bool flag)
-{
-    m_IconObject->color.a = flag ? 0.8f : 1.0f;
-}
 
 
 void SpellIconUI::UpdateIcon()
 {
-    switch (m_Type)
-    {
-    case IconType::Normal:
-        m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
-        m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
-        m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
-        m_IconObject->color = AC_WHITE;
-        break;
-    case IconType::Extra:
-        m_IconObject->color = AC_GREEN;
-        break;
-    }
-    SetTransparency(SpellDetail->isCasted);
-
-    m_IconBorder->color = SpellDetail->SpellOwner == CasterPosition::CasterA ? AC_RED : AC_BLUE;
+    m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
+    m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
+    m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
+    m_IconBorder->SetSpriteByIndex(SpellDetail->SpellOwner == CasterPosition::CasterA ? 0 : 1 , (int)m_Type);
+    SetTransparency((int)m_Type % 2 || m_isPreview);
 }
 
 void SpellIconUI::UpdateDetail()
