@@ -2,6 +2,7 @@
 #include <Game/BattleScene/GameObject/SpellObject/SpellController.h>
 #include <Game/GameData/CasterData/CasterPosition.h>
 #include "Engine/IGameObjectManager.h"
+#include "Engine/Audio/AudioController.h"
 
 #include <queue>
 #include <functional>
@@ -14,6 +15,7 @@ private:
     SpellUpdateFunc  m_CurrentUpdateFunc = nullptr;
     std::queue<SpellUpdateFunc> m_SpellUpdateQueue;
 protected:
+    AudioController* m_AudioControllerPtr = AudioController::GetInstance();
     int m_SpellTarget = 0; // 1 if A, -1 if B
     float m_TotalTime = 0.0f;
 
