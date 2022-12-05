@@ -4,21 +4,9 @@
 #include <string>
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
 
-enum class IconType
-{
-    Normal = 0,
-    Active = 1,
-    Wait = 2,
-    Preview = 3,
-    Extra,
-};
-
 class SpellIconUI: public Button
 {
 private:
-
-    IconType m_Type = IconType::Normal;
-
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;
@@ -27,18 +15,25 @@ private:
 
     Element::Type m_CurrentElement = Element::NULLTYPE;
 
+    float m_IconSize = 100.0f;
+    float m_BorderSize = 114.0f;
+
+    int m_BorderIndex = 0;
+    int m_OverlayIndex = 0;
+
     bool m_isPreview = false;
     int m_CurrentSpellIndex = -1;
 
     void SetTransparency(bool flag);
 
-    void SetIconType(IconType type);
 public:
     CastSpellDetail* SpellDetail = nullptr;
 
     SpellIconUI(std::string objName,float scale = 100.0f);
 
-    void SetIcon(CastSpellDetail* spellDetail);
+    void SetIcon(CastSpellDetail* spellDetail , bool doCast);
+
+    void SetIsExtra(bool isExtra);
 
     void SetIsPreview(bool isPreview);
 

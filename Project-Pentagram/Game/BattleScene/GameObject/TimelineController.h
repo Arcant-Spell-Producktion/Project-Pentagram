@@ -20,7 +20,7 @@ public:
     void SetTrackerPositionByIndex(int index);
 
     void ExpandTracks(int TrackIndex);
-    void UpdatePreviewIcon(int index, CastSpellDetail* spell = nullptr);
+    void UpdatePreviewIcon(CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);
     void ClearTrack(int index);
     void UpdateAllTracks();

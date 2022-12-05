@@ -11,6 +11,7 @@ private:
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_Box;
+    UIObject* m_IconParent;
     SpellTimetrack* m_TrackPtr;
     vector<SpellIconUI*> m_Icons;
     SpellIconUI* m_PreviewIcon;
@@ -25,7 +26,7 @@ public:
 
     TimetrackUI(int index,SpellTimetrack* track, std::function<void()> expand);
 
-    void PreviewIcon(bool active, CastSpellDetail* spell);
+    void PreviewIcon(CastSpellDetail* spell = nullptr, bool doCast = false ,bool active = false);
 
     void AddIcon(CastSpellDetail* spell);
 

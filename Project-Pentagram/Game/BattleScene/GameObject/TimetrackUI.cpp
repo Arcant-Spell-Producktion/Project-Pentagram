@@ -28,17 +28,19 @@ TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> 
     m_Box = m_ObjectManager->CreateUIObject("TrackUI_Box_" + m_TrackIndex);
     m_Box->scale = { trackWidth,scaleDefault,1.0f };
 
+    m_IconParent = m_ObjectManager->CreateUIObject("TrackUI_IconParent_" + m_TrackIndex);
+    m_IconParent->color.a = 0.0f;
+    m_IconParent->position.y += 35.0f;
+
     m_Box->SetTexture(TimelineTrackSprite[0]);
     m_Box->SetIsSlicing(true);
     m_Box->SetSlicingBorderSize(50.0f);
     m_Box->SetSlicingBorderMultiplier(0.4f);
     m_Box->SetSlicingType(SlicingType::REPEAT);
 
-    this->SetChildRenderBack(m_Box);
 
     m_PreviewIcon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI("PreviewIcon_"+ m_TrackIndex,iconSize));
     m_PreviewIcon->SetActive(false);
-    this->SetChildRenderFront(m_PreviewIcon);
 
     m_ExpandButton = m_ObjectManager->CreateButton("Expand_" + m_TrackIndex);
     m_ExpandButton->SetIsSlicing(false);
@@ -68,9 +70,12 @@ TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> 
         m_ExpandButton->SetSpriteByIndex((index.x + 1)%2, 0);
     };
 
+    this->SetChildRenderBack(m_Box);
+    this->SetChildRenderFront(m_IconParent);
+    m_IconParent->SetChildRenderFront(m_PreviewIcon);
     m_Box->SetChildRenderFront(m_ExpandButton);
-    SetExpandButtonScale(30.0f);
 
+    SetExpandButtonScale(30.0f);
 }
 
 void TimetrackUI::SetExpandButtonScale(float scale)
@@ -86,11 +91,11 @@ void TimetrackUI::ExpandTrack(bool isExpand)
     UpdateTrack();
 }
 
-void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
+void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
 {
     if (spell != nullptr)
     {
-        m_PreviewIcon->SetIcon(spell);
+        m_PreviewIcon->SetIcon(spell, doCast);
         m_PreviewIcon->SetIsPreview(true);
     }
     
@@ -98,14 +103,7 @@ void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
     {
         if (active)
         {
-            if (m_Icons.size() > maxIcon)
-            {
-                m_Icons.insert(m_Icons.begin() + maxIcon, m_PreviewIcon);
-            }
-            else
-            {
-                m_Icons.push_back(m_PreviewIcon);
-            }
+            m_Icons.push_back(m_PreviewIcon);
         }
     }
     else
@@ -114,15 +112,6 @@ void TimetrackUI::PreviewIcon(bool active, CastSpellDetail* spell = nullptr)
         if (found)
         {
             m_Icons.pop_back();
-
-            //if (m_Icons.size() > maxIcon)
-            //{
-            //    m_Icons.erase(m_Icons.begin() + maxIcon);
-            //}
-            //else
-            //{
-            //    m_Icons.pop_back();
-            //}
         }
     }
 
@@ -135,16 +124,12 @@ void TimetrackUI::UpdateTrack()
 {
     float newScale = scaleDefault;
     float gap = iconGap;
-    int topIconIndex = 0;
+
+    bool isOversize = m_Icons.size() > maxIcon;
+    int topIconIndex = !isOversize ? 0 : m_Icons.size() - maxIcon;
 
     if (!m_IsExpanded)
     {
-        if (m_Icons.size() > maxIcon)
-        {
-            topIconIndex = m_Icons.size() - maxIcon;
-            m_Icons[topIconIndex]->SetIconType(IconType::Extra);
-        }
-
         switch (m_Icons.size())
         {
         case 0:
@@ -167,72 +152,70 @@ void TimetrackUI::UpdateTrack()
     }
     else
     {
-        gap = 80.0f;
-
+        //calulate gap
         switch (m_Icons.size())
         {
-        case 0:
-        case 1:
-            break;
-        case 2:
-            newScale += 20.0f;
-            break;
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-            newScale += 80.0f *( m_Icons.size() -1) ;
-            break;
-        case 8:
-            newScale += 500.0f;
-            break;
-        case 9:
-            newScale += 600.0f;
-            break;
-        case 10:
-            newScale += 680.0f;
-            break;
         case 11:
         case 12:
+            gap = 75.0f;
+            break;
         case 13:
-            gap = 95.0f;
+            gap = 69.5f;
             break;
         case 14:
-            gap = 90.0f;
+            gap = 65.0f;
             break;
         case 15:
-            gap = 85.0f;
+            gap = 60.5f;
             break;
         case 16:
-            gap = 80.0f;
+            gap = 57.0f;
             break;
         case 17:
-            gap = 76.0f;
+            gap = 54.0f;
             break;
         case 18:
-            gap = 72.0f;
+            gap = 51.0f;
             break;
         case 19:
-            gap = 70.0f;
+            gap = 48.5f;
             break;
         case 20:
-            gap = 68.0f;
+            gap = 46.5f;
+            break;
+        default:
+            gap = 80.0f;
             break;
         }
 
-        if (m_Icons.size() > 10)
-        newScale += 840.0f;
+        //calculate banner size
+        if (m_Icons.size() >= 2)
+            {
+                newScale += 40.0f;
+
+                int x = m_Icons.size() - 2;
+                x = x < 10 ? x : 10;
+                newScale += 80.0f * x;
+
+            }
+         
+        std::cout << m_Icons.size() << " " << gap << " " << newScale << "\n";
+        
     }
 
     for (int i = 0; i < m_Icons.size(); i++)
     {
         auto icon = m_Icons[i];
-        icon->position.y = 40.0f - (gap * topIconIndex - i);
-        if (i < topIconIndex || m_IsExpanded)
+        int pos = i >= topIconIndex && isOversize && !m_IsExpanded ? i - topIconIndex  : i;
+
+        float offset = (gap * (m_Icons.size() - (i + 1)));
+        icon->position.y =-offset;
+
+        if (i >= topIconIndex || m_IsExpanded)
         {
             icon->SetActive(true);
             icon->UpdateIcon();
+            icon->SetIsExtra(i == topIconIndex && isOversize && !m_IsExpanded);
         }
         else
         {
@@ -249,10 +232,10 @@ void TimetrackUI::UpdateTrack()
 
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
 {
-    PreviewIcon(false);
+    PreviewIcon(spell,false,false);
     auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->OriginalSpell->GetSpellName() + "_icon", iconSize));
-    icon->SetIcon(spell);
-    this->SetChildRenderBack(icon);
+    icon->SetIcon(spell, spell->doCast);
+    m_IconParent->SetChildRenderBack(icon);
     m_Icons.push_back(icon);
 
     UpdateTrack();

@@ -14,8 +14,10 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     this->SetChildRenderFront(top);
 
     trackMarker = m_ObjectManager->CreateUIObject("Timeline_Track_Marker");
-    trackMarker->scale = { 20.0f,20.0f,1.0f };
+    trackMarker->scale = { 40.0f,40.0f,1.0f };
     trackMarker->SetActive(false);
+    trackMarker->SetTexture("Sprites/UI/Game/ui_game_spell-icon_border.png");
+    trackMarker->SetSpriteByIndex(0, 2);
     top->SetChildRenderFront(trackMarker);
 
     box = m_ObjectManager->CreateUIObject("TimelineUIBOX");
@@ -51,15 +53,51 @@ void TimelineController::ExpandTracks(int TrackIndex)
     }
 }
 
-void TimelineController::UpdatePreviewIcon(int time, CastSpellDetail* spell)
+int TimeToIndex(int t)
 {
-    int index = time - 1;
+    int i = t - 1;
+    return i >= 10 ? 10 : i;
+}
 
-    if (index >= 10) index = 10;
-
-    for (size_t i = 0; i < 11; i++)
+void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
+{
+    std::set<int> timeIndexs;
+    if (spell == nullptr)
     {
-        m_Tracks[i]->PreviewIcon(i == index, spell);
+        for (size_t i = 0; i < 11; i++)
+        {
+            m_Tracks[i]->PreviewIcon(spell, false, false);
+        }
+        return;
+    }
+
+    switch (spell->OriginalSpell->GetChannelEffectType())
+    {
+    case ChannelEffectEnum::None:
+        timeIndexs.insert(TimeToIndex(spell->SelectedTime));
+        for (size_t i = 0; i < 11; i++)
+        {
+            m_Tracks[i]->PreviewIcon(spell, true, timeIndexs.contains(i));
+        }
+        break;
+    case ChannelEffectEnum::Wait:
+        timeIndexs.insert(TimeToIndex(spell->SelectedTime));
+        timeIndexs.insert(TimeToIndex(spell->SelectedTime + spell->OriginalSpell->GetChannelTime()));
+        for (size_t i = 0; i < 11; i++)
+        {
+            m_Tracks[i]->PreviewIcon(spell, !(i == *timeIndexs.begin()), timeIndexs.contains(i));
+        }
+        break;
+    case ChannelEffectEnum::Active:
+        for (int t = spell->SelectedTime; t <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); t++)
+        {
+            timeIndexs.insert(TimeToIndex(t));
+        }
+        for (size_t i = 0; i < 11; i++)
+        {
+            m_Tracks[i]->PreviewIcon(spell, true, timeIndexs.contains(i));
+        }
+        break;
     }
 }
 

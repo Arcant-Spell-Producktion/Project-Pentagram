@@ -150,9 +150,9 @@ void PentragramController::SetPentagramValue(int value)
         m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Time, 0);
     }
 
-    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
+    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
 
-    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail()->SelectedTime, m_currentCaster->GetCasterManager()->GetSpellDetail());
+    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldCost(m_currentField));
 
@@ -173,9 +173,9 @@ void PentragramController::ResetPentagram()
 
     SetPentagramField(PentagramField::Time);
 
-    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
+    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
 
-    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail()->SelectedTime, m_currentCaster->GetCasterManager()->GetSpellDetail());
+    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->ResetFieldRune();
 }
