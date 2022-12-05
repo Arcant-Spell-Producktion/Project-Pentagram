@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Engine/IGameObjectManager.h"
+#include "Game/BattleScene/GameObject/CasterEffectBarUI.h"
 
 class CasterDetailUI :public UIObject
 {
@@ -11,9 +11,12 @@ private:
     TextObject* m_HealthText;
     TextObject* m_ManaText;
 
+    CasterEffectBarUI* m_EffectBar;
+
 public:
     CasterDetailUI(int position);
 
     void SetHealthText(int cur, int max);
     void SetManaText(int cur, int max);
+    void SetEffectBar(std::vector<EffectDetail_T> effects);
 };

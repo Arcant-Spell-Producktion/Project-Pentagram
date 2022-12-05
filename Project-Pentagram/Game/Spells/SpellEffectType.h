@@ -10,6 +10,14 @@ enum class SpellEffectEnum
     Freeze,
 };
 
+struct EffectDetail_T
+{
+    SpellEffectEnum EffectType;
+    int Stack;
+
+    EffectDetail_T(SpellEffectEnum type, int n) :EffectType(type), Stack(n) {};
+};
+
 class SpellEffectType
 {
 private:

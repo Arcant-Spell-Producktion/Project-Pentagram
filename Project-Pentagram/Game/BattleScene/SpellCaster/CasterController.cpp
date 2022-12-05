@@ -8,6 +8,10 @@ CasterController::CasterController(CasterData caster):m_CasterManager(caster), m
     m_CasterObject = scene->CreateObject<CasterObject>(new CasterObject());
 
     OnStatUpdate.AddListenner([this](CasterStat stat) {m_CasterUI.SetStat(stat); });
+
+    m_EffectManager.OnEffectUpdate.AddListenner([this](std::vector<EffectDetail_T> effects) {
+        m_CasterUI.UpdateEffectBar(effects);
+        });
 }
 
 void CasterController::CasterDied()

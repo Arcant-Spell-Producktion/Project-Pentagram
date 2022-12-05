@@ -4,6 +4,7 @@
 #include "Game/BattleScene/GameObject/CasterDetailUI.h"
 #include "Game/BattleScene/GameObject/SpellDetailUI.h"
 
+
 class CasterUIController
 {
 private:
@@ -14,5 +15,6 @@ public:
 
     void SetStat(CasterStat stat);
     void SetDetail(CastSpellDetail* detail);
+    void UpdateEffectBar(std::vector<EffectDetail_T> effects);
 
 };

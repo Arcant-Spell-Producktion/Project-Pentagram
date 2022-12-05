@@ -11,6 +11,7 @@ public:
     BurnSpellEffect() :BaseSpellEffect(SpellEffectEnum::Burn, EffectResolveType::OnStartTurn)
     {
         m_IsEffectStack = true;
+        m_IsEffectApplyByChance = false;
     }
 
     virtual void ResolveEffect(std::va_list args) override;
