@@ -17,13 +17,12 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     this->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_bar-background.png");
     this->SetSpriteByIndex(position, 0);
 
-
     m_Health = scene->CreateUIObject("m_Health_" + std::to_string((int)position));
     m_Health->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_hp-bar.png");
     m_Health->SetStartGradientTexture("Sprites/GradientMap/gradiant-map_green.png");
     m_Health->SetEndGradientTexture("Sprites/GradientMap/gradiant-map_red.png");
     m_Health->SetIsGradient(true);
-    m_Health->position = { -30 * flip , -20.0f , 0.0f };
+    m_Health->position = { -30.0f * flip , -20.0f , 0.0f };
     m_Health->scale = { 280.0f, 70.0f, 1.0f };
     m_Health->color = { 1.0f, 1.0f, 1.0f, 1.0f };
     this->SetChildRenderFront(m_Health);
@@ -47,6 +46,10 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     //m_ManaText->position.x += 45.0f;
     m_Mana->SetChildRenderFront(m_ManaText);
 
+    m_EffectBar = scene->CreateObject(new CasterEffectBarUI(position));
+    m_EffectBar->position = { 16.0f * flip ,32.0f,0.0f };
+    this->SetChildRenderFront(m_EffectBar);
+
     SetHealthText(0, 0);
     SetManaText(0, 0);
 }
@@ -60,4 +63,9 @@ void CasterDetailUI::SetHealthText(int cur, int max)
 void CasterDetailUI::SetManaText(int cur, int max)
 {
     m_ManaText->text = TextFormat(cur, max);
+}
+
+void CasterDetailUI::SetEffectBar(std::vector<EffectDetail_T> effects)
+{
+    m_EffectBar->UpdateEffectIcons(effects);
 }

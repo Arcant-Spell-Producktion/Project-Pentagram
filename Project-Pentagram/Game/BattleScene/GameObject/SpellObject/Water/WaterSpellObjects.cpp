@@ -88,7 +88,7 @@ void WaterSpell2::Initialize()
     QueueDoneEvent();
 }
 
-void WaterSpell3::Initialize()
+void WaterSpell4::Initialize()
 {
     float size = 640.0f;
     float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
@@ -110,7 +110,7 @@ void WaterSpell3::Initialize()
 
 }
 
-void WaterSpell4::Initialize()
+void WaterSpell3::Initialize()
 {
     std::cout << "Rebound Wave::Init\n";
     x_index = 0;

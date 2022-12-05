@@ -27,6 +27,8 @@
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h" />
@@ -130,6 +132,8 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.cpp" />

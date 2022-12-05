@@ -32,6 +32,7 @@ public:
 
     SpellEffectEnum GetEffectType() { return m_EffectType; }
     EffectResolveType GetResolveType() { return m_ResolveType; }
+    int GetStackCount() { return m_EffectStack; }
 
     virtual void ResolveEffect(std::va_list args) = 0;
 

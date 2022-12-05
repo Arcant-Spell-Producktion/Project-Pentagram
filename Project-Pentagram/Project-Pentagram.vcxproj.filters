@@ -179,6 +179,8 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -439,6 +441,12 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.h">
       <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

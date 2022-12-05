@@ -7,6 +7,7 @@ CasterUIController::CasterUIController(CasterPosition position)
     int pos = (int)position - 1;
     m_StatUI = scene->CreateObject(new CasterDetailUI(pos));
     m_DetailBox = scene->CreateObject(new SpellDetailUI(pos));
+
 }
 
 void CasterUIController::SetStat(CasterStat stat)
@@ -18,4 +19,9 @@ void CasterUIController::SetStat(CasterStat stat)
 void CasterUIController::SetDetail(CastSpellDetail* detail)
 {
     m_DetailBox->SetDetail(detail);
+}
+
+void CasterUIController::UpdateEffectBar(std::vector<EffectDetail_T> effects)
+{
+    m_StatUI->SetEffectBar(effects);
 }

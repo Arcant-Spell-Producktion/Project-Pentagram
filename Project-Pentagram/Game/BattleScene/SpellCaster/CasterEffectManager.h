@@ -7,6 +7,8 @@ class CasterEffectManager
 private:
     std::map<SpellEffectEnum,BaseSpellEffect*> m_Effects;
 public:
+    Event<std::vector<EffectDetail_T>&> OnEffectUpdate;
+
     CasterEffectManager()
     {
         for (auto effect: SpellEffects::GetSpellEffects())
@@ -15,9 +17,20 @@ public:
         }
     }
 
+    void UpdateSpellEvent()
+    {
+        std::vector<EffectDetail_T> effects;
+
+        for (auto effPair: m_Effects)
+            effects.push_back({ effPair.first ,effPair.second->GetStackCount() });
+
+        OnEffectUpdate.Invoke(effects);
+    }
+
     void AppliedEffect(SpellEffectEnum type, int value)
     {
         m_Effects[type]->AppliedEffect(value);
+        UpdateSpellEvent();
     }
 
     void ResolveEffect(EffectResolveType resolveType, int argc = 0, ...)
@@ -39,6 +52,7 @@ public:
         }
 
         va_end(args);
+        UpdateSpellEvent();
     }
 
     ~CasterEffectManager()
