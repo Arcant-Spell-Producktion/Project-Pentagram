@@ -100,12 +100,12 @@
       </WillValue>
       <SpellEffect>Overflow</SpellEffect>
       <EffectValue>
-        <Value>3</Value>
-        <Value>4</Value>
-        <Value>4</Value>
-        <Value>6</Value>
-        <Value>6</Value>
-        <Value>7</Value>
+        <Value>30</Value>
+        <Value>40</Value>
+        <Value>40</Value>
+        <Value>60</Value>
+        <Value>60</Value>
+        <Value>70</Value>
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>1</ChannelTime>
