@@ -108,8 +108,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramCircle->SetChildRenderFront(m_PentragramFieldButtons);
 
     m_PentragramCircle->SetPentagramUI(1, 1);
-
-
+    m_SpellIcon->ToggleIconOverlay(false);
 }
 
 void PentragramController::SetActive(const bool& active)
@@ -119,6 +118,8 @@ void PentragramController::SetActive(const bool& active)
     m_PentagramScrollButton->SetActive(active);
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);
+
+    m_SpellIcon->ToggleIconOverlay(false);
 }               
 
 void PentragramController::SetPentagramField(PentagramField selectedField)
@@ -178,5 +179,7 @@ void PentragramController::ResetPentagram()
     BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->ResetFieldRune();
+
+    m_SpellIcon->ToggleIconOverlay(false);
 }
 

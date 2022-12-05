@@ -21,6 +21,8 @@ private:
     int m_BorderIndex = 0;
     int m_OverlayIndex = 0;
 
+    bool m_toggleOverlay = true;
+
     bool m_isPreview = false;
     int m_CurrentSpellIndex = -1;
 
@@ -30,6 +32,8 @@ public:
     CastSpellDetail* SpellDetail = nullptr;
 
     SpellIconUI(std::string objName,float scale = 100.0f);
+
+    void ToggleIconOverlay(bool flag);
 
     void SetIcon(CastSpellDetail* spellDetail , bool doCast);
 
