@@ -89,12 +89,6 @@ void CasterObject::SetCaster(CasterObjectType type, Element::Type element, Caste
     float x = -700.0f;
     float y = -150.0f;
     this->position = { x * flip, y,0.0f };
-
-    if (pos == CasterPosition::CasterA)
-    {
-        SetState(CasterObjectState::Cast);
-    }
-
 }
 
 void CasterObject::PlayChannelAnim(int ChannelCount)

@@ -28,17 +28,20 @@ void ResolveBattleState::ResolveTrack()
     std::cout << "\tGet Track: " << m_TrackResolveIndex << "\n";
     std::cout << "\tTrack Size: " << m_CurrentTrack->GetSpellList().size() << "\n";
 
-    CasterPosition casterPosition = m_CurrentTrack->GetWillCompareResult();
-    CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
-    std::cout << "\tGet casterToResolve: " << (int)casterPosition << "\n";
-    //use casterToResolve play WillCompare Animation
-
     m_CurrentTrack->UpdateTimetrack();
 
-    if (casterPosition >= CasterPosition::CasterA)
+    auto position = m_CurrentTrack->GetWillCompareResult();
+    if (position >= CasterPosition::TIED)
     {
-        m_State = ResolveState::ResolveSpell;
-
+        if (m_CurrentTrack->DoWillCompare())
+        {
+            m_ResolveBattleManager->Data.WillCompare->StartCompare(position);
+            m_State = ResolveState::PlayCompare;
+        }
+        else
+        {
+            m_State = ResolveState::ResolveSpell;
+        }
     }
     else
     {
@@ -46,6 +49,7 @@ void ResolveBattleState::ResolveTrack()
         m_State = ResolveState::Waiting;
         m_Timer = 0.5f;
     }
+
 
 }
 
@@ -90,7 +94,8 @@ void ResolveBattleState::ResolveSpell()
             break;
         }
 
-        CasterPosition casterPosition = m_CurrentTrack->GetWillCompareResult();
+        CasterPosition casterPosition = m_CurrentSpellDetail->SpellOwner;
+
         CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
 
         auto caster = m_ResolveBattleManager->Data.GetCaster(casterPosition)->GetCasterObject();
@@ -161,6 +166,15 @@ void ResolveBattleState::OnBattleStateIn()
 
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(true);
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerPositionByIndex(0);
+
+    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.AddListenner
+    (
+        [this](bool flag)
+        {
+            m_State = ResolveState::ResolveSpell;
+        }
+    );
+    
 }
 
 void ResolveBattleState::OnBattleStateUpdate(float dt)
@@ -169,6 +183,8 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
     {
     case ResolveBattleState::ResolveState::ResolveTrack:
         ResolveTrack();
+        break;
+    case ResolveBattleState::ResolveState::PlayCompare:
         break;
     case ResolveBattleState::ResolveState::ResolveSpell:
         ResolveSpell();
@@ -208,4 +224,6 @@ void ResolveBattleState::OnBattleStateOut()
 {
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(false);
     m_ResolveBattleManager->Data.Timeline.CompleteTimeline();
+
+    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.RemoveAllListener();
 }

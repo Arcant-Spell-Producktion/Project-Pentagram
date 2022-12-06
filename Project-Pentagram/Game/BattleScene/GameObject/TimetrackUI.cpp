@@ -99,6 +99,8 @@ void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
         m_PreviewIcon->SetIsPreview(true);
     }
     
+
+    // if icon is not active & command say active
     if (!m_PreviewIcon->IsActive() && active)
     {
         if (active)
@@ -106,7 +108,7 @@ void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
             m_Icons.push_back(m_PreviewIcon);
         }
     }
-    else
+    else if(!active)
     {
         auto found = std::find(m_Icons.begin(), m_Icons.end(), m_PreviewIcon) != m_Icons.end();
         if (found)
