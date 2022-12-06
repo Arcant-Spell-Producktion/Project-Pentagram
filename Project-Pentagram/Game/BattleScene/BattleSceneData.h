@@ -2,6 +2,7 @@
 #include <vector>
 #include "Game/BattleScene/SpellCaster/CasterController.h"
 #include "Game/BattleScene/SpellTimeline/SpellTimeline.h"
+#include "Game/BattleScene/GameObject/WillCompareController.h"
 #include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
 
 class BattleSceneData
@@ -12,6 +13,8 @@ public:
 
     SpellTimeline Timeline;
     PentragramController* Pentagram = nullptr;
+
+    WillCompareController* WillCompare = nullptr;
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 

@@ -8,11 +8,13 @@ private:
     enum class ResolveState
     {
         ResolveTrack,
+        PlayCompare,
         ResolveSpell,
         PlaySpell,
         Waiting,
     };
     
+
     SpellDispatcher m_Dispatcher;
     SpellController* m_CurrentSpellController;
 

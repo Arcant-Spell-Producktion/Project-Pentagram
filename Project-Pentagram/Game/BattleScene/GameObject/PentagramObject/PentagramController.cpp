@@ -8,21 +8,10 @@ void CastSpell()
     auto bm = BattleManager::GetInstance();
     auto spell = bm->Data.GetCurrentCaster()->CastSpell();
 
-    bool doCompare = true;
-    switch (spell->OriginalSpell->GetChannelEffectType())
-    {
-    case ChannelEffectEnum::None:
-        doCompare = true;
-        break;
-    case ChannelEffectEnum::Wait:
-        doCompare = false;
-        break;
-    case ChannelEffectEnum::Active:
-        doCompare = true;
-        break;
-    }
+    bool doCompare = 
+        spell->OriginalSpell->GetChannelEffectType() != ChannelEffectEnum::Wait;
 
-    bm->Data.Timeline.AddSpellToTimeline(spell, true);
+    bm->Data.Timeline.AddSpellToTimeline(spell, doCompare);
     bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
     bm->Data.GetCurrentCaster()->EndTurn();
     bm->SwapCaster();
@@ -114,7 +103,6 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
 void PentragramController::SetActive(const bool& active)
 {
     m_PentragramCircle->SetActive(active);
-    m_PentragramFieldButtons->SetActive(active);
     m_PentagramScrollButton->SetActive(active);
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);

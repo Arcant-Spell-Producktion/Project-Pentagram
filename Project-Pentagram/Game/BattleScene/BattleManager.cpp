@@ -19,8 +19,9 @@ void BattleManager::Init(IGameObjectManager* scene)
         m_BattleStates.emplace(state->StateID, state);
     }
 
-    Data.Timeline.UI = scene->CreateObject<TimelineController>(new TimelineController());
     Data.Pentagram = new PentragramController(scene);
+    Data.Timeline.UI = scene->CreateObject(new TimelineController());
+    Data.WillCompare = scene->CreateObject(new WillCompareController());
 
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
 }

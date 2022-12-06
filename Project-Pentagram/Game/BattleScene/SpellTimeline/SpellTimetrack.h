@@ -8,6 +8,7 @@ class SpellTimetrack
 private:
     vector<CastSpellDetail*> m_TrackSpells;
     map<CasterPosition, int> m_WillCompareTable;
+    map<CasterPosition, int> m_SpellCount;
 public:
 
     vector<CastSpellDetail*> GetSpellList() { return m_TrackSpells; }
@@ -20,6 +21,8 @@ public:
     void push_back(CastSpellDetail* spell,bool doWillCompare);
 
     CasterPosition GetWillCompareResult();
+
+    bool DoWillCompare();
 
     void UpdateTimetrack();
 
