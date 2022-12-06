@@ -72,6 +72,7 @@ class GameObject
 		unsigned int GetFrontRenderChildSize() const;
 		unsigned int GetBackRenderChildSize() const;
 		std::vector<GameObject*> GetChildList() const;
+		glm::vec3 GetWorldPosition() const;
 		bool IsZoomObject() const;
 		// Animation
 		int GetCurrentAnimationRow() const;
