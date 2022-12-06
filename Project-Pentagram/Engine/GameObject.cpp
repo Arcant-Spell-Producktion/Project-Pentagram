@@ -192,6 +192,19 @@ std::vector<GameObject*> GameObject::GetChildList() const
 	childList.insert(childList.end(), m_FrontRenderedChildList.begin(), m_FrontRenderedChildList.end());
 	return childList;
 }
+glm::vec3 GameObject::GetWorldPosition() const
+{
+	glm::vec3 worldPosition = this->position;
+
+	GameObject* curParent = parent;
+	while (curParent != nullptr) 
+	{
+		worldPosition += curParent->position;
+		curParent = curParent->parent;
+	}
+
+	return worldPosition;
+}
 bool GameObject::IsZoomObject() const
 {
 	return this->m_IsZoomObject;
