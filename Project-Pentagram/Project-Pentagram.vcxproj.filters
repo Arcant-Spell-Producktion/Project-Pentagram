@@ -181,6 +181,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -447,6 +448,12 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\ScrollButton.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
