@@ -8,11 +8,11 @@ private:
 
     int GetIndexByField(PentagramField field);
 
-    void ToggleButton(PentagramField button_field);
-
     PentagramField GetFieldByIndex(int index);
 public:
     Event<PentagramField> OnFieldButtonClicked;
+
+    void ToggleButton(PentagramField button_field);
 
     void SetFieldButtonRune(PentagramField field, int n);
 

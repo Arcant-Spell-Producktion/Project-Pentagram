@@ -5,7 +5,7 @@
 
 SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosition target)
 {
-    BaseSpellObject* newSpell;
+    BaseSpellObject* newSpell = nullptr;
     switch (detail->OriginalSpell->m_Element)
     {
     case Element::Earth:
@@ -21,8 +21,8 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
     case Element::Wind:
         break;
     }
-    
-    return m_Spells[detail];
+
+    return newSpell;
 }
 
 void SpellDispatcher::DestroySpell(CastSpellDetail* detail)

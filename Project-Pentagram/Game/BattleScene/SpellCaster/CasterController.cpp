@@ -47,6 +47,8 @@ bool CasterController::TakeDamage(int value)
 
     UpdateCasterUI();
 
+    m_CasterObject->PlayRedFlash();
+
     if (m_CasterManager.GetHealth() <= 0)
     {
         CasterDied();

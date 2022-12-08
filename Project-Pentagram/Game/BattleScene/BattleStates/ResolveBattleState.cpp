@@ -104,12 +104,14 @@ void ResolveBattleState::ResolveSpell()
         if (m_CurrentSpellDetail->doCast)
         {    
             m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
+
             m_State = ResolveState::PlaySpell;
 
             caster->PlayAttackAnim(
                 spellChannelType != ChannelEffectEnum::None,
                 [this]()
                 {
+                    while (m_CurrentSpellController == nullptr) { std::cout << "Debug\n"; };
                     m_CurrentSpellController->Activate();
                 });
         }

@@ -147,7 +147,10 @@ void PentragramController::ResetPentagram()
 
     BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
+    m_PentragramFieldButtons->ToggleButton(PentagramField::Time);
     m_PentragramFieldButtons->ResetFieldRune();
+
+    m_PentragramCircle->SetPentagramUI(1,1);
 
 }
 

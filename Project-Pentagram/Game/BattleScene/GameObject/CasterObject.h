@@ -31,6 +31,8 @@ private:
     int m_ChannelCounter = 0;
     bool m_doLoop = false;
 
+    float m_FlashTimer = 0.0f;
+
     void SetState(CasterObjectState state);
 
     void SetState(CasterObjectState state, CasterObjectState nextState);
@@ -46,5 +48,7 @@ public:
     void PlayAttackAnim(bool isChannelSpell,std::function<void()> callback);
 
     void PlayDiedAnim();
+
+    void PlayRedFlash() { m_FlashTimer = 0.8f; }
 
 };
