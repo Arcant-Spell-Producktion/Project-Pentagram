@@ -182,6 +182,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
+    <ClCompile Include="Game\Objects\ScrollButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -454,6 +455,9 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h">
       <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\ScrollButton.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

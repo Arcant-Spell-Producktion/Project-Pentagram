@@ -20,7 +20,7 @@ SpellDetailUI::SpellDetailUI(int position) :UIObject("SpellDetailUI_"+position)
     for (size_t i = 0; i < 3; i++)
     {
        m_Texts[i] = scene->CreateTextObject("DetailBox_Text_" + i); 
-       m_Texts[i]->fontSize = 36;
+       m_Texts[i]->fontSize = 28;
        m_Texts[i]->color = AC_WHITE;
        m_Texts[i]->position.x -= (box_x / 2.0f)*0.9f;
        m_Texts[i]->position.y = (i * -60.0f) + 60.0f;

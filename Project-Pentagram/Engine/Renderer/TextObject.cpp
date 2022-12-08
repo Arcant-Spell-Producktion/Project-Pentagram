@@ -1,4 +1,4 @@
-#include "TextObject.h"
+﻿#include "TextObject.h"
 
 TextObject::TextObject(const std::string& objName)
 	: UIObject(objName)
@@ -6,7 +6,7 @@ TextObject::TextObject(const std::string& objName)
 	this->m_Tag = GameObjectTag::TEXT;
 	this->m_IsZoomObject = false;
 	
-	this->m_Fonts = "Fonts/ARLRDBD.ttf";
+	this->m_Fonts = "Fonts/OldGameFatty.ttf";
 	this->fontSize = 48; 
 	this->textAlignment = TextAlignment::LEFT;
 	this->outlineColor = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);

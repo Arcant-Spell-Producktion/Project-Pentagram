@@ -34,13 +34,13 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     this->SetChildRenderFront(m_Mana);
 
     m_HealthText = scene->CreateTextObject("m_HealthText_" + std::to_string((int)position));
-    m_HealthText->fontSize = 36.0f;
+    m_HealthText->fontSize = 32.0f;
     m_HealthText->outlineColor = AC_BLACK;
     m_HealthText->textAlignment = TextAlignment::MID;
     m_Health->SetChildRenderFront(m_HealthText);
     
     m_ManaText = scene->CreateTextObject("m_ManaText_" + std::to_string((int)position));
-    m_ManaText->fontSize = 28.0f;
+    m_ManaText->fontSize = 32.0f;
     m_ManaText->outlineColor = AC_BLACK;
     m_ManaText->textAlignment = TextAlignment::MID;
     //m_ManaText->position.x += 45.0f;

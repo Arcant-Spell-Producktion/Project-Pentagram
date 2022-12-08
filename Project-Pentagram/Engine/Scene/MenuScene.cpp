@@ -1,4 +1,6 @@
 ﻿#include "Engine/Scene/MenuScene.h"
+#include "Engine/GameStateController.h"
+#include "Game/Objects/ScrollButton.h"
 #include <Game/Objects/StageObject.h>
 
 void MenuScene::FadeUpdate(const float& dt)
@@ -34,19 +36,13 @@ void MenuScene::GameSceneInit()
 	gameName->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
 
 	// Play Button
-	Button* playButton = CreateButton("playButton");
+	Button* playButton = CreateObject(new ScrollButton("Play"));
 	playButton->position = { 0.0f, 0.0f, 0.0f };
-	playButton->scale = { 300.0f, 100.0f, 1.0f };
-	playButton->textObject.text = "Play";
-	playButton->textObject.fontSize = 64.0f;
 	playButton->onClick.AddListenner([this](Button* button) { FadeOut(2.0f, GameState::GS_BATTLE_SCENE); });
 
 	// Exit Button
-	Button* exitButton = CreateButton("exitButton");
+	Button* exitButton = CreateObject(new ScrollButton("Exit"));
 	exitButton->position = { 0.0f, -200.0f, 0.0f };
-	exitButton->scale = { 300.0f, 100.0f, 1.0f };
-	exitButton->textObject.text = "Exit";
-	exitButton->textObject.fontSize = 64.0f;
 	exitButton->onClick.AddListenner([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
 	// Set FadeScreen Component

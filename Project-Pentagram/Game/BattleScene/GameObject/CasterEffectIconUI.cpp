@@ -15,7 +15,7 @@ CasterEffectIconUI::CasterEffectIconUI(SpellEffectEnum type, int n):UIObject("Ef
 
     m_StackText = new TextObject(this->name + "StackText");
     m_StackText->textAlignment = TextAlignment::MID;
-    m_StackText->fontSize = 28.0f;
+    m_StackText->fontSize = 16.0f;
     m_StackText->outlineColor = glm::vec4(0.0f, 0.0f, 0.0f, 1.0f);
     m_StackText->position = { 10.0f, -12.0f,0.0f };
 

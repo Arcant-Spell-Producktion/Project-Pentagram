@@ -50,37 +50,15 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
         });
 
 #pragma region OtherButton
-    m_CastButton = m_ObjectManager->CreateButton("Cast");
-    m_CastButton->SetIsSlicing(true);
-    m_CastButton->SetSlicingBorderSize(160.0f);
-    m_CastButton->SetSlicingBorderMultiplier(0.25f);
-    m_CastButton->SetSlicingType(SlicingType::REPEAT);
+    m_CastButton = m_ObjectManager->CreateObject(new ScrollButton("Cast"));
     m_CastButton->position = { -160.0f,-460.0f,0.0f };
-    m_CastButton->scale = { 240.0f, 160.0f, 1.0f };
-    m_CastButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_CastButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
-    m_CastButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
-    m_CastButton->textObject.text = "Cast";
-    m_CastButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
-    m_CastButton->SetIsSlicing(false);
     m_CastButton->onClick = [](Button* button)
     {
         CastSpell();
     };
 
-    m_PassButton = m_ObjectManager->CreateButton("Pass");
-    m_PassButton->SetIsSlicing(true);
-    m_PassButton->SetSlicingBorderSize(160.0f);
-    m_PassButton->SetSlicingBorderMultiplier(0.25f);
-    m_PassButton->SetSlicingType(SlicingType::REPEAT);
+    m_PassButton = m_ObjectManager->CreateObject(new ScrollButton("Pass"));
     m_PassButton->position = { 160.0f,-460.0f,0.0f };
-    m_PassButton->scale = { 240.0f, 160.0f, 1.0f };
-    m_PassButton->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-    m_PassButton->onHover = [](Button* button) {  button->scale = { 260.0f, 160.0f, 1.0f }; };
-    m_PassButton->unHover = [](Button* button) { button->scale = { 240.0f, 160.0f, 1.0f }; };
-    m_PassButton->textObject.text = "Pass";
-    m_PassButton->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
-    m_PassButton->SetIsSlicing(false);
     m_PassButton->onClick = [](Button* button)
     {
         auto bm = BattleManager::GetInstance();

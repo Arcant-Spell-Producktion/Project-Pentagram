@@ -2,6 +2,8 @@
 #include <vector>
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/GameObject/SpellIconUI.h"
+#include "Game/Objects/ScrollButton.h"
+
 #include "Game/BattleScene/SpellCaster/CasterController.h"
 
 #include "PentagramCircleUI.h"
@@ -23,8 +25,8 @@ private:
     PentagramFieldButtonUI* m_PentragramFieldButtons;
     PentagramScrollButtonManagerUI* m_PentagramScrollButton;
 
-    Button* m_CastButton;
-    Button* m_PassButton;
+    ScrollButton* m_CastButton;
+    ScrollButton* m_PassButton;
 
     UIObject* m_Scroll_2;
 
