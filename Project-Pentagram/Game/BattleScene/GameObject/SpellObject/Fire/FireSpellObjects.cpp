@@ -58,6 +58,7 @@ void FireSpell1::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -83,6 +84,7 @@ void FireSpell2::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -115,6 +117,7 @@ void FireSpell3::Initialize()
 
     this->SetChildRenderFront(particle);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueWaitEvent(lifeTime);
 
     QueueHitEvent();
@@ -149,6 +152,7 @@ void FireSpell4::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(false,false,7);
 
     QueueHitEvent();
@@ -241,6 +245,7 @@ void FireSpell5::Initialize()
         }
     );
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueHitEvent();
 
     QueueDoneEvent();
@@ -259,7 +264,8 @@ void FireSpell6::Initialize()
 
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
-
+    
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
@@ -314,6 +320,7 @@ void FireSpell7::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -354,6 +361,7 @@ void FireSpell8::Initialize()
     float distant = glm::distance(startX, endX);
     float travelTime = distant / (distant * speed);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(animSpeed);
 
@@ -392,6 +400,7 @@ void FireSpell9::Initialize()
     this->SetAnimationPlayTime(animSpeed);
     this->SetIsAnimationObject(true);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
