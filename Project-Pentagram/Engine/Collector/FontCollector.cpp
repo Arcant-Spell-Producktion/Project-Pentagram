@@ -76,7 +76,7 @@ void FontCollector::LoadFont(const std::string& fontPath)
 		FT_Glyph glyphDescStroke;
 		FT_Get_Glyph(face->glyph, &glyphDescStroke);
 
-		static double outlineThickness = 2.0;
+		static double outlineThickness = 5.0f;
 		FT_Stroker_Set(stroker, static_cast<FT_Fixed>(outlineThickness * static_cast<float>(1 << 6)), FT_STROKER_LINECAP_ROUND, FT_STROKER_LINEJOIN_ROUND, 0);
 		FT_Glyph_Stroke(&glyphDescStroke, stroker, true);
 
@@ -84,7 +84,7 @@ void FontCollector::LoadFont(const std::string& fontPath)
 
 		FT_BitmapGlyph glyph_bitmap;
 		FT_Bitmap* bitmap_stroke = nullptr;
-		glyph_bitmap = (FT_BitmapGlyph)glyphDescStroke;
+		glyph_bitmap = reinterpret_cast<FT_BitmapGlyph>(glyphDescStroke);
 		bitmap_stroke = &glyph_bitmap->bitmap;
 		// -------------------------------------------------------------
 

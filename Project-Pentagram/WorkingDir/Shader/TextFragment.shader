@@ -15,7 +15,7 @@ void main()
         float outline = tex.g;
 
         float alpha = max(fill, outline);
-        vec3 mix_color = mix(mix(vec3(0.0), u_TextColor.rgb, fill), u_OutlineColor.rgb, outline);
+        vec3 mix_color = mix(mix(vec3(0.0), u_OutlineColor.rgb, outline), u_TextColor.rgb, fill);
         FragColor = vec4(mix_color, alpha);
     }
     else
