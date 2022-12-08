@@ -55,6 +55,7 @@ void WaterSpell1::Initialize()
     this->position = startPos;
     this->SetIsAnimationObject(true);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -80,34 +81,13 @@ void WaterSpell2::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_aquaflurry.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(timePerFrame);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
     QueueDoneEvent();
-}
-
-void WaterSpell4::Initialize()
-{
-    float size = 640.0f;
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
-    float yPos = 0.0f;
-    this->scale = { size / 2 ,size,1.0f };
-    this->position = { xPos ,yPos,1.0f };
-    this->SetIsAnimationObject(true);
-
-    float timePerFrame = 0.15f;
-
-
-    this->SetAnimationPlayTime(timePerFrame);
-
-    QueueWaitTillFrameEvent();
-
-    QueueHitEvent();
-
-    QueueDoneEvent();
-
 }
 
 void WaterSpell3::Initialize()
@@ -126,6 +106,7 @@ void WaterSpell3::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_repelwave.wav", 1.0f);
     QueueUpdateFunction(
         [this, yPos](float dt)
         {
@@ -183,6 +164,30 @@ void WaterSpell3::Initialize()
     QueueDoneEvent();
 }
 
+void WaterSpell4::Initialize()
+{
+    float size = 640.0f;
+    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = 0.0f;
+    this->scale = { size / 2 ,size,1.0f };
+    this->position = { xPos ,yPos,1.0f };
+    this->SetIsAnimationObject(true);
+
+    float timePerFrame = 0.15f;
+
+
+    this->SetAnimationPlayTime(timePerFrame);
+
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_angeltear.wav", 1.0f);
+
+    QueueWaitTillFrameEvent();
+
+    QueueHitEvent();
+
+    QueueDoneEvent();
+
+}
+
 void WaterSpell5::Initialize()
 {
     float size = 320.0f;
@@ -197,6 +202,7 @@ void WaterSpell5::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     
     QueueHitEvent();
@@ -235,6 +241,7 @@ void WaterSpell6::Initialize()
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueUpdateFunction(
         [this](float dt)
         {
@@ -277,6 +284,7 @@ void WaterSpell7::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueMoveEvent(startPos, endPos, travelTime);
@@ -311,6 +319,7 @@ void WaterSpell8::Initialize()
 
     this->SetChildRenderFront(m_WindParticle);
 
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitEvent(1.5f);
 
     QueueUpdateFunction(
@@ -387,6 +396,8 @@ void WaterSpell9::Initialize()
     this->SetChildRenderBack(_bubbleObj);
 
     int lastBubbleFrame = _bubbleObj->GetAnimationColumn(_bubbleObj->GetCurrentAnimationRow() - 1);
+
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueUpdateFunction(
         [this, _bubbleObj, lastBubbleFrame](float dt)
         {
