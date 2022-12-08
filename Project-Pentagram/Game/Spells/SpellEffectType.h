@@ -27,5 +27,7 @@ public:
     
     static std::string GetString(SpellEffectEnum type) { return enum_string[(int)type]; }
 
+    static bool IsEffectApplyByChance(SpellEffectEnum type);
+
     static bool IsEffectTargetEnemy(SpellEffectEnum type);
 };

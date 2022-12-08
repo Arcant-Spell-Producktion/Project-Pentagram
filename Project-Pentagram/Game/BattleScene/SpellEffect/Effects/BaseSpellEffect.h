@@ -28,7 +28,10 @@ protected:
 
 public:
     BaseSpellEffect(SpellEffectEnum effectType, EffectResolveType resolveType) :
-        m_EffectType(effectType), m_ResolveType(resolveType) {}
+        m_EffectType(effectType), m_ResolveType(resolveType)
+    {
+        m_IsEffectApplyByChance = SpellEffectType::IsEffectApplyByChance(effectType);
+    }
 
     SpellEffectEnum GetEffectType() { return m_EffectType; }
     EffectResolveType GetResolveType() { return m_ResolveType; }

@@ -11,7 +11,6 @@ public:
     BurnSpellEffect() :BaseSpellEffect(SpellEffectEnum::Burn, EffectResolveType::OnStartTurn)
     {
         m_IsEffectStack = true;
-        m_IsEffectApplyByChance = false;
     }
 
     virtual void ResolveEffect(std::va_list args) override;
@@ -25,7 +24,6 @@ private:
 public:
     MarkSpellEffect() :BaseSpellEffect(SpellEffectEnum::Mark, EffectResolveType::OnDamageCalculation)
     {
-        m_IsEffectApplyByChance = true;
         m_IsEffectActiveOnce = true;
     }
 
@@ -39,7 +37,6 @@ private:
 public:
     OverflowSpellEffect() :BaseSpellEffect(SpellEffectEnum::Overflow, EffectResolveType::OnStartTurn)
     {
-        m_IsEffectApplyByChance = true;
         m_IsEffectStack = true;
     }
 
@@ -53,7 +50,6 @@ private:
 public:
     FreezeSpellEffect() :BaseSpellEffect(SpellEffectEnum::Freeze, EffectResolveType::OnStartTurn)
     {
-        m_IsEffectApplyByChance = true;
         m_IsEffectStack = true;
         m_IsEffectActiveOnce = true;
     }

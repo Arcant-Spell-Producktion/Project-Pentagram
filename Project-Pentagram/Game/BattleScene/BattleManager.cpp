@@ -47,6 +47,11 @@ void BattleManager::SwapCaster()
     Data.Pentagram->SetPentagramOwner(Data.GetCurrentCaster());
 }
 
+void BattleManager::UpdateDisplaySpellDetail(CasterPosition position,CastSpellDetail* spell, bool isMainData, glm::vec3 IconPos)
+{
+    Data.GetCaster(position)->GetCasterUI()->SetDetail(spell,isMainData,IconPos);
+}
+
 BattleManager::~BattleManager()
 {
     for(CasterController* cc : Data.Casters)

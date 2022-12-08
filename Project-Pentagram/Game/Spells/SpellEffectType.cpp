@@ -17,6 +17,21 @@ SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
     return SpellEffectEnum::None;
 }
 
+bool SpellEffectType::IsEffectApplyByChance(SpellEffectEnum type)
+{
+    switch (type)
+    {
+    case SpellEffectEnum::None:
+    case SpellEffectEnum::Mark:
+        return true;
+    case SpellEffectEnum::Burn:
+        return false;
+    case SpellEffectEnum::Freeze:
+    case SpellEffectEnum::Overflow:
+        return true;
+    }
+}
+
 bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
 {
     switch (type)

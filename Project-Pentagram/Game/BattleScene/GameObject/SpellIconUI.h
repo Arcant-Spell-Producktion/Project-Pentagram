@@ -21,19 +21,28 @@ private:
     int m_BorderIndex = 0;
     int m_OverlayIndex = 0;
 
+    bool m_isPentagramIcon = false;
     bool m_toggleOverlay = true;
-
     bool m_isPreview = false;
+
+    bool m_IsBeingHover = false;
+
     int m_CurrentSpellIndex = -1;
 
     void SetTransparency(bool flag);
+
+    void SetOverlayToggle(bool flag);
+
+    void HoldDetailBox();
+
+    void ReleaseDetailBox();
 
 public:
     CastSpellDetail* SpellDetail = nullptr;
 
     SpellIconUI(std::string objName,float scale = 100.0f);
 
-    void ToggleIconOverlay(bool flag);
+    void ToggleIsPentagramIcon(bool flag);
 
     void SetIcon(CastSpellDetail* spellDetail , bool doCast);
 
@@ -45,5 +54,4 @@ public:
 
     void UpdateIcon();
 
-    void UpdateDetail();
 };

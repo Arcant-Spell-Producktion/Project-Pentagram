@@ -32,6 +32,8 @@ public:
 
     bool CanCastSpell();
 
+    CasterStat GetPreviewStat();
+
     PentagramData_T GetPentagramData() { return m_PentagramData; }
 
     bool SetPentagramData(PentagramData_T pentagram);

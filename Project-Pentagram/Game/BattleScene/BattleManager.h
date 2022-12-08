@@ -25,6 +25,8 @@ public:
     void SwapCaster();
     void EndBattle() { SetBattleState(BattleState::ResultState); } //TODO
 
+    void UpdateDisplaySpellDetail(CasterPosition position,CastSpellDetail* spell = nullptr, bool isMainData = false, glm::vec3 IconPos = {0,0,0});
+
 
     ~BattleManager();
 };

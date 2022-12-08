@@ -16,4 +16,6 @@ ScrollButton::ScrollButton(std::string text):Button("Scroll-Button_"+text)
 
     this->textObject.text = text;
     this->textObject.fontSize = 56;
+    this->textObject.color = { 1.0f,1.0f,1.0f,1.0f };
+    this->textObject.outlineColor = { 0.0f,0.0f,0.0f,1.0f };
 }

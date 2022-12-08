@@ -102,3 +102,10 @@ bool CasterManager::CanCastSpell()
 {
     return GetSpellCost() >= GetRemainMana();
 }
+
+CasterStat CasterManager::GetPreviewStat()
+{
+    CasterStat temp(m_CurrentData.Stat());
+    temp.CurrentMana = GetRemainMana();
+    return temp;
+}

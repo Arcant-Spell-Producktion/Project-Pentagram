@@ -13,12 +13,22 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
 
     this->onHover = [this](Button* button)
     {
-        UpdateDetail();
+        if (!m_isPentagramIcon && !m_IsBeingHover)
+        {
+            m_IsBeingHover = true;
+            HoldDetailBox();
+        }
     };
     this->unHover = [this](Button* button)
     {
-        UpdateDetail();
+        if (!m_isPentagramIcon && m_IsBeingHover)
+        {
+            std::cout << this->name << ": Release\n";
+            m_IsBeingHover = false;
+            ReleaseDetailBox();
+        }
     };
+
     this->color.a = 0.0f;
     this->scale = { m_IconSize,m_IconSize ,1.0f };
 
@@ -47,10 +57,10 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     SetTransparency(false);
 }
 
-void SpellIconUI::ToggleIconOverlay(bool flag)
+void SpellIconUI::ToggleIsPentagramIcon(bool flag)
 {
-    m_toggleOverlay = flag;
-    m_IconOverlay->SetActive(m_toggleOverlay);
+    m_isPentagramIcon = flag;
+    SetOverlayToggle(!flag);
 }
 
 void SpellIconUI::SetTransparency(bool flag)
@@ -59,6 +69,12 @@ void SpellIconUI::SetTransparency(bool flag)
     m_IconOverlay->color.a = flag ? 0.6f : 8.0f;
     m_IconBorder->color.a = flag ? 0.8f : 1.0f;
 
+}
+
+void SpellIconUI::SetOverlayToggle(bool flag)
+{
+    m_toggleOverlay = flag;
+    m_IconOverlay->SetActive(m_toggleOverlay);
 }
 
 void SpellIconUI::SetIcon(CastSpellDetail* spellDetail, bool doCast)
@@ -114,23 +130,22 @@ void SpellIconUI::UpdateIcon()
     m_IconOverlay->SetSpriteByIndex(0, m_OverlayIndex);
     m_IconBorder->SetSpriteByIndex(SpellDetail->SpellOwner == CasterPosition::CasterA ? 0 : 1, m_BorderIndex);
     SetTransparency(m_isPreview || SpellDetail->isCasted);
+
+    if (m_isPentagramIcon)
+    {
+        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner,SpellDetail,true);
+    }
 }
 
-void SpellIconUI::UpdateDetail()
+void SpellIconUI::HoldDetailBox()
 {
-    if (SpellDetail)
+    if (SpellDetail != nullptr)
     {
-        CasterPosition pos = SpellDetail->SpellOwner;
-        auto caster = BattleManager::GetInstance()->Data.GetCaster(pos);
-        if (caster)
-        {
-            caster->GetCasterUI()->SetDetail(SpellDetail);
-        }
-
+        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, false, this->GetWorldPosition());
     }
-    /*   if (SpellDetail != nullptr)
-       {
-           std::cout << *SpellDetail;
-       }*/
+}
 
+void SpellIconUI::ReleaseDetailBox()
+{
+    BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
 }

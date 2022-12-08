@@ -16,9 +16,10 @@ void CasterUIController::SetStat(CasterStat stat)
     m_StatUI->SetManaText(stat.CurrentMana, stat.MaxMana);
 }
 
-void CasterUIController::SetDetail(CastSpellDetail* detail)
+
+void CasterUIController::SetDetail(CastSpellDetail* spell, bool isMainData, glm::vec3 IconPos)
 {
-    m_DetailBox->SetDetail(detail);
+    m_DetailBox->SetDetail(spell, isMainData);
 }
 
 void CasterUIController::UpdateEffectBar(std::vector<EffectDetail_T> effects)

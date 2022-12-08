@@ -12,4 +12,13 @@ struct CasterStat
         CurrentHealth = MaxHealth = hp;
         CurrentMana = MaxMana = mana;
     }
+
+    CasterStat(const CasterStat &stat)
+    {
+        MaxHealth = stat.MaxHealth;
+        MaxMana = stat.MaxMana;
+
+        CurrentHealth = stat.CurrentHealth;
+        CurrentMana = stat.CurrentMana;
+    }
 };
