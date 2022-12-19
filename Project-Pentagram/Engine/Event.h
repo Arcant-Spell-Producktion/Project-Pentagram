@@ -44,13 +44,12 @@ private:
     std::set<Action<T>, ActionCmp<T>> m_Listeners;
 
 public:
-
     void AddListenner(Action<T> callfn)
     {
         m_Listeners.insert(callfn);
     }
 
-    void RemoveAllListener()
+    void RemoveAllListeners()
     {
         m_Listeners.clear();
     }
@@ -64,7 +63,7 @@ public:
 
     void operator=(Action<T> const& callfn)
     {
-        RemoveAllListener();
+        RemoveAllListeners();
         AddListenner(callfn);
     }
 

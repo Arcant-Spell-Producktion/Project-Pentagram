@@ -227,5 +227,5 @@ void ResolveBattleState::OnBattleStateOut()
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(false);
     m_ResolveBattleManager->Data.Timeline.CompleteTimeline();
 
-    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.RemoveAllListener();
+    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.RemoveAllListeners();
 }
