@@ -38,12 +38,12 @@ void MenuScene::GameSceneInit()
 	// Play Button
 	Button* playButton = CreateObject(new ScrollButton("Play"));
 	playButton->position = { 0.0f, 0.0f, 0.0f };
-	playButton->onClick.AddListenner([this](Button* button) { FadeOut(2.0f, GameState::GS_BATTLE_SCENE); });
+	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_BATTLE_SCENE); });
 
 	// Exit Button
 	Button* exitButton = CreateObject(new ScrollButton("Exit"));
 	exitButton->position = { 0.0f, -200.0f, 0.0f };
-	exitButton->onClick.AddListenner([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
+	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");

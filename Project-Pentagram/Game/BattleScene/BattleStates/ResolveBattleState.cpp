@@ -169,7 +169,7 @@ void ResolveBattleState::OnBattleStateIn()
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerActive(true);
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerPositionByIndex(0);
 
-    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.AddListenner
+    m_ResolveBattleManager->Data.WillCompare->OnCompareDone.AddListener
     (
         [this](bool flag)
         {

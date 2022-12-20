@@ -40,10 +40,10 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramFieldButtons = m_ObjectManager->CreateObject(new PentagramFieldButtonUI(m_ObjectManager));
     m_PentagramScrollButton = m_ObjectManager->CreateObject(new PentagramScrollButtonManagerUI(m_ObjectManager));
 
-    m_PentragramFieldButtons->OnFieldButtonClicked.AddListenner([this](PentagramField field) {this->SetPentagramField(field);});
-    m_PentagramScrollButton->OnScrollButtonClicked.AddListenner([this](int value) {this->SetPentagramValue(value); });
+    m_PentragramFieldButtons->OnFieldButtonClicked.AddListener([this](PentagramField field) {this->SetPentagramField(field);});
+    m_PentagramScrollButton->OnScrollButtonClicked.AddListener([this](int value) {this->SetPentagramValue(value); });
 
-    OnPentagramValueChange.AddListenner([this](PentagramEvent e)
+    OnPentagramValueChange.AddListener([this](PentagramEvent e)
         {
             m_PentragramCircle->UpdateCircleUI(e);
             m_PentagramScrollButton->SetScrollMode(e);
