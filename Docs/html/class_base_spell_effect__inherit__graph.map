@@ -1,0 +1,7 @@
+<map id="BaseSpellEffect" name="BaseSpellEffect">
+<area shape="rect" id="node1" title=" " alt="" coords="215,5,330,32"/>
+<area shape="rect" id="node2" href="$class_burn_spell_effect.html" title=" " alt="" coords="5,80,116,107"/>
+<area shape="rect" id="node3" href="$class_freeze_spell_effect.html" title=" " alt="" coords="140,80,264,107"/>
+<area shape="rect" id="node4" href="$class_mark_spell_effect.html" title=" " alt="" coords="288,80,401,107"/>
+<area shape="rect" id="node5" href="$class_overflow_spell_effect.html" title=" " alt="" coords="425,80,557,107"/>
+</map>

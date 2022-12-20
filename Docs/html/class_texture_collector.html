@@ -75,8 +75,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adb0adff02be7537f761857f8cd80f822"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#adb0adff02be7537f761857f8cd80f822">TextureCollector</a> ()</td></tr>
 <tr class="separator:adb0adff02be7537f761857f8cd80f822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34f5a11ec897ad1972d2974fc7d9264c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#a34f5a11ec897ad1972d2974fc7d9264c">GetTexture</a> (const std::string &amp;name)</td></tr>
-<tr class="separator:a34f5a11ec897ad1972d2974fc7d9264c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd6c5014cd96a7880a4f10e8663c776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#a6bd6c5014cd96a7880a4f10e8663c776">PreLoadResource</a> ()</td></tr>
+<tr class="separator:a6bd6c5014cd96a7880a4f10e8663c776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026589c6a1b0d421c5d14557bc32fa68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#a026589c6a1b0d421c5d14557bc32fa68">LoadFile</a> (const std::string &amp;filePath)</td></tr>
+<tr class="separator:a026589c6a1b0d421c5d14557bc32fa68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56531d70adbe7251f93296070956e896"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#a56531d70adbe7251f93296070956e896">GetTexture</a> (const std::string &amp;filePath)</td></tr>
+<tr class="separator:a56531d70adbe7251f93296070956e896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a540610734a249eafdeacfc42598c7feb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture_collector.html#a540610734a249eafdeacfc42598c7feb">Free</a> ()</td></tr>
 <tr class="separator:a540610734a249eafdeacfc42598c7feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -116,8 +120,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a34f5a11ec897ad1972d2974fc7d9264c" name="a34f5a11ec897ad1972d2974fc7d9264c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34f5a11ec897ad1972d2974fc7d9264c">&#9670;&nbsp;</a></span>GetTexture()</h2>
+<a id="a56531d70adbe7251f93296070956e896" name="a56531d70adbe7251f93296070956e896"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56531d70adbe7251f93296070956e896">&#9670;&nbsp;</a></span>GetTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +130,42 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="class_texture.html">Texture</a> * TextureCollector::GetTexture </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a026589c6a1b0d421c5d14557bc32fa68" name="a026589c6a1b0d421c5d14557bc32fa68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a026589c6a1b0d421c5d14557bc32fa68">&#9670;&nbsp;</a></span>LoadFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextureCollector::LoadFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bd6c5014cd96a7880a4f10e8663c776" name="a6bd6c5014cd96a7880a4f10e8663c776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd6c5014cd96a7880a4f10e8663c776">&#9670;&nbsp;</a></span>PreLoadResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextureCollector::PreLoadResource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -135,8 +174,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Project-Pentagram/Engine/Collector/<a class="el" href="_texture_collector_8h_source.html">TextureCollector.h</a></li>
-<li>Project-Pentagram/Engine/Collector/<a class="el" href="_texture_collector_8cpp.html">TextureCollector.cpp</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Collector/<a class="el" href="_texture_collector_8h_source.html">TextureCollector.h</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Collector/<a class="el" href="_texture_collector_8cpp.html">TextureCollector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

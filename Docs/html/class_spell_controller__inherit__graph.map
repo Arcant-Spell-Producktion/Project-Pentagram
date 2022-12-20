@@ -1,0 +1,22 @@
+<map id="SpellController" name="SpellController">
+<area shape="rect" id="node1" title=" " alt="" coords="5,436,112,463"/>
+<area shape="rect" id="node2" href="$class_base_spell_object.html" title=" " alt="" coords="160,436,279,463"/>
+<area shape="rect" id="node3" href="$class_fire_spell1.html" title=" " alt="" coords="333,5,413,32"/>
+<area shape="rect" id="node4" href="$class_fire_spell2.html" title=" " alt="" coords="333,56,413,83"/>
+<area shape="rect" id="node5" href="$class_fire_spell3.html" title=" " alt="" coords="333,107,413,133"/>
+<area shape="rect" id="node6" href="$class_fire_spell4.html" title=" " alt="" coords="333,157,413,184"/>
+<area shape="rect" id="node7" href="$class_fire_spell5.html" title=" " alt="" coords="333,208,413,235"/>
+<area shape="rect" id="node8" href="$class_fire_spell6.html" title=" " alt="" coords="333,259,413,285"/>
+<area shape="rect" id="node9" href="$class_fire_spell7.html" title=" " alt="" coords="333,309,413,336"/>
+<area shape="rect" id="node10" href="$class_fire_spell8.html" title=" " alt="" coords="333,360,413,387"/>
+<area shape="rect" id="node11" href="$class_fire_spell9.html" title=" " alt="" coords="333,411,413,437"/>
+<area shape="rect" id="node12" href="$class_water_spell1.html" title=" " alt="" coords="327,461,420,488"/>
+<area shape="rect" id="node13" href="$class_water_spell2.html" title=" " alt="" coords="327,512,420,539"/>
+<area shape="rect" id="node14" href="$class_water_spell3.html" title=" " alt="" coords="327,563,420,589"/>
+<area shape="rect" id="node15" href="$class_water_spell4.html" title=" " alt="" coords="327,613,420,640"/>
+<area shape="rect" id="node16" href="$class_water_spell5.html" title=" " alt="" coords="327,664,420,691"/>
+<area shape="rect" id="node17" href="$class_water_spell6.html" title=" " alt="" coords="327,715,420,741"/>
+<area shape="rect" id="node18" href="$class_water_spell7.html" title=" " alt="" coords="327,765,420,792"/>
+<area shape="rect" id="node19" href="$class_water_spell8.html" title=" " alt="" coords="327,816,420,843"/>
+<area shape="rect" id="node20" href="$class_water_spell9.html" title=" " alt="" coords="327,867,420,893"/>
+</map>

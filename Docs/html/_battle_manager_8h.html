@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Game/BattleScene/BattleManager.h File Reference</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Game/BattleScene/BattleManager.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,51 +67,89 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle"><div class="title">BattleManager.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="_caster_controller_8h_source.html">SpellCaster/CasterController.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="_i_game_object_manager_8h_source.html">Engine/IGameObjectManager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_battle_scene_data_8h_source.html">Game/BattleScene/BattleSceneData.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_battle_state_model_8h_source.html">Game/BattleScene/BattleStates/BattleStateModel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_singleton_8h_source.html">Utilities/Singleton.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for BattleManager.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="_battle_manager_8h__incl.png" border="0" usemap="#a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h" alt=""/></div>
-<map name="a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h" id="a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h">
-<area shape="rect" title=" " alt="" coords="116,5,312,47"/>
-<area shape="rect" title=" " alt="" coords="111,95,167,121"/>
-<area shape="rect" href="_caster_controller_8h.html" title=" " alt="" coords="191,95,389,121"/>
-<area shape="rect" href="_spell_caster_8h.html" title=" " alt="" coords="240,169,340,196"/>
-<area shape="rect" href="_singleton_8h.html" title=" " alt="" coords="5,319,140,345"/>
-<area shape="rect" href="_spell_database_8h.html" title=" " alt="" coords="100,244,296,271"/>
-<area shape="rect" href="_cast_spell_detail_8h.html" title=" " alt="" coords="321,244,443,271"/>
-<area shape="rect" href="_pentagram_data_8h.html" title=" " alt="" coords="467,244,590,271"/>
-<area shape="rect" title=" " alt="" coords="172,319,219,345"/>
-<area shape="rect" href="_spell_book_8h.html" title=" " alt="" coords="243,319,335,345"/>
-<area shape="rect" href="_spell_8h.html" title=" " alt="" coords="351,393,413,420"/>
-<area shape="rect" href="_element_8h.html" title=" " alt="" coords="245,393,327,420"/>
-<area shape="rect" title=" " alt="" coords="346,468,418,495"/>
-<area shape="rect" title=" " alt="" coords="263,468,317,495"/>
+<div class="center"><img src="_battle_manager_8h__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8h">
+<area shape="rect" title=" " alt="" coords="2421,5,2617,61"/>
+<area shape="rect" title=" " alt="" coords="2537,467,2583,493"/>
+<area shape="rect" title=" " alt="" coords="2132,989,2188,1016"/>
+<area shape="rect" href="_i_game_object_manager_8h.html" title=" " alt="" coords="836,467,1039,493"/>
+<area shape="rect" href="_singleton_8h.html" title=" " alt="" coords="922,1064,1057,1091"/>
+<area shape="rect" href="_battle_scene_data_8h.html" title=" " alt="" coords="2097,109,2303,151"/>
+<area shape="rect" href="_battle_state_model_8h.html" title=" " alt="" coords="2949,109,3157,151"/>
+<area shape="rect" href="_game_object_tag_8h.html" title=" " alt="" coords="499,915,669,941"/>
+<area shape="rect" href="_game_object_8h.html" title=" " alt="" coords="1173,840,1323,867"/>
+<area shape="rect" href="_particle_system_8h.html" title=" " alt="" coords="1733,765,1899,792"/>
+<area shape="rect" href="_u_i_object_8h.html" title=" " alt="" coords="637,765,763,792"/>
+<area shape="rect" href="_text_object_8h.html" title=" " alt="" coords="839,691,1035,717"/>
+<area shape="rect" href="_button_8h.html" title=" " alt="" coords="444,616,559,643"/>
+<area shape="rect" href="_slider_8h.html" title=" " alt="" coords="446,541,557,568"/>
+<area shape="rect" title=" " alt="" coords="1305,989,1399,1016"/>
+<area shape="rect" title=" " alt="" coords="1558,989,1749,1016"/>
+<area shape="rect" title=" " alt="" coords="415,989,489,1016"/>
+<area shape="rect" href="_arcant_engine_8h.html" title=" " alt="" coords="1423,989,1534,1016"/>
+<area shape="rect" href="_camera_8h.html" title=" " alt="" coords="1441,915,1519,941"/>
+<area shape="rect" href="_mesh_8h.html" title=" " alt="" coords="1595,915,1717,941"/>
+<area shape="rect" href="_texture_8h.html" title=" " alt="" coords="1182,915,1314,941"/>
+<area shape="rect" href="_shader_8h.html" title=" " alt="" coords="1027,915,1157,941"/>
+<area shape="rect" href="_engine_data_collector_8h.html" title=" " alt="" coords="694,915,901,941"/>
+<area shape="rect" href="_input_8h.html" title=" " alt="" coords="748,989,809,1016"/>
+<area shape="rect" title=" " alt="" coords="743,1064,815,1091"/>
+<area shape="rect" title=" " alt="" coords="282,989,337,1016"/>
+<area shape="rect" title=" " alt="" coords="1879,840,2046,867"/>
+<area shape="rect" href="_event_8h.html" title=" " alt="" coords="335,691,401,717"/>
+<area shape="rect" title=" " alt="" coords="484,765,561,792"/>
+<area shape="rect" href="_caster_controller_8h.html" title=" " alt="" coords="1692,288,1895,329"/>
+<area shape="rect" href="_spell_timeline_8h.html" title=" " alt="" coords="2385,288,2599,329"/>
+<area shape="rect" href="_will_compare_controller_8h.html" title=" " alt="" coords="1989,377,2198,419"/>
+<area shape="rect" href="_pentagram_controller_8h.html" title=" " alt="" coords="1083,199,1343,240"/>
+<area shape="rect" href="_caster_manager_8h.html" title=" " alt="" coords="2274,541,2395,568"/>
+<area shape="rect" href="_caster_object_8h.html" title=" " alt="" coords="1477,377,1686,419"/>
+<area shape="rect" href="_caster_u_i_controller_8h.html" title=" " alt="" coords="1761,377,1964,419"/>
+<area shape="rect" href="_caster_effect_manager_8h.html" title=" " alt="" coords="2273,377,2476,419"/>
+<area shape="rect" href="_caster_position_8h.html" title=" " alt="" coords="1803,467,1922,493"/>
+<area shape="rect" title=" " alt="" coords="2644,385,2695,411"/>
+<area shape="rect" href="_spell_timetrack_8h.html" title=" " alt="" coords="2501,385,2619,411"/>
+<area shape="rect" href="_timeline_controller_8h.html" title=" " alt="" coords="1191,377,1401,419"/>
+<area shape="rect" href="_spell_icon_u_i_8h.html" title=" " alt="" coords="433,377,642,419"/>
+<area shape="rect" href="_objects_2_scroll_button_8h.html" title=" " alt="" coords="483,295,675,322"/>
+<area shape="rect" href="_pentagram_circle_u_i_8h.html" title=" " alt="" coords="1025,385,1167,411"/>
+<area shape="rect" href="_pentagram_field_button_manager_u_i_8h.html" title=" " alt="" coords="699,295,923,322"/>
+<area shape="rect" href="_pentagram_scroll_button_manager_u_i_8h.html" title=" " alt="" coords="947,295,1176,322"/>
+<area shape="rect" href="_setup_battle_state_8h.html" title=" " alt="" coords="3198,206,3330,233"/>
+<area shape="rect" href="_cast_battle_state_8h.html" title=" " alt="" coords="3355,206,3480,233"/>
+<area shape="rect" href="_resolve_battle_state_8h.html" title=" " alt="" coords="2821,206,2963,233"/>
+<area shape="rect" href="_result_battle_state_8h.html" title=" " alt="" coords="3039,206,3174,233"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_battle_manager_8h__dep__incl.png" border="0" usemap="#a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep" alt=""/></div>
-<map name="a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep" id="a_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep">
-<area shape="rect" title=" " alt="" coords="291,5,487,47"/>
-<area shape="rect" href="_battle_manager_8cpp.html" title=" " alt="" coords="173,95,383,136"/>
-<area shape="rect" href="_battle_scene_8h.html" title=" " alt="" coords="408,95,591,136"/>
-<area shape="rect" href="_game_state_controller_8h.html" title=" " alt="" coords="307,184,481,225"/>
-<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="506,184,703,225"/>
-<area shape="rect" href="_game_state_controller_8cpp.html" title=" " alt="" coords="5,273,180,315"/>
-<area shape="rect" href="_scene_manager_8h.html" title=" " alt="" coords="204,273,379,315"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="403,281,590,307"/>
-<area shape="rect" href="_menu_scene_8h.html" title=" " alt="" coords="505,363,680,404"/>
-<area shape="rect" href="_node_scene_8cpp.html" title=" " alt="" coords="40,363,215,404"/>
-<area shape="rect" href="_scene_manager_8cpp.html" title=" " alt="" coords="239,363,413,404"/>
-<area shape="rect" href="_menu_scene_8cpp.html" title=" " alt="" coords="505,452,680,493"/>
+<div class="center"><img src="_battle_manager_8h__dep__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_game_2_battle_scene_2_battle_manager_8hdep">
+<area shape="rect" title=" " alt="" coords="943,5,1139,61"/>
+<area shape="rect" href="_battle_manager_8cpp.html" title=" " alt="" coords="5,117,216,173"/>
+<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="240,117,437,173"/>
+<area shape="rect" href="_cast_battle_state_8cpp.html" title=" " alt="" coords="461,109,635,180"/>
+<area shape="rect" href="_resolve_battle_state_8cpp.html" title=" " alt="" coords="659,109,832,180"/>
+<area shape="rect" href="_result_battle_state_8cpp.html" title=" " alt="" coords="856,109,1029,180"/>
+<area shape="rect" href="_setup_battle_state_8cpp.html" title=" " alt="" coords="1053,109,1227,180"/>
+<area shape="rect" href="_pentagram_controller_8cpp.html" title=" " alt="" coords="1251,109,1525,180"/>
+<area shape="rect" href="_spell_icon_u_i_8cpp.html" title=" " alt="" coords="1550,109,1725,180"/>
+<area shape="rect" href="_timeline_controller_8cpp.html" title=" " alt="" coords="1749,109,1923,180"/>
+<area shape="rect" href="_caster_controller_8cpp.html" title=" " alt="" coords="1948,109,2121,180"/>
 </map>
 </div>
 </div>
@@ -121,43 +159,7 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_battle_manager.html">BattleManager</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a17557ce1a5334619a8e02831bf82ba1f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1f">BattleState</a> { <a class="el" href="_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1fa0829dc221a39588041edaf7d8b4d745a">InvokeState</a>
-, <a class="el" href="_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1fae82b3b164f1a28a3e5173192779c62d9">ResolveState</a>
-, <a class="el" href="_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a">ResultState</a>
- }</td></tr>
-<tr class="separator:a17557ce1a5334619a8e02831bf82ba1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a17557ce1a5334619a8e02831bf82ba1f" name="a17557ce1a5334619a8e02831bf82ba1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17557ce1a5334619a8e02831bf82ba1f">&#9670;&nbsp;</a></span>BattleState</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1f">BattleState</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a17557ce1a5334619a8e02831bf82ba1fa0829dc221a39588041edaf7d8b4d745a" name="a17557ce1a5334619a8e02831bf82ba1fa0829dc221a39588041edaf7d8b4d745a"></a>InvokeState&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a17557ce1a5334619a8e02831bf82ba1fae82b3b164f1a28a3e5173192779c62d9" name="a17557ce1a5334619a8e02831bf82ba1fae82b3b164f1a28a3e5173192779c62d9"></a>ResolveState&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a" name="a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a"></a>ResultState&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

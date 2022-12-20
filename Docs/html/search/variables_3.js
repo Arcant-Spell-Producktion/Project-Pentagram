@@ -1,15 +1,20 @@
 var searchData=
 [
   ['camera_0',['camera',['../class_game_scene.html#afca219bdb7ec5cc8e31171bab019ac1b',1,'GameScene']]],
-  ['characters_1',['characters',['../class_font_collector.html#a9a918ea84a62984303db134d45d91666',1,'FontCollector']]],
-  ['childlist_2',['childList',['../class_game_object.html#a931f1e044c86d86e94ba6d58c3f2a3c9',1,'GameObject']]],
+  ['casters_1',['Casters',['../class_battle_scene_data.html#ab4b90ff1c718923bfc2f55d8856f3f7c',1,'BattleSceneData']]],
+  ['casterspritepath_2',['CasterSpritePath',['../_caster_object_8cpp.html#a00505f63f38ea6c55161bf200fe55e1f',1,'CasterObject.cpp']]],
   ['circle_3',['circle',['../struct_pentagram_data___t.html#a3343b57070516001ec54b6d836e9d1b8',1,'PentagramData_T']]],
   ['color_4',['color',['../class_game_object.html#afdcffec222f2e10ba9cc7c1b65f3148d',1,'GameObject']]],
-  ['colorbegin_5',['colorBegin',['../struct_particle_props.html#af8d4b8a4eb24f585a0f86e0e5fbf8a4a',1,'ParticleProps']]],
-  ['colorend_6',['colorEnd',['../struct_particle_props.html#a69a85a93cbea9521c944e0262fd70c1a',1,'ParticleProps']]],
+  ['colorbegin_5',['colorBegin',['../struct_particle_property.html#a6d0b42cce4dd55a3d9f65852164432c8',1,'ParticleProperty']]],
+  ['colorend_6',['colorEnd',['../struct_particle_property.html#aa08e383fec0c62c3f485b745cc956f57',1,'ParticleProperty']]],
   ['complex_7',['complex',['../struct_pentagram_data___t.html#a945157cf3a13d0d60e67830a28f8a172',1,'PentagramData_T']]],
-  ['cur_8',['cur',['../_menu_scene_8cpp.html#a8d997a58de1619ab0168c5de337e5b23',1,'MenuScene.cpp']]],
-  ['cur2_9',['cur2',['../_menu_scene_8cpp.html#a4e331af76bb666de0e38b27cf74b02ec',1,'MenuScene.cpp']]],
-  ['currentscene_10',['currentScene',['../class_game_state_controller.html#a94541ad5e36598193f550164145a90c3',1,'GameStateController']]],
-  ['currentstate_11',['currentState',['../class_game_state_controller.html#a21f6b56ddea7ea592cbff3b96c7ade34',1,'GameStateController']]]
+  ['cur_8',['cur',['../_demo_scene_8cpp.html#a63a965a2c7576560e534fc531aacfc51',1,'DemoScene.cpp']]],
+  ['curbutton_9',['curButton',['../_demo_scene_8cpp.html#a871b5ebc9b31c26f167840a0ea9b6d3f',1,'DemoScene.cpp']]],
+  ['currentcasterindex_10',['CurrentCasterIndex',['../class_battle_scene_data.html#a807fada92efa8c6401af292283f1c9a9',1,'BattleSceneData']]],
+  ['currentgame_11',['currentGame',['../main_8cpp.html#a1ec9966eca27a5c3c81f28fa51e00f66',1,'main.cpp']]],
+  ['currenthealth_12',['CurrentHealth',['../struct_caster_stat.html#a88efe79d8663cd57b331bb8072b4a162',1,'CasterStat']]],
+  ['currentmana_13',['CurrentMana',['../struct_caster_stat.html#ae09e8f9a4f2f3a29b14f00595ebe71b5',1,'CasterStat']]],
+  ['currentscene_14',['currentScene',['../class_game_state_controller.html#a94541ad5e36598193f550164145a90c3',1,'GameStateController']]],
+  ['currentstate_15',['currentState',['../class_game_state_controller.html#a21f6b56ddea7ea592cbff3b96c7ade34',1,'GameStateController']]],
+  ['curui_16',['curUI',['../_demo_scene_8cpp.html#a20d243c377f23a207e02c1059c078294',1,'DemoScene.cpp']]]
 ];

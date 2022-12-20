@@ -1,0 +1,9 @@
+<map id="IGameObjectManager" name="IGameObjectManager">
+<area shape="rect" id="node1" title=" " alt="" coords="210,5,358,32"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="237,80,331,107"/>
+<area shape="rect" id="node3" href="$class_battle_scene.html" title=" " alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$class_demo_scene.html" title=" " alt="" coords="123,155,216,181"/>
+<area shape="rect" id="node5" href="$class_load_scene.html" title=" " alt="" coords="241,155,327,181"/>
+<area shape="rect" id="node6" href="$class_menu_scene.html" title=" " alt="" coords="352,155,443,181"/>
+<area shape="rect" id="node7" href="$class_node_scene.html" title=" " alt="" coords="467,155,557,181"/>
+</map>

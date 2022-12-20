@@ -1,0 +1,34 @@
+\hypertarget{_button_8h_source}{}\doxysection{Button.\+h}
+\label{_button_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Button.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Button.h}}
+\mbox{\hyperlink{_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_event_8h}{Event.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{UIObject.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_button}{Button}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ OnHover Color -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{13         glm::vec4 \mbox{\hyperlink{class_button_a0fa8563890d059510c782a356d0f1494}{hoverColor}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Button Events -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_event}{Event<Button*>}} \mbox{\hyperlink{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}{onHover}};}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_event}{Event<Button*>}} \mbox{\hyperlink{class_button_aba771a087190a2c0406c55817fd45dcd}{unHover}};}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_event}{Event<Button*>}} \mbox{\hyperlink{class_button_a518661a5bc461f785c2be78070c81365}{onClick}};}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_event}{Event<Button*>}} \mbox{\hyperlink{class_button_a70fd1b19bdf416e8cf37186e848f5bd8}{onPress}};}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_event}{Event<Button*>}} \mbox{\hyperlink{class_button_aa7e43d028622bbfcdf5dfb335a50ceb4}{unPress}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Text -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_text_object}{TextObject}} \mbox{\hyperlink{class_button_a0efce35ba506dd0c573eaae665b4bfbe}{textObject}};}
+\DoxyCodeLine{24         }
+\DoxyCodeLine{25         \mbox{\hyperlink{class_button_a8f625e349331518a505701576f5ab71e}{Button}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{26         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{27         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_button_a810da4ba98196db3114151d35f01b869}{UnloadMesh}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{28 \};}
+
+\end{DoxyCode}

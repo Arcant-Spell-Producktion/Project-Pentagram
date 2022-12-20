@@ -1,0 +1,49 @@
+\hypertarget{_will_compare_controller_8h_source}{}\doxysection{Will\+Compare\+Controller.\+h}
+\label{_will_compare_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/WillCompareController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/WillCompareController.h}}
+\mbox{\hyperlink{_will_compare_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_will_compare_controller}{WillCompareController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     \textcolor{keyword}{enum} CompareState}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11         None = 0,}
+\DoxyCodeLine{12         Start = 1,}
+\DoxyCodeLine{13         Crash,}
+\DoxyCodeLine{14         Push,}
+\DoxyCodeLine{15         Tie,}
+\DoxyCodeLine{16         Fade,}
+\DoxyCodeLine{17         Done}
+\DoxyCodeLine{18     \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     CompareState m\_CurrentState = CompareState::None;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} m\_CompareResult;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_ParticleA = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_ParticleB = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_ParticleCenter = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{float} m\_curTime = 0.0f;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} m\_PlayedAnimation = \textcolor{keyword}{false};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} UpdateParticle();}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} FadeOutParticle();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} EndCompare();}
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_event}{Event<bool>}} \mbox{\hyperlink{class_will_compare_controller_a4b539a5172be198b7dfc152981fb50e3}{OnCompareDone}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_will_compare_controller_ad27f69b3a1468a3a077e64f1eb516f23}{WillCompareController}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_a06962877ee52a146bb25184ef225ae22}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_a7322d4554de09f423957a9567fba6263}{StartCompare}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} pos);}
+\DoxyCodeLine{43 \};}
+
+\end{DoxyCode}

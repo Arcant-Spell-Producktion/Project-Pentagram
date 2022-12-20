@@ -1,0 +1,31 @@
+\hypertarget{_pentagram_scroll_button_manager_u_i_8h_source}{}\doxysection{Pentagram\+Scroll\+Button\+Manager\+UI.\+h}
+\label{_pentagram_scroll_button_manager_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramScrollButtonManagerUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramScrollButtonManagerUI.h}}
+\mbox{\hyperlink{_pentagram_scroll_button_manager_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_scroll_button_8h}{PentagramScrollButton.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_pentagram_data_8h}{Game/BattleScene/SpellCaster/PentagramData.h}}>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_scroll_button_manager_u_i}{PentagramScrollButtonManagerUI}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} m\_CurrentField = \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64aa76d4ef5f3f6a672bbfab2865563e530}{PentagramField::Time}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Scroll;}
+\DoxyCodeLine{12     std::vector<PentagramScrollNumberButton*> m\_IntButtons;}
+\DoxyCodeLine{13     std::vector<PentagramScrollArrowButton*> m\_ArrowButtons;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} SetToggle(\textcolor{keywordtype}{int} i);}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} SetScrollMode(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_event}{Event<int>}} \mbox{\hyperlink{class_pentagram_scroll_button_manager_u_i_a0199fa67a2b70cbf5703660c3a58fbde}{OnScrollButtonClicked}};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} SetScrollMode(\mbox{\hyperlink{struct_pentagram_event}{PentagramEvent}} e);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_pentagram_scroll_button_manager_u_i_a958297c9f939b4eb8eda232ae69b8284}{PentagramScrollButtonManagerUI}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     }
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}

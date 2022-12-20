@@ -1,0 +1,21 @@
+\hypertarget{_caster_effect_bar_u_i_8h_source}{}\doxysection{Caster\+Effect\+Bar\+UI.\+h}
+\label{_caster_effect_bar_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/CasterEffectBarUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/CasterEffectBarUI.h}}
+\mbox{\hyperlink{_caster_effect_bar_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_effect_icon_u_i_8h}{CasterEffectIconUI.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_effect_bar_u_i}{CasterEffectBarUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     std::map<SpellEffectEnum,CasterEffectIconUI*> m\_EffectIcons;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} m\_Direction;}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_caster_effect_bar_u_i_ada9f4482a13d5b1fb2c468bd66a0860e}{CasterEffectBarUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_bar_u_i_a815b3f4c5eda209c9ebb0fe51d1ec549}{UpdateEffectIcons}}(std::vector<EffectDetail\_T> effects);}
+\DoxyCodeLine{15 \};}
+
+\end{DoxyCode}

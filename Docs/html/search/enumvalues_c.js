@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['particle_0',['PARTICLE',['../_game_object_tag_8h.html#a78d69c4c0df536fedbdd6ec864d34280a9d5f1bb92a042f18899b99e4212bf848',1,'GameObjectTag.h']]],
-  ['preserve_5fwhitespace_1',['PRESERVE_WHITESPACE',['../namespacetinyxml2.html#a7f91d00f77360f850fd5da0861e27dd5a751769aa625fe5fe5286e9779edec56a',1,'tinyxml2']]]
+  ['ondamagecalculation_0',['OnDamageCalculation',['../_base_spell_effect_8h.html#a1d45b5c01458f3da4baec0e0d6c03a54a1a3a4953feb3a5abe69ab4e8e63b2c12',1,'BaseSpellEffect.h']]],
+  ['onhit_1',['OnHit',['../_base_spell_effect_8h.html#a1d45b5c01458f3da4baec0e0d6c03a54ac63f02f6baa2cdef618c088d6c7b8bb7',1,'BaseSpellEffect.h']]],
+  ['onstartturn_2',['OnStartTurn',['../_base_spell_effect_8h.html#a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e',1,'BaseSpellEffect.h']]],
+  ['open_3',['OPEN',['../classtinyxml2_1_1_x_m_l_element.html#ab5f90e2493c35702175235127e2935b4a78cf277c55b4655c86458dfecb11d349',1,'tinyxml2::XMLElement']]],
+  ['overflow_4',['Overflow',['../_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5ba129e8109f319870e328cc7a1d5b5cae3',1,'SpellEffectType.h']]]
 ];

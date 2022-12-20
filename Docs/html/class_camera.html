@@ -75,14 +75,34 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adc602c67095d9d969e0922d50318da61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#adc602c67095d9d969e0922d50318da61">Camera</a> (const glm::vec3 &amp;position=glm::vec3(0.0f, 0.0f, 0.0f))</td></tr>
 <tr class="separator:adc602c67095d9d969e0922d50318da61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5569ca5967e01d3344fbf6aba36d9820"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a5569ca5967e01d3344fbf6aba36d9820">getViewMatrix</a> ()</td></tr>
-<tr class="separator:a5569ca5967e01d3344fbf6aba36d9820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1897942d0ccf91052386388a497349f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#ad1897942d0ccf91052386388a497349f">~Camera</a> ()</td></tr>
+<tr class="separator:ad1897942d0ccf91052386388a497349f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3445d4cc0d32c633a266f77ec1f249d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#aa3445d4cc0d32c633a266f77ec1f249d">OnUpdate</a> (const float &amp;dt)</td></tr>
+<tr class="separator:aa3445d4cc0d32c633a266f77ec1f249d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d2a51ba69fc3cfb5dfe16db8747d169"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a0d2a51ba69fc3cfb5dfe16db8747d169">Input</a> (const float &amp;deltaTime)</td></tr>
 <tr class="separator:a0d2a51ba69fc3cfb5dfe16db8747d169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcda38ad46f82c9f52e5d48518a1bcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a3fcda38ad46f82c9f52e5d48518a1bcf">Shake</a> (const float &amp;shakeTime, const int &amp;shakeFrequency, glm::vec2 variation)</td></tr>
+<tr class="separator:a3fcda38ad46f82c9f52e5d48518a1bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a9cda45afb87cd524efc66dd88547b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a4a9cda45afb87cd524efc66dd88547b5">SetPosition</a> (const glm::vec3 &amp;position)</td></tr>
 <tr class="separator:a4a9cda45afb87cd524efc66dd88547b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a520c5a7413b3e704f2f442288db17bcf"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a520c5a7413b3e704f2f442288db17bcf">getPosition</a> ()</td></tr>
-<tr class="separator:a520c5a7413b3e704f2f442288db17bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44011058e6849c6f617a0d68915d98c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#aa44011058e6849c6f617a0d68915d98c">ResetPosition</a> ()</td></tr>
+<tr class="separator:aa44011058e6849c6f617a0d68915d98c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9896fe952581b3fcd0a675e4807de3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#aaf9896fe952581b3fcd0a675e4807de3">SetZoom</a> (const float &amp;zoom)</td></tr>
+<tr class="separator:aaf9896fe952581b3fcd0a675e4807de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affa333055635aed96518c4c66be9a70c"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#affa333055635aed96518c4c66be9a70c">GetViewMatrix</a> ()</td></tr>
+<tr class="separator:affa333055635aed96518c4c66be9a70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e2d0c2b7a8806ad0cc038896bb0b49c"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a1e2d0c2b7a8806ad0cc038896bb0b49c">GetProjectionMatrix</a> (const bool &amp;isZoom)</td></tr>
+<tr class="separator:a1e2d0c2b7a8806ad0cc038896bb0b49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01f8cd3c75ea3b9e578cfe0a95c9955"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#af01f8cd3c75ea3b9e578cfe0a95c9955">GetPosition</a> () const</td></tr>
+<tr class="separator:af01f8cd3c75ea3b9e578cfe0a95c9955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2a9507d39c721a7b7064b62f7757dbe"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#aa2a9507d39c721a7b7064b62f7757dbe">GetZoom</a> () const</td></tr>
+<tr class="separator:aa2a9507d39c721a7b7064b62f7757dbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a790fd1b133c5b110f0d6e94ae86cc032"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a790fd1b133c5b110f0d6e94ae86cc032">IsShake</a> () const</td></tr>
+<tr class="separator:a790fd1b133c5b110f0d6e94ae86cc032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d4fd92e315fb77821ff6ddade1b6ef2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a2d4fd92e315fb77821ff6ddade1b6ef2">GetShakeFrequency</a> () const</td></tr>
+<tr class="separator:a2d4fd92e315fb77821ff6ddade1b6ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17397ee950bab9e5ef1ea39fa61d757f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera.html#a17397ee950bab9e5ef1ea39fa61d757f">GetShakeFrequencyCount</a> () const</td></tr>
+<tr class="separator:a17397ee950bab9e5ef1ea39fa61d757f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adc602c67095d9d969e0922d50318da61" name="adc602c67095d9d969e0922d50318da61"></a>
@@ -103,15 +123,109 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad1897942d0ccf91052386388a497349f" name="ad1897942d0ccf91052386388a497349f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1897942d0ccf91052386388a497349f">&#9670;&nbsp;</a></span>~Camera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Camera::~Camera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a520c5a7413b3e704f2f442288db17bcf" name="a520c5a7413b3e704f2f442288db17bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a520c5a7413b3e704f2f442288db17bcf">&#9670;&nbsp;</a></span>getPosition()</h2>
+<a id="af01f8cd3c75ea3b9e578cfe0a95c9955" name="af01f8cd3c75ea3b9e578cfe0a95c9955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01f8cd3c75ea3b9e578cfe0a95c9955">&#9670;&nbsp;</a></span>GetPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Camera::getPosition </td>
+          <td class="memname">glm::vec3 Camera::GetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e2d0c2b7a8806ad0cc038896bb0b49c" name="a1e2d0c2b7a8806ad0cc038896bb0b49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e2d0c2b7a8806ad0cc038896bb0b49c">&#9670;&nbsp;</a></span>GetProjectionMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 Camera::GetProjectionMatrix </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>isZoom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d4fd92e315fb77821ff6ddade1b6ef2" name="a2d4fd92e315fb77821ff6ddade1b6ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4fd92e315fb77821ff6ddade1b6ef2">&#9670;&nbsp;</a></span>GetShakeFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::GetShakeFrequency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17397ee950bab9e5ef1ea39fa61d757f" name="a17397ee950bab9e5ef1ea39fa61d757f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17397ee950bab9e5ef1ea39fa61d757f">&#9670;&nbsp;</a></span>GetShakeFrequencyCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Camera::GetShakeFrequencyCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="affa333055635aed96518c4c66be9a70c" name="affa333055635aed96518c4c66be9a70c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affa333055635aed96518c4c66be9a70c">&#9670;&nbsp;</a></span>GetViewMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 Camera::GetViewMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -121,17 +235,17 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5569ca5967e01d3344fbf6aba36d9820" name="a5569ca5967e01d3344fbf6aba36d9820"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5569ca5967e01d3344fbf6aba36d9820">&#9670;&nbsp;</a></span>getViewMatrix()</h2>
+<a id="aa2a9507d39c721a7b7064b62f7757dbe" name="aa2a9507d39c721a7b7064b62f7757dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2a9507d39c721a7b7064b62f7757dbe">&#9670;&nbsp;</a></span>GetZoom()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 Camera::getViewMatrix </td>
+          <td class="memname">float Camera::GetZoom </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -149,6 +263,58 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const float &amp;&#160;</td>
           <td class="paramname"><em>deltaTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a790fd1b133c5b110f0d6e94ae86cc032" name="a790fd1b133c5b110f0d6e94ae86cc032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790fd1b133c5b110f0d6e94ae86cc032">&#9670;&nbsp;</a></span>IsShake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Camera::IsShake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3445d4cc0d32c633a266f77ec1f249d" name="aa3445d4cc0d32c633a266f77ec1f249d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3445d4cc0d32c633a266f77ec1f249d">&#9670;&nbsp;</a></span>OnUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::OnUpdate </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa44011058e6849c6f617a0d68915d98c" name="aa44011058e6849c6f617a0d68915d98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44011058e6849c6f617a0d68915d98c">&#9670;&nbsp;</a></span>ResetPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::ResetPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -174,9 +340,61 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aaf9896fe952581b3fcd0a675e4807de3" name="aaf9896fe952581b3fcd0a675e4807de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9896fe952581b3fcd0a675e4807de3">&#9670;&nbsp;</a></span>SetZoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::SetZoom </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>zoom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fcda38ad46f82c9f52e5d48518a1bcf" name="a3fcda38ad46f82c9f52e5d48518a1bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcda38ad46f82c9f52e5d48518a1bcf">&#9670;&nbsp;</a></span>Shake()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Camera::Shake </td>
+          <td>(</td>
+          <td class="paramtype">const float &amp;&#160;</td>
+          <td class="paramname"><em>shakeTime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>shakeFrequency</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>variation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Project-Pentagram/Engine/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
-<li>Project-Pentagram/Engine/<a class="el" href="_camera_8cpp.html">Camera.cpp</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/<a class="el" href="_camera_8h_source.html">Camera.h</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/<a class="el" href="_camera_8cpp.html">Camera.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

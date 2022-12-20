@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/GameObject.h File Reference</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/GameObject.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -73,6 +73,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;glm/gtc/matrix_transform.hpp&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="_arcant_engine_8h_source.html">ArcantEngine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_camera_8h_source.html">Camera.h</a>&quot;</code><br />
@@ -84,72 +85,105 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for GameObject.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="_game_object_8h__incl.png" border="0" usemap="#a_project-_pentagram_2_engine_2_game_object_8h" alt=""/></div>
-<map name="a_project-_pentagram_2_engine_2_game_object_8h" id="a_project-_pentagram_2_engine_2_game_object_8h">
-<area shape="rect" title=" " alt="" coords="901,5,1076,47"/>
-<area shape="rect" title=" " alt="" coords="639,319,732,345"/>
-<area shape="rect" title=" " alt="" coords="1501,169,1692,196"/>
-<area shape="rect" title=" " alt="" coords="323,169,379,196"/>
-<area shape="rect" href="_arcant_engine_8h.html" title=" " alt="" coords="1162,95,1273,121"/>
-<area shape="rect" href="_camera_8h.html" title=" " alt="" coords="1297,95,1376,121"/>
-<area shape="rect" href="_game_object_tag_8h.html" title=" " alt="" coords="1452,95,1578,121"/>
-<area shape="rect" href="_mesh_8h.html" title=" " alt="" coords="148,95,269,121"/>
-<area shape="rect" href="_texture_8h.html" title=" " alt="" coords="876,244,1008,271"/>
-<area shape="rect" href="_shader_8h.html" title=" " alt="" coords="347,244,478,271"/>
-<area shape="rect" href="_engine_data_collector_8h.html" title=" " alt="" coords="749,95,956,121"/>
-<area shape="rect" title=" " alt="" coords="1195,393,1259,420"/>
-<area shape="rect" title=" " alt="" coords="1162,169,1220,196"/>
-<area shape="rect" href="_window_8h.html" title=" " alt="" coords="1296,169,1374,196"/>
-<area shape="rect" href="_singleton_8h.html" title=" " alt="" coords="940,169,1087,196"/>
-<area shape="rect" title=" " alt="" coords="187,319,272,345"/>
-<area shape="rect" title=" " alt="" coords="1224,319,1312,345"/>
-<area shape="rect" title=" " alt="" coords="1116,319,1188,345"/>
-<area shape="rect" href="_input_8h.html" title=" " alt="" coords="1336,244,1398,271"/>
-<area shape="rect" title=" " alt="" coords="1336,319,1398,345"/>
-<area shape="rect" href="_v_a_o_8h.html" title=" " alt="" coords="8,169,70,196"/>
-<area shape="rect" href="_v_b_o_8h.html" title=" " alt="" coords="24,244,86,271"/>
-<area shape="rect" href="_e_b_o_8h.html" title=" " alt="" coords="110,244,171,271"/>
-<area shape="rect" href="stb__image_8h.html" title=" " alt="" coords="865,319,992,345"/>
-<area shape="rect" title=" " alt="" coords="1016,319,1086,345"/>
-<area shape="rect" title=" " alt="" coords="898,393,959,420"/>
-<area shape="rect" title=" " alt="" coords="501,319,556,345"/>
-<area shape="rect" title=" " alt="" coords="302,319,368,345"/>
-<area shape="rect" title=" " alt="" coords="392,319,462,345"/>
-<area shape="rect" href="_shader_collector_8h.html" title=" " alt="" coords="504,169,630,196"/>
-<area shape="rect" href="_font_collector_8h.html" title=" " alt="" coords="654,169,765,196"/>
-<area shape="rect" href="_texture_collector_8h.html" title=" " alt="" coords="789,169,916,196"/>
-<area shape="rect" title=" " alt="" coords="603,244,678,271"/>
-<area shape="rect" title=" " alt="" coords="753,244,800,271"/>
+<div class="center"><img src="_game_object_8h__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8h" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8h" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8h">
+<area shape="rect" title=" " alt="" coords="916,5,1095,61"/>
+<area shape="rect" title=" " alt="" coords="509,348,603,375"/>
+<area shape="rect" title=" " alt="" coords="283,191,474,218"/>
+<area shape="rect" title=" " alt="" coords="2108,348,2183,375"/>
+<area shape="rect" title=" " alt="" coords="1327,348,1383,375"/>
+<area shape="rect" href="_arcant_engine_8h.html" title=" " alt="" coords="46,191,157,218"/>
+<area shape="rect" href="_camera_8h.html" title=" " alt="" coords="206,109,285,136"/>
+<area shape="rect" href="_game_object_tag_8h.html" title=" " alt="" coords="2381,109,2507,136"/>
+<area shape="rect" href="_mesh_8h.html" title=" " alt="" coords="702,109,823,136"/>
+<area shape="rect" href="_texture_8h.html" title=" " alt="" coords="1185,273,1317,300"/>
+<area shape="rect" href="_shader_8h.html" title=" " alt="" coords="928,273,1059,300"/>
+<area shape="rect" href="_engine_data_collector_8h.html" title=" " alt="" coords="1471,109,1678,136"/>
+<area shape="rect" title=" " alt="" coords="85,423,149,449"/>
+<area shape="rect" title=" " alt="" coords="5,273,64,300"/>
+<area shape="rect" href="_window_8h.html" title=" " alt="" coords="265,273,343,300"/>
+<area shape="rect" href="_singleton_8h.html" title=" " alt="" coords="1593,273,1727,300"/>
+<area shape="rect" title=" " alt="" coords="709,348,795,375"/>
+<area shape="rect" title=" " alt="" coords="292,423,380,449"/>
+<area shape="rect" href="stb__image_8h.html" title=" " alt="" coords="139,348,298,375"/>
+<area shape="rect" title=" " alt="" coords="989,423,1061,449"/>
+<area shape="rect" href="_input_8h.html" title=" " alt="" coords="373,348,435,375"/>
+<area shape="rect" title=" " alt="" coords="188,423,249,449"/>
+<area shape="rect" title=" " alt="" coords="404,423,465,449"/>
+<area shape="rect" href="_v_a_o_8h.html" title=" " alt="" coords="664,191,725,218"/>
+<area shape="rect" href="_v_b_o_8h.html" title=" " alt="" coords="691,273,752,300"/>
+<area shape="rect" href="_e_b_o_8h.html" title=" " alt="" coords="807,191,868,218"/>
+<area shape="rect" title=" " alt="" coords="993,348,1058,375"/>
+<area shape="rect" title=" " alt="" coords="1527,348,1582,375"/>
+<area shape="rect" title=" " alt="" coords="1808,348,1877,375"/>
+<area shape="rect" title=" " alt="" coords="848,348,917,375"/>
+<area shape="rect" href="_shader_collector_8h.html" title=" " alt="" coords="1093,191,1317,218"/>
+<area shape="rect" href="_font_collector_8h.html" title=" " alt="" coords="1393,191,1602,218"/>
+<area shape="rect" href="_texture_collector_8h.html" title=" " alt="" coords="1737,184,1901,225"/>
+<area shape="rect" href="_audio_engine_8h.html" title=" " alt="" coords="1925,191,2112,218"/>
+<area shape="rect" title=" " alt="" coords="1443,273,1517,300"/>
+<area shape="rect" title=" " alt="" coords="1803,273,1885,300"/>
+<area shape="rect" title=" " alt="" coords="1909,273,1955,300"/>
+<area shape="rect" title=" " alt="" coords="2183,273,2305,300"/>
+<area shape="rect" href="_arcant_assert_8h.html" title=" " alt="" coords="2431,273,2587,300"/>
+<area shape="rect" title=" " alt="" coords="2477,348,2542,375"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_game_object_8h__dep__incl.png" border="0" usemap="#a_project-_pentagram_2_engine_2_game_object_8hdep" alt=""/></div>
-<map name="a_project-_pentagram_2_engine_2_game_object_8hdep" id="a_project-_pentagram_2_engine_2_game_object_8hdep">
-<area shape="rect" title=" " alt="" coords="193,5,368,47"/>
-<area shape="rect" href="_game_object_8cpp.html" title=" " alt="" coords="5,95,180,136"/>
-<area shape="rect" href="_game_scene_8h.html" title=" " alt="" coords="432,363,607,404"/>
-<area shape="rect" href="_particle_system_8h.html" title=" " alt="" coords="256,95,431,136"/>
-<area shape="rect" href="_u_i_object_8h.html" title=" " alt="" coords="557,95,732,136"/>
-<area shape="rect" href="_game_scene_8cpp.html" title=" " alt="" coords="108,452,283,493"/>
-<area shape="rect" href="_game_state_controller_8h.html" title=" " alt="" coords="391,541,565,583"/>
-<area shape="rect" href="_menu_scene_8h.html" title=" " alt="" coords="707,720,881,761"/>
-<area shape="rect" href="_node_scene_8h.html" title=" " alt="" coords="307,452,481,493"/>
-<area shape="rect" href="_battle_scene_8h.html" title=" " alt="" coords="557,452,740,493"/>
-<area shape="rect" href="_game_state_controller_8cpp.html" title=" " alt="" coords="172,631,347,672"/>
-<area shape="rect" href="_scene_manager_8h.html" title=" " alt="" coords="371,631,545,672"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="570,638,757,665"/>
-<area shape="rect" href="_node_scene_8cpp.html" title=" " alt="" coords="109,720,284,761"/>
-<area shape="rect" href="_scene_manager_8cpp.html" title=" " alt="" coords="371,720,545,761"/>
-<area shape="rect" href="_menu_scene_8cpp.html" title=" " alt="" coords="707,809,881,851"/>
-<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="590,541,787,583"/>
-<area shape="rect" href="_particle_system_8cpp.html" title=" " alt="" coords="256,184,431,225"/>
-<area shape="rect" href="_button_8h.html" title=" " alt="" coords="863,273,1037,315"/>
-<area shape="rect" href="_text_object_8h.html" title=" " alt="" coords="756,184,931,225"/>
-<area shape="rect" href="_u_i_object_8cpp.html" title=" " alt="" coords="557,184,732,225"/>
-<area shape="rect" href="_button_8cpp.html" title=" " alt="" coords="863,363,1037,404"/>
-<area shape="rect" href="_text_object_8cpp.html" title=" " alt="" coords="664,273,839,315"/>
+<div class="center"><img src="_game_object_8h__dep__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8hdep" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8hdep" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_game_object_8hdep">
+<area shape="rect" title=" " alt="" coords="2493,5,2672,61"/>
+<area shape="rect" href="_game_object_8cpp.html" title=" " alt="" coords="2304,109,2483,165"/>
+<area shape="rect" href="_i_game_object_manager_8h.html" title=" " alt="" coords="2823,525,3001,581"/>
+<area shape="rect" href="_particle_system_8h.html" title=" " alt="" coords="2557,109,2736,165"/>
+<area shape="rect" href="_u_i_object_8h.html" title=" " alt="" coords="2924,109,3103,165"/>
+<area shape="rect" href="_game_scene_8h.html" title=" " alt="" coords="2223,644,2401,700"/>
+<area shape="rect" href="_rune_object_8cpp.html" title=" " alt="" coords="2850,1015,3025,1085"/>
+<area shape="rect" href="_fire_spell_objects_8cpp.html" title=" " alt="" coords="3049,1015,3293,1085"/>
+<area shape="rect" href="_water_spell_objects_8cpp.html" title=" " alt="" coords="3317,1015,3587,1085"/>
+<area shape="rect" href="_battle_manager_8h.html" title=" " alt="" coords="605,903,801,959"/>
+<area shape="rect" href="_caster_effect_icon_u_i_8h.html" title=" " alt="" coords="3490,637,3665,707"/>
+<area shape="rect" href="_caster_object_8h.html" title=" " alt="" coords="3689,637,3863,707"/>
+<area shape="rect" href="_pentagram_circle_u_i_8h.html" title=" " alt="" coords="567,770,817,841"/>
+<area shape="rect" href="_pentagram_controller_8h.html" title=" " alt="" coords="825,896,1085,967"/>
+<area shape="rect" href="_pentagram_field_button_8h.html" title=" " alt="" coords="3141,763,3363,848"/>
+<area shape="rect" href="_pentagram_scroll_button_8h.html" title=" " alt="" coords="841,629,1068,715"/>
+<area shape="rect" href="_pentagram_scroll_button_manager_u_i_8h.html" title=" " alt="" coords="841,763,1068,848"/>
+<area shape="rect" href="_rune_object_8h.html" title=" " alt="" coords="3090,637,3265,707"/>
+<area shape="rect" href="_spell_detail_u_i_8h.html" title=" " alt="" coords="3887,637,4062,707"/>
+<area shape="rect" href="_spell_icon_u_i_8h.html" title=" " alt="" coords="1290,637,1465,707"/>
+<area shape="rect" href="_timetrack_u_i_8h.html" title=" " alt="" coords="1295,770,1470,841"/>
+<area shape="rect" href="_timeline_controller_8h.html" title=" " alt="" coords="1421,896,1595,967"/>
+<area shape="rect" href="_base_spell_object_8h.html" title=" " alt="" coords="2809,637,3015,707"/>
+<area shape="rect" href="_will_compare_controller_8h.html" title=" " alt="" coords="4086,637,4261,707"/>
+<area shape="rect" href="_spell_caster_2_caster_detail_u_i_8h.html" title=" " alt="" coords="4285,637,4459,707"/>
+<area shape="rect" href="_objects_2_scroll_button_8h.html" title=" " alt="" coords="1092,644,1265,700"/>
+<area shape="rect" href="_game_scene_8cpp.html" title=" " alt="" coords="1753,777,1932,833"/>
+<area shape="rect" href="_game_state_controller_8h.html" title=" " alt="" coords="2159,903,2337,959"/>
+<area shape="rect" href="_demo_scene_8h.html" title=" " alt="" coords="2412,777,2591,833"/>
+<area shape="rect" href="_load_scene_8h.html" title=" " alt="" coords="2615,777,2793,833"/>
+<area shape="rect" href="_menu_scene_8h.html" title=" " alt="" coords="1956,777,2135,833"/>
+<area shape="rect" href="_node_scene_8h.html" title=" " alt="" coords="2159,777,2337,833"/>
+<area shape="rect" href="_battle_scene_8h.html" title=" " alt="" coords="1546,777,1729,833"/>
+<area shape="rect" href="_spell_dispather_8h.html" title=" " alt="" coords="2818,777,3014,833"/>
+<area shape="rect" href="_stage_object_8h.html" title=" " alt="" coords="1109,903,1283,959"/>
+<area shape="rect" href="_pentagram_controller_8cpp.html" title=" " alt="" coords="1251,1015,1525,1085"/>
+<area shape="rect" href="_spell_icon_u_i_8cpp.html" title=" " alt="" coords="1550,1015,1725,1085"/>
+<area shape="rect" href="_timeline_controller_8cpp.html" title=" " alt="" coords="1947,1015,2122,1085"/>
+<area shape="rect" href="_caster_controller_8cpp.html" title=" " alt="" coords="1749,1015,1923,1085"/>
+<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="1029,1022,1227,1078"/>
+<area shape="rect" href="_battle_manager_8cpp.html" title=" " alt="" coords="597,1022,808,1078"/>
+<area shape="rect" href="_cast_battle_state_8cpp.html" title=" " alt="" coords="832,1015,1005,1085"/>
+<area shape="rect" href="_resolve_battle_state_8cpp.html" title=" " alt="" coords="5,1015,179,1085"/>
+<area shape="rect" href="_result_battle_state_8cpp.html" title=" " alt="" coords="203,1015,376,1085"/>
+<area shape="rect" href="_setup_battle_state_8cpp.html" title=" " alt="" coords="400,1015,573,1085"/>
+<area shape="rect" href="_particle_system_8cpp.html" title=" " alt="" coords="2608,213,2787,269"/>
+<area shape="rect" href="_button_8h.html" title=" " alt="" coords="3076,317,3255,373"/>
+<area shape="rect" href="_slider_8h.html" title=" " alt="" coords="2949,421,3128,477"/>
+<area shape="rect" href="_text_object_8h.html" title=" " alt="" coords="3165,213,3344,269"/>
+<area shape="rect" href="_u_i_object_8cpp.html" title=" " alt="" coords="2861,213,3040,269"/>
 </map>
 </div>
 </div>

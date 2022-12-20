@@ -1,0 +1,29 @@
+\hypertarget{_battle_state_model_8h_source}{}\doxysection{Battle\+State\+Model.\+h}
+\label{_battle_state_model_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/BattleStateModel.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/BattleStateModel.h}}
+\mbox{\hyperlink{_battle_state_model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_setup_battle_state_8h}{SetupBattleState.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cast_battle_state_8h}{CastBattleState.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resolve_battle_state_8h}{ResolveBattleState.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_result_battle_state_8h}{ResultBattleState.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_battle_state_model}{BattleStateModel}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11      \textcolor{keyword}{static} std::vector<BaseBattleState*> \mbox{\hyperlink{class_battle_state_model_acc7c29b2f988cb66b2881633aff52b61}{GetBattleStates}}()}
+\DoxyCodeLine{12      \{}
+\DoxyCodeLine{13          std::vector<BaseBattleState*> states =}
+\DoxyCodeLine{14          \{}
+\DoxyCodeLine{15              \textcolor{keyword}{new} \mbox{\hyperlink{class_setup_battle_state}{SetupBattleState}}(),}
+\DoxyCodeLine{16              \textcolor{keyword}{new} \mbox{\hyperlink{class_cast_battle_state}{CastBattleState}}(),}
+\DoxyCodeLine{17              \textcolor{keyword}{new} \mbox{\hyperlink{class_resolve_battle_state}{ResolveBattleState}}(),}
+\DoxyCodeLine{18              \textcolor{keyword}{new} \mbox{\hyperlink{class_result_battle_state}{ResultBattleState}}()}
+\DoxyCodeLine{19          \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21          \textcolor{keywordflow}{return} states;}
+\DoxyCodeLine{22      \}}
+\DoxyCodeLine{23 \};}
+
+\end{DoxyCode}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/ArcantEngine.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/ArcantEngine.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,32 +75,33 @@ $(function() {
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_window_8h.html">Window.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../Utilities/Singleton.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_singleton_8h.html">Utilities/Singleton.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_arcant_engine.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_arcant_engine.html">ArcantEngine</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&lt;ArcantEngine&gt;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_class" href="class_window.html">Window</a> window;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_class" href="class_window.html">Window</a> m_Window;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_function" href="class_arcant_engine.html#ada1c3d3563e486be8f10a2e159f5c919">ArcantEngine</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <a class="code hl_class" href="class_window.html">Window</a>* <a class="code hl_function" href="class_arcant_engine.html#ad62695f707b7d2827807e1e63da8c6ad">GetWindow</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_arcant_engine.html#aaa647da73f2313d8b45881dbd16bc876">Init</a>();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_arcant_engine.html#a52c010b8c7bff26c6ec13110d2385788">Free</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_arcant_engine.html#a1a38f3a20825c40a195dcdbb4466c9c9">IsRunning</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_arcant_engine.html#aaa647da73f2313d8b45881dbd16bc876">Init</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_arcant_engine.html#a52c010b8c7bff26c6ec13110d2385788">Free</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="class_window.html">Window</a>* <a class="code hl_function" href="class_arcant_engine.html#ad62695f707b7d2827807e1e63da8c6ad">GetWindow</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="class_arcant_engine.html#a064fd2f264e62e793ae13adcf5dd3660">IsRunning</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="ttc" id="a_singleton_8h_html"><div class="ttname"><a href="_singleton_8h.html">Singleton.h</a></div></div>
 <div class="ttc" id="a_window_8h_html"><div class="ttname"><a href="_window_8h.html">Window.h</a></div></div>
 <div class="ttc" id="aclass_arcant_engine_html"><div class="ttname"><a href="class_arcant_engine.html">ArcantEngine</a></div><div class="ttdef"><b>Definition:</b> ArcantEngine.h:10</div></div>
-<div class="ttc" id="aclass_arcant_engine_html_a1a38f3a20825c40a195dcdbb4466c9c9"><div class="ttname"><a href="class_arcant_engine.html#a1a38f3a20825c40a195dcdbb4466c9c9">ArcantEngine::IsRunning</a></div><div class="ttdeci">bool IsRunning()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:20</div></div>
-<div class="ttc" id="aclass_arcant_engine_html_a52c010b8c7bff26c6ec13110d2385788"><div class="ttname"><a href="class_arcant_engine.html#a52c010b8c7bff26c6ec13110d2385788">ArcantEngine::Free</a></div><div class="ttdeci">void Free()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:14</div></div>
+<div class="ttc" id="aclass_arcant_engine_html_a064fd2f264e62e793ae13adcf5dd3660"><div class="ttname"><a href="class_arcant_engine.html#a064fd2f264e62e793ae13adcf5dd3660">ArcantEngine::IsRunning</a></div><div class="ttdeci">bool IsRunning() const</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:23</div></div>
+<div class="ttc" id="aclass_arcant_engine_html_a52c010b8c7bff26c6ec13110d2385788"><div class="ttname"><a href="class_arcant_engine.html#a52c010b8c7bff26c6ec13110d2385788">ArcantEngine::Free</a></div><div class="ttdeci">void Free()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:13</div></div>
 <div class="ttc" id="aclass_arcant_engine_html_aaa647da73f2313d8b45881dbd16bc876"><div class="ttname"><a href="class_arcant_engine.html#aaa647da73f2313d8b45881dbd16bc876">ArcantEngine::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:8</div></div>
-<div class="ttc" id="aclass_arcant_engine_html_ad62695f707b7d2827807e1e63da8c6ad"><div class="ttname"><a href="class_arcant_engine.html#ad62695f707b7d2827807e1e63da8c6ad">ArcantEngine::GetWindow</a></div><div class="ttdeci">Window * GetWindow()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:25</div></div>
+<div class="ttc" id="aclass_arcant_engine_html_ad62695f707b7d2827807e1e63da8c6ad"><div class="ttname"><a href="class_arcant_engine.html#ad62695f707b7d2827807e1e63da8c6ad">ArcantEngine::GetWindow</a></div><div class="ttdeci">Window * GetWindow()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:19</div></div>
 <div class="ttc" id="aclass_arcant_engine_html_ada1c3d3563e486be8f10a2e159f5c919"><div class="ttname"><a href="class_arcant_engine.html#ada1c3d3563e486be8f10a2e159f5c919">ArcantEngine::ArcantEngine</a></div><div class="ttdeci">ArcantEngine()</div><div class="ttdef"><b>Definition:</b> ArcantEngine.cpp:3</div></div>
 <div class="ttc" id="aclass_singleton_html"><div class="ttname"><a href="class_singleton.html">Singleton</a></div><div class="ttdef"><b>Definition:</b> Singleton.h:4</div></div>
-<div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:16</div></div>
+<div class="ttc" id="aclass_window_html"><div class="ttname"><a href="class_window.html">Window</a></div><div class="ttdef"><b>Definition:</b> Window.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

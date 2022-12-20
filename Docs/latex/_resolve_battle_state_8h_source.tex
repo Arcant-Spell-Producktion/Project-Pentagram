@@ -1,0 +1,45 @@
+\hypertarget{_resolve_battle_state_8h_source}{}\doxysection{Resolve\+Battle\+State.\+h}
+\label{_resolve_battle_state_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/ResolveBattleState.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/ResolveBattleState.h}}
+\mbox{\hyperlink{_resolve_battle_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_battle_state_8h}{BaseBattleState.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_dispather_8h}{Game/BattleScene/SpellDispather.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_resolve_battle_state}{ResolveBattleState}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     \textcolor{keyword}{enum class} ResolveState}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10         ResolveTrack,}
+\DoxyCodeLine{11         PlayCompare,}
+\DoxyCodeLine{12         ResolveSpell,}
+\DoxyCodeLine{13         PlaySpell,}
+\DoxyCodeLine{14         Waiting,}
+\DoxyCodeLine{15     \};}
+\DoxyCodeLine{16     }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_spell_dispatcher}{SpellDispatcher}} m\_Dispatcher;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_spell_controller}{SpellController}}* m\_CurrentSpellController;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     ResolveState m\_State = ResolveState::ResolveTrack;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* m\_CurrentTrack = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* m\_CurrentSpellDetail = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} m\_TrackResolveIndex = 0;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} m\_SpellResolveIndex = 0;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{float} m\_Timer = 0.0f;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} Step();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} ResolveTrack();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} ResolveSpell();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} ResolveDamgeCalculation();}
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_resolve_battle_state_aa32ac0f55af8fd9c756970e5432c14c0}{ResolveBattleState}}() :\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}(\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}}::ResolveState) \{\}}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_resolve_battle_state_a0d8822dfbf749d081cfc7c10614164a7}{OnBattleStateIn}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_resolve_battle_state_ac9c4181dac43c1e643fb9162283f1c3c}{OnBattleStateUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_resolve_battle_state_a94a740c7e509f69b0f1e7a0e72a6ecf4}{OnBattleStateOut}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \};}
+
+\end{DoxyCode}

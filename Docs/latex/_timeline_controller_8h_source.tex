@@ -1,0 +1,34 @@
+\hypertarget{_timeline_controller_8h_source}{}\doxysection{Timeline\+Controller.\+h}
+\label{_timeline_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/TimelineController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/TimelineController.h}}
+\mbox{\hyperlink{_timeline_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_timetrack_u_i_8h}{TimetrackUI.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_timeline_controller}{TimelineController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \mbox{\hyperlink{class_u_i_object}{UIObject}}* top;}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_u_i_object}{UIObject}}* box;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_u_i_object}{UIObject}}* trackMarker;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     vector<TimetrackUI*> m\_Tracks;}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_timeline_controller_ac7ca2f9436ad58971c8a6f974bf0ecca}{TimelineController}}();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a0d09ffe185806ce917999eebfcec6571}{SetTrackerActive}}(\textcolor{keywordtype}{bool} isActive);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a53c293198afac20a5389c31fbf7864c7}{SetTrackerPositionByIndex}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a0779d25bce1ab1bf4451143625e74757}{ExpandTracks}}(\textcolor{keywordtype}{int} TrackIndex);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_aba4197b9c8e12ed4fd884857a5e162b1}{UpdatePreviewIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a907b9bc77bfee90f4f482a2af25f81e2}{AddIconToTrack}}(\textcolor{keywordtype}{int} index, \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a5cfb28222575d35c10bffa4bbbcde850}{ClearTrack}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_af91a6806e2ab66e59d976f5c8b607ab4}{UpdateAllTracks}}();}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timeline_controller_a17360e8c3237793d50d24b2faeecfd37}{ClearAllTrack}}();}
+\DoxyCodeLine{28 \};}
+
+\end{DoxyCode}

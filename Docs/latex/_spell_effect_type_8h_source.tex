@@ -1,0 +1,39 @@
+\hypertarget{_spell_effect_type_8h_source}{}\doxysection{Spell\+Effect\+Type.\+h}
+\label{_spell_effect_type_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellEffectType.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellEffectType.h}}
+\mbox{\hyperlink{_spell_effect_type_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{enum class} \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}} = 0,}
+\DoxyCodeLine{7     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5bab82a9a13f4651e9abcbde90cd24ce2cb}{Mark}},}
+\DoxyCodeLine{8     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba11635778f116ce6922f6068638a39028}{Burn}},}
+\DoxyCodeLine{9     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba129e8109f319870e328cc7a1d5b5cae3}{Overflow}},}
+\DoxyCodeLine{10     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba65467087a19145f43129bba42781aea0}{Freeze}},}
+\DoxyCodeLine{11 \};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_effect_detail___t}{EffectDetail\_T}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{struct_effect_detail___t_ae4ba4a3e5a8b59f05f0675613123735c}{EffectType}};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_effect_detail___t_aa1243d2b01c955632f81ffe5fcffe82a}{Stack}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{struct_effect_detail___t_a742161b71cc493e399431daa41b4053b}{EffectDetail\_T}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type, \textcolor{keywordtype}{int} n) :\mbox{\hyperlink{struct_effect_detail___t_ae4ba4a3e5a8b59f05f0675613123735c}{EffectType}}(type), \mbox{\hyperlink{struct_effect_detail___t_aa1243d2b01c955632f81ffe5fcffe82a}{Stack}}(n) \{\};}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_effect_type}{SpellEffectType}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string enum\_string[];}
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     \textcolor{keyword}{static} \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{class_spell_effect_type_a5d3bb4066cafcb7182ab689e0c1127eb}{GetEnum}}(std::string typeString);}
+\DoxyCodeLine{27     }
+\DoxyCodeLine{28     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_spell_effect_type_a6d960a9591e1a2e0839de948fa41265d}{GetString}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ \textcolor{keywordflow}{return} enum\_string[(int)type]; \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_effect_type_af596c63edc294a44f9f2d73cf8c76717}{IsEffectApplyByChance}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_effect_type_afe18bf3d67f672619d343346939d6428}{IsEffectTargetEnemy}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type);}
+\DoxyCodeLine{33 \};}
+
+\end{DoxyCode}

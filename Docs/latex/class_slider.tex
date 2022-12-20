@@ -1,0 +1,150 @@
+\hypertarget{class_slider}{}\doxysection{Slider Class Reference}
+\label{class_slider}\index{Slider@{Slider}}
+
+
+{\ttfamily \#include $<$Slider.\+h$>$}
+
+
+
+Inheritance diagram for Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_slider__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Slider\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_slider__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}{Slider}} (const std\+::string \&obj\+Name)
+\item 
+void \mbox{\hyperlink{class_slider_a832b114df4ed78c138cfda77f372e614}{Init\+Button}} (\mbox{\hyperlink{class_button}{Button}} $\ast$button)
+\item 
+virtual void \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{On\+Update}} (const float \&dt) override
+\item 
+virtual void \mbox{\hyperlink{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
+\item 
+float \mbox{\hyperlink{class_slider_a7f485d983f32ba38436684dc1df47404}{Get\+Value}} ()
+\item 
+bool \mbox{\hyperlink{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}{Is\+Button\+Pressed}} ()
+\item 
+\mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}{Get\+Slider\+Button}} ()
+\item 
+void \mbox{\hyperlink{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}{Set\+Value}} (const float \&value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_slider_ae20b7d7d727856aca7adaafffa5a580d}{m\+\_\+\+Button}}
+\item 
+float \mbox{\hyperlink{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}{m\+\_\+\+Value}}
+\item 
+bool \mbox{\hyperlink{class_slider_ab77b6668137ceec794a38c34b88d1463}{m\+\_\+\+Is\+Press}}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{class_slider}{Slider}} $\ast$)$>$ \mbox{\hyperlink{class_slider_a1159b22c3d632244645ed7087f918332}{on\+Value\+Changed}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}\label{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}} 
+\index{Slider@{Slider}!Slider@{Slider}}
+\index{Slider@{Slider}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{Slider()}{Slider()}}
+{\footnotesize\ttfamily Slider\+::\+Slider (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}\label{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}} 
+\index{Slider@{Slider}!Draw@{Draw}}
+\index{Draw@{Draw}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Slider\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{UIObject}}.
+
+\mbox{\Hypertarget{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}\label{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}} 
+\index{Slider@{Slider}!GetSliderButton@{GetSliderButton}}
+\index{GetSliderButton@{GetSliderButton}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{GetSliderButton()}{GetSliderButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_button}{Button}} $\ast$ Slider\+::\+Get\+Slider\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slider_a7f485d983f32ba38436684dc1df47404}\label{class_slider_a7f485d983f32ba38436684dc1df47404}} 
+\index{Slider@{Slider}!GetValue@{GetValue}}
+\index{GetValue@{GetValue}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
+{\footnotesize\ttfamily float Slider\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slider_a832b114df4ed78c138cfda77f372e614}\label{class_slider_a832b114df4ed78c138cfda77f372e614}} 
+\index{Slider@{Slider}!InitButton@{InitButton}}
+\index{InitButton@{InitButton}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{InitButton()}{InitButton()}}
+{\footnotesize\ttfamily void Slider\+::\+Init\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_button}{Button}} $\ast$}]{button }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}\label{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}} 
+\index{Slider@{Slider}!IsButtonPressed@{IsButtonPressed}}
+\index{IsButtonPressed@{IsButtonPressed}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{IsButtonPressed()}{IsButtonPressed()}}
+{\footnotesize\ttfamily bool Slider\+::\+Is\+Button\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}\label{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}} 
+\index{Slider@{Slider}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Slider\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}\label{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}} 
+\index{Slider@{Slider}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}}
+{\footnotesize\ttfamily void Slider\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const float \&}]{value }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_slider_ae20b7d7d727856aca7adaafffa5a580d}\label{class_slider_ae20b7d7d727856aca7adaafffa5a580d}} 
+\index{Slider@{Slider}!m\_Button@{m\_Button}}
+\index{m\_Button@{m\_Button}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{m\_Button}{m\_Button}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_button}{Button}}$\ast$ Slider\+::m\+\_\+\+Button\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slider_ab77b6668137ceec794a38c34b88d1463}\label{class_slider_ab77b6668137ceec794a38c34b88d1463}} 
+\index{Slider@{Slider}!m\_IsPress@{m\_IsPress}}
+\index{m\_IsPress@{m\_IsPress}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{m\_IsPress}{m\_IsPress}}
+{\footnotesize\ttfamily bool Slider\+::m\+\_\+\+Is\+Press\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}\label{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}} 
+\index{Slider@{Slider}!m\_Value@{m\_Value}}
+\index{m\_Value@{m\_Value}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{m\_Value}{m\_Value}}
+{\footnotesize\ttfamily float Slider\+::m\+\_\+\+Value\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slider_a1159b22c3d632244645ed7087f918332}\label{class_slider_a1159b22c3d632244645ed7087f918332}} 
+\index{Slider@{Slider}!onValueChanged@{onValueChanged}}
+\index{onValueChanged@{onValueChanged}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{onValueChanged}{onValueChanged}}
+{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{class_slider}{Slider}}$\ast$)$>$ Slider\+::on\+Value\+Changed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_slider_8h}{Slider.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_slider_8cpp}{Slider.\+cpp}}\end{DoxyCompactItemize}

@@ -1,5 +1,11 @@
 <map id="Button" name="Button">
-<area shape="rect" id="node1" title=" " alt="" coords="23,155,83,181"/>
-<area shape="rect" id="node2" href="$class_u_i_object.html" title=" " alt="" coords="17,80,89,107"/>
-<area shape="rect" id="node3" href="$class_game_object.html" title=" " alt="" coords="5,5,100,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="303,155,363,181"/>
+<area shape="rect" id="node4" href="$class_pentagram_field_button.html" title=" " alt="" coords="5,229,156,256"/>
+<area shape="rect" id="node5" href="$class_pentagram_scroll_button.html" title=" " alt="" coords="180,229,336,256"/>
+<area shape="rect" id="node8" href="$class_scroll_button.html" title=" " alt="" coords="361,229,454,256"/>
+<area shape="rect" id="node9" href="$class_spell_icon_u_i.html" title=" " alt="" coords="479,229,565,256"/>
+<area shape="rect" id="node2" href="$class_u_i_object.html" title=" " alt="" coords="297,80,369,107"/>
+<area shape="rect" id="node3" href="$class_game_object.html" title=" " alt="" coords="285,5,380,32"/>
+<area shape="rect" id="node6" href="$class_pentagram_scroll_arrow_button.html" title=" " alt="" coords="54,304,243,331"/>
+<area shape="rect" id="node7" href="$class_pentagram_scroll_number_button.html" title=" " alt="" coords="268,304,469,331"/>
 </map>

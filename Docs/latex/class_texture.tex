@@ -1,0 +1,141 @@
+\hypertarget{class_texture}{}\doxysection{Texture Class Reference}
+\label{class_texture}\index{Texture@{Texture}}
+
+
+{\ttfamily \#include $<$Texture.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}} ()
+\item 
+\mbox{\hyperlink{class_texture_a9d738dbcf72029565e89106a546be723}{Texture}} (const char $\ast$src)
+\item 
+void \mbox{\hyperlink{class_texture_a9c09c739c9fad4f615967eab1907c644}{Set\+Texture}} (const char $\ast$path)
+\item 
+void \mbox{\hyperlink{class_texture_ae9d3c4645f3ae7c18356cfafd7a5f15a}{Read\+Meta}} (const std\+::string \&file\+Path)
+\item 
+void \mbox{\hyperlink{class_texture_a219a61880c960bc20b91c541d2b8eafa}{Set\+Font\+Texture}} (const GLuint \&width, const GLuint \&height, const void $\ast$data)
+\item 
+void \mbox{\hyperlink{class_texture_a26320d6eb03018bfbd13908941d7d18d}{Activate}} (GLenum Texture\+Slot)
+\item 
+void \mbox{\hyperlink{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}{Bind}} ()
+\item 
+void \mbox{\hyperlink{class_texture_a33fc12d5a64480dc06dba802f77b7482}{Un\+Bind}} ()
+\item 
+void \mbox{\hyperlink{class_texture_a653216bcd1509432e28502d9fc7826ce}{Delete}} ()
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_texture_a0a73afe0526a184bb108e3bd075bd308}{Get\+Image\+Size}} () const
+\item 
+GLuint \mbox{\hyperlink{class_texture_a3840586c64841936e7c2d2db5febe83e}{Get\+Image\+Width}} () const
+\item 
+GLuint \mbox{\hyperlink{class_texture_a81019d78a5e173478ad0e2b00447b289}{Get\+Image\+Height}} () const
+\item 
+int \mbox{\hyperlink{class_texture_a6724e69ea95347ec2b92012539417cfe}{Get\+Image\+Row}} () const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_texture_a870e08f06d79f3b0462f2c6a4782af04}{Get\+Image\+Column}} () const
+\item 
+int \mbox{\hyperlink{class_texture_ad1ff646c8f6eec85b23dd7fb21ef29bd}{Get\+Max\+Image\+Column}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_texture_a6c275e3f186675ff6ed73ccf970e552f}\label{class_texture_a6c275e3f186675ff6ed73ccf970e552f}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a9d738dbcf72029565e89106a546be723}\label{class_texture_a9d738dbcf72029565e89106a546be723}} 
+\index{Texture@{Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{const char $\ast$}]{src }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_a26320d6eb03018bfbd13908941d7d18d}\label{class_texture_a26320d6eb03018bfbd13908941d7d18d}} 
+\index{Texture@{Texture}!Activate@{Activate}}
+\index{Activate@{Activate}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Activate()}{Activate()}}
+{\footnotesize\ttfamily void Texture\+::\+Activate (\begin{DoxyParamCaption}\item[{GLenum}]{Texture\+Slot }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}\label{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}} 
+\index{Texture@{Texture}!Bind@{Bind}}
+\index{Bind@{Bind}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void Texture\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a653216bcd1509432e28502d9fc7826ce}\label{class_texture_a653216bcd1509432e28502d9fc7826ce}} 
+\index{Texture@{Texture}!Delete@{Delete}}
+\index{Delete@{Delete}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily void Texture\+::\+Delete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a870e08f06d79f3b0462f2c6a4782af04}\label{class_texture_a870e08f06d79f3b0462f2c6a4782af04}} 
+\index{Texture@{Texture}!GetImageColumn@{GetImageColumn}}
+\index{GetImageColumn@{GetImageColumn}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetImageColumn()}{GetImageColumn()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Texture\+::\+Get\+Image\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_a81019d78a5e173478ad0e2b00447b289}\label{class_texture_a81019d78a5e173478ad0e2b00447b289}} 
+\index{Texture@{Texture}!GetImageHeight@{GetImageHeight}}
+\index{GetImageHeight@{GetImageHeight}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetImageHeight()}{GetImageHeight()}}
+{\footnotesize\ttfamily GLuint Texture\+::\+Get\+Image\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_a6724e69ea95347ec2b92012539417cfe}\label{class_texture_a6724e69ea95347ec2b92012539417cfe}} 
+\index{Texture@{Texture}!GetImageRow@{GetImageRow}}
+\index{GetImageRow@{GetImageRow}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetImageRow()}{GetImageRow()}}
+{\footnotesize\ttfamily int Texture\+::\+Get\+Image\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_a0a73afe0526a184bb108e3bd075bd308}\label{class_texture_a0a73afe0526a184bb108e3bd075bd308}} 
+\index{Texture@{Texture}!GetImageSize@{GetImageSize}}
+\index{GetImageSize@{GetImageSize}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetImageSize()}{GetImageSize()}}
+{\footnotesize\ttfamily glm\+::vec2 Texture\+::\+Get\+Image\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_a3840586c64841936e7c2d2db5febe83e}\label{class_texture_a3840586c64841936e7c2d2db5febe83e}} 
+\index{Texture@{Texture}!GetImageWidth@{GetImageWidth}}
+\index{GetImageWidth@{GetImageWidth}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetImageWidth()}{GetImageWidth()}}
+{\footnotesize\ttfamily GLuint Texture\+::\+Get\+Image\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_ad1ff646c8f6eec85b23dd7fb21ef29bd}\label{class_texture_ad1ff646c8f6eec85b23dd7fb21ef29bd}} 
+\index{Texture@{Texture}!GetMaxImageColumn@{GetMaxImageColumn}}
+\index{GetMaxImageColumn@{GetMaxImageColumn}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{GetMaxImageColumn()}{GetMaxImageColumn()}}
+{\footnotesize\ttfamily int Texture\+::\+Get\+Max\+Image\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_texture_ae9d3c4645f3ae7c18356cfafd7a5f15a}\label{class_texture_ae9d3c4645f3ae7c18356cfafd7a5f15a}} 
+\index{Texture@{Texture}!ReadMeta@{ReadMeta}}
+\index{ReadMeta@{ReadMeta}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{ReadMeta()}{ReadMeta()}}
+{\footnotesize\ttfamily void Texture\+::\+Read\+Meta (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a219a61880c960bc20b91c541d2b8eafa}\label{class_texture_a219a61880c960bc20b91c541d2b8eafa}} 
+\index{Texture@{Texture}!SetFontTexture@{SetFontTexture}}
+\index{SetFontTexture@{SetFontTexture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{SetFontTexture()}{SetFontTexture()}}
+{\footnotesize\ttfamily void Texture\+::\+Set\+Font\+Texture (\begin{DoxyParamCaption}\item[{const GLuint \&}]{width,  }\item[{const GLuint \&}]{height,  }\item[{const void $\ast$}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a9c09c739c9fad4f615967eab1907c644}\label{class_texture_a9c09c739c9fad4f615967eab1907c644}} 
+\index{Texture@{Texture}!SetTexture@{SetTexture}}
+\index{SetTexture@{SetTexture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{SetTexture()}{SetTexture()}}
+{\footnotesize\ttfamily void Texture\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_texture_a33fc12d5a64480dc06dba802f77b7482}\label{class_texture_a33fc12d5a64480dc06dba802f77b7482}} 
+\index{Texture@{Texture}!UnBind@{UnBind}}
+\index{UnBind@{UnBind}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{UnBind()}{UnBind()}}
+{\footnotesize\ttfamily void Texture\+::\+Un\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Renderer/\mbox{\hyperlink{_texture_8h}{Texture.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Renderer/\mbox{\hyperlink{_texture_8cpp}{Texture.\+cpp}}\end{DoxyCompactItemize}

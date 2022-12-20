@@ -1,0 +1,57 @@
+\hypertarget{_u_i_object_8h_source}{}\doxysection{UIObject.\+h}
+\label{_u_i_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/UIObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/UIObject.h}}
+\mbox{\hyperlink{_u_i_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_engine_data_collector_8h}{Collector/EngineDataCollector.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{enum class} \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{SlicingType}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea61ab5155430461b48d7d41ee0778d0a3}{STRETCH}} = 0,}
+\DoxyCodeLine{12     \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea5be68175be14dfaa080165456c2e9555}{REPEAT}}}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_u_i_object}{UIObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_u_i_object_a18c7ede90b1bf53bafe6b7f140865b33}{m\_IsSlicing}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{19         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_a84c338afcc4f434b84f019c4871b7c4a}{m\_SlicingBorder}} = 40.0f;}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_a195b4dbc4a6de52bb52bb8fd366cf542}{m\_SlicingBorderMultiplier}} = 1.0f;}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_u_i_object_a89bdd4592901f362c5bfc01ef66f5708}{m\_StartGradientTexture}};}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}{m\_EndGradientTexture}};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_u_i_object_a874ea279098ee85f269c299450f9b91f}{m\_IsGradient}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{24         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_a52cd5b2e82d1cfd3c43c0d22b25f865f}{m\_GradientValue}} = 0.0f;}
+\DoxyCodeLine{25         \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{SlicingType}} \mbox{\hyperlink{class_u_i_object_a9d2de117583f3db710c3f533b1f8639a}{m\_SlicingType}} = \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea61ab5155430461b48d7d41ee0778d0a3}{SlicingType::STRETCH}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{30         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{33         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_u_i_object_aab5256df51e49a8df1400dcc35fd3ac4}{IsSlicing}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_a1791eb70eccf891cc33ef66f6d8bc488}{GetBorderSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_a1c92a79550b476495597c06375880131}{GetSlicingBorderMultiplier}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{36         \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{SlicingType}} \mbox{\hyperlink{class_u_i_object_a786267a9f0d3597248e944235af71426}{GetSlicingType}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{37         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}{IsGradient}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{38         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_u_i_object_aa4942d79cf8d317da5d79e4c457bad50}{GetGradientValue}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{39         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_u_i_object_a09a4eb7d7f3cee7cce4884e0ec2aa299}{GetStartGradientTexture}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{40         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_u_i_object_aabffc7bf8dceaad115c091f97be17fad}{GetEndGradientTexture}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}{SetIsSlicing}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{44         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_af3d2eddd9f108cc74c2172294bcbe6bc}{SetSlicingBorderSize}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& slicingBorderSize);}
+\DoxyCodeLine{45         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a344c2ef71f5c8a797f08b94378f67199}{SetSlicingBorderMultiplier}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& slicingBorderMultiplier);}
+\DoxyCodeLine{46         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a9f27cbcea116079f100b23e78cb5523c}{SetSlicingType}}(\textcolor{keyword}{const} \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{SlicingType}}\& slicingType);}
+\DoxyCodeLine{47         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}{SetIsGradient}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{48         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_abe36c18e54816b35229f7e47122ca3ae}{SetGradientValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& gradiantValue);}
+\DoxyCodeLine{49         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a76a81f8fcd6c01d5e79eab3a667155cf}{SetStartGradientTexture}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{50         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_object_a1664731da2d6547e2b4dcae951203069}{SetEndGradientTexture}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{51 \};}
+
+\end{DoxyCode}

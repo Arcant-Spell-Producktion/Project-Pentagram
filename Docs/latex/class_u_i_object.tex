@@ -1,0 +1,262 @@
+\hypertarget{class_u_i_object}{}\doxysection{UIObject Class Reference}
+\label{class_u_i_object}\index{UIObject@{UIObject}}
+
+
+{\ttfamily \#include $<$UIObject.\+h$>$}
+
+
+
+Inheritance diagram for UIObject\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for UIObject\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_u_i_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}} (const std\+::string \&obj\+Name)
+\item 
+virtual void \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
+\item 
+bool \mbox{\hyperlink{class_u_i_object_aab5256df51e49a8df1400dcc35fd3ac4}{Is\+Slicing}} () const
+\item 
+float \mbox{\hyperlink{class_u_i_object_a1791eb70eccf891cc33ef66f6d8bc488}{Get\+Border\+Size}} () const
+\item 
+float \mbox{\hyperlink{class_u_i_object_a1c92a79550b476495597c06375880131}{Get\+Slicing\+Border\+Multiplier}} () const
+\item 
+\mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} \mbox{\hyperlink{class_u_i_object_a786267a9f0d3597248e944235af71426}{Get\+Slicing\+Type}} () const
+\item 
+bool \mbox{\hyperlink{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}{Is\+Gradient}} () const
+\item 
+float \mbox{\hyperlink{class_u_i_object_aa4942d79cf8d317da5d79e4c457bad50}{Get\+Gradient\+Value}} () const
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_u_i_object_a09a4eb7d7f3cee7cce4884e0ec2aa299}{Get\+Start\+Gradient\+Texture}} () const
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_u_i_object_aabffc7bf8dceaad115c091f97be17fad}{Get\+End\+Gradient\+Texture}} () const
+\item 
+void \mbox{\hyperlink{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}{Set\+Is\+Slicing}} (const bool \&active)
+\item 
+void \mbox{\hyperlink{class_u_i_object_af3d2eddd9f108cc74c2172294bcbe6bc}{Set\+Slicing\+Border\+Size}} (const float \&slicing\+Border\+Size)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a344c2ef71f5c8a797f08b94378f67199}{Set\+Slicing\+Border\+Multiplier}} (const float \&slicing\+Border\+Multiplier)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a9f27cbcea116079f100b23e78cb5523c}{Set\+Slicing\+Type}} (const \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} \&slicing\+Type)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}{Set\+Is\+Gradient}} (const bool \&active)
+\item 
+void \mbox{\hyperlink{class_u_i_object_abe36c18e54816b35229f7e47122ca3ae}{Set\+Gradient\+Value}} (const float \&gradiant\+Value)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a76a81f8fcd6c01d5e79eab3a667155cf}{Set\+Start\+Gradient\+Texture}} (const std\+::string \&file\+Path)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a1664731da2d6547e2b4dcae951203069}{Set\+End\+Gradient\+Texture}} (const std\+::string \&file\+Path)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_u_i_object_a18c7ede90b1bf53bafe6b7f140865b33}{m\+\_\+\+Is\+Slicing}} = false
+\item 
+float \mbox{\hyperlink{class_u_i_object_a84c338afcc4f434b84f019c4871b7c4a}{m\+\_\+\+Slicing\+Border}} = 40.\+0f
+\item 
+float \mbox{\hyperlink{class_u_i_object_a195b4dbc4a6de52bb52bb8fd366cf542}{m\+\_\+\+Slicing\+Border\+Multiplier}} = 1.\+0f
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_u_i_object_a89bdd4592901f362c5bfc01ef66f5708}{m\+\_\+\+Start\+Gradient\+Texture}}
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}{m\+\_\+\+End\+Gradient\+Texture}}
+\item 
+bool \mbox{\hyperlink{class_u_i_object_a874ea279098ee85f269c299450f9b91f}{m\+\_\+\+Is\+Gradient}} = false
+\item 
+float \mbox{\hyperlink{class_u_i_object_a52cd5b2e82d1cfd3c43c0d22b25f865f}{m\+\_\+\+Gradient\+Value}} = 0.\+0f
+\item 
+\mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} \mbox{\hyperlink{class_u_i_object_a9d2de117583f3db710c3f533b1f8639a}{m\+\_\+\+Slicing\+Type}} = \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea61ab5155430461b48d7d41ee0778d0a3}{Slicing\+Type\+::\+STRETCH}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}\label{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}} 
+\index{UIObject@{UIObject}!UIObject@{UIObject}}
+\index{UIObject@{UIObject}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{UIObject()}{UIObject()}}
+{\footnotesize\ttfamily UIObject\+::\+UIObject (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}\label{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}} 
+\index{UIObject@{UIObject}!Draw@{Draw}}
+\index{Draw@{Draw}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void UIObject\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a9e9c5e4b492511d6152ee4d69bd460c2}{Game\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0}{Button}}, \mbox{\hyperlink{class_text_object_a7389c1af07e6a6b564415ae325d1b684}{Text\+Object}}, and \mbox{\hyperlink{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}{Slider}}.
+
+\mbox{\Hypertarget{class_u_i_object_a1791eb70eccf891cc33ef66f6d8bc488}\label{class_u_i_object_a1791eb70eccf891cc33ef66f6d8bc488}} 
+\index{UIObject@{UIObject}!GetBorderSize@{GetBorderSize}}
+\index{GetBorderSize@{GetBorderSize}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetBorderSize()}{GetBorderSize()}}
+{\footnotesize\ttfamily float UIObject\+::\+Get\+Border\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_aabffc7bf8dceaad115c091f97be17fad}\label{class_u_i_object_aabffc7bf8dceaad115c091f97be17fad}} 
+\index{UIObject@{UIObject}!GetEndGradientTexture@{GetEndGradientTexture}}
+\index{GetEndGradientTexture@{GetEndGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetEndGradientTexture()}{GetEndGradientTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} $\ast$ UIObject\+::\+Get\+End\+Gradient\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_aa4942d79cf8d317da5d79e4c457bad50}\label{class_u_i_object_aa4942d79cf8d317da5d79e4c457bad50}} 
+\index{UIObject@{UIObject}!GetGradientValue@{GetGradientValue}}
+\index{GetGradientValue@{GetGradientValue}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetGradientValue()}{GetGradientValue()}}
+{\footnotesize\ttfamily float UIObject\+::\+Get\+Gradient\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_a1c92a79550b476495597c06375880131}\label{class_u_i_object_a1c92a79550b476495597c06375880131}} 
+\index{UIObject@{UIObject}!GetSlicingBorderMultiplier@{GetSlicingBorderMultiplier}}
+\index{GetSlicingBorderMultiplier@{GetSlicingBorderMultiplier}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetSlicingBorderMultiplier()}{GetSlicingBorderMultiplier()}}
+{\footnotesize\ttfamily float UIObject\+::\+Get\+Slicing\+Border\+Multiplier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_a786267a9f0d3597248e944235af71426}\label{class_u_i_object_a786267a9f0d3597248e944235af71426}} 
+\index{UIObject@{UIObject}!GetSlicingType@{GetSlicingType}}
+\index{GetSlicingType@{GetSlicingType}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetSlicingType()}{GetSlicingType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} UIObject\+::\+Get\+Slicing\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_a09a4eb7d7f3cee7cce4884e0ec2aa299}\label{class_u_i_object_a09a4eb7d7f3cee7cce4884e0ec2aa299}} 
+\index{UIObject@{UIObject}!GetStartGradientTexture@{GetStartGradientTexture}}
+\index{GetStartGradientTexture@{GetStartGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{GetStartGradientTexture()}{GetStartGradientTexture()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} $\ast$ UIObject\+::\+Get\+Start\+Gradient\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}\label{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}} 
+\index{UIObject@{UIObject}!IsGradient@{IsGradient}}
+\index{IsGradient@{IsGradient}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{IsGradient()}{IsGradient()}}
+{\footnotesize\ttfamily bool UIObject\+::\+Is\+Gradient (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_aab5256df51e49a8df1400dcc35fd3ac4}\label{class_u_i_object_aab5256df51e49a8df1400dcc35fd3ac4}} 
+\index{UIObject@{UIObject}!IsSlicing@{IsSlicing}}
+\index{IsSlicing@{IsSlicing}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{IsSlicing()}{IsSlicing()}}
+{\footnotesize\ttfamily bool UIObject\+::\+Is\+Slicing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_u_i_object_a1664731da2d6547e2b4dcae951203069}\label{class_u_i_object_a1664731da2d6547e2b4dcae951203069}} 
+\index{UIObject@{UIObject}!SetEndGradientTexture@{SetEndGradientTexture}}
+\index{SetEndGradientTexture@{SetEndGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetEndGradientTexture()}{SetEndGradientTexture()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+End\+Gradient\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_abe36c18e54816b35229f7e47122ca3ae}\label{class_u_i_object_abe36c18e54816b35229f7e47122ca3ae}} 
+\index{UIObject@{UIObject}!SetGradientValue@{SetGradientValue}}
+\index{SetGradientValue@{SetGradientValue}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetGradientValue()}{SetGradientValue()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Gradient\+Value (\begin{DoxyParamCaption}\item[{const float \&}]{gradiant\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}\label{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}} 
+\index{UIObject@{UIObject}!SetIsGradient@{SetIsGradient}}
+\index{SetIsGradient@{SetIsGradient}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetIsGradient()}{SetIsGradient()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Is\+Gradient (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}\label{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}} 
+\index{UIObject@{UIObject}!SetIsSlicing@{SetIsSlicing}}
+\index{SetIsSlicing@{SetIsSlicing}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetIsSlicing()}{SetIsSlicing()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Is\+Slicing (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a344c2ef71f5c8a797f08b94378f67199}\label{class_u_i_object_a344c2ef71f5c8a797f08b94378f67199}} 
+\index{UIObject@{UIObject}!SetSlicingBorderMultiplier@{SetSlicingBorderMultiplier}}
+\index{SetSlicingBorderMultiplier@{SetSlicingBorderMultiplier}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetSlicingBorderMultiplier()}{SetSlicingBorderMultiplier()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Slicing\+Border\+Multiplier (\begin{DoxyParamCaption}\item[{const float \&}]{slicing\+Border\+Multiplier }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_af3d2eddd9f108cc74c2172294bcbe6bc}\label{class_u_i_object_af3d2eddd9f108cc74c2172294bcbe6bc}} 
+\index{UIObject@{UIObject}!SetSlicingBorderSize@{SetSlicingBorderSize}}
+\index{SetSlicingBorderSize@{SetSlicingBorderSize}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetSlicingBorderSize()}{SetSlicingBorderSize()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Slicing\+Border\+Size (\begin{DoxyParamCaption}\item[{const float \&}]{slicing\+Border\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a9f27cbcea116079f100b23e78cb5523c}\label{class_u_i_object_a9f27cbcea116079f100b23e78cb5523c}} 
+\index{UIObject@{UIObject}!SetSlicingType@{SetSlicingType}}
+\index{SetSlicingType@{SetSlicingType}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetSlicingType()}{SetSlicingType()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Slicing\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} \&}]{slicing\+Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a76a81f8fcd6c01d5e79eab3a667155cf}\label{class_u_i_object_a76a81f8fcd6c01d5e79eab3a667155cf}} 
+\index{UIObject@{UIObject}!SetStartGradientTexture@{SetStartGradientTexture}}
+\index{SetStartGradientTexture@{SetStartGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetStartGradientTexture()}{SetStartGradientTexture()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Start\+Gradient\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}\label{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}} 
+\index{UIObject@{UIObject}!m\_EndGradientTexture@{m\_EndGradientTexture}}
+\index{m\_EndGradientTexture@{m\_EndGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_EndGradientTexture}{m\_EndGradientTexture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}}$\ast$ UIObject\+::m\+\_\+\+End\+Gradient\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a52cd5b2e82d1cfd3c43c0d22b25f865f}\label{class_u_i_object_a52cd5b2e82d1cfd3c43c0d22b25f865f}} 
+\index{UIObject@{UIObject}!m\_GradientValue@{m\_GradientValue}}
+\index{m\_GradientValue@{m\_GradientValue}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_GradientValue}{m\_GradientValue}}
+{\footnotesize\ttfamily float UIObject\+::m\+\_\+\+Gradient\+Value = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a874ea279098ee85f269c299450f9b91f}\label{class_u_i_object_a874ea279098ee85f269c299450f9b91f}} 
+\index{UIObject@{UIObject}!m\_IsGradient@{m\_IsGradient}}
+\index{m\_IsGradient@{m\_IsGradient}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_IsGradient}{m\_IsGradient}}
+{\footnotesize\ttfamily bool UIObject\+::m\+\_\+\+Is\+Gradient = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a18c7ede90b1bf53bafe6b7f140865b33}\label{class_u_i_object_a18c7ede90b1bf53bafe6b7f140865b33}} 
+\index{UIObject@{UIObject}!m\_IsSlicing@{m\_IsSlicing}}
+\index{m\_IsSlicing@{m\_IsSlicing}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_IsSlicing}{m\_IsSlicing}}
+{\footnotesize\ttfamily bool UIObject\+::m\+\_\+\+Is\+Slicing = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a84c338afcc4f434b84f019c4871b7c4a}\label{class_u_i_object_a84c338afcc4f434b84f019c4871b7c4a}} 
+\index{UIObject@{UIObject}!m\_SlicingBorder@{m\_SlicingBorder}}
+\index{m\_SlicingBorder@{m\_SlicingBorder}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_SlicingBorder}{m\_SlicingBorder}}
+{\footnotesize\ttfamily float UIObject\+::m\+\_\+\+Slicing\+Border = 40.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a195b4dbc4a6de52bb52bb8fd366cf542}\label{class_u_i_object_a195b4dbc4a6de52bb52bb8fd366cf542}} 
+\index{UIObject@{UIObject}!m\_SlicingBorderMultiplier@{m\_SlicingBorderMultiplier}}
+\index{m\_SlicingBorderMultiplier@{m\_SlicingBorderMultiplier}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_SlicingBorderMultiplier}{m\_SlicingBorderMultiplier}}
+{\footnotesize\ttfamily float UIObject\+::m\+\_\+\+Slicing\+Border\+Multiplier = 1.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a9d2de117583f3db710c3f533b1f8639a}\label{class_u_i_object_a9d2de117583f3db710c3f533b1f8639a}} 
+\index{UIObject@{UIObject}!m\_SlicingType@{m\_SlicingType}}
+\index{m\_SlicingType@{m\_SlicingType}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_SlicingType}{m\_SlicingType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} UIObject\+::m\+\_\+\+Slicing\+Type = \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea61ab5155430461b48d7d41ee0778d0a3}{Slicing\+Type\+::\+STRETCH}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a89bdd4592901f362c5bfc01ef66f5708}\label{class_u_i_object_a89bdd4592901f362c5bfc01ef66f5708}} 
+\index{UIObject@{UIObject}!m\_StartGradientTexture@{m\_StartGradientTexture}}
+\index{m\_StartGradientTexture@{m\_StartGradientTexture}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_StartGradientTexture}{m\_StartGradientTexture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}}$\ast$ UIObject\+::m\+\_\+\+Start\+Gradient\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_u_i_object_8h}{UIObject.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_u_i_object_8cpp}{UIObject.\+cpp}}\end{DoxyCompactItemize}

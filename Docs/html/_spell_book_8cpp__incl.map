@@ -1,17 +1,19 @@
-<map id="Project&#45;Pentagram/Game/Spells/SpellBook.cpp" name="Project&#45;Pentagram/Game/Spells/SpellBook.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="321,5,491,47"/>
-<area shape="rect" id="node2" href="$_spell_book_8h.html" title=" " alt="" coords="81,102,173,129"/>
-<area shape="rect" id="node4" title=" " alt="" coords="141,259,213,285"/>
-<area shape="rect" id="node7" href="$tinyxml2_8h.html" title=" " alt="" coords="337,95,475,136"/>
-<area shape="rect" id="node14" title=" " alt="" coords="500,102,565,129"/>
-<area shape="rect" id="node15" title=" " alt="" coords="590,102,659,129"/>
-<area shape="rect" id="node3" href="$_spell_8h.html" title=" " alt="" coords="111,184,173,211"/>
-<area shape="rect" id="node6" href="$_element_8h.html" title=" " alt="" coords="5,184,87,211"/>
-<area shape="rect" id="node5" title=" " alt="" coords="57,259,112,285"/>
-<area shape="rect" id="node8" title=" " alt="" coords="249,184,310,211"/>
-<area shape="rect" id="node9" title=" " alt="" coords="335,184,395,211"/>
-<area shape="rect" id="node10" title=" " alt="" coords="419,184,476,211"/>
-<area shape="rect" id="node11" title=" " alt="" coords="500,184,560,211"/>
-<area shape="rect" id="node12" title=" " alt="" coords="585,184,646,211"/>
-<area shape="rect" id="node13" title=" " alt="" coords="671,184,736,211"/>
+<map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellBook.cpp" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellBook.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="631,5,804,61"/>
+<area shape="rect" id="node2" href="$_spell_book_8h.html" title=" " alt="" coords="322,109,414,136"/>
+<area shape="rect" id="node4" title=" " alt="" coords="552,259,624,285"/>
+<area shape="rect" id="node9" href="$tinyxml2_8h.html" title=" " alt="" coords="628,109,807,136"/>
+<area shape="rect" id="node16" title=" " alt="" coords="831,109,897,136"/>
+<area shape="rect" id="node17" title=" " alt="" coords="921,109,991,136"/>
+<area shape="rect" id="node3" href="$_spell_8h.html" title=" " alt="" coords="337,184,399,211"/>
+<area shape="rect" id="node8" href="$_element_8h.html" title=" " alt="" coords="5,259,165,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="286,333,341,360"/>
+<area shape="rect" id="node6" href="$_spell_effect_type_8h.html" title=" " alt="" coords="405,259,528,285"/>
+<area shape="rect" id="node7" href="$_channel_effect_type_8h.html" title=" " alt="" coords="189,259,331,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="819,184,880,211"/>
+<area shape="rect" id="node11" title=" " alt="" coords="905,184,965,211"/>
+<area shape="rect" id="node12" title=" " alt="" coords="989,184,1046,211"/>
+<area shape="rect" id="node13" title=" " alt="" coords="558,184,618,211"/>
+<area shape="rect" id="node14" title=" " alt="" coords="643,184,704,211"/>
+<area shape="rect" id="node15" title=" " alt="" coords="729,184,794,211"/>
 </map>

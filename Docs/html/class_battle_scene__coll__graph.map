@@ -1,5 +1,8 @@
 <map id="BattleScene" name="BattleScene">
-<area shape="rect" id="node1" title=" " alt="" coords="6,171,99,197"/>
-<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="5,95,100,121"/>
-<area shape="rect" id="node3" href="$class_camera.html" title=" " alt="" coords="19,5,86,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="165,171,258,197"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="164,95,259,121"/>
+<area shape="rect" id="node3" href="$class_i_game_object_manager.html" title=" " alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node4" href="$class_audio_controller.html" title=" " alt="" coords="356,5,467,32"/>
+<area shape="rect" id="node5" href="$class_singleton.html" title=" " alt="" coords="353,95,541,121"/>
+<area shape="rect" id="node6" href="$class_camera.html" title=" " alt="" coords="178,5,245,32"/>
 </map>

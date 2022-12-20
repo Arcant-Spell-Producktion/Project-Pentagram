@@ -1,0 +1,96 @@
+\hypertarget{class_audio_engine}{}\doxysection{Audio\+Engine Class Reference}
+\label{class_audio_engine}\index{AudioEngine@{AudioEngine}}
+
+
+{\ttfamily \#include $<$Audio\+Engine.\+h$>$}
+
+
+
+Inheritance diagram for Audio\+Engine\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_audio_engine__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Audio\+Engine\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_audio_engine__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_audio_engine_ae2f13eeba683cd73f5ab4dd5b5e1a670}{Audio\+Engine}} ()
+\item 
+void \mbox{\hyperlink{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}{Load\+Resource}} ()
+\item 
+\mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ \mbox{\hyperlink{class_audio_engine_a38ecc2fc17d5f06aea6a1ac122480e8f}{find\+SFXAudio\+Source}} (const std\+::string \&file\+Path)
+\item 
+\mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ \mbox{\hyperlink{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}{find\+BGMAudio\+Source}} (const std\+::string \&file\+Path)
+\item 
+irrklang\+::\+ISound\+Engine $\ast$ \mbox{\hyperlink{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}{Get\+Engine}} ()
+\item 
+float \mbox{\hyperlink{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}{Get\+Master\+Volume}} ()
+\item 
+void \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Free}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_audio_engine_ae2f13eeba683cd73f5ab4dd5b5e1a670}\label{class_audio_engine_ae2f13eeba683cd73f5ab4dd5b5e1a670}} 
+\index{AudioEngine@{AudioEngine}!AudioEngine@{AudioEngine}}
+\index{AudioEngine@{AudioEngine}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{AudioEngine()}{AudioEngine()}}
+{\footnotesize\ttfamily Audio\+Engine\+::\+Audio\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}\label{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}} 
+\index{AudioEngine@{AudioEngine}!findBGMAudioSource@{findBGMAudioSource}}
+\index{findBGMAudioSource@{findBGMAudioSource}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{findBGMAudioSource()}{findBGMAudioSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ Audio\+Engine\+::find\+BGMAudio\+Source (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a38ecc2fc17d5f06aea6a1ac122480e8f}\label{class_audio_engine_a38ecc2fc17d5f06aea6a1ac122480e8f}} 
+\index{AudioEngine@{AudioEngine}!findSFXAudioSource@{findSFXAudioSource}}
+\index{findSFXAudioSource@{findSFXAudioSource}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{findSFXAudioSource()}{findSFXAudioSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ Audio\+Engine\+::find\+SFXAudio\+Source (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}\label{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}} 
+\index{AudioEngine@{AudioEngine}!Free@{Free}}
+\index{Free@{Free}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{Free()}{Free()}}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}\label{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}} 
+\index{AudioEngine@{AudioEngine}!GetEngine@{GetEngine}}
+\index{GetEngine@{GetEngine}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetEngine()}{GetEngine()}}
+{\footnotesize\ttfamily irrklang\+::\+ISound\+Engine $\ast$ Audio\+Engine\+::\+Get\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}\label{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}} 
+\index{AudioEngine@{AudioEngine}!GetMasterVolume@{GetMasterVolume}}
+\index{GetMasterVolume@{GetMasterVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetMasterVolume()}{GetMasterVolume()}}
+{\footnotesize\ttfamily float Audio\+Engine\+::\+Get\+Master\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}\label{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}} 
+\index{AudioEngine@{AudioEngine}!LoadResource@{LoadResource}}
+\index{LoadResource@{LoadResource}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{LoadResource()}{LoadResource()}}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Load\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Audio/\mbox{\hyperlink{_audio_engine_8h}{Audio\+Engine.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Audio/\mbox{\hyperlink{_audio_engine_8cpp}{Audio\+Engine.\+cpp}}\end{DoxyCompactItemize}

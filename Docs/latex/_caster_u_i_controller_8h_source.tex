@@ -1,0 +1,26 @@
+\hypertarget{_caster_u_i_controller_8h_source}{}\doxysection{Caster\+UIController.\+h}
+\label{_caster_u_i_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterUIController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterUIController.h}}
+\mbox{\hyperlink{_caster_u_i_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_stat_8h}{Game/GameData/CasterData/CasterStat.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_2_caster_detail_u_i_8h}{Game/BattleScene/GameObject/CasterDetailUI.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_detail_u_i_8h}{Game/BattleScene/GameObject/SpellDetailUI.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_u_i_controller}{CasterUIController}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_caster_detail_u_i}{CasterDetailUI}}* m\_StatUI;}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_spell_detail_u_i}{SpellDetailUI}}* m\_DetailBox;}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_caster_u_i_controller_a61fa18bfd05706e74796e9542d9176c3}{CasterUIController}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_u_i_controller_ad423f200a02b8ad7d1454edae0fd32a4}{SetStat}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat);}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_u_i_controller_af3de79e1502220e8f1aff4a27a428482}{SetDetail}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell, \textcolor{keywordtype}{bool} isMainData = \textcolor{keyword}{false}, glm::vec3 IconPos = \{ 0,0,0 \});}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_u_i_controller_a97e860b5f97048f4d7e0e443abe114b7}{UpdateEffectBar}}(std::vector<EffectDetail\_T> effects);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \};}
+
+\end{DoxyCode}

@@ -1,6 +1,10 @@
-<map id="Project&#45;Pentagram/Game/BattleScene/SpellCaster/CastSpellDetail.h" name="Project&#45;Pentagram/Game/BattleScene/SpellCaster/CastSpellDetail.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,175,61"/>
-<area shape="rect" id="node2" href="$_spell_8h.html" title=" " alt="" coords="19,109,161,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="10,184,82,211"/>
-<area shape="rect" id="node4" title=" " alt="" coords="107,184,161,211"/>
+<map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/SpellCaster/CastSpellDetail.h" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/SpellCaster/CastSpellDetail.h">
+<area shape="rect" id="node1" title=" " alt="" coords="109,5,283,76"/>
+<area shape="rect" id="node2" href="$_caster_position_8h.html" title=" " alt="" coords="5,124,197,165"/>
+<area shape="rect" id="node3" href="$_spell_8h.html" title=" " alt="" coords="221,131,363,158"/>
+<area shape="rect" id="node4" title=" " alt="" coords="84,213,156,240"/>
+<area shape="rect" id="node5" title=" " alt="" coords="342,288,397,315"/>
+<area shape="rect" id="node6" href="$_spell_effect_type_8h.html" title=" " alt="" coords="231,213,353,240"/>
+<area shape="rect" id="node7" href="$_channel_effect_type_8h.html" title=" " alt="" coords="377,213,519,240"/>
+<area shape="rect" id="node8" href="$_element_8h.html" title=" " alt="" coords="543,213,703,240"/>
 </map>

@@ -1,0 +1,145 @@
+\hypertarget{class_cast_spell_detail}{}\doxysection{Cast\+Spell\+Detail Class Reference}
+\label{class_cast_spell_detail}\index{CastSpellDetail@{CastSpellDetail}}
+
+
+{\ttfamily \#include $<$Cast\+Spell\+Detail.\+h$>$}
+
+
+
+Collaboration diagram for Cast\+Spell\+Detail\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{class_cast_spell_detail__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_a21e42e7a0361da89d29a5cd92012de1b}{Get\+Index}} () const
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_a4c5ed17a8b5c1dbe08b0d21aa2d9baa6}{Get\+Damage}} () const
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_af6680b04c3644e6cbf0ff0f3024396c4}{Get\+Effect\+Value}} () const
+\item 
+\mbox{\hyperlink{class_cast_spell_detail_a845cf45a0d78c99e7a01ee48cd42c4f2}{Cast\+Spell\+Detail}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} position, \mbox{\hyperlink{class_spell}{Spell}} $\ast$spell, int will, int effect, int time=0, bool is\+Cted=false, bool do\+\_\+cast=false)
+\item 
+void \mbox{\hyperlink{class_cast_spell_detail_a31c382bfa8afb4ab65a1f311839a1abc}{Update\+Detail}} (int will, int effect, int time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} \mbox{\hyperlink{class_cast_spell_detail_a174d2e3ff35c6c1f76a6fb6c8937c57f}{Spell\+Owner}}
+\item 
+\mbox{\hyperlink{class_spell}{Spell}} $\ast$ \mbox{\hyperlink{class_cast_spell_detail_a93825a06c587c53efbec58ae6d114ca8}{Original\+Spell}}
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_a6b18b3e67d632dd8dfa2515f16d2ec06}{Selected\+Will}}
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_aa1e4fa3369de6c38a6a382858368d868}{Selected\+Effect}}
+\item 
+int \mbox{\hyperlink{class_cast_spell_detail_a43d535f5f45db1cb2d4628cdbee69ded}{Selected\+Time}}
+\item 
+bool \mbox{\hyperlink{class_cast_spell_detail_abff0f211ac057250515bfc6ff505d69b}{is\+Casted}} = false
+\item 
+bool \mbox{\hyperlink{class_cast_spell_detail_a210334c41da7a23227eea73e2f9584a2}{do\+Cast}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{class_cast_spell_detail_a84836beaef2f3de9f38f5288a39872a1}{operator$<$$<$}} (ostream \&os, const \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} \&detail)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_cast_spell_detail_a845cf45a0d78c99e7a01ee48cd42c4f2}\label{class_cast_spell_detail_a845cf45a0d78c99e7a01ee48cd42c4f2}} 
+\index{CastSpellDetail@{CastSpellDetail}!CastSpellDetail@{CastSpellDetail}}
+\index{CastSpellDetail@{CastSpellDetail}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{CastSpellDetail()}{CastSpellDetail()}}
+{\footnotesize\ttfamily Cast\+Spell\+Detail\+::\+Cast\+Spell\+Detail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{position,  }\item[{\mbox{\hyperlink{class_spell}{Spell}} $\ast$}]{spell,  }\item[{int}]{will,  }\item[{int}]{effect,  }\item[{int}]{time = {\ttfamily 0},  }\item[{bool}]{is\+Cted = {\ttfamily false},  }\item[{bool}]{do\+\_\+cast = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cast_spell_detail_a4c5ed17a8b5c1dbe08b0d21aa2d9baa6}\label{class_cast_spell_detail_a4c5ed17a8b5c1dbe08b0d21aa2d9baa6}} 
+\index{CastSpellDetail@{CastSpellDetail}!GetDamage@{GetDamage}}
+\index{GetDamage@{GetDamage}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{GetDamage()}{GetDamage()}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cast_spell_detail_af6680b04c3644e6cbf0ff0f3024396c4}\label{class_cast_spell_detail_af6680b04c3644e6cbf0ff0f3024396c4}} 
+\index{CastSpellDetail@{CastSpellDetail}!GetEffectValue@{GetEffectValue}}
+\index{GetEffectValue@{GetEffectValue}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{GetEffectValue()}{GetEffectValue()}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Get\+Effect\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a21e42e7a0361da89d29a5cd92012de1b}\label{class_cast_spell_detail_a21e42e7a0361da89d29a5cd92012de1b}} 
+\index{CastSpellDetail@{CastSpellDetail}!GetIndex@{GetIndex}}
+\index{GetIndex@{GetIndex}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{GetIndex()}{GetIndex()}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Get\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a31c382bfa8afb4ab65a1f311839a1abc}\label{class_cast_spell_detail_a31c382bfa8afb4ab65a1f311839a1abc}} 
+\index{CastSpellDetail@{CastSpellDetail}!UpdateDetail@{UpdateDetail}}
+\index{UpdateDetail@{UpdateDetail}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{UpdateDetail()}{UpdateDetail()}}
+{\footnotesize\ttfamily void Cast\+Spell\+Detail\+::\+Update\+Detail (\begin{DoxyParamCaption}\item[{int}]{will,  }\item[{int}]{effect,  }\item[{int}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_cast_spell_detail_a84836beaef2f3de9f38f5288a39872a1}\label{class_cast_spell_detail_a84836beaef2f3de9f38f5288a39872a1}} 
+\index{CastSpellDetail@{CastSpellDetail}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} \&}]{detail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_cast_spell_detail_a210334c41da7a23227eea73e2f9584a2}\label{class_cast_spell_detail_a210334c41da7a23227eea73e2f9584a2}} 
+\index{CastSpellDetail@{CastSpellDetail}!doCast@{doCast}}
+\index{doCast@{doCast}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{doCast}{doCast}}
+{\footnotesize\ttfamily bool Cast\+Spell\+Detail\+::do\+Cast = false}
+
+\mbox{\Hypertarget{class_cast_spell_detail_abff0f211ac057250515bfc6ff505d69b}\label{class_cast_spell_detail_abff0f211ac057250515bfc6ff505d69b}} 
+\index{CastSpellDetail@{CastSpellDetail}!isCasted@{isCasted}}
+\index{isCasted@{isCasted}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{isCasted}{isCasted}}
+{\footnotesize\ttfamily bool Cast\+Spell\+Detail\+::is\+Casted = false}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a93825a06c587c53efbec58ae6d114ca8}\label{class_cast_spell_detail_a93825a06c587c53efbec58ae6d114ca8}} 
+\index{CastSpellDetail@{CastSpellDetail}!OriginalSpell@{OriginalSpell}}
+\index{OriginalSpell@{OriginalSpell}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{OriginalSpell}{OriginalSpell}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_spell}{Spell}}$\ast$ Cast\+Spell\+Detail\+::\+Original\+Spell}
+
+\mbox{\Hypertarget{class_cast_spell_detail_aa1e4fa3369de6c38a6a382858368d868}\label{class_cast_spell_detail_aa1e4fa3369de6c38a6a382858368d868}} 
+\index{CastSpellDetail@{CastSpellDetail}!SelectedEffect@{SelectedEffect}}
+\index{SelectedEffect@{SelectedEffect}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{SelectedEffect}{SelectedEffect}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Selected\+Effect}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a43d535f5f45db1cb2d4628cdbee69ded}\label{class_cast_spell_detail_a43d535f5f45db1cb2d4628cdbee69ded}} 
+\index{CastSpellDetail@{CastSpellDetail}!SelectedTime@{SelectedTime}}
+\index{SelectedTime@{SelectedTime}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{SelectedTime}{SelectedTime}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Selected\+Time}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a6b18b3e67d632dd8dfa2515f16d2ec06}\label{class_cast_spell_detail_a6b18b3e67d632dd8dfa2515f16d2ec06}} 
+\index{CastSpellDetail@{CastSpellDetail}!SelectedWill@{SelectedWill}}
+\index{SelectedWill@{SelectedWill}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{SelectedWill}{SelectedWill}}
+{\footnotesize\ttfamily int Cast\+Spell\+Detail\+::\+Selected\+Will}
+
+\mbox{\Hypertarget{class_cast_spell_detail_a174d2e3ff35c6c1f76a6fb6c8937c57f}\label{class_cast_spell_detail_a174d2e3ff35c6c1f76a6fb6c8937c57f}} 
+\index{CastSpellDetail@{CastSpellDetail}!SpellOwner@{SpellOwner}}
+\index{SpellOwner@{SpellOwner}!CastSpellDetail@{CastSpellDetail}}
+\doxysubsubsection{\texorpdfstring{SpellOwner}{SpellOwner}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} Cast\+Spell\+Detail\+::\+Spell\+Owner}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Caster/\mbox{\hyperlink{_cast_spell_detail_8h}{Cast\+Spell\+Detail.\+h}}\end{DoxyCompactItemize}

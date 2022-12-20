@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/Scene/NodeScene.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/Scene/NodeScene.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,26 +71,27 @@ $(function() {
 <div class="contents">
 <a href="_node_scene_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../GameScene.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_node_scene.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_node_scene.html">NodeScene</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_game_scene.html">GameScene</a></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#af833170ab010c598fdeacf20f739c0fa">GameSceneLoad</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#a0e413eef22992dc0c14c52d343fe115c">GameSceneInit</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#aba1034718b75eaa8d48d7d3894f7c423">GameSceneUpdate</a>(<span class="keywordtype">double</span> dt) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#a69f81b140277653a523013649c7ee9f6">GameSceneDraw</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#aa130695d271a7cb0ba145cb1b14e7c1b">GameSceneUnload</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_game_scene_8h.html">Engine/GameScene.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_manager_8h.html">Engine/SceneManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_input_8h.html">Engine/Input.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_node_scene.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_node_scene.html">NodeScene</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_game_scene.html">GameScene</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#af833170ab010c598fdeacf20f739c0fa">GameSceneLoad</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#a0e413eef22992dc0c14c52d343fe115c">GameSceneInit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#a1d9a3ba547704f54eaa8ee1baf7788a4">GameSceneUpdate</a>(<span class="keywordtype">float</span> dt) <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_node_scene.html#a358b01aad403aab6691cd4298c69eacd">GameSceneFree</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
-<div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdef"><b>Definition:</b> GameScene.h:15</div></div>
-<div class="ttc" id="aclass_node_scene_html"><div class="ttname"><a href="class_node_scene.html">NodeScene</a></div><div class="ttdef"><b>Definition:</b> NodeScene.h:6</div></div>
-<div class="ttc" id="aclass_node_scene_html_a0e413eef22992dc0c14c52d343fe115c"><div class="ttname"><a href="class_node_scene.html#a0e413eef22992dc0c14c52d343fe115c">NodeScene::GameSceneInit</a></div><div class="ttdeci">virtual void GameSceneInit() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:10</div></div>
-<div class="ttc" id="aclass_node_scene_html_a358b01aad403aab6691cd4298c69eacd"><div class="ttname"><a href="class_node_scene.html#a358b01aad403aab6691cd4298c69eacd">NodeScene::GameSceneFree</a></div><div class="ttdeci">virtual void GameSceneFree() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:30</div></div>
-<div class="ttc" id="aclass_node_scene_html_a69f81b140277653a523013649c7ee9f6"><div class="ttname"><a href="class_node_scene.html#a69f81b140277653a523013649c7ee9f6">NodeScene::GameSceneDraw</a></div><div class="ttdeci">virtual void GameSceneDraw() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:20</div></div>
-<div class="ttc" id="aclass_node_scene_html_aa130695d271a7cb0ba145cb1b14e7c1b"><div class="ttname"><a href="class_node_scene.html#aa130695d271a7cb0ba145cb1b14e7c1b">NodeScene::GameSceneUnload</a></div><div class="ttdeci">virtual void GameSceneUnload() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:25</div></div>
-<div class="ttc" id="aclass_node_scene_html_aba1034718b75eaa8d48d7d3894f7c423"><div class="ttname"><a href="class_node_scene.html#aba1034718b75eaa8d48d7d3894f7c423">NodeScene::GameSceneUpdate</a></div><div class="ttdeci">virtual void GameSceneUpdate(double dt) override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:15</div></div>
-<div class="ttc" id="aclass_node_scene_html_af833170ab010c598fdeacf20f739c0fa"><div class="ttname"><a href="class_node_scene.html#af833170ab010c598fdeacf20f739c0fa">NodeScene::GameSceneLoad</a></div><div class="ttdeci">virtual void GameSceneLoad() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:5</div></div>
+<div class="ttc" id="a_game_scene_8h_html"><div class="ttname"><a href="_game_scene_8h.html">GameScene.h</a></div></div>
+<div class="ttc" id="a_input_8h_html"><div class="ttname"><a href="_input_8h.html">Input.h</a></div></div>
+<div class="ttc" id="a_scene_manager_8h_html"><div class="ttname"><a href="_scene_manager_8h.html">SceneManager.h</a></div></div>
+<div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
+<div class="ttc" id="aclass_node_scene_html"><div class="ttname"><a href="class_node_scene.html">NodeScene</a></div><div class="ttdef"><b>Definition:</b> NodeScene.h:8</div></div>
+<div class="ttc" id="aclass_node_scene_html_a0e413eef22992dc0c14c52d343fe115c"><div class="ttname"><a href="class_node_scene.html#a0e413eef22992dc0c14c52d343fe115c">NodeScene::GameSceneInit</a></div><div class="ttdeci">virtual void GameSceneInit() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:8</div></div>
+<div class="ttc" id="aclass_node_scene_html_a1d9a3ba547704f54eaa8ee1baf7788a4"><div class="ttname"><a href="class_node_scene.html#a1d9a3ba547704f54eaa8ee1baf7788a4">NodeScene::GameSceneUpdate</a></div><div class="ttdeci">virtual void GameSceneUpdate(float dt) override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:13</div></div>
+<div class="ttc" id="aclass_node_scene_html_a358b01aad403aab6691cd4298c69eacd"><div class="ttname"><a href="class_node_scene.html#a358b01aad403aab6691cd4298c69eacd">NodeScene::GameSceneFree</a></div><div class="ttdeci">virtual void GameSceneFree() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:18</div></div>
+<div class="ttc" id="aclass_node_scene_html_af833170ab010c598fdeacf20f739c0fa"><div class="ttname"><a href="class_node_scene.html#af833170ab010c598fdeacf20f739c0fa">NodeScene::GameSceneLoad</a></div><div class="ttdeci">virtual void GameSceneLoad() override</div><div class="ttdef"><b>Definition:</b> NodeScene.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

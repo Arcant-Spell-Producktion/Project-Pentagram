@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['invokestate_0',['InvokeState',['../_battle_manager_8h.html#a17557ce1a5334619a8e02831bf82ba1fa0829dc221a39588041edaf7d8b4d745a',1,'BattleManager.h']]],
-  ['items_5fper_5fblock_1',['ITEMS_PER_BLOCK',['../classtinyxml2_1_1_mem_pool_t.html#ad6d343fa8b216c77d62888389f3e639aab72c1e16d6626854c41feb19e60c54d1',1,'tinyxml2::MemPoolT']]]
+  ['hit_0',['Hit',['../_spell_controller_8h.html#a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d',1,'SpellController.h']]],
+  ['hover_1',['Hover',['../class_pentagram_scroll_button.html#a4bd0c5af0f6e2d20bedb6bcb0b69371daeee0168be69b854c20621fc6f01cc3fc',1,'PentagramScrollButton']]]
 ];

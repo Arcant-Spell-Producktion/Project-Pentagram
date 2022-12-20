@@ -1,0 +1,384 @@
+\hypertarget{class_game_scene}{}\doxysection{Game\+Scene Class Reference}
+\label{class_game_scene}\index{GameScene@{GameScene}}
+
+
+{\ttfamily \#include $<$Game\+Scene.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Scene\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Scene\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_game_scene__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_game_scene_add5bc48c372aaa7f526c02558a8adf00}{$\sim$\+Game\+Scene}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}{Game\+Scene\+Load}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}{Game\+Scene\+Init}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}{Game\+Scene\+Update}} (float dt)
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}{Game\+Scene\+Draw}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}{Game\+Scene\+Unload}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}{Game\+Scene\+Free}} ()
+\item 
+virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ \mbox{\hyperlink{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}{Create\+Game\+Object}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}, const int \&anim\+Row=1, const std\+::vector$<$ int $>$ \&anim\+Col=\{ 1 \}) override
+\item 
+virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{Create\+Particle}} (\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&particle\+Property) override
+\item 
+virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ \mbox{\hyperlink{class_game_scene_aa6651a7c068734a80fb8717f2ab96a16}{Create\+Particle}} (const std\+::string \&obj\+Name, \mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&particle\+Property) override
+\item 
+virtual \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ \mbox{\hyperlink{class_game_scene_aa0b35732d6a2b50f74999985dda19982}{Create\+UIObject}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}) override
+\item 
+virtual \mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$ \mbox{\hyperlink{class_game_scene_aa9334cf40b72433b5e1d71302916abde}{Create\+Text\+Object}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}) override
+\item 
+virtual \mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}{Create\+Button}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}) override
+\item 
+virtual \mbox{\hyperlink{class_slider}{Slider}} $\ast$ \mbox{\hyperlink{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}{Create\+Slider}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}) override
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}{Delete\+Object\+By\+Name}} (const std\+::string \&obj\+Name) override
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a06dd5348bf128fb65720731931e8060b}{Delete\+Object\+By\+Pointer}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$obj\+Ptr) override
+\item 
+virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ \mbox{\hyperlink{class_game_scene_aaea2990b4daff20b185e1359a40bd870}{Find\+Object}} (const std\+::string \&obj\+Name) override
+\item 
+void \mbox{\hyperlink{class_game_scene_af9adaa92fd98610506491805317c5912}{Update\+Button\+Events}} ()
+\item 
+void \mbox{\hyperlink{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}{Update\+Scale\+Delta\+Time}} (float delta\+Time)
+\item 
+void \mbox{\hyperlink{class_game_scene_a84ac480d4f56888c9f35008c94977d20}{Update\+Delete\+Object}} ()
+\item 
+\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ \mbox{\hyperlink{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}{Get\+Audio\+Controller}} () const
+\item 
+\mbox{\hyperlink{class_camera}{Camera}} $\ast$ \mbox{\hyperlink{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}{Get\+Camera}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a36bac64867a2f44cd740d673995f79b0}{Add\+Game\+Object\+To\+List}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$object) override
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}{Add\+UIObject\+To\+List}} (\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$object) override
+\item 
+virtual void \mbox{\hyperlink{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}{Add\+Button\+To\+List}} (\mbox{\hyperlink{class_button}{Button}} $\ast$object) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_scene_ab084ec7c43902547f8b763128c2d4ab0}{objects\+List}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ $>$ \mbox{\hyperlink{class_game_scene_a024096d4399d541a7d5b222ff55eabc7}{ui\+Objects\+List}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}{button\+Objects\+List}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_scene_a070f8589187d0602d73ad3cca75de568}{objects\+To\+Delete\+List}}
+\item 
+\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ \mbox{\hyperlink{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}{audio\+Controller}} = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()
+\item 
+\mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}{camera}}
+\item 
+float \mbox{\hyperlink{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}{time\+Scale}} = 1.\+0f
+\item 
+float \mbox{\hyperlink{class_game_scene_a5d87bc5e71cdac82989c8cb686d6b767}{scaled\+Delta\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_scene_add5bc48c372aaa7f526c02558a8adf00}\label{class_game_scene_add5bc48c372aaa7f526c02558a8adf00}} 
+\index{GameScene@{GameScene}!````~GameScene@{$\sim$GameScene}}
+\index{````~GameScene@{$\sim$GameScene}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameScene()}{~GameScene()}}
+{\footnotesize\ttfamily Game\+Scene\+::$\sim$\+Game\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}\label{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}} 
+\index{GameScene@{GameScene}!AddButtonToList@{AddButtonToList}}
+\index{AddButtonToList@{AddButtonToList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{AddButtonToList()}{AddButtonToList()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Add\+Button\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_button}{Button}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a36bac64867a2f44cd740d673995f79b0}\label{class_game_scene_a36bac64867a2f44cd740d673995f79b0}} 
+\index{GameScene@{GameScene}!AddGameObjectToList@{AddGameObjectToList}}
+\index{AddGameObjectToList@{AddGameObjectToList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{AddGameObjectToList()}{AddGameObjectToList()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Add\+Game\+Object\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}\label{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}} 
+\index{GameScene@{GameScene}!AddUIObjectToList@{AddUIObjectToList}}
+\index{AddUIObjectToList@{AddUIObjectToList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{AddUIObjectToList()}{AddUIObjectToList()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Add\+UIObject\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}\label{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}} 
+\index{GameScene@{GameScene}!CreateButton@{CreateButton}}
+\index{CreateButton@{CreateButton}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateButton()}{CreateButton()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_button}{Button}} $\ast$ Game\+Scene\+::\+Create\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_abc48e5733d2330b8fef124c22d28102f}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}\label{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}} 
+\index{GameScene@{GameScene}!CreateGameObject@{CreateGameObject}}
+\index{CreateGameObject@{CreateGameObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateGameObject()}{CreateGameObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ Game\+Scene\+::\+Create\+Game\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const int \&}]{anim\+Row = {\ttfamily 1},  }\item[{const std\+::vector$<$ int $>$ \&}]{anim\+Col = {\ttfamily \{~1~\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_ae54aa9fc26e729881a8980ca2a9f9205}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_aa6651a7c068734a80fb8717f2ab96a16}\label{class_game_scene_aa6651a7c068734a80fb8717f2ab96a16}} 
+\index{GameScene@{GameScene}!CreateParticle@{CreateParticle}}
+\index{CreateParticle@{CreateParticle}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateParticle()}{CreateParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ Game\+Scene\+::\+Create\+Particle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name,  }\item[{\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&}]{particle\+Property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_ac27fb29500632fa77a7172f8b5983914}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}\label{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}} 
+\index{GameScene@{GameScene}!CreateParticle@{CreateParticle}}
+\index{CreateParticle@{CreateParticle}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateParticle()}{CreateParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ Game\+Scene\+::\+Create\+Particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&}]{particle\+Property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a285483be059150b116cf73b05d15d6ca}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}\label{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}} 
+\index{GameScene@{GameScene}!CreateSlider@{CreateSlider}}
+\index{CreateSlider@{CreateSlider}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateSlider()}{CreateSlider()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_slider}{Slider}} $\ast$ Game\+Scene\+::\+Create\+Slider (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a78acb1e687707254799732528eadd4e3}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_aa9334cf40b72433b5e1d71302916abde}\label{class_game_scene_aa9334cf40b72433b5e1d71302916abde}} 
+\index{GameScene@{GameScene}!CreateTextObject@{CreateTextObject}}
+\index{CreateTextObject@{CreateTextObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateTextObject()}{CreateTextObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$ Game\+Scene\+::\+Create\+Text\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a16cc4e27442ac7434fa98e642948bc91}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_aa0b35732d6a2b50f74999985dda19982}\label{class_game_scene_aa0b35732d6a2b50f74999985dda19982}} 
+\index{GameScene@{GameScene}!CreateUIObject@{CreateUIObject}}
+\index{CreateUIObject@{CreateUIObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{CreateUIObject()}{CreateUIObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ Game\+Scene\+::\+Create\+UIObject (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a74265a3604541beb73d7f46283660791}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}\label{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}} 
+\index{GameScene@{GameScene}!DeleteObjectByName@{DeleteObjectByName}}
+\index{DeleteObjectByName@{DeleteObjectByName}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{DeleteObjectByName()}{DeleteObjectByName()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Delete\+Object\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_ae54c37297d068028c34178ca362bf763}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a06dd5348bf128fb65720731931e8060b}\label{class_game_scene_a06dd5348bf128fb65720731931e8060b}} 
+\index{GameScene@{GameScene}!DeleteObjectByPointer@{DeleteObjectByPointer}}
+\index{DeleteObjectByPointer@{DeleteObjectByPointer}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{DeleteObjectByPointer()}{DeleteObjectByPointer()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Delete\+Object\+By\+Pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{obj\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a112e2701e257e5b0fcf83bd94d72636d}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_aaea2990b4daff20b185e1359a40bd870}\label{class_game_scene_aaea2990b4daff20b185e1359a40bd870}} 
+\index{GameScene@{GameScene}!FindObject@{FindObject}}
+\index{FindObject@{FindObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{FindObject()}{FindObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ Game\+Scene\+::\+Find\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}{IGame\+Object\+Manager}}.
+
+\mbox{\Hypertarget{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}\label{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}} 
+\index{GameScene@{GameScene}!GameSceneDraw@{GameSceneDraw}}
+\index{GameSceneDraw@{GameSceneDraw}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneDraw()}{GameSceneDraw()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Game\+Scene\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}\label{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}} 
+\index{GameScene@{GameScene}!GameSceneFree@{GameSceneFree}}
+\index{GameSceneFree@{GameSceneFree}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneFree()}{GameSceneFree()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Game\+Scene\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_demo_scene_aa8098b4d2d7761efbb057d2e4cc2ae52}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_aeff9a7faba84faa05946621048be46f4}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a358b01aad403aab6691cd4298c69eacd}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a28aa5ac4f6c115ad58db03297c92d2b6}{Battle\+Scene}}.
+
+\mbox{\Hypertarget{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}\label{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}} 
+\index{GameScene@{GameScene}!GameSceneInit@{GameSceneInit}}
+\index{GameSceneInit@{GameSceneInit}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneInit()}{GameSceneInit()}}
+{\footnotesize\ttfamily virtual void Game\+Scene\+::\+Game\+Scene\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_demo_scene_a38c962cd1c6695e7bdaf4c8be35f5436}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_ad19783fd7f34602b832fe649137a2bb2}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a0e413eef22992dc0c14c52d343fe115c}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a6eca5ba84b9dd359a733e6f16109be73}{Battle\+Scene}}.
+
+\mbox{\Hypertarget{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}\label{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}} 
+\index{GameScene@{GameScene}!GameSceneLoad@{GameSceneLoad}}
+\index{GameSceneLoad@{GameSceneLoad}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneLoad()}{GameSceneLoad()}}
+{\footnotesize\ttfamily virtual void Game\+Scene\+::\+Game\+Scene\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_demo_scene_a918d2abd3aad5c42e589afb02a95eb38}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a57732a91ed5e87b19c0086e44178752f}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a2e9ea199b862533eb9ce19bf8730ee84}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_af833170ab010c598fdeacf20f739c0fa}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_ae8b6966318a4c7bcf09807a6905ddbbe}{Battle\+Scene}}.
+
+\mbox{\Hypertarget{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}\label{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}} 
+\index{GameScene@{GameScene}!GameSceneUnload@{GameSceneUnload}}
+\index{GameSceneUnload@{GameSceneUnload}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneUnload()}{GameSceneUnload()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Game\+Scene\+Unload (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_battle_scene_ae8a6682bfa588f9ebe87c015559e5a0e}{Battle\+Scene}}.
+
+\mbox{\Hypertarget{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}\label{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}} 
+\index{GameScene@{GameScene}!GameSceneUpdate@{GameSceneUpdate}}
+\index{GameSceneUpdate@{GameSceneUpdate}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneUpdate()}{GameSceneUpdate()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Game\+Scene\+Update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_demo_scene_a81a223958e8429e88c487ffbcf3cb659}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a9931a41c6ca91d61e5e92cd81225f6b5}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a1d9a3ba547704f54eaa8ee1baf7788a4}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a40fae948549fe920bff7e543e132103f}{Battle\+Scene}}.
+
+\mbox{\Hypertarget{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}\label{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}} 
+\index{GameScene@{GameScene}!GetAudioController@{GetAudioController}}
+\index{GetAudioController@{GetAudioController}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GetAudioController()}{GetAudioController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ Game\+Scene\+::\+Get\+Audio\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}\label{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}} 
+\index{GameScene@{GameScene}!GetCamera@{GetCamera}}
+\index{GetCamera@{GetCamera}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GetCamera()}{GetCamera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}} $\ast$ Game\+Scene\+::\+Get\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_af9adaa92fd98610506491805317c5912}\label{class_game_scene_af9adaa92fd98610506491805317c5912}} 
+\index{GameScene@{GameScene}!UpdateButtonEvents@{UpdateButtonEvents}}
+\index{UpdateButtonEvents@{UpdateButtonEvents}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{UpdateButtonEvents()}{UpdateButtonEvents()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Update\+Button\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_a84ac480d4f56888c9f35008c94977d20}\label{class_game_scene_a84ac480d4f56888c9f35008c94977d20}} 
+\index{GameScene@{GameScene}!UpdateDeleteObject@{UpdateDeleteObject}}
+\index{UpdateDeleteObject@{UpdateDeleteObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{UpdateDeleteObject()}{UpdateDeleteObject()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Update\+Delete\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}\label{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}} 
+\index{GameScene@{GameScene}!UpdateScaleDeltaTime@{UpdateScaleDeltaTime}}
+\index{UpdateScaleDeltaTime@{UpdateScaleDeltaTime}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{UpdateScaleDeltaTime()}{UpdateScaleDeltaTime()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Update\+Scale\+Delta\+Time (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}\label{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}} 
+\index{GameScene@{GameScene}!audioController@{audioController}}
+\index{audioController@{audioController}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{audioController}{audioController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}$\ast$ Game\+Scene\+::audio\+Controller = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}\label{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}} 
+\index{GameScene@{GameScene}!buttonObjectsList@{buttonObjectsList}}
+\index{buttonObjectsList@{buttonObjectsList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{buttonObjectsList}{buttonObjectsList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Game\+Scene\+::button\+Objects\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}\label{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}} 
+\index{GameScene@{GameScene}!camera@{camera}}
+\index{camera@{camera}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}} Game\+Scene\+::camera\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_ab084ec7c43902547f8b763128c2d4ab0}\label{class_game_scene_ab084ec7c43902547f8b763128c2d4ab0}} 
+\index{GameScene@{GameScene}!objectsList@{objectsList}}
+\index{objectsList@{objectsList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{objectsList}{objectsList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$\ast$$>$ Game\+Scene\+::objects\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_a070f8589187d0602d73ad3cca75de568}\label{class_game_scene_a070f8589187d0602d73ad3cca75de568}} 
+\index{GameScene@{GameScene}!objectsToDeleteList@{objectsToDeleteList}}
+\index{objectsToDeleteList@{objectsToDeleteList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{objectsToDeleteList}{objectsToDeleteList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$\ast$$>$ Game\+Scene\+::objects\+To\+Delete\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_a5d87bc5e71cdac82989c8cb686d6b767}\label{class_game_scene_a5d87bc5e71cdac82989c8cb686d6b767}} 
+\index{GameScene@{GameScene}!scaledDeltaTime@{scaledDeltaTime}}
+\index{scaledDeltaTime@{scaledDeltaTime}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{scaledDeltaTime}{scaledDeltaTime}}
+{\footnotesize\ttfamily float Game\+Scene\+::scaled\+Delta\+Time\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}\label{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}} 
+\index{GameScene@{GameScene}!timeScale@{timeScale}}
+\index{timeScale@{timeScale}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{timeScale}{timeScale}}
+{\footnotesize\ttfamily float Game\+Scene\+::time\+Scale = 1.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_scene_a024096d4399d541a7d5b222ff55eabc7}\label{class_game_scene_a024096d4399d541a7d5b222ff55eabc7}} 
+\index{GameScene@{GameScene}!uiObjectsList@{uiObjectsList}}
+\index{uiObjectsList@{uiObjectsList}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{uiObjectsList}{uiObjectsList}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_u_i_object}{UIObject}}$\ast$$>$ Game\+Scene\+::ui\+Objects\+List\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_game_scene_8h}{Game\+Scene.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_game_scene_8cpp}{Game\+Scene.\+cpp}}\end{DoxyCompactItemize}

@@ -1,21 +1,5 @@
 var searchData=
 [
-  ['scenemanager_2ecpp_0',['SceneManager.cpp',['../_scene_manager_8cpp.html',1,'']]],
-  ['scenemanager_2eh_1',['SceneManager.h',['../_scene_manager_8h.html',1,'']]],
-  ['shader_2ecpp_2',['Shader.cpp',['../_shader_8cpp.html',1,'']]],
-  ['shader_2eh_3',['Shader.h',['../_shader_8h.html',1,'']]],
-  ['shadercollector_2ecpp_4',['ShaderCollector.cpp',['../_shader_collector_8cpp.html',1,'']]],
-  ['shadercollector_2eh_5',['ShaderCollector.h',['../_shader_collector_8h.html',1,'']]],
-  ['singleton_2eh_6',['Singleton.h',['../_singleton_8h.html',1,'']]],
-  ['soil_2eh_7',['SOIL.h',['../_s_o_i_l_8h.html',1,'']]],
-  ['spell_2ecpp_8',['Spell.cpp',['../_spell_8cpp.html',1,'']]],
-  ['spell_2eh_9',['Spell.h',['../_spell_8h.html',1,'']]],
-  ['spellbook_2ecpp_10',['SpellBook.cpp',['../_spell_book_8cpp.html',1,'']]],
-  ['spellbook_2eh_11',['SpellBook.h',['../_spell_book_8h.html',1,'']]],
-  ['spellcaster_2ecpp_12',['SpellCaster.cpp',['../_spell_caster_8cpp.html',1,'']]],
-  ['spellcaster_2eh_13',['SpellCaster.h',['../_spell_caster_8h.html',1,'']]],
-  ['spelldatabase_2ecpp_14',['SpellDatabase.cpp',['../_spell_database_8cpp.html',1,'']]],
-  ['spelldatabase_2eh_15',['SpellDatabase.h',['../_spell_database_8h.html',1,'']]],
-  ['stb_5fimage_2ecpp_16',['stb_image.cpp',['../stb__image_8cpp.html',1,'']]],
-  ['stb_5fimage_2eh_17',['stb_image.h',['../stb__image_8h.html',1,'']]]
+  ['nodescene_2ecpp_0',['NodeScene.cpp',['../_node_scene_8cpp.html',1,'']]],
+  ['nodescene_2eh_1',['NodeScene.h',['../_node_scene_8h.html',1,'']]]
 ];

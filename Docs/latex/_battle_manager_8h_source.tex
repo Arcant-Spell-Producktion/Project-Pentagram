@@ -1,0 +1,38 @@
+\hypertarget{_battle_manager_8h_source}{}\doxysection{Battle\+Manager.\+h}
+\label{_battle_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleManager.h}}
+\mbox{\hyperlink{_battle_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_scene_data_8h}{Game/BattleScene/BattleSceneData.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_state_model_8h}{Game/BattleScene/BattleStates/BattleStateModel.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_battle_manager}{BattleManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<BattleManager>}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} m\_CurrentState = \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fa9862d3754d14f29bc85df59aef75f363}{BattleState::SetupState}};}
+\DoxyCodeLine{13     std::map<BattleState, BaseBattleState*> m\_BattleStates;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_battle_scene_data}{BattleSceneData}} \mbox{\hyperlink{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}{Data}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}{SetBattleState}}(\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} state);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}* \mbox{\hyperlink{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}{GetBattleStates}}() \{ \textcolor{keywordflow}{return} m\_BattleStates[m\_CurrentState]; \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}{Init}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}{StartBattle}}();}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}{SwapCaster}}();}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}{EndBattle}}() \{ \mbox{\hyperlink{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}{SetBattleState}}(\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a}{BattleState::ResultState}}); \} \textcolor{comment}{//TODO}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}{UpdateDisplaySpellDetail}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position,\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} isMainData = \textcolor{keyword}{false}, glm::vec3 IconPos = \{0,0,0\});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}{\string~BattleManager}}();}
+\DoxyCodeLine{32 \};}
+
+\end{DoxyCode}

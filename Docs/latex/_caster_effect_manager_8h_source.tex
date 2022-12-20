@@ -1,0 +1,72 @@
+\hypertarget{_caster_effect_manager_8h_source}{}\doxysection{Caster\+Effect\+Manager.\+h}
+\label{_caster_effect_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterEffectManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterEffectManager.h}}
+\mbox{\hyperlink{_caster_effect_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effects_8h}{Game/BattleScene/SpellEffect/SpellEffects.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_effect_manager}{CasterEffectManager}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     std::map<SpellEffectEnum,BaseSpellEffect*> m\_Effects;}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_event}{Event<std::vector<EffectDetail\_T>}}\&> \mbox{\hyperlink{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}{OnEffectUpdate}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{class_caster_effect_manager_a1b949dba8132647b953bdffaa075d1a7}{CasterEffectManager}}()}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effect: \mbox{\hyperlink{class_spell_effects_ab907d3764afeb1d0109f059656d5502a}{SpellEffects::GetSpellEffects}}())}
+\DoxyCodeLine{15         \{}
+\DoxyCodeLine{16             m\_Effects.emplace(effect-\/>GetEffectType(),effect);}
+\DoxyCodeLine{17         \}}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}()}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         std::vector<EffectDetail\_T> effects;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effPair: m\_Effects)}
+\DoxyCodeLine{25             effects.push\_back(\{ effPair.first ,effPair.second-\/>GetStackCount() \});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \mbox{\hyperlink{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}{OnEffectUpdate}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(effects);}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_a0d71dccbaef4b14f5b3be12957d12ba1}{AppliedEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type, \textcolor{keywordtype}{int} value)}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         m\_Effects[type]-\/>AppliedEffect(value);}
+\DoxyCodeLine{33         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_af1bb34268963e5499bcc92736754342b}{ResolveEffect}}(\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}} resolveType, \textcolor{keywordtype}{int} argc = 0, ...)}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38         std::va\_list args;}
+\DoxyCodeLine{39         va\_start(args, argc);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{42         \{}
+\DoxyCodeLine{43             \textcolor{keyword}{auto} effect = effectPair.second;}
+\DoxyCodeLine{44             \textcolor{keywordflow}{if} (effect-\/>GetResolveType() == resolveType)}
+\DoxyCodeLine{45             \{}
+\DoxyCodeLine{46                 std::va\_list temp;}
+\DoxyCodeLine{47                 va\_copy(temp, args);}
+\DoxyCodeLine{48                 effect-\/>ResolveEffect(temp);}
+\DoxyCodeLine{49                 va\_end(temp);}
+\DoxyCodeLine{50             \}}
+\DoxyCodeLine{51             }
+\DoxyCodeLine{52         \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         va\_end(args);}
+\DoxyCodeLine{55         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{class_caster_effect_manager_ac7ac5c8e4ec94f32b111198a98105798}{\string~CasterEffectManager}}()}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{61         \{}
+\DoxyCodeLine{62             \textcolor{keyword}{delete} effectPair.second;}
+\DoxyCodeLine{63         \}}
+\DoxyCodeLine{64         m\_Effects.clear();}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 \};}
+
+\end{DoxyCode}

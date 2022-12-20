@@ -1,0 +1,29 @@
+\hypertarget{_base_battle_state_8h_source}{}\doxysection{Base\+Battle\+State.\+h}
+\label{_base_battle_state_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/BaseBattleState.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/BaseBattleState.h}}
+\mbox{\hyperlink{_base_battle_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_scene_data_8h}{Game/BattleScene/BattleSceneData.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{enum class} \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fa9862d3754d14f29bc85df59aef75f363}{SetupState}} = 0,}
+\DoxyCodeLine{7     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fa731f991457a3c9f99b1d33c183d5c8ba}{CastState}},}
+\DoxyCodeLine{8     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fae82b3b164f1a28a3e5173192779c62d9}{ResolveState}},}
+\DoxyCodeLine{9     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a}{ResultState}}}
+\DoxyCodeLine{10 \};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} \mbox{\hyperlink{class_base_battle_state_adfaad354db554eb733c6f03ab697da69}{StateID}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \mbox{\hyperlink{class_base_battle_state_ab1654452223a26c2c2de6ea31d4bb0e7}{BaseBattleState}}(\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} \textcolor{keywordtype}{id}) :\mbox{\hyperlink{class_base_battle_state_adfaad354db554eb733c6f03ab697da69}{StateID}}(id) \{\};}
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_battle_state_a7c4e94db56af26dc0f644cbe3d653923}{OnBattleStateIn}}() = 0;}
+\DoxyCodeLine{19     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_battle_state_a0a1fd66f63e0cb1efb8f83d2e0c4c335}{OnBattleStateUpdate}}(\textcolor{keywordtype}{float} dt) = 0;}
+\DoxyCodeLine{20     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_battle_state_ad230393342663063f60426720bc5c47e}{OnBattleStateOut}}() = 0;}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23  }
+
+\end{DoxyCode}

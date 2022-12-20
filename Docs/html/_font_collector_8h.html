@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/Collector/FontCollector.h File Reference</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/Collector/FontCollector.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,7 +67,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">FontCollector.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -75,58 +76,89 @@ $(function() {
 <code>#include &lt;glad/glad.h&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &quot;<a class="el" href="_texture_8h_source.html">../Renderer/Texture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_texture_8h_source.html">Engine/Renderer/Texture.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for FontCollector.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="_font_collector_8h__incl.png" border="0" usemap="#a_project-_pentagram_2_engine_2_collector_2_font_collector_8h" alt=""/></div>
-<map name="a_project-_pentagram_2_engine_2_collector_2_font_collector_8h" id="a_project-_pentagram_2_engine_2_collector_2_font_collector_8h">
-<area shape="rect" title=" " alt="" coords="167,5,342,47"/>
-<area shape="rect" title=" " alt="" coords="5,95,80,121"/>
-<area shape="rect" title=" " alt="" coords="207,169,292,196"/>
-<area shape="rect" title=" " alt="" coords="155,95,248,121"/>
-<area shape="rect" title=" " alt="" coords="272,95,344,121"/>
-<area shape="rect" title=" " alt="" coords="369,95,415,121"/>
-<area shape="rect" href="_texture_8h.html" title=" " alt="" coords="440,95,584,121"/>
-<area shape="rect" href="stb__image_8h.html" title=" " alt="" coords="387,169,514,196"/>
-<area shape="rect" title=" " alt="" coords="539,169,608,196"/>
-<area shape="rect" title=" " alt="" coords="376,244,437,271"/>
-<area shape="rect" title=" " alt="" coords="461,244,525,271"/>
+<div class="center"><img src="_font_collector_8h__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8h" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8h" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8h">
+<area shape="rect" title=" " alt="" coords="228,5,407,61"/>
+<area shape="rect" title=" " alt="" coords="53,109,128,136"/>
+<area shape="rect" title=" " alt="" coords="5,184,91,211"/>
+<area shape="rect" title=" " alt="" coords="115,184,208,211"/>
+<area shape="rect" title=" " alt="" coords="232,184,304,211"/>
+<area shape="rect" title=" " alt="" coords="606,109,687,136"/>
+<area shape="rect" title=" " alt="" coords="329,184,383,211"/>
+<area shape="rect" title=" " alt="" coords="873,184,929,211"/>
+<area shape="rect" title=" " alt="" coords="711,109,758,136"/>
+<area shape="rect" href="_texture_8h.html" title=" " alt="" coords="355,109,531,136"/>
+<area shape="rect" href="stb__image_8h.html" title=" " alt="" coords="502,184,661,211"/>
+<area shape="rect" title=" " alt="" coords="685,184,750,211"/>
+<area shape="rect" title=" " alt="" coords="775,184,849,211"/>
+<area shape="rect" title=" " alt="" coords="408,184,477,211"/>
+<area shape="rect" title=" " alt="" coords="507,259,568,285"/>
+<area shape="rect" title=" " alt="" coords="592,259,656,285"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_font_collector_8h__dep__incl.png" border="0" usemap="#a_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep" alt=""/></div>
-<map name="a_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep" id="a_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep">
-<area shape="rect" title=" " alt="" coords="746,5,921,47"/>
-<area shape="rect" href="_engine_data_collector_8h.html" title=" " alt="" coords="617,95,828,136"/>
-<area shape="rect" href="_font_collector_8cpp.html" title=" " alt="" coords="853,95,1035,136"/>
-<area shape="rect" href="_engine_data_collector_8cpp.html" title=" " alt="" coords="5,184,229,225"/>
-<area shape="rect" href="_game_object_8h.html" title=" " alt="" coords="554,184,729,225"/>
-<area shape="rect" href="_menu_scene_8h.html" title=" " alt="" coords="341,899,515,940"/>
-<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="991,817,1177,843"/>
-<area shape="rect" href="_u_i_object_8h.html" title=" " alt="" coords="753,273,927,315"/>
-<area shape="rect" href="_text_object_8h.html" title=" " alt="" coords="907,363,1082,404"/>
-<area shape="rect" href="_game_object_8cpp.html" title=" " alt="" coords="554,273,729,315"/>
-<area shape="rect" href="_game_scene_8h.html" title=" " alt="" coords="511,541,686,583"/>
-<area shape="rect" href="_particle_system_8h.html" title=" " alt="" coords="355,273,530,315"/>
-<area shape="rect" href="_game_scene_8cpp.html" title=" " alt="" coords="637,631,811,672"/>
-<area shape="rect" href="_game_state_controller_8h.html" title=" " alt="" coords="597,720,771,761"/>
-<area shape="rect" href="_node_scene_8h.html" title=" " alt="" coords="835,631,1010,672"/>
-<area shape="rect" href="_battle_scene_8h.html" title=" " alt="" coords="378,631,561,672"/>
-<area shape="rect" href="_game_state_controller_8cpp.html" title=" " alt="" coords="377,809,551,851"/>
-<area shape="rect" href="_scene_manager_8h.html" title=" " alt="" coords="627,809,802,851"/>
-<area shape="rect" href="_node_scene_8cpp.html" title=" " alt="" coords="829,899,1003,940"/>
-<area shape="rect" href="_scene_manager_8cpp.html" title=" " alt="" coords="627,899,802,940"/>
-<area shape="rect" href="_menu_scene_8cpp.html" title=" " alt="" coords="341,988,515,1029"/>
-<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="375,720,572,761"/>
-<area shape="rect" href="_particle_system_8cpp.html" title=" " alt="" coords="355,363,530,404"/>
-<area shape="rect" href="_button_8h.html" title=" " alt="" coords="657,452,831,493"/>
-<area shape="rect" href="_u_i_object_8cpp.html" title=" " alt="" coords="657,363,831,404"/>
-<area shape="rect" href="_button_8cpp.html" title=" " alt="" coords="710,541,885,583"/>
-<area shape="rect" href="_text_object_8cpp.html" title=" " alt="" coords="907,452,1082,493"/>
+<div class="center"><img src="_font_collector_8h__dep__incl.png" border="0" usemap="#a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep" alt=""/></div>
+<map name="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep" id="a_e_1_2_project-_pentagram_2_project-_pentagram_2_engine_2_collector_2_font_collector_8hdep">
+<area shape="rect" title=" " alt="" coords="1789,5,1968,61"/>
+<area shape="rect" href="_engine_data_collector_8h.html" title=" " alt="" coords="1662,109,1873,165"/>
+<area shape="rect" href="_font_collector_8cpp.html" title=" " alt="" coords="1898,109,2080,165"/>
+<area shape="rect" href="_engine_data_collector_8cpp.html" title=" " alt="" coords="1045,213,1269,269"/>
+<area shape="rect" href="_game_object_8h.html" title=" " alt="" coords="1293,213,1472,269"/>
+<area shape="rect" href="_load_scene_8h.html" title=" " alt="" coords="2953,1245,3132,1301"/>
+<area shape="rect" href="_battle_scene_8h.html" title=" " alt="" coords="2467,1245,2650,1301"/>
+<area shape="rect" href="main_8cpp.html" title=" " alt="" coords="3043,1126,3234,1167"/>
+<area shape="rect" href="_u_i_object_8h.html" title=" " alt="" coords="1425,317,1604,373"/>
+<area shape="rect" href="_text_object_8h.html" title=" " alt="" coords="1678,421,1857,477"/>
+<area shape="rect" href="_game_object_8cpp.html" title=" " alt="" coords="1033,317,1212,373"/>
+<area shape="rect" href="_i_game_object_manager_8h.html" title=" " alt="" coords="1121,733,1300,789"/>
+<area shape="rect" href="_particle_system_8h.html" title=" " alt="" coords="830,317,1009,373"/>
+<area shape="rect" href="_game_scene_8h.html" title=" " alt="" coords="2900,852,3078,908"/>
+<area shape="rect" href="_rune_object_8cpp.html" title=" " alt="" coords="1567,1111,1742,1182"/>
+<area shape="rect" href="_fire_spell_objects_8cpp.html" title=" " alt="" coords="2723,1111,2967,1182"/>
+<area shape="rect" href="_water_spell_objects_8cpp.html" title=" " alt="" coords="822,1111,1092,1182"/>
+<area shape="rect" href="_battle_manager_8h.html" title=" " alt="" coords="119,1119,315,1175"/>
+<area shape="rect" href="_caster_effect_icon_u_i_8h.html" title=" " alt="" coords="70,845,244,915"/>
+<area shape="rect" href="_caster_object_8h.html" title=" " alt="" coords="268,845,443,915"/>
+<area shape="rect" href="_pentagram_circle_u_i_8h.html" title=" " alt="" coords="105,978,356,1049"/>
+<area shape="rect" href="_pentagram_controller_8h.html" title=" " alt="" coords="339,1111,599,1182"/>
+<area shape="rect" href="_pentagram_field_button_8h.html" title=" " alt="" coords="1307,971,1530,1056"/>
+<area shape="rect" href="_pentagram_scroll_button_8h.html" title=" " alt="" coords="569,837,796,923"/>
+<area shape="rect" href="_pentagram_scroll_button_manager_u_i_8h.html" title=" " alt="" coords="506,971,733,1056"/>
+<area shape="rect" href="_rune_object_8h.html" title=" " alt="" coords="1274,845,1448,915"/>
+<area shape="rect" href="_spell_detail_u_i_8h.html" title=" " alt="" coords="2076,978,2251,1049"/>
+<area shape="rect" href="_spell_icon_u_i_8h.html" title=" " alt="" coords="820,845,995,915"/>
+<area shape="rect" href="_timetrack_u_i_8h.html" title=" " alt="" coords="808,978,983,1049"/>
+<area shape="rect" href="_timeline_controller_8h.html" title=" " alt="" coords="623,1111,798,1182"/>
+<area shape="rect" href="_base_spell_object_8h.html" title=" " alt="" coords="1473,845,1678,915"/>
+<area shape="rect" href="_will_compare_controller_8h.html" title=" " alt="" coords="1703,845,1878,915"/>
+<area shape="rect" href="_spell_caster_2_caster_detail_u_i_8h.html" title=" " alt="" coords="1902,845,2076,915"/>
+<area shape="rect" href="_objects_2_scroll_button_8h.html" title=" " alt="" coords="1058,985,1232,1041"/>
+<area shape="rect" href="_game_state_controller_8h.html" title=" " alt="" coords="2276,985,2454,1041"/>
+<area shape="rect" href="_game_state_controller_8cpp.html" title=" " alt="" coords="2016,1119,2194,1175"/>
+<area shape="rect" href="_menu_scene_8cpp.html" title=" " alt="" coords="1117,1119,1296,1175"/>
+<area shape="rect" href="_scene_manager_8h.html" title=" " alt="" coords="2469,1119,2648,1175"/>
+<area shape="rect" href="_caster_detail_u_i_8cpp.html" title=" " alt="" coords="2219,1111,2394,1182"/>
+<area shape="rect" href="_pentagram_controller_8cpp.html" title=" " alt="" coords="332,1237,606,1308"/>
+<area shape="rect" href="_pentagram_field_button_8cpp.html" title=" " alt="" coords="1320,1104,1543,1189"/>
+<area shape="rect" href="_spell_detail_u_i_8cpp.html" title=" " alt="" coords="1766,1111,1940,1182"/>
+<area shape="rect" href="_load_scene_8cpp.html" title=" " alt="" coords="2953,1356,3132,1412"/>
+<area shape="rect" href="_battle_scene_8cpp.html" title=" " alt="" coords="1604,1356,1801,1412"/>
+<area shape="rect" href="_particle_system_8cpp.html" title=" " alt="" coords="957,421,1136,477"/>
+<area shape="rect" href="_button_8h.html" title=" " alt="" coords="1425,525,1604,581"/>
+<area shape="rect" href="_slider_8h.html" title=" " alt="" coords="1552,629,1730,685"/>
+<area shape="rect" href="_u_i_object_8cpp.html" title=" " alt="" coords="1248,421,1426,477"/>
+<area shape="rect" href="_button_8cpp.html" title=" " alt="" coords="1349,629,1528,685"/>
+<area shape="rect" href="_text_object_8cpp.html" title=" " alt="" coords="1805,525,1984,581"/>
 </map>
 </div>
 </div>
@@ -138,7 +170,27 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html">FontCollector</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a90de717bc6ca3dce5c846c006f96d124"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_font_collector_8h.html#a90de717bc6ca3dce5c846c006f96d124">BASE_FONT_SIZE</a>&#160;&#160;&#160;72</td></tr>
+<tr class="separator:a90de717bc6ca3dce5c846c006f96d124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a90de717bc6ca3dce5c846c006f96d124" name="a90de717bc6ca3dce5c846c006f96d124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90de717bc6ca3dce5c846c006f96d124">&#9670;&nbsp;</a></span>BASE_FONT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BASE_FONT_SIZE&#160;&#160;&#160;72</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

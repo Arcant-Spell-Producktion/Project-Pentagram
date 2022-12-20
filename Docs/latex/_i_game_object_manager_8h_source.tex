@@ -1,0 +1,55 @@
+\hypertarget{_i_game_object_manager_8h_source}{}\doxysection{IGame\+Object\+Manager.\+h}
+\label{_i_game_object_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/IGameObjectManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/IGameObjectManager.h}}
+\mbox{\hyperlink{_i_game_object_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_tag_8h}{Engine/GameObjectTag.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_8h}{Engine/GameObject.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_particle_system_8h}{Engine/ParticleSystem.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_button_8h}{Engine/Button.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_slider_8h}{Engine/Slider.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}{AddGameObjectToList}}(\mbox{\hyperlink{class_game_object}{GameObject}}* \textcolor{keywordtype}{object}) = 0;}
+\DoxyCodeLine{15         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}{AddUIObjectToList}}(\mbox{\hyperlink{class_u_i_object}{UIObject}}* \textcolor{keywordtype}{object}) = 0;}
+\DoxyCodeLine{16         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}{AddButtonToList}}(\mbox{\hyperlink{class_button}{Button}}* \textcolor{keywordtype}{object}) = 0;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19         \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{20         T* \mbox{\hyperlink{class_i_game_object_manager_a5ba1cc17f6e2c63f476cdebf296a5a34}{CreateObject}}(T* \textcolor{keywordtype}{object})}
+\DoxyCodeLine{21         \{}
+\DoxyCodeLine{22             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_button}{Button}}* button = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_button}{Button}}*\textcolor{keyword}{>}(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{23             \{}
+\DoxyCodeLine{24                 \mbox{\hyperlink{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}{AddButtonToList}}(button);}
+\DoxyCodeLine{25             \}}
+\DoxyCodeLine{26             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_u_i_object}{UIObject}}* ui = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_u_i_object}{UIObject}}*\textcolor{keyword}{>}(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{27             \{}
+\DoxyCodeLine{28                 \mbox{\hyperlink{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}{AddUIObjectToList}}(ui);}
+\DoxyCodeLine{29             \}}
+\DoxyCodeLine{30             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_game_object}{GameObject}}* gameObj = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_game_object}{GameObject}}*\textcolor{keyword}{>}(\textcolor{keywordtype}{object}))}
+\DoxyCodeLine{31             \{}
+\DoxyCodeLine{32                 \mbox{\hyperlink{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}{AddGameObjectToList}}(gameObj);}
+\DoxyCodeLine{33             \}}
+\DoxyCodeLine{34             \textcolor{keywordflow}{return} object;}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_i_game_object_manager_ae54aa9fc26e729881a8980ca2a9f9205}{CreateGameObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& animRow = 1, \textcolor{keyword}{const} std::vector<int>\& animCol = \{ 1 \}) = 0;}
+\DoxyCodeLine{38         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_i_game_object_manager_a285483be059150b116cf73b05d15d6ca}{CreateParticle}}(\mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) = 0;}
+\DoxyCodeLine{39         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_i_game_object_manager_ac27fb29500632fa77a7172f8b5983914}{CreateParticle}}(\textcolor{keyword}{const} std::string\& objName, \mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) = 0;}
+\DoxyCodeLine{40         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_i_game_object_manager_a74265a3604541beb73d7f46283660791}{CreateUIObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) = 0;}
+\DoxyCodeLine{41         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_text_object}{TextObject}}* \mbox{\hyperlink{class_i_game_object_manager_a16cc4e27442ac7434fa98e642948bc91}{CreateTextObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) = 0;}
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_i_game_object_manager_abc48e5733d2330b8fef124c22d28102f}{CreateButton}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) = 0;}
+\DoxyCodeLine{43         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_slider}{Slider}}* \mbox{\hyperlink{class_i_game_object_manager_a78acb1e687707254799732528eadd4e3}{CreateSlider}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) = 0;}
+\DoxyCodeLine{44     }
+\DoxyCodeLine{45         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Modify Object -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_game_object_manager_ae54c37297d068028c34178ca362bf763}{DeleteObjectByName}}(\textcolor{keyword}{const} std::string\& objName) = 0;}
+\DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_game_object_manager_a112e2701e257e5b0fcf83bd94d72636d}{DeleteObjectByPointer}}(\mbox{\hyperlink{class_game_object}{GameObject}}* objPtr) = 0;}
+\DoxyCodeLine{48         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}{FindObject}}(\textcolor{keyword}{const} std::string\& objName) = 0;}
+\DoxyCodeLine{49 \};}
+
+\end{DoxyCode}

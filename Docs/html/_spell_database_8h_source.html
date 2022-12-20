@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Game/Spells/SpellDatabase.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Game/Spells/SpellDatabase.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,21 +80,32 @@ $(function() {
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">   10</a></span>    map&lt;Element::Type, SpellBook*&gt; <a class="code hl_variable" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellBooks</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="class_spell_database.html#a5c946fb5e8a2492b080959763d1ca3b4">SpellDatabase</a>();</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">   13</a></span>    <a class="code hl_class" href="class_spell_book.html">SpellBook</a>* <a class="code hl_function" href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">GetBookByElement</a>(<a class="code hl_enumeration" href="class_element.html#a009a3be4c3a037a72e292b2464c9cbc5">Element::Type</a> element)</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>     <span class="keywordflow">return</span> <a class="code hl_variable" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellBooks</a>.find(element)-&gt;second;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_spell_database.html#ac7aa987f95b2ae88ba881e1a7fa769fe">LoadResource</a>();</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">   14</a></span>    <a class="code hl_class" href="class_spell_book.html">SpellBook</a>* <a class="code hl_function" href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">GetBookByElement</a>(<a class="code hl_enumeration" href="class_element.html#a009a3be4c3a037a72e292b2464c9cbc5">Element::Type</a> element)</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>     <span class="keywordflow">return</span> <a class="code hl_variable" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellBooks</a>.find(element)-&gt;second;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    }</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_spell_database.html#afa0273b924a799f23bcd67e534662966">   19</a></span>    <a class="code hl_function" href="class_spell_database.html#afa0273b924a799f23bcd67e534662966">~SpellDatabase</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> spellbookPair : <a class="code hl_variable" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellBooks</a>)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">delete</span> spellbookPair.second;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variable" href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellBooks</a>.clear();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
 <div class="ttc" id="a_singleton_8h_html"><div class="ttname"><a href="_singleton_8h.html">Singleton.h</a></div></div>
 <div class="ttc" id="a_spell_book_8h_html"><div class="ttname"><a href="_spell_book_8h.html">SpellBook.h</a></div></div>
 <div class="ttc" id="aclass_element_html_a009a3be4c3a037a72e292b2464c9cbc5"><div class="ttname"><a href="class_element.html#a009a3be4c3a037a72e292b2464c9cbc5">Element::Type</a></div><div class="ttdeci">Type</div><div class="ttdef"><b>Definition:</b> Element.h:10</div></div>
 <div class="ttc" id="aclass_singleton_html"><div class="ttname"><a href="class_singleton.html">Singleton</a></div><div class="ttdef"><b>Definition:</b> Singleton.h:4</div></div>
 <div class="ttc" id="aclass_spell_book_html"><div class="ttname"><a href="class_spell_book.html">SpellBook</a></div><div class="ttdef"><b>Definition:</b> SpellBook.h:6</div></div>
 <div class="ttc" id="aclass_spell_database_html"><div class="ttname"><a href="class_spell_database.html">SpellDatabase</a></div><div class="ttdef"><b>Definition:</b> SpellDatabase.h:7</div></div>
-<div class="ttc" id="aclass_spell_database_html_a39fd0c07b0e7051e22a1f3588eca8dc6"><div class="ttname"><a href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">SpellDatabase::GetBookByElement</a></div><div class="ttdeci">SpellBook * GetBookByElement(Element::Type element)</div><div class="ttdef"><b>Definition:</b> SpellDatabase.h:13</div></div>
-<div class="ttc" id="aclass_spell_database_html_a5c946fb5e8a2492b080959763d1ca3b4"><div class="ttname"><a href="class_spell_database.html#a5c946fb5e8a2492b080959763d1ca3b4">SpellDatabase::SpellDatabase</a></div><div class="ttdeci">SpellDatabase()</div><div class="ttdef"><b>Definition:</b> SpellDatabase.cpp:4</div></div>
+<div class="ttc" id="aclass_spell_database_html_a39fd0c07b0e7051e22a1f3588eca8dc6"><div class="ttname"><a href="class_spell_database.html#a39fd0c07b0e7051e22a1f3588eca8dc6">SpellDatabase::GetBookByElement</a></div><div class="ttdeci">SpellBook * GetBookByElement(Element::Type element)</div><div class="ttdef"><b>Definition:</b> SpellDatabase.h:14</div></div>
+<div class="ttc" id="aclass_spell_database_html_ac7aa987f95b2ae88ba881e1a7fa769fe"><div class="ttname"><a href="class_spell_database.html#ac7aa987f95b2ae88ba881e1a7fa769fe">SpellDatabase::LoadResource</a></div><div class="ttdeci">void LoadResource()</div><div class="ttdef"><b>Definition:</b> SpellDatabase.cpp:4</div></div>
 <div class="ttc" id="aclass_spell_database_html_af782d408ebd514e0425e455f893fbf61"><div class="ttname"><a href="class_spell_database.html#af782d408ebd514e0425e455f893fbf61">SpellDatabase::SpellBooks</a></div><div class="ttdeci">map&lt; Element::Type, SpellBook * &gt; SpellBooks</div><div class="ttdef"><b>Definition:</b> SpellDatabase.h:10</div></div>
+<div class="ttc" id="aclass_spell_database_html_afa0273b924a799f23bcd67e534662966"><div class="ttname"><a href="class_spell_database.html#afa0273b924a799f23bcd67e534662966">SpellDatabase::~SpellDatabase</a></div><div class="ttdeci">~SpellDatabase()</div><div class="ttdef"><b>Definition:</b> SpellDatabase.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

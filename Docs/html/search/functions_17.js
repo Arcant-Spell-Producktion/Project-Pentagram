@@ -1,18 +1,12 @@
 var searchData=
 [
-  ['_7ebattlemanager_0',['~BattleManager',['../class_battle_manager.html#a461f1bc6b2214e0cd30d19ee07ae5a7e',1,'BattleManager']]],
-  ['_7ecastercontroller_1',['~CasterController',['../class_caster_controller.html#acd34ea4ac7ebab8d1adae2362dacf19e',1,'CasterController']]],
-  ['_7edynarray_2',['~DynArray',['../classtinyxml2_1_1_dyn_array.html#a4a6aefdca7fe0d3f4068e31870a5adee',1,'tinyxml2::DynArray']]],
-  ['_7emempool_3',['~MemPool',['../classtinyxml2_1_1_mem_pool.html#ae55ad9e3faeca702e6ccbb38fdbcad72',1,'tinyxml2::MemPool']]],
-  ['_7emempoolt_4',['~MemPoolT',['../classtinyxml2_1_1_mem_pool_t.html#a5fa4fee934a3df2b9e74282244d78390',1,'tinyxml2::MemPoolT']]],
-  ['_7eshader_5',['~Shader',['../class_shader.html#aff01df87e8a102f270b5b135a295e59d',1,'Shader']]],
-  ['_7estrpair_6',['~StrPair',['../classtinyxml2_1_1_str_pair.html#a60bed84d2503296e1c2a73fcef1431f9',1,'tinyxml2::StrPair']]],
-  ['_7exmlcomment_7',['~XMLComment',['../classtinyxml2_1_1_x_m_l_comment.html#ab592f69b47852455c1b32c5e31e453d0',1,'tinyxml2::XMLComment']]],
-  ['_7exmldeclaration_8',['~XMLDeclaration',['../classtinyxml2_1_1_x_m_l_declaration.html#ab93d5bf4f5d58b4144963cf739cf6dcc',1,'tinyxml2::XMLDeclaration']]],
-  ['_7exmldocument_9',['~XMLDocument',['../classtinyxml2_1_1_x_m_l_document.html#af37c47d8e2ba4b2fc81b21a77a32579b',1,'tinyxml2::XMLDocument']]],
-  ['_7exmlnode_10',['~XMLNode',['../classtinyxml2_1_1_x_m_l_node.html#a8f41e898cdd4da4cdbb7f05b0c7d9f69',1,'tinyxml2::XMLNode']]],
-  ['_7exmlprinter_11',['~XMLPrinter',['../classtinyxml2_1_1_x_m_l_printer.html#af4caefa48ea6436898fb1807de8d14c0',1,'tinyxml2::XMLPrinter']]],
-  ['_7exmltext_12',['~XMLText',['../classtinyxml2_1_1_x_m_l_text.html#ae9b8790d0dc13914394dbd7437c0e59d',1,'tinyxml2::XMLText']]],
-  ['_7exmlunknown_13',['~XMLUnknown',['../classtinyxml2_1_1_x_m_l_unknown.html#a86fcd722ca173a7f385bafafa879f26e',1,'tinyxml2::XMLUnknown']]],
-  ['_7exmlvisitor_14',['~XMLVisitor',['../classtinyxml2_1_1_x_m_l_visitor.html#a494e72033d646c47d9c65c502ec62364',1,'tinyxml2::XMLVisitor']]]
+  ['xmlcomment_0',['XMLComment',['../classtinyxml2_1_1_x_m_l_comment.html#ae6463adc3edd93a8e5a9b2b7e99cdf91',1,'tinyxml2::XMLComment']]],
+  ['xmlconsthandle_1',['XMLConstHandle',['../classtinyxml2_1_1_x_m_l_const_handle.html#a098bda71fa11d7c74ccddab59d5dd534',1,'tinyxml2::XMLConstHandle::XMLConstHandle(const XMLNode *node)'],['../classtinyxml2_1_1_x_m_l_const_handle.html#a8420a0c4720637e0529e78c2e22f2b0b',1,'tinyxml2::XMLConstHandle::XMLConstHandle(const XMLNode &amp;node)'],['../classtinyxml2_1_1_x_m_l_const_handle.html#a639317ad315ff24f4ef0dc69312d7303',1,'tinyxml2::XMLConstHandle::XMLConstHandle(const XMLConstHandle &amp;ref)']]],
+  ['xmldeclaration_2',['XMLDeclaration',['../classtinyxml2_1_1_x_m_l_declaration.html#aef9586f2ce5df5feba74dde49a242b06',1,'tinyxml2::XMLDeclaration']]],
+  ['xmldocument_3',['XMLDocument',['../classtinyxml2_1_1_x_m_l_document.html#a57ddf17b6e054dda10af98991b1b8f70',1,'tinyxml2::XMLDocument']]],
+  ['xmlhandle_4',['XMLHandle',['../classtinyxml2_1_1_x_m_l_handle.html#a9c240a35c18f053509b4b97ddccd9793',1,'tinyxml2::XMLHandle::XMLHandle(XMLNode *node)'],['../classtinyxml2_1_1_x_m_l_handle.html#aa2edbc1c0d3e3e8259bd98de7f1cf500',1,'tinyxml2::XMLHandle::XMLHandle(XMLNode &amp;node)'],['../classtinyxml2_1_1_x_m_l_handle.html#afd8e01e6018c07347b8e6d80272466aa',1,'tinyxml2::XMLHandle::XMLHandle(const XMLHandle &amp;ref)']]],
+  ['xmlnode_5',['XMLNode',['../classtinyxml2_1_1_x_m_l_node.html#a29868df6ca383d574f584dfdd15105b6',1,'tinyxml2::XMLNode']]],
+  ['xmlprinter_6',['XMLPrinter',['../classtinyxml2_1_1_x_m_l_printer.html#aa6d3841c069085f5b8a27bc7103c04f7',1,'tinyxml2::XMLPrinter']]],
+  ['xmltext_7',['XMLText',['../classtinyxml2_1_1_x_m_l_text.html#ad9f46d70e61e5386ead93728d8b90267',1,'tinyxml2::XMLText']]],
+  ['xmlunknown_8',['XMLUnknown',['../classtinyxml2_1_1_x_m_l_unknown.html#a9391eb679598d50baba424e6f1aa367b',1,'tinyxml2::XMLUnknown']]]
 ];

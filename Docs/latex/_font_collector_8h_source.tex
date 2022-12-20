@@ -1,0 +1,48 @@
+\hypertarget{_font_collector_8h_source}{}\doxysection{Font\+Collector.\+h}
+\label{_font_collector_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/FontCollector.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/FontCollector.h}}
+\mbox{\hyperlink{_font_collector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <ft2build.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include FT\_FREETYPE\_H}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include FT\_STROKER\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Engine/Renderer/Texture.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define BASE\_FONT\_SIZE 72}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_character}{Character}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_texture}{Texture}} \mbox{\hyperlink{struct_character_a3917a4e0b0009073b481f27d8cb26f7a}{texture}};      \textcolor{comment}{// ID handle of the glyph texture}}
+\DoxyCodeLine{21     glm::ivec2   \mbox{\hyperlink{struct_character_a0a5d57d73f16437a0a9f324ffa5760be}{size}};      \textcolor{comment}{// Size of glyph}}
+\DoxyCodeLine{22     glm::ivec2   \mbox{\hyperlink{struct_character_ab0092bda8aab79cbc13f1b8cde4bc9ce}{bearing}};   \textcolor{comment}{// Offset from baseline to left/top of glyph}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_character_a782c09f2ac5412664ef5127882891568}{advance}};   \textcolor{comment}{// Horizontal offset to advance to next glyph}}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_font_collector}{FontCollector}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     \textcolor{keyword}{private}:}
+\DoxyCodeLine{30         FT\_Library m\_FreeTypeLib;}
+\DoxyCodeLine{31         \textcolor{comment}{// Load New Fonts}}
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} LoadFont(\textcolor{keyword}{const} std::string\& fontPath);}
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} LoadFile(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{comment}{// Collecting each characters' data of each fonts}}
+\DoxyCodeLine{36         std::map<std::string, std::map<GLchar, Character>> fonts;}
+\DoxyCodeLine{37     \textcolor{keyword}{public}:}
+\DoxyCodeLine{38         \mbox{\hyperlink{class_font_collector_af0d9249bacd8cf1440cceefe6ef89ab4}{FontCollector}}();}
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_font_collector_ac9a1d1a2136eecff22b2322cc1d2252a}{LoadResource}}();}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_font_collector_a0d198b6f21b31fe3508ddc06d7b9137a}{Free}}();}
+\DoxyCodeLine{41         std::map<GLchar, Character>* \mbox{\hyperlink{class_font_collector_a6377ccd5da41848558bfb0b878364463}{GetFonts}}(\textcolor{keyword}{const} std::string\& fontPath);}
+\DoxyCodeLine{42 \};}
+
+\end{DoxyCode}

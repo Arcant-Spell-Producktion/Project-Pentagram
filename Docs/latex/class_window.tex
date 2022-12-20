@@ -1,0 +1,245 @@
+\hypertarget{class_window}{}\doxysection{Window Class Reference}
+\label{class_window}\index{Window@{Window}}
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_window_a37006b91b1d23b261b162fe8f499f0cf}{Window}} (const int \&width, const int \&height, const char $\ast$title)
+\item 
+void \mbox{\hyperlink{class_window_a8acb8f437d7ee827b62389106a0c2576}{Make\+Context\+Current}} ()
+\item 
+void \mbox{\hyperlink{class_window_a5773af5bbba89347336d9a8793340184}{Poll\+Events}} ()
+\item 
+void \mbox{\hyperlink{class_window_abe1b83eda6980f2b9964aab08b5310ed}{Swap\+Buffers}} ()
+\item 
+void \mbox{\hyperlink{class_window_a4ef67808752d9e9b618859e698f31362}{Close}} ()
+\item 
+void \mbox{\hyperlink{class_window_a7411034f7c33f1db37e46cda453b8a92}{Set\+Window\+Size}} (const glm\+::ivec2 window\+Size)
+\item 
+void \mbox{\hyperlink{class_window_afd64203f7a91f9d7b2132ae819ff8d2c}{Set\+Window\+Size}} (const int \&window\+Width, const int \&window\+Height)
+\item 
+void \mbox{\hyperlink{class_window_a432dedc3d2d77f96fee574481bca8155}{Set\+Window\+Width}} (const int \&width)
+\item 
+void \mbox{\hyperlink{class_window_a5592535cae922d46f434fdf0a34d8fa2}{Set\+Window\+Height}} (const int \&height)
+\item 
+void \mbox{\hyperlink{class_window_a9aee9a1cf4415115a753dcc11161db17}{Set\+Viewport\+Width}} (const int \&width)
+\item 
+void \mbox{\hyperlink{class_window_a34d2bbe304de68225cb8a2c8259c498c}{Set\+Viewport\+Height}} (const int \&height)
+\item 
+void \mbox{\hyperlink{class_window_a587a732c7bda14731ddab578621d92de}{Set\+Window\+Diff\+Ratio}} (const glm\+::vec2 \&ratio)
+\item 
+void \mbox{\hyperlink{class_window_ac5b994f139071644c8ec0d7c935d172f}{Set\+Viewport\+Diff\+Ratio}} (const glm\+::vec2 \&ratio)
+\item 
+void \mbox{\hyperlink{class_window_af982293d908d5acf7c92837579bf6782}{Set\+Close}} (const bool \&close)
+\item 
+void \mbox{\hyperlink{class_window_a4571a6558a7e9e15cbe21c183458ffea}{Set\+Full\+Screen}} (const bool fullscreen)
+\item 
+GLFWwindow $\ast$ \mbox{\hyperlink{class_window_a6cc50004d4ab1ce0116660984219df17}{Get\+Window\+Pointer}} ()
+\item 
+int \mbox{\hyperlink{class_window_a4567eaf8fff494b6cf14106555b95042}{Get\+Window\+Width}} () const
+\item 
+int \mbox{\hyperlink{class_window_af7ade161b1650bb5f3c028ea00c5ca58}{Get\+Window\+Height}} () const
+\item 
+int \mbox{\hyperlink{class_window_adbdc60e33235668adf12651affd1e1bd}{Get\+Viewport\+Width}} () const
+\item 
+int \mbox{\hyperlink{class_window_a571210d70cefbb0bf2f5515b2f3b798b}{Get\+Viewport\+Height}} () const
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_window_a5e5dff7dfabe5412d38942874958aec0}{Get\+Window\+Diff\+Ratio}} () const
+\item 
+glm\+::vec2 \mbox{\hyperlink{class_window_adf80b10fbfed99f7f24bf8154d63d8d9}{Get\+Viewport\+Diff\+Ratio}} () const
+\item 
+bool \mbox{\hyperlink{class_window_a7d98d9cda33eb381eb3914ac8e7e91b4}{Is\+Close}} () const
+\item 
+bool \mbox{\hyperlink{class_window_a65f0a7835731ac3db4ece7fc073cf4c4}{Is\+Null}} () const
+\item 
+bool \mbox{\hyperlink{class_window_abb7aaf3e9d8037faf5ef21f71ac6959e}{Is\+Running}} () const
+\item 
+bool \mbox{\hyperlink{class_window_a202139170598c83c2de7fbfdaf673863}{Is\+Full\+Screen}} () const
+\item 
+void \mbox{\hyperlink{class_window_afddf437cee627426a7cfdda27093803a}{Init}} ()
+\item 
+void \mbox{\hyperlink{class_window_a21c6b5aca180cf3b7933ec97b291b21e}{Destroy}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_window_a37006b91b1d23b261b162fe8f499f0cf}\label{class_window_a37006b91b1d23b261b162fe8f499f0cf}} 
+\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}}
+{\footnotesize\ttfamily Window\+::\+Window (\begin{DoxyParamCaption}\item[{const int \&}]{width,  }\item[{const int \&}]{height,  }\item[{const char $\ast$}]{title }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_window_a4ef67808752d9e9b618859e698f31362}\label{class_window_a4ef67808752d9e9b618859e698f31362}} 
+\index{Window@{Window}!Close@{Close}}
+\index{Close@{Close}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily void Window\+::\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a21c6b5aca180cf3b7933ec97b291b21e}\label{class_window_a21c6b5aca180cf3b7933ec97b291b21e}} 
+\index{Window@{Window}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily void Window\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_adf80b10fbfed99f7f24bf8154d63d8d9}\label{class_window_adf80b10fbfed99f7f24bf8154d63d8d9}} 
+\index{Window@{Window}!GetViewportDiffRatio@{GetViewportDiffRatio}}
+\index{GetViewportDiffRatio@{GetViewportDiffRatio}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetViewportDiffRatio()}{GetViewportDiffRatio()}}
+{\footnotesize\ttfamily glm\+::vec2 Window\+::\+Get\+Viewport\+Diff\+Ratio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a571210d70cefbb0bf2f5515b2f3b798b}\label{class_window_a571210d70cefbb0bf2f5515b2f3b798b}} 
+\index{Window@{Window}!GetViewportHeight@{GetViewportHeight}}
+\index{GetViewportHeight@{GetViewportHeight}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetViewportHeight()}{GetViewportHeight()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Viewport\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_adbdc60e33235668adf12651affd1e1bd}\label{class_window_adbdc60e33235668adf12651affd1e1bd}} 
+\index{Window@{Window}!GetViewportWidth@{GetViewportWidth}}
+\index{GetViewportWidth@{GetViewportWidth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetViewportWidth()}{GetViewportWidth()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Viewport\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a5e5dff7dfabe5412d38942874958aec0}\label{class_window_a5e5dff7dfabe5412d38942874958aec0}} 
+\index{Window@{Window}!GetWindowDiffRatio@{GetWindowDiffRatio}}
+\index{GetWindowDiffRatio@{GetWindowDiffRatio}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetWindowDiffRatio()}{GetWindowDiffRatio()}}
+{\footnotesize\ttfamily glm\+::vec2 Window\+::\+Get\+Window\+Diff\+Ratio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_af7ade161b1650bb5f3c028ea00c5ca58}\label{class_window_af7ade161b1650bb5f3c028ea00c5ca58}} 
+\index{Window@{Window}!GetWindowHeight@{GetWindowHeight}}
+\index{GetWindowHeight@{GetWindowHeight}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetWindowHeight()}{GetWindowHeight()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Window\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a6cc50004d4ab1ce0116660984219df17}\label{class_window_a6cc50004d4ab1ce0116660984219df17}} 
+\index{Window@{Window}!GetWindowPointer@{GetWindowPointer}}
+\index{GetWindowPointer@{GetWindowPointer}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetWindowPointer()}{GetWindowPointer()}}
+{\footnotesize\ttfamily GLFWwindow $\ast$ Window\+::\+Get\+Window\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a4567eaf8fff494b6cf14106555b95042}\label{class_window_a4567eaf8fff494b6cf14106555b95042}} 
+\index{Window@{Window}!GetWindowWidth@{GetWindowWidth}}
+\index{GetWindowWidth@{GetWindowWidth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{GetWindowWidth()}{GetWindowWidth()}}
+{\footnotesize\ttfamily int Window\+::\+Get\+Window\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_afddf437cee627426a7cfdda27093803a}\label{class_window_afddf437cee627426a7cfdda27093803a}} 
+\index{Window@{Window}!Init@{Init}}
+\index{Init@{Init}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Window\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a7d98d9cda33eb381eb3914ac8e7e91b4}\label{class_window_a7d98d9cda33eb381eb3914ac8e7e91b4}} 
+\index{Window@{Window}!IsClose@{IsClose}}
+\index{IsClose@{IsClose}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{IsClose()}{IsClose()}}
+{\footnotesize\ttfamily bool Window\+::\+Is\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a202139170598c83c2de7fbfdaf673863}\label{class_window_a202139170598c83c2de7fbfdaf673863}} 
+\index{Window@{Window}!IsFullScreen@{IsFullScreen}}
+\index{IsFullScreen@{IsFullScreen}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{IsFullScreen()}{IsFullScreen()}}
+{\footnotesize\ttfamily bool Window\+::\+Is\+Full\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a65f0a7835731ac3db4ece7fc073cf4c4}\label{class_window_a65f0a7835731ac3db4ece7fc073cf4c4}} 
+\index{Window@{Window}!IsNull@{IsNull}}
+\index{IsNull@{IsNull}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{IsNull()}{IsNull()}}
+{\footnotesize\ttfamily bool Window\+::\+Is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_abb7aaf3e9d8037faf5ef21f71ac6959e}\label{class_window_abb7aaf3e9d8037faf5ef21f71ac6959e}} 
+\index{Window@{Window}!IsRunning@{IsRunning}}
+\index{IsRunning@{IsRunning}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{IsRunning()}{IsRunning()}}
+{\footnotesize\ttfamily bool Window\+::\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_window_a8acb8f437d7ee827b62389106a0c2576}\label{class_window_a8acb8f437d7ee827b62389106a0c2576}} 
+\index{Window@{Window}!MakeContextCurrent@{MakeContextCurrent}}
+\index{MakeContextCurrent@{MakeContextCurrent}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{MakeContextCurrent()}{MakeContextCurrent()}}
+{\footnotesize\ttfamily void Window\+::\+Make\+Context\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a5773af5bbba89347336d9a8793340184}\label{class_window_a5773af5bbba89347336d9a8793340184}} 
+\index{Window@{Window}!PollEvents@{PollEvents}}
+\index{PollEvents@{PollEvents}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{PollEvents()}{PollEvents()}}
+{\footnotesize\ttfamily void Window\+::\+Poll\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_af982293d908d5acf7c92837579bf6782}\label{class_window_af982293d908d5acf7c92837579bf6782}} 
+\index{Window@{Window}!SetClose@{SetClose}}
+\index{SetClose@{SetClose}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetClose()}{SetClose()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Close (\begin{DoxyParamCaption}\item[{const bool \&}]{close }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a4571a6558a7e9e15cbe21c183458ffea}\label{class_window_a4571a6558a7e9e15cbe21c183458ffea}} 
+\index{Window@{Window}!SetFullScreen@{SetFullScreen}}
+\index{SetFullScreen@{SetFullScreen}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetFullScreen()}{SetFullScreen()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Full\+Screen (\begin{DoxyParamCaption}\item[{const bool}]{fullscreen }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_ac5b994f139071644c8ec0d7c935d172f}\label{class_window_ac5b994f139071644c8ec0d7c935d172f}} 
+\index{Window@{Window}!SetViewportDiffRatio@{SetViewportDiffRatio}}
+\index{SetViewportDiffRatio@{SetViewportDiffRatio}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetViewportDiffRatio()}{SetViewportDiffRatio()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Viewport\+Diff\+Ratio (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{ratio }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a34d2bbe304de68225cb8a2c8259c498c}\label{class_window_a34d2bbe304de68225cb8a2c8259c498c}} 
+\index{Window@{Window}!SetViewportHeight@{SetViewportHeight}}
+\index{SetViewportHeight@{SetViewportHeight}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetViewportHeight()}{SetViewportHeight()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Viewport\+Height (\begin{DoxyParamCaption}\item[{const int \&}]{height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a9aee9a1cf4415115a753dcc11161db17}\label{class_window_a9aee9a1cf4415115a753dcc11161db17}} 
+\index{Window@{Window}!SetViewportWidth@{SetViewportWidth}}
+\index{SetViewportWidth@{SetViewportWidth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetViewportWidth()}{SetViewportWidth()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Viewport\+Width (\begin{DoxyParamCaption}\item[{const int \&}]{width }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a587a732c7bda14731ddab578621d92de}\label{class_window_a587a732c7bda14731ddab578621d92de}} 
+\index{Window@{Window}!SetWindowDiffRatio@{SetWindowDiffRatio}}
+\index{SetWindowDiffRatio@{SetWindowDiffRatio}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowDiffRatio()}{SetWindowDiffRatio()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Window\+Diff\+Ratio (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{ratio }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a5592535cae922d46f434fdf0a34d8fa2}\label{class_window_a5592535cae922d46f434fdf0a34d8fa2}} 
+\index{Window@{Window}!SetWindowHeight@{SetWindowHeight}}
+\index{SetWindowHeight@{SetWindowHeight}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowHeight()}{SetWindowHeight()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Window\+Height (\begin{DoxyParamCaption}\item[{const int \&}]{height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a7411034f7c33f1db37e46cda453b8a92}\label{class_window_a7411034f7c33f1db37e46cda453b8a92}} 
+\index{Window@{Window}!SetWindowSize@{SetWindowSize}}
+\index{SetWindowSize@{SetWindowSize}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowSize()}{SetWindowSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Window\+Size (\begin{DoxyParamCaption}\item[{const glm\+::ivec2}]{window\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_afd64203f7a91f9d7b2132ae819ff8d2c}\label{class_window_afd64203f7a91f9d7b2132ae819ff8d2c}} 
+\index{Window@{Window}!SetWindowSize@{SetWindowSize}}
+\index{SetWindowSize@{SetWindowSize}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowSize()}{SetWindowSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Window\+Size (\begin{DoxyParamCaption}\item[{const int \&}]{window\+Width,  }\item[{const int \&}]{window\+Height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_a432dedc3d2d77f96fee574481bca8155}\label{class_window_a432dedc3d2d77f96fee574481bca8155}} 
+\index{Window@{Window}!SetWindowWidth@{SetWindowWidth}}
+\index{SetWindowWidth@{SetWindowWidth}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SetWindowWidth()}{SetWindowWidth()}}
+{\footnotesize\ttfamily void Window\+::\+Set\+Window\+Width (\begin{DoxyParamCaption}\item[{const int \&}]{width }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_window_abe1b83eda6980f2b9964aab08b5310ed}\label{class_window_abe1b83eda6980f2b9964aab08b5310ed}} 
+\index{Window@{Window}!SwapBuffers@{SwapBuffers}}
+\index{SwapBuffers@{SwapBuffers}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{SwapBuffers()}{SwapBuffers()}}
+{\footnotesize\ttfamily void Window\+::\+Swap\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_window_8h}{Window.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_window_8cpp}{Window.\+cpp}}\end{DoxyCompactItemize}

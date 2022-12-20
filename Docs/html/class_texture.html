@@ -79,6 +79,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9d738dbcf72029565e89106a546be723"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c09c739c9fad4f615967eab1907c644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a9c09c739c9fad4f615967eab1907c644">SetTexture</a> (const char *path)</td></tr>
 <tr class="separator:a9c09c739c9fad4f615967eab1907c644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d3c4645f3ae7c18356cfafd7a5f15a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ae9d3c4645f3ae7c18356cfafd7a5f15a">ReadMeta</a> (const std::string &amp;filePath)</td></tr>
+<tr class="separator:ae9d3c4645f3ae7c18356cfafd7a5f15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a219a61880c960bc20b91c541d2b8eafa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a219a61880c960bc20b91c541d2b8eafa">SetFontTexture</a> (const GLuint &amp;width, const GLuint &amp;height, const void *data)</td></tr>
 <tr class="separator:a219a61880c960bc20b91c541d2b8eafa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26320d6eb03018bfbd13908941d7d18d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a26320d6eb03018bfbd13908941d7d18d">Activate</a> (GLenum TextureSlot)</td></tr>
@@ -89,6 +91,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a33fc12d5a64480dc06dba802f77b7482"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a653216bcd1509432e28502d9fc7826ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a653216bcd1509432e28502d9fc7826ce">Delete</a> ()</td></tr>
 <tr class="separator:a653216bcd1509432e28502d9fc7826ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a73afe0526a184bb108e3bd075bd308"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a0a73afe0526a184bb108e3bd075bd308">GetImageSize</a> () const</td></tr>
+<tr class="separator:a0a73afe0526a184bb108e3bd075bd308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3840586c64841936e7c2d2db5febe83e"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a3840586c64841936e7c2d2db5febe83e">GetImageWidth</a> () const</td></tr>
+<tr class="separator:a3840586c64841936e7c2d2db5febe83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81019d78a5e173478ad0e2b00447b289"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a81019d78a5e173478ad0e2b00447b289">GetImageHeight</a> () const</td></tr>
+<tr class="separator:a81019d78a5e173478ad0e2b00447b289"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6724e69ea95347ec2b92012539417cfe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a6724e69ea95347ec2b92012539417cfe">GetImageRow</a> () const</td></tr>
+<tr class="separator:a6724e69ea95347ec2b92012539417cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a870e08f06d79f3b0462f2c6a4782af04"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a870e08f06d79f3b0462f2c6a4782af04">GetImageColumn</a> () const</td></tr>
+<tr class="separator:a870e08f06d79f3b0462f2c6a4782af04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ff646c8f6eec85b23dd7fb21ef29bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ad1ff646c8f6eec85b23dd7fb21ef29bd">GetMaxImageColumn</a> () const</td></tr>
+<tr class="separator:ad1ff646c8f6eec85b23dd7fb21ef29bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6c275e3f186675ff6ed73ccf970e552f" name="a6c275e3f186675ff6ed73ccf970e552f"></a>
@@ -179,6 +193,126 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a870e08f06d79f3b0462f2c6a4782af04" name="a870e08f06d79f3b0462f2c6a4782af04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a870e08f06d79f3b0462f2c6a4782af04">&#9670;&nbsp;</a></span>GetImageColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; Texture::GetImageColumn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81019d78a5e173478ad0e2b00447b289" name="a81019d78a5e173478ad0e2b00447b289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81019d78a5e173478ad0e2b00447b289">&#9670;&nbsp;</a></span>GetImageHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Texture::GetImageHeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6724e69ea95347ec2b92012539417cfe" name="a6724e69ea95347ec2b92012539417cfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6724e69ea95347ec2b92012539417cfe">&#9670;&nbsp;</a></span>GetImageRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Texture::GetImageRow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a73afe0526a184bb108e3bd075bd308" name="a0a73afe0526a184bb108e3bd075bd308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a73afe0526a184bb108e3bd075bd308">&#9670;&nbsp;</a></span>GetImageSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 Texture::GetImageSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3840586c64841936e7c2d2db5febe83e" name="a3840586c64841936e7c2d2db5febe83e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3840586c64841936e7c2d2db5febe83e">&#9670;&nbsp;</a></span>GetImageWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint Texture::GetImageWidth </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad1ff646c8f6eec85b23dd7fb21ef29bd" name="ad1ff646c8f6eec85b23dd7fb21ef29bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ff646c8f6eec85b23dd7fb21ef29bd">&#9670;&nbsp;</a></span>GetMaxImageColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Texture::GetMaxImageColumn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9d3c4645f3ae7c18356cfafd7a5f15a" name="ae9d3c4645f3ae7c18356cfafd7a5f15a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9d3c4645f3ae7c18356cfafd7a5f15a">&#9670;&nbsp;</a></span>ReadMeta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Texture::ReadMeta </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filePath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a219a61880c960bc20b91c541d2b8eafa" name="a219a61880c960bc20b91c541d2b8eafa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a219a61880c960bc20b91c541d2b8eafa">&#9670;&nbsp;</a></span>SetFontTexture()</h2>
 
@@ -249,8 +383,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Project-Pentagram/Engine/Renderer/<a class="el" href="_texture_8h_source.html">Texture.h</a></li>
-<li>Project-Pentagram/Engine/Renderer/<a class="el" href="_texture_8cpp.html">Texture.cpp</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Renderer/<a class="el" href="_texture_8h_source.html">Texture.h</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Renderer/<a class="el" href="_texture_8cpp.html">Texture.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

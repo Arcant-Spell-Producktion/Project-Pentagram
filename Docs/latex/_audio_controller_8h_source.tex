@@ -1,0 +1,119 @@
+\hypertarget{_audio_controller_8h_source}{}\doxysection{Audio\+Controller.\+h}
+\label{_audio_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Audio/AudioController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Audio/AudioController.h}}
+\mbox{\hyperlink{_audio_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_engine_8h}{AudioEngine.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_g_m_audio}{BGMAudio}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{private}:}
+\DoxyCodeLine{12         \mbox{\hyperlink{_audio_engine_8h_af8042276f5c0083218b21e8b7bc29b80}{Audio}}* m\_Audio;}
+\DoxyCodeLine{13     \textcolor{keyword}{public}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{class_b_g_m_audio_ad66fb8b5e50d40e6f3da9d3aca7fff64}{BGMAudio}}(\mbox{\hyperlink{_audio_engine_8h_af8042276f5c0083218b21e8b7bc29b80}{Audio}}* audio)}
+\DoxyCodeLine{15         : m\_Audio(audio)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_b_g_m_audio_a20a7419d43d7d813ad6e84e1821107b5}{\string~BGMAudio}}()}
+\DoxyCodeLine{20         \{}
+\DoxyCodeLine{21             m\_Audio-\/>drop();}
+\DoxyCodeLine{22         \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_audio_a1cd5db6e31b805598958119487ea3c18}{Pause}}()}
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             m\_Audio-\/>setIsPaused(\textcolor{keyword}{true});}
+\DoxyCodeLine{27         \}}
+\DoxyCodeLine{28         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_audio_ac833f2a9a80ea2aec2743959f3b1dbba}{Resume}}()}
+\DoxyCodeLine{29         \{}
+\DoxyCodeLine{30             m\_Audio-\/>setIsPaused(\textcolor{keyword}{false});}
+\DoxyCodeLine{31         \}}
+\DoxyCodeLine{32         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_audio_a39fd2220b2be3f451988b9dd61764033}{SetPlaybackSpeed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& speed)}
+\DoxyCodeLine{34         \{}
+\DoxyCodeLine{35             m\_Audio-\/>setPlaybackSpeed(speed);}
+\DoxyCodeLine{36         \}}
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_audio_a9a785216c59780fafc22e538531edb38}{SetVolume}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume)}
+\DoxyCodeLine{38     \{}
+\DoxyCodeLine{39         m\_Audio-\/>setVolume(volume);}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{42         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_b_g_m_audio_a8b1e8b047fe6ea8775d2182330ab7042}{GetPlaybackSpeed}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{43 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{44             \textcolor{keywordflow}{return} m\_Audio-\/>getPlaybackSpeed();}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_b_g_m_audio_a3aaac082af2507e8d8f50e88f5321604}{GetVolume}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{47 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{48             \textcolor{keywordflow}{return} m\_Audio-\/>getVolume();}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{class }\mbox{\hyperlink{class_b_g_m_controller}{BGMController}}}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \textcolor{keyword}{private}:}
+\DoxyCodeLine{55         \mbox{\hyperlink{class_audio_engine}{AudioEngine}}* audioEngine = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{AudioEngine::GetInstance}}();}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordtype}{float} m\_BGMLocalVolume = 1.0f;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         std::vector<AudioSource*> m\_BGMSourceList;}
+\DoxyCodeLine{60         std::vector<BGMAudio*> m\_BGMAudioList;}
+\DoxyCodeLine{61         std::vector<float> m\_BGMVolumeList;}
+\DoxyCodeLine{62     \textcolor{keyword}{public}:}
+\DoxyCodeLine{63         \mbox{\hyperlink{class_b_g_m_controller_a29ff58e1c4b4c9e10a4c2b36a5130906}{BGMController}}(\textcolor{keyword}{const} std::vector<AudioSource*>\& BGMAudioList, \textcolor{keyword}{const} std::vector<float>\& volumeList)}
+\DoxyCodeLine{64             : m\_BGMSourceList(BGMAudioList), m\_BGMVolumeList(volumeList)}
+\DoxyCodeLine{65         \{}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_b_g_m_controller_a1034e881fe18ddf7ddbf42024a4878d2}{\string~BGMController}}()}
+\DoxyCodeLine{69         \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} idx = 0; idx < m\_BGMAudioList.size(); idx++)}
+\DoxyCodeLine{71             \{}
+\DoxyCodeLine{72                 \textcolor{keyword}{delete} m\_BGMAudioList[idx];}
+\DoxyCodeLine{73             \}}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_controller_a86d727d4b226907b6ef80d5407c4a38a}{Play}}()}
+\DoxyCodeLine{77         \{}
+\DoxyCodeLine{78             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} idx = 0; idx < m\_BGMSourceList.size(); idx++)}
+\DoxyCodeLine{79             \{}
+\DoxyCodeLine{80                 \textcolor{keyword}{const} \textcolor{keywordtype}{float} masterVolume = audioEngine-\/>\mbox{\hyperlink{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}{GetMasterVolume}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82                 \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{AudioSource}}*\& curAudioSource = m\_BGMSourceList[idx];}
+\DoxyCodeLine{83                 \mbox{\hyperlink{_audio_engine_8h_af8042276f5c0083218b21e8b7bc29b80}{Audio}}* audio = audioEngine-\/>\mbox{\hyperlink{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}{GetEngine}}()-\/>play2D(curAudioSource, \textcolor{keyword}{true}, \textcolor{keyword}{false}, \textcolor{keyword}{true}, \textcolor{keyword}{true});}
+\DoxyCodeLine{84                 }
+\DoxyCodeLine{85                 audio-\/>setVolume(m\_BGMVolumeList[idx] * m\_BGMLocalVolume * masterVolume);}
+\DoxyCodeLine{86                 }
+\DoxyCodeLine{87                 m\_BGMAudioList.push\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_b_g_m_audio}{BGMAudio}}(audio));}
+\DoxyCodeLine{88             \}}
+\DoxyCodeLine{89         \}}
+\DoxyCodeLine{90         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_b_g_m_controller_aad6ff8b216889eb172145d3c4a0802e5}{ChangeVolume}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume)}
+\DoxyCodeLine{91         \{}
+\DoxyCodeLine{92             m\_BGMLocalVolume = volume;}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95         \mbox{\hyperlink{class_b_g_m_audio}{BGMAudio}}* \mbox{\hyperlink{class_b_g_m_controller_a6e29bc92cfea2eb1f699b3523659c2ca}{operator[]}}(\textcolor{keywordtype}{int} index)}
+\DoxyCodeLine{96         \{}
+\DoxyCodeLine{97             \textcolor{keywordflow}{return} m\_BGMAudioList[index];}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99 \};}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{keyword}{class }\mbox{\hyperlink{class_audio_controller}{AudioController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<AudioController>}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103     \textcolor{keyword}{private}:}
+\DoxyCodeLine{104         \mbox{\hyperlink{class_audio_engine}{AudioEngine}}* audioEngine = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{AudioEngine::GetInstance}}();}
+\DoxyCodeLine{105         std::vector<BGMController*> m\_BGMControllerList;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keyword}{public}:}
+\DoxyCodeLine{108         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_controller_a1d805db4b15f2649f66399931f393f39}{PlaySFX}}(\textcolor{keyword}{const} std::string\& filePath, \textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume);}
+\DoxyCodeLine{109         \mbox{\hyperlink{class_b_g_m_controller}{BGMController}}* \mbox{\hyperlink{class_audio_controller_a25322d1ef3ddaf1c4667ba6e9852acf6}{CreateBGM}}(\textcolor{keyword}{const} std::vector<std::string>\& filepathList, \textcolor{keyword}{const} std::vector<float>\& volumeList);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Free Memory -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{112         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_controller_a7cbaa4a48105e84a2f0363cfd266cc66}{Free}}();}
+\DoxyCodeLine{113 \};}
+
+\end{DoxyCode}

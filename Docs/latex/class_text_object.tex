@@ -1,0 +1,154 @@
+\hypertarget{class_text_object}{}\doxysection{Text\+Object Class Reference}
+\label{class_text_object}\index{TextObject@{TextObject}}
+
+
+{\ttfamily \#include $<$Text\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Text\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_text_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Text\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_text_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}{Text\+Object}} (const std\+::string \&obj\+Name)
+\item 
+virtual void \mbox{\hyperlink{class_text_object_a7389c1af07e6a6b564415ae325d1b684}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
+\item 
+virtual void \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{On\+Update}} (const float \&dt) override
+\item 
+virtual void \mbox{\hyperlink{class_text_object_a194cd1d32e522494b85c387eb0683a3d}{Unload\+Mesh}} () override
+\item 
+void \mbox{\hyperlink{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}{Set\+Render\+Time}} (const float \&render\+Time)
+\item 
+void \mbox{\hyperlink{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}{Set\+Fonts}} (const std\+::string \&font\+Path)
+\item 
+void \mbox{\hyperlink{class_text_object_a38a20048c257e64a12a5fbcddd047d60}{Render\+Text}} (glm\+::vec3 position\+Offset, \mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model, int start=-\/1, int end=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}}
+\item 
+\mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474f}{Text\+Alignment}} \mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{text\+Alignment}}
+\item 
+float \mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{font\+Size}}
+\item 
+float \mbox{\hyperlink{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}{line\+Spacing}}
+\item 
+glm\+::vec4 \mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outline\+Color}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}\label{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}} 
+\index{TextObject@{TextObject}!TextObject@{TextObject}}
+\index{TextObject@{TextObject}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{TextObject()}{TextObject()}}
+{\footnotesize\ttfamily Text\+Object\+::\+Text\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_text_object_a7389c1af07e6a6b564415ae325d1b684}\label{class_text_object_a7389c1af07e6a6b564415ae325d1b684}} 
+\index{TextObject@{TextObject}!Draw@{Draw}}
+\index{Draw@{Draw}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{UIObject}}.
+
+\mbox{\Hypertarget{class_text_object_a73256f1dce810398312501c6b2fdd19c}\label{class_text_object_a73256f1dce810398312501c6b2fdd19c}} 
+\index{TextObject@{TextObject}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_text_object_a38a20048c257e64a12a5fbcddd047d60}\label{class_text_object_a38a20048c257e64a12a5fbcddd047d60}} 
+\index{TextObject@{TextObject}!RenderText@{RenderText}}
+\index{RenderText@{RenderText}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{RenderText()}{RenderText()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+Render\+Text (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position\+Offset,  }\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model,  }\item[{int}]{start = {\ttfamily -\/1},  }\item[{int}]{end = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}\label{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}} 
+\index{TextObject@{TextObject}!SetFonts@{SetFonts}}
+\index{SetFonts@{SetFonts}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{SetFonts()}{SetFonts()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+Set\+Fonts (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{font\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}\label{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}} 
+\index{TextObject@{TextObject}!SetRenderTime@{SetRenderTime}}
+\index{SetRenderTime@{SetRenderTime}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{SetRenderTime()}{SetRenderTime()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+Set\+Render\+Time (\begin{DoxyParamCaption}\item[{const float \&}]{render\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_text_object_a194cd1d32e522494b85c387eb0683a3d}\label{class_text_object_a194cd1d32e522494b85c387eb0683a3d}} 
+\index{TextObject@{TextObject}!UnloadMesh@{UnloadMesh}}
+\index{UnloadMesh@{UnloadMesh}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{UnloadMesh()}{UnloadMesh()}}
+{\footnotesize\ttfamily void Text\+Object\+::\+Unload\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e94800835c5}{Game\+Object}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}\label{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}} 
+\index{TextObject@{TextObject}!fontSize@{fontSize}}
+\index{fontSize@{fontSize}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{fontSize}{fontSize}}
+{\footnotesize\ttfamily float Text\+Object\+::font\+Size}
+
+\mbox{\Hypertarget{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}\label{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}} 
+\index{TextObject@{TextObject}!lineSpacing@{lineSpacing}}
+\index{lineSpacing@{lineSpacing}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{lineSpacing}{lineSpacing}}
+{\footnotesize\ttfamily float Text\+Object\+::line\+Spacing}
+
+\mbox{\Hypertarget{class_text_object_a1359552ff4d7a534393d872b5069059c}\label{class_text_object_a1359552ff4d7a534393d872b5069059c}} 
+\index{TextObject@{TextObject}!outlineColor@{outlineColor}}
+\index{outlineColor@{outlineColor}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{outlineColor}{outlineColor}}
+{\footnotesize\ttfamily glm\+::vec4 Text\+Object\+::outline\+Color}
+
+\mbox{\Hypertarget{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}\label{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}} 
+\index{TextObject@{TextObject}!text@{text}}
+\index{text@{text}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily std\+::string Text\+Object\+::text}
+
+\mbox{\Hypertarget{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}\label{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}} 
+\index{TextObject@{TextObject}!textAlignment@{textAlignment}}
+\index{textAlignment@{textAlignment}!TextObject@{TextObject}}
+\doxysubsubsection{\texorpdfstring{textAlignment}{textAlignment}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474f}{Text\+Alignment}} Text\+Object\+::text\+Alignment}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Renderer/\mbox{\hyperlink{_text_object_8h}{Text\+Object.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Renderer/\mbox{\hyperlink{_text_object_8cpp}{Text\+Object.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,158 @@
+\hypertarget{class_particle_system}{}\doxysection{Particle\+System Class Reference}
+\label{class_particle_system}\index{ParticleSystem@{ParticleSystem}}
+
+
+{\ttfamily \#include $<$Particle\+System.\+h$>$}
+
+
+
+Inheritance diagram for Particle\+System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{class_particle_system__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Particle\+System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_particle_system__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_particle_system_a97ee7ae0af12500dda7a3e2ca4252b69}{Particle\+System}} (const std\+::string \&obj\+Name)
+\item 
+virtual void \mbox{\hyperlink{class_particle_system_a042a639b6446a5434f7648c873dcaa32}{On\+Update}} (const float \&dt) override
+\item 
+virtual void \mbox{\hyperlink{class_particle_system_ad76c977ec244b5f0c529ca570a0dd101}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
+\item 
+virtual void \mbox{\hyperlink{class_particle_system_a08d23981923c20a3c0882862f203327d}{Unload\+Mesh}} () override
+\item 
+void \mbox{\hyperlink{class_particle_system_aea28693659dbc020c63a605b94b7e519}{Set\+Spawn\+Time}} (const float \&spawn\+Time)
+\item 
+void \mbox{\hyperlink{class_particle_system_a6ec1631f0478ca8dd7a91026e96317ad}{Set\+Is\+Fix\+Rotation}} (const bool \&active)
+\item 
+float \mbox{\hyperlink{class_particle_system_a0d8afff3e981b117a6f890534c46de11}{Get\+Spawn\+Time}} () const
+\item 
+bool \mbox{\hyperlink{class_particle_system_a764a113d687c18fa86e92a90ebb80427}{Is\+Fix\+Rotation}} () const
+\item 
+void \mbox{\hyperlink{class_particle_system_ae74088a202118108d72b80e92d600317}{Emit}} (const \mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&particle\+Property)
+\item 
+virtual void \mbox{\hyperlink{class_particle_system_aaba93d11199b5f315450ce333ea5702d}{Update\+Animation}} (const float \&delta\+Time) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLuint \mbox{\hyperlink{class_particle_system_a2a110b6234c325b45778941ddab27b13}{m\+\_\+\+Pool\+Index}} = 999
+\item 
+\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \mbox{\hyperlink{class_particle_system_a51d5d8fdd964a4c92452a3e98a0dc5cb}{base\+Particle}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_particle_system_a97ee7ae0af12500dda7a3e2ca4252b69}\label{class_particle_system_a97ee7ae0af12500dda7a3e2ca4252b69}} 
+\index{ParticleSystem@{ParticleSystem}!ParticleSystem@{ParticleSystem}}
+\index{ParticleSystem@{ParticleSystem}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{ParticleSystem()}{ParticleSystem()}}
+{\footnotesize\ttfamily Particle\+System\+::\+Particle\+System (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_particle_system_ad76c977ec244b5f0c529ca570a0dd101}\label{class_particle_system_ad76c977ec244b5f0c529ca570a0dd101}} 
+\index{ParticleSystem@{ParticleSystem}!Draw@{Draw}}
+\index{Draw@{Draw}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a9e9c5e4b492511d6152ee4d69bd460c2}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_particle_system_ae74088a202118108d72b80e92d600317}\label{class_particle_system_ae74088a202118108d72b80e92d600317}} 
+\index{ParticleSystem@{ParticleSystem}!Emit@{Emit}}
+\index{Emit@{Emit}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{Emit()}{Emit()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Emit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&}]{particle\+Property }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_particle_system_a0d8afff3e981b117a6f890534c46de11}\label{class_particle_system_a0d8afff3e981b117a6f890534c46de11}} 
+\index{ParticleSystem@{ParticleSystem}!GetSpawnTime@{GetSpawnTime}}
+\index{GetSpawnTime@{GetSpawnTime}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{GetSpawnTime()}{GetSpawnTime()}}
+{\footnotesize\ttfamily float Particle\+System\+::\+Get\+Spawn\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_particle_system_a764a113d687c18fa86e92a90ebb80427}\label{class_particle_system_a764a113d687c18fa86e92a90ebb80427}} 
+\index{ParticleSystem@{ParticleSystem}!IsFixRotation@{IsFixRotation}}
+\index{IsFixRotation@{IsFixRotation}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{IsFixRotation()}{IsFixRotation()}}
+{\footnotesize\ttfamily bool Particle\+System\+::\+Is\+Fix\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_particle_system_a042a639b6446a5434f7648c873dcaa32}\label{class_particle_system_a042a639b6446a5434f7648c873dcaa32}} 
+\index{ParticleSystem@{ParticleSystem}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_particle_system_a6ec1631f0478ca8dd7a91026e96317ad}\label{class_particle_system_a6ec1631f0478ca8dd7a91026e96317ad}} 
+\index{ParticleSystem@{ParticleSystem}!SetIsFixRotation@{SetIsFixRotation}}
+\index{SetIsFixRotation@{SetIsFixRotation}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{SetIsFixRotation()}{SetIsFixRotation()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Set\+Is\+Fix\+Rotation (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_particle_system_aea28693659dbc020c63a605b94b7e519}\label{class_particle_system_aea28693659dbc020c63a605b94b7e519}} 
+\index{ParticleSystem@{ParticleSystem}!SetSpawnTime@{SetSpawnTime}}
+\index{SetSpawnTime@{SetSpawnTime}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{SetSpawnTime()}{SetSpawnTime()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Set\+Spawn\+Time (\begin{DoxyParamCaption}\item[{const float \&}]{spawn\+Time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_particle_system_a08d23981923c20a3c0882862f203327d}\label{class_particle_system_a08d23981923c20a3c0882862f203327d}} 
+\index{ParticleSystem@{ParticleSystem}!UnloadMesh@{UnloadMesh}}
+\index{UnloadMesh@{UnloadMesh}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{UnloadMesh()}{UnloadMesh()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Unload\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e94800835c5}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_particle_system_aaba93d11199b5f315450ce333ea5702d}\label{class_particle_system_aaba93d11199b5f315450ce333ea5702d}} 
+\index{ParticleSystem@{ParticleSystem}!UpdateAnimation@{UpdateAnimation}}
+\index{UpdateAnimation@{UpdateAnimation}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimation()}{UpdateAnimation()}}
+{\footnotesize\ttfamily void Particle\+System\+::\+Update\+Animation (\begin{DoxyParamCaption}\item[{const float \&}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a2bd7a7fe711c058af065e68b9bc89ba7}{Game\+Object}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_particle_system_a51d5d8fdd964a4c92452a3e98a0dc5cb}\label{class_particle_system_a51d5d8fdd964a4c92452a3e98a0dc5cb}} 
+\index{ParticleSystem@{ParticleSystem}!baseParticle@{baseParticle}}
+\index{baseParticle@{baseParticle}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{baseParticle}{baseParticle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_particle_property}{Particle\+Property}} Particle\+System\+::base\+Particle}
+
+\mbox{\Hypertarget{class_particle_system_a2a110b6234c325b45778941ddab27b13}\label{class_particle_system_a2a110b6234c325b45778941ddab27b13}} 
+\index{ParticleSystem@{ParticleSystem}!m\_PoolIndex@{m\_PoolIndex}}
+\index{m\_PoolIndex@{m\_PoolIndex}!ParticleSystem@{ParticleSystem}}
+\doxysubsubsection{\texorpdfstring{m\_PoolIndex}{m\_PoolIndex}}
+{\footnotesize\ttfamily GLuint Particle\+System\+::m\+\_\+\+Pool\+Index = 999}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_particle_system_8h}{Particle\+System.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_particle_system_8cpp}{Particle\+System.\+cpp}}\end{DoxyCompactItemize}

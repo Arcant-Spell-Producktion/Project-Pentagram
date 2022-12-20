@@ -1,6 +1,23 @@
 <map id="UIObject" name="UIObject">
-<area shape="rect" id="node1" title=" " alt="" coords="47,80,119,107"/>
-<area shape="rect" id="node3" href="$class_button.html" title=" " alt="" coords="5,155,65,181"/>
-<area shape="rect" id="node4" href="$class_text_object.html" title=" " alt="" coords="90,155,175,181"/>
-<area shape="rect" id="node2" href="$class_game_object.html" title=" " alt="" coords="36,5,131,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="148,360,220,387"/>
+<area shape="rect" id="node3" href="$class_button.html" title=" " alt="" coords="347,81,407,108"/>
+<area shape="rect" id="node10" href="$class_caster_detail_u_i.html" title=" " alt="" coords="325,132,430,159"/>
+<area shape="rect" id="node11" href="$class_caster_effect_bar_u_i.html" title=" " alt="" coords="315,183,440,209"/>
+<area shape="rect" id="node12" href="$class_caster_effect_icon_u_i.html" title=" " alt="" coords="313,233,442,260"/>
+<area shape="rect" id="node13" href="$class_pentagram_circle_u_i.html" title=" " alt="" coords="312,284,443,311"/>
+<area shape="rect" id="node14" href="$class_pentagram_field_button_u_i.html" title=" " alt="" coords="296,335,459,361"/>
+<area shape="rect" id="node15" href="$class_pentagram_scroll_button_manager_u_i.html" title=" " alt="" coords="268,385,487,412"/>
+<area shape="rect" id="node16" href="$class_rune_object.html" title=" " alt="" coords="332,436,423,463"/>
+<area shape="rect" id="node17" href="$class_slider.html" title=" " alt="" coords="350,487,405,513"/>
+<area shape="rect" id="node18" href="$class_spell_detail_u_i.html" title=" " alt="" coords="329,537,425,564"/>
+<area shape="rect" id="node19" href="$class_text_object.html" title=" " alt="" coords="335,588,420,615"/>
+<area shape="rect" id="node20" href="$class_timeline_controller.html" title=" " alt="" coords="315,639,440,665"/>
+<area shape="rect" id="node21" href="$class_timetrack_u_i.html" title=" " alt="" coords="332,689,423,716"/>
+<area shape="rect" id="node2" href="$class_game_object.html" title=" " alt="" coords="5,360,100,387"/>
+<area shape="rect" id="node4" href="$class_pentagram_field_button.html" title=" " alt="" coords="537,5,688,32"/>
+<area shape="rect" id="node5" href="$class_pentagram_scroll_button.html" title=" " alt="" coords="535,56,691,83"/>
+<area shape="rect" id="node8" href="$class_scroll_button.html" title=" " alt="" coords="566,107,659,133"/>
+<area shape="rect" id="node9" href="$class_spell_icon_u_i.html" title=" " alt="" coords="569,157,656,184"/>
+<area shape="rect" id="node6" href="$class_pentagram_scroll_arrow_button.html" title=" " alt="" coords="745,31,934,57"/>
+<area shape="rect" id="node7" href="$class_pentagram_scroll_number_button.html" title=" " alt="" coords="739,81,940,108"/>
 </map>

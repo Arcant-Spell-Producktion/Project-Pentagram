@@ -1,0 +1,118 @@
+\hypertarget{class_battle_manager}{}\doxysection{Battle\+Manager Class Reference}
+\label{class_battle_manager}\index{BattleManager@{BattleManager}}
+
+
+{\ttfamily \#include $<$Battle\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Battle\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_battle_manager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Battle\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_battle_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}{Set\+Battle\+State}} (\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}} state)
+\item 
+\mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ \mbox{\hyperlink{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}{Get\+Battle\+States}} ()
+\item 
+void \mbox{\hyperlink{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}{Init}} (\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$scene)
+\item 
+void \mbox{\hyperlink{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}{Start\+Battle}} ()
+\item 
+void \mbox{\hyperlink{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}{Swap\+Caster}} ()
+\item 
+void \mbox{\hyperlink{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}{End\+Battle}} ()
+\item 
+void \mbox{\hyperlink{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}{Update\+Display\+Spell\+Detail}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} position, \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell=nullptr, bool is\+Main\+Data=false, glm\+::vec3 Icon\+Pos=\{0, 0, 0\})
+\item 
+\mbox{\hyperlink{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}{$\sim$\+Battle\+Manager}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_battle_scene_data}{Battle\+Scene\+Data}} \mbox{\hyperlink{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}{Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}\label{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}} 
+\index{BattleManager@{BattleManager}!````~BattleManager@{$\sim$BattleManager}}
+\index{````~BattleManager@{$\sim$BattleManager}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$BattleManager()}{~BattleManager()}}
+{\footnotesize\ttfamily Battle\+Manager\+::$\sim$\+Battle\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}\label{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}} 
+\index{BattleManager@{BattleManager}!EndBattle@{EndBattle}}
+\index{EndBattle@{EndBattle}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{EndBattle()}{EndBattle()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+End\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}\label{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}} 
+\index{BattleManager@{BattleManager}!GetBattleStates@{GetBattleStates}}
+\index{GetBattleStates@{GetBattleStates}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{GetBattleStates()}{GetBattleStates()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ Battle\+Manager\+::\+Get\+Battle\+States (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}\label{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}} 
+\index{BattleManager@{BattleManager}!Init@{Init}}
+\index{Init@{Init}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$}]{scene }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}\label{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}} 
+\index{BattleManager@{BattleManager}!SetBattleState@{SetBattleState}}
+\index{SetBattleState@{SetBattleState}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{SetBattleState()}{SetBattleState()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Set\+Battle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}}}]{state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}\label{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}} 
+\index{BattleManager@{BattleManager}!StartBattle@{StartBattle}}
+\index{StartBattle@{StartBattle}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{StartBattle()}{StartBattle()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Start\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}\label{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}} 
+\index{BattleManager@{BattleManager}!SwapCaster@{SwapCaster}}
+\index{SwapCaster@{SwapCaster}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{SwapCaster()}{SwapCaster()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Swap\+Caster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}\label{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}} 
+\index{BattleManager@{BattleManager}!UpdateDisplaySpellDetail@{UpdateDisplaySpellDetail}}
+\index{UpdateDisplaySpellDetail@{UpdateDisplaySpellDetail}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{UpdateDisplaySpellDetail()}{UpdateDisplaySpellDetail()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Update\+Display\+Spell\+Detail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{position,  }\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell = {\ttfamily nullptr},  }\item[{bool}]{is\+Main\+Data = {\ttfamily false},  }\item[{glm\+::vec3}]{Icon\+Pos = {\ttfamily \{0,0,0\}} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}\label{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}} 
+\index{BattleManager@{BattleManager}!Data@{Data}}
+\index{Data@{Data}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{Data}{Data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_battle_scene_data}{Battle\+Scene\+Data}} Battle\+Manager\+::\+Data}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\mbox{\hyperlink{_battle_manager_8h}{Battle\+Manager.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\mbox{\hyperlink{_battle_manager_8cpp}{Battle\+Manager.\+cpp}}\end{DoxyCompactItemize}

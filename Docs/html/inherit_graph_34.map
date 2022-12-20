@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structtinyxml2_1_1_entity.html" title=" " alt="" coords="5,5,119,32"/>
+<area shape="rect" id="node1" href="$class_i_game_object_manager.html" title=" " alt="" coords="5,107,153,133"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="201,107,296,133"/>
+<area shape="rect" id="node3" href="$class_battle_scene.html" title=" " alt="" coords="344,5,437,32"/>
+<area shape="rect" id="node4" href="$class_demo_scene.html" title=" " alt="" coords="344,56,437,83"/>
+<area shape="rect" id="node5" href="$class_load_scene.html" title=" " alt="" coords="347,107,434,133"/>
+<area shape="rect" id="node6" href="$class_menu_scene.html" title=" " alt="" coords="345,157,436,184"/>
+<area shape="rect" id="node7" href="$class_node_scene.html" title=" " alt="" coords="346,208,435,235"/>
 </map>

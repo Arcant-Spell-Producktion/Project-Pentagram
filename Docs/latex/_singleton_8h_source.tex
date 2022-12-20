@@ -1,0 +1,28 @@
+\hypertarget{_singleton_8h_source}{}\doxysection{Singleton.\+h}
+\label{_singleton_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Singleton.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Singleton.h}}
+\mbox{\hyperlink{_singleton_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_singleton}{Singleton}}}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{6     \textcolor{keyword}{static} T* \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}};}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{static} T* \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{GetInstance}}()}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}} == \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{12         \{}
+\DoxyCodeLine{13             \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}} = \textcolor{keyword}{new} T();}
+\DoxyCodeLine{14         \}}
+\DoxyCodeLine{15         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}};}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_singleton_ad6cbdb6116fdb704885d35f365d978e2}{Free}}() \{ \textcolor{keyword}{delete} \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}}; \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}} = \textcolor{keyword}{nullptr}; \}}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{22 T* \mbox{\hyperlink{class_singleton}{Singleton<T>::instance}} = \textcolor{keyword}{nullptr};}
+
+\end{DoxyCode}

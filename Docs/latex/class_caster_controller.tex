@@ -1,0 +1,200 @@
+\hypertarget{class_caster_controller}{}\doxysection{Caster\+Controller Class Reference}
+\label{class_caster_controller}\index{CasterController@{CasterController}}
+
+
+{\ttfamily \#include $<$Caster\+Controller.\+h$>$}
+
+
+
+Inheritance diagram for Caster\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_caster_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Caster\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_caster_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_caster_controller_a1b1a67766801f66de6a825c5bb2cf497}{Caster\+Controller}} (\mbox{\hyperlink{class_caster_data}{Caster\+Data}} caster)
+\item 
+void \mbox{\hyperlink{class_caster_controller_a7c329b43dff5848037fcc05da797c4ea}{Update\+Caster\+UI}} ()
+\item 
+\mbox{\hyperlink{class_caster_object}{Caster\+Object}} $\ast$ \mbox{\hyperlink{class_caster_controller_abe07ed487e5f4c10df07ee329507e53b}{Get\+Caster\+Object}} ()
+\item 
+\mbox{\hyperlink{class_caster_manager}{Caster\+Manager}} $\ast$ \mbox{\hyperlink{class_caster_controller_a75c852a113077413714fed81ae57866d}{Get\+Caster\+Manager}} ()
+\item 
+\mbox{\hyperlink{class_caster_u_i_controller}{Caster\+UIController}} $\ast$ \mbox{\hyperlink{class_caster_controller_ab5b4de19d63b6f848debac597085b986}{Get\+Caster\+UI}} ()
+\item 
+\mbox{\hyperlink{class_caster_effect_manager}{Caster\+Effect\+Manager}} $\ast$ \mbox{\hyperlink{class_caster_controller_a1d92f39ab26b73f4a2e6812d4a174b21}{Get\+Effect\+Manager}} ()
+\item 
+\mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}} \mbox{\hyperlink{class_caster_controller_ae3df255efe8c22bebd248cb5de48a6a7}{Get\+State}} ()
+\item 
+void \mbox{\hyperlink{class_caster_controller_ab60d4013c3fb214c23091f7752eb5ed9}{Set\+State}} (\mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}} state)
+\item 
+virtual void \mbox{\hyperlink{class_caster_controller_a042d0e50ca8b694d33511dd5d6e449f6}{Start\+Turn}} ()
+\item 
+bool \mbox{\hyperlink{class_caster_controller_aeac560eac9389ce42e90a4a21b1899f7}{Take\+Damage}} (int value)
+\item 
+\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ \mbox{\hyperlink{class_caster_controller_a90bff2f6dfa090cadf3aee8ea0c9e419}{Cast\+Spell}} ()
+\item 
+void \mbox{\hyperlink{class_caster_controller_ac9fd69c19266f30108fcc64ffbafce9e}{End\+Turn}} (bool is\+Passed=false)
+\item 
+\mbox{\hyperlink{class_caster_controller_acd34ea4ac7ebab8d1adae2362dacf19e}{$\sim$\+Caster\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_caster_controller_a9d4ef13d78c6b6fce0737be3dd87d630}{Caster\+Died}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_caster_manager}{Caster\+Manager}} \mbox{\hyperlink{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}{m\+\_\+\+Caster\+Manager}}
+\item 
+\mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}} \mbox{\hyperlink{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}{m\+\_\+\+Caster\+State}} = \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaae599161956d626eda4cb0a5ffb85271c}{Caster\+State\+::\+Idle}}
+\item 
+\mbox{\hyperlink{class_caster_effect_manager}{Caster\+Effect\+Manager}} \mbox{\hyperlink{class_caster_controller_a40c0021399f215ffc8b67f9d4b21a7f6}{m\+\_\+\+Effect\+Manager}}
+\item 
+\mbox{\hyperlink{class_caster_u_i_controller}{Caster\+UIController}} \mbox{\hyperlink{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}{m\+\_\+\+Caster\+UI}}
+\item 
+\mbox{\hyperlink{class_caster_object}{Caster\+Object}} $\ast$ \mbox{\hyperlink{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}{m\+\_\+\+Caster\+Object}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_caster_controller_a1b1a67766801f66de6a825c5bb2cf497}\label{class_caster_controller_a1b1a67766801f66de6a825c5bb2cf497}} 
+\index{CasterController@{CasterController}!CasterController@{CasterController}}
+\index{CasterController@{CasterController}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{CasterController()}{CasterController()}}
+{\footnotesize\ttfamily Caster\+Controller\+::\+Caster\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_data}{Caster\+Data}}}]{caster }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_controller_acd34ea4ac7ebab8d1adae2362dacf19e}\label{class_caster_controller_acd34ea4ac7ebab8d1adae2362dacf19e}} 
+\index{CasterController@{CasterController}!````~CasterController@{$\sim$CasterController}}
+\index{````~CasterController@{$\sim$CasterController}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{$\sim$CasterController()}{~CasterController()}}
+{\footnotesize\ttfamily Caster\+Controller\+::$\sim$\+Caster\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_caster_controller_a9d4ef13d78c6b6fce0737be3dd87d630}\label{class_caster_controller_a9d4ef13d78c6b6fce0737be3dd87d630}} 
+\index{CasterController@{CasterController}!CasterDied@{CasterDied}}
+\index{CasterDied@{CasterDied}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{CasterDied()}{CasterDied()}}
+{\footnotesize\ttfamily void Caster\+Controller\+::\+Caster\+Died (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_controller_a90bff2f6dfa090cadf3aee8ea0c9e419}\label{class_caster_controller_a90bff2f6dfa090cadf3aee8ea0c9e419}} 
+\index{CasterController@{CasterController}!CastSpell@{CastSpell}}
+\index{CastSpell@{CastSpell}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{CastSpell()}{CastSpell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ Caster\+Controller\+::\+Cast\+Spell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_controller_ac9fd69c19266f30108fcc64ffbafce9e}\label{class_caster_controller_ac9fd69c19266f30108fcc64ffbafce9e}} 
+\index{CasterController@{CasterController}!EndTurn@{EndTurn}}
+\index{EndTurn@{EndTurn}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{EndTurn()}{EndTurn()}}
+{\footnotesize\ttfamily void Caster\+Controller\+::\+End\+Turn (\begin{DoxyParamCaption}\item[{bool}]{is\+Passed = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_a75c852a113077413714fed81ae57866d}\label{class_caster_controller_a75c852a113077413714fed81ae57866d}} 
+\index{CasterController@{CasterController}!GetCasterManager@{GetCasterManager}}
+\index{GetCasterManager@{GetCasterManager}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{GetCasterManager()}{GetCasterManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_manager}{Caster\+Manager}} $\ast$ Caster\+Controller\+::\+Get\+Caster\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_abe07ed487e5f4c10df07ee329507e53b}\label{class_caster_controller_abe07ed487e5f4c10df07ee329507e53b}} 
+\index{CasterController@{CasterController}!GetCasterObject@{GetCasterObject}}
+\index{GetCasterObject@{GetCasterObject}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{GetCasterObject()}{GetCasterObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_object}{Caster\+Object}} $\ast$ Caster\+Controller\+::\+Get\+Caster\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_ab5b4de19d63b6f848debac597085b986}\label{class_caster_controller_ab5b4de19d63b6f848debac597085b986}} 
+\index{CasterController@{CasterController}!GetCasterUI@{GetCasterUI}}
+\index{GetCasterUI@{GetCasterUI}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{GetCasterUI()}{GetCasterUI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_u_i_controller}{Caster\+UIController}} $\ast$ Caster\+Controller\+::\+Get\+Caster\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_a1d92f39ab26b73f4a2e6812d4a174b21}\label{class_caster_controller_a1d92f39ab26b73f4a2e6812d4a174b21}} 
+\index{CasterController@{CasterController}!GetEffectManager@{GetEffectManager}}
+\index{GetEffectManager@{GetEffectManager}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{GetEffectManager()}{GetEffectManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_effect_manager}{Caster\+Effect\+Manager}} $\ast$ Caster\+Controller\+::\+Get\+Effect\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_ae3df255efe8c22bebd248cb5de48a6a7}\label{class_caster_controller_ae3df255efe8c22bebd248cb5de48a6a7}} 
+\index{CasterController@{CasterController}!GetState@{GetState}}
+\index{GetState@{GetState}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}} Caster\+Controller\+::\+Get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_ab60d4013c3fb214c23091f7752eb5ed9}\label{class_caster_controller_ab60d4013c3fb214c23091f7752eb5ed9}} 
+\index{CasterController@{CasterController}!SetState@{SetState}}
+\index{SetState@{SetState}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{SetState()}{SetState()}}
+{\footnotesize\ttfamily void Caster\+Controller\+::\+Set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_controller_a042d0e50ca8b694d33511dd5d6e449f6}\label{class_caster_controller_a042d0e50ca8b694d33511dd5d6e449f6}} 
+\index{CasterController@{CasterController}!StartTurn@{StartTurn}}
+\index{StartTurn@{StartTurn}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{StartTurn()}{StartTurn()}}
+{\footnotesize\ttfamily void Caster\+Controller\+::\+Start\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_caster_controller_aeac560eac9389ce42e90a4a21b1899f7}\label{class_caster_controller_aeac560eac9389ce42e90a4a21b1899f7}} 
+\index{CasterController@{CasterController}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily bool Caster\+Controller\+::\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_controller_a7c329b43dff5848037fcc05da797c4ea}\label{class_caster_controller_a7c329b43dff5848037fcc05da797c4ea}} 
+\index{CasterController@{CasterController}!UpdateCasterUI@{UpdateCasterUI}}
+\index{UpdateCasterUI@{UpdateCasterUI}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{UpdateCasterUI()}{UpdateCasterUI()}}
+{\footnotesize\ttfamily void Caster\+Controller\+::\+Update\+Caster\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}\label{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}} 
+\index{CasterController@{CasterController}!m\_CasterManager@{m\_CasterManager}}
+\index{m\_CasterManager@{m\_CasterManager}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{m\_CasterManager}{m\_CasterManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_manager}{Caster\+Manager}} Caster\+Controller\+::m\+\_\+\+Caster\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}\label{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}} 
+\index{CasterController@{CasterController}!m\_CasterObject@{m\_CasterObject}}
+\index{m\_CasterObject@{m\_CasterObject}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{m\_CasterObject}{m\_CasterObject}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_object}{Caster\+Object}}$\ast$ Caster\+Controller\+::m\+\_\+\+Caster\+Object\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}\label{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}} 
+\index{CasterController@{CasterController}!m\_CasterState@{m\_CasterState}}
+\index{m\_CasterState@{m\_CasterState}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{m\_CasterState}{m\_CasterState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{Caster\+State}} Caster\+Controller\+::m\+\_\+\+Caster\+State = \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaae599161956d626eda4cb0a5ffb85271c}{Caster\+State\+::\+Idle}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}\label{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}} 
+\index{CasterController@{CasterController}!m\_CasterUI@{m\_CasterUI}}
+\index{m\_CasterUI@{m\_CasterUI}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{m\_CasterUI}{m\_CasterUI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_u_i_controller}{Caster\+UIController}} Caster\+Controller\+::m\+\_\+\+Caster\+UI\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_controller_a40c0021399f215ffc8b67f9d4b21a7f6}\label{class_caster_controller_a40c0021399f215ffc8b67f9d4b21a7f6}} 
+\index{CasterController@{CasterController}!m\_EffectManager@{m\_EffectManager}}
+\index{m\_EffectManager@{m\_EffectManager}!CasterController@{CasterController}}
+\doxysubsubsection{\texorpdfstring{m\_EffectManager}{m\_EffectManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_effect_manager}{Caster\+Effect\+Manager}} Caster\+Controller\+::m\+\_\+\+Effect\+Manager\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Caster/\mbox{\hyperlink{_caster_controller_8h}{Caster\+Controller.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Caster/\mbox{\hyperlink{_caster_controller_8cpp}{Caster\+Controller.\+cpp}}\end{DoxyCompactItemize}

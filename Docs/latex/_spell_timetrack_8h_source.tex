@@ -1,0 +1,36 @@
+\hypertarget{_spell_timetrack_8h_source}{}\doxysection{Spell\+Timetrack.\+h}
+\label{_spell_timetrack_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellTimeline/SpellTimetrack.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellTimeline/SpellTimetrack.h}}
+\mbox{\hyperlink{_spell_timetrack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cast_spell_detail_8h}{Game/BattleScene/SpellCaster/CastSpellDetail.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     vector<CastSpellDetail*> m\_TrackSpells;}
+\DoxyCodeLine{10     map<CasterPosition, int> m\_WillCompareTable;}
+\DoxyCodeLine{11     map<CasterPosition, int> m\_SpellCount;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     vector<CastSpellDetail*> \mbox{\hyperlink{class_spell_timetrack_aa991b34dd10fc8a92d08ce6f0c460f72}{GetSpellList}}() \{ \textcolor{keywordflow}{return} m\_TrackSpells; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_timetrack_a1c919aeb82cb00acce822375a8c4b2e7}{GetCasterWill}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} caster)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} m\_WillCompareTable[caster]; }
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timetrack_a3fc88462846aa48b7ce0e9f4856d2f29}{push\_back}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell,\textcolor{keywordtype}{bool} doWillCompare);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} \mbox{\hyperlink{class_spell_timetrack_abaf74ab7d59368b87a28e7fe95f41eaf}{GetWillCompareResult}}();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_timetrack_acba2ad90f7086f1c1b441885e84c3b0c}{DoWillCompare}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timetrack_a6255dd9a74764f079628d502d713d9dc}{UpdateTimetrack}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timetrack_a1772a5800f0f85221ba094db5860d08f}{clear}}(\textcolor{keywordtype}{bool} doDelete = \textcolor{keyword}{true});}
+\DoxyCodeLine{30 \};}
+
+\end{DoxyCode}

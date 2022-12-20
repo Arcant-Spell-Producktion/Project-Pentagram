@@ -1,0 +1,28 @@
+\hypertarget{_pentagram_circle_u_i_8h_source}{}\doxysection{Pentagram\+Circle\+UI.\+h}
+\label{_pentagram_circle_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramCircleUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramCircleUI.h}}
+\mbox{\hyperlink{_pentagram_circle_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_data_8h}{Game/BattleScene/SpellCaster/PentagramData.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_circle_u_i}{PentagramCircleUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{private}:}
+\DoxyCodeLine{9     std::vector<UIObject*> m\_PentragramObj;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} SetComplex(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{void} SetCircle(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_pentagram_circle_u_i_a8f7385d7a1bfd778aee083918f913bce}{PentagramCircleUI}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_circle_u_i_a9a54714a34af3f61c0b898c3093d0e45}{SetPentagramUI}}(\textcolor{keywordtype}{int} circle, \textcolor{keywordtype}{int} complex);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_circle_u_i_a55d3ca1e057f9d6bc7806a7b086b3953}{UpdateCircleUI}}(\mbox{\hyperlink{struct_pentagram_event}{PentagramEvent}} e);}
+\DoxyCodeLine{22 \};}
+
+\end{DoxyCode}

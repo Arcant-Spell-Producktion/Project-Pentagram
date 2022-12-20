@@ -1,0 +1,18 @@
+<map id="BattleManager" name="BattleManager">
+<area shape="rect" id="node1" title=" " alt="" coords="229,635,335,661"/>
+<area shape="rect" id="node2" href="$class_singleton.html" title=" " alt="" coords="190,724,374,751"/>
+<area shape="rect" id="node3" href="$class_battle_scene_data.html" title=" " alt="" coords="222,545,342,572"/>
+<area shape="rect" id="node4" href="$class_spell_timeline.html" title=" " alt="" coords="233,456,331,483"/>
+<area shape="rect" id="node5" href="$class_timeline_controller.html" title=" " alt="" coords="219,359,345,386"/>
+<area shape="rect" id="node6" href="$class_u_i_object.html" title=" " alt="" coords="253,276,325,303"/>
+<area shape="rect" id="node7" href="$class_game_object.html" title=" " alt="" coords="133,185,228,212"/>
+<area shape="rect" id="node15" href="$class_will_compare_controller.html" title=" " alt="" coords="77,276,228,303"/>
+<area shape="rect" id="node8" href="$class_mesh.html" title=" " alt="" coords="144,95,199,121"/>
+<area shape="rect" id="node9" href="$class_v_a_o.html" title=" " alt="" coords="71,5,122,32"/>
+<area shape="rect" id="node10" href="$class_v_b_o.html" title=" " alt="" coords="146,5,197,32"/>
+<area shape="rect" id="node11" href="$class_e_b_o.html" title=" " alt="" coords="221,5,271,32"/>
+<area shape="rect" id="node12" href="$class_texture.html" title=" " alt="" coords="267,95,332,121"/>
+<area shape="rect" id="node13" href="$class_pentragram_controller.html" title=" " alt="" coords="366,456,510,483"/>
+<area shape="rect" id="node14" href="$class_event.html" title=" " alt="" coords="369,352,525,393"/>
+<area shape="rect" id="node16" href="$class_event.html" title=" " alt="" coords="5,185,108,212"/>
+</map>

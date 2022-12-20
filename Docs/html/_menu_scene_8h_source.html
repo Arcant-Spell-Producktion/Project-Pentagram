@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/Scene/MenuScene.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/Scene/MenuScene.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,29 +71,46 @@ $(function() {
 <div class="contents">
 <a href="_menu_scene_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../GameScene.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../SceneManager.h&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Input.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../Collector/EngineDataCollector.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_game_scene_8h.html">Engine/GameScene.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_scene_manager_8h.html">Engine/SceneManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_input_8h.html">Engine/Input.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_color_8h.html">Utilities/Color.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_menu_scene.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_menu_scene.html">MenuScene</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_game_scene.html">GameScene</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#a2e9ea199b862533eb9ce19bf8730ee84">GameSceneLoad</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#ad19783fd7f34602b832fe649137a2bb2">GameSceneInit</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#ad933912ad8f97ac9e89de3e092d86fb5">GameSceneUpdate</a>(<span class="keywordtype">double</span> dt) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#aa3a3f266501271255305c6344046a733">GameSceneDraw</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#a17a3f80eb79dac37eb36eae465f2d02e">GameSceneUnload</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#aeff9a7faba84faa05946621048be46f4">GameSceneFree</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
-<div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdef"><b>Definition:</b> GameScene.h:15</div></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        <a class="code hl_class" href="class_u_i_object.html">UIObject</a>* m_FadeScreen = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_enumeration" href="_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> m_NextState;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <span class="keywordtype">float</span> m_FadeTime;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">float</span> m_FadeCurrentTime = 0.0f;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordtype">bool</span> m_IsFadeOut = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordtype">void</span> FadeOut(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; fadeTime, <a class="code hl_enumeration" href="_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> nextState) </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        { </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            m_NextState = nextState;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>            m_FadeTime = fadeTime;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            m_IsFadeOut = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> FadeUpdate(<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; dt);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#a2e9ea199b862533eb9ce19bf8730ee84">GameSceneLoad</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#ad19783fd7f34602b832fe649137a2bb2">GameSceneInit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#a9931a41c6ca91d61e5e92cd81225f6b5">GameSceneUpdate</a>(<span class="keywordtype">float</span> dt) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_menu_scene.html#aeff9a7faba84faa05946621048be46f4">GameSceneFree</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+<div class="ttc" id="a_color_8h_html"><div class="ttname"><a href="_color_8h.html">Color.h</a></div></div>
+<div class="ttc" id="a_game_scene_8h_html"><div class="ttname"><a href="_game_scene_8h.html">GameScene.h</a></div></div>
+<div class="ttc" id="a_game_state_8h_html_a7899b65f1ea0f655e4bbf8d2a5714285"><div class="ttname"><a href="_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a></div><div class="ttdeci">GameState</div><div class="ttdef"><b>Definition:</b> GameState.h:4</div></div>
+<div class="ttc" id="a_input_8h_html"><div class="ttname"><a href="_input_8h.html">Input.h</a></div></div>
+<div class="ttc" id="a_scene_manager_8h_html"><div class="ttname"><a href="_scene_manager_8h.html">SceneManager.h</a></div></div>
+<div class="ttc" id="aclass_game_scene_html"><div class="ttname"><a href="class_game_scene.html">GameScene</a></div><div class="ttdef"><b>Definition:</b> GameScene.h:11</div></div>
 <div class="ttc" id="aclass_menu_scene_html"><div class="ttname"><a href="class_menu_scene.html">MenuScene</a></div><div class="ttdef"><b>Definition:</b> MenuScene.h:9</div></div>
-<div class="ttc" id="aclass_menu_scene_html_a17a3f80eb79dac37eb36eae465f2d02e"><div class="ttname"><a href="class_menu_scene.html#a17a3f80eb79dac37eb36eae465f2d02e">MenuScene::GameSceneUnload</a></div><div class="ttdeci">virtual void GameSceneUnload() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:205</div></div>
-<div class="ttc" id="aclass_menu_scene_html_a2e9ea199b862533eb9ce19bf8730ee84"><div class="ttname"><a href="class_menu_scene.html#a2e9ea199b862533eb9ce19bf8730ee84">MenuScene::GameSceneLoad</a></div><div class="ttdeci">virtual void GameSceneLoad() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:3</div></div>
-<div class="ttc" id="aclass_menu_scene_html_aa3a3f266501271255305c6344046a733"><div class="ttname"><a href="class_menu_scene.html#aa3a3f266501271255305c6344046a733">MenuScene::GameSceneDraw</a></div><div class="ttdeci">virtual void GameSceneDraw() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:178</div></div>
-<div class="ttc" id="aclass_menu_scene_html_ad19783fd7f34602b832fe649137a2bb2"><div class="ttname"><a href="class_menu_scene.html#ad19783fd7f34602b832fe649137a2bb2">MenuScene::GameSceneInit</a></div><div class="ttdeci">virtual void GameSceneInit() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:11</div></div>
-<div class="ttc" id="aclass_menu_scene_html_ad933912ad8f97ac9e89de3e092d86fb5"><div class="ttname"><a href="class_menu_scene.html#ad933912ad8f97ac9e89de3e092d86fb5">MenuScene::GameSceneUpdate</a></div><div class="ttdeci">virtual void GameSceneUpdate(double dt) override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:81</div></div>
-<div class="ttc" id="aclass_menu_scene_html_aeff9a7faba84faa05946621048be46f4"><div class="ttname"><a href="class_menu_scene.html#aeff9a7faba84faa05946621048be46f4">MenuScene::GameSceneFree</a></div><div class="ttdeci">virtual void GameSceneFree() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:220</div></div>
+<div class="ttc" id="aclass_menu_scene_html_a2e9ea199b862533eb9ce19bf8730ee84"><div class="ttname"><a href="class_menu_scene.html#a2e9ea199b862533eb9ce19bf8730ee84">MenuScene::GameSceneLoad</a></div><div class="ttdeci">virtual void GameSceneLoad() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:19</div></div>
+<div class="ttc" id="aclass_menu_scene_html_a9931a41c6ca91d61e5e92cd81225f6b5"><div class="ttname"><a href="class_menu_scene.html#a9931a41c6ca91d61e5e92cd81225f6b5">MenuScene::GameSceneUpdate</a></div><div class="ttdeci">virtual void GameSceneUpdate(float dt) override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:66</div></div>
+<div class="ttc" id="aclass_menu_scene_html_ad19783fd7f34602b832fe649137a2bb2"><div class="ttname"><a href="class_menu_scene.html#ad19783fd7f34602b832fe649137a2bb2">MenuScene::GameSceneInit</a></div><div class="ttdeci">virtual void GameSceneInit() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:24</div></div>
+<div class="ttc" id="aclass_menu_scene_html_aeff9a7faba84faa05946621048be46f4"><div class="ttname"><a href="class_menu_scene.html#aeff9a7faba84faa05946621048be46f4">MenuScene::GameSceneFree</a></div><div class="ttdeci">virtual void GameSceneFree() override</div><div class="ttdef"><b>Definition:</b> MenuScene.cpp:105</div></div>
+<div class="ttc" id="aclass_u_i_object_html"><div class="ttname"><a href="class_u_i_object.html">UIObject</a></div><div class="ttdef"><b>Definition:</b> UIObject.h:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

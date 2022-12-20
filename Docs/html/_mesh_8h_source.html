@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/Renderer/Mesh.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/Renderer/Mesh.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,21 +99,27 @@ $(function() {
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_function" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_mesh.html#a75e66bcd90c09492676a4cfe5b23c3af">Render</a>();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_mesh.html#a856a1dc57af9040e799d186d95be2b02">Delete</a>();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_function" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; animRow, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; animCol);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_function" href="class_mesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_mesh.html#a75e66bcd90c09492676a4cfe5b23c3af">Render</a>();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_mesh.html#a856a1dc57af9040e799d186d95be2b02">Delete</a>();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_mesh.html#a690da3013a79c64489b64b3e8da7b59e">SetTextureCoord</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; animRow, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; animCol);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
 <div class="ttc" id="a_e_b_o_8h_html"><div class="ttname"><a href="_e_b_o_8h.html">EBO.h</a></div></div>
-<div class="ttc" id="a_mesh_8h_html_a0a2fdc82ab046da71297d51eb094ed46"><div class="ttname"><a href="_mesh_8h.html#a0a2fdc82ab046da71297d51eb094ed46">squareVertices</a></div><div class="ttdeci">Vertex squareVertices[]</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:3</div></div>
-<div class="ttc" id="a_mesh_8h_html_a3ea6b0c0032f2545b0aae28d239726ff"><div class="ttname"><a href="_mesh_8h.html#a3ea6b0c0032f2545b0aae28d239726ff">squareIndices</a></div><div class="ttdeci">GLuint squareIndices[]</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:11</div></div>
+<div class="ttc" id="a_mesh_8h_html_a0a2fdc82ab046da71297d51eb094ed46"><div class="ttname"><a href="_mesh_8h.html#a0a2fdc82ab046da71297d51eb094ed46">squareVertices</a></div><div class="ttdeci">Vertex squareVertices[]</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:5</div></div>
+<div class="ttc" id="a_mesh_8h_html_a3ea6b0c0032f2545b0aae28d239726ff"><div class="ttname"><a href="_mesh_8h.html#a3ea6b0c0032f2545b0aae28d239726ff">squareIndices</a></div><div class="ttdeci">GLuint squareIndices[]</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:14</div></div>
 <div class="ttc" id="a_v_a_o_8h_html"><div class="ttname"><a href="_v_a_o_8h.html">VAO.h</a></div></div>
 <div class="ttc" id="a_v_b_o_8h_html"><div class="ttname"><a href="_v_b_o_8h.html">VBO.h</a></div></div>
 <div class="ttc" id="aclass_e_b_o_html"><div class="ttname"><a href="class_e_b_o.html">EBO</a></div><div class="ttdef"><b>Definition:</b> EBO.h:6</div></div>
 <div class="ttc" id="aclass_mesh_html"><div class="ttname"><a href="class_mesh.html">Mesh</a></div><div class="ttdef"><b>Definition:</b> Mesh.h:23</div></div>
-<div class="ttc" id="aclass_mesh_html_a2af137f1571af89172b9c102302c416b"><div class="ttname"><a href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh::Mesh</a></div><div class="ttdeci">Mesh()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:17</div></div>
+<div class="ttc" id="aclass_mesh_html_a2af137f1571af89172b9c102302c416b"><div class="ttname"><a href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh::Mesh</a></div><div class="ttdeci">Mesh()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:20</div></div>
 <div class="ttc" id="aclass_mesh_html_a2b5fa97a3448c65501a99b97467bd93b"><div class="ttname"><a href="class_mesh.html#a2b5fa97a3448c65501a99b97467bd93b">Mesh::ebo</a></div><div class="ttdeci">EBO ebo</div><div class="ttdef"><b>Definition:</b> Mesh.h:27</div></div>
-<div class="ttc" id="aclass_mesh_html_a75e66bcd90c09492676a4cfe5b23c3af"><div class="ttname"><a href="class_mesh.html#a75e66bcd90c09492676a4cfe5b23c3af">Mesh::Render</a></div><div class="ttdeci">void Render()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:30</div></div>
+<div class="ttc" id="aclass_mesh_html_a5efe4da1a4c0971cfb037bd70304c303"><div class="ttname"><a href="class_mesh.html#a5efe4da1a4c0971cfb037bd70304c303">Mesh::~Mesh</a></div><div class="ttdeci">~Mesh()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:67</div></div>
+<div class="ttc" id="aclass_mesh_html_a690da3013a79c64489b64b3e8da7b59e"><div class="ttname"><a href="class_mesh.html#a690da3013a79c64489b64b3e8da7b59e">Mesh::SetTextureCoord</a></div><div class="ttdeci">void SetTextureCoord(const int &amp;animRow, const int &amp;animCol)</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:86</div></div>
+<div class="ttc" id="aclass_mesh_html_a75e66bcd90c09492676a4cfe5b23c3af"><div class="ttname"><a href="class_mesh.html#a75e66bcd90c09492676a4cfe5b23c3af">Mesh::Render</a></div><div class="ttdeci">void Render()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:72</div></div>
 <div class="ttc" id="aclass_mesh_html_a7c21f3131df9ef2904b7801c15707f63"><div class="ttname"><a href="class_mesh.html#a7c21f3131df9ef2904b7801c15707f63">Mesh::vbo</a></div><div class="ttdeci">VBO vbo</div><div class="ttdef"><b>Definition:</b> Mesh.h:26</div></div>
-<div class="ttc" id="aclass_mesh_html_a856a1dc57af9040e799d186d95be2b02"><div class="ttname"><a href="class_mesh.html#a856a1dc57af9040e799d186d95be2b02">Mesh::Delete</a></div><div class="ttdeci">void Delete()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:36</div></div>
+<div class="ttc" id="aclass_mesh_html_a856a1dc57af9040e799d186d95be2b02"><div class="ttname"><a href="class_mesh.html#a856a1dc57af9040e799d186d95be2b02">Mesh::Delete</a></div><div class="ttdeci">void Delete()</div><div class="ttdef"><b>Definition:</b> Mesh.cpp:78</div></div>
 <div class="ttc" id="aclass_mesh_html_aaed97571c124f82a32f6f2ab1806b868"><div class="ttname"><a href="class_mesh.html#aaed97571c124f82a32f6f2ab1806b868">Mesh::vao</a></div><div class="ttdeci">VAO vao</div><div class="ttdef"><b>Definition:</b> Mesh.h:25</div></div>
 <div class="ttc" id="aclass_v_a_o_html"><div class="ttname"><a href="class_v_a_o.html">VAO</a></div><div class="ttdef"><b>Definition:</b> VAO.h:7</div></div>
 <div class="ttc" id="aclass_v_b_o_html"><div class="ttname"><a href="class_v_b_o.html">VBO</a></div><div class="ttdef"><b>Definition:</b> VBO.h:6</div></div>

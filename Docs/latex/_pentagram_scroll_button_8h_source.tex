@@ -1,0 +1,48 @@
+\hypertarget{_pentagram_scroll_button_8h_source}{}\doxysection{Pentagram\+Scroll\+Button.\+h}
+\label{_pentagram_scroll_button_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramScrollButton.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramScrollButton.h}}
+\mbox{\hyperlink{_pentagram_scroll_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_scroll_button}{PentagramScrollButton}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_button}{Button}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{7     \textcolor{keyword}{enum class} \mbox{\hyperlink{class_pentagram_scroll_button_a4bd0c5af0f6e2d20bedb6bcb0b69371d}{ButtonState}}}
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9         \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{Idle}} = 0,}
+\DoxyCodeLine{10         Hover,}
+\DoxyCodeLine{11         Down}
+\DoxyCodeLine{12     \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_pentagram_scroll_button_ac95bd5abad5885f7bdac27ea5889ecaa}{m\_ButtonIcon}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_pentagram_scroll_button_a4bd0c5af0f6e2d20bedb6bcb0b69371d}{ButtonState}} \mbox{\hyperlink{class_pentagram_scroll_button_a3db2f6efb505e12bbcc4d0dd55b5f361}{m\_buttonState}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_scroll_button_a2e07910faf3b09c4c1db1478bbd2818b}{SetState}}(\mbox{\hyperlink{class_pentagram_scroll_button_a4bd0c5af0f6e2d20bedb6bcb0b69371d}{ButtonState}} state);}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_event}{Event<int>}} \mbox{\hyperlink{class_pentagram_scroll_button_a5f299a5f2e0f8db639b9c905ea230ab1}{OnButtonClicked}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_pentagram_scroll_button_ae8f23996f8862a2d16ec440d7410b64b}{PentagramScrollButton}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_scroll_number_button}{PentagramScrollNumberButton}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_pentagram_scroll_button}{PentagramScrollButton}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 \textcolor{keyword}{private}:}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_scroll_number_button_a0da6ee035ea5b7610aac6b62c19b5546}{SetToggle}}(\textcolor{keywordtype}{bool} isToggle);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_pentagram_scroll_number_button_adc0d40d310e2f3ee4aae797c657e435e}{PentagramScrollNumberButton}}(\textcolor{keywordtype}{int} value, \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{32 \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_scroll_arrow_button}{PentagramScrollArrowButton}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_pentagram_scroll_button}{PentagramScrollButton}}}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{keyword}{private}:}
+\DoxyCodeLine{37     \textcolor{keywordtype}{float} m\_downTime = 0.15f;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{float} m\_curtime = 0.0f;}
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_pentagram_scroll_arrow_button_acc308f7e9eebbb9125bc0dc2d255ee54}{PentagramScrollArrowButton}}(\textcolor{keywordtype}{int} value, \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{42 \};}
+
+\end{DoxyCode}

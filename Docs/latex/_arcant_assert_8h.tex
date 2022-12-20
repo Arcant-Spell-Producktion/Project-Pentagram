@@ -1,0 +1,42 @@
+\hypertarget{_arcant_assert_8h}{}\doxysection{E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Utilities/\+Arcant\+Assert.h File Reference}
+\label{_arcant_assert_8h}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/ArcantAssert.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/ArcantAssert.h}}
+{\ttfamily \#include $<$cassert$>$}\newline
+Include dependency graph for Arcant\+Assert.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{_arcant_assert_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_arcant_assert_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_arcant_assert_8h_add5df876a3f0a84836641df0ca269f3c}{Arcant\+Assert}}(condition,  message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_arcant_assert_8h_add5df876a3f0a84836641df0ca269f3c}\label{_arcant_assert_8h_add5df876a3f0a84836641df0ca269f3c}} 
+\index{ArcantAssert.h@{ArcantAssert.h}!ArcantAssert@{ArcantAssert}}
+\index{ArcantAssert@{ArcantAssert}!ArcantAssert.h@{ArcantAssert.h}}
+\doxysubsubsection{\texorpdfstring{ArcantAssert}{ArcantAssert}}
+{\footnotesize\ttfamily \#define Arcant\+Assert(\begin{DoxyParamCaption}\item[{}]{condition,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (! (condition)) \{ \(\backslash\)}
+\DoxyCodeLine{            std::cerr << \textcolor{stringliteral}{"{}Assertion `"{}} \#condition \textcolor{stringliteral}{"{}` failed in "{}} << \_\_FILE\_\_ \(\backslash\)}
+\DoxyCodeLine{                      << \textcolor{stringliteral}{"{} line "{}} << \_\_LINE\_\_ << \textcolor{stringliteral}{"{}: "{}} << message << std::endl; \(\backslash\)}
+\DoxyCodeLine{            std::terminate(); \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (\textcolor{keyword}{false})}
+
+\end{DoxyCode}

@@ -1,0 +1,18 @@
+\hypertarget{_player_controller_8h_source}{}\doxysection{Player\+Controller.\+h}
+\label{_player_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/PlayerController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/PlayerController.h}}
+\mbox{\hyperlink{_player_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_controller_8h}{CasterController.h}}"{}}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_player_controller}{PlayerController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_caster_controller}{CasterController}}}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_player_controller_aa0fb1289256df1e0936a56c8ebc75cf8}{PlayerController}}(\mbox{\hyperlink{class_caster_data}{CasterData}} caster) : \mbox{\hyperlink{class_caster_controller}{CasterController}}(caster)}
+\DoxyCodeLine{7     \{}
+\DoxyCodeLine{8         \textcolor{keyword}{auto} element = \mbox{\hyperlink{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}{m\_CasterManager}}.\mbox{\hyperlink{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}{Data}}().\mbox{\hyperlink{class_caster_data_aa23edd97f71c6e869064f458b4d3bf80}{Element}}();}
+\DoxyCodeLine{9         \textcolor{keyword}{auto} position = \mbox{\hyperlink{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}{m\_CasterManager}}.\mbox{\hyperlink{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}{Data}}().\mbox{\hyperlink{class_caster_data_a6bee58f773e6d5374b0f041883eff036}{Position}}();}
+\DoxyCodeLine{10         this-\/>\mbox{\hyperlink{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}{m\_CasterObject}}-\/>\mbox{\hyperlink{class_caster_object_a4403956517c46dfe9cb662aafc1bd1c1}{SetCaster}}(\mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}{CasterObjectType::Player}},element,position);}
+\DoxyCodeLine{11     \}}
+\DoxyCodeLine{12 \};}
+
+\end{DoxyCode}

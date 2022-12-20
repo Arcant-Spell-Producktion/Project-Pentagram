@@ -1,0 +1,54 @@
+\hypertarget{_mesh_8cpp}{}\doxysection{E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Renderer/\+Mesh.cpp File Reference}
+\label{_mesh_8cpp}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/Mesh.cpp@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/Mesh.cpp}}
+{\ttfamily \#include \char`\"{}Mesh.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for Mesh.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_mesh_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_vertex}{Vertex}} \mbox{\hyperlink{_mesh_8cpp_a0a2fdc82ab046da71297d51eb094ed46}{square\+Vertices}} \mbox{[}$\,$\mbox{]}
+\item 
+GLuint \mbox{\hyperlink{_mesh_8cpp_a3ea6b0c0032f2545b0aae28d239726ff}{square\+Indices}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_mesh_8cpp_a3ea6b0c0032f2545b0aae28d239726ff}\label{_mesh_8cpp_a3ea6b0c0032f2545b0aae28d239726ff}} 
+\index{Mesh.cpp@{Mesh.cpp}!squareIndices@{squareIndices}}
+\index{squareIndices@{squareIndices}!Mesh.cpp@{Mesh.cpp}}
+\doxysubsubsection{\texorpdfstring{squareIndices}{squareIndices}}
+{\footnotesize\ttfamily GLuint square\+Indices\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    0, 1, 3,    }
+\DoxyCodeLine{    1, 2, 3     }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_mesh_8cpp_a0a2fdc82ab046da71297d51eb094ed46}\label{_mesh_8cpp_a0a2fdc82ab046da71297d51eb094ed46}} 
+\index{Mesh.cpp@{Mesh.cpp}!squareVertices@{squareVertices}}
+\index{squareVertices@{squareVertices}!Mesh.cpp@{Mesh.cpp}}
+\doxysubsubsection{\texorpdfstring{squareVertices}{squareVertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertex}{Vertex}} square\+Vertices\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{                                }
+\DoxyCodeLine{    \mbox{\hyperlink{struct_vertex}{Vertex}}\{ glm::vec3(0.5f, 0.5f, 0.0f),  glm::vec2(1.0f, 0.0f) \},    }
+\DoxyCodeLine{    \mbox{\hyperlink{struct_vertex}{Vertex}}\{ glm::vec3(0.5f, -\/0.5f, 0.0f), glm::vec2(1.0f, 1.0f) \},    }
+\DoxyCodeLine{    \mbox{\hyperlink{struct_vertex}{Vertex}}\{ glm::vec3(-\/0.5f, -\/0.5f, 0.0f),    glm::vec2(0.0f, 1.0f) \},    }
+\DoxyCodeLine{    \mbox{\hyperlink{struct_vertex}{Vertex}}\{ glm::vec3(-\/0.5f, 0.5f, 0.0f), glm::vec2(0.0f, 0.0f) \}     }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

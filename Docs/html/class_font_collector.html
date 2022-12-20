@@ -64,7 +64,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_font_collector-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">FontCollector Class Reference</div></div>
 </div><!--header-->
@@ -76,13 +75,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af0d9249bacd8cf1440cceefe6ef89ab4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html#af0d9249bacd8cf1440cceefe6ef89ab4">FontCollector</a> ()</td></tr>
 <tr class="separator:af0d9249bacd8cf1440cceefe6ef89ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9a1d1a2136eecff22b2322cc1d2252a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html#ac9a1d1a2136eecff22b2322cc1d2252a">LoadResource</a> ()</td></tr>
+<tr class="separator:ac9a1d1a2136eecff22b2322cc1d2252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d198b6f21b31fe3508ddc06d7b9137a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html#a0d198b6f21b31fe3508ddc06d7b9137a">Free</a> ()</td></tr>
 <tr class="separator:a0d198b6f21b31fe3508ddc06d7b9137a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a9a918ea84a62984303db134d45d91666"><td class="memItemLeft" align="right" valign="top">std::map&lt; GLchar, <a class="el" href="struct_character.html">Character</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html#a9a918ea84a62984303db134d45d91666">characters</a></td></tr>
-<tr class="separator:a9a918ea84a62984303db134d45d91666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6377ccd5da41848558bfb0b878364463"><td class="memItemLeft" align="right" valign="top">std::map&lt; GLchar, <a class="el" href="struct_character.html">Character</a> &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_collector.html#a6377ccd5da41848558bfb0b878364463">GetFonts</a> (const std::string &amp;fontPath)</td></tr>
+<tr class="separator:a6377ccd5da41848558bfb0b878364463"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af0d9249bacd8cf1440cceefe6ef89ab4" name="af0d9249bacd8cf1440cceefe6ef89ab4"></a>
@@ -120,15 +118,35 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9a918ea84a62984303db134d45d91666" name="a9a918ea84a62984303db134d45d91666"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a918ea84a62984303db134d45d91666">&#9670;&nbsp;</a></span>characters</h2>
+<a id="a6377ccd5da41848558bfb0b878364463" name="a6377ccd5da41848558bfb0b878364463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6377ccd5da41848558bfb0b878364463">&#9670;&nbsp;</a></span>GetFonts()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;GLchar, <a class="el" href="struct_character.html">Character</a>&gt; FontCollector::characters</td>
+          <td class="memname">std::map&lt; GLchar, <a class="el" href="struct_character.html">Character</a> &gt; * FontCollector::GetFonts </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fontPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9a1d1a2136eecff22b2322cc1d2252a" name="ac9a1d1a2136eecff22b2322cc1d2252a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a1d1a2136eecff22b2322cc1d2252a">&#9670;&nbsp;</a></span>LoadResource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FontCollector::LoadResource </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -136,8 +154,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Project-Pentagram/Engine/Collector/<a class="el" href="_font_collector_8h_source.html">FontCollector.h</a></li>
-<li>Project-Pentagram/Engine/Collector/<a class="el" href="_font_collector_8cpp.html">FontCollector.cpp</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Collector/<a class="el" href="_font_collector_8h_source.html">FontCollector.h</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Engine/Collector/<a class="el" href="_font_collector_8cpp.html">FontCollector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

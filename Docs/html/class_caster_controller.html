@@ -64,7 +64,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_caster_controller-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">CasterController Class Reference</div></div>
 </div><!--header-->
@@ -72,30 +73,105 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_caster_controller_8h_source.html">CasterController.h</a>&gt;</code></p>
 <div class="dynheader">
+Inheritance diagram for CasterController:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_caster_controller__inherit__graph.png" border="0" usemap="#a_caster_controller_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_caster_controller_inherit__map" id="a_caster_controller_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,5,120,32"/>
+<area shape="rect" href="class_player_controller.html" title=" " alt="" coords="5,80,120,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
 Collaboration diagram for CasterController:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_caster_controller__coll__graph.png" border="0" usemap="#a_caster_controller_coll__map" alt="Collaboration graph"/></div>
 <map name="a_caster_controller_coll__map" id="a_caster_controller_coll__map">
-<area shape="rect" title=" " alt="" coords="155,273,270,300"/>
-<area shape="rect" href="class_spell_caster.html" title=" " alt="" coords="168,184,257,211"/>
-<area shape="rect" href="struct_pentagram_data___t.html" title=" " alt="" coords="5,95,132,121"/>
-<area shape="rect" href="class_spell_book.html" title=" " alt="" coords="172,95,253,121"/>
-<area shape="rect" href="class_cast_spell_detail.html" title=" " alt="" coords="283,95,393,121"/>
-<area shape="rect" href="class_spell.html" title=" " alt="" coords="313,5,363,32"/>
+<area shape="rect" title=" " alt="" coords="933,241,1048,268"/>
+<area shape="rect" href="class_caster_manager.html" title=" " alt="" coords="648,107,759,133"/>
+<area shape="rect" href="class_caster_data.html" title=" " alt="" coords="352,5,439,32"/>
+<area shape="rect" href="struct_pentagram_data___t.html" title=" " alt="" coords="332,56,459,83"/>
+<area shape="rect" href="class_spell_book.html" title=" " alt="" coords="355,107,436,133"/>
+<area shape="rect" href="class_cast_spell_detail.html" title=" " alt="" coords="340,157,451,184"/>
+<area shape="rect" href="class_spell.html" title=" " alt="" coords="137,157,187,184"/>
+<area shape="rect" href="class_caster_effect_manager.html" title=" " alt="" coords="632,213,775,240"/>
+<area shape="rect" href="class_event.html" title=" " alt="" coords="320,209,471,250"/>
+<area shape="rect" href="class_caster_u_i_controller.html" title=" " alt="" coords="640,264,767,291"/>
+<area shape="rect" href="class_caster_object.html" title=" " alt="" coords="654,315,753,341"/>
+<area shape="rect" href="class_game_object.html" title=" " alt="" coords="348,315,443,341"/>
+<area shape="rect" href="class_mesh.html" title=" " alt="" coords="135,289,189,316"/>
+<area shape="rect" href="class_v_a_o.html" title=" " alt="" coords="5,239,56,265"/>
+<area shape="rect" href="class_v_b_o.html" title=" " alt="" coords="5,289,56,316"/>
+<area shape="rect" href="class_e_b_o.html" title=" " alt="" coords="5,340,56,367"/>
+<area shape="rect" href="class_texture.html" title=" " alt="" coords="129,340,195,367"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a1b1a67766801f66de6a825c5bb2cf497"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a1b1a67766801f66de6a825c5bb2cf497">CasterController</a> (<a class="el" href="class_caster_data.html">CasterData</a> caster)</td></tr>
+<tr class="separator:a1b1a67766801f66de6a825c5bb2cf497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c329b43dff5848037fcc05da797c4ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a7c329b43dff5848037fcc05da797c4ea">UpdateCasterUI</a> ()</td></tr>
+<tr class="separator:a7c329b43dff5848037fcc05da797c4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe07ed487e5f4c10df07ee329507e53b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_object.html">CasterObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#abe07ed487e5f4c10df07ee329507e53b">GetCasterObject</a> ()</td></tr>
+<tr class="separator:abe07ed487e5f4c10df07ee329507e53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c852a113077413714fed81ae57866d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_manager.html">CasterManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a75c852a113077413714fed81ae57866d">GetCasterManager</a> ()</td></tr>
+<tr class="separator:a75c852a113077413714fed81ae57866d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b4de19d63b6f848debac597085b986"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_u_i_controller.html">CasterUIController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#ab5b4de19d63b6f848debac597085b986">GetCasterUI</a> ()</td></tr>
+<tr class="separator:ab5b4de19d63b6f848debac597085b986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d92f39ab26b73f4a2e6812d4a174b21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_effect_manager.html">CasterEffectManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a1d92f39ab26b73f4a2e6812d4a174b21">GetEffectManager</a> ()</td></tr>
+<tr class="separator:a1d92f39ab26b73f4a2e6812d4a174b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3df255efe8c22bebd248cb5de48a6a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#ae3df255efe8c22bebd248cb5de48a6a7">GetState</a> ()</td></tr>
+<tr class="separator:ae3df255efe8c22bebd248cb5de48a6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab60d4013c3fb214c23091f7752eb5ed9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#ab60d4013c3fb214c23091f7752eb5ed9">SetState</a> (<a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a> state)</td></tr>
+<tr class="separator:ab60d4013c3fb214c23091f7752eb5ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a042d0e50ca8b694d33511dd5d6e449f6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a042d0e50ca8b694d33511dd5d6e449f6">StartTurn</a> ()</td></tr>
+<tr class="separator:a042d0e50ca8b694d33511dd5d6e449f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac560eac9389ce42e90a4a21b1899f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#aeac560eac9389ce42e90a4a21b1899f7">TakeDamage</a> (int value)</td></tr>
+<tr class="separator:aeac560eac9389ce42e90a4a21b1899f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90bff2f6dfa090cadf3aee8ea0c9e419"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cast_spell_detail.html">CastSpellDetail</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a90bff2f6dfa090cadf3aee8ea0c9e419">CastSpell</a> ()</td></tr>
+<tr class="separator:a90bff2f6dfa090cadf3aee8ea0c9e419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9fd69c19266f30108fcc64ffbafce9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#ac9fd69c19266f30108fcc64ffbafce9e">EndTurn</a> (bool isPassed=false)</td></tr>
+<tr class="separator:ac9fd69c19266f30108fcc64ffbafce9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd34ea4ac7ebab8d1adae2362dacf19e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#acd34ea4ac7ebab8d1adae2362dacf19e">~CasterController</a> ()</td></tr>
 <tr class="separator:acd34ea4ac7ebab8d1adae2362dacf19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a84059879d5bf5166828c6221766dd758"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_spell_caster.html">SpellCaster</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a84059879d5bf5166828c6221766dd758">m_SpellCaster</a> = nullptr</td></tr>
-<tr class="separator:a84059879d5bf5166828c6221766dd758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a9d4ef13d78c6b6fce0737be3dd87d630"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a9d4ef13d78c6b6fce0737be3dd87d630">CasterDied</a> ()</td></tr>
+<tr class="separator:a9d4ef13d78c6b6fce0737be3dd87d630"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a010442d2259e8bdd37de5aba0a963ebc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_manager.html">CasterManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a010442d2259e8bdd37de5aba0a963ebc">m_CasterManager</a></td></tr>
+<tr class="separator:a010442d2259e8bdd37de5aba0a963ebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac119e1510306327eaaa2528c3dd6b381"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#ac119e1510306327eaaa2528c3dd6b381">m_CasterState</a> = <a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42ecaae599161956d626eda4cb0a5ffb85271c">CasterState::Idle</a></td></tr>
+<tr class="separator:ac119e1510306327eaaa2528c3dd6b381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c0021399f215ffc8b67f9d4b21a7f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_effect_manager.html">CasterEffectManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a40c0021399f215ffc8b67f9d4b21a7f6">m_EffectManager</a></td></tr>
+<tr class="separator:a40c0021399f215ffc8b67f9d4b21a7f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b30701d586ae7bafa1f2e708f526d6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_u_i_controller.html">CasterUIController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#a8b30701d586ae7bafa1f2e708f526d6c">m_CasterUI</a></td></tr>
+<tr class="separator:a8b30701d586ae7bafa1f2e708f526d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b8ea34bd2119da6f54375b618c327a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_caster_object.html">CasterObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_caster_controller.html#af2b8ea34bd2119da6f54375b618c327a">m_CasterObject</a></td></tr>
+<tr class="separator:af2b8ea34bd2119da6f54375b618c327a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1b1a67766801f66de6a825c5bb2cf497" name="a1b1a67766801f66de6a825c5bb2cf497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1a67766801f66de6a825c5bb2cf497">&#9670;&nbsp;</a></span>CasterController()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CasterController::CasterController </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_caster_data.html">CasterData</a>&#160;</td>
+          <td class="paramname"><em>caster</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acd34ea4ac7ebab8d1adae2362dacf19e" name="acd34ea4ac7ebab8d1adae2362dacf19e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd34ea4ac7ebab8d1adae2362dacf19e">&#9670;&nbsp;</a></span>~CasterController()</h2>
 
@@ -121,23 +197,400 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a84059879d5bf5166828c6221766dd758" name="a84059879d5bf5166828c6221766dd758"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84059879d5bf5166828c6221766dd758">&#9670;&nbsp;</a></span>m_SpellCaster</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9d4ef13d78c6b6fce0737be3dd87d630" name="a9d4ef13d78c6b6fce0737be3dd87d630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4ef13d78c6b6fce0737be3dd87d630">&#9670;&nbsp;</a></span>CasterDied()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CasterController::CasterDied </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90bff2f6dfa090cadf3aee8ea0c9e419" name="a90bff2f6dfa090cadf3aee8ea0c9e419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90bff2f6dfa090cadf3aee8ea0c9e419">&#9670;&nbsp;</a></span>CastSpell()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_spell_caster.html">SpellCaster</a>* CasterController::m_SpellCaster = nullptr</td>
+          <td class="memname"><a class="el" href="class_cast_spell_detail.html">CastSpellDetail</a> * CasterController::CastSpell </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>Project-Pentagram/Game/BattleScene/SpellCaster/<a class="el" href="_caster_controller_8h_source.html">CasterController.h</a></li>
+<a id="ac9fd69c19266f30108fcc64ffbafce9e" name="ac9fd69c19266f30108fcc64ffbafce9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fd69c19266f30108fcc64ffbafce9e">&#9670;&nbsp;</a></span>EndTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CasterController::EndTurn </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isPassed</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75c852a113077413714fed81ae57866d" name="a75c852a113077413714fed81ae57866d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c852a113077413714fed81ae57866d">&#9670;&nbsp;</a></span>GetCasterManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_manager.html">CasterManager</a> * CasterController::GetCasterManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe07ed487e5f4c10df07ee329507e53b" name="abe07ed487e5f4c10df07ee329507e53b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe07ed487e5f4c10df07ee329507e53b">&#9670;&nbsp;</a></span>GetCasterObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_object.html">CasterObject</a> * CasterController::GetCasterObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab5b4de19d63b6f848debac597085b986" name="ab5b4de19d63b6f848debac597085b986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b4de19d63b6f848debac597085b986">&#9670;&nbsp;</a></span>GetCasterUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_u_i_controller.html">CasterUIController</a> * CasterController::GetCasterUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d92f39ab26b73f4a2e6812d4a174b21" name="a1d92f39ab26b73f4a2e6812d4a174b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d92f39ab26b73f4a2e6812d4a174b21">&#9670;&nbsp;</a></span>GetEffectManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_effect_manager.html">CasterEffectManager</a> * CasterController::GetEffectManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae3df255efe8c22bebd248cb5de48a6a7" name="ae3df255efe8c22bebd248cb5de48a6a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3df255efe8c22bebd248cb5de48a6a7">&#9670;&nbsp;</a></span>GetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a> CasterController::GetState </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab60d4013c3fb214c23091f7752eb5ed9" name="ab60d4013c3fb214c23091f7752eb5ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab60d4013c3fb214c23091f7752eb5ed9">&#9670;&nbsp;</a></span>SetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CasterController::SetState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a>&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a042d0e50ca8b694d33511dd5d6e449f6" name="a042d0e50ca8b694d33511dd5d6e449f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042d0e50ca8b694d33511dd5d6e449f6">&#9670;&nbsp;</a></span>StartTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CasterController::StartTurn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeac560eac9389ce42e90a4a21b1899f7" name="aeac560eac9389ce42e90a4a21b1899f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeac560eac9389ce42e90a4a21b1899f7">&#9670;&nbsp;</a></span>TakeDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CasterController::TakeDamage </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c329b43dff5848037fcc05da797c4ea" name="a7c329b43dff5848037fcc05da797c4ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c329b43dff5848037fcc05da797c4ea">&#9670;&nbsp;</a></span>UpdateCasterUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CasterController::UpdateCasterUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a010442d2259e8bdd37de5aba0a963ebc" name="a010442d2259e8bdd37de5aba0a963ebc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a010442d2259e8bdd37de5aba0a963ebc">&#9670;&nbsp;</a></span>m_CasterManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_manager.html">CasterManager</a> CasterController::m_CasterManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2b8ea34bd2119da6f54375b618c327a" name="af2b8ea34bd2119da6f54375b618c327a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b8ea34bd2119da6f54375b618c327a">&#9670;&nbsp;</a></span>m_CasterObject</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_object.html">CasterObject</a>* CasterController::m_CasterObject</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac119e1510306327eaaa2528c3dd6b381" name="ac119e1510306327eaaa2528c3dd6b381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac119e1510306327eaaa2528c3dd6b381">&#9670;&nbsp;</a></span>m_CasterState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42eca">CasterState</a> CasterController::m_CasterState = <a class="el" href="_caster_controller_8h.html#a97ac859542ce11c8790f938040d42ecaae599161956d626eda4cb0a5ffb85271c">CasterState::Idle</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b30701d586ae7bafa1f2e708f526d6c" name="a8b30701d586ae7bafa1f2e708f526d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b30701d586ae7bafa1f2e708f526d6c">&#9670;&nbsp;</a></span>m_CasterUI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_u_i_controller.html">CasterUIController</a> CasterController::m_CasterUI</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40c0021399f215ffc8b67f9d4b21a7f6" name="a40c0021399f215ffc8b67f9d4b21a7f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c0021399f215ffc8b67f9d4b21a7f6">&#9670;&nbsp;</a></span>m_EffectManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_caster_effect_manager.html">CasterEffectManager</a> CasterController::m_EffectManager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>E:/Project-Pentagram/Project-Pentagram/Game/BattleScene/SpellCaster/<a class="el" href="_caster_controller_8h_source.html">CasterController.h</a></li>
+<li>E:/Project-Pentagram/Project-Pentagram/Game/BattleScene/SpellCaster/<a class="el" href="_caster_controller_8cpp.html">CasterController.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

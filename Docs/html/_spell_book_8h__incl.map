@@ -1,7 +1,9 @@
-<map id="Project&#45;Pentagram/Game/Spells/SpellBook.h" name="Project&#45;Pentagram/Game/Spells/SpellBook.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,175,47"/>
-<area shape="rect" id="node2" href="$_spell_8h.html" title=" " alt="" coords="11,95,73,121"/>
-<area shape="rect" id="node5" href="$_element_8h.html" title=" " alt="" coords="97,95,179,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="6,169,78,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="107,169,161,196"/>
+<map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellBook.h" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellBook.h">
+<area shape="rect" id="node1" title=" " alt="" coords="239,5,412,61"/>
+<area shape="rect" id="node2" href="$_spell_8h.html" title=" " alt="" coords="259,109,322,136"/>
+<area shape="rect" id="node7" href="$_element_8h.html" title=" " alt="" coords="464,184,624,211"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,184,77,211"/>
+<area shape="rect" id="node4" title=" " alt="" coords="263,259,318,285"/>
+<area shape="rect" id="node5" href="$_spell_effect_type_8h.html" title=" " alt="" coords="152,184,275,211"/>
+<area shape="rect" id="node6" href="$_channel_effect_type_8h.html" title=" " alt="" coords="299,184,440,211"/>
 </map>

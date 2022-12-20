@@ -1,0 +1,139 @@
+\hypertarget{class_load_scene}{}\doxysection{Load\+Scene Class Reference}
+\label{class_load_scene}\index{LoadScene@{LoadScene}}
+
+
+{\ttfamily \#include $<$Load\+Scene.\+h$>$}
+
+
+
+Inheritance diagram for Load\+Scene\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_load_scene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Load\+Scene\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_load_scene__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_load_scene_abc6f3a75d4a8ace1a8a46c8e35866916}{Game\+Scene\+Load\+Utility\+Resource}} (\mbox{\hyperlink{class_engine_data_collector}{Engine\+Data\+Collector}} $\ast$\mbox{\hyperlink{main_8cpp_a5f835cb597ad6df1b0b952ea9eb01982}{engine\+Data\+Collector}})
+\item 
+void \mbox{\hyperlink{class_load_scene_a5dd85520889e836f1734304d019ce4c3}{Game\+Scene\+Load\+Texture\+Resource}} (\mbox{\hyperlink{class_engine_data_collector}{Engine\+Data\+Collector}} $\ast$\mbox{\hyperlink{main_8cpp_a5f835cb597ad6df1b0b952ea9eb01982}{engine\+Data\+Collector}}, const std\+::string \&file\+Path)
+\item 
+virtual void \mbox{\hyperlink{class_load_scene_a57732a91ed5e87b19c0086e44178752f}{Game\+Scene\+Load}} () override
+\item 
+virtual void \mbox{\hyperlink{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}{Game\+Scene\+Init}} () override
+\item 
+virtual void \mbox{\hyperlink{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}{Game\+Scene\+Update}} (float dt) override
+\item 
+virtual void \mbox{\hyperlink{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}{Game\+Scene\+Free}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_thread}{Thread}} \mbox{\hyperlink{class_load_scene_a8e86984cdd2ad6bace9a6a9e16d630a9}{m\+\_\+\+Load\+Utility\+Thread}}
+\item 
+\mbox{\hyperlink{class_thread}{Thread}} \mbox{\hyperlink{class_load_scene_a3bda76410642c309303e89cbb3ab0990}{m\+\_\+\+Texture\+Thread}}
+\item 
+std\+::atomic$<$ int $>$ \mbox{\hyperlink{class_load_scene_a9c41d63cfcf0e883d680125a88775ef9}{m\+\_\+\+Is\+Load\+Done}} = 0
+\item 
+int \mbox{\hyperlink{class_load_scene_a45be938e7f22d2bc0fc8792039fe4e1d}{temp}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}\label{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}} 
+\index{LoadScene@{LoadScene}!GameSceneFree@{GameSceneFree}}
+\index{GameSceneFree@{GameSceneFree}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneFree()}{GameSceneFree()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}\label{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}} 
+\index{LoadScene@{LoadScene}!GameSceneInit@{GameSceneInit}}
+\index{GameSceneInit@{GameSceneInit}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneInit()}{GameSceneInit()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_load_scene_a57732a91ed5e87b19c0086e44178752f}\label{class_load_scene_a57732a91ed5e87b19c0086e44178752f}} 
+\index{LoadScene@{LoadScene}!GameSceneLoad@{GameSceneLoad}}
+\index{GameSceneLoad@{GameSceneLoad}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneLoad()}{GameSceneLoad()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_load_scene_a5dd85520889e836f1734304d019ce4c3}\label{class_load_scene_a5dd85520889e836f1734304d019ce4c3}} 
+\index{LoadScene@{LoadScene}!GameSceneLoadTextureResource@{GameSceneLoadTextureResource}}
+\index{GameSceneLoadTextureResource@{GameSceneLoadTextureResource}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneLoadTextureResource()}{GameSceneLoadTextureResource()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Load\+Texture\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_engine_data_collector}{Engine\+Data\+Collector}} $\ast$}]{engine\+Data\+Collector,  }\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_load_scene_abc6f3a75d4a8ace1a8a46c8e35866916}\label{class_load_scene_abc6f3a75d4a8ace1a8a46c8e35866916}} 
+\index{LoadScene@{LoadScene}!GameSceneLoadUtilityResource@{GameSceneLoadUtilityResource}}
+\index{GameSceneLoadUtilityResource@{GameSceneLoadUtilityResource}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneLoadUtilityResource()}{GameSceneLoadUtilityResource()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Load\+Utility\+Resource (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_engine_data_collector}{Engine\+Data\+Collector}} $\ast$}]{engine\+Data\+Collector }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}\label{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}} 
+\index{LoadScene@{LoadScene}!GameSceneUpdate@{GameSceneUpdate}}
+\index{GameSceneUpdate@{GameSceneUpdate}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{GameSceneUpdate()}{GameSceneUpdate()}}
+{\footnotesize\ttfamily void Load\+Scene\+::\+Game\+Scene\+Update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}{Game\+Scene}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_load_scene_a9c41d63cfcf0e883d680125a88775ef9}\label{class_load_scene_a9c41d63cfcf0e883d680125a88775ef9}} 
+\index{LoadScene@{LoadScene}!m\_IsLoadDone@{m\_IsLoadDone}}
+\index{m\_IsLoadDone@{m\_IsLoadDone}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{m\_IsLoadDone}{m\_IsLoadDone}}
+{\footnotesize\ttfamily std\+::atomic$<$int$>$ Load\+Scene\+::m\+\_\+\+Is\+Load\+Done = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_load_scene_a8e86984cdd2ad6bace9a6a9e16d630a9}\label{class_load_scene_a8e86984cdd2ad6bace9a6a9e16d630a9}} 
+\index{LoadScene@{LoadScene}!m\_LoadUtilityThread@{m\_LoadUtilityThread}}
+\index{m\_LoadUtilityThread@{m\_LoadUtilityThread}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{m\_LoadUtilityThread}{m\_LoadUtilityThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_thread}{Thread}} Load\+Scene\+::m\+\_\+\+Load\+Utility\+Thread\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_load_scene_a3bda76410642c309303e89cbb3ab0990}\label{class_load_scene_a3bda76410642c309303e89cbb3ab0990}} 
+\index{LoadScene@{LoadScene}!m\_TextureThread@{m\_TextureThread}}
+\index{m\_TextureThread@{m\_TextureThread}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{m\_TextureThread}{m\_TextureThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_thread}{Thread}} Load\+Scene\+::m\+\_\+\+Texture\+Thread\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_load_scene_a45be938e7f22d2bc0fc8792039fe4e1d}\label{class_load_scene_a45be938e7f22d2bc0fc8792039fe4e1d}} 
+\index{LoadScene@{LoadScene}!temp@{temp}}
+\index{temp@{temp}!LoadScene@{LoadScene}}
+\doxysubsubsection{\texorpdfstring{temp}{temp}}
+{\footnotesize\ttfamily int Load\+Scene\+::temp = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Scene/\mbox{\hyperlink{_load_scene_8h}{Load\+Scene.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Scene/\mbox{\hyperlink{_load_scene_8cpp}{Load\+Scene.\+cpp}}\end{DoxyCompactItemize}

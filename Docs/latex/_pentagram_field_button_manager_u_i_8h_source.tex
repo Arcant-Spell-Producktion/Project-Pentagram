@@ -1,0 +1,28 @@
+\hypertarget{_pentagram_field_button_manager_u_i_8h_source}{}\doxysection{Pentagram\+Field\+Button\+Manager\+UI.\+h}
+\label{_pentagram_field_button_manager_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramFieldButtonManagerUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramFieldButtonManagerUI.h}}
+\mbox{\hyperlink{_pentagram_field_button_manager_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_field_button_8h}{PentagramFieldButton.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_field_button_u_i}{PentagramFieldButtonUI}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     std::vector<PentagramFieldButton*> m\_PentragramButtons;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keywordtype}{int} GetIndexByField(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} GetFieldByIndex(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_event}{Event<PentagramField>}} \mbox{\hyperlink{class_pentagram_field_button_u_i_a1cab5ab66339b9af780b774cbd67e2ea}{OnFieldButtonClicked}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_u_i_a83cebedc1c30cafda13dd5cbf191bccb}{ToggleButton}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} button\_field);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_u_i_a00f275dc132d97b215f0547d76cd067a}{SetFieldButtonRune}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field, \textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_u_i_a9b7c24fa27ca016b61b6e7206fd9cfc0}{ResetFieldRune}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_pentagram_field_button_u_i_abbd1b3ecd6a2601789891a3bf05030eb}{PentagramFieldButtonUI}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{22 \};}
+
+\end{DoxyCode}

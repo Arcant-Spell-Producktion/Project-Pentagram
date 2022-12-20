@@ -1,0 +1,33 @@
+\hypertarget{_input_8h_source}{}\doxysection{Input.\+h}
+\label{_input_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Input.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Input.h}}
+\mbox{\hyperlink{_input_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <glfw/glfw3.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_input}{Input}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{namespace_input_aed675749e4edb5581fd4b49612428bfb}{mouseX}};}
+\DoxyCodeLine{10     \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{namespace_input_aeea828d5304a45125f6709c59bae84fd}{mouseY}};}
+\DoxyCodeLine{11     \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{namespace_input_a264198dd6ed395f4f7d16ad874966fea}{deltaMouseX}};}
+\DoxyCodeLine{12     \textcolor{keyword}{extern} \textcolor{keywordtype}{float} \mbox{\hyperlink{namespace_input_a6ce03fe68964b04ef8c5102765f9ee19}{deltaMouseY}};}
+\DoxyCodeLine{13     \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_ac7d561e1fcf75f299aece6a252caa0eb}{keyPressed}}[GLFW\_KEY\_LAST];}
+\DoxyCodeLine{14     \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_a3c28c4b5359644182f9c21657764db90}{keyBeginPressed}}[GLFW\_KEY\_LAST];}
+\DoxyCodeLine{15     \textcolor{keyword}{extern} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_af02b6c5fb7dca469565157ef04c09292}{keyEndPressed}}[GLFW\_KEY\_LAST];}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_a3194ee98ab290535bf767ba127384160}{IsKeyPressed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& key);}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_a2acb102fd47b9b700d758da9d61178fd}{IsKeyBeginPressed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& key);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_input_a5096b9f64c5cb8c0d6a6ea96d8e352ae}{IsKeyEndPressed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& key);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_input_a660389d919ee53bd83687334b429c048}{EndFrame}}();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Callback Function -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_input_afabea27ea25c1498c874d114b047f778}{keyCallBack}}(GLFWwindow* window, \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} scancode, \textcolor{keywordtype}{int} action, \textcolor{keywordtype}{int} mods);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_input_acd13edd2fae985cc7e3dbbecd13befb0}{cursorCallBack}}(GLFWwindow* window, \textcolor{keywordtype}{double} xPos, \textcolor{keywordtype}{double} yPos);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_input_a2cdb8b03dd25240e1a1c4adcee9daf9c}{mouseCallBack}}(GLFWwindow* window, \textcolor{keywordtype}{int} key, \textcolor{keywordtype}{int} action, \textcolor{keywordtype}{int} mods);}
+\DoxyCodeLine{27 \};}
+
+\end{DoxyCode}

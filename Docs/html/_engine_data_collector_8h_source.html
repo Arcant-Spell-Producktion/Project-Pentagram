@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Project_Pentragram: Project-Pentagram/Engine/Collector/EngineDataCollector.h Source File</title>
+<title>Project_Pentragram: E:/Project-Pentagram/Project-Pentagram/Engine/Collector/EngineDataCollector.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,40 +71,46 @@ $(function() {
 <div class="contents">
 <a href="_engine_data_collector_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../../Utilities/Singleton.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_singleton_8h.html">Utilities/Singleton.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_shader_collector_8h.html">ShaderCollector.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_font_collector_8h.html">FontCollector.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_texture_collector_8h.html">TextureCollector.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_engine_data_collector.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_engine_data_collector.html">EngineDataCollector</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&lt;EngineDataCollector&gt;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        <a class="code hl_class" href="class_shader_collector.html">ShaderCollector</a> m_ShaderCollector;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_class" href="class_font_collector.html">FontCollector</a> m_FontCollector;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="class_texture_collector.html">TextureCollector</a> m_TextureCollector;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="comment">// Getter</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <a class="code hl_class" href="class_shader_collector.html">ShaderCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#a055dfbe866de6b259744eed1edd1973f">GetShaderCollector</a>();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_class" href="class_font_collector.html">FontCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#ac3efd1510a417b51aa73f6cf6d5f774d">GetFontCollector</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_class" href="class_texture_collector.html">TextureCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#a595ef9c15029c05950f6885d2c4c8ae2">GetTextureCollector</a>();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// Free Memory</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_engine_data_collector.html#aaffadaf0dccadfef8ef5a6ff09d0e728">Free</a>();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_shader_collector_8h.html">Engine/Collector/ShaderCollector.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_font_collector_8h.html">Engine/Collector/FontCollector.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_texture_collector_8h.html">Engine/Collector/TextureCollector.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_audio_engine_8h.html">Engine/Audio/AudioEngine.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_engine_data_collector.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_engine_data_collector.html">EngineDataCollector</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_singleton.html">Singleton</a>&lt;EngineDataCollector&gt;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        <a class="code hl_class" href="class_shader_collector.html">ShaderCollector</a> m_ShaderCollector;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <a class="code hl_class" href="class_font_collector.html">FontCollector</a> m_FontCollector;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_class" href="class_texture_collector.html">TextureCollector</a> m_TextureCollector;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_engine_data_collector.html#a1d19151f2644b28fff4a5276a24f26a2">LoadResource</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="comment">// Getter</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_class" href="class_shader_collector.html">ShaderCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#a055dfbe866de6b259744eed1edd1973f">GetShaderCollector</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_class" href="class_font_collector.html">FontCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#ac3efd1510a417b51aa73f6cf6d5f774d">GetFontCollector</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_class" href="class_texture_collector.html">TextureCollector</a>* <a class="code hl_function" href="class_engine_data_collector.html#a595ef9c15029c05950f6885d2c4c8ae2">GetTextureCollector</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="comment">// Free Memory</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_engine_data_collector.html#aaffadaf0dccadfef8ef5a6ff09d0e728">Free</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="ttc" id="a_audio_engine_8h_html"><div class="ttname"><a href="_audio_engine_8h.html">AudioEngine.h</a></div></div>
 <div class="ttc" id="a_font_collector_8h_html"><div class="ttname"><a href="_font_collector_8h.html">FontCollector.h</a></div></div>
 <div class="ttc" id="a_shader_collector_8h_html"><div class="ttname"><a href="_shader_collector_8h.html">ShaderCollector.h</a></div></div>
+<div class="ttc" id="a_singleton_8h_html"><div class="ttname"><a href="_singleton_8h.html">Singleton.h</a></div></div>
 <div class="ttc" id="a_texture_collector_8h_html"><div class="ttname"><a href="_texture_collector_8h.html">TextureCollector.h</a></div></div>
-<div class="ttc" id="aclass_engine_data_collector_html"><div class="ttname"><a href="class_engine_data_collector.html">EngineDataCollector</a></div><div class="ttdef"><b>Definition:</b> EngineDataCollector.h:10</div></div>
-<div class="ttc" id="aclass_engine_data_collector_html_a055dfbe866de6b259744eed1edd1973f"><div class="ttname"><a href="class_engine_data_collector.html#a055dfbe866de6b259744eed1edd1973f">EngineDataCollector::GetShaderCollector</a></div><div class="ttdeci">ShaderCollector * GetShaderCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:5</div></div>
-<div class="ttc" id="aclass_engine_data_collector_html_a595ef9c15029c05950f6885d2c4c8ae2"><div class="ttname"><a href="class_engine_data_collector.html#a595ef9c15029c05950f6885d2c4c8ae2">EngineDataCollector::GetTextureCollector</a></div><div class="ttdeci">TextureCollector * GetTextureCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:13</div></div>
-<div class="ttc" id="aclass_engine_data_collector_html_aaffadaf0dccadfef8ef5a6ff09d0e728"><div class="ttname"><a href="class_engine_data_collector.html#aaffadaf0dccadfef8ef5a6ff09d0e728">EngineDataCollector::Free</a></div><div class="ttdeci">void Free()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:19</div></div>
-<div class="ttc" id="aclass_engine_data_collector_html_ac3efd1510a417b51aa73f6cf6d5f774d"><div class="ttname"><a href="class_engine_data_collector.html#ac3efd1510a417b51aa73f6cf6d5f774d">EngineDataCollector::GetFontCollector</a></div><div class="ttdeci">FontCollector * GetFontCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:9</div></div>
-<div class="ttc" id="aclass_font_collector_html"><div class="ttname"><a href="class_font_collector.html">FontCollector</a></div><div class="ttdef"><b>Definition:</b> FontCollector.h:22</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html"><div class="ttname"><a href="class_engine_data_collector.html">EngineDataCollector</a></div><div class="ttdef"><b>Definition:</b> EngineDataCollector.h:11</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html_a055dfbe866de6b259744eed1edd1973f"><div class="ttname"><a href="class_engine_data_collector.html#a055dfbe866de6b259744eed1edd1973f">EngineDataCollector::GetShaderCollector</a></div><div class="ttdeci">ShaderCollector * GetShaderCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:11</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html_a1d19151f2644b28fff4a5276a24f26a2"><div class="ttname"><a href="class_engine_data_collector.html#a1d19151f2644b28fff4a5276a24f26a2">EngineDataCollector::LoadResource</a></div><div class="ttdeci">void LoadResource()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:3</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html_a595ef9c15029c05950f6885d2c4c8ae2"><div class="ttname"><a href="class_engine_data_collector.html#a595ef9c15029c05950f6885d2c4c8ae2">EngineDataCollector::GetTextureCollector</a></div><div class="ttdeci">TextureCollector * GetTextureCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:19</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html_aaffadaf0dccadfef8ef5a6ff09d0e728"><div class="ttname"><a href="class_engine_data_collector.html#aaffadaf0dccadfef8ef5a6ff09d0e728">EngineDataCollector::Free</a></div><div class="ttdeci">void Free()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:24</div></div>
+<div class="ttc" id="aclass_engine_data_collector_html_ac3efd1510a417b51aa73f6cf6d5f774d"><div class="ttname"><a href="class_engine_data_collector.html#ac3efd1510a417b51aa73f6cf6d5f774d">EngineDataCollector::GetFontCollector</a></div><div class="ttdeci">FontCollector * GetFontCollector()</div><div class="ttdef"><b>Definition:</b> EngineDataCollector.cpp:15</div></div>
+<div class="ttc" id="aclass_font_collector_html"><div class="ttname"><a href="class_font_collector.html">FontCollector</a></div><div class="ttdef"><b>Definition:</b> FontCollector.h:28</div></div>
 <div class="ttc" id="aclass_shader_collector_html"><div class="ttname"><a href="class_shader_collector.html">ShaderCollector</a></div><div class="ttdef"><b>Definition:</b> ShaderCollector.h:6</div></div>
 <div class="ttc" id="aclass_singleton_html"><div class="ttname"><a href="class_singleton.html">Singleton</a></div><div class="ttdef"><b>Definition:</b> Singleton.h:4</div></div>
-<div class="ttc" id="aclass_texture_collector_html"><div class="ttname"><a href="class_texture_collector.html">TextureCollector</a></div><div class="ttdef"><b>Definition:</b> TextureCollector.h:10</div></div>
+<div class="ttc" id="aclass_texture_collector_html"><div class="ttname"><a href="class_texture_collector.html">TextureCollector</a></div><div class="ttdef"><b>Definition:</b> TextureCollector.h:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

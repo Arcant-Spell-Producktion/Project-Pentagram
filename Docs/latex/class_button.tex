@@ -1,0 +1,134 @@
+\hypertarget{class_button}{}\doxysection{Button Class Reference}
+\label{class_button}\index{Button@{Button}}
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+
+
+Inheritance diagram for Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_button__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Button\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_button_a8f625e349331518a505701576f5ab71e}{Button}} (const std\+::string \&obj\+Name)
+\item 
+virtual void \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
+\item 
+virtual void \mbox{\hyperlink{class_button_a810da4ba98196db3114151d35f01b869}{Unload\+Mesh}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec4 \mbox{\hyperlink{class_button_a0fa8563890d059510c782a356d0f1494}{hover\+Color}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}{on\+Hover}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_aba771a087190a2c0406c55817fd45dcd}{un\+Hover}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_a518661a5bc461f785c2be78070c81365}{on\+Click}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_a70fd1b19bdf416e8cf37186e848f5bd8}{on\+Press}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_aa7e43d028622bbfcdf5dfb335a50ceb4}{un\+Press}}
+\item 
+\mbox{\hyperlink{class_text_object}{Text\+Object}} \mbox{\hyperlink{class_button_a0efce35ba506dd0c573eaae665b4bfbe}{text\+Object}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_a8f625e349331518a505701576f5ab71e}\label{class_button_a8f625e349331518a505701576f5ab71e}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_a5177361e2f4a8294557386153e51c9f0}\label{class_button_a5177361e2f4a8294557386153e51c9f0}} 
+\index{Button@{Button}!Draw@{Draw}}
+\index{Draw@{Draw}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Button\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera}{Camera}} \&}]{camera,  }\item[{glm\+::mat4}]{parent\+Model = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{UIObject}}.
+
+\mbox{\Hypertarget{class_button_a810da4ba98196db3114151d35f01b869}\label{class_button_a810da4ba98196db3114151d35f01b869}} 
+\index{Button@{Button}!UnloadMesh@{UnloadMesh}}
+\index{UnloadMesh@{UnloadMesh}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{UnloadMesh()}{UnloadMesh()}}
+{\footnotesize\ttfamily void Button\+::\+Unload\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e94800835c5}{Game\+Object}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_button_a0fa8563890d059510c782a356d0f1494}\label{class_button_a0fa8563890d059510c782a356d0f1494}} 
+\index{Button@{Button}!hoverColor@{hoverColor}}
+\index{hoverColor@{hoverColor}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{hoverColor}{hoverColor}}
+{\footnotesize\ttfamily glm\+::vec4 Button\+::hover\+Color}
+
+\mbox{\Hypertarget{class_button_a518661a5bc461f785c2be78070c81365}\label{class_button_a518661a5bc461f785c2be78070c81365}} 
+\index{Button@{Button}!onClick@{onClick}}
+\index{onClick@{onClick}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{onClick}{onClick}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::on\+Click}
+
+\mbox{\Hypertarget{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}\label{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}} 
+\index{Button@{Button}!onHover@{onHover}}
+\index{onHover@{onHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{onHover}{onHover}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::on\+Hover}
+
+\mbox{\Hypertarget{class_button_a70fd1b19bdf416e8cf37186e848f5bd8}\label{class_button_a70fd1b19bdf416e8cf37186e848f5bd8}} 
+\index{Button@{Button}!onPress@{onPress}}
+\index{onPress@{onPress}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{onPress}{onPress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::on\+Press}
+
+\mbox{\Hypertarget{class_button_a0efce35ba506dd0c573eaae665b4bfbe}\label{class_button_a0efce35ba506dd0c573eaae665b4bfbe}} 
+\index{Button@{Button}!textObject@{textObject}}
+\index{textObject@{textObject}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{textObject}{textObject}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_object}{Text\+Object}} Button\+::text\+Object}
+
+\mbox{\Hypertarget{class_button_aba771a087190a2c0406c55817fd45dcd}\label{class_button_aba771a087190a2c0406c55817fd45dcd}} 
+\index{Button@{Button}!unHover@{unHover}}
+\index{unHover@{unHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{unHover}{unHover}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::un\+Hover}
+
+\mbox{\Hypertarget{class_button_aa7e43d028622bbfcdf5dfb335a50ceb4}\label{class_button_aa7e43d028622bbfcdf5dfb335a50ceb4}} 
+\index{Button@{Button}!unPress@{unPress}}
+\index{unPress@{unPress}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{unPress}{unPress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::un\+Press}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_button_8h}{Button.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_button_8cpp}{Button.\+cpp}}\end{DoxyCompactItemize}

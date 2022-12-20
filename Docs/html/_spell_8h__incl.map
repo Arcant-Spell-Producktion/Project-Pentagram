@@ -1,5 +1,8 @@
-<map id="Project&#45;Pentagram/Game/Spells/Spell.h" name="Project&#45;Pentagram/Game/Spells/Spell.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,175,47"/>
-<area shape="rect" id="node2" title=" " alt="" coords="10,95,82,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="107,95,161,121"/>
+<map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/Spell.h" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/Spell.h">
+<area shape="rect" id="node1" title=" " alt="" coords="127,5,300,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,77,136"/>
+<area shape="rect" id="node3" title=" " alt="" coords="263,184,318,211"/>
+<area shape="rect" id="node4" href="$_spell_effect_type_8h.html" title=" " alt="" coords="152,109,275,136"/>
+<area shape="rect" id="node5" href="$_channel_effect_type_8h.html" title=" " alt="" coords="299,109,440,136"/>
+<area shape="rect" id="node6" href="$_element_8h.html" title=" " alt="" coords="464,109,624,136"/>
 </map>
