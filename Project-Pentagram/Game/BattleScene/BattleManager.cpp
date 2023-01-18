@@ -4,10 +4,14 @@
 void BattleManager::SetBattleState(BattleState state)
 {
     BattleState OldState = m_CurrentState;
-    m_CurrentState = state;
 
-    m_BattleStates[OldState]->OnBattleStateOut();
-    m_BattleStates[m_CurrentState]->OnBattleStateIn();
+    if (OldState < BattleState::ResultState)
+    {
+        m_CurrentState = state;
+
+        m_BattleStates[OldState]->OnBattleStateOut();
+        m_BattleStates[m_CurrentState]->OnBattleStateIn();
+    }
 
     std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to " << (int)m_CurrentState << "\n\n";
 }

@@ -16,6 +16,7 @@ CasterController::CasterController(CasterData caster):m_CasterManager(caster), m
 
 void CasterController::CasterDied()
 {
+    m_IsAlive = false;
     BattleManager::GetInstance()->EndBattle();
     m_CasterObject->PlayDiedAnim();
 }
@@ -36,6 +37,11 @@ void CasterController::StartTurn()
     UpdateCasterUI();
 }
 
+bool CasterController::IsAlive()
+{
+    return m_IsAlive;
+}
+
 bool CasterController::TakeDamage(int value)
 {
     int totalDamage = -value;
@@ -52,9 +58,9 @@ bool CasterController::TakeDamage(int value)
     if (m_CasterManager.GetHealth() <= 0)
     {
         CasterDied();
-        return false;
     }
-    return true;
+
+    return IsAlive();
 }
 
 CastSpellDetail* CasterController::CastSpell()

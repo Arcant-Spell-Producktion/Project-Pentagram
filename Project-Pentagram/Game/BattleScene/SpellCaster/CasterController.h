@@ -17,7 +17,8 @@ private:
     Event<CasterStat> OnStatUpdate;
 
 protected:
-    
+    bool m_IsAlive = true;
+
     CasterManager m_CasterManager;
     CasterState m_CasterState = CasterState::Idle;
     CasterEffectManager m_EffectManager;
@@ -45,7 +46,9 @@ public:
 
     virtual void StartTurn();
 
-    bool TakeDamage(int value); // True if Alive
+    bool TakeDamage(int value);
+
+    bool IsAlive();
 
     CastSpellDetail* CastSpell();
 
