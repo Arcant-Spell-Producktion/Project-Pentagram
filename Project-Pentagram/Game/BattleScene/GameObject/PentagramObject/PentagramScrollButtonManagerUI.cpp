@@ -90,7 +90,7 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
 
     for (size_t i = 1; i <= 6; i++)
     {
-        PentagramScrollNumberButton* button = scene->CreateObject(new PentagramScrollNumberButton(i,scene));
+        PentagramScrollNumberButton* button = (new PentagramScrollNumberButton(i,scene));
         button->position = { -420.0f + (i * 120.0f),-300.0f,0.0f };
         
         button->OnButtonClicked += [this](int value)
@@ -106,7 +106,7 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
     for (size_t i = 0; i < 2; i++)
     {
         int value = i == 0 ? -1 : 1;
-        PentagramScrollArrowButton* button = scene->CreateObject(new PentagramScrollArrowButton(value, scene));
+        PentagramScrollArrowButton* button = new PentagramScrollArrowButton(value, scene);
         button->position = { -80.0f + (i * 160.0f),-300.0f,0.0f };
 
         button->OnButtonClicked += [this](int value)
