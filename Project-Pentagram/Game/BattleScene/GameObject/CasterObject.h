@@ -33,13 +33,14 @@ private:
 
     float m_FlashTimer = 0.0f;
 
-    void SetState(CasterObjectState state);
-
-    void SetState(CasterObjectState state, CasterObjectState nextState);
 public:
     CasterObject();
 
     void OnUpdate(const float& dt) override;
+
+    void SetState(CasterObjectState state);
+
+    void SetState(CasterObjectState state, CasterObjectState nextState);
 
     void SetCaster(CasterObjectType type, Element::Type element, CasterPosition pos);
 
