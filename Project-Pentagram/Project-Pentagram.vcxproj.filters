@@ -183,6 +183,12 @@
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp">
+      <Filter>Game\CharacterScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp">
+      <Filter>Game\CharacterScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -458,6 +464,12 @@
     </ClInclude>
     <ClInclude Include="Game\Objects\ScrollButton.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h">
+      <Filter>Game\CharacterScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h">
+      <Filter>Game\CharacterScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -735,6 +747,9 @@
     </Filter>
     <Filter Include="Game\BattleScene\Objects\Pentagram">
       <UniqueIdentifier>{133a299c-bec3-4c3b-9d65-964f4e0a82c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CharacterScene">
+      <UniqueIdentifier>{0a5f06a5-0208-4bc2-b076-9f7743abc30d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

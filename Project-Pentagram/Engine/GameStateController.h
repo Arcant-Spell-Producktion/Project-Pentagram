@@ -6,6 +6,7 @@
 #include "Engine/Scene/NodeScene.h"
 #include "Engine/Scene/LoadScene.h"
 #include "Engine/Scene/DemoScene.h"
+#include "Game/CharacterSelectScene/CharacterSelectScene.h"
 #include "Game/BattleScene/BattleScene.h"
 #include "Utilities/Singleton.h"
 
