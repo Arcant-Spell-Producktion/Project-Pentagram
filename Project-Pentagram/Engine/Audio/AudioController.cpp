@@ -4,8 +4,9 @@ void AudioController::PlaySFX(const std::string& filePath, const float& volume)
 {
 	AudioSource* sfxSource = audioEngine->findSFXAudioSource(filePath);
 	const float masterVolume = audioEngine->GetMasterVolume();
+	const float sfxVolume = audioEngine->GetSFXVolume();
 
-	sfxSource->setDefaultVolume(volume * masterVolume);
+	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 	
 	audioEngine->GetEngine()->play2D(sfxSource);
 }
@@ -22,6 +23,14 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 	m_BGMControllerList.push_back(bgmController);
 
 	return bgmController;
+}
+
+void AudioController::OnUpdate()
+{
+	for (BGMController* bgmController : m_BGMControllerList)
+	{
+		bgmController->OnUpdate();
+	}
 }
 
 // ----------------- Free Memory -----------------

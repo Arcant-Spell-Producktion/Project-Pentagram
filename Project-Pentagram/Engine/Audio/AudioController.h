@@ -35,9 +35,9 @@ class BGMAudio
 			m_Audio->setPlaybackSpeed(speed);
 		}
 		void SetVolume(const float& volume)
-	{
-		m_Audio->setVolume(volume);
-	}
+		{
+			m_Audio->setVolume(volume);
+		}
 		// ------------------ Getter ------------------
 		float GetPlaybackSpeed() const
 		{
@@ -78,11 +78,12 @@ class BGMController
 			for (int idx = 0; idx < m_BGMSourceList.size(); idx++)
 			{
 				const float masterVolume = audioEngine->GetMasterVolume();
+				const float bgmVolume = audioEngine->GetBGMVolume();
 
 				AudioSource*& curAudioSource = m_BGMSourceList[idx];
 				Audio* audio = audioEngine->GetEngine()->play2D(curAudioSource, true, false, true, true);
 				
-				audio->setVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume);
+				audio->setVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
 				
 				m_BGMAudioList.push_back(new BGMAudio(audio));
 			}
@@ -90,6 +91,16 @@ class BGMController
 		void ChangeVolume(const float& volume)
 		{
 			m_BGMLocalVolume = volume;
+		}
+		void OnUpdate()
+		{
+			const float masterVolume = audioEngine->GetMasterVolume();
+			const float bgmVolume = audioEngine->GetBGMVolume();
+
+			for (int idx = 0; idx < m_BGMSourceList.size(); idx++)
+			{
+				m_BGMAudioList[idx]->SetVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
+			}
 		}
 
 		BGMAudio* operator[](int index)
@@ -107,6 +118,8 @@ class AudioController : public Singleton<AudioController>
 	public:
 		void PlaySFX(const std::string& filePath, const float& volume);
 		BGMController* CreateBGM(const std::vector<std::string>& filepathList, const std::vector<float>& volumeList);
+
+		void OnUpdate();
 
 		// ----------------- Free Memory -----------------
 		void Free();

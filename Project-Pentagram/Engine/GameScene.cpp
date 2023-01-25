@@ -108,9 +108,6 @@ Slider* GameScene::CreateSlider(const std::string& objName)
 	}
 	uiObjectsList.push_back(slider);
 
-	Button* button = CreateButton("Button_" + (objName == "" ? "Sldier_" + std::to_string(uiObjectsList.size()) : objName));
-	slider->InitButton(button);
-
 	return slider;
 }
 

@@ -13,12 +13,12 @@ class Slider : public UIObject
 		float m_Value;
 		bool m_IsPress;
 
+	public:
 		// ----------------- Slider Events -----------------
 		std::function<void(Slider*)> onValueChanged;
 
-	public:
 		Slider(const std::string& objName);
-		void InitButton(Button* button);
+		void InitButton();
 
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;

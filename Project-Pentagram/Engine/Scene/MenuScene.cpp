@@ -1,6 +1,7 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/Objects/ScrollButton.h"
+#include "Game/Objects/SoundSettingObject.h"
 #include <Game/Objects/StageObject.h>
 
 void MenuScene::FadeUpdate(const float& dt)
@@ -40,9 +41,13 @@ void MenuScene::GameSceneInit()
 	playButton->position = { 0.0f, 0.0f, 0.0f };
 	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
 
+	// Options Button
+	Button* optionsButton = CreateObject(new ScrollButton("Options"));
+	optionsButton->position = { 0.0f, -200.0f, 0.0f };
+
 	// Exit Button
 	Button* exitButton = CreateObject(new ScrollButton("Exit"));
-	exitButton->position = { 0.0f, -200.0f, 0.0f };
+	exitButton->position = { 0.0f, -400.0f, 0.0f };
 	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
 	// Set FadeScreen Component
@@ -61,6 +66,11 @@ void MenuScene::GameSceneInit()
 	bgm->Play();
 
 	std::cout << "Menu Scene : Initialize Completed\n";
+	
+	SoundSettingObject* soundSetting = CreateObject(new SoundSettingObject());
+	soundSetting->SetActive(false);
+
+	optionsButton->onClick.AddListener([this, soundSetting](Button* button) { soundSetting->SetActive(soundSetting->IsActive() ? false : true); });
 }
 
 void MenuScene::GameSceneUpdate(float dt)

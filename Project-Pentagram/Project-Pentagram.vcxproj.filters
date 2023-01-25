@@ -471,6 +471,7 @@
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h">
       <Filter>Game\CharacterScene</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Objects\SoundSettingObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

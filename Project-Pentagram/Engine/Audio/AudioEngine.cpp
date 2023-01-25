@@ -29,13 +29,34 @@ AudioSource* AudioEngine::findBGMAudioSource(const std::string& filePath)
 	return m_BGMSourceList[filePath];
 }
 
-irrklang::ISoundEngine* AudioEngine::GetEngine()
+void AudioEngine::SetMasterVolume(const float& volume)
+{
+	m_MasterVolume = volume;
+}
+void AudioEngine::SetBGMVolume(const float& volume)
+{
+	m_BGMVolume = volume;
+}
+void AudioEngine::SetSFXVolume(const float& volume)
+{
+	m_SFXVolume = volume;
+}
+
+irrklang::ISoundEngine* AudioEngine::GetEngine() const
 {
 	return m_AudioEngine;
 }
-float AudioEngine::GetMasterVolume()
+float AudioEngine::GetMasterVolume() const
 {
 	return m_MasterVolume;
+}
+float AudioEngine::GetBGMVolume() const
+{
+	return m_BGMVolume;
+}
+float AudioEngine::GetSFXVolume() const
+{
+	return m_SFXVolume;
 }
 
 // ----------------- Free Memory ----------------- 

@@ -1,5 +1,6 @@
 #include "Engine/Scene/DemoScene.h"
 #include <Game/Objects/StageObject.h>
+#include "Game/Objects/SoundSettingObject.h"
 
 float t = 0.0f;
 void DemoScene::GameSceneLoad()
@@ -12,6 +13,7 @@ Button* curButton;
 UIObject* curUI;
 UIObject* gObject;
 Slider* slider;
+SoundSettingObject* menuObj;
 
 void DemoScene::GameSceneInit()
 {
@@ -125,6 +127,9 @@ void DemoScene::GameSceneInit()
 	subUI->SetChildRenderFront(gradiant);
 	ui->SetActive(false);
 
+	menuObj = CreateObject(new SoundSettingObject());
+	menuObj->SetActive(false);
+
 	std::cout << "Demo Scene : Initialize Completed\n";
 }
 
@@ -162,7 +167,7 @@ void DemoScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_X))
 	{
-		camera.Shake(5.0f, 80, { 10.0f, 10.0f });
+		menuObj->SetActive(menuObj->IsActive() ? false : true);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
