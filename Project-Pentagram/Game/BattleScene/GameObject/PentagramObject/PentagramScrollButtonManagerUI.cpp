@@ -78,7 +78,7 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
 {
     this->color.a = 0.0f;
 
-    m_Scroll = scene->CreateUIObject("Scroll_1");
+    m_Scroll = new UIObject("Scroll_1");
     m_Scroll->SetIsSlicing(true);
     m_Scroll->SetTexture("Sprites/UI/Game/ui_game_scroll.png");
     m_Scroll->SetSlicingBorderSize(200.0f);

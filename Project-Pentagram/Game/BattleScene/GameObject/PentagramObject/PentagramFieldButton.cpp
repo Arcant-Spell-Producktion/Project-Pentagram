@@ -81,7 +81,7 @@ void PentagramFieldButton::SetRuneActive(int amount)
     }
 }
 
-PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type element) :Button("Pentagram_Button_"+ (int)field), m_SelectedField(field),m_CurrentElement(element)
+PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type element) :Button("Pentagram_Button_"+ std::to_string((int)field)), m_SelectedField(field),m_CurrentElement(element)
 {
    
     m_buttonState = ButtonState::Idle;
@@ -115,24 +115,24 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     this->SetIsSlicing(false);
     this->SetIsAnimationObject(false);
 
-    FieldSignature = GameObjManager->CreateUIObject("FieldIcon");
+    FieldSignature = new UIObject("FieldIcon");
     FieldSignature->SetTexture(PentagramFieldButtonPath);
     FieldSignature->scale = { size ,size , 1.0f };
     FieldSignature->SetSpriteByIndex(fieldIndex, 0);
     FieldSignature->SetIsAnimationObject(false);
 
-    ElementSignature = GameObjManager->CreateUIObject("ElementIcon");
+    ElementSignature = new UIObject("ElementIcon");
     ElementSignature->SetTexture(PentagramFieldButtonPath);
     ElementSignature->scale = { size ,size , 1.0f };
     ElementSignature->SetIsAnimationObject(false);
 
-    ButtonCover = GameObjManager->CreateUIObject("ButtonCover");
+    ButtonCover = new UIObject("ButtonCover");
     ButtonCover->SetTexture(PentagramFieldButtonPath);
     ButtonCover->scale = { size ,size , 1.0f };
     ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
     ButtonCover->SetIsAnimationObject(false);
 
-    ComplexRune = GameObjManager->CreateObject<RuneObject>(new RuneObject(0));
+    ComplexRune = new RuneObject(0);
     ComplexRune->SetActive(false);
     ComplexRune->SetIsAnimationObject(true);
     ComplexRune->SetAnimationPlayTime(0.5f);

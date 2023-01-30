@@ -1,6 +1,6 @@
 ﻿#include "CasterEffectBarUI.h"
 
-CasterEffectBarUI::CasterEffectBarUI(int position) :UIObject("EffectBar_"+position)
+CasterEffectBarUI::CasterEffectBarUI(int position) :UIObject("EffectBar_" + std::to_string(position))
 {
     this->color.a = 0.0f;
 

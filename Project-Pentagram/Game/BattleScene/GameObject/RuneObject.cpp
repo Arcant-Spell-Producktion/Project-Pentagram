@@ -35,9 +35,7 @@ std::vector<RuneObject*> RuneObjectFactory::CreateRunes(const std::string text)
     for (auto _char :text)
     {
         int index = CharToIndex(_char);
-        runeList.push_back(
-            GameObjManager->CreateObject<RuneObject>(new RuneObject(index))
-        );
+        runeList.push_back(new RuneObject(index));
     }
     return runeList;
 }

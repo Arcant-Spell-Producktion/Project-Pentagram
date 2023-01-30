@@ -56,10 +56,6 @@ void BattleScene::GameSceneUpdate(float dt)
         {
             curObj->UpdateAnimation(dt);
         }
-        if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_3))
-        {
-            curObj->SetActive(curObj->IsActive() ? false : true);
-        }
     }
 
     // Update UI

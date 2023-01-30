@@ -41,7 +41,7 @@ void SpellDetailUI::SetText(CastSpellDetail* details)
     m_Texts->text = ssName.str() + "\n" + ssDmg.str() + "\n" + ssEff.str() + "\n"+ ssCha.str() + "\n";
 }
 
-SpellDetailUI::SpellDetailUI(int position) :UIObject("SpellDetailUI_"+position)
+SpellDetailUI::SpellDetailUI(int position) : UIObject("SpellDetailUI_" + std::to_string(position))
 {
     auto scene = GameStateController::GetInstance()->currentScene;
     int flip = position == 0 ? 1 : -1;
@@ -50,13 +50,13 @@ SpellDetailUI::SpellDetailUI(int position) :UIObject("SpellDetailUI_"+position)
     m_DefaultPosition = { -650.0f * flip,120.0f,0.0f };
     this->position = m_DefaultPosition;
 
-    m_Box = scene->CreateUIObject("DetailBox_"+position);
+    m_Box = new UIObject("DetailBox_" + std::to_string(position));
     m_Box->scale = { -box_x * flip,220.0f,1.0f };
     m_Box->SetTexture("Sprites/UI/Game/ui_game_detail-box.png");
     m_Box->SetSpriteByIndex(position, 0);
     this->SetChildRenderFront(m_Box);
 
-    m_Texts = scene->CreateTextObject("DetailBox_Text_" + position);
+    m_Texts = new TextObject("DetailBox_Text_" + std::to_string(position));
     m_Texts->fontSize = 28;
     m_Texts->color = AC_WHITE;
     m_Texts->outlineColor = AC_BLACK;

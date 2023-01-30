@@ -3,6 +3,7 @@
 
 class RuneObject : public UIObject
 {
+
 public:
     float Theta = 0.0f;
     float Radius = 0.0f;
