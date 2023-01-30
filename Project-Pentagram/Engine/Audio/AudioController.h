@@ -9,15 +9,16 @@
 class BGMAudio
 {
 	private:
-		Audio* m_Audio;
+		Audio* m_Audio = nullptr;
 	public:
 		BGMAudio(Audio* audio)
 		: m_Audio(audio)
-	{
+		{
 
-	}
+		}
 		~BGMAudio()
 		{
+			m_Audio->stop();
 			m_Audio->drop();
 		}
 
@@ -47,6 +48,10 @@ class BGMAudio
 		{
 			return m_Audio->getVolume();
 		}
+		Audio* GetAudio() const
+		{
+			return m_Audio;
+		}
 };
 
 class BGMController
@@ -55,13 +60,15 @@ class BGMController
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
 
 		float m_BGMLocalVolume = 1.0f;
-
+		
+		std::vector<std::string> m_FilepathList;
 		std::vector<AudioSource*> m_BGMSourceList;
 		std::vector<BGMAudio*> m_BGMAudioList;
 		std::vector<float> m_BGMVolumeList;
+	
 	public:
-		BGMController(const std::vector<AudioSource*>& BGMAudioList, const std::vector<float>& volumeList)
-			: m_BGMSourceList(BGMAudioList), m_BGMVolumeList(volumeList)
+		BGMController(const std::vector<AudioSource*>& BGMAudioList, const std::vector<float>& volumeList, const std::vector<std::string>& filepathList )
+			: m_BGMSourceList(BGMAudioList), m_BGMVolumeList(volumeList), m_FilepathList(filepathList)
 		{
 
 		}
@@ -75,6 +82,9 @@ class BGMController
 
 		void Play()
 		{
+			// If BGM Already played
+			if (!m_BGMAudioList.empty()) { return; }
+
 			for (int idx = 0; idx < m_BGMSourceList.size(); idx++)
 			{
 				const float masterVolume = audioEngine->GetMasterVolume();
@@ -107,13 +117,18 @@ class BGMController
 		{
 			return m_BGMAudioList[index];
 		}
+
+		std::vector<std::string> GetFilepathList() const
+		{
+			return m_FilepathList;
+		}
 };
 
 class AudioController : public Singleton<AudioController>
 {
 	private:
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
-		std::vector<BGMController*> m_BGMControllerList;
+		BGMController* m_BGMController = nullptr;
 
 	public:
 		void PlaySFX(const std::string& filePath, const float& volume);

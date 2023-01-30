@@ -137,7 +137,7 @@ Button* Slider::GetSliderButton()
 // ----------------- Setter -----------------
 void Slider::SetValue(const float& value)
 {
-	this->m_Button->position.x = ((this->position.x + this->scale.x) * value) - this->scale.x / 2.0f;
+	this->m_Button->position.x = (-this->scale.x / 2.0f) + (value * this->scale.x);
 	this->m_Value = value;
 
 	// Value Change from Setter

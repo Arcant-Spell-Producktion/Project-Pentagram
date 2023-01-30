@@ -1,7 +1,7 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/Objects/ScrollButton.h"
-#include "Game/Objects/SoundSettingObject.h"
+#include "Game/Objects/OptionMenuObject.h"
 #include <Game/Objects/StageObject.h>
 
 void MenuScene::FadeUpdate(const float& dt)
@@ -68,10 +68,10 @@ void MenuScene::GameSceneInit()
 
 	std::cout << "Menu Scene : Initialize Completed\n";
 	
-	SoundSettingObject* soundSetting = CreateObject(new SoundSettingObject());
-	soundSetting->SetActive(false);
+	OptionMenuObject* optionMenuObject = CreateObject(new OptionMenuObject());
+	optionMenuObject->SetActive(false);
 
-	optionsButton->onClick.AddListener([this, soundSetting](Button* button) { soundSetting->SetActive(soundSetting->IsActive() ? false : true); });
+	optionsButton->onClick.AddListener([this, optionMenuObject](Button* button) { optionMenuObject->SetActive(optionMenuObject->IsActive() ? false : true); });
 }
 
 void MenuScene::GameSceneUpdate(float dt)

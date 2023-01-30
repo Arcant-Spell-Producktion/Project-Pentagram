@@ -59,7 +59,7 @@ void CharacterSelectScene::GameSceneInit()
         temp->position = { spacing * 2 * (i - 1) - spacing, 0.0f, 0.0f };
         m_Characters.push_back(temp);
 
-        temp->OnCharacterSelect.AddListener([this](Element::Type element) {OnSelect(element); });
+        temp->OnCharacterSelect.AddListener([this](Element::Type element) { if(element != m_SelectedElement) { OnSelect(element); } });
     }
 
     OnSelect(Element::Fire);
@@ -76,6 +76,7 @@ void CharacterSelectScene::GameSceneInit()
 	m_FadeScreen = CreateUIObject("fadeScreen");
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
     m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
+	m_FadeScreen->SetActive(false);
 
 	std::cout << "Character Scene : Initialize Completed\n";
 }

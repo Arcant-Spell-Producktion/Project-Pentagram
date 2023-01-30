@@ -23,6 +23,7 @@ private:
         m_NextState = nextState;
         m_FadeTime = fadeTime;
         m_IsFadeOut = true;
+        m_FadeScreen->SetActive(true);
     }
     void FadeUpdate(const float& dt);
 

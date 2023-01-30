@@ -1,6 +1,6 @@
 #include "Engine/Scene/DemoScene.h"
 #include <Game/Objects/StageObject.h>
-#include "Game/Objects/SoundSettingObject.h"
+#include "Game/Objects/PauseMenuObject.h"
 
 float t = 0.0f;
 void DemoScene::GameSceneLoad()
@@ -13,7 +13,7 @@ Button* curButton;
 UIObject* curUI;
 UIObject* gObject;
 Slider* slider;
-SoundSettingObject* menuObj;
+PauseMenuObject* pauseMenuObj;
 
 void DemoScene::GameSceneInit()
 {
@@ -127,8 +127,8 @@ void DemoScene::GameSceneInit()
 	subUI->SetChildRenderFront(gradiant);
 	ui->SetActive(false);
 
-	menuObj = CreateObject(new SoundSettingObject());
-	menuObj->SetActive(false);
+	pauseMenuObj = CreateObject(new PauseMenuObject());
+	pauseMenuObj->SetActive(false);
 
 	std::cout << "Demo Scene : Initialize Completed\n";
 }
@@ -165,9 +165,9 @@ void DemoScene::GameSceneUpdate(float dt)
 			camera.SetZoom(1.0f);
 		}
 	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_X))
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 	{
-		menuObj->SetActive(menuObj->IsActive() ? false : true);
+		pauseMenuObj->SetActive(pauseMenuObj->IsActive() ? false : true);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
@@ -203,7 +203,7 @@ void DemoScene::GameSceneUpdate(float dt)
 		}
 		else if (curObj->name == "BigUI_1")
 		{
-			if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
+			if (Input::IsKeyBeginPressed(GLFW_KEY_B))
 			{
 				timeScale = timeScale == 0.0f ? 1.0f : 0.0f;
 				curObj->SetActive(curObj->IsActive() ? false : true);
@@ -229,6 +229,4 @@ void DemoScene::GameSceneFree()
 	}
 	//soundSystem->FreeSound();
 	std::cout << "Demo Scene : Free Memory Completed\n";
-
-	audioController->Free();
 }
