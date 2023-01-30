@@ -17,7 +17,7 @@ std::string TimelineTrackSprite[2] =
     "Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png"
 };
 
-TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_"+index)
+TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void()> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_" + std::to_string(index))
 {
     m_TrackIndex = index;
 
@@ -25,10 +25,10 @@ TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> 
     this->position.y = trackY;
     this->color.a = 0.0f;
 
-    m_Box = m_ObjectManager->CreateUIObject("TrackUI_Box_" + m_TrackIndex);
+    m_Box = new UIObject("TrackUI_Box_" + std::to_string(m_TrackIndex));
     m_Box->scale = { trackWidth,scaleDefault,1.0f };
 
-    m_IconParent = m_ObjectManager->CreateUIObject("TrackUI_IconParent_" + m_TrackIndex);
+    m_IconParent = new UIObject("TrackUI_IconParent_" + std::to_string(m_TrackIndex));
     m_IconParent->color.a = 0.0f;
     m_IconParent->position.y += 35.0f;
 
@@ -39,10 +39,10 @@ TimetrackUI::TimetrackUI(int index,SpellTimetrack* track, std::function<void()> 
     m_Box->SetSlicingType(SlicingType::REPEAT);
 
 
-    m_PreviewIcon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI("PreviewIcon_"+ m_TrackIndex,iconSize));
+    m_PreviewIcon = new SpellIconUI("PreviewIcon_" + std::to_string(m_TrackIndex), iconSize);
     m_PreviewIcon->SetActive(false);
 
-    m_ExpandButton = m_ObjectManager->CreateButton("Expand_" + m_TrackIndex);
+    m_ExpandButton = new Button("Expand_" + std::to_string(m_TrackIndex));
     m_ExpandButton->SetIsSlicing(false);
     m_ExpandButton->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_button.png");
     m_ExpandButton->SetIsAnimationObject(false);

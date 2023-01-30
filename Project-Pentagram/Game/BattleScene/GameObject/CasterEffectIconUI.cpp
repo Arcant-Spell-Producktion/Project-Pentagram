@@ -2,7 +2,7 @@
 #include <string>
 const std::string EffectIconPath = "Sprites/UI/Game/Caster/ui_game_caster_status-icon.png";
 
-CasterEffectIconUI::CasterEffectIconUI(SpellEffectEnum type, int n):UIObject("EffectIcon_"+(int)type)
+CasterEffectIconUI::CasterEffectIconUI(SpellEffectEnum type, int n):UIObject("EffectIcon_" + std::to_string((int)type))
 {
     m_Type = type;
     m_Stack = n;

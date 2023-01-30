@@ -30,7 +30,7 @@ PentagramScrollButton::PentagramScrollButton(IGameObjectManager* scene) :Button(
         }
     };
 
-    m_ButtonIcon = scene->CreateUIObject("Button_Icon");
+    m_ButtonIcon = new UIObject("Button_Icon");
 
     this->SetChildRenderFront(m_ButtonIcon);
 }

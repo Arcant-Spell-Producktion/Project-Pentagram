@@ -7,20 +7,20 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     this->color.a = 0.0f;
     this->position.y += 400.0f;
 
-    top = m_ObjectManager->CreateUIObject("Timeline_UI_Banner");
+    top = new UIObject("Timeline_UI_Banner");
     top->scale = { 1320.0f,40.0f,1.0f };
     top->position.y += 120.0f;
     top->color.a = 0.0f;
     this->SetChildRenderFront(top);
 
-    trackMarker = m_ObjectManager->CreateUIObject("Timeline_Track_Marker");
+    trackMarker = new UIObject("Timeline_Track_Marker");
     trackMarker->scale = { 40.0f,40.0f,1.0f };
     trackMarker->SetActive(false);
     trackMarker->SetTexture("Sprites/UI/Game/ui_game_spell-icon_border.png");
     trackMarker->SetSpriteByIndex(0, 2);
     top->SetChildRenderFront(trackMarker);
 
-    box = m_ObjectManager->CreateUIObject("TimelineUIBOX");
+    box = new UIObject("TimelineUIBOX");
     box->scale = { 1920.0f,280,1.0f };
     box->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_header.png");
     this->SetChildRenderBack(box);
@@ -29,7 +29,7 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     for (size_t i = 0; i < 11; i++)
     {
         std::function<void()> expandFunc = [this, i]() {ExpandTracks(i); };
-        auto track = m_ObjectManager->CreateObject<TimetrackUI>(new TimetrackUI(i, bm->Data.Timeline.GetTimetrack(i), expandFunc));
+        auto track = new TimetrackUI(i, bm->Data.Timeline.GetTimetrack(i), expandFunc);
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }

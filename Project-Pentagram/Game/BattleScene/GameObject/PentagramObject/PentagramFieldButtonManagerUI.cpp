@@ -84,7 +84,7 @@ PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObj
 
         PentagramField field_value = GetFieldByIndex(i);
 
-        PentagramFieldButton* button = scene->CreateObject(new PentagramFieldButton(field_value, Element::Fire));
+        PentagramFieldButton* button = new PentagramFieldButton(field_value, Element::Fire);
         button->onClick = [this, field_value](Button* _button)
         {
             ToggleButton(field_value);

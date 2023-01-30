@@ -19,6 +19,15 @@ class IGameObjectManager
 		template <typename T>
 		T* CreateObject(T* object)
 		{
+			if (GameObject* gameObj = dynamic_cast<GameObject*>(object))
+			{
+				std::vector<GameObject*> childList = gameObj->GetBackRenderChildList();
+				for (GameObject* child : childList)
+				{
+					CreateObject(child);
+				}
+			}
+
 			if (Button* button = dynamic_cast<Button*>(object))
 			{
 				AddButtonToList(button);
@@ -34,7 +43,7 @@ class IGameObjectManager
 
 			if (GameObject* gameObj = dynamic_cast<GameObject*>(object))
 			{
-				std::vector<GameObject*> childList = gameObj->GetChildList();
+				std::vector<GameObject*> childList = gameObj->GetFrontRenderChildList();
 				for (GameObject* child : childList)
 				{
 					CreateObject(child);

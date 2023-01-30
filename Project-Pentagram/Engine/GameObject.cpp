@@ -185,6 +185,14 @@ unsigned int GameObject::GetBackRenderChildSize() const
 {
 	return this->m_BackRenderedChildList.size();
 }
+std::vector<GameObject*> GameObject::GetFrontRenderChildList() const
+{
+	return this->m_FrontRenderedChildList;
+}
+std::vector<GameObject*> GameObject::GetBackRenderChildList() const
+{
+	return this->m_BackRenderedChildList;
+}
 std::vector<GameObject*> GameObject::GetChildList() const
 {
 	std::vector<GameObject*> childList;

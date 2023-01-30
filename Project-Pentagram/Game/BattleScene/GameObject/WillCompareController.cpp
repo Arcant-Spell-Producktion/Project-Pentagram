@@ -113,10 +113,6 @@ WillCompareController::WillCompareController():GameObject("WillCompareController
     m_ParticleB = new ParticleSystem("ParticleWillB");
     m_ParticleCenter = new ParticleSystem("ParticleWillCenter");
 
-    GameStateController::GetInstance()->currentScene->CreateObject(m_ParticleA);
-    GameStateController::GetInstance()->currentScene->CreateObject(m_ParticleB);
-    GameStateController::GetInstance()->currentScene->CreateObject(m_ParticleCenter);
-
     this->SetChildRenderFront(m_ParticleA);
     this->SetChildRenderFront(m_ParticleB);
     this->SetChildRenderFront(m_ParticleCenter);

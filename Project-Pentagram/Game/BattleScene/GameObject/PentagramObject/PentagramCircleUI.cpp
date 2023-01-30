@@ -8,7 +8,7 @@ PentagramCircleUI::PentagramCircleUI(IGameObjectManager* scene): UIObject("Penta
     {
         float radius = 460.0f;
 
-        UIObject* circle = scene->CreateUIObject("Circle_" + std::to_string(i));
+        UIObject* circle = new UIObject("Circle_" + std::to_string(i));
 
         circle->SetIsAnimationObject(false);
         circle->scale = { radius,radius,1.0f };
