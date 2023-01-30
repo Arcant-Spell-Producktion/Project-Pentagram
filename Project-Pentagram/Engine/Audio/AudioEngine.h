@@ -35,8 +35,14 @@ class AudioEngine : public Singleton<AudioEngine>
 		AudioSource* findSFXAudioSource(const std::string& filePath);
 		AudioSource* findBGMAudioSource(const std::string& filePath);
 
-		irrklang::ISoundEngine* GetEngine();
-		float GetMasterVolume();
+		void SetMasterVolume(const float& volume);
+		void SetBGMVolume(const float& volume);
+		void SetSFXVolume(const float& volume);
+
+		irrklang::ISoundEngine* GetEngine() const;
+		float GetMasterVolume() const;
+		float GetBGMVolume() const;
+		float GetSFXVolume() const;
 
 		// ----------------- Free Memory ----------------- 
 		void Free();

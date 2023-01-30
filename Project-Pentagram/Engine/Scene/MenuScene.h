@@ -15,7 +15,8 @@ class MenuScene : public GameScene
 		bool m_IsFadeOut = false;
 
 		void FadeOut(const float& fadeTime, GameState nextState) 
-		{ 
+		{
+			m_FadeScreen->SetActive(true);
 			m_NextState = nextState;
 			m_FadeTime = fadeTime;
 			m_IsFadeOut = true;

@@ -1,6 +1,7 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/Objects/ScrollButton.h"
+#include "Game/Objects/OptionMenuObject.h"
 #include <Game/Objects/StageObject.h>
 
 void MenuScene::FadeUpdate(const float& dt)
@@ -40,15 +41,20 @@ void MenuScene::GameSceneInit()
 	playButton->position = { 0.0f, 0.0f, 0.0f };
 	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
 
+	// Options Button
+	Button* optionsButton = CreateObject(new ScrollButton("Options"));
+	optionsButton->position = { 0.0f, -200.0f, 0.0f };
+
 	// Exit Button
 	Button* exitButton = CreateObject(new ScrollButton("Exit"));
-	exitButton->position = { 0.0f, -200.0f, 0.0f };
+	exitButton->position = { 0.0f, -400.0f, 0.0f };
 	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
 	m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
+	m_FadeScreen->SetActive(false);
 
 	BGMController* bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" },
 		{ 1.0f, 1.0f, 1.0f, 1.0f });
@@ -61,6 +67,11 @@ void MenuScene::GameSceneInit()
 	bgm->Play();
 
 	std::cout << "Menu Scene : Initialize Completed\n";
+	
+	OptionMenuObject* optionMenuObject = CreateObject(new OptionMenuObject());
+	optionMenuObject->SetActive(false);
+
+	optionsButton->onClick.AddListener([this, optionMenuObject](Button* button) { optionMenuObject->SetActive(optionMenuObject->IsActive() ? false : true); });
 }
 
 void MenuScene::GameSceneUpdate(float dt)

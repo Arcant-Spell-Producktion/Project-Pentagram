@@ -108,8 +108,8 @@ Slider* GameScene::CreateSlider(const std::string& objName)
 	}
 	uiObjectsList.push_back(slider);
 
-	Button* button = CreateButton("Button_" + (objName == "" ? "Sldier_" + std::to_string(uiObjectsList.size()) : objName));
-	slider->InitButton(button);
+	uiObjectsList.push_back(slider->GetSliderButton());
+	buttonObjectsList.push_back(slider->GetSliderButton());
 
 	return slider;
 }
@@ -197,10 +197,15 @@ void GameScene::UpdateButtonOnClick()
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
-	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
-		Button* curObj = buttonObjectsList[idx];
-		glm::vec3 finalPos = FindButtonParentPosition(curObj);
+		UIObject* curObj = uiObjectsList[idx];
+		Button* buttonCurObj = dynamic_cast<Button*>(curObj);
+		glm::vec3 finalPos = curObj->position;
+		if (buttonCurObj)
+		{
+			finalPos = FindButtonParentPosition(buttonCurObj);
+		}
 
 		// If current Object is inactive (Not Render) => No need to check collision
 		if (curObj == nullptr || !curObj->IsActive())
@@ -214,7 +219,9 @@ void GameScene::UpdateButtonOnClick()
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			curObj->onClick.Invoke(curObj);
+			if (!buttonCurObj) { return; }
+
+			buttonCurObj->onClick.Invoke(buttonCurObj);
 			return;
 		}
 	}
@@ -231,10 +238,15 @@ void GameScene::UpdateButtonOnHover()
 
 	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
 
-	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
-		Button* curObj = buttonObjectsList[idx];
-		glm::vec3 finalPos = FindButtonParentPosition(curObj);
+		UIObject* curObj = uiObjectsList[idx];
+		Button* buttonCurObj = dynamic_cast<Button*>(curObj);
+		glm::vec3 finalPos = curObj->position;
+		if (buttonCurObj)
+		{
+			finalPos = FindButtonParentPosition(buttonCurObj);
+		}
 
 		// If current Object is inactive (Not Render) => No need to check collision
 		if (curObj == nullptr || !curObj->IsActive())
@@ -248,12 +260,16 @@ void GameScene::UpdateButtonOnHover()
 
 		if (!isHover && (curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			curObj->onHover(curObj);
+			if (!buttonCurObj) {  isHover = true; continue; }
+
+			buttonCurObj->onHover(buttonCurObj);
 			isHover = true;
 		}
 		else
 		{
-			curObj->unHover(curObj);
+			if (!buttonCurObj) { continue; }
+
+			buttonCurObj->unHover(buttonCurObj);
 		}
 	}
 }
@@ -267,10 +283,15 @@ void GameScene::UpdateButtonOnPress()
 
 	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
 
-	for (int idx = buttonObjectsList.size() - 1; idx >= 0; idx--)
+	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
-		Button* curObj = buttonObjectsList[idx];
-		glm::vec3 finalPos = FindButtonParentPosition(curObj);
+		UIObject* curObj = uiObjectsList[idx];
+		Button* buttonCurObj = dynamic_cast<Button*>(curObj);
+		glm::vec3 finalPos = curObj->position;
+		if (buttonCurObj)
+		{
+			finalPos = FindButtonParentPosition(buttonCurObj);
+		}
 
 		// If current Object is inactive (Not Render) => No need to check collision
 		if (curObj == nullptr || !curObj->IsActive())
@@ -284,21 +305,25 @@ void GameScene::UpdateButtonOnPress()
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
+			if (!buttonCurObj) { continue; }
+
 			if (Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
 			{
-				curObj->onPress(curObj);
+				buttonCurObj->onPress(buttonCurObj);
 				return;
 			}
 			else if(!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
 			{
-				curObj->unPress(curObj);
+				buttonCurObj->unPress(buttonCurObj);
 			}
 		}
 		else
 		{
+			if (!buttonCurObj) { continue; }
+
 			if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
 			{
-				curObj->unPress(curObj);
+				buttonCurObj->unPress(buttonCurObj);
 			}
 		}
 	}

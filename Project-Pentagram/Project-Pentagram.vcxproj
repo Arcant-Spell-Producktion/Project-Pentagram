@@ -57,6 +57,8 @@
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
+    <ClInclude Include="Game\Objects\PauseMenuObject.h" />
+    <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />

@@ -4,13 +4,27 @@ void AudioController::PlaySFX(const std::string& filePath, const float& volume)
 {
 	AudioSource* sfxSource = audioEngine->findSFXAudioSource(filePath);
 	const float masterVolume = audioEngine->GetMasterVolume();
+	const float sfxVolume = audioEngine->GetSFXVolume();
 
-	sfxSource->setDefaultVolume(volume * masterVolume);
+	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 	
 	audioEngine->GetEngine()->play2D(sfxSource);
 }
 BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepathList, const std::vector<float>& volumeList)
 {
+	if (m_BGMController != nullptr)
+	{
+		if (m_BGMController->GetFilepathList() == filepathList)
+		{
+			return m_BGMController;
+		}
+		else
+		{
+			delete m_BGMController;
+			m_BGMController = nullptr;
+		}
+	}
+
 	// Convert filePathList -> audioList
 	std::vector<AudioSource*> audioList;
 	for (const std::string& filepath : filepathList)
@@ -18,17 +32,20 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 		audioList.push_back(audioEngine->findBGMAudioSource(filepath));
 	}
 
-	BGMController* bgmController = new BGMController(audioList, volumeList);
-	m_BGMControllerList.push_back(bgmController);
+	m_BGMController = new BGMController(audioList, volumeList, filepathList);
 
-	return bgmController;
+	return m_BGMController;
+}
+
+void AudioController::OnUpdate()
+{
+	if (m_BGMController == nullptr) { return; }
+	m_BGMController->OnUpdate();
 }
 
 // ----------------- Free Memory -----------------
 void AudioController::Free()
 {
-	for (int idx = 0; idx < m_BGMControllerList.size(); idx++) 
-	{
-		delete m_BGMControllerList[idx];
-	}
+	if (m_BGMController == nullptr) { return; }
+	delete m_BGMController;
 }

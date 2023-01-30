@@ -11,11 +11,13 @@ Slider::Slider(const std::string& objName)
 
 	this->m_Value = 0.5f;
 	this->onValueChanged = [](Slider* slider) {};
+
+	InitButton();
 }
 
-void Slider::InitButton(Button* button)
+void Slider::InitButton()
 {
-	this->m_Button = button;
+	this->m_Button = new Button(name + "_Button");
 	SetChildRenderFront(this->m_Button);
 
 	this->m_Button->scale = glm::vec3(30.0f, 75.0f, 1.0f);
@@ -30,20 +32,20 @@ void Slider::OnUpdate(const float& dt)
 	if (m_IsPress)
 	{
 		this->m_Button->position.x += Input::deltaMouseX;
-		if (this->m_Button->position.x > this->position.x + this->scale.x / 2.0f)
+		if (this->m_Button->position.x > this->scale.x / 2.0f)
 		{
-			this->m_Button->position.x = this->position.x + this->scale.x / 2.0f;
+			this->m_Button->position.x = this->scale.x / 2.0f;
 		}
-		else if (this->m_Button->position.x < this->position.x - this->scale.x / 2.0f)
+		else if (this->m_Button->position.x < -this->scale.x / 2.0f)
 		{
-			this->m_Button->position.x = this->position.x - this->scale.x / 2.0f;
+			this->m_Button->position.x = -this->scale.x / 2.0f;
 		}
 
 		// Value Change by Mouse Position
 		this->onValueChanged(this);
 	}
 
-	this->m_Value = (this->m_Button->position.x - (this->position.x - this->scale.x / 2.0f)) / this->scale.x;
+	this->m_Value = (this->m_Button->position.x + this->scale.x / 2.0f) / this->scale.x;
 }
 void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 {
@@ -135,7 +137,7 @@ Button* Slider::GetSliderButton()
 // ----------------- Setter -----------------
 void Slider::SetValue(const float& value)
 {
-	this->m_Button->position.x = ((this->position.x + this->scale.x) * value) - this->scale.x / 2.0f;
+	this->m_Button->position.x = (-this->scale.x / 2.0f) + (value * this->scale.x);
 	this->m_Value = value;
 
 	// Value Change from Setter
