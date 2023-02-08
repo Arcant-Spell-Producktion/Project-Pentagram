@@ -143,6 +143,10 @@ Texture* UIObject::GetEndGradientTexture() const
 {
 	return this->m_EndGradientTexture;
 }
+bool UIObject::IsBlockRaycast() const
+{
+	return m_BlockRaycast;
+}
 
 // ----------------- Setter ----------------- 
 void UIObject::SetIsSlicing(const bool& active)
@@ -181,4 +185,8 @@ void UIObject::SetEndGradientTexture(const std::string& filePath)
 	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
 
 	this->m_EndGradientTexture = texture;
+}
+void UIObject::SetBlockRaycast(const bool& active)
+{
+	this->m_BlockRaycast = active;
 }

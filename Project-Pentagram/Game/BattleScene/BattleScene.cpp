@@ -5,10 +5,12 @@
 #include "SpellCaster/PlayerController.h"
 #include "Game/BattleScene/BattleManager.h"
 #include <Game/Objects/StageObject.h>
+#include "Game/Objects/PauseMenuObject.h"
 
 float track_t = 0.0f;
 
 BattleManager* battleManager;
+PauseMenuObject* pauseMenuObject;
 
 void BattleScene::GameSceneLoad()
 {
@@ -22,10 +24,12 @@ void BattleScene::GameSceneInit()
     objectsList.push_back(new StageObject(Element::Water));
 
     battleManager->Init(this);
-    
     std::cout << "Battle Scene : Initialize Completed\n";
-
     battleManager->StartBattle();
+
+    pauseMenuObject = CreateObject(new PauseMenuObject());
+    pauseMenuObject->SetCurrentGameScene(this);
+    pauseMenuObject->SetActive(false);
 }
 
 void BattleScene::GameSceneUpdate(float dt)
@@ -38,23 +42,29 @@ void BattleScene::GameSceneUpdate(float dt)
         // If not return will cause memory problem
         return;
     }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
+    {
+        pauseMenuObject->SetActive(pauseMenuObject->IsActive() ? false : true);
+        timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
+    }
 
-    battleManager->GetBattleStates()->OnBattleStateUpdate(dt);
+
+    battleManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
 
     if (track_t >= 1.0f)
     {
         track_t = 0.0f;
     }
-    track_t += dt;
+    track_t += scaledDeltaTime;
     // Update GameObject
     for (GLuint idx = 0; idx < objectsList.size(); idx++)
     {
         GameObject*& curObj = objectsList[idx];
 
-        curObj->OnUpdate(dt);
+        curObj->OnUpdate(scaledDeltaTime);
         if (curObj->IsAnimationObject())
         {
-            curObj->UpdateAnimation(dt);
+            curObj->UpdateAnimation(scaledDeltaTime);
         }
     }
 
@@ -65,12 +75,12 @@ void BattleScene::GameSceneUpdate(float dt)
 
         if (curObj->IsAnimationObject())
         {
-            curObj->UpdateAnimation(dt);
+            curObj->UpdateAnimation(scaledDeltaTime);
         }
 
         if (!curObj->IsActive()) { continue; }
 
-        curObj->OnUpdate(dt);
+        curObj->OnUpdate(scaledDeltaTime);
     }
 }
 

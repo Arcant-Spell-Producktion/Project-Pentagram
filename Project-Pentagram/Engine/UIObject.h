@@ -22,6 +22,7 @@ class UIObject : public GameObject
 		Texture* m_EndGradientTexture;
 		bool m_IsGradient = false;
 		float m_GradientValue = 0.0f;
+		bool m_BlockRaycast = false;
 		SlicingType m_SlicingType = SlicingType::STRETCH;
 
 	public:
@@ -38,6 +39,7 @@ class UIObject : public GameObject
 		float GetGradientValue() const;
 		Texture* GetStartGradientTexture() const;
 		Texture* GetEndGradientTexture() const;
+		bool IsBlockRaycast() const;
 
 		// ----------------- Setter ----------------- 
 		void SetIsSlicing(const bool& active);
@@ -48,4 +50,5 @@ class UIObject : public GameObject
 		void SetGradientValue(const float& gradiantValue);
 		void SetStartGradientTexture(const std::string& filePath);
 		void SetEndGradientTexture(const std::string& filePath);
+		void SetBlockRaycast(const bool& active);
 };

@@ -31,6 +31,7 @@ class OptionMenuObject : public UIObject
 			bgMenu = new UIObject("BackgroundMenu");
 			bgMenu->scale = { 1000.0f, 500.0f, 1.0f };
 			bgMenu->color = { 0.8f, 0.8f, 0.8f, 1.0f };
+			bgMenu->SetBlockRaycast(true);
 			SetChildRenderBack(bgMenu);
 
 			#pragma region Master_Volume_UI

@@ -200,6 +200,12 @@ void GameScene::UpdateButtonOnClick()
 	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
 		UIObject* curObj = uiObjectsList[idx];
+		// If current Object is inactive (Not Render) => No need to check collision
+		if (curObj == nullptr || !curObj->IsActive())
+		{
+			continue;
+		}
+
 		Button* buttonCurObj = dynamic_cast<Button*>(curObj);
 		glm::vec3 finalPos = curObj->position;
 		if (buttonCurObj)
@@ -207,11 +213,6 @@ void GameScene::UpdateButtonOnClick()
 			finalPos = FindButtonParentPosition(buttonCurObj);
 		}
 
-		// If current Object is inactive (Not Render) => No need to check collision
-		if (curObj == nullptr || !curObj->IsActive())
-		{
-			continue;
-		}
 		float left = (finalPos.x - (curObj->scale.x / 2.0f)) * viewportScale.x;
 		float right = (finalPos.x + (curObj->scale.x / 2.0f)) * viewportScale.x;
 		float top = (finalPos.y + (curObj->scale.y / 2.0f)) * viewportScale.y;
@@ -219,7 +220,17 @@ void GameScene::UpdateButtonOnClick()
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			if (!buttonCurObj) { return; }
+			if (!buttonCurObj) 
+			{ 
+				if (curObj->IsBlockRaycast())
+				{
+					return;
+				}
+				else
+				{
+					continue;
+				}
+			}
 
 			buttonCurObj->onClick.Invoke(buttonCurObj);
 			return;
@@ -260,7 +271,14 @@ void GameScene::UpdateButtonOnHover()
 
 		if (!isHover && (curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			if (!buttonCurObj) {  isHover = true; continue; }
+			if (!buttonCurObj)
+			{
+				if (curObj->IsBlockRaycast())
+				{
+					isHover = true;
+				}
+				continue;
+			}
 
 			buttonCurObj->onHover(buttonCurObj);
 			isHover = true;
@@ -305,7 +323,17 @@ void GameScene::UpdateButtonOnPress()
 
 		if ((curX <= right && curX >= left) && (curY <= top && curY >= bottom))
 		{
-			if (!buttonCurObj) { continue; }
+			if (!buttonCurObj)
+			{
+				if (curObj->IsBlockRaycast())
+				{
+					return;
+				}
+				else
+				{
+					continue;
+				}
+			}
 
 			if (Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
 			{
@@ -319,7 +347,17 @@ void GameScene::UpdateButtonOnPress()
 		}
 		else
 		{
-			if (!buttonCurObj) { continue; }
+			if (!buttonCurObj)
+			{
+				if (curObj->IsBlockRaycast())
+				{
+					return;
+				}
+				else
+				{
+					continue;
+				}
+			}
 
 			if (!Input::IsKeyPressed(GLFW_MOUSE_BUTTON_LEFT))
 			{
@@ -450,6 +488,11 @@ void GameScene::UpdateDeleteObject()
 	}
 }
 
+// ----------------- Setter Implement -----------------
+void GameScene::SetTimeScale(const float& timeScale)
+{
+	this->timeScale = timeScale;
+}
 
 // ----------------- Getter Implement -----------------
 AudioController* GameScene::GetAudioController() const
@@ -459,4 +502,8 @@ AudioController* GameScene::GetAudioController() const
 Camera* GameScene::GetCamera()
 {
 	return &(this->camera);
+}
+float GameScene::GetTimeScale() const
+{
+	return this->timeScale;
 }

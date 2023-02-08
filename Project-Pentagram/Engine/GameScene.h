@@ -65,7 +65,11 @@ class GameScene : public IGameObjectManager
 		void UpdateScaleDeltaTime(float deltaTime);
 		void UpdateDeleteObject();
 
+		// ----------------- Setter -----------------
+		void SetTimeScale(const float& timeScale);
+
 		// ----------------- Getter -----------------
 		AudioController* GetAudioController() const;
 		Camera* GetCamera();
+		float GetTimeScale() const;
 };
