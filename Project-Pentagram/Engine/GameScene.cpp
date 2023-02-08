@@ -280,14 +280,33 @@ void GameScene::UpdateButtonOnHover()
 				continue;
 			}
 
-			buttonCurObj->onHover(buttonCurObj);
+			if (!buttonCurObj->IsBeginHover())
+			{
+				buttonCurObj->SetIsBeginHover(true);
+				buttonCurObj->onBeginHover(buttonCurObj);
+			}
+			else
+			{
+				buttonCurObj->onHover(buttonCurObj);
+			}
 			isHover = true;
+			buttonCurObj->SetIsBeginUnHover(false);
 		}
 		else
 		{
 			if (!buttonCurObj) { continue; }
 
-			buttonCurObj->unHover(buttonCurObj);
+			if (!buttonCurObj->IsBeginUnHover())
+			{
+				buttonCurObj->SetIsBeginUnHover(true);
+				buttonCurObj->unBeginHover(buttonCurObj);
+			}
+			else
+			{
+				buttonCurObj->unHover(buttonCurObj);
+			}
+
+			buttonCurObj->SetIsBeginHover(false);
 		}
 	}
 }

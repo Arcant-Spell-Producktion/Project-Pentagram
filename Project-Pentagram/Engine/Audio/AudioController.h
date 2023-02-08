@@ -129,9 +129,12 @@ class AudioController : public Singleton<AudioController>
 	private:
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
 		BGMController* m_BGMController = nullptr;
+		std::map<std::string, Audio*> LoopSFX;
 
 	public:
 		void PlaySFX(const std::string& filePath, const float& volume);
+		void PlaySFXLoop(const std::string& filePath, const float& volume);
+		void StopSFXLoop(const std::string& filePath);
 		BGMController* CreateBGM(const std::vector<std::string>& filepathList, const std::vector<float>& volumeList);
 
 		void OnUpdate();
