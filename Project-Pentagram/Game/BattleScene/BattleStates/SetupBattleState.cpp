@@ -2,13 +2,15 @@
 #include "Game/BattleScene/BattleManager.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
 #include "Game/GameData/RuntimeGameData.h"
+#include "Game/GameData/CasterData/CasterStatDatabase.h"
+
 #include "SetupBattleState.h"
 
 void SetupBattleState::OnBattleStateIn()
 {
     BattleManager* bm = BattleManager::GetInstance();
     bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
-    bm->Data.AddCaster(new PlayerController({ {450,15}, Element::Water,CasterPosition::CasterB }));
+    bm->Data.AddCaster(new PlayerController({ CasterStatDatabase::GetInstance()->GetStat(Element::Water,CasterType::Boss,0), Element::Water,CasterPosition::CasterB }));
 }
 
 void SetupBattleState::OnBattleStateUpdate(float dt)

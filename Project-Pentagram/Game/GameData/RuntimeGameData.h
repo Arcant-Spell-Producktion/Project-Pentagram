@@ -8,11 +8,7 @@ public:
     PlayerData* Player = nullptr;
     MapData* Map = nullptr;
 
-    RuntimeGameData(PlayerData* player = nullptr, MapData* map = nullptr)
-    {
-        if (player) Player = new PlayerData(*player);
-        if (map) Map = new MapData(*map);
-    }
+    RuntimeGameData(PlayerData* player = nullptr, MapData* map = nullptr);
 
     PlayerData* GetPlayerData() { return Player; }
 
