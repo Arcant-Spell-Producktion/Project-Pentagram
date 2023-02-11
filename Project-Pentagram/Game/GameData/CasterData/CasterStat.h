@@ -1,24 +1,32 @@
 ﻿#pragma once
+#include <array>;
+
 struct CasterStat
 {
     int CurrentHealth;
     int MaxHealth;
 
     int CurrentMana;
-    int MaxMana;
+    int CurrentManaWheel = 0;
 
-    CasterStat(int hp = 1,int mana = 1)
+    std::array<int, 6> ManaWheel;
+
+    CasterStat(int hp = 1, std::array<int, 6> manaWheel = {1,1,1,1,1,1})
     {
         CurrentHealth = MaxHealth = hp;
-        CurrentMana = MaxMana = mana;
+        ManaWheel = manaWheel;
+
+        CurrentMana = manaWheel[CurrentManaWheel];
     }
 
     CasterStat(const CasterStat &stat)
     {
-        MaxHealth = stat.MaxHealth;
-        MaxMana = stat.MaxMana;
-
         CurrentHealth = stat.CurrentHealth;
+        MaxHealth = stat.MaxHealth;
+
         CurrentMana = stat.CurrentMana;
+        CurrentManaWheel = stat.CurrentManaWheel;
+
+        ManaWheel = stat.ManaWheel;
     }
 };

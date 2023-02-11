@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 #include "CasterManager.h"
 
 CasterManager::CasterManager(CasterData caster):m_CurrentData(caster)
@@ -33,6 +35,56 @@ bool CasterManager::UpdateCurrentSpell()
     }
     std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
     return isSpellChanged;
+}
+
+int const CasterManager::GetHealth() { return m_CurrentData.Stat().CurrentHealth; }
+
+void CasterManager::SetHealth(int health) { m_CurrentData.Stat().CurrentHealth = health; }
+
+void CasterManager::ChangeHealth(int health) { m_CurrentData.Stat().CurrentHealth += health; }
+
+int const CasterManager::GetMana() { return m_CurrentData.Stat().CurrentMana; }
+
+void CasterManager::SetMana(int mana) { m_CurrentData.Stat().CurrentMana = mana; }
+
+void CasterManager::ChangeMana(int mana) { m_CurrentData.Stat().CurrentMana += mana; }
+
+int CasterManager::RandomMana()
+{
+    if (!std::count(m_ManaWheelTracker.begin(), m_ManaWheelTracker.end(),false))
+    {
+        ResetMana();
+        std::cout << "Reset Mana! \n";
+    }
+
+    std::srand(std::time(nullptr));
+
+    int index = rand() % 6;
+
+    while (m_ManaWheelTracker[index])
+    {
+        index = (index + 1) % 6;
+    }
+
+    m_CurrentData.Stat().CurrentManaWheel = index;
+    m_CurrentData.Stat().CurrentMana = m_CurrentData.Stat().ManaWheel[m_CurrentData.Stat().CurrentManaWheel];
+    m_ManaWheelTracker[m_CurrentData.Stat().CurrentManaWheel] = true;
+
+    return  m_CurrentData.Stat().CurrentManaWheel;
+}
+
+void CasterManager::ResetMana()
+{
+    m_ManaWheelTracker = { false, false, false, false, false, false };
+}
+
+void CasterManager::SetTimeDebuff(int debuff) { m_TimeDebuff = debuff; }
+
+void CasterManager::ResetTimeDebuff() { m_TimeDebuff = 0; }
+
+CastSpellDetail* CasterManager::GetSpellDetail()
+{
+    return m_CurrentSpell;
 }
 
 bool CasterManager::SetPentagramData(PentagramData_T pentagram)
@@ -100,7 +152,7 @@ int CasterManager::GetRemainMana()
 
 bool CasterManager::CanCastSpell()
 {
-    return GetSpellCost() >= GetRemainMana();
+    return  GetRemainMana() >= GetSpellCost();
 }
 
 CasterStat CasterManager::GetPreviewStat()
@@ -109,3 +161,4 @@ CasterStat CasterManager::GetPreviewStat()
     temp.CurrentMana = GetRemainMana();
     return temp;
 }
+
