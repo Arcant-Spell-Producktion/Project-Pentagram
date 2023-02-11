@@ -6,6 +6,7 @@
 #include "Engine/Collector/EngineDataCollector.h"
 
 #include "Game/GameData/RuntimeGameData.h"
+#include "Game/GameData/CasterData/CasterStatDatabase.h"
 #include "Game/Spells/SpellDatabase.h"
 
 ArcantEngine* engine = nullptr;
@@ -14,6 +15,7 @@ EngineDataCollector* engineDataCollector = nullptr;
 
 RuntimeGameData* currentGame = nullptr;
 SpellDatabase* spellDatabase = nullptr;
+CasterStatDatabase* casterDatabase = nullptr;
 
 int main()
 {
@@ -35,13 +37,12 @@ int main()
     spellDatabase = SpellDatabase::GetInstance();
     spellDatabase->LoadResource();
 
+    // Initialize CasterDatabase (For collecting all caster data)
+    casterDatabase = CasterStatDatabase::GetInstance();
+    casterDatabase->LoadResource();
 
     //Initialize GameData (For data management during runtime)
     currentGame = RuntimeGameData::GetInstance();
-
-    //Init player, TODO:: done in character select instead
-    //CasterData playerData(Element::Debug, CasterPosition::CasterA, 100, 10);
-    currentGame->Player = new PlayerData({ {300, 15}, Element::Fire, CasterPosition::CasterA, });
 
     srand(time(0));
 

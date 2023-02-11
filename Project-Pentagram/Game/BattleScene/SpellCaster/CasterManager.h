@@ -14,6 +14,8 @@ protected:
     SpellBook* m_CurrentBook = nullptr;
     CastSpellDetail* m_CurrentSpell = nullptr;
 
+    std::array<bool, 6> m_ManaWheelTracker = { false, false, false, false, false, false };
+
     int m_TimeDebuff = 0;
 
     int GetTimeCost();
@@ -40,28 +42,27 @@ public:
 
     bool UpdateCurrentSpell();
 
-    int const GetHealth() { return m_CurrentData.Stat().CurrentHealth; }
+    int const GetHealth();
 
-    void SetHealth(int health) { m_CurrentData.Stat().CurrentHealth = health; }
+    void SetHealth(int health);
 
-    void ChangeHealth(int health) { m_CurrentData.Stat().CurrentHealth += health; }
+    void ChangeHealth(int health);
 
-    int const GetMana() { return m_CurrentData.Stat().CurrentMana;}
+    int const GetMana();
 
-    void SetMana(int mana) { m_CurrentData.Stat().CurrentMana = mana; }
+    void SetMana(int mana);
 
-    void ChangeMana(int mana) { m_CurrentData.Stat().CurrentMana += mana; }
+    void ChangeMana(int mana);
 
-    void ResetMana() { m_CurrentData.Stat().CurrentMana = m_CurrentData.Stat().MaxMana; }
+    int RandomMana();
 
-    void SetTimeDebuff(int debuff) { m_TimeDebuff = debuff; }
+    void ResetMana();
 
-    void ResetTimeDebuff() { m_TimeDebuff = 0; }
+    void SetTimeDebuff(int debuff);
 
-    CastSpellDetail* GetSpellDetail()
-    {
-       return m_CurrentSpell;
-    }
+    void ResetTimeDebuff();
+
+    CastSpellDetail* GetSpellDetail();
 
   /*  ~CasterManager()
     {

@@ -32,6 +32,7 @@ void CasterController::StartTurn()
     {
         return;
     }
+
     m_CasterState = CasterState::Idle;
     
     UpdateCasterUI();
