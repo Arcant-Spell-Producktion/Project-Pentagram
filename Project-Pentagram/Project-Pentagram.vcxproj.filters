@@ -473,6 +473,7 @@
     </ClInclude>
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
+    <ClInclude Include="Game\Objects\CursorManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
