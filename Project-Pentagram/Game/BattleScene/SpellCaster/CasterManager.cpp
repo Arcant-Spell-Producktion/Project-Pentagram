@@ -57,8 +57,6 @@ int CasterManager::RandomMana()
         std::cout << "Reset Mana! \n";
     }
 
-    std::srand(std::time(nullptr));
-
     int index = rand() % 6;
 
     while (m_ManaWheelTracker[index])
