@@ -101,8 +101,8 @@ void CasterObject::SetCaster(CasterObjectType type, Element::Type element, Caste
 
     this->scale.x *= flip;
 
-    float x = -700.0f;
-    float y = -150.0f;
+    float x = -CASTER_POSITION_X;
+    float y = -CASTER_POSITION_Y;
     this->position = { x * flip, y,0.0f };
 }
 

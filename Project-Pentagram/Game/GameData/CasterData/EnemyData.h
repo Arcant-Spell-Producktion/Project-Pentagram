@@ -4,13 +4,18 @@
 class EnemyData : public CasterData
 {
 private:
-    CasterPosition m_Position = CasterPosition::CasterB;
     CasterType m_Type;
 
 public:
     EnemyData(CasterData data,CasterType type) :
         CasterData(data),m_Type(type)
     {
+        m_Position = CasterPosition::CasterB;
     }
+
+    EnemyData(const EnemyData& enemyData) :
+        CasterData(enemyData),
+        m_Type(enemyData.m_Type)
+    {}
 };
 

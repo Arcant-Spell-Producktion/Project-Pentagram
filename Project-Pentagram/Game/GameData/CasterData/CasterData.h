@@ -13,7 +13,7 @@ enum class CasterType
 
 class CasterData
 {
-private:
+protected:
     CasterStat m_Stat;
     Element::Type m_Element;
     CasterPosition m_Position;
