@@ -17,8 +17,11 @@ void ParticleSystem::OnUpdate(const float& dt)
 	m_CurrentSpawnTime += dt;
 	if (m_CurrentSpawnTime >= spawnTime)
 	{
-		this->Emit(this->baseParticle);
-		m_CurrentSpawnTime = 0.0f;
+		if (m_IsGenerate)
+		{
+			this->Emit(this->baseParticle);
+			m_CurrentSpawnTime = 0.0f;
+		}
 	}
 
 	for (auto& particle : m_ParticlePool)

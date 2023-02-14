@@ -15,7 +15,7 @@ class CursorManager : public Singleton<CursorManager>
 			cursorObject->SetTexture("Sprites/awesomeface.png");
 		}
 
-		void Update(Camera& camera)
+		void Update(Camera& camera, float dt)
 		{
 			if (GameStateController::GetInstance()->currentState == GameState::GS_LOAD_SCENE)
 			{

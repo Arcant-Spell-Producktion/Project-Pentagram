@@ -192,7 +192,7 @@ void Window::Init()
 	this->m_ViewportHeight = m_Height;
 
 	glfwSetWindowUserPointer((GLFWwindow*)m_Window, (void*)&m_Window);
-	glfwSetInputMode((GLFWwindow*)m_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	//glfwSetInputMode((GLFWwindow*)m_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	glfwSetWindowCloseCallback(m_Window, windowCloseCallback);
 	glfwSetFramebufferSizeCallback(m_Window, resizeCallback);
