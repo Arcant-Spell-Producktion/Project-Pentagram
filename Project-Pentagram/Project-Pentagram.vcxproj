@@ -58,6 +58,9 @@
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
+    <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
+    <ClInclude Include="Game\GameData\MapData\NodeData.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
@@ -193,6 +196,11 @@
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
+    <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
+    <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />

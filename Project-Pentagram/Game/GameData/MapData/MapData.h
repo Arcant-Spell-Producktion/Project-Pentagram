@@ -1,9 +1,16 @@
 ﻿#pragma once
-#include <vector>
-#include "Game/GameData/CasterData/EnemyData.h"
+#include "ChapterData.h"
 class MapData
 {
 private:
-    int m_MapPos;
-    std::vector<EnemyData> m_EnemyList;
+    int m_MapPos = 0;
+    int m_ChapterCount = 0;
+    std::vector<ChapterData*> m_Chapters;
+
+public:
+    MapData();
+
+    void AddChapter(ChapterData* c);
+
+    ~MapData();
 };

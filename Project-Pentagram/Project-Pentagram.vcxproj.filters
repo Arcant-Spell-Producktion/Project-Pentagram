@@ -189,6 +189,13 @@
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp">
       <Filter>Game\CharacterScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
+    <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -474,6 +481,15 @@
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
+    <ClInclude Include="Game\GameData\MapData\ChapterData.h">
+      <Filter>Game\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\NodeData.h">
+      <Filter>Game\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
