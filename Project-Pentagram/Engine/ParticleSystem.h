@@ -1,7 +1,7 @@
 #pragma once
 
 #define GLM_ENABLE_EXPERIMENTAL
-#define RANDOM_FLOAT(Min, Max) (((float)rand() / (float)(RAND_MAX)) * (Max - Min)) + Min
+#define RANDOM_FLOAT(Min, Max) ((((float)rand() / (float)(RAND_MAX)) * (Max - Min)) + Min)
 #define ROTATION_SPD 100.0f
 
 #include <glm/glm.hpp>

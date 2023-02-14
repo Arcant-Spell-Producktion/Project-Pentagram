@@ -196,6 +196,7 @@
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
     <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />

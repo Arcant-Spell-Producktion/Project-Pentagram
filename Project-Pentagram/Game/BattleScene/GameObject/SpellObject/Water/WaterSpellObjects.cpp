@@ -306,7 +306,7 @@ void WaterSpell8::Initialize()
     windProp.sizeBegin = windProp.sizeEnd = 180.0f;
     windProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     windProp.rotationVariation = 0.0f;
-    windProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
+    windProp.velocity = { -600.0f * m_SpellTarget, -650.0f };
     windProp.velocityVariation = {100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
@@ -333,7 +333,7 @@ void WaterSpell8::Initialize()
             hailProp.sizeBegin = hailProp.sizeEnd = 80.0f;
             hailProp.rotation = m_SpellTarget == 1 ? -125.0f : -35.0f;
             hailProp.rotationVariation = 0.0f;
-            hailProp.velocity = { -800.0f * m_SpellTarget, -800.0f };
+            hailProp.velocity = { -750.0f * m_SpellTarget, -700.0f };
             hailProp.velocityVariation = { 100.0f, 100.0f };
             hailProp.lifeTime = 1.5f;
 

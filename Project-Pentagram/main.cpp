@@ -68,7 +68,7 @@ int main()
 		}
 
 		gameStateController->currentScene->GameSceneDraw();
-		//CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
+		CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
 
 		// End Frame
 		Input::EndFrame();
