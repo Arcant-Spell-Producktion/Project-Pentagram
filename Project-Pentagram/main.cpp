@@ -8,6 +8,7 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
 #include "Game/Spells/SpellDatabase.h"
+#include "Game/Objects/CursorManager.h"
 
 ArcantEngine* engine = nullptr;
 GameStateController* gameStateController = nullptr;
@@ -16,6 +17,7 @@ EngineDataCollector* engineDataCollector = nullptr;
 RuntimeGameData* currentGame = nullptr;
 SpellDatabase* spellDatabase = nullptr;
 CasterStatDatabase* casterDatabase = nullptr;
+Camera mainCamera;
 
 int main()
 {
@@ -66,6 +68,7 @@ int main()
 		}
 
 		gameStateController->currentScene->GameSceneDraw();
+		//CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
 
 		// End Frame
 		Input::EndFrame();

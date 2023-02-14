@@ -49,11 +49,13 @@ void PentagramScrollNumberButton::SetToggle(bool isToggle)
 
 PentagramScrollNumberButton::PentagramScrollNumberButton(int value, IGameObjectManager* scene) : PentagramScrollButton(scene)
 {
+    std::string randomTrackSFX = "Audio/SFX/UI/Game/sfx_ui_game_scroll_button_press_variant_" + std::to_string((rand() % 3) + 1) + ".wav";
 
-    this->onClick = [this, value](Button* button)
+    this->onClick = [this, randomTrackSFX, value](Button* button)
     {
         if (m_buttonState == ButtonState::Hover)
         {
+            AudioController::GetInstance()->PlaySFX(randomTrackSFX, 1.0f);
             OnButtonClicked.Invoke(value);
         }
     };
@@ -84,8 +86,14 @@ void PentagramScrollArrowButton::OnUpdate(const float& dt)
 
 PentagramScrollArrowButton::PentagramScrollArrowButton(int value, IGameObjectManager* scene) : PentagramScrollButton(scene)
 {
+    this->onBeginHover = [this](Button* button)
+    {
+        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_scroll_button_hover.wav", 0.75f);
+    };
+
     this->onClick = [this, value](Button* button)
     {
+        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_timeline_button_press.wav", 0.75f);
         m_curtime = 0;
         SetState(ButtonState::Down);
         OnButtonClicked.Invoke(value);

@@ -192,6 +192,7 @@ void Window::Init()
 	this->m_ViewportHeight = m_Height;
 
 	glfwSetWindowUserPointer((GLFWwindow*)m_Window, (void*)&m_Window);
+	//glfwSetInputMode((GLFWwindow*)m_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	glfwSetWindowCloseCallback(m_Window, windowCloseCallback);
 	glfwSetFramebufferSizeCallback(m_Window, resizeCallback);
@@ -219,6 +220,7 @@ void Window::Init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glViewport(0, 0, m_Width, m_Height);
+	glfwMaximizeWindow(m_Window);
 }
 void Window::Destroy()
 {

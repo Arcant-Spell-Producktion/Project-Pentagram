@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "PentagramFieldButton.h"
+#include "Engine/Audio/AudioController.h"
 
 class PentagramFieldButtonUI: public UIObject
 {

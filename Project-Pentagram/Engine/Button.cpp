@@ -9,7 +9,9 @@ Button::Button(const std::string& objName)
 	this->m_IsSlicing = true;
 	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	this->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	this->onBeginHover = [](Button* button) {};
 	this->onHover = [](Button* button) { button->hoverColor = glm::vec4(0.9f, 0.9f, 0.9f, 1.0f); };
+	this->unBeginHover = [](Button* button) {};
 	this->unHover = [](Button* button) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); };
 	this->onClick = [](Button* button) { std::cout << button->name << " : OnClick\n"; };
 	this->onPress = [](Button* button) {};
@@ -110,4 +112,21 @@ void Button::UnloadMesh()
 {
 	this->textObject.UnloadMesh();
 	GameObject::UnloadMesh();
+}
+
+void Button::SetIsBeginHover(const bool& active)
+{
+	this->m_IsBeginHover = active;
+}
+void Button::SetIsBeginUnHover(const bool& active)
+{
+	this->m_IsBeginUnHover = active;
+}
+bool Button::IsBeginHover() const
+{
+	return m_IsBeginHover;
+}
+bool Button::IsBeginUnHover() const
+{
+	return m_IsBeginUnHover;
 }

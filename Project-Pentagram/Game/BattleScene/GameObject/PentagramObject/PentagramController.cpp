@@ -54,6 +54,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_CastButton->position = { -160.0f,-460.0f,0.0f };
     m_CastButton->onClick = [](Button* button)
     {
+        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_invoke_button_press.wav", 1.0f);
         CastSpell();
     };
 

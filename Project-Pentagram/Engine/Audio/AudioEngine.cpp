@@ -63,6 +63,7 @@ float AudioEngine::GetSFXVolume() const
 void AudioEngine::Free()
 {
 	m_AudioEngine->drop();
+	Singleton::Free();
 }
 
 // ----------------- Private Function----------------- 

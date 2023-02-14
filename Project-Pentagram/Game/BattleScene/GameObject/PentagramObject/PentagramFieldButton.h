@@ -6,13 +6,14 @@
 
 class PentagramFieldButton : public Button
 {
-private:
+public: 
     enum class ButtonState
     {
         Idle = 2,
         Hover,
         Down
     };
+private:
 
     PentagramField m_SelectedField;
     Element::Type m_CurrentElement;
@@ -40,6 +41,7 @@ public:
     void SetRuneActive(int amount);
 
     PentagramField GetButtonField() const { return m_SelectedField; }
+    ButtonState GetButtonState() const { return m_buttonState; }
 
     PentagramFieldButton(PentagramField field, Element::Type element);
 };
