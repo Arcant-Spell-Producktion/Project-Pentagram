@@ -10,10 +10,12 @@ void ResultBattleState::OnBattleStateIn()
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
     if (gameData->Map->CompleteNode())
     {
-       //TODO:: LEVEL UP PLAYER
+        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
     }
-
-    SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+    else
+    {
+        SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+    }
 }
 
 void ResultBattleState::OnBattleStateUpdate(float dt)

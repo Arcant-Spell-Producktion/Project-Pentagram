@@ -32,7 +32,17 @@ void MapScene::GameSceneInit()
 
 	std::cout << "Map Scene : Initialize Completed\n";
 
-    RuntimeGameData::GetInstance()->Map->SelectChapter(Element::Water);
+    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+
+    switch (gameData->Player->Element())
+    {
+        case Element::Fire:
+            gameData->Map->SelectChapter(Element::Water);
+            break;
+        case Element::Water:
+            gameData->Map->SelectChapter(Element::Fire);
+            break;
+    }
 
     FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
 
