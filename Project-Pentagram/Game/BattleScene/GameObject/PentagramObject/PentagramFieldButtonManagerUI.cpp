@@ -87,6 +87,11 @@ PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObj
         PentagramFieldButton* button = new PentagramFieldButton(field_value, Element::Fire);
         button->onClick = [this, field_value](Button* _button)
         {
+            if (dynamic_cast<PentagramFieldButton*>(_button)->GetButtonState() == PentagramFieldButton::ButtonState::Hover)
+            {
+                AudioController::GetInstance()->StopSFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav");
+                AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_press.wav", 1.0f);
+            }
             ToggleButton(field_value);
             OnFieldButtonClicked.Invoke(field_value);
         };

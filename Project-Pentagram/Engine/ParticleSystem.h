@@ -19,7 +19,7 @@ struct ParticleProperty
 	glm::vec2 position = glm::vec2(0.0f, 0.0f);
 	glm::vec2 positionVariation = glm::vec2(0.0f, 0.0f);
 	glm::vec2 velocity = glm::vec2(0.0f, 0.0f), velocityVariation = glm::vec2(0.0f, 0.0f);
-	glm::vec4 colorBegin = glm::vec4(1.0f, 0.0f, 0.0f, 1.0f), colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	glm::vec4 colorBegin = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 0.0f);
 	float sizeBegin = 1.0f, sizeEnd = 1.0f, sizeVariation = 0.0f;
 	// Rotation (Degree)
 	float rotation = 0.0f, rotationVariation = (RANDOM_FLOAT(-1.0, 1.0f) * 180.0f);
@@ -51,6 +51,7 @@ class ParticleSystem : public GameObject
 		float m_CurrentSpawnTime = 0.0f;
 		float spawnTime;
 		bool m_IsFixRotation = false;
+		bool m_IsGenerate = true;
 
 	public:
 		GLuint m_PoolIndex = 999;
@@ -61,6 +62,9 @@ class ParticleSystem : public GameObject
 		virtual void OnUpdate(const float& dt) override;
 		virtual void Draw(Camera &camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 		virtual void UnloadMesh() override;
+		
+		void StopGenerate() { m_IsGenerate = false; }
+		void StartGenerate() { m_IsGenerate = true; }
 
 		void SetSpawnTime(const float& spawnTime);
 		void SetIsFixRotation(const bool& active);
