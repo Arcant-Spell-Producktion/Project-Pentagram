@@ -1,13 +1,13 @@
 ﻿#pragma once
 
-#include "Engine/GameState.h"
 #include "Engine/GameScene.h"
-#include "Engine/Scene/MenuScene.h"
-#include "Engine/Scene/NodeScene.h"
-#include "Engine/Scene/LoadScene.h"
+#include "Engine/GameState.h"
 #include "Engine/Scene/DemoScene.h"
-#include "Game/CharacterSelectScene/CharacterSelectScene.h"
+#include "Engine/Scene/LoadScene.h"
+#include "Engine/Scene/MenuScene.h"
 #include "Game/BattleScene/BattleScene.h"
+#include "Game/CharacterSelectScene/CharacterSelectScene.h"
+#include "Game/MapScene/MapScene.h"
 #include "Utilities/Singleton.h"
 
 class GameStateController : public Singleton<GameStateController>
