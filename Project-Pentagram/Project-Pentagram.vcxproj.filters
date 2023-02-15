@@ -196,6 +196,15 @@
     <ClCompile Include="Game\MapScene\MapScene.cpp">
       <Filter>Game\MapScene</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\ChapterData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\MapData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\NodeData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -334,9 +343,6 @@
     </ClInclude>
     <ClInclude Include="Game\GameData\CasterData\PlayerData.h">
       <Filter>Game\GameData\CasterData</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\GameData\MapData\MapData.h">
-      <Filter>Game\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h">
@@ -489,6 +495,16 @@
     </ClInclude>
     <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
+    <ClInclude Include="Game\GameData\MapData\MapData.h">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\MapGenerator.h">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\NodeData.h">
+      <Filter>Game\GameData\MapData</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -772,6 +788,9 @@
     </Filter>
     <Filter Include="Game\MapScene">
       <UniqueIdentifier>{55d25fff-bab5-4e4c-9271-5e08cbf8ab49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData\MapData">
+      <UniqueIdentifier>{51f54860-10e6-4a9e-bc27-511079606c99}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
