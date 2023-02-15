@@ -1,6 +1,7 @@
 ﻿#include "ChapterData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
 #include <stdexcept>
+#include <iostream>
 
 #define NODE_PER_CHAPTER 3
 
@@ -11,26 +12,8 @@ ChapterData::ChapterData(Element::Type element, Element::Type startElement)
 
     if (element == startElement)
     {
-        m_CanVisit = false;
+        CanVisit = false;
         m_IsVisited = true;
-    }
-    else if (element == Element::NULLTYPE)
-    {
-        m_CanVisit = true;
-    }
-    else
-    {
-        if ((startElement == Element::Fire && (element == Element::Wind || element == Element::Earth)) ||
-            (startElement == Element::Water && (element == Element::Fire || element == Element::Earth)) ||
-            (startElement == Element::Earth && (element == Element::Wind || element == Element::Fire)) ||
-            (startElement == Element::Wind && (element == Element::Earth || element == Element::Water)))
-        {
-            m_CanVisit = true;
-        }
-        else
-        {
-            m_CanVisit = false;
-        }
     }
 
     UpdateChapter(0);
@@ -40,6 +23,8 @@ void ChapterData::AddNode(NodeData* n)
 {
     m_Nodes.push_back(n);
     m_NodeCount++;
+
+    std::cout << "Add new node #" << m_NodeCount << "\n";
 }
 
 NodeData* ChapterData::GetNextNode()
@@ -49,9 +34,9 @@ NodeData* ChapterData::GetNextNode()
 
 bool ChapterData::CompleteNode()
 {
-    m_CanVisit = false;
+    CanVisit = false;
     m_IsVisited = true;
-    m_NodeCount++;
+    m_CurrentNode++;
     return m_NodeCount == m_CurrentNode;
 }
 

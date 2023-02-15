@@ -17,5 +17,7 @@ public:
         CasterData(enemyData),
         m_Type(enemyData.m_Type)
     {}
+
+    CasterType EnemyType() { return m_Type; }
 };
 

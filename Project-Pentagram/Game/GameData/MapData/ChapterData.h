@@ -9,15 +9,15 @@ private:
     Element::Type m_Element;
     std::vector<NodeData*> m_Nodes;
     bool m_IsVisited;
-    bool m_CanVisit;
 
     void AddNode(NodeData* node);
 public:
+
+    bool CanVisit;
+
     ChapterData(Element::Type element, Element::Type startElement);
 
     Element::Type Element() { return m_Element; }
-
-    bool CanVisit() { return m_CanVisit; }
 
     NodeData* GetNextNode();
 

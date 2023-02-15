@@ -1,13 +1,14 @@
 ﻿#include <string>
 #include "CasterObject.h"
+#include "Game/GameData/CasterData/CasterType.h"
 
 const std::string CasterSpritePath[3][4] =
 {
     {
-        "Sprites/Character/Boss/character_boss_earth.png",
-        "Sprites/Character/Boss/character_boss_fire.png",
-        "Sprites/Character/Boss/character_boss_water.png",
-        "Sprites/Character/Boss/character_boss_wind.png"
+        "Sprites/Character/Player/character_player_earth.png",
+        "Sprites/Character/Player/character_player_fire.png",
+        "Sprites/Character/Player/character_player_water.png",
+        "Sprites/Character/Player/character_player_wind.png"
     },
     {
         "Sprites/Character/Minion/character_minion_earth.png",
@@ -16,10 +17,10 @@ const std::string CasterSpritePath[3][4] =
         "Sprites/Character/Minion/character_minion_wind.png"
     },
     {
-        "Sprites/Character/Player/character_player_earth.png",
-        "Sprites/Character/Player/character_player_fire.png",
-        "Sprites/Character/Player/character_player_water.png",
-        "Sprites/Character/Player/character_player_wind.png"
+        "Sprites/Character/Boss/character_boss_earth.png",
+        "Sprites/Character/Boss/character_boss_fire.png",
+        "Sprites/Character/Boss/character_boss_water.png",
+        "Sprites/Character/Boss/character_boss_wind.png"
     }
 };
 
@@ -91,7 +92,7 @@ void CasterObject::OnUpdate(const float& dt)
 
 }
 
-void CasterObject::SetCaster(CasterObjectType type, Element::Type element, CasterPosition pos)
+void CasterObject::SetCaster(CasterType type, Element::Type element, CasterPosition pos)
 {
     std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] <<"\n";
     
@@ -102,7 +103,7 @@ void CasterObject::SetCaster(CasterObjectType type, Element::Type element, Caste
     this->scale.x *= flip;
 
     float x = -CASTER_POSITION_X;
-    float y = -CASTER_POSITION_Y;
+    float y = CASTER_POSITION_Y;
     this->position = { x * flip, y,0.0f };
 }
 

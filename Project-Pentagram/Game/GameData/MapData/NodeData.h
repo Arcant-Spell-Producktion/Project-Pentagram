@@ -10,7 +10,7 @@ private:
 public:
     NodeData(EnemyData enemy);
 
-    EnemyData& GetEnemyData() { return m_Enemy; }
+    EnemyData GetEnemyData() { return m_Enemy; }
 
     void CompleteNode();
 };

@@ -4,7 +4,7 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "SpellCaster/PlayerController.h"
 #include "Game/BattleScene/BattleManager.h"
-#include <Game/Objects/StageObject.h>
+#include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
 
 float track_t = 0.0f;
@@ -42,12 +42,15 @@ void BattleScene::GameSceneUpdate(float dt)
         // If not return will cause memory problem
         return;
     }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_K))
+    {
+        battleManager->EndBattle();
+    }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
         pauseMenuObject->SetActive(pauseMenuObject->IsActive() ? false : true);
         timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
     }
-
 
     battleManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
 

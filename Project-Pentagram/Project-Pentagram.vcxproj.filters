@@ -196,6 +196,9 @@
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp">
       <Filter>Game\GameData\CasterData</Filter>
     </ClCompile>
+    <ClCompile Include="Game\MapScene\MapScene.cpp">
+      <Filter>Game\MapScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -489,6 +492,12 @@
     <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h">
       <Filter>Game\GameData\CasterData</Filter>
     </ClInclude>
+    <ClInclude Include="Game\MapScene\MapScene.h">
+      <Filter>Game\MapScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -768,6 +777,9 @@
     </Filter>
     <Filter Include="Game\CharacterScene">
       <UniqueIdentifier>{0a5f06a5-0208-4bc2-b076-9f7743abc30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MapScene">
+      <UniqueIdentifier>{55d25fff-bab5-4e4c-9271-5e08cbf8ab49}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

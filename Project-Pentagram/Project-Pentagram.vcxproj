@@ -50,6 +50,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h" />
     <ClInclude Include="Game\BattleScene\SpellDispather.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
@@ -60,6 +61,7 @@
     <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
     <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
     <ClInclude Include="Game\GameData\MapData\NodeData.h" />
+    <ClInclude Include="Game\MapScene\MapScene.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
@@ -200,6 +202,7 @@
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
     <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
     <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\MapScene\MapScene.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />

@@ -4,6 +4,7 @@
 class MapData
 {
 private:
+    Element::Type m_StartElement;
     Element::Type m_CurrentChapter;
     std::map<Element::Type,ChapterData*> m_Chapters;
 

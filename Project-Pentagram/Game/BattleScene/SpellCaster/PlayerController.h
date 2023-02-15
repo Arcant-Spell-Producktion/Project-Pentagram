@@ -7,6 +7,6 @@ public:
     {
         auto element = m_CasterManager.Data().Element();
         auto position = m_CasterManager.Data().Position();
-        this->m_CasterObject->SetCaster(CasterObjectType::Player,element,position);
+        this->m_CasterObject->SetCaster(CasterType::Player,element,position);
     }
 };

@@ -2,14 +2,7 @@
 #include "Game/Spells/Element.h"
 #include "CasterPosition.h"
 #include "CasterStat.h"
-
-enum class CasterType
-{
-    Player = 0,
-    Minion = 1,
-    Boss = 2,
-    BigBoss = 3
-};
+#include "CasterType.h"
 
 class CasterData
 {

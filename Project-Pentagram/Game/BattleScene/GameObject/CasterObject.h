@@ -3,6 +3,7 @@
 #include <functional>
 #include "Engine/IGameObjectManager.h"
 #include "Game/Spells/Element.h"
+#include "Game/GameData/CasterData/CasterType.h"
 #include "Game/GameData/CasterData/CasterPosition.h"
 
 enum class CasterObjectType
@@ -42,7 +43,7 @@ public:
 
     void SetState(CasterObjectState state, CasterObjectState nextState);
 
-    void SetCaster(CasterObjectType type, Element::Type element, CasterPosition pos);
+    void SetCaster(CasterType type, Element::Type element, CasterPosition pos);
 
     void PlayChannelAnim(int ChannelCount = 0);
 
