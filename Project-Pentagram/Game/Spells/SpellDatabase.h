@@ -2,6 +2,7 @@
 #include <map>
 #include "Utilities/Singleton.h"
 #include "SpellBook.h"
+#include <iostream>
 
 class SpellDatabase:public Singleton<SpellDatabase>
 {

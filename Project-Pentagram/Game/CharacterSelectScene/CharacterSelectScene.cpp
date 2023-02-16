@@ -1,9 +1,9 @@
 ﻿#include "CharacterSelectScene.h"
+#include "CharacterSelectUI.h"
 #include "Engine/GameStateController.h"
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
-#include "CharacterSelectUI.h"
-#include <Game/Objects/StageObject.h>
+#include "Game/Objects/StageObject.h"
 
 void CharacterSelectScene::FadeUpdate(const float& dt)
 {
@@ -39,12 +39,17 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 
 void CharacterSelectScene::OnConfirm()
 {
-    FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
     dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement - 1])->Confirm();//TODO:: remove -1 after add EARTH
-    RuntimeGameData::GetInstance()->Player = 
+    
+    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+
+    gameData->Player =
         new PlayerData({ CasterStatDatabase::GetInstance()->GetStat(
             m_SelectedElement,CasterType::Player,0), m_SelectedElement, CasterPosition::CasterA }, 0);
 
+    gameData->Map = new MapData(m_SelectedElement);
+
+    FadeOut(2.0f, GameState::GS_MAP_SCENE);
 }
 
 void CharacterSelectScene::GameSceneLoad()

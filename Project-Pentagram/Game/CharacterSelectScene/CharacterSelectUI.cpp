@@ -6,7 +6,7 @@ CharacterSelectUI::CharacterSelectUI(Element::Type element) : UIObject(element+"
     this->color.a = 0.0f;
 
     m_Caster = new CasterObject();
-    m_Caster->SetCaster(CasterObjectType::Player,element,CasterPosition::CasterA);
+    m_Caster->SetCaster(CasterType::Player,element,CasterPosition::CasterA);
     m_Caster->position = { 0.0f,80.0f,0.0f };
 
     m_SelectButton = new ScrollButton(Element::GetString(element) + "_char_select-button");
