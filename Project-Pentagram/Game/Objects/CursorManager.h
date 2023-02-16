@@ -7,36 +7,24 @@ class CursorManager : public Singleton<CursorManager>
 {
 	private:
 		UIObject* cursorObject;
+		ParticleSystem* trailParticle;
+		ParticleSystem* onClickParticle;
+		float onClickDelayTime = 0.2f;
+		float onClickCurrentTime = 0.0f;
+		bool isOnClick = false;
+
+		Window* windowRef = ArcantEngine::GetInstance()->GetWindow();
+
+		void InitParticle(ParticleSystem*& particle, std::string objName);
+		void UpdateCursorPosition();
+		void UpdateTrailParticle(float dt);
+		void UpdateOnClickParticle(float dt);
+		float MapValue(float value, float orgMin, float orgMax, float newMin, float newMax);
+		void MapCursorPosition(const glm::vec2& cursorPos);
 	public:
-		CursorManager()
-		{
-			cursorObject = new UIObject("CursorObject");
-			cursorObject->scale = { 50.0f, 50.0f, 1.0f };
-			cursorObject->SetTexture("Sprites/awesomeface.png");
-		}
+		CursorManager();
 
-		void Update(Camera& camera, float dt)
-		{
-			if (GameStateController::GetInstance()->currentState == GameState::GS_LOAD_SCENE)
-			{
-				cursorObject->rotation += 1.0f;
-			}
-			else
-			{
-				cursorObject->rotation = 0.0f;
-			}
-			Window* window = ArcantEngine::GetInstance()->GetWindow();
-			glm::dvec2 curPos;
-			glfwGetCursorPos(window->GetWindowPointer(), &curPos.x, &curPos.y);
+		void Update(Camera& camera, float dt);
 
-			glm::vec2 windowSize = { window->GetWindowWidth(), window->GetWindowHeight() };
-			cursorObject->position = { curPos.x - windowSize.x / 2.0f, windowSize.y / 2.0f - curPos.y, 0.0f };
-			cursorObject->Draw(camera);
-		}
-
-		void Free()
-		{
-			delete cursorObject;
-			Singleton::Free();
-		}
+		void Free();
 };

@@ -63,6 +63,32 @@ void Window::Close()
 	glfwSetWindowShouldClose(m_Window, true);
 }
 
+void Window::UpdateGameViewport()
+{
+	if ((float)m_Width / m_Height == WINDOW_RATIO)
+	{
+		glViewport(0, 0, m_ViewportWidth, m_ViewportHeight);
+	}
+	else if (m_Width * (1.0f / WINDOW_RATIO) <= m_Height)
+	{
+		int ratioHeight = m_ViewportWidth * (1.0f / WINDOW_RATIO);
+		int offsetHeight = std::abs(m_Height - ratioHeight);
+		glViewport(0, offsetHeight / 2, m_ViewportWidth, ratioHeight);
+	}
+	else
+	{
+		int ratioWidth = m_ViewportHeight * WINDOW_RATIO;
+		int offsetWidth = std::abs(m_Width - ratioWidth);
+		glViewport(offsetWidth / 2, 0, ratioWidth, m_ViewportHeight);
+	}
+}
+void Window::UpdateCursorViewport()
+{
+	const GLFWvidmode* video = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	glViewport(0, 0, m_Width, m_Height);
+	//std::cout << video->width << " " << video->height << "\n";
+}
+
 // Setter Implement
 void Window::SetWindowSize(const glm::ivec2 windowSize) 
 {
@@ -186,13 +212,16 @@ void Window::Init()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
+	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+	glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
 	m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
 
 	this->m_ViewportWidth = m_Width;
 	this->m_ViewportHeight = m_Height;
 
 	glfwSetWindowUserPointer((GLFWwindow*)m_Window, (void*)&m_Window);
-	//glfwSetInputMode((GLFWwindow*)m_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+	glfwSetInputMode((GLFWwindow*)m_Window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	glfwSetWindowCloseCallback(m_Window, windowCloseCallback);
 	glfwSetFramebufferSizeCallback(m_Window, resizeCallback);
@@ -220,7 +249,8 @@ void Window::Init()
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glViewport(0, 0, m_Width, m_Height);
-	glfwMaximizeWindow(m_Window);
+	glfwSetWindowSize(m_Window, 1280, 720);
+	glfwShowWindow(m_Window);
 }
 void Window::Destroy()
 {

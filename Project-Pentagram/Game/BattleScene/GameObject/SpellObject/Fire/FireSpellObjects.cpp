@@ -103,7 +103,7 @@ void FireSpell3::Initialize()
     particleProp.sizeBegin = particleProp.sizeEnd = 600.0f;
     particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     particleProp.rotationVariation = 0.0f;
-    particleProp.velocity = { -700.0f * m_SpellTarget, -700.0f };
+    particleProp.velocity = { -700.0f * m_SpellTarget, -650.0f };
     particleProp.velocityVariation = { 50.0f, 50.0f };
     particleProp.lifeTime = 1.5f;
 

@@ -66,9 +66,12 @@ int main()
 		{
 			break;
 		}
-
+		
+		engine->GetWindow()->UpdateGameViewport();
 		gameStateController->currentScene->GameSceneDraw();
-		//CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
+
+		engine->GetWindow()->UpdateCursorViewport();
+		CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
 
 		// End Frame
 		Input::EndFrame();

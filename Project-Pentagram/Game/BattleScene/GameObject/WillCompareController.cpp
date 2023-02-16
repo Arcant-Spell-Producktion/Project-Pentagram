@@ -35,7 +35,7 @@ ParticleProperty GetCasterParticleProp(int caster,bool isStrong)
     particleProp.sizeBegin = !isStrong ? 50.0f : 75.0f;
     particleProp.sizeEnd = !isStrong ? 10.0f : 15.0f;
     particleProp.rotationVariation = 0.0f;
-    particleProp.velocity = { (!isStrong ? 700.0f : 1800.0f) * flip, 0.0f };
+    particleProp.velocity = { (!isStrong ? 700.0f : 1800.0f) * flip, 200.0f };
     particleProp.velocityVariation = { 0.0f, 200.0f };
     particleProp.lifeTime = 1.0f;
 
