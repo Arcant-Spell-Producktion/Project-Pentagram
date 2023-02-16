@@ -1,9 +1,7 @@
 ﻿#pragma once
 #include "Spell.h"
 
-using namespace std;
-
-ostream& operator<<(ostream& os, const Spell& spell)
+std::ostream& operator<<(std::ostream& os, const Spell& spell)
 {
     os << "Spell: " << spell.m_Name << "\n";
 

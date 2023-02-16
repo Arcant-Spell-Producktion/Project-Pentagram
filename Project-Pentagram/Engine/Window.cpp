@@ -229,6 +229,16 @@ void Window::Init()
 	glfwSetCursorPosCallback(m_Window, Input::cursorCallBack);
 	glfwSetMouseButtonCallback(m_Window, Input::mouseCallBack);
 	
+	HWND hwnd = glfwGetWin32Window(m_Window);
+	// Get the current window style
+	LONG_PTR style = GetWindowLongPtr(hwnd, GWL_STYLE);
+
+	// Add the WS_MAXIMIZEBOX style to the window style
+	style |= WS_MAXIMIZEBOX;
+
+	// Set the modified style back on the window
+	SetWindowLongPtr(hwnd, GWL_STYLE, style);
+
 	m_Monitor = glfwGetPrimaryMonitor();
 
 	GLFWimage images[1];

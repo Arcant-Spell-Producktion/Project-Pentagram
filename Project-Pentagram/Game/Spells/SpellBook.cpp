@@ -8,9 +8,9 @@
 
 using namespace tinyxml2;
 
-SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element),m_Bookname(filename)
+SpellBook::SpellBook(Element::Type element, std::string filename) :m_Element(element),m_Bookname(filename)
 {
-    string path = "Spellbooks/" + filename + ".xml";
+    std::string path = "Spellbooks/" + filename + ".xml";
     XMLDocument doc;
     doc.LoadFile(path.c_str());
 
@@ -29,9 +29,9 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
 
         currSpell.SetSpellName(currSpellElement->FirstAttribute()->Value());
 
-        currSpell.SetCastTime(stoi(castTimeElement->GetText()));
+        currSpell.SetCastTime(std::stoi(castTimeElement->GetText()));
 
-        currSpell.SetChannelTime(stoi(channelTimeElement->GetText()));
+        currSpell.SetChannelTime(std::stoi(channelTimeElement->GetText()));
 
         currSpell.SetSpellEffectType(SpellEffectType::GetEnum(effectTypeElement->GetText()));
 
@@ -39,8 +39,8 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
 
         for (int array_index = 0; array_index < 6; array_index++)
         {
-            currSpell.SetWillValue(array_index, stoi(willValueElement->GetText()));
-            currSpell.SetSpellEffectValue(array_index, stoi(effectValueElement->GetText()));
+            currSpell.SetWillValue(array_index, std::stoi(willValueElement->GetText()));
+            currSpell.SetSpellEffectValue(array_index, std::stoi(effectValueElement->GetText()));
 
             willValueElement = willValueElement->NextSiblingElement();
             effectValueElement = effectValueElement->NextSiblingElement();
@@ -53,9 +53,9 @@ SpellBook::SpellBook(Element::Type element, string filename) :m_Element(element)
 }
 
 void SpellBook::PrintBookDetail() {
-    cout << "\n\t Book Name: " << m_Bookname << "\n\n";
+    std::cout << "\n\t Book Name: " << m_Bookname << "\n\n";
     for (int i = 0; i < 9; i++)
     {
-        cout << "\t Spell Numero: " << i << "\n" << m_Spells[i] <<"\n";
+        std::cout << "\t Spell Numero: " << i << "\n" << m_Spells[i] <<"\n";
     }
 }

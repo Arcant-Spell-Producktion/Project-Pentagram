@@ -39,7 +39,7 @@ class CastSpellDetail
             SelectedTime = time;
         }
 
-        friend ostream& operator<<(ostream& os, const CastSpellDetail& detail)
+        friend std::ostream& operator<<(std::ostream& os, const CastSpellDetail& detail)
         {
             os << "\n\tSpell: " << detail.OriginalSpell->GetSpellName() <<" By: "<<(int)detail.SpellOwner << "\n";
 

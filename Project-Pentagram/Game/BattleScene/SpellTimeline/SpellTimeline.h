@@ -5,7 +5,7 @@
 class SpellTimeline 
 {
 private:
-    array<SpellTimetrack, 11> m_Timeline;
+    std::array<SpellTimetrack, 11> m_Timeline;
 
 public:
     TimelineController* UI;
@@ -20,7 +20,7 @@ public:
         std::cout << "ADD ICON 1\n";
         UI->AddIconToTrack(array_index, spell);
 
-        cout << "Add Spell to Timetrack index: " << array_index << "\n";
+        std::cout << "Add Spell to Timetrack index: " << array_index << "\n";
     }
 
     void UpdateTimeline()

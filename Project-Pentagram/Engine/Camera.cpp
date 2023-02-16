@@ -59,9 +59,9 @@ glm::mat4 Camera::GetProjectionMatrix(const bool& isZoom)
 	Window* window = ArcantEngine::GetInstance()->GetWindow();
 	float screenWidth = window->GetWindowWidth() / (isZoom ? m_Zoom : 1.0f);
 	float screenHeight = window->GetWindowHeight() / (isZoom ? m_Zoom : 1.0f);
-	float near = -1.0f;
-	float far = 1.0f;
-	return glm::ortho(-screenWidth / 2.0f, screenWidth / 2.0f, -screenHeight / 2.0f, screenHeight / 2.0f, near, far);
+	float _near = -1.0f;
+	float _far = 1.0f;
+	return glm::ortho(-screenWidth / 2.0f, screenWidth / 2.0f, -screenHeight / 2.0f, screenHeight / 2.0f, _near, _far);
 }
 glm::vec3 Camera::GetPosition() const 
 { 

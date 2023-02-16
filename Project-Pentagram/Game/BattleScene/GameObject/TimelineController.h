@@ -12,7 +12,7 @@ private:
 
     UIObject* trackMarker;
 
-    vector<TimetrackUI*> m_Tracks;
+    std::vector<TimetrackUI*> m_Tracks;
 public:
     TimelineController();
 

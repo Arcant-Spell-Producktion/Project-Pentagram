@@ -6,7 +6,7 @@ class SpellBook
 {
 private:
     Element::Type m_Element;
-    string m_Bookname;
+    std::string m_Bookname;
     Spell m_Spells[9];
     int m_Count = 0;
 public:

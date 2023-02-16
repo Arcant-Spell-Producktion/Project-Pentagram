@@ -6,8 +6,6 @@
 #include "ChannelEffectType.h"
 #include "Game/Spells/Element.h"
 
-using namespace std;
-
 class Spell
 {
 private:
@@ -56,6 +54,6 @@ public:
     void SetChannelTime(int time) { m_ChannelTime = time; }
     const int GetChannelTime() { return m_ChannelTime; }
 
-    friend ostream& operator<<(ostream& os, const Spell& dt);
+    friend std::ostream& operator<<(std::ostream& os, const Spell& dt);
 };
 

@@ -1,7 +1,10 @@
 ﻿#pragma once
 
+#define GLFW_EXPOSE_NATIVE_WIN32
+
 #include <glad/glad.h>
 #include <glfw/glfw3.h>
+#include <glfw/glfw3native.h>
 #include <glm/glm.hpp>
 #include "Engine/stb/stb_image.h"
 

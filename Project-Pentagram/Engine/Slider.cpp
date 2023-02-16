@@ -85,7 +85,7 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	// Set Button Slicing
 	if (m_IsSlicing)
 	{
-		float minVal = std::min(this->scale.x, this->scale.y);
+		float minVal = min(this->scale.x, this->scale.y);
 		glm::vec2 u_dimension = glm::vec2(this->scale.x, this->scale.y);
 		glm::vec2 u_textureBorder = glm::vec2(0.5f, 0.5f);
 		float u_slicingBorder = (minVal >= 2 * m_SlicingBorder ? m_SlicingBorder : minVal / 2.0f);

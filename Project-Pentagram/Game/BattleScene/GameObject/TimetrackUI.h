@@ -13,7 +13,7 @@ private:
     UIObject* m_Box;
     UIObject* m_IconParent;
     SpellTimetrack* m_TrackPtr;
-    vector<SpellIconUI*> m_Icons;
+    std::vector<SpellIconUI*> m_Icons;
     SpellIconUI* m_PreviewIcon;
 
     Button* m_ExpandButton;

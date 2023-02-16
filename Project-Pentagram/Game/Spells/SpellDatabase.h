@@ -6,9 +6,9 @@
 
 class SpellDatabase:public Singleton<SpellDatabase>
 {
-    void AddSpellBook(Element::Type element, string filename);
+    void AddSpellBook(Element::Type element, std::string filename);
 public:
-    map<Element::Type, SpellBook*> SpellBooks;
+    std::map<Element::Type, SpellBook*> SpellBooks;
 
     void LoadResource();
 

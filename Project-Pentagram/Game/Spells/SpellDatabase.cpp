@@ -14,7 +14,7 @@ void SpellDatabase::LoadResource()
     //AddSpellBook(Element::Debug,"Ligma");
 }
 
-void SpellDatabase::AddSpellBook(Element::Type element , string filename)
+void SpellDatabase::AddSpellBook(Element::Type element , std::string filename)
 {
     SpellBook* newBook = new SpellBook(element,filename);
     SpellBooks.emplace(element, newBook);
