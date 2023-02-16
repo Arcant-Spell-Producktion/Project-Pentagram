@@ -43,6 +43,9 @@ class Window
 		void SwapBuffers();
 		void Close();
 
+		void UpdateGameViewport();
+		void UpdateCursorViewport();
+
 		// Setter
 		void SetWindowSize(const glm::ivec2 windowSize);
 		void SetWindowSize(const int& windowWidth, const int& windowHeight);

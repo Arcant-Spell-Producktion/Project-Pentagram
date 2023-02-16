@@ -45,10 +45,25 @@ void CursorManager::InitParticle(ParticleSystem*& particle, std::string objName)
 void CursorManager::UpdateCursorPosition()
 {
 	glm::dvec2 curPos;
+	glm::ivec2 windowPos;
 	glfwGetCursorPos(windowRef->GetWindowPointer(), &curPos.x, &curPos.y);
+	glfwGetWindowPos(windowRef->GetWindowPointer(), &windowPos.x, &windowPos.y);
+
+	if (curPos.x >= 0 && curPos.x <= windowRef->GetWindowWidth() &&
+		curPos.y >= 0 && curPos.y <= windowRef->GetWindowHeight() )
+	{
+		cursorObject->SetActive(true);
+	}
+	else
+	{
+		cursorObject->SetActive(false);
+		return;
+	}
 
 	glm::vec2 windowSize = { windowRef->GetWindowWidth(), windowRef->GetWindowHeight() };
-	cursorObject->position = { curPos.x - windowSize.x / 2.0f, windowSize.y / 2.0f - curPos.y, 0.0f };
+	glm::vec2 viewportSize = { windowRef->GetViewportWidth(), windowRef->GetViewportHeight() };
+
+	MapCursorPosition(curPos);
 	cursorObject->position.x += cursorObject->scale.x / 2.0f;
 	cursorObject->position.y -= cursorObject->scale.y / 2.0f;
 }
@@ -94,4 +109,15 @@ void CursorManager::UpdateOnClickParticle(float dt)
 		onClickParticle->StopGenerate();
 	}
 	onClickParticle->OnUpdate(dt);
+}
+float CursorManager::MapValue(float value, float orgMin, float orgMax, float newMin, float newMax)
+{
+	float percentage = (value - orgMin) / (orgMax - orgMin);
+
+	return newMin + percentage * (newMax - newMin);
+}
+void CursorManager::MapCursorPosition(const glm::vec2& cursorPos)
+{
+	cursorObject->position.x = MapValue(cursorPos.x, 0, windowRef->GetWindowWidth(), -1920.0f / 2.0f, 1920.0f / 2.0f);
+	cursorObject->position.y = MapValue(windowRef->GetWindowHeight() - cursorPos.y, 0, windowRef->GetWindowHeight(), -1080.0f / 2.0f, 1080.0f / 2.0f);
 }
