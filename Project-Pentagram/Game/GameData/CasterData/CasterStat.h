@@ -7,15 +7,17 @@ struct CasterStat
     int MaxHealth;
 
     int CurrentMana;
+    int MaxMana;
+    
     int CurrentManaWheel = 0;
-
     std::array<int, 6> ManaWheel;
 
     CasterStat(int hp = 1, std::array<int, 6> manaWheel = {1,1,1,1,1,1})
     {
         CurrentHealth = MaxHealth = hp;
-        ManaWheel = manaWheel;
 
+        MaxMana = 0;
+        ManaWheel = manaWheel;
         CurrentMana = manaWheel[CurrentManaWheel];
     }
 
@@ -25,8 +27,9 @@ struct CasterStat
         MaxHealth = stat.MaxHealth;
 
         CurrentMana = stat.CurrentMana;
-        CurrentManaWheel = stat.CurrentManaWheel;
+        MaxMana = stat.MaxMana;
 
+        CurrentManaWheel = stat.CurrentManaWheel;
         ManaWheel = stat.ManaWheel;
     }
 };

@@ -13,7 +13,7 @@ CasterUIController::CasterUIController(CasterPosition position)
 void CasterUIController::SetStat(CasterStat stat)
 {
     m_StatUI->SetHealthText(stat.CurrentHealth,stat.MaxHealth);
-    m_StatUI->SetManaText(stat.CurrentMana, stat.ManaWheel[stat.CurrentManaWheel]);
+    m_StatUI->SetManaText(stat.CurrentMana, stat.MaxMana);
 }
 
 

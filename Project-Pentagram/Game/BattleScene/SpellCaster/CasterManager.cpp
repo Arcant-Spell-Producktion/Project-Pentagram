@@ -53,8 +53,7 @@ int CasterManager::RandomMana()
 {
     if (!std::count(m_ManaWheelTracker.begin(), m_ManaWheelTracker.end(),false))
     {
-        ResetMana();
-        std::cout << "Reset Mana! \n";
+        return -1;
     }
 
     int index = rand() % 6;
@@ -65,7 +64,8 @@ int CasterManager::RandomMana()
     }
 
     m_CurrentData.Stat().CurrentManaWheel = index;
-    m_CurrentData.Stat().CurrentMana = m_CurrentData.Stat().ManaWheel[m_CurrentData.Stat().CurrentManaWheel];
+    m_CurrentData.Stat().MaxMana += m_CurrentData.Stat().ManaWheel[m_CurrentData.Stat().CurrentManaWheel];
+    m_CurrentData.Stat().CurrentMana = m_CurrentData.Stat().MaxMana;
     m_ManaWheelTracker[m_CurrentData.Stat().CurrentManaWheel] = true;
 
     return  m_CurrentData.Stat().CurrentManaWheel;
@@ -73,6 +73,7 @@ int CasterManager::RandomMana()
 
 void CasterManager::ResetMana()
 {
+    m_CurrentData.Stat().MaxMana = 0;
     m_ManaWheelTracker = { false, false, false, false, false, false };
 }
 
@@ -134,8 +135,8 @@ int CasterManager::GetSpellCost()
 
     int sum = 1;//All spell start with value 1
 
-    sum += m_PentagramData.circle - 1;
-    sum += m_PentagramData.complex - 1;
+    sum += (m_PentagramData.circle - 1) * 2;
+    sum += (m_PentagramData.complex - 1) * 2;
     sum += m_PentagramData.will - 1;
     sum += m_PentagramData.effect - 1;
     sum += GetTimeCost();

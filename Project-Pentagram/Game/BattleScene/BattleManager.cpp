@@ -32,6 +32,11 @@ void BattleManager::Init(IGameObjectManager* scene)
 
 void BattleManager::StartBattle()
 {
+    for(auto caster: Data.Casters)
+    {
+        caster->GetCasterManager()->ResetMana();
+    }
+
     SetBattleState(BattleState::CastState);
 }
 

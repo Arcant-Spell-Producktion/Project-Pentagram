@@ -2,7 +2,6 @@
 #include "Game/BattleScene/BattleStates/BattleStateModel.h"
 
 #include "Game/GameData/RuntimeGameData.h"
-#include "SpellCaster/PlayerController.h"
 #include "Game/BattleScene/BattleManager.h"
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
