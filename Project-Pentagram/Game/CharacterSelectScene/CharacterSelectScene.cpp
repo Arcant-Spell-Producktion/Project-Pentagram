@@ -95,15 +95,6 @@ void CharacterSelectScene::GameSceneUpdate(float dt)
 	GameScene::GameSceneUpdate(dt);
 	FadeUpdate(dt);
 
-	if (Input::IsKeyPressed(GLFW_KEY_1))
-	{
-		SceneManager::LoadScene(GameState::GS_DEMO_SCENE);
-	}
-	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
-	{
-		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-	}
-
 	// Update GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
@@ -113,10 +104,6 @@ void CharacterSelectScene::GameSceneUpdate(float dt)
 		if (curObj->IsAnimationObject())
 		{
 			curObj->UpdateAnimation(dt);
-		}
-		if (curObj->GetTag() == GameObjectTag::PARTICLE && Input::IsKeyBeginPressed(GLFW_KEY_4))
-		{
-			curObj->SetActive(curObj->IsActive() ? false : true);
 		}
 	}
 	// Update UI

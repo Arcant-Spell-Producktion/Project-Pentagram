@@ -12,24 +12,21 @@ ScrollButton::ScrollButton(std::string text):Button("Scroll-Button_"+text)
     this->SetSlicingType(SlicingType::REPEAT);
 
     this->unHover = [this](Button* button) { 
-        if (!m_isToggle)
+        if (!m_isExpand)
         {
             this->scale = DefaultScale;
         }
     };
 
     this->onHover = [this](Button* button) {
-        if (!m_isToggle || !m_isExpand)
-        {
             this->scale = ExpandScale;
-        }
     };
 
-    this->onClick = [this](Button* button) { 
+    this->onClick = [this](Button* button) {
         if (m_isToggle)
         {
             m_isExpand = !m_isExpand;
-            this->scale = m_isExpand? ExpandScale:DefaultScale;
+            this->scale = m_isExpand ? ExpandScale : DefaultScale;
         }
     };
 
