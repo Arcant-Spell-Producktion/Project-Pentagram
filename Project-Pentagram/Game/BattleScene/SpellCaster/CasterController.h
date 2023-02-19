@@ -44,6 +44,10 @@ public:
 
     void SetState(CasterState state) { m_CasterState = state; }
 
+    void SetIsShowCasterDetail(bool active) { m_CasterUI.SetIsShowDetail(active); }
+
+    bool IsShowCasterDetail() { return m_CasterUI.IsShowDetail(); }
+
     virtual void StartTurn();
 
     bool TakeDamage(int value);

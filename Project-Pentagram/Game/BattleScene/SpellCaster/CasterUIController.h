@@ -14,6 +14,8 @@ public:
     CasterUIController(CasterPosition position);
 
     void SetStat(CasterStat stat);
+    void SetIsShowDetail(bool active);
+    bool IsShowDetail();
     void SetDetail(CastSpellDetail* spell, bool isMainData = false, glm::vec3 IconPos = { 0,0,0 });
     void UpdateEffectBar(std::vector<EffectDetail_T> effects);
 
