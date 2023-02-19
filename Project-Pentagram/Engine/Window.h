@@ -33,10 +33,13 @@ class Window
 		const char* m_Title;
 		glm::vec2 m_WindowRatio = glm::vec2(1.0f, 1.0f);
 		glm::vec2 m_ViewportRatio = glm::vec2(1.0f, 1.0f);
+		glm::vec2 m_ViewportPosition = glm::vec2(0.0f, 0.0f);
 		bool m_Close = false;
 
 		glm::ivec2 prevScale;
 		glm::ivec2 prevPos;
+
+		void InitMaximizeWidget();
 
 	public:
 		Window(const int &width, const int &height, const char* title);
@@ -58,6 +61,7 @@ class Window
 		void SetViewportHeight(const int& height);
 		void SetWindowDiffRatio(const glm::vec2& ratio);
 		void SetViewportDiffRatio(const glm::vec2& ratio);
+		void SetViewportPosition(const glm::vec2& position);
 		void SetClose(const bool& close);
 		void SetFullScreen(const bool fullscreen);
 

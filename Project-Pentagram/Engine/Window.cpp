@@ -11,6 +11,7 @@ void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 	if ((float)newWidth / newHeight == WINDOW_RATIO)
 	{
 		glViewport(0, 0, newWidth, newHeight);
+		currentWindow->SetViewportPosition({0.0f, 0.0f});
 		currentWindow->SetViewportWidth(newWidth);
 		currentWindow->SetViewportHeight(newHeight);
 		currentWindow->SetViewportDiffRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
@@ -20,6 +21,7 @@ void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 		int ratioHeight = newWidth * (1.0f / WINDOW_RATIO);
 		int offsetHeight = std::abs(newHeight - ratioHeight);
 		glViewport(0, offsetHeight / 2, newWidth, ratioHeight);
+		currentWindow->SetViewportPosition({ 0, offsetHeight / 2 });
 		currentWindow->SetViewportWidth(newWidth);
 		currentWindow->SetViewportHeight(ratioHeight);
 		currentWindow->SetViewportDiffRatio(glm::vec2((float)newWidth / WINDOW_WIDTH, (float)ratioHeight / WINDOW_HEIGHT));
@@ -29,6 +31,7 @@ void resizeCallback(GLFWwindow* window, int newWidth, int newHeight)
 		int ratioWidth = newHeight * WINDOW_RATIO;
 		int offsetWidth = std::abs(newWidth - ratioWidth);
 		glViewport(offsetWidth / 2, 0, ratioWidth, newHeight);
+		currentWindow->SetViewportPosition({ offsetWidth / 2, 0 });
 		currentWindow->SetViewportWidth(ratioWidth);
 		currentWindow->SetViewportHeight(newHeight);
 		currentWindow->SetViewportDiffRatio(glm::vec2((float)ratioWidth / WINDOW_WIDTH, (float)newHeight / WINDOW_HEIGHT));
@@ -40,6 +43,7 @@ void windowCloseCallback(GLFWwindow* window)
 	currentWindow->SetClose(true);
 }
 
+// ----------------- Window Class ----------------- 
 Window::Window(const int& width, const int& height, const char* title)
 	: m_Width(width), m_Height(height), m_Title(title), m_Window(nullptr)
 {
@@ -65,22 +69,7 @@ void Window::Close()
 
 void Window::UpdateGameViewport()
 {
-	if ((float)m_Width / m_Height == WINDOW_RATIO)
-	{
-		glViewport(0, 0, m_ViewportWidth, m_ViewportHeight);
-	}
-	else if (m_Width * (1.0f / WINDOW_RATIO) <= m_Height)
-	{
-		int ratioHeight = m_ViewportWidth * (1.0f / WINDOW_RATIO);
-		int offsetHeight = std::abs(m_Height - ratioHeight);
-		glViewport(0, offsetHeight / 2, m_ViewportWidth, ratioHeight);
-	}
-	else
-	{
-		int ratioWidth = m_ViewportHeight * WINDOW_RATIO;
-		int offsetWidth = std::abs(m_Width - ratioWidth);
-		glViewport(offsetWidth / 2, 0, ratioWidth, m_ViewportHeight);
-	}
+	glViewport(m_ViewportPosition.x, m_ViewportPosition.y, m_ViewportWidth, m_ViewportHeight);
 }
 void Window::UpdateCursorViewport()
 {
@@ -128,6 +117,10 @@ void Window::SetViewportDiffRatio(const glm::vec2& ratio)
 {
 	this->m_ViewportRatio = ratio;
 }
+void Window::SetViewportPosition(const glm::vec2& position)
+{
+	this->m_ViewportPosition = position;
+}
 void Window::SetClose(const bool& close) 
 { 
 	this->m_Close = close; 
@@ -149,6 +142,8 @@ void Window::SetFullScreen(const bool fullscreen)
 
 		// switch to full screen
 		glfwSetWindowMonitor(m_Window, m_Monitor, 0, 0, mode->width, mode->height, 0);
+
+		this->InitMaximizeWidget();
 	}
 	else
 	{
@@ -156,7 +151,6 @@ void Window::SetFullScreen(const bool fullscreen)
 		glfwSetWindowMonitor(m_Window, nullptr, prevPos.x, prevPos.y, prevScale.x, prevScale.y, 0);
 
 	}
-	std::cout << m_Width << " " << m_Height << "\n";
 }
 
 // Getter Implement
@@ -228,16 +222,6 @@ void Window::Init()
 	glfwSetKeyCallback(m_Window, Input::keyCallBack);
 	glfwSetCursorPosCallback(m_Window, Input::cursorCallBack);
 	glfwSetMouseButtonCallback(m_Window, Input::mouseCallBack);
-	
-	HWND hwnd = glfwGetWin32Window(m_Window);
-	// Get the current window style
-	LONG_PTR style = GetWindowLongPtr(hwnd, GWL_STYLE);
-
-	// Add the WS_MAXIMIZEBOX style to the window style
-	style |= WS_MAXIMIZEBOX;
-
-	// Set the modified style back on the window
-	SetWindowLongPtr(hwnd, GWL_STYLE, style);
 
 	m_Monitor = glfwGetPrimaryMonitor();
 
@@ -246,6 +230,7 @@ void Window::Init()
 	glfwSetWindowIcon(m_Window, 1, images);
 	stbi_image_free(images[0].pixels);
 
+	this->InitMaximizeWidget();
 	this->MakeContextCurrent();
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -266,4 +251,18 @@ void Window::Destroy()
 {
 	glfwTerminate();
 	m_Window = nullptr;
+}
+
+// ----------------- Private Function ----------------- 
+void Window::InitMaximizeWidget()
+{
+	HWND hwnd = glfwGetWin32Window(m_Window);
+	// Get the current window style
+	LONG_PTR style = GetWindowLongPtr(hwnd, GWL_STYLE);
+
+	// Add the WS_MAXIMIZEBOX style to the window style
+	style |= WS_MAXIMIZEBOX;
+
+	// Set the modified style back on the window
+	SetWindowLongPtr(hwnd, GWL_STYLE, style);
 }
