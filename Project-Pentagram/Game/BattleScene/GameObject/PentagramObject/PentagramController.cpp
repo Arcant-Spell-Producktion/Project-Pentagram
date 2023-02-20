@@ -45,7 +45,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
 
 #pragma region OtherButton
     m_CastButton = m_ObjectManager->CreateObject(new ScrollButton("Cast"));
-    m_CastButton->position = { -180.0f,-440.0f,0.0f };
+    m_CastButton->position = { -180.0f, -440.0f - PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
     m_CastButton->onClick = [](Button* button)
     {
         AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_invoke_button_press.wav", 1.0f);
@@ -53,7 +53,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     };
 
     m_PassButton = m_ObjectManager->CreateObject(new ScrollButton("Pass"));
-    m_PassButton->position = { 180.0f,-440.0f,0.0f };
+    m_PassButton->position = { 180.0f, -440.0f - PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
     m_PassButton->onClick = [](Button* button)
     {
         auto bm = BattleManager::GetInstance();

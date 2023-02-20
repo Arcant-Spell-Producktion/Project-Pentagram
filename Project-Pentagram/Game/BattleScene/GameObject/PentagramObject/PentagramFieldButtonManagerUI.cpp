@@ -80,7 +80,7 @@ PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObj
     for (size_t i = 0; i < 5; i++)
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
-        float radius = 200.0f;
+        float radius = 185.0f;
 
         PentagramField field_value = GetFieldByIndex(i);
 

@@ -3,6 +3,8 @@
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
+#define PENTAGRAM_CIRCLE_OFFSET_Y 50.0f
+
 class PentagramCircleUI : public UIObject
 {
 private:

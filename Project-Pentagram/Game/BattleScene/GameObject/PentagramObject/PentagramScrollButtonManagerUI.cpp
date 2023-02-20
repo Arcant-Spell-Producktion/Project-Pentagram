@@ -84,8 +84,8 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
     m_Scroll->SetSlicingBorderSize(200.0f);
     m_Scroll->SetSlicingBorderMultiplier(0.25f);
     m_Scroll->SetSlicingType(SlicingType::REPEAT);
-    m_Scroll->position = { 0.0f,-250.0f,0.0f };
-    m_Scroll->scale = { 800.0f, 160.0f,0.0f };
+    m_Scroll->position = { 0.0f, -250.0f, 0.0f };
+    m_Scroll->scale = { 800.0f, 160.0f, 0.0f };
     this->SetChildRenderBack(m_Scroll);
 
     for (size_t i = 1; i <= 6; i++)

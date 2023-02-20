@@ -122,7 +122,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     int fieldIndex = (int)m_SelectedField + 1;
     int elementIndex = (int)m_CurrentElement + 1;
 
-    float size = 100.0f;
+    float size = 85.0f;
     this->SetTexture(PentagramFieldButtonPath);
     this->scale = { size ,size , 1.0f };
     this->SetIsSlicing(false);
@@ -130,18 +130,18 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
     FieldSignature = new UIObject("FieldIcon");
     FieldSignature->SetTexture(PentagramFieldButtonPath);
-    FieldSignature->scale = { size ,size , 1.0f };
+    FieldSignature->scale = { size, size, 1.0f };
     FieldSignature->SetSpriteByIndex(fieldIndex, 0);
     FieldSignature->SetIsAnimationObject(false);
 
     ElementSignature = new UIObject("ElementIcon");
     ElementSignature->SetTexture(PentagramFieldButtonPath);
-    ElementSignature->scale = { size ,size , 1.0f };
+    ElementSignature->scale = { size , size, 1.0f };
     ElementSignature->SetIsAnimationObject(false);
 
     ButtonCover = new UIObject("ButtonCover");
     ButtonCover->SetTexture(PentagramFieldButtonPath);
-    ButtonCover->scale = { size ,size , 1.0f };
+    ButtonCover->scale = { size, size, 1.0f };
     ButtonCover->SetSpriteByIndex(0, (int)m_buttonState);
     ButtonCover->SetIsAnimationObject(false);
 
@@ -184,7 +184,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
     SetElement(m_CurrentElement);
 
-    float radius = 60.0f;
+    float radius = 50.0f;
     int rune_i = 0;
     for (auto rune : m_RuneList)
     {

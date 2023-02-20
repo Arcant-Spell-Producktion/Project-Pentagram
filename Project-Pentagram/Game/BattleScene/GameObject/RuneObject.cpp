@@ -19,12 +19,12 @@ void RuneObject::SetRune(int runeIndex)
 
 RuneObject::RuneObject(int runeIndex) :UIObject("RuneObj")
 {
-    float size = 35.0f;
-    this->scale = { size,size ,1.0f };
+    float size = 25.0f;
+    this->scale = { size, size ,1.0f };
     this->SetTexture("Sprites/UI/Game/ui_game_runes.png");
     this->SetIsAnimationObject(false);
     this->SetSpriteByIndex(0,runeIndex);
-    this->color = { 0.0f,0.0f, 0.0f, 1.0f };
+    this->color = { 0.0f, 0.0f, 0.0f, 1.0f };
 }
 
 std::vector<RuneObject*> RuneObjectFactory::CreateRunes(const std::string text)

@@ -30,25 +30,25 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     };
 
     this->color.a = 0.0f;
-    this->scale = { m_IconSize,m_IconSize ,1.0f };
+    this->scale = { m_IconSize, m_IconSize, 1.0f };
 
     m_IconObject = new UIObject(objName + "_icon");
     m_IconObject->SetIsAnimationObject(false);
     m_IconObject->SetTexture(iconPath);
     m_IconObject->SetSpriteByIndex(0, 0);
-    m_IconObject->scale = { m_IconSize,m_IconSize ,1.0f };
+    m_IconObject->scale = { m_IconSize, m_IconSize, 1.0f };
 
     m_IconOverlay = new UIObject(objName + "_icon");
     m_IconOverlay->SetIsAnimationObject(false);
     m_IconOverlay->SetTexture(iconVariationPath);
     m_IconOverlay->SetSpriteByIndex(0, 0);
-    m_IconOverlay->scale = { m_IconSize,m_IconSize ,1.0f };
+    m_IconOverlay->scale = { m_IconSize, m_IconSize,1.0f };
 
     m_IconBorder = new UIObject(objName + "_iconBorder");
     m_IconBorder->SetIsAnimationObject(false);
     m_IconBorder->SetTexture(iconBorderPath);
     m_IconBorder->SetSpriteByIndex(0, 0);
-    m_IconBorder->scale = { m_BorderSize , m_BorderSize , 1.0f };
+    m_IconBorder->scale = { m_BorderSize, m_BorderSize, 1.0f };
 
     this->SetChildRenderFront(m_IconObject);
     this->SetChildRenderFront(m_IconOverlay);
