@@ -66,8 +66,18 @@ bool CasterController::TakeDamage(int value)
 
 CastSpellDetail* CasterController::CastSpell()
 {
+    auto bm = BattleManager::GetInstance();
     CastSpellDetail* spell = m_CasterManager.GetSpellDetail();
+
+    bool doCompare =
+        spell->OriginalSpell->GetChannelEffectType() != ChannelEffectEnum::Wait;
+
+    bm->Data.Timeline.AddSpellToTimeline(spell, doCompare);
+    bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
+    bm->Data.GetCurrentCaster()->EndTurn();
+
     m_CasterManager.CommitSpell();
+
     std::cout << "Casted:\n" << *spell << "\n"
         << "\tRemained Mana: " << m_CasterManager.GetMana() << "\n";
 

@@ -51,24 +51,26 @@ void CasterManager::ChangeMana(int mana) { m_CurrentData.Stat().CurrentMana += m
 
 int CasterManager::RandomMana()
 {
-    if (!std::count(m_ManaWheelTracker.begin(), m_ManaWheelTracker.end(),false))
+    int curWheel = -1;
+    if (std::count(m_ManaWheelTracker.begin(), m_ManaWheelTracker.end(),false))
     {
-        return -1;
+        int index = rand() % 6;
+
+        while (m_ManaWheelTracker[index])
+        {
+            index = (index + 1) % 6;
+        }
+
+        curWheel = m_CurrentData.Stat().CurrentManaWheel;
+        m_CurrentData.Stat().CurrentManaWheel = index;
+        m_CurrentData.Stat().MaxMana += m_CurrentData.Stat().ManaWheel[m_CurrentData.Stat().CurrentManaWheel];
+        m_ManaWheelTracker[m_CurrentData.Stat().CurrentManaWheel] = true;
+           
     }
 
-    int index = rand() % 6;
-
-    while (m_ManaWheelTracker[index])
-    {
-        index = (index + 1) % 6;
-    }
-
-    m_CurrentData.Stat().CurrentManaWheel = index;
-    m_CurrentData.Stat().MaxMana += m_CurrentData.Stat().ManaWheel[m_CurrentData.Stat().CurrentManaWheel];
     m_CurrentData.Stat().CurrentMana = m_CurrentData.Stat().MaxMana;
-    m_ManaWheelTracker[m_CurrentData.Stat().CurrentManaWheel] = true;
 
-    return  m_CurrentData.Stat().CurrentManaWheel;
+    return curWheel;
 }
 
 void CasterManager::ResetMana()
@@ -96,8 +98,6 @@ void CasterManager::CommitSpell()
 {
     ChangeMana(-GetSpellCost());
     m_CurrentSpell = nullptr;
-    //TODO:: Implememnt timeline
-    //SpellTimeline::GetInstance()->AddSpellToTimeline(m_CurrentSpell);
 }
 
 int CasterManager::GetFieldCost(PentagramField field)

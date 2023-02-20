@@ -16,7 +16,9 @@ void SetupBattleState::OnBattleStateIn()
     std::cout << "DEBUG ENEMY ELEMENT: " << (int)currentNode->GetEnemyData().Element() << "\n";
 
     bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
-    bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
+
+    TestMoveSet testMoves;
+    bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData(), testMoves));
 }
 
 void SetupBattleState::OnBattleStateUpdate(float dt)

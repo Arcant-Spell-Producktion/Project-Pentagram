@@ -1,6 +1,19 @@
 ﻿#include "CastBattleState.h"
 #include "Game/BattleScene/BattleManager.h"
+#include "Game/BattleScene/SpellCaster/EnemyController.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
+
+void EnemyCastUpdate(float dt)
+{
+    BattleManager* battleManager = BattleManager::GetInstance();
+    CasterController* currentController = battleManager->Data.GetCurrentCaster();
+    CasterManager* currentCaster = currentController->GetCasterManager();
+
+    dynamic_cast<EnemyController*>(currentController)->CastEnemySpell();
+
+    currentController->EndTurn();
+    battleManager->SwapCaster();
+}
 
 void PlayerCastUpdate(float dt)
 {
@@ -57,18 +70,7 @@ void CastBattleState::OnBattleStateUpdate(float dt)
         }
         else
         {
-            std::cout << " ***************************\n\tCheck value : " << (int)currentController->GetState() << "\n\n";
-            CasterManager* currentCaster = currentController->GetCasterManager();
-
-            /*currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
-            battleManager->Data.Timeline.AddSpellToTimeline(currentController->CastSpell());
-
-            currentCaster->SetPentagramData({ 1, 1, 3, 1, 3 });
-            battleManager->Data.Timeline.AddSpellToTimeline(currentController->CastSpell());*/
-
-
-            currentController->EndTurn(true);
-            battleManager->SwapCaster();
+            EnemyCastUpdate(dt);
         }
     }
     else

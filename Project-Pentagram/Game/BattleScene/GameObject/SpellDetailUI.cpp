@@ -17,7 +17,7 @@ void SpellDetailUI::SetText(CastSpellDetail* details)
     ssEff << "Effect: ";
     ssCha << "Channel Type: ";
 
-    if (details != nullptr)
+    if (details != nullptr && details->OriginalSpell != nullptr)
     {
         ssName << details->OriginalSpell->GetSpellName();
         
