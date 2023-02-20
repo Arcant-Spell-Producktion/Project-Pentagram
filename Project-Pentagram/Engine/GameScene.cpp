@@ -442,6 +442,8 @@ void GameScene::GameSceneUnload()
 }
 void GameScene::GameSceneFree()
 {
+	UpdateDeleteObject();
+
 	// Free GameObject
 	for (GLuint idx = 0; idx < objectsList.size(); idx++)
 	{
