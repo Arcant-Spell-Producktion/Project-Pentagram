@@ -22,14 +22,14 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     m_Health->SetStartGradientTexture("Sprites/GradientMap/gradiant-map_green.png");
     m_Health->SetEndGradientTexture("Sprites/GradientMap/gradiant-map_red.png");
     m_Health->SetIsGradient(true);
-    m_Health->position = { -30.0f * flip , -20.0f , 0.0f };
+    m_Health->position = { 40.0f * flip , -16.0f , 0.0f };
     m_Health->scale = { 280.0f, 70.0f, 1.0f };
     m_Health->color = { 1.0f, 1.0f, 1.0f, 1.0f };
     this->SetChildRenderFront(m_Health);
 
     m_Mana = new UIObject("m_Mana_" + std::to_string((int)position));
     m_Mana->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_mana-stone.png");
-    m_Mana->position = { 115.0f * flip , 0.0f , 0.0f };
+    m_Mana->position = { -115.0f * flip , 0.0f , 0.0f };
     m_Mana->scale = { 140.0f,140.0f,1.0f };
     this->SetChildRenderFront(m_Mana);
 
@@ -47,7 +47,7 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     m_Mana->SetChildRenderFront(m_ManaText);
 
     m_EffectBar = new CasterEffectBarUI(position);
-    m_EffectBar->position = { 16.0f * flip ,32.0f,0.0f };
+    m_EffectBar->position = { -16.0f * flip ,32.0f,0.0f };
     this->SetChildRenderFront(m_EffectBar);
 
     SetHealthText(0, 0);
