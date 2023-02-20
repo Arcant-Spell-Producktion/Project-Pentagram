@@ -1,6 +1,8 @@
 ﻿#include "MapScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/GameData/RuntimeGameData.h"
+#include "MapNode.h"
+
 
 void MapScene::FadeUpdate(const float& dt)
 {
@@ -23,29 +25,52 @@ void MapScene::GameSceneLoad()
 
 void MapScene::GameSceneInit()
 {
-
-	// Set FadeScreen Component
-	m_FadeScreen = CreateUIObject("fadeScreen");
-	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
-    m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
-	m_FadeScreen->SetActive(false);
-
 	std::cout << "Map Scene : Initialize Completed\n";
 
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
 
-    switch (gameData->Player->Element())
+    auto MapBGObject = CreateGameObject("MapBG");
+    MapBGObject->SetTexture("Sprites/Map/map.png");
+    MapBGObject->scale = { 1920.0f,1080.0f,0.0f };
+
+    for (int i = 0; i < 4; i++)
     {
+        Element::Type e = static_cast<Element::Type>(i);
+        MapNode* node = CreateObject(new MapNode(e));
+        node->SetActive(gameData->Map->CanVisitChapter(e));
+
+        node->onClick.AddListener([this, e, gameData](Button* button)
+            {
+                gameData->Map->SelectChapter(e);
+        FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
+            });
+
+        switch (e)
+        {
+        case Element::Earth:
+            node->position = { 300.0f, -100.0f, 0.0f };
+            node->onClick.RemoveAllListeners();//TODO REMOVE AFTER IMPLEMENT
+            break;
         case Element::Fire:
-            gameData->Map->SelectChapter(Element::Water);
+            node->position = { -250.0f, 130.0f, 0.0f };
             break;
         case Element::Water:
-            gameData->Map->SelectChapter(Element::Fire);
+            node->position = { 210.0f, 350.0f, 0.0f };
             break;
+        case Element::Wind:
+            node->position = { -60.0f, -220.0f, 0.0f };
+            node->onClick.RemoveAllListeners();//TODO REMOVE AFTER IMPLEMENT
+            break;
+        }
+
+        
     }
 
-    FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
-
+    // Set FadeScreen Component
+    m_FadeScreen = CreateUIObject("fadeScreen");
+    m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
+    m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
+    m_FadeScreen->SetActive(false);
 }
 
 void MapScene::GameSceneUpdate(float dt)
