@@ -44,12 +44,12 @@ void WaterSpell1::Initialize()
     std::cout << "WaterBall::Init\n";
     float size = 300.0f;
     float speed = 10.0f;
-    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
+    float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
-    this->scale = { -size * m_SpellTarget,size,1.0f };
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    this->scale = { -size * m_SpellTarget, size, 1.0f };
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
     float travelTime = 1.5f;
 
     this->position = startPos;
@@ -65,17 +65,17 @@ void WaterSpell1::Initialize()
 void WaterSpell2::Initialize()
 {
     float size = 320.0f;
-    float startX = (540.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-640.0f + size / 4) * m_SpellTarget;
-    float yPos = -size/2;
-    this->scale = { size*2 * -m_SpellTarget ,size,1.0f };
-    this->position = { startX,yPos,1.0f };
+    float startX = (440.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-540.0f + size / 4) * m_SpellTarget;
+    float yPos = -size / 2;
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
+    this->position = { startX, yPos, 1.0f };
     this->SetIsAnimationObject(true);
 
     float timePerFrame = 0.1f;
 
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
     float travelTime = 1.5f;
 
 
@@ -96,8 +96,8 @@ void WaterSpell3::Initialize()
     x_index = 0;
     float size = 640.0f;
     float yPos = -160.0f;
-    this->scale = { size * -m_SpellTarget  ,size / 2,1.0f };
-    this->position = { x_Positions[x_index] * m_SpellTarget,yPos,1.0f };
+    this->scale = { size * -m_SpellTarget, size / 2, 1.0f };
+    this->position = { x_Positions[x_index] * m_SpellTarget, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
     
@@ -167,10 +167,10 @@ void WaterSpell3::Initialize()
 void WaterSpell4::Initialize()
 {
     float size = 640.0f;
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
-    this->scale = { size / 2 ,size,1.0f };
-    this->position = { xPos ,yPos,1.0f };
+    this->scale = { size / 2, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
 
     float timePerFrame = 0.15f;
@@ -191,10 +191,10 @@ void WaterSpell4::Initialize()
 void WaterSpell5::Initialize()
 {
     float size = 320.0f;
-    float xPos = (700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = -160.0f;
-    this->scale = { size*2 ,size,1.0f };
-    this->position = { xPos,yPos,1.0f };
+    this->scale = { size * 2, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
 
@@ -217,10 +217,10 @@ void WaterSpell6::Initialize()
 {
     std::cout << "Water Beam::Init\n";
     float size = 400.0f;
-    float xPos = (400.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (CASTER_POSITION_X - 350.0f) * m_SpellTarget; // Assume A shooter
     float yPos = -200.0f;
-    this->scale = { size ,size,1.0f };
-    this->position = { xPos,yPos,1.0f };
+    this->scale = { size, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
     this->color.a = 0.0f;
     this->SetIsAnimationObject(false);
 
@@ -229,7 +229,7 @@ void WaterSpell6::Initialize()
     {
         auto _section = scene->CreateGameObject("WaterBeam"+i);
 
-        _section->scale = { size * -m_SpellTarget ,size,1.0f };
+        _section->scale = { size * -m_SpellTarget, size, 1.0f };
         _section->position.x = size * i * -m_SpellTarget;
         _section->SetTexture(this->m_TexturePath);
         _section->SetSpriteByIndex(i, 0);
@@ -268,11 +268,11 @@ void WaterSpell6::Initialize()
 void WaterSpell7::Initialize()
 {
     float size = 320.0f;
-    float startX = (540.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-640.0f + size / 4) * m_SpellTarget;
+    float startX = (440.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-540.0f + size / 4) * m_SpellTarget;
     float yPos = -size / 2;
-    this->scale = { size * 2 * -m_SpellTarget ,size ,1.0f };
-    this->position = { startX,yPos,1.0f };
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
+    this->position = { startX, yPos, 1.0f };
     this->SetIsAnimationObject(true);
 
 
@@ -326,7 +326,7 @@ void WaterSpell8::Initialize()
         [this](float dt)
         {
             ParticleProperty hailProp;
-            hailProp.position = { 0.0f, 200.0f };
+            hailProp.position = { 100.0f, 200.0f };
             hailProp.positionVariation = { 250.0f,0.0f };
             hailProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
             hailProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -374,8 +374,8 @@ void WaterSpell9::Initialize()
     float startX = (0.0f) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
     float animSpeed = 0.15f;
-    this->scale = { -size * m_SpellTarget,size / 3,1.0f };
-    this->position = { startX ,yPos,0.0f };
+    this->scale = { -size * m_SpellTarget, size / 3, 1.0f };
+    this->position = { startX, yPos, 0.0f };
      
     this->SetAnimationPlayTime(animSpeed);
     this->SetIsAnimationObject(false);
@@ -385,8 +385,8 @@ void WaterSpell9::Initialize()
 
     GameObject* _bubbleObj = scene->CreateGameObject("bubble");
     _bubbleObj->SetTexture("Sprites/Spell/Water/spell_water_9-2.png");
-    _bubbleObj->scale = { 320.0f,320.0f ,1.0f };
-    _bubbleObj->position = { 700.0f * m_SpellTarget, -160.0f, 0.0f };
+    _bubbleObj->scale = { 320.0f, 320.0f, 1.0f };
+    _bubbleObj->position = { CASTER_POSITION_X * m_SpellTarget, -160.0f, 0.0f };
     _bubbleObj->SetAnimationPlayTime(animSpeed);
     _bubbleObj->SetIsAnimationObject(true);
     _bubbleObj->SetIsAnimationLoop(false);
