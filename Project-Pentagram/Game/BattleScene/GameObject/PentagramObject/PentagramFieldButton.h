@@ -40,6 +40,8 @@ public:
 
     void SetRuneActive(int amount);
 
+    void SetRuneColor(glm::vec4 runeColor);
+
     PentagramField GetButtonField() const { return m_SelectedField; }
     ButtonState GetButtonState() const { return m_buttonState; }
 

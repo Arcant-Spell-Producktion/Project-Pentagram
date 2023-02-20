@@ -81,6 +81,14 @@ void PentagramFieldButton::SetRuneActive(int amount)
     }
 }
 
+void PentagramFieldButton::SetRuneColor(glm::vec4 runeColor)
+{
+    for (size_t i = 0; i < m_RuneList.size(); i++)
+    {
+        m_RuneList[i]->color = runeColor;
+    }
+}
+
 PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type element) :Button("Pentagram_Button_"+ std::to_string((int)field)), m_SelectedField(field),m_CurrentElement(element)
 {
    
