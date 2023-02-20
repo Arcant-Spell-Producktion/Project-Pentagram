@@ -12,11 +12,11 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
         break;
     case Element::Fire:
         newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
-        m_Spells.emplace(detail, m_ObjectManager->CreateObject<BaseSpellObject>(newSpell));
+        m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Water:
         newSpell = WaterSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
-        m_Spells.emplace(detail, m_ObjectManager->CreateObject<BaseSpellObject>(newSpell));
+        m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Wind:
         break;
