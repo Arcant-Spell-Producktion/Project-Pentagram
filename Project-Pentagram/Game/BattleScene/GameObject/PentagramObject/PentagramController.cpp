@@ -8,12 +8,6 @@ void CastSpell()
     auto bm = BattleManager::GetInstance();
     auto spell = bm->Data.GetCurrentCaster()->CastSpell();
 
-    bool doCompare = 
-        spell->OriginalSpell->GetChannelEffectType() != ChannelEffectEnum::Wait;
-
-    bm->Data.Timeline.AddSpellToTimeline(spell, doCompare);
-    bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
-    bm->Data.GetCurrentCaster()->EndTurn();
     bm->SwapCaster();
 }
 

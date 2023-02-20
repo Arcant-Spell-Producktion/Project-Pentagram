@@ -6,7 +6,7 @@ class CastSpellDetail
 {
     public:
         CasterPosition SpellOwner;
-        Spell* OriginalSpell;
+        const Spell* OriginalSpell;
         int SelectedWill;
         int SelectedEffect;
         int SelectedTime;

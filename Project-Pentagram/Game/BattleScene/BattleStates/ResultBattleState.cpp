@@ -8,13 +8,19 @@
 void ResultBattleState::OnBattleStateIn()
 {
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-    if (gameData->Map->CompleteNode())
+    if (gameData->Player->Stat().CurrentHealth <= 0)
     {
         SceneManager::LoadScene(GameState::GS_MENU_SCENE);
     }
+    else if (gameData->Map->CompleteNode())
+    {
+        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+
+        //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+    }
     else
     {
-        SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
     }
 }
 

@@ -193,6 +193,7 @@
     <ClCompile Include="Engine\UIObject.cpp" />
     <ClCompile Include="Engine\Window.cpp" />
     <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\EnemyController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellDispather.cpp" />
     <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline.cpp" />
