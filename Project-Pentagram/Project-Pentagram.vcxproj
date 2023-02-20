@@ -59,6 +59,7 @@
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
+    <ClInclude Include="Game\MapScene\MapNode.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
     <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
     <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
     <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
