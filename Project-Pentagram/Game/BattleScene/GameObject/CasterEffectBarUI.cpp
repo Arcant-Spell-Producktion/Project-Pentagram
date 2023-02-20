@@ -26,7 +26,7 @@ void CasterEffectBarUI::UpdateEffectIcons(std::vector<EffectDetail_T> effects)
 
         if (icon->IsActive())
         {
-            icon->position.x = m_Direction * (39.0f * i);
+            icon->position.x = m_Direction * (-39.0f * i);
             i++;
         }
     }

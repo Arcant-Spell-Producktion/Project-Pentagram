@@ -29,7 +29,7 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
 
     m_Mana = new UIObject("m_Mana_" + std::to_string((int)position));
     m_Mana->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_mana-stone.png");
-    m_Mana->position = { -115.0f * flip , 0.0f , 0.0f };
+    m_Mana->position = { -113.0f * flip , 0.0f , 0.0f };
     m_Mana->scale = { 140.0f,140.0f,1.0f };
     this->SetChildRenderFront(m_Mana);
 
