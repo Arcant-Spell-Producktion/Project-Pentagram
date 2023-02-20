@@ -207,6 +207,7 @@
       <Filter>Game\GameData\MapData</Filter>
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\EnemyController.cpp" />
+    <ClCompile Include="Game\MapScene\MapNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -508,6 +509,7 @@
     <ClInclude Include="Game\GameData\MapData\NodeData.h">
       <Filter>Game\GameData\MapData</Filter>
     </ClInclude>
+    <ClInclude Include="Game\MapScene\MapNode.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
