@@ -483,22 +483,26 @@ void GameScene::UpdateDeleteObject()
 					objectsToDeleteList.push_back(childObj);
 				}
 			}
+		}
 
-			// ----------------- Delete Session -----------------
+		// ----------------- Delete Session -----------------
+		for (int idx = 0; idx < objectsToDeleteList.size(); idx++)
+		{
+			GameObject* deleteObject = objectsToDeleteList[idx];
+
 			if (dynamic_cast<Button*>(deleteObject) != nullptr)
 			{
-				buttonObjectsList.erase(std::remove(buttonObjectsList.begin(), buttonObjectsList.end(), deleteObject), buttonObjectsList.end());
-				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject), uiObjectsList.end());
+				buttonObjectsList.erase(std::remove(buttonObjectsList.begin(), buttonObjectsList.end(), deleteObject));
+				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject));
 			}
 			else if (dynamic_cast<UIObject*>(deleteObject) != nullptr)
 			{
-				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject), uiObjectsList.end());
+				uiObjectsList.erase(std::remove(uiObjectsList.begin(), uiObjectsList.end(), deleteObject));
 			}
 			else if (dynamic_cast<GameObject*>(deleteObject) != nullptr)
 			{
-				objectsList.erase(std::remove(objectsList.begin(), objectsList.end(), deleteObject), objectsList.end());
+				objectsList.erase(std::remove(objectsList.begin(), objectsList.end(), deleteObject));
 			}
-
 			deleteObject->UnloadMesh();
 			delete deleteObject;
 		}
