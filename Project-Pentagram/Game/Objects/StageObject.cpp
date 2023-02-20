@@ -25,10 +25,10 @@ StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateContro
 
     m_Background = m_ObjectManager->CreateGameObject("Background");
     m_Background->SetTexture(backgroundPath[(int)m_Element]);
-    m_Background->scale = { 1920.0f, 1080.0f, 1.0f };
+    m_Background->scale = { 2160.0f, 1280.0f, 1.0f };
 
     m_Floor = m_ObjectManager->CreateGameObject("Floor");
     m_Floor->SetTexture(floorPath[(int)m_Element]);
-    m_Floor->scale = { 1920.0f, 320.0f, 1.0f };
-    m_Floor->position = { 0.0f, -380.0f,0.0f };
+    m_Floor->scale = { 2160.0f, 436.0f, 1.0f };
+    m_Floor->position = { 0.0f, -460.0f, 0.0f };
 }

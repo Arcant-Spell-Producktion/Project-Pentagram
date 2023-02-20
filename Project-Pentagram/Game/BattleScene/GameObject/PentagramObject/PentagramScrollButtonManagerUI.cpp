@@ -84,14 +84,14 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
     m_Scroll->SetSlicingBorderSize(200.0f);
     m_Scroll->SetSlicingBorderMultiplier(0.25f);
     m_Scroll->SetSlicingType(SlicingType::REPEAT);
-    m_Scroll->position = { 0.0f,-300.0f,0.0f };
+    m_Scroll->position = { 0.0f,-250.0f,0.0f };
     m_Scroll->scale = { 800.0f, 160.0f,0.0f };
     this->SetChildRenderBack(m_Scroll);
 
     for (size_t i = 1; i <= 6; i++)
     {
         PentagramScrollNumberButton* button = (new PentagramScrollNumberButton(i,scene));
-        button->position = { -420.0f + (i * 120.0f),-300.0f,0.0f };
+        button->position = { -420.0f + (i * 120.0f), 0.0f ,0.0f };
         
         button->OnButtonClicked += [this](int value)
         {
@@ -100,14 +100,14 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
         };
 
         m_IntButtons.push_back(button);
-        this->SetChildRenderBack(button);
+        m_Scroll->SetChildRenderFront(button);
     }
 
     for (size_t i = 0; i < 2; i++)
     {
         int value = i == 0 ? -1 : 1;
         PentagramScrollArrowButton* button = new PentagramScrollArrowButton(value, scene);
-        button->position = { -80.0f + (i * 160.0f),-300.0f,0.0f };
+        button->position = { -80.0f + (i * 160.0f), 0.0f, 0.0f };
 
         button->OnButtonClicked += [this](int value)
         {
@@ -115,7 +115,7 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
         };
 
         m_ArrowButtons.push_back(button);
-        this->SetChildRenderBack(button);
+        m_Scroll->SetChildRenderFront(button);
         button->SetActive(false);
     }
 
