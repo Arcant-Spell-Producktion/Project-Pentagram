@@ -61,14 +61,16 @@ PentagramScrollNumberButton::PentagramScrollNumberButton(int value, IGameObjectM
     };
 
     this->scale = { 80.0f, 80.0f, 1.0f };
+    this->color = { 0.0f, 0.0f, 0.0f, 1.0f };
     this->SetIsSlicing(false);
     this->textObject.SetActive(false);
-    this->SetTexture(ScrollButtonTexturePath + "ui_interactable_scroll_button-number.png");
+    this->SetTexture(ScrollButtonTexturePath + "ui_interactable_scroll_button-number_white.png");
     this->SetSpriteByIndex(0, (int)m_buttonState);
 
     m_ButtonIcon->scale = { 80.0f, 80.0f, 1.0f };
+    m_ButtonIcon->color = { 0.0f, 0.0f, 0.0f, 1.0f };
     m_ButtonIcon->SetIsSlicing(false);
-    m_ButtonIcon->SetTexture(ScrollButtonTexturePath + "ui_interactable_scroll_button-number.png");
+    m_ButtonIcon->SetTexture(ScrollButtonTexturePath + "ui_interactable_scroll_button-number_white.png");
     m_ButtonIcon->SetSpriteByIndex(1, value - 1);
 }
 

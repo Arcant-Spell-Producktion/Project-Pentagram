@@ -12,7 +12,7 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     auto scene = GameStateController::GetInstance()->currentScene;
     int flip = position == 0 ? 1 : -1;
 
-    this->position = { -660.0f * flip, -440.0f , 0.0f };
+    this->position = { -600.0f * flip, -440.0f , 0.0f };
     this->scale = { 420.0f, 170.0f , 1.0f };
     this->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_bar-background.png");
     this->SetSpriteByIndex(position, 0);

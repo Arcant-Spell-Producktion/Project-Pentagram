@@ -14,6 +14,16 @@ void PentagramScrollButtonManagerUI::SetToggle(int index)
         for (size_t i = 0; i < 6; i++)
         {
             m_IntButtons[i]->SetToggle(i == index);
+            if(i != index) 
+            { 
+                m_IntButtons[i]->color = { 0.0f, 0.0f, 0.0f, 1.0f }; 
+                m_IntButtons[i]->GetButtonIcon()->color = { 0.0f, 0.0f, 0.0f, 1.0f };
+            }
+            else 
+            { 
+                m_IntButtons[i]->color = { 1.0f, 1.0f, 0.0f, 1.0f };
+                m_IntButtons[i]->GetButtonIcon()->color = { 1.0f, 1.0f, 0.0f, 1.0f };
+            }
         }
     }
 }
