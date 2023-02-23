@@ -7,14 +7,22 @@ void EnemyController::CastEnemySpell()
 
     m_CasterManager.SetPentagramData(currentPentagram);
 
-    while(!m_CasterManager.CanCastSpell() && currentMana - 1 > 0)
+    int spellCost = m_CasterManager.GetSpellCost();
+    bool canCast = m_CasterManager.CanCastSpell();
+
+    for (int i = currentMana; !canCast && i > 0; i--)
     {
-        currentMana--;
         currentPentagram = m_MoveSet.GetMove(currentMana - 1);
         m_CasterManager.SetPentagramData(currentPentagram);
+        canCast = m_CasterManager.CanCastSpell();
     }
+
     if (currentMana > 0)
     {
         CastSpell();
+    }
+    else
+    {
+        EndTurn(true);
     }
 }

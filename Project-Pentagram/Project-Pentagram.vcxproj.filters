@@ -208,6 +208,8 @@
     </ClCompile>
     <ClCompile Include="Game\BattleScene\SpellCaster\EnemyController.cpp" />
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
+    <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\StandByBattleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -510,6 +512,9 @@
       <Filter>Game\GameData\MapData</Filter>
     </ClInclude>
     <ClInclude Include="Game\MapScene\MapNode.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

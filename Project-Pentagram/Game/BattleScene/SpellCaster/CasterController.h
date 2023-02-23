@@ -7,6 +7,7 @@
 enum class CasterState
 {
     Idle,
+    Spin,
     EndTurn,
     Passed
 };
@@ -47,6 +48,8 @@ public:
     void SetIsShowCasterDetail(bool active) { m_CasterUI.SetIsShowDetail(active); }
 
     bool IsShowCasterDetail() { return m_CasterUI.IsShowDetail(); }
+    
+    void SpinManaWheel();
 
     virtual void StartTurn();
 

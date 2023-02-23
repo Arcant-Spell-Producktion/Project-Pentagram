@@ -27,7 +27,15 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
 
 void SpellDispatcher::DestroySpell(CastSpellDetail* detail)
 {
+    // Delete SpellObject
     m_ObjectManager->DeleteObjectByPointer(m_Spells[detail]);
+
+    // Delete SpellObject's Child
+    std::vector<GameObject*> deleteChildList = m_Spells[detail]->GetChildList();
+    for (int idx = 0; idx < deleteChildList.size(); idx++)
+    {
+        m_ObjectManager->DeleteObjectByPointer(deleteChildList[idx]);
+    }
 }
 
 SpellDispatcher::SpellDispatcher():m_ObjectManager(GameStateController::GetInstance()->currentScene)

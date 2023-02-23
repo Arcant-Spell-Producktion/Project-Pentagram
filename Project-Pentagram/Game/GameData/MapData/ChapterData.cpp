@@ -1,5 +1,6 @@
 ﻿#include "ChapterData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
+#include "Game/GameData/CasterData/CasterMovesetDatabase.h"
 #include <stdexcept>
 #include <iostream>
 
@@ -48,7 +49,7 @@ void ChapterData::UpdateChapter(int level)
     {
         return; // TODO:: implement after big boss is here
 
-        NodeData* node = nullptr;
+    /*    NodeData* node = nullptr;
         CasterStat stat = casterDB->GetStat(m_Element, CasterType::BigBoss, 0);
         CasterData data(stat, m_Element, CasterPosition::CasterB);
         EnemyData enemy(data, CasterType::BigBoss);
@@ -59,16 +60,21 @@ void ChapterData::UpdateChapter(int level)
         catch (const std::out_of_range& e) {
             node = new NodeData(enemy);
             AddNode(node);
-        }
+        }*/
     }
 
     for (size_t i = 0; i < NODE_PER_CHAPTER; i++)
     {
         bool isMinion =(i != (NODE_PER_CHAPTER - 1));
         NodeData* node = nullptr;
-        CasterStat stat = casterDB->GetStat(m_Element, isMinion ? CasterType::Minion : CasterType::Boss, isMinion ? level + i : level);
+        CasterType type = isMinion ? CasterType::Minion : CasterType::Boss;
+        int type_level = isMinion ? level + i : level;
+
+        CasterStat stat = casterDB->GetStat(m_Element, type , type_level);
+        CasterMoveSet moves = CasterMoveSetDatabase::GetInstance()->GetMoveSet(m_Element, type, type_level);
+
         CasterData data(stat,m_Element,CasterPosition::CasterB);
-        EnemyData enemy(data, isMinion ? CasterType::Minion : CasterType::Boss);
+        EnemyData enemy(data, type, moves);
         try {
             node = m_Nodes.at(i);
             node->GetEnemyData() = enemy;

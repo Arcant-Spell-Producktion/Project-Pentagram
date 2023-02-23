@@ -68,6 +68,10 @@ class CasterStatDatabase :public Singleton<CasterStatDatabase>
 {
 private:
     std::map<Element::Type, CasterStatTable*> CasterStatTables;
+
+    void LoadCaster();
+
+    void LoadEnemyMoveset();
 public:
     void LoadResource();
 

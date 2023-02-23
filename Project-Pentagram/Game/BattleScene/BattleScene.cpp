@@ -20,7 +20,7 @@ void BattleScene::GameSceneLoad()
 
 void BattleScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(Element::Water));
+    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance()->Map->GetNextNode()->GetEnemyData().Element()));
 
     battleManager->Init(this);
     std::cout << "Battle Scene : Initialize Completed\n";

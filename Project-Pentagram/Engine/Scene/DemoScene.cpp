@@ -1,7 +1,7 @@
-#include "Engine/Scene/DemoScene.h"
+﻿#include "Engine/Scene/DemoScene.h"
 #include <Game/Objects/StageObject.h>
 #include "Game/Objects/PauseMenuObject.h"
-
+#include "Game/BattleScene/ManaRoulette/ManaRouletteUI.h"
 float t = 0.0f;
 void DemoScene::GameSceneLoad()
 {
@@ -13,6 +13,7 @@ Button* curButton;
 UIObject* curUI;
 UIObject* gObject;
 Slider* slider;
+ManaRouletteUI* rou;
 PauseMenuObject* pauseMenuObj;
 
 void DemoScene::GameSceneInit()
@@ -131,6 +132,9 @@ void DemoScene::GameSceneInit()
 	pauseMenuObj->SetActive(false);
 
 	std::cout << "Demo Scene : Initialize Completed\n";
+    
+    rou = CreateObject(new ManaRouletteUI(2));
+
 }
 
 void DemoScene::GameSceneUpdate(float dt)
@@ -145,6 +149,8 @@ void DemoScene::GameSceneUpdate(float dt)
 		t = 0.0f;
 	}
 	t += dt;
+
+
 
 	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
 	{

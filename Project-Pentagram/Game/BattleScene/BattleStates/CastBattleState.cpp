@@ -38,7 +38,7 @@ void PlayerCastUpdate(float dt)
 void CastBattleState::OnBattleStateIn()
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->Data.StandbyAllCaster();
+    battleManager->Data.StartRound();
 
     if (battleManager->Data.GetCurrentCaster()->IsAlive())
     {

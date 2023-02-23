@@ -217,7 +217,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 
     if (m_TrackResolveIndex == 10)
     {
-        m_ResolveBattleManager->SetBattleState(BattleState::CastState);
+        m_ResolveBattleManager->SetBattleState(BattleState::StandbyState);
     }
     //m_ResolveBattleManager->SwapCaster();
 }
