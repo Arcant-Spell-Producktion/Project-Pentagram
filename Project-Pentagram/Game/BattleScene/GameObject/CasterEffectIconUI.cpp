@@ -7,9 +7,9 @@ CasterEffectIconUI::CasterEffectIconUI(SpellEffectEnum type, int n):UIObject("Ef
     m_Type = type;
     m_Stack = n;
 
-    float size = 38.0f;
+    float size = 32.0f;
 
-    this->scale = { size,size,1.0f };
+    this->scale = { size, size, 1.0f };
     this->SetTexture(EffectIconPath);
     this->SetSpriteByValue(1, (int)m_Type);
 

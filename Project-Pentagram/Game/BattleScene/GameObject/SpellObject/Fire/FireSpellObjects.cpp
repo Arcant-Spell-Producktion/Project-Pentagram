@@ -44,12 +44,12 @@ void FireSpell1::Initialize()
     std::cout << "Fireball::Init\n";
     float size = 300.0f;
     float speed = 10.0f;
-    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
-    float yPos = -160.0f;
-    this->scale = { -size * m_SpellTarget,size,1.0f };
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
+    float yPos = CASTER_POSITION_Y - 10.0f;
+    this->scale = { -size * m_SpellTarget, size, 1.0f };
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
 
     this->position = startPos;
     this->SetIsAnimationObject(true);
@@ -70,12 +70,12 @@ void FireSpell2::Initialize()
     std::cout << "FireArrow::Init\n";
     float size = 400.0f;
     float speed = 10.0f;
-    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
-    float yPos = -160.0f;
-    this->scale = { -size * m_SpellTarget,size / 2,1.0f };
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
+    float yPos = CASTER_POSITION_Y - 10.0f;
+    this->scale = { -size * m_SpellTarget, size / 2, 1.0f };
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
 
     this->position = startPos;
     this->SetIsAnimationObject(true);
@@ -96,14 +96,14 @@ void FireSpell3::Initialize()
     this->color.a = 0.0f;
 
     ParticleProperty particleProp;
-    particleProp.position = { 0.0f, 200.0f };
+    particleProp.position = { 100.0f, 200.0f };
     particleProp.positionVariation = { 250.0f,0.0f };
     particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.sizeBegin = particleProp.sizeEnd = 600.0f;
     particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     particleProp.rotationVariation = 0.0f;
-    particleProp.velocity = { -700.0f * m_SpellTarget, -650.0f };
+    particleProp.velocity = { -800.0f * m_SpellTarget, -650.0f };
     particleProp.velocityVariation = { 50.0f, 50.0f };
     particleProp.lifeTime = 1.5f;
 
@@ -141,10 +141,10 @@ void FireSpell4::Initialize()
 {
     std::cout << "FireWall::Init\n";
     float size = 640.0f;
-    float xPos = (-720.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-CASTER_POSITION_X - 20.0f) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
-    this->scale = { size/2 ,size,1.0f };
-    this->position = { xPos,yPos,1.0f };
+    this->scale = { size/2, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
     
@@ -185,7 +185,7 @@ void FireSpell5::Initialize()
     
     float spawnDelay = 0.15f;
 
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
     float fps = 0.1f;
 
@@ -194,10 +194,10 @@ void FireSpell5::Initialize()
     {
         int flip = i % 2 == 0 ? 1 : -1;
         
-        auto obj = scene->CreateGameObject("snap");
+        GameObject* obj = scene->CreateGameObject("snap");
         obj->SetTexture(m_TexturePath);
-        obj->position = { xPos,-160.0f,0.0f };
-        obj->scale = { 640.0f * flip,320.0f,1.0f };
+        obj->position = { xPos, -160.0f, 0.0f };
+        obj->scale = { 640.0f * flip, 320.0f, 1.0f };
         obj->SetIsAnimationObject(false);
         obj->SetAnimationPlayTime(0.1f);
         obj->SetActive(false);
@@ -217,7 +217,7 @@ void FireSpell5::Initialize()
                 if (m_localTimer > spawnDelay)
                 {
                     std::cout << "Snap spawn: " << m_SnapCount << "\n";
-                    auto obj = this->m_objectList[m_SnapCount % m_SpawnCount];
+                    GameObject* obj = this->m_objectList[m_SnapCount % m_SpawnCount];
                     obj->SetActive(true);
                     obj->SetIsAnimationObject(true);
                     m_SnapCount++;
@@ -226,11 +226,11 @@ void FireSpell5::Initialize()
                 }
             }
 
-            for (auto obj : m_objectList)
+            for (GameObject* obj : m_objectList)
             {
                 if (obj->GetCurrentAnimationColumn() == 9 && obj->IsActive())
                 {
-                    scene->GetCamera()->Shake( 0.25f , 3, { 50.0f,50.0f });
+                    scene->GetCamera()->Shake( 0.25f, 3, { 50.0f, 50.0f });
                     obj->SetActive(false);
                     obj->SetIsAnimationObject(false);
                     m_DoneCount++;
@@ -256,10 +256,10 @@ void FireSpell6::Initialize()
 {
     std::cout << "Fire Storm::Init\n";
     float size = 640.0f;
-    float xPos = (-700.0f) * m_SpellTarget; // Assume A shooter
+    float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = 0.0f;
-    this->scale = { size / 2 ,size,1.0f };
-    this->position = { -700.0f * m_SpellTarget,yPos,1.0f };
+    this->scale = { size / 2 , size, 1.0f };
+    this->position = { -CASTER_POSITION_X * m_SpellTarget, yPos, 1.0f };
     this->SetIsAnimationObject(true);
 
     float timePerFrame = 0.1f;
@@ -306,12 +306,12 @@ void FireSpell7::Initialize()
     std::cout << "Meteor::Init\n";
     float size = 800.0f;
     float speed = 10.0f;
-    float startX = (600.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 4) * m_SpellTarget; // Assume B recieve
+    float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
-    this->scale = { -size * m_SpellTarget,size,1.0f };
-    glm::vec3 startPos = { startX ,yPos + 1600.0f ,0.0f };
-    glm::vec3 endPos = { endX ,yPos + 160.0f,0.0f };
+    this->scale = { -size * m_SpellTarget, size, 1.0f };
+    glm::vec3 startPos = { startX, yPos + 1600.0f, 0.0f };
+    glm::vec3 endPos = { endX, yPos + 160.0f, 0.0f };
 
     this->position = startPos;
     this->SetIsAnimationObject(true);
@@ -346,13 +346,13 @@ void FireSpell8::Initialize()
     std::cout << "FireDragon::Init\n";
     float size = 1000.0f;
     float speed = 2.0f;
-    float startX = (400.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-700.0f + size / 2) * m_SpellTarget; // Assume B recieve
+    float startX = (CASTER_POSITION_X - 250.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-CASTER_POSITION_X + size / 2) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
     float animSpeed = 1/12.0f;
-    this->scale = { -size * m_SpellTarget,size / 2,1.0f };
-    glm::vec3 startPos = { startX ,yPos,0.0f };
-    glm::vec3 endPos = { endX ,yPos,0.0f };
+    this->scale = { -size * m_SpellTarget, size / 2, 1.0f };
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
 
     this->position = startPos;
     this->SetAnimationPlayTime(animSpeed);
@@ -391,11 +391,11 @@ void FireSpell9::Initialize()
 
     float size = 2000.0f;
     float speed = 2.0f;
-    float startX = (-280.0f) * m_SpellTarget; // Assume A shooter
+    float startX = (-330.0f) * m_SpellTarget; // Assume A shooter
     float yPos = -160.0f;
     float animSpeed = 1 / 12.0f;
-    this->scale = { -size * m_SpellTarget,size / 3,1.0f };
-    this->position = { startX ,yPos,0.0f };
+    this->scale = { -size * m_SpellTarget, size / 3, 1.0f };
+    this->position = { startX, yPos, 0.0f };
      
     this->SetAnimationPlayTime(animSpeed);
     this->SetIsAnimationObject(true);

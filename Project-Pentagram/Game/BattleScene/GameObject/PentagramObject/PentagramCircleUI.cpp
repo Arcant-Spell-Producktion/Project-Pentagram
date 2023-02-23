@@ -2,16 +2,17 @@
 
 PentagramCircleUI::PentagramCircleUI(IGameObjectManager* scene): UIObject("PentagramCircleUI")
 {
+    this->position = { 0.0f, PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
     this->color.a = 0.0f;
 
     for (size_t i = 0; i < 4; i++)
     {
-        float radius = 460.0f;
+        float radius = 400.0f;
 
         UIObject* circle = new UIObject("Circle_" + std::to_string(i));
 
         circle->SetIsAnimationObject(false);
-        circle->scale = { radius,radius,1.0f };
+        circle->scale = { radius, radius, 1.0f };
         circle->SetSpriteByIndex(i, 0);
         circle->SetTexture("Sprites/UI/Game/ui_game_pentagram.png");
         circle->SetActive(!(i > 1));
@@ -69,7 +70,7 @@ void PentagramCircleUI::OnUpdate(const float& dt)
 {
     float speed = 10.0f;
     float scale = m_PentragramObj[1]->scale.x + dt * 20.0f * expand;
-    if (scale < 450.0f || scale > 480.0f)
+    if (scale < 380.0f || scale > 420.0f)
     {
         expand *= -1;
     }
@@ -80,6 +81,6 @@ void PentagramCircleUI::OnUpdate(const float& dt)
         m_PentragramObj[i]->rotation += (dt * speed * i * direction);
 
 
-        m_PentragramObj[i]->scale = { scale,scale,1.0f };
+        m_PentragramObj[i]->scale = { scale, scale, 1.0f };
     }
 }

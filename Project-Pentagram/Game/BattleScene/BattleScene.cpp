@@ -50,6 +50,11 @@ void BattleScene::GameSceneUpdate(float dt)
         pauseMenuObject->SetActive(pauseMenuObject->IsActive() ? false : true);
         timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
     }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
+    {
+        bool isShow = battleManager->Data.IsShowCasterDetail();
+        battleManager->Data.SetIsShowCasterDetail(isShow ? false : true);
+    }
 
     battleManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
 

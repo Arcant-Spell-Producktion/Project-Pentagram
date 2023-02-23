@@ -21,6 +21,8 @@ public:
     Event<int> OnButtonClicked;
 
     PentagramScrollButton(IGameObjectManager* scene);
+
+    UIObject*& GetButtonIcon() { return m_ButtonIcon; }
 };
 
 class PentagramScrollNumberButton: public PentagramScrollButton

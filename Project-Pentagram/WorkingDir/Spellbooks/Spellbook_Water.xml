@@ -45,28 +45,6 @@
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
     </Spell>
-    <Spell SpellName="Repel Wave">
-      <WillValue>
-        <Value>20</Value>
-        <Value>25</Value>
-        <Value>25</Value>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>35</Value>
-      </WillValue>
-      <SpellEffect>Overflow</SpellEffect>
-      <EffectValue>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>40</Value>
-        <Value>40</Value>
-        <Value>45</Value>
-        <Value>50</Value>
-      </EffectValue>
-      <CastTime>4</CastTime>
-      <ChannelTime>0</ChannelTime>
-      <ChannelEffect>None</ChannelEffect>
-    </Spell>
     <Spell SpellName="Angel Tear">
       <WillValue>
         <Value>35</Value>
@@ -89,6 +67,28 @@
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
     </Spell>
+	<Spell SpellName="Repel Wave">
+		<WillValue>
+			<Value>20</Value>
+			<Value>25</Value>
+			<Value>25</Value>
+			<Value>30</Value>
+			<Value>30</Value>
+			<Value>35</Value>
+		</WillValue>
+		<SpellEffect>Overflow</SpellEffect>
+		<EffectValue>
+			<Value>30</Value>
+			<Value>30</Value>
+			<Value>40</Value>
+			<Value>40</Value>
+			<Value>45</Value>
+			<Value>50</Value>
+		</EffectValue>
+		<CastTime>4</CastTime>
+		<ChannelTime>0</ChannelTime>
+		<ChannelEffect>None</ChannelEffect>
+	</Spell>
     <Spell SpellName="Calming Wave">
       <WillValue>
         <Value>0</Value>

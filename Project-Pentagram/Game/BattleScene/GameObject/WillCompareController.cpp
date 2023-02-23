@@ -24,7 +24,7 @@ ParticleProperty GetCasterParticleProp(int caster,bool isStrong)
     int flip = caster == 0 ? 1 : -1;
     ParticleProperty particleProp;
 
-    particleProp.position = { -700.0f * flip, -200.0f };
+    particleProp.position = { -CASTER_POSITION_X * flip, -200.0f };
 
     float posVariation = !isStrong ? 0.0f : 50.0f;
     particleProp.positionVariation = { posVariation, posVariation };

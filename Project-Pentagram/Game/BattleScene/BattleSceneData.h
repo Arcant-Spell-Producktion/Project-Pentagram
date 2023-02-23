@@ -18,6 +18,15 @@ public:
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 
+    void SetIsShowCasterDetail(bool active)
+    {
+        for (CasterController* caster : Casters)
+        {
+            caster->SetIsShowCasterDetail(active);
+        }
+    }
+    bool IsShowCasterDetail() { return Casters[0]->IsShowCasterDetail(); }
+
     CasterController* GetCaster(CasterPosition position);
     CasterController* GetCurrentCaster() { return Casters[CurrentCasterIndex]; }
     CasterController* GetNextCaster() { return Casters[(CurrentCasterIndex + 1) % Casters.size()]; }

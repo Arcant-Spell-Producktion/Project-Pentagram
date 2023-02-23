@@ -30,6 +30,7 @@ void PentagramFieldButtonUI::ToggleButton(PentagramField button_field)
 {
     for (size_t i = 0; i < 5; i++)
     {
+        m_PentragramButtons[i]->SetRuneColor({ 0.0f, 0.0f, 0.0f, 1.0f });
         m_PentragramButtons[i]->SetToggle(GetFieldByIndex(i) == button_field);
     }
 }
@@ -80,20 +81,22 @@ PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObj
     for (size_t i = 0; i < 5; i++)
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
-        float radius = 200.0f;
+        float radius = 185.0f;
 
         PentagramField field_value = GetFieldByIndex(i);
 
         PentagramFieldButton* button = new PentagramFieldButton(field_value, Element::Fire);
         button->onClick = [this, field_value](Button* _button)
         {
-            if (dynamic_cast<PentagramFieldButton*>(_button)->GetButtonState() == PentagramFieldButton::ButtonState::Hover)
+            PentagramFieldButton* pentagramButton = dynamic_cast<PentagramFieldButton*>(_button);
+            if (pentagramButton->GetButtonState() == PentagramFieldButton::ButtonState::Hover)
             {
                 AudioController::GetInstance()->StopSFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav");
                 AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_press.wav", 1.0f);
             }
             ToggleButton(field_value);
             OnFieldButtonClicked.Invoke(field_value);
+            pentagramButton->SetRuneColor({ 1.0f, 1.0f, 0.0f, 1.0f });
         };
 
         button->position = { radius * sinf(theta),radius * cosf(theta),0.0f };

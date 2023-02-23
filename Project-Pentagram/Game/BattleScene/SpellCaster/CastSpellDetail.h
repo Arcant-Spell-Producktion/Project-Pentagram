@@ -6,7 +6,7 @@ class CastSpellDetail
 {
     public:
         CasterPosition SpellOwner;
-        const Spell* OriginalSpell;
+        Spell* OriginalSpell = nullptr;
         int SelectedWill;
         int SelectedEffect;
         int SelectedTime;
