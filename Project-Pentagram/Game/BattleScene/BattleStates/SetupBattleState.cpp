@@ -5,6 +5,8 @@
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
+#include "Game/GameData/CasterData/CasterMovesetDatabase.h"
+
 
 #include "SetupBattleState.h"
 
@@ -17,8 +19,7 @@ void SetupBattleState::OnBattleStateIn()
 
     bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
 
-    TestMoveSet testMoves;
-    bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData(), testMoves));
+    bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
 }
 
 void SetupBattleState::OnBattleStateUpdate(float dt)

@@ -7,6 +7,8 @@
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
+#include "Game/GameData/CasterData/CasterMovesetDatabase.h"
+
 #include "Game/Spells/SpellDatabase.h"
 #include "Game/Objects/CursorManager.h"
 
@@ -17,6 +19,7 @@ EngineDataCollector* engineDataCollector = nullptr;
 RuntimeGameData* currentGame = nullptr;
 SpellDatabase* spellDatabase = nullptr;
 CasterStatDatabase* casterDatabase = nullptr;
+CasterMoveSetDatabase* moveDatabase = nullptr;
 Camera mainCamera;
 
 int main()
@@ -42,6 +45,9 @@ int main()
     // Initialize CasterDatabase (For collecting all caster data)
     casterDatabase = CasterStatDatabase::GetInstance();
     casterDatabase->LoadResource();
+
+    moveDatabase = CasterMoveSetDatabase::GetInstance();
+    moveDatabase->LoadResource();
 
     //Initialize GameData (For data management during runtime)
     currentGame = RuntimeGameData::GetInstance();

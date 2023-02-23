@@ -21,7 +21,6 @@ void StandByBattleState::OnBattleStateUpdate(float dt)
 
     if (battleManager->Data.IsAllCasterIdle() && Timer > 0)
     {
-        std::cout << "NIG\n";
         Timer -= dt;
         if (Timer < 0.0f)
         {

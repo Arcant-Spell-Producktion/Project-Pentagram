@@ -95,6 +95,7 @@ bool CasterManager::UpdateCurrentSpell()
 
 void CasterManager::CommitSpell()
 {
+    std::cout << "COMMIT " << GetSpellCost() << "\n";
     ChangeMana(-GetSpellCost());
     m_CurrentSpell = nullptr;
 }
@@ -170,7 +171,7 @@ void CasterManager::ResetTimeDebuff() { m_TimeDebuff = 0; }
 
 bool CasterManager::CanCastSpell()
 {
-    return  GetRemainMana() >= GetSpellCost();
+    return  GetRemainMana() >= 0;
 }
 
 bool CasterManager::SetPentagramData(PentagramData_T pentagram)

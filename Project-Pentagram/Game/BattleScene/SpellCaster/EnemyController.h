@@ -4,9 +4,9 @@
 class EnemyController : public CasterController
 {
 private:
-    EnemyMoveSet m_MoveSet;
+    CasterMoveSet m_MoveSet;
 public:
-    EnemyController(EnemyData caster, EnemyMoveSet moveSet) : CasterController(caster), m_MoveSet(moveSet)
+    EnemyController(EnemyData caster) : CasterController(caster), m_MoveSet(caster.EnemyMoves())
     {
         std::cout << "DEBUG ENEMY ELEMENT: " << (int)caster.Element() << "\n";
 

@@ -61,6 +61,10 @@
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
     <ClInclude Include="Game\MapScene\MapNode.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
@@ -206,6 +210,7 @@
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
     <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
