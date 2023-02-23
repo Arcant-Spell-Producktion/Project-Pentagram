@@ -18,8 +18,27 @@ void BattleSceneData::StandbyAllCaster()
 {
     for (auto caster : Casters)
     {
-        caster->SetState(CasterState::Idle);
-        caster->GetCasterManager()->RandomMana();
+        caster->UpdateCasterUI();
+        caster->SpinManaWheel();
+    }
+}
+
+bool BattleSceneData::IsAllCasterIdle()
+{
+    bool isAllIdle = true;
+
+    for (auto caster : Casters)
+    {
+        if (caster->GetState() != CasterState::Idle) isAllIdle = false;
+    }
+
+    return isAllIdle;
+}
+
+void BattleSceneData::StartRound()
+{
+    for (auto caster : Casters)
+    {
         caster->GetCasterManager()->ResetTimeDebuff();
         caster->GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, caster);
         caster->UpdateCasterUI();

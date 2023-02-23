@@ -7,6 +7,7 @@
 enum class CasterState
 {
     Idle,
+    Spin,
     EndTurn,
     Passed
 };
@@ -43,6 +44,8 @@ public:
     CasterState GetState() { return m_CasterState; }
 
     void SetState(CasterState state) { m_CasterState = state; }
+
+    void SpinManaWheel();
 
     virtual void StartTurn();
 

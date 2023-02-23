@@ -26,8 +26,32 @@ void CasterController::UpdateCasterUI()
     OnStatUpdate.Invoke((m_CasterManager.Data().Stat()));
 }
 
+void CasterController::SpinManaWheel()
+{
+    m_CasterState = CasterState::Spin;
+
+    m_CasterUI.SetWheelValue(m_CasterManager.Data().Stat().ManaWheel);
+
+    if (m_CasterManager.IsManaWheelAllUsed())
+    {
+        m_CasterManager.ResetManaWheelTracker();
+        m_CasterUI.ResetWheel();
+    }
+
+    int RandomWheelIndex = m_CasterManager.RandomManaWheelIndex();
+
+    m_CasterUI.SpinWheel(RandomWheelIndex, [this, RandomWheelIndex]()
+    {
+        m_CasterState = CasterState::Idle;
+        m_CasterManager.AddWheelToMana(RandomWheelIndex);
+        UpdateCasterUI();
+    });
+}
+
 void CasterController::StartTurn()
 {
+    m_CasterUI.SetWheelActive(false);
+
     if (m_CasterState == CasterState::Passed)
     {
         return;
