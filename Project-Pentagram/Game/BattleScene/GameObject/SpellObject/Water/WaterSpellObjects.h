@@ -32,13 +32,12 @@ public:
         BaseSpellObject::Initialize();
     };
 };
-
-class WaterSpell4: public BaseSpellObject
+class WaterSpell3 : public BaseSpellObject
 {
 private:
     void Initialize();
 public:
-    WaterSpell4(CasterPosition target) :BaseSpellObject(
+    WaterSpell3(CasterPosition target) :BaseSpellObject(
         target,
         "Firewall_Object",
         "Sprites/Spell/Water/spell_water_3.png")
@@ -49,7 +48,7 @@ public:
     };
 };
 
-class WaterSpell3 : public BaseSpellObject
+class WaterSpell4: public BaseSpellObject
 {
 private:
     float x_Positions[3] = { 250.0f, 0.0f, -250.0f };
@@ -57,7 +56,7 @@ private:
     bool canMove = true;
     void Initialize();
 public:
-    WaterSpell3(CasterPosition target) :BaseSpellObject(
+    WaterSpell4(CasterPosition target) :BaseSpellObject(
         target,
         "Firewall_Object",
         "Sprites/Spell/Water/spell_water_4.png")

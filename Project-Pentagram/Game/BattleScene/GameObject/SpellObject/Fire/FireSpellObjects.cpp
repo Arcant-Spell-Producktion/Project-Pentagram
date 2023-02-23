@@ -194,7 +194,7 @@ void FireSpell5::Initialize()
     {
         int flip = i % 2 == 0 ? 1 : -1;
         
-        auto obj = scene->CreateGameObject("snap");
+        GameObject* obj = scene->CreateGameObject("snap");
         obj->SetTexture(m_TexturePath);
         obj->position = { xPos, -160.0f, 0.0f };
         obj->scale = { 640.0f * flip, 320.0f, 1.0f };
@@ -217,7 +217,7 @@ void FireSpell5::Initialize()
                 if (m_localTimer > spawnDelay)
                 {
                     std::cout << "Snap spawn: " << m_SnapCount << "\n";
-                    auto obj = this->m_objectList[m_SnapCount % m_SpawnCount];
+                    GameObject* obj = this->m_objectList[m_SnapCount % m_SpawnCount];
                     obj->SetActive(true);
                     obj->SetIsAnimationObject(true);
                     m_SnapCount++;
@@ -226,11 +226,11 @@ void FireSpell5::Initialize()
                 }
             }
 
-            for (auto obj : m_objectList)
+            for (GameObject* obj : m_objectList)
             {
                 if (obj->GetCurrentAnimationColumn() == 9 && obj->IsActive())
                 {
-                    scene->GetCamera()->Shake( 0.25f , 3, { 50.0f,50.0f });
+                    scene->GetCamera()->Shake( 0.25f, 3, { 50.0f, 50.0f });
                     obj->SetActive(false);
                     obj->SetIsAnimationObject(false);
                     m_DoneCount++;

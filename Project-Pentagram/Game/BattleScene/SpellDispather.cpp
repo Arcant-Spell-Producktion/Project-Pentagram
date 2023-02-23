@@ -34,7 +34,8 @@ void SpellDispatcher::DestroySpell(CastSpellDetail* detail)
     std::vector<GameObject*> deleteChildList = m_Spells[detail]->GetChildList();
     for (int idx = 0; idx < deleteChildList.size(); idx++)
     {
-        m_ObjectManager->DeleteObjectByPointer(deleteChildList[idx]);
+        if(dynamic_cast<ParticleSystem*>(deleteChildList[idx]) != nullptr)
+            m_ObjectManager->DeleteObjectByPointer(deleteChildList[idx]);
     }
 }
 
