@@ -52,7 +52,7 @@ public:
 class WaterSpell3 : public BaseSpellObject
 {
 private:
-    float x_Positions[3] = { 340.0f, 0.0f, -340.0f };
+    float x_Positions[3] = { 250.0f, 0.0f, -250.0f };
     int x_index = 0;
     bool canMove = true;
     void Initialize();

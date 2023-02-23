@@ -95,7 +95,7 @@ void WaterSpell3::Initialize()
     std::cout << "Rebound Wave::Init\n";
     x_index = 0;
     float size = 640.0f;
-    float yPos = -160.0f;
+    float yPos = -170.0f;
     this->scale = { size * -m_SpellTarget, size / 2, 1.0f };
     this->position = { x_Positions[x_index] * m_SpellTarget, yPos, 1.0f };
     this->SetIsAnimationObject(true);
@@ -217,8 +217,8 @@ void WaterSpell6::Initialize()
 {
     std::cout << "Water Beam::Init\n";
     float size = 400.0f;
-    float xPos = (CASTER_POSITION_X - 350.0f) * m_SpellTarget; // Assume A shooter
-    float yPos = -200.0f;
+    float xPos = (CASTER_POSITION_X - 300.0f) * m_SpellTarget; // Assume A shooter
+    float yPos = -160.0f;
     this->scale = { size, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->color.a = 0.0f;
