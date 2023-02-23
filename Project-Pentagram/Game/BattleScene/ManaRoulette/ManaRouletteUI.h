@@ -7,6 +7,8 @@ class ManaRouletteUI : public UIObject
 {
 private:
     UIObject* m_Body;
+    std::function<void()> OnSpinEnd;
+
     std::array<ManaRouletteNumberUI*, 6> m_Numbers;
 
     virtual void OnUpdate(const float& dt) override;
@@ -19,11 +21,13 @@ private:
     float m_Timer = 0.0f;
     float m_SpinTime = 2.0f;
 
+    int m_Direction;
+
     void SnapRotation(const float& dt);
 public:
-    ManaRouletteUI();
+    ManaRouletteUI(int position);
 
-    void SetSpinResult(int n);
+    void SetSpinResult(int n, std::function<void()> SpinEndCallback);
 
     void ResetRoulette();
 };

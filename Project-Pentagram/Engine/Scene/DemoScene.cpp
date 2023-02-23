@@ -133,7 +133,7 @@ void DemoScene::GameSceneInit()
 
 	std::cout << "Demo Scene : Initialize Completed\n";
     
-    rou = CreateObject(new ManaRouletteUI());
+    rou = CreateObject(new ManaRouletteUI(2));
 
 }
 
@@ -151,10 +151,6 @@ void DemoScene::GameSceneUpdate(float dt)
 	t += dt;
 
 
-    if (Input::IsKeyBeginPressed(GLFW_KEY_Z))
-    {
-        rou->SetSpinResult(3);
-    }
 
 	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
 	{

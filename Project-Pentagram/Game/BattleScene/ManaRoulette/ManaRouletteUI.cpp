@@ -1,8 +1,10 @@
 ﻿#include "ManaRouletteUI.h"
 #include <math.h>
 
-ManaRouletteUI::ManaRouletteUI() :UIObject("ManaRoulette")
+ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
 {
+    m_Direction = position == 0 ? 1 : -1;
+
     this->color.a = 0.0f;
 
     m_Body = new UIObject("ManaRoulette_Body");
@@ -15,7 +17,7 @@ ManaRouletteUI::ManaRouletteUI() :UIObject("ManaRoulette")
 		ManaRouletteNumberUI* num = new ManaRouletteNumberUI(i);
 		num->SetNumberByValue(i + 1);
 		float theta = 2.0f * 3.142526f * (i / 6.0f);
-		theta += 1.571428f;
+		theta += 1.571428f * m_Direction;
 		float radius = 120.0f;
 		num->position = { radius * sinf(theta),radius * cosf(theta),0.0f };
 		num->rotation -= i * 60.0f;
@@ -28,15 +30,17 @@ ManaRouletteUI::ManaRouletteUI() :UIObject("ManaRoulette")
 
 	UIObject* point = new UIObject("ManaRoulette_Point");
 	point->SetTexture("Sprites/UI/Game/ui_game_roulette_pointer.png");
-	point->scale = { 100.0f,100.0f,1.0f };
-	point->position.x += 200.0f;
+	point->scale = { 100.0f * m_Direction,100.0f,1.0f };
+	point->position.x += 200.0f * m_Direction;
 	this->SetChildRenderFront(point);
 }
 
-void ManaRouletteUI::SetSpinResult(int n)
+void ManaRouletteUI::SetSpinResult(int n, std::function<void()> callback)
 {
+    OnSpinEnd = callback;
+
     m_SpinResult = n;
-    m_DestinatedAngle = m_SpinResult * 60.0f;
+    m_DestinatedAngle = m_SpinResult * 60.0f * m_Direction;
     m_Body->rotation = 0.0f;
     m_Timer = m_SpinTime;
     m_CurrentSpinSpeed = m_SpinSpeed;
@@ -65,7 +69,7 @@ void ManaRouletteUI::OnUpdate(const float& dt)
             m_Timer -= dt;
 
             m_CurrentSpinSpeed = m_SpinSpeed;
-            m_Body->rotation -= m_CurrentSpinSpeed * dt;
+            m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
         }
     }
 }
@@ -85,11 +89,12 @@ void ManaRouletteUI::SnapRotation(const float& dt)
         m_CurrentSpinSpeed = 0.0f;
         m_Numbers[m_SpinResult]->SetIsUsed(true);
         m_SpinResult = -1;
+        OnSpinEnd();
     }
     else
     {
         m_CurrentSpinSpeed -= m_SpinSpeed * distant / 360.0f *dt;
-        m_Body->rotation -= m_CurrentSpinSpeed * dt;
+        m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
     }
 }
 

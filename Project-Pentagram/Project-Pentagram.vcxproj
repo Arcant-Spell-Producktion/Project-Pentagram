@@ -26,6 +26,7 @@
     <ClInclude Include="Engine\Scene\LoadScene.h" />
     <ClInclude Include="Engine\Slider.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
@@ -148,6 +149,7 @@
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\StandByBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
