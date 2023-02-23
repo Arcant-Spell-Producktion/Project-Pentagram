@@ -37,7 +37,7 @@ void BattleManager::StartBattle()
         caster->GetCasterManager()->ResetMana();
     }
 
-    SetBattleState(BattleState::CastState);
+    SetBattleState(BattleState::StandbyState);
 }
 
 void BattleManager::SwapCaster()

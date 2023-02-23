@@ -6,6 +6,7 @@ ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
     m_Direction = position == 0 ? 1 : -1;
 
     this->color.a = 0.0f;
+    this->position.x -= 400.0f * m_Direction;
 
     m_Body = new UIObject("ManaRoulette_Body");
     m_Body->SetTexture("Sprites/UI/Game/ui_game_roulette_body.png");
@@ -35,12 +36,21 @@ ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
 	this->SetChildRenderFront(point);
 }
 
+void ManaRouletteUI::SetRouletteNumbers(std::array<int, 6> numbers)
+{
+
+    for (int i = 0; i < 6; ++i)
+    {
+        m_Numbers[i]->SetNumberByValue(numbers[i]);
+    }
+}
+
 void ManaRouletteUI::SetSpinResult(int n, std::function<void()> callback)
 {
     OnSpinEnd = callback;
 
     m_SpinResult = n;
-    m_DestinatedAngle = m_SpinResult * 60.0f * m_Direction;
+    m_DestinatedAngle = m_SpinResult * 60.0f;
     m_Body->rotation = 0.0f;
     m_Timer = m_SpinTime;
     m_CurrentSpinSpeed = m_SpinSpeed;
@@ -59,15 +69,14 @@ void ManaRouletteUI::OnUpdate(const float& dt)
 {
     if (m_Timer > 0 || m_SpinResult != -1)
     {
+        m_Timer -= dt;
+
         if (m_Timer <= 0)
         {
-            m_Timer = 0;
             SnapRotation(dt);
         }
         else
         {
-            m_Timer -= dt;
-
             m_CurrentSpinSpeed = m_SpinSpeed;
             m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
         }
@@ -85,8 +94,9 @@ void ManaRouletteUI::SnapRotation(const float& dt)
     bool doSnap = distant < snapArea;
     if (doSnap && m_CurrentSpinSpeed < 100.0f)
     {
-        m_Body->rotation = m_DestinatedAngle;
         m_CurrentSpinSpeed = 0.0f;
+        m_Body->rotation = m_DestinatedAngle;
+        m_Timer = 0;
         m_Numbers[m_SpinResult]->SetIsUsed(true);
         m_SpinResult = -1;
         OnSpinEnd();

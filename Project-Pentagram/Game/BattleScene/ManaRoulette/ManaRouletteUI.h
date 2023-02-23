@@ -19,13 +19,15 @@ private:
     int m_SpinResult = -1;
     float m_DestinatedAngle = 0.0f;
     float m_Timer = 0.0f;
-    float m_SpinTime = 2.0f;
+    float m_SpinTime = 0.0f;
 
     int m_Direction;
 
     void SnapRotation(const float& dt);
 public:
     ManaRouletteUI(int position);
+
+    void SetRouletteNumbers(std::array<int, 6> numbers);
 
     void SetSpinResult(int n, std::function<void()> SpinEndCallback);
 

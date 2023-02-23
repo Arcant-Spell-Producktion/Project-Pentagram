@@ -23,4 +23,8 @@ public:
     CasterController* GetNextCaster() { return Casters[(CurrentCasterIndex + 1) % Casters.size()]; }
 
     void StandbyAllCaster();
+
+    bool IsAllCasterIdle();
+
+    void StartRound();
 };

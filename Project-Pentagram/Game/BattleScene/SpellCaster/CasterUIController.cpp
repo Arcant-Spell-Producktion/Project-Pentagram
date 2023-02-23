@@ -16,8 +16,6 @@ void CasterUIController::SetStat(CasterStat stat)
 {
     m_StatUI->SetHealthText(stat.CurrentHealth,stat.MaxHealth);
     m_StatUI->SetManaText(stat.CurrentMana, stat.MaxMana);
-    m_Roulette->SetActive(false);
-
 }
 
 
@@ -31,8 +29,18 @@ void CasterUIController::UpdateEffectBar(std::vector<EffectDetail_T> effects)
     m_StatUI->SetEffectBar(effects);
 }
 
+void CasterUIController::SetWheelValue(std::array<int, 6> numbers)
+{
+    m_Roulette->SetRouletteNumbers(numbers);
+}
+
 void CasterUIController::SpinWheel(int n, std::function<void()> callback)
 {
     m_Roulette->SetActive(true);
     m_Roulette->SetSpinResult(n, callback);
+}
+
+void CasterUIController::ResetWheel()
+{
+    m_Roulette->ResetRoulette();
 }

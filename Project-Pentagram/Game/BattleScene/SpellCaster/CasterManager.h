@@ -19,42 +19,45 @@ protected:
     int m_TimeDebuff = 0;
 
     int GetTimeCost();
+
 public:
     CasterManager(CasterData caster);
 
     CasterData& Data() { return m_CurrentData; }
 
-    void CommitSpell();
-
-    int GetFieldCost(PentagramField field);
-
-    int GetSpellCost();
-
-    int GetRemainMana();
-
-    bool CanCastSpell();
-
     CasterStat GetPreviewStat();
 
     PentagramData_T GetPentagramData() { return m_PentagramData; }
 
+    CastSpellDetail* GetSpellDetail();
+
     bool SetPentagramData(PentagramData_T pentagram);
 
+    int GetSpellCost();
+    int GetFieldCost(PentagramField field);
+    bool CanCastSpell();
     bool UpdateCurrentSpell();
+    void CommitSpell();
+
+    bool IsManaWheelAllUsed();
+
+    int RandomManaWheelIndex();
+    int GetManaWheelValue(int index);
+
+    void ResetManaWheelTracker();
+    void AddWheelToMana(int index);
 
     int const GetHealth();
-
     void SetHealth(int health);
-
     void ChangeHealth(int health);
 
-    int const GetMana();
-
+    int GetMana();
+    int GetRemainMana();
     void SetMana(int mana);
-
     void ChangeMana(int mana);
 
-    int RandomMana();
+    int GetMaxMana();
+    void ChangeMaxMana(int mana);
 
     void ResetMana();
 
@@ -62,7 +65,6 @@ public:
 
     void ResetTimeDebuff();
 
-    CastSpellDetail* GetSpellDetail();
 
   /*  ~CasterManager()
     {

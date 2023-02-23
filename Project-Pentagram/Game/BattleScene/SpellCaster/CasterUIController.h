@@ -18,6 +18,9 @@ public:
     void SetDetail(CastSpellDetail* spell, bool isMainData = false, glm::vec3 IconPos = { 0,0,0 });
     void UpdateEffectBar(std::vector<EffectDetail_T> effects);
 
+    void SetWheelValue(std::array<int, 6> numbers);
+    void SetWheelActive(bool isActive) { m_Roulette->SetActive(isActive); };
     void SpinWheel(int n, std::function<void()> callback);
+    void ResetWheel();
 
 };

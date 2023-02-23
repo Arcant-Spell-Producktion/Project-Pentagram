@@ -7,28 +7,36 @@
 
 void StandByBattleState::OnBattleStateIn()
 {
-    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-    if (gameData->Player->Stat().CurrentHealth <= 0)
-    {
-        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-    }
-    else if (gameData->Map->CompleteNode())
-    {
-        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+    BattleManager* battleManager = BattleManager::GetInstance();
+    battleManager->Data.Pentagram->SetActive(false);
 
-        //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
-    }
-    else
-    {
-        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-    }
+    battleManager->Data.StandbyAllCaster();
+
+    Timer = MaxTime;
 }
 
 void StandByBattleState::OnBattleStateUpdate(float dt)
 {
+    BattleManager* battleManager = BattleManager::GetInstance();
 
+    if (battleManager->Data.IsAllCasterIdle() && Timer > 0)
+    {
+        std::cout << "NIG\n";
+        Timer -= dt;
+        if (Timer < 0.0f)
+        {
+            BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
+        }
+    }
 }
 
 void StandByBattleState::OnBattleStateOut()
 {
+    Timer = 0.0f;
+    BattleManager* battleManager = BattleManager::GetInstance();
+    battleManager->Data.Pentagram->SetActive(true);
+    for (auto caster : battleManager->Data.Casters)
+    {
+        caster->GetCasterUI()->SetWheelActive(false);
+    }
 }
