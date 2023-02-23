@@ -346,7 +346,7 @@ void FireSpell8::Initialize()
     std::cout << "FireDragon::Init\n";
     float size = 1000.0f;
     float speed = 2.0f;
-    float startX = (CASTER_POSITION_X - 300.0f) * m_SpellTarget; // Assume A shooter
+    float startX = (CASTER_POSITION_X - 250.0f) * m_SpellTarget; // Assume A shooter
     float endX = (-CASTER_POSITION_X + size / 2) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
     float animSpeed = 1/12.0f;
