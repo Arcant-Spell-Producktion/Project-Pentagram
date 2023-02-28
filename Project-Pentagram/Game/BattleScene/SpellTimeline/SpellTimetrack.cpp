@@ -52,6 +52,7 @@ bool SpellTimetrack::DoWillCompare()
 
 void SpellTimetrack::UpdateTimetrack()
 {
+
     CasterPosition winCaster = GetWillCompareResult();
     if (winCaster <= CasterPosition::TIED)
     {
@@ -60,6 +61,7 @@ void SpellTimetrack::UpdateTimetrack()
             for (CastSpellDetail* csd : m_TrackSpells)
             {
                 csd->isCasted = true;
+                csd->isHidden = false;
             }
         }
         return;
@@ -69,6 +71,8 @@ void SpellTimetrack::UpdateTimetrack()
     int totalLostWill = m_WillCompareTable[lossCaster];
     for (CastSpellDetail* csd : m_TrackSpells)
     {
+        csd->isHidden = false;
+
         if (csd->SpellOwner == lossCaster)
         {
             csd->isCasted = true;

@@ -29,7 +29,7 @@ private:
     void Step();
     void ResolveTrack();
     void ResolveSpell();
-    void ResolveDamgeCalculation();
+    void ResolveDamageCalculation();
 public:
     ResolveBattleState() :BaseBattleState(BattleState::ResolveState) {}
     virtual void OnBattleStateIn()override;

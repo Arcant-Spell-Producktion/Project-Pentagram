@@ -7,28 +7,36 @@
 
 void ResultBattleState::OnBattleStateIn()
 {
-    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-    if (gameData->Player->Stat().CurrentHealth <= 0)
-    {
-        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-    }
-    else if (gameData->Map->CompleteNode())
-    {
-        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-
-        //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
-    }
-    else
-    {
-        SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
-    }
+    m_Timer = m_WaitTime;
+ 
 }
 
 void ResultBattleState::OnBattleStateUpdate(float dt)
 {
+    if (m_Timer < 0.0f)
+    {
+        RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+        if (gameData->Player->Stat().CurrentHealth <= 0)
+        {
+            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+        }
+        else if (gameData->Map->CompleteNode())
+        {
+            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
 
+            //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+        }
+        else
+        {
+            SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+        }
+    }else
+    {
+        m_Timer -= dt;
+    }
 }
 
 void ResultBattleState::OnBattleStateOut()
 {
+    m_Timer = 0;
 }

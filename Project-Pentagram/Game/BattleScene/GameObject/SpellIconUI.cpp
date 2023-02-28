@@ -38,7 +38,13 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     m_IconObject->SetSpriteByIndex(0, 0);
     m_IconObject->scale = { m_IconSize, m_IconSize, 1.0f };
 
-    m_IconOverlay = new UIObject(objName + "_icon");
+    m_IconHidden = new UIObject(objName + "_iconOverlay");
+    m_IconHidden->SetIsAnimationObject(false);
+    m_IconHidden->SetTexture(iconVariationPath);
+    m_IconHidden->SetSpriteByIndex(0, 4);
+    m_IconHidden->scale = { m_IconSize, m_IconSize,1.0f };
+
+    m_IconOverlay = new UIObject(objName + "_iconOverlay");
     m_IconOverlay->SetIsAnimationObject(false);
     m_IconOverlay->SetTexture(iconVariationPath);
     m_IconOverlay->SetSpriteByIndex(0, 0);
@@ -51,6 +57,7 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     m_IconBorder->scale = { m_BorderSize, m_BorderSize, 1.0f };
 
     this->SetChildRenderFront(m_IconObject);
+    this->SetChildRenderFront(m_IconHidden);
     this->SetChildRenderFront(m_IconOverlay);
     this->SetChildRenderFront(m_IconBorder);
 
@@ -111,6 +118,12 @@ void SpellIconUI::SetIsExtra(bool isExtra)
 
 }
 
+void SpellIconUI::SetIsHidden(bool isHidden)
+{
+    std::cout <<"Icon: " << SpellDetail->OriginalSpell->GetSpellName() << " IsHidden: " << isHidden << std::endl;
+    m_IconHidden->color.a = isHidden ? 1.0f : 0.0f;
+}
+
 void SpellIconUI::SetIsPreview(bool isPreview)
 {
     m_isPreview = isPreview;
@@ -129,8 +142,8 @@ void SpellIconUI::UpdateIcon()
     m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
     m_IconOverlay->SetSpriteByIndex(0, m_OverlayIndex);
     m_IconBorder->SetSpriteByIndex(SpellDetail->SpellOwner == CasterPosition::CasterA ? 0 : 1, m_BorderIndex);
+    SetIsHidden(SpellDetail->isHidden);
     SetTransparency(m_isPreview || SpellDetail->isCasted);
-
     if (m_isPentagramIcon)
     {
         BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner,SpellDetail,true);

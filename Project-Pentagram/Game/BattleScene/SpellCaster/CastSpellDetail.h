@@ -12,6 +12,7 @@ class CastSpellDetail
         int SelectedTime;
         bool isCasted = false;
         bool doCast = false;
+        bool isHidden = false;
 
         int GetIndex() const { return OriginalSpell->GetSpellIndex(); }
         int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }

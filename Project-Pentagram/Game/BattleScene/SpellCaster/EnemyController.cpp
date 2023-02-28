@@ -19,6 +19,7 @@ void EnemyController::CastEnemySpell()
 
     if (currentMana > 0)
     {
+        m_CasterManager.GetSpellDetail()->isHidden = true;
         CastSpell();
     }
     else

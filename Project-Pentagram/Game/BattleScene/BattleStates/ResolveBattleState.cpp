@@ -131,7 +131,7 @@ void ResolveBattleState::ResolveSpell()
  
 }
 
-void ResolveBattleState::ResolveDamgeCalculation()
+void ResolveBattleState::ResolveDamageCalculation()
 {
     CasterPosition casterPosition = m_CurrentTrack->GetWillCompareResult();
     CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
@@ -195,7 +195,7 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
         if (m_CurrentSpellController->IsSpellDone())
         {
             m_Dispatcher.DestroySpell(m_CurrentSpellDetail);
-            ResolveDamgeCalculation();
+            ResolveDamageCalculation();
             Step();
         }
         break;

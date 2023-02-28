@@ -10,6 +10,7 @@ private:
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;
+    UIObject* m_IconHidden;
     UIObject* m_IconOverlay;
     UIObject* m_IconBorder;
 
@@ -47,6 +48,8 @@ public:
     void SetIcon(CastSpellDetail* spellDetail , bool doCast);
 
     void SetIsExtra(bool isExtra);
+
+    void SetIsHidden(bool isHidden);
 
     void SetIsPreview(bool isPreview);
 
