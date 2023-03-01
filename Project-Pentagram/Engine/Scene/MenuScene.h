@@ -16,10 +16,11 @@ class MenuScene : public GameScene
 
 		void FadeOut(const float& fadeTime, GameState nextState) 
 		{
-			m_FadeScreen->SetActive(true);
 			m_NextState = nextState;
 			m_FadeTime = fadeTime;
 			m_IsFadeOut = true;
+			m_FadeScreen->SetActive(true);
+			m_FadeScreen->SetBlockRaycast(true);
 		}
 		void FadeUpdate(const float& dt);
 
