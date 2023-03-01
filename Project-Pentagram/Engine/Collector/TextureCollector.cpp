@@ -44,7 +44,7 @@ void TextureCollector::Free()
 
 void TextureCollector::LoadTexture(const std::string& filePath)
 {
-	if (m_Textures[filePath] != nullptr)
+	if (m_Textures.count(filePath) > 0)
 	{
 		return;
 	}
