@@ -6,6 +6,8 @@ const std::string SpellEffectType::enum_string[] = {
     "Burn",
     "Overflow",
     "Freeze",
+    "Fortify",
+    "Petrify"
 };
 
 SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
@@ -28,6 +30,8 @@ bool SpellEffectType::IsEffectApplyByChance(SpellEffectEnum type)
         return false;
     case SpellEffectEnum::Freeze:
     case SpellEffectEnum::Overflow:
+    case SpellEffectEnum::Fortify:
+    case SpellEffectEnum::Petrify:
         return true;
     }
 }
@@ -43,5 +47,8 @@ bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
         return true;
     case SpellEffectEnum::Overflow:
         return false;
+    case SpellEffectEnum::Fortify:
+    case SpellEffectEnum::Petrify:
+        return true;
     }
 }

@@ -39,7 +39,6 @@ void BattleSceneData::StartRound()
 {
     for (auto caster : Casters)
     {
-        caster->GetCasterManager()->ResetTimeDebuff();
         caster->GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, caster);
         caster->UpdateCasterUI();
     }

@@ -8,7 +8,6 @@ enum class EffectResolveType
     None = -1,
     OnStartTurn = 0,
     OnDamageCalculation,
-    OnHit,
 };
 
 class BaseSpellEffect
@@ -19,12 +18,14 @@ protected:
     EffectResolveType m_ResolveType;
     bool m_IsEffectActive = false;
     int m_EffectStack = 0;
+    int m_EffectStackLimit = 99;
 
     //Effect Setting
     bool m_IsEffectApplyByChance = false;
     bool m_IsEffectStack = false;
     bool m_IsEffectActiveOnce = false;
     bool m_IsEffectStackDecreaseOnEndRound = false;
+    bool m_IsEffectResetOnEndOfCastPhase = false;
 
 public:
     BaseSpellEffect(SpellEffectEnum effectType, EffectResolveType resolveType) :
@@ -56,6 +57,7 @@ public:
         if (m_IsEffectStack)
         {
             m_EffectStack += stack;
+            if (m_EffectStack >= m_EffectStackLimit) m_EffectStack = m_EffectStackLimit;
         }
         else
         {
@@ -64,6 +66,11 @@ public:
         printf("Stack: %d\n", m_EffectStack);
 
         m_IsEffectActive = true;
+    }
+
+    void OnCastPhaseEnd()
+    {
+        if (m_IsEffectResetOnEndOfCastPhase) { ResetEffect(); }
     }
 
     void OnEndRound()

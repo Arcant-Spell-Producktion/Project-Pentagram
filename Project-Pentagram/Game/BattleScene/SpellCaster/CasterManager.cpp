@@ -76,19 +76,22 @@ bool CasterManager::UpdateCurrentSpell()
 
     if (m_PentagramData.time < 1 || isSpellChange) m_PentagramData.time = selectedSpell->GetCastTime();
 
+    int remainWill = m_PentagramData.will - m_WillDebuff < 1 ? 1 : m_PentagramData.will - m_WillDebuff;
+
     if (!isSpellChange)
     {
-        m_CurrentSpell->UpdateDetail(m_PentagramData.will, m_PentagramData.effect, m_PentagramData.time);
+        m_CurrentSpell->UpdateDetail(remainWill, m_PentagramData.effect, m_PentagramData.time);
     }
     else
     {
         if (m_CurrentSpell != nullptr) delete m_CurrentSpell;
 
         m_CurrentSpell = new CastSpellDetail
-            (m_CurrentData.Position(), selectedSpell, m_PentagramData.will, m_PentagramData.effect);
+            (m_CurrentData.Position(), selectedSpell, remainWill, m_PentagramData.effect);
         
         isSpellChanged = true;
     }
+
     std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
     return isSpellChanged;
 }
@@ -165,9 +168,14 @@ void CasterManager::ResetMana()
     ResetManaWheelTracker();
 }
 
+void CasterManager::SetWillDebuff(int debuff) { m_WillDebuff = debuff; }
 void CasterManager::SetTimeDebuff(int debuff) { m_TimeDebuff = debuff; }
 
-void CasterManager::ResetTimeDebuff() { m_TimeDebuff = 0; }
+void CasterManager::ResetDebuff()
+{
+    m_WillDebuff = 0;
+    m_TimeDebuff = 0;
+}
 
 bool CasterManager::CanCastSpell()
 {
