@@ -22,10 +22,10 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 {
     m_SelectedElement = element;
 
-    for (int i = 0; i < 2 ; i++)
+    for (int i = 0; i < 3 ; i++)
     {
         CharacterSelectUI* c = dynamic_cast<CharacterSelectUI*>(m_Characters[i]);
-        if (i+1 == (int)element)//TODO:: remove +1 after add EARTH
+        if (i == (int)element)
         {
             c->Select();
         }
@@ -39,7 +39,7 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 
 void CharacterSelectScene::OnConfirm()
 {
-    dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement - 1])->Confirm();//TODO:: remove -1 after add EARTH
+    dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement])->Confirm();
     
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
 
@@ -61,7 +61,7 @@ void CharacterSelectScene::GameSceneInit()
 {
     float spacing = 175.0f;
 
-    for (int i = (int)(Element::Fire); i <= (int)(Element::Water); i++)
+    for (int i = (int)(Element::Earth); i <= (int)(Element::Water); i++)
     {
         Element::Type e = (Element::Type)i;
         CharacterSelectUI* temp = CreateObject(new CharacterSelectUI(e));
