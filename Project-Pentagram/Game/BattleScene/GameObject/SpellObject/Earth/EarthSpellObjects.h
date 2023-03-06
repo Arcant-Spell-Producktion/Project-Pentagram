@@ -9,7 +9,7 @@ public:
     EarthSpell1(CasterPosition target) :BaseSpellObject(
         target,
         "Fireball_Object",
-        "Sprites/Spell/Fire/spell_fire_1.png")
+        "Sprites/Spell/Earth/spell_earth_1.png")
     {
         std::cout << "Spell:: Create Fireball\n";
         Initialize();

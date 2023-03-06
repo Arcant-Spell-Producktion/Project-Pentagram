@@ -25,7 +25,7 @@ BaseSpellObject* EarthSpellObject::CreateSpellObject(int index, CasterPosition t
 
 void EarthSpell1::Initialize()
 {
-    std::cout << "Fireball::Init\n";
+    std::cout << "Earthball::Init\n";
     float size = 300.0f;
     float speed = 10.0f;
     float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
@@ -37,11 +37,13 @@ void EarthSpell1::Initialize()
 
     this->position = startPos;
     this->SetIsAnimationObject(true);
+    this->SetAnimationPlayTime(0.35f);
 
     //Move A to B
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
+    QueueWaitTillFrameEvent(true);
     m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
