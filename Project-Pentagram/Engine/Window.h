@@ -9,6 +9,7 @@
 #include "Engine/stb/stb_image.h"
 
 #include <iostream>
+#include <algorithm>
 
 #include "Input.h"
 
@@ -40,6 +41,7 @@ class Window
 		glm::ivec2 prevPos;
 
 		void InitMaximizeWidget();
+		GLFWmonitor* GetCurrentMonitor();
 
 	public:
 		Window(const int &width, const int &height, const char* title);
