@@ -1,5 +1,6 @@
 ﻿#include "SpellDispather.h"
 #include "Engine/GameStateController.h"
+#include "Game/BattleScene/GameObject/SpellObject/Earth/EarthSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Fire/FireSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h"
 
@@ -9,6 +10,8 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
     switch (detail->OriginalSpell->m_Element)
     {
     case Element::Earth:
+        newSpell = EarthSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
+        m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Fire:
         newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);

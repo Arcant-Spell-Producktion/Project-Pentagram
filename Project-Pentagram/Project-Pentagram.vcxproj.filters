@@ -210,6 +210,8 @@
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\StandByBattleState.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -515,6 +517,11 @@
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

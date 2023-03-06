@@ -17,7 +17,7 @@ protected:
 public:
     SpellObjectState GetSpellState() const { return m_SpellState; }
     bool IsSpellHit() { return m_SpellState == SpellObjectState::Hit; }
-    bool IsSpellDone() { return m_SpellState == SpellObjectState::Done; }
+     bool IsSpellDone() { return m_SpellState == SpellObjectState::Done; }
 
     virtual void Activate() = 0;
 };

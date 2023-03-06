@@ -42,6 +42,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
