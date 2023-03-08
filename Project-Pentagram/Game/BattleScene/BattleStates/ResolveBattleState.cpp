@@ -82,6 +82,7 @@ void ResolveBattleState::ResolveSpell()
         case ChannelEffectEnum::Active:
             if (!m_CurrentSpellDetail->doCast)
             {
+                m_CurrentSpellDetail->doCast = true;
                 ChannelCount = m_CurrentSpellDetail->OriginalSpell->GetChannelTime();
                 for (int i = m_CurrentSpellDetail->SelectedTime + 1; i <= m_CurrentSpellDetail->SelectedTime + ChannelCount; i++)
                 {
