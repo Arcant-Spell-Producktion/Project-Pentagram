@@ -22,6 +22,8 @@ MapData::MapData(Element::Type startElement):m_StartElement(startElement)
         m_Chapters[Element::Fire]->CanVisit = true;
         break;
     }
+
+    m_Chapters[m_StartElement]->CompleteChapter();
 }
 
 void MapData::AddChapter(ChapterData* c)
@@ -47,6 +49,8 @@ bool MapData::CompleteNode()
     bool isChapterComplete = m_Chapters[m_CurrentChapter]->CompleteNode();
     if (isChapterComplete)
     {
+        m_CompleteChapterCount++;
+
         switch (m_StartElement)
         {
         case Element::Earth:
@@ -64,8 +68,45 @@ bool MapData::CompleteNode()
         }
 
         m_Chapters[Element::NULLTYPE]->CanVisit = true;
+
+        for (int i = 0; i < 4; ++i)
+        {
+            Element::Type e = static_cast<Element::Type>(i);
+            ChapterData* chapter = m_Chapters[e];
+            if (chapter->CanVisit)
+            {
+                chapter->UpdateChapter(m_CompleteChapterCount);
+            }
+        }
     }
     return isChapterComplete;
+}
+
+MapSaveData MapData::SaveMapData()
+{
+    MapSaveData data;
+    data.completeChapter = m_CompleteChapterCount;
+    data.currentChapterElement = (int)m_CurrentChapter;
+    for (int i = 0; i < 4; ++i)
+    {
+        ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
+        data.nodeIndex[i] = chapter->GetCurrentNode();
+        data.canVisit[i] = chapter->CanVisit;
+    }
+    return data;
+}
+
+void MapData::LoadMapData(MapSaveData data)
+{
+    m_CompleteChapterCount = data.completeChapter;
+    m_CurrentChapter = static_cast<Element::Type>(data.currentChapterElement);
+    for (int i = 0; i < 4; ++i)
+    {
+        ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
+        chapter->CanVisit = data.canVisit[i];
+        chapter->SetCurrentNode(data.nodeIndex[i]);
+        if(chapter->CanVisit) chapter->UpdateChapter(m_CompleteChapterCount);
+    }
 }
 
 NodeData* MapData::GetNextNode()

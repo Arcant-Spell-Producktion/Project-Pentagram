@@ -212,6 +212,7 @@
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />
     <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
     <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />

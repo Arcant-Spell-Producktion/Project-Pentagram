@@ -19,17 +19,23 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
         if (gameData->Player->Stat().CurrentHealth <= 0)
         {
             SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-        }
-        else if (gameData->Map->CompleteNode())
-        {
-            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-
-            //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+            gameData->DeleteSave();
         }
         else
         {
-            SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+            if (gameData->Map->CompleteNode())
+            {
+                gameData->Player->LevelUp();
+                SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+            }
+            //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+            else
+            {
+                SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+            }
+            gameData->SaveGameData();
         }
+
     }else
     {
         m_Timer -= dt;
