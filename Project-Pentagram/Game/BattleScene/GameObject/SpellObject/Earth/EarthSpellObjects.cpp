@@ -9,19 +9,36 @@ BaseSpellObject* EarthSpellObject::CreateSpellObject(int index, CasterPosition t
     switch (index)
     {
     case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
         object = new EarthSpell1(target);
+        break;
+    case 1:
+        object = new EarthSpell2(target);
+        break;
+    case 2:
+        object = new EarthSpell3(target);
+        break;
+    case 3:
+        object = new EarthSpell4(target);
+        break;
+    case 4:
+        object = new EarthSpell5(target);
+        break;
+    case 5:
+        object = new EarthSpell6(target);
+        break;
+    case 6:
+        object = new EarthSpell7(target);
+        break;
+    case 7:
+        object = new EarthSpell8(target);
+        break;
+    case 8:
+        object = new EarthSpell9(target);
         break;
     }
     return object;
 }
+
 
 void EarthSpell1::Initialize()
 {
@@ -47,6 +64,92 @@ void EarthSpell1::Initialize()
     m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell2::Initialize()
+{
+    float size = 320.0f;
+    float startX = (CASTER_POSITION_X - size) * m_SpellTarget; // Assume A shooter
+    float endX = (-540.0f + size / 4) * m_SpellTarget;
+    float yPos = -size / 2;
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
+    this->position = { startX, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+
+
+    glm::vec3 startPos = { startX ,yPos,0.0f };
+    glm::vec3 endPos = { endX ,yPos,0.0f };
+    float travelTime = 1.5f;
+
+
+    float timePerFrame = 0.15f;
+    this->SetAnimationPlayTime(timePerFrame);
+
+    QueueWaitTillFrameEvent(true);
+
+    QueueMoveEvent(startPos, endPos, travelTime);
+
+    QueueWaitTillFrameEvent(true);
+
+    QueueWaitEvent(timePerFrame* 2);
+
+    QueueHitEvent();
+
+    QueueWaitEvent(timePerFrame);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationObject(false);
+            Next();
+        }
+    );
+
+    QueueWaitEvent(1.0f);
+
+    QueueDoneEvent();
+}
+
+void EarthSpell3::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell4::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell5::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell6::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell7::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell8::Initialize()
+{
+    QueueHitEvent();
+    QueueDoneEvent();
+}
+
+void EarthSpell9::Initialize()
+{
     QueueHitEvent();
     QueueDoneEvent();
 }

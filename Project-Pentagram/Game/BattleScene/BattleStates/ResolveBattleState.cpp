@@ -89,7 +89,7 @@ void ResolveBattleState::ResolveSpell()
                     CastSpellDetail* newSpell = new CastSpellDetail(*m_CurrentSpellDetail);
                     newSpell->SelectedTime = i;
                     newSpell->doCast = true;
-                    m_ResolveBattleManager->Data.Timeline.AddSpellToTimeline(newSpell, true);
+                    m_ResolveBattleManager->Data.Timeline.AddSpellToTimeline(newSpell, false);
                 }
             }
             break;
