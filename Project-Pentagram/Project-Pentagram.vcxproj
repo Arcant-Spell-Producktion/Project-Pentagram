@@ -78,6 +78,8 @@
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
+    <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
+    <ClInclude Include="Game\Spells\SpellTarget.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\Audio\AudioEngine.h" />
@@ -228,6 +230,7 @@
     <ClCompile Include="Game\Spells\SpellBook.cpp" />
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
+    <ClCompile Include="Game\Spells\SpellTarget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

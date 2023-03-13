@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <SpellBook xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SpellList>
     <Spell SpellName="Fireball">
@@ -21,7 +21,9 @@
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
-      <ChannelEffect>None</ChannelEffect>
+      <ChannelEffect>Trap</ChannelEffect>
+      <SpellTarget>Self</SpellTarget>
+      <ResolveFlag>63</ResolveFlag>
     </Spell>
     <Spell SpellName="Flame bolt">
       <WillValue>
@@ -44,6 +46,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Flame shower">
       <WillValue>
@@ -66,6 +70,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Flame pillar">
       <WillValue>
@@ -88,6 +94,8 @@
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Fire snap">
       <WillValue>
@@ -110,6 +118,8 @@
       <CastTime>6</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Fire storm">
       <WillValue>
@@ -132,6 +142,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Meteor">
       <WillValue>
@@ -154,6 +166,8 @@
       <CastTime>2</CastTime>
       <ChannelTime>4</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Flame dragon">
       <WillValue>
@@ -176,6 +190,8 @@
       <CastTime>7</CastTime>
       <ChannelTime>1</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="EXPLOSION!!!">
       <WillValue>
@@ -198,6 +214,8 @@
       <CastTime>1</CastTime>
       <ChannelTime>9</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
   </SpellList>
 </SpellBook>

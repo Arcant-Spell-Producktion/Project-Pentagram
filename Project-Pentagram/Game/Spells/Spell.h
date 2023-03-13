@@ -4,6 +4,8 @@
 #include <string>
 #include "SpellEffectType.h"
 #include "ChannelEffectType.h"
+#include "SpellTarget.h"
+#include "SpellResolveEffect.h"
 #include "Game/Spells/Element.h"
 
 class Spell
@@ -16,6 +18,8 @@ private:
     int m_OriginalCastTime = 1;
     ChannelEffectEnum m_ChannelEffectType = ChannelEffectEnum::None;
     int m_ChannelTime = 0;
+    SpellTargetEnum m_SpellTarget = SpellTargetEnum::Opponent;
+    SpellResolveEffect m_SpellResolveEffect = 1;
 public:
     Element::Type m_Element;
     int m_Index;
@@ -53,6 +57,12 @@ public:
 
     void SetChannelTime(int time) { m_ChannelTime = time; }
     int GetChannelTime() const { return m_ChannelTime; }
+
+    void SetSpellTarget(SpellTargetEnum target) { m_SpellTarget = target; }
+    SpellTargetEnum GetSpellTarget() const { return m_SpellTarget; }
+
+    void SetResolveEffectFlag(int flag) { m_SpellResolveEffect.SetResolveFlags(flag); }
+    SpellResolveEffect GetResolvesEffects() const { return m_SpellResolveEffect; }
 
     friend std::ostream& operator<<(std::ostream& os, const Spell& dt);
 };

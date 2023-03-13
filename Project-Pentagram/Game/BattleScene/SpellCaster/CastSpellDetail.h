@@ -14,6 +14,8 @@ class CastSpellDetail
         bool doCast = false;
         bool isHidden = false;
 
+        CastSpellDetail* ParentSpell = nullptr;
+
         int GetIndex() const { return OriginalSpell->GetSpellIndex(); }
         int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
         int GetEffectValue() const { return OriginalSpell->GetSpellEffectValue(SelectedEffect - 1); }
