@@ -26,12 +26,17 @@ SpellBook::SpellBook(Element::Type element, std::string filename) :m_Element(ele
         XMLElement* channelTypeElement = currSpellElement->FirstChildElement("ChannelEffect");
         XMLElement* willValueElement = currSpellElement->FirstChildElement("WillValue")->FirstChildElement("Value");
         XMLElement* effectValueElement = currSpellElement->FirstChildElement("EffectValue")->FirstChildElement("Value");
+        XMLElement* targetElement = currSpellElement->FirstChildElement("SpellTarget");
+        XMLElement* resolveFlagElement = currSpellElement->FirstChildElement("ResolveFlag");
+
 
         currSpell.SetSpellName(currSpellElement->FirstAttribute()->Value());
 
         currSpell.SetCastTime(std::stoi(castTimeElement->GetText()));
 
         currSpell.SetChannelTime(std::stoi(channelTimeElement->GetText()));
+
+        currSpell.SetSpellTarget(SpellTargetType::GetEnum(targetElement->GetText()));
 
         currSpell.SetSpellEffectType(SpellEffectType::GetEnum(effectTypeElement->GetText()));
 
@@ -45,6 +50,8 @@ SpellBook::SpellBook(Element::Type element, std::string filename) :m_Element(ele
             willValueElement = willValueElement->NextSiblingElement();
             effectValueElement = effectValueElement->NextSiblingElement();
         }
+
+        currSpell.SetResolveEffectFlag(std::stoi(resolveFlagElement->GetText()));
 
         AddNewSpell(currSpell);
 

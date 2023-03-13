@@ -42,7 +42,7 @@ public:
         return m_flags[4];
     }
 
-    bool DoCancleTrack() const
+    bool DoCancelTrack() const
     {
         return m_flags[5];
     }
