@@ -114,7 +114,22 @@ void EarthSpell2::Initialize()
 
 void EarthSpell3::Initialize()
 {
+    float size = 640.0f;
+    float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
+    float yPos = 0.0f;
+    this->scale = { size / 2, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+
+    float timePerFrame = 0.15f;
+
+
+    this->SetAnimationPlayTime(timePerFrame);
+
+    QueueWaitTillFrameEvent();
+
     QueueHitEvent();
+
     QueueDoneEvent();
 }
 
