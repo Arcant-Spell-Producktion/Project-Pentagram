@@ -72,8 +72,24 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bo
         m_ExpandButton->SetSpriteByIndex((index.x + 1)%2, 0);
     };
 
+    m_PlayerWill = new TextObject("PlayerWill_" + std::to_string(m_TrackIndex));
+    m_PlayerWill->position = { -30.0f, scaleDefault / 2.0f - 10.0f, 0.0f};
+    m_PlayerWill->color = AC_YELLOW;
+    m_PlayerWill->outlineColor = AC_BLACK;
+    m_PlayerWill->textAlignment = TextAlignment::MID;
+    m_PlayerWill->fontSize = 32.0f;
+
+    m_EnemyWill = new TextObject("EnemyWill_" + std::to_string(m_TrackIndex));
+    m_EnemyWill->position = { 30.0f, scaleDefault / 2.0f - 10.0f, 0.0f };
+    m_EnemyWill->color = AC_MAGENTA;
+    m_EnemyWill->outlineColor = AC_BLACK;
+    m_EnemyWill->textAlignment = TextAlignment::MID;
+    m_EnemyWill->fontSize = 32.0f;
+
     this->SetChildRenderBack(m_Box);
     this->SetChildRenderFront(m_IconParent);
+    this->SetChildRenderFront(m_PlayerWill);
+    this->SetChildRenderFront(m_EnemyWill);
     m_IconParent->SetChildRenderFront(m_PreviewIcon);
     m_Box->SetChildRenderFront(m_ExpandButton);
 
@@ -145,6 +161,8 @@ void TimetrackUI::UpdateTrack()
         }
     }
 
+    UpdateTextWillValue();
+
     m_Box->scale.y = newScale;
 
     m_Box->position.y = (newScale - scaleDefault) / -2.0f;
@@ -204,4 +222,37 @@ const std::vector<SpellIconUI*>& TimetrackUI::GetSpellDetailUIList() const
 const SpellIconUI* TimetrackUI::GetPreviewIcon() const
 {
     return m_PreviewIcon;
+}
+
+void TimetrackUI::UpdateTextWillValue()
+{
+    int playerWill = 0;
+    int enemyWill = 0;
+
+    for (int i = 0; i < m_Icons.size(); i++)
+    {
+        SpellIconUI* icon = m_Icons[i];
+        if (icon->SpellDetail->SpellOwner == CasterPosition::CasterA)
+        {
+            playerWill += icon->SpellDetail->SelectedWill;
+        }
+        else if(icon->SpellDetail->SpellOwner == CasterPosition::CasterB)
+        {
+            enemyWill += icon->SpellDetail->SelectedWill;
+        }
+    }
+
+    if (playerWill == 0 && enemyWill == 0)
+    {
+        m_PlayerWill->SetActive(false);
+        m_EnemyWill->SetActive(false);
+    }
+    else
+    {
+        m_PlayerWill->SetActive(true);
+        m_EnemyWill->SetActive(true);
+
+        m_PlayerWill->text = std::to_string(playerWill);
+        m_EnemyWill->text = std::to_string(enemyWill);
+    }
 }

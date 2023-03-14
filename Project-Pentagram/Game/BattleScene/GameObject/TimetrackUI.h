@@ -20,7 +20,12 @@ private:
 
     bool m_IsExpanded = false;
 
+    TextObject* m_PlayerWill;
+    TextObject* m_EnemyWill;
+
     void SetExpandButtonScale(float scale);
+
+    void UpdateTextWillValue();
 
 public:
 

@@ -150,9 +150,9 @@ void PentragramController::ResetPentagram()
 }
 void PentragramController::ResetPentagramButtonField()
 {
-    SetPentagramField(PentagramField::Time);
-    m_PentragramFieldButtons->ToggleButton(PentagramField::Time);
+    SetPentagramField(m_currentField);
+    m_PentragramFieldButtons->ToggleButton(m_currentField);
 
-    m_PentragramCircle->SetPentagramUI(1, 1);
+    m_PentragramCircle->SetPentagramUI(m_PentragramCircle->GetCircleValue(), m_PentragramCircle->GetComplexValue());
 }
 
