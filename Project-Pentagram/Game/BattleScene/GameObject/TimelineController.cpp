@@ -28,11 +28,17 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     auto bm = BattleManager::GetInstance();
     for (size_t i = 0; i < 11; i++)
     {
-        std::function<void()> expandFunc = [this, i]() {ExpandTracks(i); };
+        std::function<void(bool doExpand)> expandFunc = [this, i](bool doExpand) { SetExpandTimeline(i, doExpand); };
         auto track = new TimetrackUI(i, bm->Data.Timeline.GetTimetrack(i), expandFunc);
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }
+
+    timelineExpander = new UIObject("TimelineExpander");
+    timelineExpander->position.y -= 135.0f;
+    timelineExpander->scale = { 1325.0f,120.0f,1.0f };
+    timelineExpander->SetActive(false);
+    this->SetChildRenderFront(timelineExpander);
 }
 
 void TimelineController::SetTrackerActive(bool isActive)
@@ -45,12 +51,35 @@ void TimelineController::SetTrackerPositionByIndex(int index)
     trackMarker->position.x = index * 120.0f - 600.0f;
 }
 
-void TimelineController::ExpandTracks(int TrackIndex)
+void TimelineController::SetPentragramControllerReference(PentragramController* _pentragramControllerRef)
 {
-    for (size_t i = 0; i < 11; i++)
+    pentragramControllerRef = _pentragramControllerRef;
+}
+
+void TimelineController::SetExpandTimeline(int index, bool doExpand)
+{
+    if (doExpand)
     {
-        m_Tracks[i]->ExpandTrack(i == TrackIndex);
+        if (currentExpanderIndex != -1)
+        {
+            ClearTimelineExpander();
+        }
+
+        InsertTimetrackToExpander(index);
+
+        m_Tracks[index]->RemoveAllIcon();
+        timelineExpander->SetActive(true);
+        pentragramControllerRef->SetActive(false);
     }
+    else
+    {
+        ClearTimelineExpander();
+
+        timelineExpander->SetActive(false);
+        pentragramControllerRef->SetActive(true);
+        pentragramControllerRef->ResetPentagramButtonField();
+    }
+
 }
 
 int TimeToIndex(int t)
@@ -125,5 +154,45 @@ void TimelineController::ClearAllTrack()
     for (TimetrackUI* track: m_Tracks)
     {
         track->ClearTrack();
+    }
+}
+
+void TimelineController::ClearTimelineExpander()
+{
+    if (currentExpanderIndex == -1) { return; }
+
+    std::vector<GameObject*> SpellIconList = timelineExpander->GetFrontRenderChildList();
+    for (int idx = 0; idx < SpellIconList.size(); idx++)
+    {
+        SpellIconUI* spellIcon = dynamic_cast<SpellIconUI*>(SpellIconList[idx]);
+        timelineExpander->RemoveChild(spellIcon);
+        spellIcon->position = { 0.0f, 0.0f, 0.0f };
+        m_Tracks[currentExpanderIndex]->AddIcon(spellIcon);
+
+        if (SpellIconList.size() - (idx + 1) > 0)
+        {
+            spellIcon->SetActive(false);
+        }
+    }
+    m_Tracks[currentExpanderIndex]->SetIsExpand(false);
+    currentExpanderIndex = -1;
+}
+
+void TimelineController::InsertTimetrackToExpander(int index)
+{
+    currentExpanderIndex = index;
+
+    float initXPosition = -timelineExpander->scale.x / 2.0f;
+
+    std::vector<SpellIconUI*> curSpellIconList = m_Tracks[index]->GetSpellDetailUIList();
+    for (int idx = 0; idx < curSpellIconList.size(); idx++)
+    {
+        SpellIconUI* spellIcon = curSpellIconList[idx];
+
+        spellIcon->parent->RemoveChild(spellIcon);
+        timelineExpander->SetChildRenderFront(spellIcon);
+        spellIcon->SetActive(true);
+        spellIcon->SetIsExtra(false);
+        spellIcon->position = { ((idx + 1) * spellIcon->scale.x) + initXPosition, 0.0f, 0.0f };
     }
 }

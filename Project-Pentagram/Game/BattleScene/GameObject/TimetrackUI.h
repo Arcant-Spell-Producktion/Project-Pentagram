@@ -24,15 +24,21 @@ private:
 
 public:
 
-    TimetrackUI(int index,SpellTimetrack* track, std::function<void()> expand);
+    TimetrackUI(int index,SpellTimetrack* track, std::function<void(bool doExpand)> expand);
 
     void PreviewIcon(CastSpellDetail* spell = nullptr, bool doCast = false ,bool active = false);
 
     void AddIcon(CastSpellDetail* spell);
+    void AddIcon(SpellIconUI* spellIcon);
 
-    void ExpandTrack(bool isExpand);
+    void RemoveAllIcon();
 
     void UpdateTrack();
 
     void ClearTrack();
+
+    void SetIsExpand(bool expand);
+
+    const std::vector<SpellIconUI*>& GetSpellDetailUIList() const;
+    const SpellIconUI* GetPreviewIcon() const;
 };

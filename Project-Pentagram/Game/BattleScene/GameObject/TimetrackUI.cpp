@@ -17,7 +17,7 @@ std::string TimelineTrackSprite[2] =
     "Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png"
 };
 
-TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void()> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_" + std::to_string(index))
+TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bool doExpand)> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_" + std::to_string(index))
 {
     m_TrackIndex = index;
 
@@ -64,7 +64,9 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void()>
     m_ExpandButton->onClick = [this, expand](Button* button)
     {
         std::cout << "TRY EXPAND" << m_TrackIndex << "\n";
-        expand();
+        m_IsExpanded = !m_IsExpanded;
+
+        expand(m_IsExpanded);
 
         auto index = m_ExpandButton->GetCurrentAnimationIndex();
         m_ExpandButton->SetSpriteByIndex((index.x + 1)%2, 0);
@@ -82,13 +84,6 @@ void TimetrackUI::SetExpandButtonScale(float scale)
 {
     m_ExpandButton->scale.y = scale;
     m_ExpandButton->position.y = (m_Box->scale.y / -2.0f + m_ExpandButton->scale.y / -2.0f);
-}
-
-void TimetrackUI::ExpandTrack(bool isExpand)
-{
-    std::cout << "EXPAND" << m_TrackIndex << ": " << isExpand << "\n";
-    m_IsExpanded = !m_IsExpanded && isExpand;
-    UpdateTrack();
 }
 
 void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
@@ -130,81 +125,6 @@ void TimetrackUI::UpdateTrack()
     bool isOversize = m_Icons.size() > maxIcon;
     int topIconIndex = !isOversize ? 0 : m_Icons.size() - maxIcon;
 
-    if (!m_IsExpanded)
-    {
-        switch (m_Icons.size())
-        {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-            break;
-        case 4:
-            newScale += 30.0f;
-            break;
-        case 5:
-            newScale += 50.0f;
-            break;
-        case 6:
-        default:
-            newScale += 80.0f;
-            break;
-        }
-
-    }
-    else
-    {
-        //calulate gap
-        switch (m_Icons.size())
-        {
-        case 11:
-        case 12:
-            gap = 75.0f;
-            break;
-        case 13:
-            gap = 69.5f;
-            break;
-        case 14:
-            gap = 65.0f;
-            break;
-        case 15:
-            gap = 60.5f;
-            break;
-        case 16:
-            gap = 57.0f;
-            break;
-        case 17:
-            gap = 54.0f;
-            break;
-        case 18:
-            gap = 51.0f;
-            break;
-        case 19:
-            gap = 48.5f;
-            break;
-        case 20:
-            gap = 46.5f;
-            break;
-        default:
-            gap = 80.0f;
-            break;
-        }
-
-        //calculate banner size
-        if (m_Icons.size() >= 2)
-            {
-                newScale += 40.0f;
-
-                int x = m_Icons.size() - 2;
-                x = x < 10 ? x : 10;
-                newScale += 80.0f * x;
-
-            }
-         
-        std::cout << m_Icons.size() << " " << gap << " " << newScale << "\n";
-        
-    }
-
     for (int i = 0; i < m_Icons.size(); i++)
     {
         auto icon = m_Icons[i];
@@ -242,6 +162,25 @@ void TimetrackUI::AddIcon(CastSpellDetail* spell)
 
     UpdateTrack();
 }
+void TimetrackUI::AddIcon(SpellIconUI* spellIcon)
+{
+    if (spellIcon != m_PreviewIcon)
+    {
+        m_IconParent->SetChildRenderBack(spellIcon);
+    }
+    else
+    {
+        m_IconParent->SetChildRenderFront(spellIcon);
+    }
+    m_Icons.push_back(spellIcon);
+
+    UpdateTrack();
+}
+
+void TimetrackUI::RemoveAllIcon()
+{
+    m_Icons.clear();
+}
 
 void TimetrackUI::ClearTrack()
 {
@@ -250,4 +189,19 @@ void TimetrackUI::ClearTrack()
         m_ObjectManager->DeleteObjectByPointer(icon);
     }
     m_Icons.clear();
+}
+
+
+void TimetrackUI::SetIsExpand(bool expand)
+{
+    m_IsExpanded = expand;
+}
+
+const std::vector<SpellIconUI*>& TimetrackUI::GetSpellDetailUIList() const
+{
+    return m_Icons;
+}
+const SpellIconUI* TimetrackUI::GetPreviewIcon() const
+{
+    return m_PreviewIcon;
 }

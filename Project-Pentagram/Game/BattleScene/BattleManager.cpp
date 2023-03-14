@@ -24,7 +24,10 @@ void BattleManager::Init(IGameObjectManager* scene)
     }
 
     Data.Pentagram = new PentragramController(scene);
+    
     Data.Timeline.UI = scene->CreateObject(new TimelineController());
+    Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
+
     Data.WillCompare = scene->CreateObject(new WillCompareController());
 
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
