@@ -135,6 +135,27 @@ void EarthSpell3::Initialize()
 
 void EarthSpell4::Initialize()
 {
+    float size = 320.0f;
+    float startX = (CASTER_POSITION_X - size - 100.0f) * m_SpellTarget; // Assume A shooter
+    float endX = (-540.0f + size / 4) * m_SpellTarget;
+    float yPos = -size / 2;
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
+    this->position = { startX, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+
+    float timePerFrame = 0.15f;
+
+    glm::vec3 startPos = { startX, yPos, 0.0f };
+    glm::vec3 endPos = { endX, yPos, 0.0f };
+    float travelTime = 0.5f;
+
+
+    this->SetAnimationPlayTime(timePerFrame);
+
+    QueueWaitTillFrameEvent(true);
+    QueueWaitEvent(timePerFrame);
+    QueueMoveEvent(startPos, endPos, travelTime);
+
     QueueHitEvent();
     QueueDoneEvent();
 }
