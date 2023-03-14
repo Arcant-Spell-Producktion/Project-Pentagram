@@ -35,7 +35,7 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     }
 
     timelineExpander = new UIObject("TimelineExpander");
-    timelineExpander->position.y -= 135.0f;
+    timelineExpander->position.y -= 195.0f;
     timelineExpander->scale = { 1325.0f,120.0f,1.0f };
     timelineExpander->SetActive(false);
     this->SetChildRenderFront(timelineExpander);
