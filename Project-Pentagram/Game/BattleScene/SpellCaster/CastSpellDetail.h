@@ -5,6 +5,13 @@
 class CastSpellDetail
 {
     public:
+        enum ChannelType
+        {
+            Head,
+            Body,
+            End
+        };
+
         CasterPosition SpellOwner;
         Spell* OriginalSpell = nullptr;
         int SelectedWill;
@@ -14,11 +21,41 @@ class CastSpellDetail
         bool doCast = false;
         bool isHidden = false;
 
+        ChannelType Channel = ChannelType::Head;
+
+        CastSpellDetail* TriggeredSpell = nullptr;
+
         CastSpellDetail* ParentSpell = nullptr;
+
+        CasterPosition GetTarget() const
+        {
+            if (OriginalSpell->GetSpellTarget() == SpellTargetEnum::Opponent)
+            {
+                return SpellOwner == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
+            }
+            else if (OriginalSpell->GetSpellTarget() == SpellTargetEnum::Self)
+            {
+                return SpellOwner;
+            }
+        }
 
         int GetIndex() const { return OriginalSpell->GetSpellIndex(); }
         int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
         int GetEffectValue() const { return OriginalSpell->GetSpellEffectValue(SelectedEffect - 1); }
+
+        bool DoWillCompare() const
+        {
+            switch (OriginalSpell->GetChannelEffectType()) {
+            case ChannelEffectEnum::None: 
+                return true;
+            case ChannelEffectEnum::Wait:
+                return Channel != ChannelType::Head;
+            case ChannelEffectEnum::Active:
+            case ChannelEffectEnum::Trap:
+            case ChannelEffectEnum::Counter:
+                return Channel == ChannelType::Head;
+            }
+        }
 
         CastSpellDetail(CasterPosition position,Spell* spell, int will, int effect, int time = 0,bool isCted = false, bool do_cast = false) :
             SpellOwner(position),
@@ -41,6 +78,8 @@ class CastSpellDetail
             SelectedEffect = effect;
             SelectedTime = time;
         }
+
+        void OnCast(int* ChannelCount = nullptr);
 
         friend std::ostream& operator<<(std::ostream& os, const CastSpellDetail& detail)
         {

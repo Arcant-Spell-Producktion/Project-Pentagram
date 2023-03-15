@@ -12,10 +12,10 @@ public:
 
     SpellTimetrack* GetTimetrack(int track_index) { return &m_Timeline[track_index]; }
     
-    void AddSpellToTimeline(CastSpellDetail* spell,bool doCompare = true)
+    void AddSpellToTimeline(CastSpellDetail* spell)
     {
         int array_index = spell->SelectedTime <= 10 ? (spell->SelectedTime - 1) : (11 - 1);
-        m_Timeline[array_index].push_back(spell, doCompare);
+        m_Timeline[array_index].PushSpell(spell);
 
         std::cout << "ADD ICON 1\n";
         UI->AddIconToTrack(array_index, spell);

@@ -32,7 +32,7 @@ public:
         return m_flags[2];
     }
 
-    bool DoCancleSpell() const
+    bool DoCancelSpell() const
     {
         return m_flags[3];
     }
