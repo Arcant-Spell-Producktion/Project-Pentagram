@@ -92,6 +92,17 @@ protected:
             });
     }
 
+    void QueueWaitTriggerEvent()
+    {
+        QueueUpdateFunction([this](float dt)
+            {
+                if (Trigger == true)
+                {
+                    Next();
+                }
+            });
+    }
+
     void QueueHitEvent()
     {
         QueueUpdateFunction([this](float dt)
