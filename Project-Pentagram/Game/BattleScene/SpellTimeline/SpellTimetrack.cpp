@@ -135,15 +135,36 @@ CasterPosition SpellTimetrack::CalculateWillCompareResult(bool recalculate = fal
 std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
 {
     std::vector<CastSpellDetail*> ResolveTrack;
+    std::vector<CastSpellDetail*> SpellToEnd;
 
     CasterPosition winCaster = GetWillCompareResult();
+
+    bool TrackIsSkip = false;
     for (CastSpellDetail* spell : m_TrackSpells)
     {
-        if (!spell->isCasted && spell->SpellOwner == winCaster)
+        if (!spell->isCasted && spell->SpellOwner == winCaster && !TrackIsSkip)
         {
-            ResolveTrack.push_back(spell->TriggeredSpell == nullptr? spell: spell->TriggeredSpell);
+            if (spell->TriggeredSpell == nullptr)
+            {
+                ResolveTrack.push_back(spell);
+            }
+            else
+            {
+                ResolveTrack.push_back(spell->TriggeredSpell);
+                if (spell->TriggeredSpell->OriginalSpell->GetResolvesEffects().DoCancelTrack())
+                {
+                    TrackIsSkip = true;
+                }
+            }
+          
+        }
+        else if(spell ->OriginalSpell->GetChannelEffectType() == ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
+        {
+            SpellToEnd.push_back(spell);
         }
     }
+
+    ResolveTrack.insert(ResolveTrack.end(), SpellToEnd.begin(), SpellToEnd.end());
 
     return ResolveTrack;
 }
@@ -176,7 +197,7 @@ void SpellTimetrack::PushSpell(CastSpellDetail* spell)
     CalculateWillCompareResult(true);
 }
 
-void SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
+bool SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
 {
     auto it = std::find(m_TrackSpells.begin(), m_TrackSpells.end(), spell);
     if (it != m_TrackSpells.end())
@@ -194,18 +215,19 @@ void SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
         {
             m_ActiveSpells.erase(std::find(m_ActiveSpells.begin(), m_ActiveSpells.end(), spell));
         }
-
+        return true;
     }
+
+    return false;
 }
 
-void SpellTimetrack::RemoveChildSpell(CastSpellDetail* parentSpell)
+bool SpellTimetrack::RemoveChildSpell(CastSpellDetail* parentSpell)
 {
     for (CastSpellDetail* spell : m_ActiveSpells)
-    {
+    {W
         if (spell->ParentSpell == parentSpell)
         {
-            RemoveSpell(spell);
-            return;
+            return RemoveSpell(spell);
         }
     }
 }

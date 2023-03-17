@@ -100,6 +100,10 @@ protected:
                 {
                     Next();
                 }
+                else
+                {
+                    m_SpellState = SpellObjectState::WaitTrigger;
+                }
             });
     }
 

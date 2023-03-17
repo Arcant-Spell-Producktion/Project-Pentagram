@@ -70,16 +70,36 @@ void ResolveBattleState::ResolveSpell(int spell_index)
 
         CasterPosition casterPosition = m_CurrentSpellDetail->SpellOwner;
 
-        CasterPosition targetPosition = casterPosition == CasterPosition::CasterB ? CasterPosition::CasterA : CasterPosition::CasterB;
+        CasterPosition targetPosition = m_CurrentSpellDetail->GetTarget();
 
         auto caster = m_ResolveBattleManager->Data.GetCaster(casterPosition)->GetCasterObject();
-        m_CurrentSpellDetail->isCasted = true;
 
         if (m_CurrentSpellDetail->doCast)
-        {    
-            m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
+        {
+            if (m_CurrentSpellDetail->TriggeredSpell == nullptr)
+            {
+				m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
+				m_State = ResolveState::PlaySpell;
 
-            m_State = ResolveState::PlaySpell;
+            }
+            else
+            {
+
+				m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell)->Trigger = true;
+
+                if (!m_CurrentSpellDetail->OriginalSpell->GetResolvesEffects().DoCancelSpell())
+                {
+					m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail->TriggeredSpell, m_CurrentSpellDetail->TriggeredSpell->GetTarget());
+					m_State = ResolveState::PlayTriggeredSpell;
+                }
+                else
+                {
+					m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
+					m_State = ResolveState::PlaySpell;
+                }
+
+            }
+
 
             caster->PlayAttackAnim(
                 spellChannelType != ChannelEffectEnum::None,
@@ -107,37 +127,8 @@ void ResolveBattleState::ResolveSpell(int spell_index)
 
 void ResolveBattleState::ResolveDamageCalculation()
 {
+	m_CurrentSpellDetail->OnResolve();
 
-    SpellResolveEffect resolveEffect = m_CurrentSpellDetail->OriginalSpell->GetResolvesEffects();
-    CasterPosition casterPosition = m_CurrentSpellDetail->SpellOwner;
-    CasterPosition targetPosition = m_CurrentSpellDetail->GetTarget();
-
-    CasterController* caster = m_ResolveBattleManager->Data.GetCaster(casterPosition);
-    CasterController* target = m_ResolveBattleManager->Data.GetCaster(targetPosition);
-
-    if (resolveEffect.DoCancelDamage())
-    {
-        caster->SetImmune(m_CurrentSpellDetail->Channel != CastSpellDetail::End);
-    }
-
-    if (resolveEffect.DoDamage())
-    {
-        //Damage Calculation
-        int damage = m_CurrentSpellDetail->GetDamage();
-        target->GetEffectManager()->ResolveEffect(EffectResolveType::OnDamageCalculation, 1, &damage);
-        if (!target->TakeDamage(damage)) return;
-    }
-    auto effectType = m_CurrentSpellDetail->OriginalSpell->GetSpellEffectType();
-    auto effectValue = m_CurrentSpellDetail->GetEffectValue();
-
-    if (SpellEffectType::IsEffectTargetEnemy(effectType))
-    {
-        target->GetEffectManager()->AppliedEffect(effectType, effectValue);
-    }
-    else
-    {
-        caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
-    }
 }
 
 void ResolveBattleState::OnBattleStateIn()
@@ -180,14 +171,30 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
     case ResolveBattleState::ResolveState::ResolveSpell:
         ResolveSpell();
         break;
+	case ResolveBattleState::ResolveState::PlayTriggeredSpell:
+		if (m_CurrentSpellController->IsSpellDone())
+		{
+			m_Dispatcher.DestroySpell(m_CurrentSpellDetail->TriggeredSpell);
+			m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
+			m_State = ResolveState::PlaySpell;
+		}
+		break;
     case ResolveBattleState::ResolveState::PlaySpell:
-        if (m_CurrentSpellController->IsSpellDone())
+        if (m_CurrentSpellController->IsSpellWaitTrigger() ||m_CurrentSpellController->IsSpellDone())
         {
-            m_Dispatcher.DestroySpell(m_CurrentSpellDetail);
+            if (m_CurrentSpellController->Trigger)
+            {
+				m_Dispatcher.DestroySpell(m_CurrentSpellDetail->ParentSpell);
+            }
+            else
+            {
+				m_Dispatcher.DestroySpell(m_CurrentSpellDetail);
+            }
             ResolveDamageCalculation();
             Step();
         }
         break;
+
     case ResolveBattleState::ResolveState::Waiting:
         m_Timer -= dt;
         if (m_Timer <= 0)
