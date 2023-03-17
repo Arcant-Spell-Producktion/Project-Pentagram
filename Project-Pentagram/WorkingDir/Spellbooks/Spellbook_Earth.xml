@@ -12,12 +12,12 @@
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -36,12 +36,12 @@
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -60,12 +60,12 @@
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
       </EffectValue>
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -84,12 +84,12 @@
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>1</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
+        <Value>100</Value>
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -118,8 +118,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
-      <SpellTarget>Opponent</SpellTarget>
-      <ResolveFlag>1</ResolveFlag>
+      <SpellTarget>Self</SpellTarget>
+      <ResolveFlag>0</ResolveFlag>
     </Spell>
     <Spell SpellName="Earth prison">
       <WillValue>
@@ -140,10 +140,10 @@
         <Value>1</Value>
       </EffectValue>
       <CastTime>4</CastTime>
-      <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Active</ChannelEffect>
+      <ChannelTime>3</ChannelTime>
+      <ChannelEffect>Trap</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
-      <ResolveFlag>1</ResolveFlag>
+      <ResolveFlag>33</ResolveFlag>
     </Spell>
     <Spell SpellName="Reflect Shield">
       <WillValue>
@@ -164,10 +164,10 @@
         <Value>1</Value>
       </EffectValue>
       <CastTime>6</CastTime>
-      <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Active</ChannelEffect>
-      <SpellTarget>Opponent</SpellTarget>
-      <ResolveFlag>1</ResolveFlag>
+      <ChannelTime>3</ChannelTime>
+      <ChannelEffect>Counter</ChannelEffect>
+      <SpellTarget>Self</SpellTarget>
+      <ResolveFlag>13</ResolveFlag>
     </Spell>
     <Spell SpellName="Unbreakable Shield">
       <WillValue>
@@ -190,8 +190,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Active</ChannelEffect>
-      <SpellTarget>Opponent</SpellTarget>
-      <ResolveFlag>1</ResolveFlag>
+      <SpellTarget>Self</SpellTarget>
+      <ResolveFlag>2</ResolveFlag>
     </Spell>
     <Spell SpellName="Earth Dragon">
       <WillValue>
@@ -204,16 +204,16 @@
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
-        <Value>100</Value>
-        <Value>100</Value>
-        <Value>100</Value>
-        <Value>100</Value>
-        <Value>100</Value>
-        <Value>100</Value>
+        <Value>1</Value>
+        <Value>1</Value>
+        <Value>1</Value>
+        <Value>1</Value>
+        <Value>1</Value>
+        <Value>1</Value>
       </EffectValue>
       <CastTime>1</CastTime>
-      <ChannelTime>0</ChannelTime>
-      <ChannelEffect>None</ChannelEffect>
+      <ChannelTime>5</ChannelTime>
+      <ChannelEffect>Wait</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
