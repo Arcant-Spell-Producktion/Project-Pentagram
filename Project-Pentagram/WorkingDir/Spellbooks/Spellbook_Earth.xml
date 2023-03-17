@@ -22,6 +22,8 @@
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Wave rock">
       <WillValue>
@@ -44,6 +46,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Rising Pillar">
       <WillValue>
@@ -66,6 +70,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Shaping Stone">
       <WillValue>
@@ -88,6 +94,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Fortified">
       <WillValue>
@@ -110,6 +118,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Earth prison">
       <WillValue>
@@ -132,6 +142,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Active</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Reflect Shield">
       <WillValue>
@@ -154,6 +166,8 @@
       <CastTime>6</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Active</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Unbreakable Shield">
       <WillValue>
@@ -176,6 +190,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Active</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Earth Dragon">
       <WillValue>
@@ -198,6 +214,8 @@
       <CastTime>1</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
   </SpellList>
 </SpellBook>
