@@ -7,7 +7,6 @@
 #include <queue>
 #include <functional>
 
-
 class BaseSpellObject :public GameObject, public SpellController
 {
 private:

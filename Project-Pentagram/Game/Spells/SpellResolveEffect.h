@@ -34,7 +34,7 @@ public:
 
     bool DoCancelSpell() const
     {
-        return m_flags[3];
+        return m_flags[3] || DoDelaySpell() || DoCancelTrack();
     }
 
     bool DoDelaySpell() const

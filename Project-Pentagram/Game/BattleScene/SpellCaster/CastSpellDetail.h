@@ -80,6 +80,7 @@ class CastSpellDetail
         }
 
         void OnCast(int* ChannelCount = nullptr);
+        void OnResolve();
 
         friend std::ostream& operator<<(std::ostream& os, const CastSpellDetail& detail)
         {

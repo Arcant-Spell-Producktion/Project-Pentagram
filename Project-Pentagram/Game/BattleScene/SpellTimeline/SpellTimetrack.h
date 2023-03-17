@@ -32,9 +32,9 @@ public:
 
     void PushSpell(CastSpellDetail* spell);
 
-    void RemoveSpell(CastSpellDetail* spell);
+    bool RemoveSpell(CastSpellDetail* spell);
 
-    void RemoveChildSpell(CastSpellDetail* parentSpell);
+    bool RemoveChildSpell(CastSpellDetail* parentSpell);
 
     CasterPosition GetWillCompareResult();
 

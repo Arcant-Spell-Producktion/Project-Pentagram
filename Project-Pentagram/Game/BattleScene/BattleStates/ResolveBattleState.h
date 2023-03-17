@@ -10,6 +10,7 @@ private:
         ResolveTrack,
         PlayCompare,
         ResolveSpell,
+        PlayTriggeredSpell,
         PlaySpell,
         Waiting,
     };

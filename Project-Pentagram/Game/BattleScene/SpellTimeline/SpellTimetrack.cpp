@@ -224,7 +224,7 @@ bool SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
 bool SpellTimetrack::RemoveChildSpell(CastSpellDetail* parentSpell)
 {
     for (CastSpellDetail* spell : m_ActiveSpells)
-    {W
+    {
         if (spell->ParentSpell == parentSpell)
         {
             return RemoveSpell(spell);
