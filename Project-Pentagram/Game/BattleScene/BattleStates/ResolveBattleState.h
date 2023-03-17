@@ -20,6 +20,7 @@ private:
 
     ResolveState m_State = ResolveState::ResolveTrack;
     SpellTimetrack* m_CurrentTrack = nullptr;
+    std::vector<CastSpellDetail*> m_ResolveTrack;
     CastSpellDetail* m_CurrentSpellDetail = nullptr;
     int m_TrackResolveIndex = 0;
     int m_SpellResolveIndex = 0;
@@ -28,7 +29,7 @@ private:
 
     void Step();
     void ResolveTrack();
-    void ResolveSpell();
+    void ResolveSpell(int spell_index = -1);
     void ResolveDamageCalculation();
 public:
     ResolveBattleState() :BaseBattleState(BattleState::ResolveState) {}

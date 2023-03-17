@@ -27,13 +27,11 @@ private:
 
     float m_curTime = 0.0f;
 
-    bool m_PlayedAnimation = false;
-
     void UpdateParticle();
     void FadeOutParticle();
     void EndCompare();
 public:
-    Event<bool> OnCompareDone;
+    Event<CasterPosition> OnCompareDone;
 
     WillCompareController();
 

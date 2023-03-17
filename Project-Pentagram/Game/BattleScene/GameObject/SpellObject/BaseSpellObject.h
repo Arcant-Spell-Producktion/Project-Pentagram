@@ -92,6 +92,21 @@ protected:
             });
     }
 
+    void QueueWaitTriggerEvent()
+    {
+        QueueUpdateFunction([this](float dt)
+            {
+                if (Trigger == true)
+                {
+                    Next();
+                }
+                else
+                {
+                    m_SpellState = SpellObjectState::WaitTrigger;
+                }
+            });
+    }
+
     void QueueHitEvent()
     {
         QueueUpdateFunction([this](float dt)

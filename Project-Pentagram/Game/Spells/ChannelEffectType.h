@@ -5,7 +5,9 @@ enum class ChannelEffectEnum
 {
     None = 0,
     Wait = 1,
-    Active = 2
+    Active = 2,
+    Trap = 3,
+    Counter = 4,
 };
 
 class ChannelEffectType

@@ -22,6 +22,8 @@
       <CastTime>2</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Aqua flurry">
       <WillValue>
@@ -44,6 +46,8 @@
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Angel Tear">
       <WillValue>
@@ -66,29 +70,33 @@
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
-	<Spell SpellName="Repel Wave">
-		<WillValue>
-			<Value>20</Value>
-			<Value>25</Value>
-			<Value>25</Value>
-			<Value>30</Value>
-			<Value>30</Value>
-			<Value>35</Value>
-		</WillValue>
-		<SpellEffect>Overflow</SpellEffect>
-		<EffectValue>
-			<Value>30</Value>
-			<Value>30</Value>
-			<Value>40</Value>
-			<Value>40</Value>
-			<Value>45</Value>
-			<Value>50</Value>
-		</EffectValue>
-		<CastTime>4</CastTime>
-		<ChannelTime>0</ChannelTime>
-		<ChannelEffect>None</ChannelEffect>
-	</Spell>
+    <Spell SpellName="Repel Wave">
+      <WillValue>
+        <Value>20</Value>
+        <Value>25</Value>
+        <Value>25</Value>
+        <Value>30</Value>
+        <Value>30</Value>
+        <Value>35</Value>
+      </WillValue>
+      <SpellEffect>Overflow</SpellEffect>
+      <EffectValue>
+        <Value>30</Value>
+        <Value>30</Value>
+        <Value>40</Value>
+        <Value>40</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+      </EffectValue>
+      <CastTime>4</CastTime>
+      <ChannelTime>0</ChannelTime>
+      <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
+    </Spell>
     <Spell SpellName="Calming Wave">
       <WillValue>
         <Value>0</Value>
@@ -110,6 +118,8 @@
       <CastTime>3</CastTime>
       <ChannelTime>1</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>0</ResolveFlag>
     </Spell>
     <Spell SpellName="Flash flood">
       <WillValue>
@@ -132,6 +142,8 @@
       <CastTime>4</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Zwei Vortex">
       <WillValue>
@@ -154,6 +166,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Hail Storm">
       <WillValue>
@@ -176,6 +190,8 @@
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
     <Spell SpellName="Genesis Cleansing">
       <WillValue>
@@ -198,6 +214,8 @@
       <CastTime>3</CastTime>
       <ChannelTime>6</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
     </Spell>
   </SpellList>
 </SpellBook>

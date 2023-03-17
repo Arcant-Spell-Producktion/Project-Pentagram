@@ -70,6 +70,10 @@ bool CasterController::IsAlive()
 bool CasterController::TakeDamage(int value)
 {
     int totalDamage = -value;
+    if (m_IsImmune)
+    {
+        totalDamage = 0;
+    }
     m_CasterManager.ChangeHealth(totalDamage);
 
     std::cout << "Caster:" << (int)m_CasterManager.Data().Position()
@@ -78,7 +82,7 @@ bool CasterController::TakeDamage(int value)
 
     UpdateCasterUI();
 
-    m_CasterObject->PlayRedFlash();
+    if(totalDamage < 0 ) m_CasterObject->PlayRedFlash();
 
     if (m_CasterManager.GetHealth() <= 0)
     {
@@ -96,7 +100,7 @@ CastSpellDetail* CasterController::CastSpell()
     bool doCompare =
         spell->OriginalSpell->GetChannelEffectType() != ChannelEffectEnum::Wait;
 
-    bm->Data.Timeline.AddSpellToTimeline(spell, doCompare);
+    bm->Data.Timeline.AddSpellToTimeline(spell);
     bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
     bm->Data.GetCurrentCaster()->EndTurn();
 
