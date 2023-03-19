@@ -9,15 +9,23 @@
 ChapterData::ChapterData(Element::Type element, Element::Type startElement)
 {
     m_Element = element;
-    m_IsVisited = false;
+    m_IsCompleted = false;
 
     if (element == startElement)
     {
         CanVisit = false;
-        m_IsVisited = true;
+        m_IsCompleted = true;
     }
 
     UpdateChapter(0);
+}
+
+void ChapterData::ClearNode()
+{
+    for (size_t i = 0; i < m_NodeCount; i++)
+    {
+        delete m_Nodes[i];
+    }
 }
 
 void ChapterData::AddNode(NodeData* n)
@@ -36,9 +44,16 @@ NodeData* ChapterData::GetNextNode()
 bool ChapterData::CompleteNode()
 {
     CanVisit = false;
-    m_IsVisited = true;
     m_CurrentNode++;
-    return m_NodeCount == m_CurrentNode;
+    m_IsCompleted = m_NodeCount == m_CurrentNode;
+    return m_IsCompleted;
+}
+
+void ChapterData::CompleteChapter()
+{
+    CanVisit = false;
+    m_CurrentNode = m_NodeCount;
+    m_IsCompleted = true;
 }
 
 void ChapterData::UpdateChapter(int level)
@@ -89,8 +104,5 @@ void ChapterData::UpdateChapter(int level)
 
 ChapterData::~ChapterData()
 {
-    for (size_t i = 0; i < m_NodeCount; i++)
-    {
-        delete m_Nodes[i];
-    }
+    ClearNode();
 }

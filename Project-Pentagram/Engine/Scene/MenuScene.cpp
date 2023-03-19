@@ -4,6 +4,8 @@
 #include "Game/Objects/OptionMenuObject.h"
 #include <Game/Objects/StageObject.h>
 
+#include "Game/GameData/RuntimeGameData.h"
+
 void MenuScene::FadeUpdate(const float& dt)
 {
 	if (m_IsFadeOut)
@@ -29,12 +31,30 @@ void MenuScene::GameSceneInit()
 	
 	// Game Name
 	TextObject* gameName = CreateTextObject("gameName");
-	gameName->position = { 0.0f, 350.0f, 0.0f };
+	gameName->position = { 0.0f, 400.0f, 0.0f };
 	gameName->text = "Will O' Witch";
 	gameName->textAlignment = TextAlignment::MID;
 	gameName->fontSize = 128.0f;
 	gameName->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	gameName->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
+
+
+    // Continue Button
+    Button* continueButton = CreateObject(new ScrollButton("Continue"));
+    continueButton->position = { 0.0f, 200.0f, 0.0f };
+    continueButton->onClick.AddListener([this](Button* button)
+    {
+        RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+
+        if (gameData->LoadGameData())
+        {
+            FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
+        }
+        else
+        {
+            FadeOut(2.0f, GameState::GS_CHARACTER_SCENE);
+        }
+    });
 
 	// Play Button
 	Button* playButton = CreateObject(new ScrollButton("Play"));

@@ -7,7 +7,6 @@
 #include <queue>
 #include <functional>
 
-
 class BaseSpellObject :public GameObject, public SpellController
 {
 private:
@@ -88,6 +87,21 @@ protected:
                 if (m_TotalTime >= t)
                 {
                     Next();
+                }
+            });
+    }
+
+    void QueueWaitTriggerEvent()
+    {
+        QueueUpdateFunction([this](float dt)
+            {
+                if (Trigger == true)
+                {
+                    Next();
+                }
+                else
+                {
+                    m_SpellState = SpellObjectState::WaitTrigger;
                 }
             });
     }

@@ -79,6 +79,8 @@
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
+    <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
+    <ClInclude Include="Game\Spells\SpellTarget.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\Audio\AudioEngine.h" />
@@ -214,6 +216,7 @@
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />
     <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
     <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
@@ -229,6 +232,7 @@
     <ClCompile Include="Game\Spells\SpellBook.cpp" />
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
+    <ClCompile Include="Game\Spells\SpellTarget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

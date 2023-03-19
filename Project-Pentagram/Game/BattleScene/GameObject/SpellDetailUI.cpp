@@ -38,7 +38,32 @@ void SpellDetailUI::SetText(CastSpellDetail* details)
         ssCha << "<ChannelType>";
     }
 
-    m_Texts->text = ssName.str() + "\n" + ssDmg.str() + "\n" + ssEff.str() + "\n"+ ssCha.str() + "\n";
+    InsertSpellDetailUI(m_TextSpellName, ssName.str());
+    InsertSpellDetailUI(m_TextSpellDmg, ssDmg.str());
+    InsertSpellDetailUI(m_TextSpellEff, ssEff.str());
+    InsertSpellDetailUI(m_TextSpellCha, ssCha.str());
+}
+
+void SpellDetailUI::InitTextObjectComponent(TextObject* textObject)
+{
+    textObject->fontSize = 28;
+    textObject->color = AC_WHITE;
+    textObject->outlineColor = AC_BLACK;
+    textObject->textAlignment = TextAlignment::MID;
+    m_Box->SetChildRenderFront(textObject);
+}
+
+void SpellDetailUI::InsertSpellDetailUI(TextObject* textObject, const std::string& newStr)
+{
+    if (textObject->text != "" && textObject->text != newStr)
+    {
+        textObject->color = AC_YELLOW;
+    }
+    else
+    {
+        textObject->color = AC_WHITE;
+    }
+    textObject->text = newStr;
 }
 
 SpellDetailUI::SpellDetailUI(int position) : UIObject("SpellDetailUI_" + std::to_string(position))
@@ -56,13 +81,21 @@ SpellDetailUI::SpellDetailUI(int position) : UIObject("SpellDetailUI_" + std::to
     m_Box->SetSpriteByIndex(position, 0);
     this->SetChildRenderFront(m_Box);
 
-    m_Texts = new TextObject("DetailBox_Text_" + std::to_string(position));
-    m_Texts->fontSize = 28;
-    m_Texts->color = AC_WHITE;
-    m_Texts->outlineColor = AC_BLACK;
-    m_Texts->textAlignment = TextAlignment::MID;
-    m_Texts->position.y += 50.0f;
-    m_Box->SetChildRenderFront(m_Texts);
+    m_TextSpellName = new TextObject("DetailBox_Text_Name" + std::to_string(position));
+    m_TextSpellName->position.y += 45.0f;
+    InitTextObjectComponent(m_TextSpellName);
+
+    m_TextSpellDmg = new TextObject("DetailBox_Text_Dmg" + std::to_string(position));
+    m_TextSpellDmg->position.y += 15.0f;
+    InitTextObjectComponent(m_TextSpellDmg);
+
+    m_TextSpellEff = new TextObject("DetailBox_Text_Eff" + std::to_string(position));
+    m_TextSpellEff->position.y -= 15.0f;
+    InitTextObjectComponent(m_TextSpellEff);
+
+    m_TextSpellCha = new TextObject("DetailBox_Text_Cha" + std::to_string(position));
+    m_TextSpellCha->position.y -= 45.0f;
+    InitTextObjectComponent(m_TextSpellCha);
 
     m_CurrentDetails = nullptr;
     SetDetail(m_CurrentDetails,true);

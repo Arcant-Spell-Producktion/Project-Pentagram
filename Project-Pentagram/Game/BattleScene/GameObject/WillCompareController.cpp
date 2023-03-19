@@ -99,7 +99,7 @@ void WillCompareController::FadeOutParticle()
 void WillCompareController::EndCompare()
 {
     this->SetActive(false);
-    OnCompareDone.Invoke(m_PlayedAnimation);
+    OnCompareDone.Invoke(m_CompareResult);
     m_CurrentState = CompareState::None;
 }
 

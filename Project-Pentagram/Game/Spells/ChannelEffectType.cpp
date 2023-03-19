@@ -4,12 +4,14 @@
 const std::string ChannelEffectType::enum_string[] = {
     "None",
     "Wait",
-    "Active"
+    "Active",
+    "Trap",
+    "Counter"
 };
 
 ChannelEffectEnum ChannelEffectType::GetEnum(std::string typeString)
 {
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 5; i++)
     {
         if (typeString.compare(enum_string[i]) == 0) return ChannelEffectEnum(i);
     }
