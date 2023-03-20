@@ -30,7 +30,14 @@ void PentagramFieldButtonUI::ToggleButton(PentagramField button_field)
 {
     for (size_t i = 0; i < 5; i++)
     {
-        m_PentragramButtons[i]->SetRuneColor({ 0.0f, 0.0f, 0.0f, 1.0f });
+        if (GetFieldByIndex(i) == button_field)
+        {
+            m_PentragramButtons[i]->SetRuneColor({ 1.0f, 1.0f, 0.0f, 1.0f });
+        }
+        else
+        {
+            m_PentragramButtons[i]->SetRuneColor({ 0.0f, 0.0f, 0.0f, 1.0f });
+        }
         m_PentragramButtons[i]->SetToggle(GetFieldByIndex(i) == button_field);
     }
 }
@@ -96,7 +103,6 @@ PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObj
             }
             ToggleButton(field_value);
             OnFieldButtonClicked.Invoke(field_value);
-            pentagramButton->SetRuneColor({ 1.0f, 1.0f, 0.0f, 1.0f });
         };
 
         button->position = { radius * sinf(theta),radius * cosf(theta),0.0f };
