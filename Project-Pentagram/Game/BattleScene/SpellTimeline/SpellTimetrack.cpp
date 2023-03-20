@@ -150,6 +150,7 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
             }
             else
             {
+                spell->TriggeredSpell->doCast = true;
                 ResolveTrack.push_back(spell->TriggeredSpell);
                 if (spell->TriggeredSpell->OriginalSpell->GetResolvesEffects().DoCancelTrack())
                 {
@@ -160,6 +161,7 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
         }
         else if(spell ->OriginalSpell->GetChannelEffectType() == ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
         {
+            spell->doCast = true;
             SpellToEnd.push_back(spell);
         }
     }

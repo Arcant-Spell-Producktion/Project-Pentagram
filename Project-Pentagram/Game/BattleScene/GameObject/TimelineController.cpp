@@ -89,6 +89,8 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
         }
         break;
     case ChannelEffectEnum::Active:
+    case ChannelEffectEnum::Trap:
+    case ChannelEffectEnum::Counter:
         for (int t = spell->SelectedTime; t <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); t++)
         {
             timeIndexs.insert(TimeToIndex(t));
