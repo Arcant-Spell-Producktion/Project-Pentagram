@@ -149,6 +149,7 @@
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />

@@ -207,6 +207,9 @@ void TimetrackUI::ClearTrack()
         m_ObjectManager->DeleteObjectByPointer(icon);
     }
     m_Icons.clear();
+
+    m_PlayerWill->SetActive(false);
+    m_EnemyWill->SetActive(false);
 }
 
 

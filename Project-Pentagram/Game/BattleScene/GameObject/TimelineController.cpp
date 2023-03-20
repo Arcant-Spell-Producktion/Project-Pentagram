@@ -56,6 +56,11 @@ void TimelineController::SetPentragramControllerReference(PentragramController* 
     pentragramControllerRef = _pentragramControllerRef;
 }
 
+void TimelineController::SetCurrentState(BattleState state)
+{
+    currentState = state;
+}
+
 void TimelineController::SetExpandTimeline(int index, bool doExpand)
 {
     if (doExpand)
@@ -76,8 +81,12 @@ void TimelineController::SetExpandTimeline(int index, bool doExpand)
         ClearTimelineExpander();
 
         timelineExpander->SetActive(false);
-        pentragramControllerRef->SetActive(true);
-        pentragramControllerRef->ResetPentagramButtonField();
+
+        if (currentState == BattleState::CastState)
+        {
+            pentragramControllerRef->SetActive(true);
+            pentragramControllerRef->ResetPentagramButtonField();
+        }
     }
 
 }
@@ -155,6 +164,15 @@ void TimelineController::ClearAllTrack()
     {
         track->ClearTrack();
     }
+
+    for (auto icon : timelineExpander->GetChildList())
+    {
+        m_ObjectManager->DeleteObjectByPointer(icon);
+        timelineExpander->RemoveChild(icon);
+    }
+    timelineExpander->SetActive(false);
+
+    if(currentExpanderIndex != -1) { m_Tracks[currentExpanderIndex]->SetIsExpand(false); }
 }
 
 void TimelineController::ClearTimelineExpander()

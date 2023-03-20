@@ -2,6 +2,7 @@
 #include "Engine/IGameObjectManager.h"
 #include "TimetrackUI.h"
 #include "PentagramObject/PentagramController.h"
+#include "Game/BattleScene/BattleStates/BattleState.h"
 
 class TimelineController : public UIObject
 {
@@ -19,6 +20,7 @@ private:
     std::vector<TimetrackUI*> m_Tracks;
 
     PentragramController* pentragramControllerRef;
+    BattleState currentState;
 
     void ClearTimelineExpander();
     void InsertTimetrackToExpander(int index);
@@ -30,6 +32,7 @@ public:
     void SetTrackerPositionByIndex(int index);
 
     void SetPentragramControllerReference(PentragramController* _pentragramControllerRef);
+    void SetCurrentState(BattleState state);
 
     void SetExpandTimeline(int index, bool doExpand);
     void UpdatePreviewIcon(CastSpellDetail* spell = nullptr);

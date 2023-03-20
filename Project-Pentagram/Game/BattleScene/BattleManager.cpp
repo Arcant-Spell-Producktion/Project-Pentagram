@@ -9,6 +9,9 @@ void BattleManager::SetBattleState(BattleState state)
     {
         m_CurrentState = state;
 
+        // Use in checking condition for Toggle PentagramUI
+        Data.Timeline.UI->SetCurrentState(state);
+
         m_BattleStates[OldState]->OnBattleStateOut();
         m_BattleStates[m_CurrentState]->OnBattleStateIn();
     }
