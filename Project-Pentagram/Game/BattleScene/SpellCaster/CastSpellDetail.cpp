@@ -36,7 +36,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
 
                 cc = 1;
                 int endTime = this->SelectedTime + cc;
-                for (int i = this->SelectedTime + 1; i <= endTime; i++)
+                for (int i = this->SelectedTime + this->OriginalSpell->GetChannelTime(); i <= endTime; i++)
                 {
                     CastSpellDetail* newSpell = new CastSpellDetail(*this);
                     newSpell->SelectedTime = i;

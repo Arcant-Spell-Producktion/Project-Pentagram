@@ -56,29 +56,27 @@ void SpellTimetrack::SimulateSpellTrigger()
 
     if (DoWillCompare() && winCaster > CasterPosition::TIED)
     {
+        std::cout << "Active Spell in track " << m_ActiveSpells.size() << "\n";
         for (auto activeSpell : m_ActiveSpells)
         {
             ChannelEffectEnum activeType = activeSpell->OriginalSpell->GetChannelEffectType();
+            std::cout << "Checking " << activeSpell->OriginalSpell->GetSpellName() << "\n";
             if (activeSpell->Channel == CastSpellDetail::Head || activeType < ChannelEffectEnum::Trap)
             {
                 continue;
             }
 
-            auto it = m_TrackSpells.begin();
-            for (it = m_TrackSpells.begin();it != m_TrackSpells.end(); ++it )
+            int i = 0;
+            for (CastSpellDetail* spell : m_TrackSpells)
             {
-                CastSpellDetail* spell = *it;
+                i++;
 
-                //Skip spell by same caster
-                if (activeSpell->SpellOwner == spell->SpellOwner)
+                //Skip spell by same caster Or already Triggered
+                if (activeSpell->SpellOwner == spell->SpellOwner || spell->TriggeredSpell != nullptr)
                 {
                     continue;
                 }
-
-                if (spell->TriggeredSpell != nullptr)
-                {
-                    continue;
-                }
+                std::cout << "Triggered! " << spell->OriginalSpell->GetSpellName() << "\n";
 
                 if (activeType == ChannelEffectEnum::Trap)
                 {
@@ -92,7 +90,7 @@ void SpellTimetrack::SimulateSpellTrigger()
                 }
             }
 
-            if (it == m_TrackSpells.end())
+            if (i == m_TrackSpells.size())
             {
                 break;
             }

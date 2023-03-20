@@ -38,11 +38,13 @@ BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, s
 
     m_TexturePath = spellTexturePath;
     this->SetTexture(spellTexturePath);
+
+    Trigger = false;
 }
 
 void BaseSpellObject::Activate()
 {
-    while (m_SpellState != SpellObjectState::Ready) continue;
+    while (m_SpellState < SpellObjectState::Ready) { std::cout << "NOT READY"; continue; }
     m_TotalTime = 0.0f;
     m_SpellState = SpellObjectState::Activate;
     this->SetActive(true);

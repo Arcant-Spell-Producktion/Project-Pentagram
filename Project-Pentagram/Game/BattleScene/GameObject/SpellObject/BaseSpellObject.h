@@ -95,7 +95,7 @@ protected:
     {
         QueueUpdateFunction([this](float dt)
             {
-                if (Trigger == true)
+                if (this->Trigger == true)
                 {
                     Next();
                 }

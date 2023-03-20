@@ -206,12 +206,21 @@ void EarthSpell6::Initialize()
     QueueWaitTriggerEvent();
 
     // If WaitTriggerEvent is done -> DO ANIMATION
-    this->SetIsAnimationObject(true);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationObject(true);
+            Next();
+        }
+    );
+
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
 
     QueueDoneEvent();
+
 }
 
 void EarthSpell7::Initialize()

@@ -120,7 +120,7 @@ void SpellIconUI::SetIsExtra(bool isExtra)
 
 void SpellIconUI::SetIsHidden(bool isHidden)
 {
-    std::cout <<"Icon: " << SpellDetail->OriginalSpell->GetSpellName() << " IsHidden: " << isHidden << std::endl;
+    //std::cout <<"Icon: " << SpellDetail->OriginalSpell->GetSpellName() << " IsHidden: " << isHidden << std::endl;
     m_IconHidden->color.a = isHidden ? 1.0f : 0.0f;
 }
 
