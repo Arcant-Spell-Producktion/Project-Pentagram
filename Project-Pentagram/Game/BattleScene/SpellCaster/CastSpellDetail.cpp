@@ -32,6 +32,8 @@ void CastSpellDetail::OnCast(int* ChannelCount)
         case ChannelEffectEnum::Counter:
             if (!this->doCast)
             {
+                this->doCast = true;
+
                 cc = 1;
                 int endTime = this->SelectedTime + cc;
                 for (int i = this->SelectedTime + 1; i <= endTime; i++)
