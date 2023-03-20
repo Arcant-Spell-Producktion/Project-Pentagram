@@ -5,6 +5,8 @@
 
 BaseSpellObject* EarthSpellObject::CreateSpellObject(int index, CasterPosition target)
 {
+    std::cout << "CREATE SPELL " << index << "****************************\n";
+
     BaseSpellObject* object = nullptr;
     switch (index)
     {
@@ -163,7 +165,7 @@ void EarthSpell4::Initialize()
 void EarthSpell5::Initialize()
 {
     float size = 320.0f;
-    float xPos = CASTER_POSITION_X * m_SpellTarget; // Assume A shooter
+    float xPos = CASTER_POSITION_X * m_SpellTarget; // Assume A shooter // How to Flip m_SpellTarget
     float yPos = -160.0f;
     this->scale = { size * 2, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
@@ -185,19 +187,27 @@ void EarthSpell5::Initialize()
 
 void EarthSpell6::Initialize()
 {
+    std::cout << "--------------- CREATED SPELL_6 --------------\n";
     float size = 640.0f;
     float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = (320.0f - size) / 2.0f;
     this->scale = { size, size / 2.0f, 1.0f };
     this->position = { xPos, yPos, 1.0f };
-    this->SetIsAnimationObject(true);
+
+    // Don't Play animation
+    this->SetIsAnimationObject(false);
+    this->SetSpriteByIndex(0, 0);
 
     float timePerFrame = 0.15f;
 
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    QueueWaitTillFrameEvent();
+    QueueWaitTriggerEvent();
+
+    // If WaitTriggerEvent is done -> DO ANIMATION
+    this->SetIsAnimationObject(true);
+    QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
 

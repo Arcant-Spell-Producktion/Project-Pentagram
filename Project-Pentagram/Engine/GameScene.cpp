@@ -487,10 +487,18 @@ void GameScene::UpdateDeleteObject()
 			}
 		}
 
+		std::unordered_map<GameObject*, int> deleteTable;
+
 		// ----------------- Delete Session -----------------
 		for (int idx = 0; idx < objectsToDeleteList.size(); idx++)
 		{
 			GameObject* deleteObject = objectsToDeleteList[idx];
+
+			if (deleteTable.count(deleteObject) != 0)
+			{
+				continue;
+			}
+			deleteTable[deleteObject]++;
 
 			if (dynamic_cast<Button*>(deleteObject) != nullptr)
 			{
