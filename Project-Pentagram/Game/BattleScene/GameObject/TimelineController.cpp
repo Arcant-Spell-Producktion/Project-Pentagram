@@ -173,6 +173,7 @@ void TimelineController::ClearAllTrack()
     timelineExpander->SetActive(false);
 
     if(currentExpanderIndex != -1) { m_Tracks[currentExpanderIndex]->SetIsExpand(false); }
+    currentExpanderIndex = -1;
 }
 
 void TimelineController::ClearTimelineExpander()

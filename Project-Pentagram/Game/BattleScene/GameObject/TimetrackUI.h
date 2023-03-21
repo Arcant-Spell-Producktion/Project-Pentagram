@@ -2,6 +2,7 @@
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellTimeline/SpellTimetrack.h"
 #include <Game/BattleScene/GameObject/SpellIconUI.h>
+#include "Game/BattleScene/GameObject/WillCompareUI.h"
 
 class TimetrackUI : public UIObject
 {
@@ -20,12 +21,9 @@ private:
 
     bool m_IsExpanded = false;
 
-    TextObject* m_PlayerWill;
-    TextObject* m_EnemyWill;
+    WillCompareUI* m_WillCompareUI;
 
     void SetExpandButtonScale(float scale);
-
-    void UpdateTextWillValue();
 
 public:
 
