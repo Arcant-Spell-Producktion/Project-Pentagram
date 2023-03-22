@@ -293,4 +293,5 @@ void SpellTimetrack::clear(bool doDelete)
     }
 
     m_TrackSpells.clear();
+    m_ActiveSpells.clear();
 }
