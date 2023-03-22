@@ -57,14 +57,14 @@ void ResolveBattleState::ResolveTrack()
 
 void ResolveBattleState::ResolveSpell(int spell_index)
 {
-    std::cout << "\tResovel Spell: " << m_SpellResolveIndex << "\n";
 
     m_CurrentSpellDetail = m_ResolveTrack[m_SpellResolveIndex];
+    std::cout << "\tResovel Spell: " << m_SpellResolveIndex << " " << m_CurrentSpellDetail->GetSpellDetail()->GetSpellName() << "\n";
 
     if (!m_CurrentSpellDetail->isCasted)
     {
         int ChannelCount = 0;
-        auto spellChannelType = m_CurrentSpellDetail->OriginalSpell->GetChannelEffectType();
+        auto spellChannelType = m_CurrentSpellDetail->GetSpellDetail()->GetChannelEffectType();
 
         m_CurrentSpellDetail->OnCast(&ChannelCount);
 
@@ -90,7 +90,7 @@ void ResolveBattleState::ResolveSpell(int spell_index)
                 /*m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
                 m_State = ResolveState::PlaySpell;*/
 
-                if (!m_CurrentSpellDetail->OriginalSpell->GetResolvesEffects().DoCancelSpell())
+                if (!m_CurrentSpellDetail->GetSpellDetail()->GetResolvesEffects().DoCancelSpell())
                 {
 					m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail->TriggeredSpell, m_CurrentSpellDetail->TriggeredSpell->GetTarget());
 					m_State = ResolveState::PlayTriggeredSpell;
@@ -130,6 +130,7 @@ void ResolveBattleState::ResolveSpell(int spell_index)
 
 void ResolveBattleState::ResolveDamageCalculation()
 {
+    std::cout << "\tResovel Damage: " << m_SpellResolveIndex << " " << m_CurrentSpellDetail->GetSpellDetail()->GetSpellName() << "\n";
 	m_CurrentSpellDetail->OnResolve();
 
 }
@@ -178,18 +179,17 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
 	case ResolveBattleState::ResolveState::PlayTriggeredSpell:
 		if (m_CurrentSpellController->IsSpellDone())
 		{
-			m_Dispatcher.DestroySpell(m_CurrentSpellDetail->TriggeredSpell);
-			m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
+			//m_Dispatcher.DestroySpell(m_CurrentSpellDetail->TriggeredSpell);
+			//m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
 			m_State = ResolveState::PlaySpell;
 		}
 		break;
     case ResolveBattleState::ResolveState::PlaySpell:
-        if (m_CurrentSpellController->IsSpellWaitTrigger())
+        
+        if(m_CurrentSpellController->IsSpellDone())
         {
-            Step();
-        }
-        else if(m_CurrentSpellController->IsSpellDone())
-        {
+            ResolveDamageCalculation();
+
             if (m_CurrentSpellController->Trigger)
             {
                 m_Dispatcher.DestroySpell(m_CurrentSpellDetail->ParentSpell);
@@ -198,21 +198,20 @@ void ResolveBattleState::OnBattleStateUpdate(float dt)
             {
                 m_Dispatcher.DestroySpell(m_CurrentSpellDetail);
             }
-            ResolveDamageCalculation();
             Step();
-
-
+        }
+        else if (m_CurrentSpellController->IsSpellWaitTrigger())
+        {
+            Step();
         }
         break;
 
     case ResolveBattleState::ResolveState::Waiting:
         m_Timer -= dt;
-        std::cout << "Wait "<< m_Timer <<"\n";
 
         if (m_Timer <= 0)
         {
             m_Timer = 0;
-            std::cout << "Wait Done\n";
             Step();
         }
         break;

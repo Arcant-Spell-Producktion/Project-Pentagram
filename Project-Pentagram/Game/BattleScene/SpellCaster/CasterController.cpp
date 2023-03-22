@@ -98,7 +98,7 @@ CastSpellDetail* CasterController::CastSpell()
     CastSpellDetail* spell = m_CasterManager.GetSpellDetail();
 
     bool doCompare =
-        spell->OriginalSpell->GetChannelEffectType() != ChannelEffectEnum::Wait;
+        spell->GetSpellDetail()->GetChannelEffectType() != ChannelEffectEnum::Wait;
 
     bm->Data.Timeline.AddSpellToTimeline(spell);
     bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();

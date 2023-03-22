@@ -235,10 +235,32 @@ void TimetrackUI::UpdateTrack()
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
 {
     PreviewIcon(spell,false,false);
-    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->OriginalSpell->GetSpellName() + "_icon", iconSize));
+    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->GetSpellDetail()->GetSpellName() + "_icon", iconSize));
     icon->SetIcon(spell, spell->doCast);
     m_IconParent->SetChildRenderBack(icon);
     m_Icons.push_back(icon);
+
+    UpdateTrack();
+}
+
+void TimetrackUI::RemoveIcon(CastSpellDetail* spell)
+{
+    auto it = m_Icons.begin();
+    for (it = m_Icons.begin(); it != m_Icons.end(); ++it)
+    {
+        SpellIconUI* iconSpell = *it;
+        if (iconSpell-> SpellDetail == spell)
+        {
+            break;
+        }
+    }
+
+    if (it != m_Icons.end())
+    {
+        SpellIconUI* iconSpell = *it;
+        m_IconParent->RemoveChild(iconSpell);
+        m_Icons.erase(it);
+    }
 
     UpdateTrack();
 }

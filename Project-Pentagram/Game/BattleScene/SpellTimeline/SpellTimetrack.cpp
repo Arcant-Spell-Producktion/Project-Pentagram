@@ -54,13 +54,15 @@ void SpellTimetrack::SimulateSpellTrigger()
 
     int triggerCount = 0;
 
-    if (DoWillCompare() && winCaster > CasterPosition::TIED)
+    std::cout << "Simulate Spell!!!!!!!!!!!!!!!!!!!!\n";
+
+    if (winCaster > CasterPosition::TIED && m_ActiveSpells.size() > 0)
     {
         std::cout << "Active Spell in track " << m_ActiveSpells.size() << "\n";
         for (auto activeSpell : m_ActiveSpells)
         {
-            ChannelEffectEnum activeType = activeSpell->OriginalSpell->GetChannelEffectType();
-            std::cout << "Checking " << activeSpell->OriginalSpell->GetSpellName() << "\n";
+            ChannelEffectEnum activeType = activeSpell->GetSpellDetail()->GetChannelEffectType();
+            std::cout << "Checking " << activeSpell->GetSpellDetail()->GetSpellName() << "\n";
             if (activeSpell->Channel == CastSpellDetail::Head || activeType < ChannelEffectEnum::Trap)
             {
                 continue;
@@ -76,14 +78,14 @@ void SpellTimetrack::SimulateSpellTrigger()
                 {
                     continue;
                 }
-                std::cout << "Triggered! " << spell->OriginalSpell->GetSpellName() << "\n";
+                std::cout << "Triggered! " << spell->GetSpellDetail()->GetSpellName() << "\n";
 
                 if (activeType == ChannelEffectEnum::Trap)
                 {
                     spell->TriggeredSpell = activeSpell;
                     activeSpell->TriggeredSpell = spell;
                 }
-                else if(activeType == ChannelEffectEnum::Counter && spell->OriginalSpell->GetSpellTarget() == SpellTargetEnum::Opponent)
+                else if(activeType == ChannelEffectEnum::Counter && spell->GetSpellDetail()->GetSpellTarget() == SpellTargetEnum::Opponent)
                 {
                     spell->TriggeredSpell = activeSpell;
                     activeSpell->TriggeredSpell = spell;
@@ -150,14 +152,14 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
             {
                 spell->TriggeredSpell->doCast = true;
                 ResolveTrack.push_back(spell->TriggeredSpell);
-                if (spell->TriggeredSpell->OriginalSpell->GetResolvesEffects().DoCancelTrack())
+                if (spell->TriggeredSpell->GetSpellDetail()->GetResolvesEffects().DoCancelTrack())
                 {
                     TrackIsSkip = true;
                 }
             }
           
         }
-        else if(spell ->OriginalSpell->GetChannelEffectType() == ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
+        else if(spell ->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
         {
             spell->doCast = true;
             SpellToEnd.push_back(spell);
@@ -165,6 +167,13 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
     }
 
     ResolveTrack.insert(ResolveTrack.end(), SpellToEnd.begin(), SpellToEnd.end());
+
+    std::cout << "Spell TO RESOLVES";
+
+    for (auto spell : ResolveTrack)
+    {
+        std::cout << "\t" << spell->GetSpellDetail()->GetSpellName() << " -> ";
+    }
 
     return ResolveTrack;
 }
@@ -197,11 +206,13 @@ void SpellTimetrack::PushSpell(CastSpellDetail* spell)
     CalculateWillCompareResult(true);
 }
 
-bool SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
+CastSpellDetail* SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
 {
     auto it = std::find(m_TrackSpells.begin(), m_TrackSpells.end(), spell);
     if (it != m_TrackSpells.end())
     {
+        std::cout << "\t***Remove Spell\n";
+
         if (spell->DoWillCompare())
         {
             m_WillCompareTable[spell->SpellOwner] -= spell->SelectedWill;
@@ -215,18 +226,19 @@ bool SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
         {
             m_ActiveSpells.erase(std::find(m_ActiveSpells.begin(), m_ActiveSpells.end(), spell));
         }
-        return true;
+        return spell;
     }
 
-    return false;
+    return nullptr;
 }
 
-bool SpellTimetrack::RemoveChildSpell(CastSpellDetail* parentSpell)
+CastSpellDetail* SpellTimetrack::RemoveChildSpell(CastSpellDetail* parentSpell)
 {
     for (CastSpellDetail* spell : m_ActiveSpells)
     {
         if (spell->ParentSpell == parentSpell)
         {
+            std::cout << "\t***Remove child Spell\n";
             return RemoveSpell(spell);
         }
     }

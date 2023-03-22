@@ -4,6 +4,9 @@
 
 class CastSpellDetail
 {
+    private:
+        Spell* OriginalSpell = nullptr;
+
     public:
         enum ChannelType
         {
@@ -13,7 +16,6 @@ class CastSpellDetail
         };
 
         CasterPosition SpellOwner;
-        Spell* OriginalSpell = nullptr;
         int SelectedWill;
         int SelectedEffect;
         int SelectedTime;
@@ -26,6 +28,8 @@ class CastSpellDetail
         CastSpellDetail* TriggeredSpell = nullptr;
 
         CastSpellDetail* ParentSpell = nullptr;
+
+        Spell* GetSpellDetail() const { return OriginalSpell; }
 
         CasterPosition GetTarget() const
         {

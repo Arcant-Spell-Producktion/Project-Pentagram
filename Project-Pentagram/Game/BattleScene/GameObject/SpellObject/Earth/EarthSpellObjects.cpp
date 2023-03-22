@@ -215,7 +215,7 @@ void EarthSpell6::Initialize()
         }
     );
 
-    QueueWaitTillFrameEvent(true);
+    QueueWaitTillFrameEvent(false,true);
 
     QueueHitEvent();
 

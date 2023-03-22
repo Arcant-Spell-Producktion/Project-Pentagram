@@ -89,19 +89,22 @@ void SpellIconUI::SetIcon(CastSpellDetail* spellDetail, bool doCast)
     SpellDetail = spellDetail;
 
     bool isSpelldoCast = doCast;
-    switch (SpellDetail->OriginalSpell->GetChannelEffectType())
+    switch (SpellDetail->GetSpellDetail()->GetChannelEffectType())
     {
     case ChannelEffectEnum::None:
         m_BorderIndex = 0;
         m_OverlayIndex = 0;
         break;
-    case ChannelEffectEnum::Active:
-        m_OverlayIndex = 2;
-        m_BorderIndex = isSpelldoCast ? 1 : 0;
-        break;
     case ChannelEffectEnum::Wait:
         m_OverlayIndex = 1;
         m_BorderIndex = isSpelldoCast ? 0 : 2;
+        break;
+    case ChannelEffectEnum::Active:
+    case ChannelEffectEnum::Trap:
+    case ChannelEffectEnum::Counter:
+
+        m_OverlayIndex = 2;
+        m_BorderIndex = isSpelldoCast ? 1 : 0;
         break;
     }
 
@@ -120,7 +123,7 @@ void SpellIconUI::SetIsExtra(bool isExtra)
 
 void SpellIconUI::SetIsHidden(bool isHidden)
 {
-    //std::cout <<"Icon: " << SpellDetail->OriginalSpell->GetSpellName() << " IsHidden: " << isHidden << std::endl;
+    //std::cout <<"Icon: " << SpellDetail->GetSpellDetail()->GetSpellName() << " IsHidden: " << isHidden << std::endl;
     m_IconHidden->color.a = isHidden ? 1.0f : 0.0f;
 }
 
@@ -137,8 +140,8 @@ void SpellIconUI::SetPosition(glm::vec3 position)
 
 void SpellIconUI::UpdateIcon()
 {
-    m_CurrentElement = SpellDetail->OriginalSpell->m_Element;
-    m_CurrentSpellIndex = SpellDetail->OriginalSpell->m_Index;
+    m_CurrentElement = SpellDetail->GetSpellDetail()->m_Element;
+    m_CurrentSpellIndex = SpellDetail->GetSpellDetail()->m_Index;
     m_IconObject->SetSpriteByIndex(m_CurrentElement, m_CurrentSpellIndex);
     m_IconOverlay->SetSpriteByIndex(0, m_OverlayIndex);
     m_IconBorder->SetSpriteByIndex(SpellDetail->SpellOwner == CasterPosition::CasterA ? 0 : 1, m_BorderIndex);

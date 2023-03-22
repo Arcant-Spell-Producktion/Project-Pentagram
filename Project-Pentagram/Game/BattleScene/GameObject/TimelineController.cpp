@@ -71,7 +71,7 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
         return;
     }
 
-    switch (spell->OriginalSpell->GetChannelEffectType())
+    switch (spell->GetSpellDetail()->GetChannelEffectType())
     {
     case ChannelEffectEnum::None:
         timeIndexs.insert(TimeToIndex(spell->SelectedTime));
@@ -82,7 +82,7 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
         break;
     case ChannelEffectEnum::Wait:
         timeIndexs.insert(TimeToIndex(spell->SelectedTime));
-        timeIndexs.insert(TimeToIndex(spell->SelectedTime + spell->OriginalSpell->GetChannelTime()));
+        timeIndexs.insert(TimeToIndex(spell->SelectedTime + spell->GetSpellDetail()->GetChannelTime()));
         for (size_t i = 0; i < 11; i++)
         {
             m_Tracks[i]->PreviewIcon(spell, !(i == *timeIndexs.begin()), timeIndexs.contains(i));
@@ -91,7 +91,7 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
     case ChannelEffectEnum::Active:
     case ChannelEffectEnum::Trap:
     case ChannelEffectEnum::Counter:
-        for (int t = spell->SelectedTime; t <= spell->SelectedTime + spell->OriginalSpell->GetChannelTime(); t++)
+        for (int t = spell->SelectedTime; t <= spell->SelectedTime + spell->GetSpellDetail()->GetChannelTime(); t++)
         {
             timeIndexs.insert(TimeToIndex(t));
         }
@@ -105,8 +105,12 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
 
 void TimelineController::AddIconToTrack(int index, CastSpellDetail* spell)
 {
-    std::cout << "ADD ICON 2\n";
 	m_Tracks[index]->AddIcon(spell);
+}
+
+void TimelineController::RemoveIconFromTrack(int index, CastSpellDetail* spell)
+{
+    m_Tracks[index]->RemoveIcon(spell);
 }
 
 void TimelineController::ClearTrack(int index)

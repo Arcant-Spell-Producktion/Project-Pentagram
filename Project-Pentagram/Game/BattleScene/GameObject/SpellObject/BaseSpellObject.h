@@ -97,6 +97,7 @@ protected:
             {
                 if (this->Trigger == true)
                 {
+                    m_SpellState = SpellObjectState::Activate;
                     Next();
                 }
                 else

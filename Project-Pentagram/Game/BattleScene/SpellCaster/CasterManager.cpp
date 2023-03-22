@@ -63,7 +63,7 @@ int CasterManager::GetFieldCost(PentagramField field)
 
 int CasterManager::GetTimeCost()
 {
-    int timeDiff = std::abs(m_CurrentSpell->OriginalSpell->GetCastTime() - m_PentagramData.time);
+    int timeDiff = std::abs(m_CurrentSpell->GetSpellDetail()->GetCastTime() - m_PentagramData.time);
     return  timeDiff  + timeDiff * m_TimeDebuff;
 }
 

@@ -40,6 +40,9 @@ BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, s
     this->SetTexture(spellTexturePath);
 
     Trigger = false;
+
+    QueueUpdateFunction([this](float dt) {});
+        
 }
 
 void BaseSpellObject::Activate()
@@ -48,4 +51,5 @@ void BaseSpellObject::Activate()
     m_TotalTime = 0.0f;
     m_SpellState = SpellObjectState::Activate;
     this->SetActive(true);
+    Next();
 }
