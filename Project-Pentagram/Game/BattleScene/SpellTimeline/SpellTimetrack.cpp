@@ -74,7 +74,7 @@ void SpellTimetrack::SimulateSpellTrigger()
                 i++;
 
                 //Skip spell by same caster Or already Triggered
-                if (activeSpell->SpellOwner == spell->SpellOwner || spell->TriggeredSpell != nullptr)
+                if (activeSpell->SpellOwner == spell->SpellOwner || activeSpell->TriggeredSpell != nullptr)
                 {
                     continue;
                 }

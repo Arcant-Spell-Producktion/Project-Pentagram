@@ -166,8 +166,8 @@
       <CastTime>6</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Counter</ChannelEffect>
-      <SpellTarget>Self</SpellTarget>
-      <ResolveFlag>13</ResolveFlag>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>12</ResolveFlag>
     </Spell>
     <Spell SpellName="Unbreakable Shield">
       <WillValue>

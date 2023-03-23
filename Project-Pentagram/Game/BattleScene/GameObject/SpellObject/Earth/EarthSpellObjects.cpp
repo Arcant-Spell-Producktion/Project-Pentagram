@@ -187,7 +187,6 @@ void EarthSpell5::Initialize()
 
 void EarthSpell6::Initialize()
 {
-    std::cout << "--------------- CREATED SPELL_6 --------------\n";
     float size = 640.0f;
     float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = (320.0f - size) / 2.0f;
@@ -209,6 +208,7 @@ void EarthSpell6::Initialize()
         [this](float dt)
         {
             this->SetIsAnimationObject(true);
+            Next();
         }
     );
 
@@ -238,8 +238,104 @@ void EarthSpell6::Initialize()
 
 void EarthSpell7::Initialize()
 {
+    float size = 320.0f;
+    float xPos = (CASTER_POSITION_X - 200.0f) * m_SpellTarget;
+    float yPos = -160.0f;
+    this->scale = { size, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+    this->SetIsAnimationLoop(false);
+    float timePerFrame = 0.15f;
+    this->SetAnimationPlayTime(timePerFrame);
+
+    // Initialize Reflect Object
+    reflectObj->SetTexture("Sprites/Spell/Earth/spell_earth_1.png");
+    reflectObj->position = { this->scale.x / 2.0f, 0.0f, 0.0f };
+    reflectObj->color.a = 0.0f;
+    reflectObj->scale = { 320.0f, 320.0f, 1.0f };
+    reflectObj->SetSpriteByIndex(0, 0);
+    reflectObj->SetIsAnimationObject(false);
+    reflectObj->SetAnimationPlayTime(0.15f);
+    this->SetChildRenderFront(reflectObj);
+
+    QueueWaitTillFrameEvent(false);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationLoop(true);
+            this->SetSpriteByIndex(1, 0);
+
+            Next();
+        }
+    );
+    QueueWaitEvent(1.0f);
+
+    QueueWaitTriggerEvent();
+
+    QueueWaitEvent(2.0f);
+
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            reflectObj->SetIsAnimationObject(true);
+            reflectObj->color.a = 1.0f;
+            int currentRow = reflectObj->GetCurrentAnimationRow() - 1;
+            int _target = reflectObj->GetAnimationColumn(currentRow);
+
+            int curFrame = reflectObj->GetCurrentAnimationColumn();
+
+            if (curFrame == _target)
+            {
+                reflectObj->SetSpriteByIndex(currentRow + 1, 0, true);
+
+                Next();
+                return;
+            }
+        }
+    );
+
+    float travelTime = 1.0f;
+    glm::vec3 startPos = reflectObj->position;
+    glm::vec3 endPos = { CASTER_POSITION_X + std::fabs(this->position.x), 0.0f, 0.0f};
+    glm::vec3 direction = endPos - startPos;
+
+    std::cout << startPos.x << " " << startPos.y << " " << startPos.z << std::endl;
+    std::cout << endPos.x << " " << endPos.y << " " << endPos.z << std::endl;
+    std::cout << direction.x << " " << direction.y << " " << direction.z << std::endl;
+
+    QueueUpdateFunction(
+        [this, startPos, direction, travelTime](float dt)
+        {
+            if (m_TotalTime >= travelTime)
+            {
+                Next();
+                reflectObj->color.a = 0.0f;
+                return;
+            }
+            float progress = m_TotalTime / travelTime;
+
+            reflectObj->position.x = startPos.x + direction.x * progress;
+            reflectObj->position.y = startPos.y + direction.y * progress;
+        }
+    );
+
     QueueHitEvent();
+    
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationLoop(false);
+            this->SetSpriteByIndex(2, 0);
+
+            Next();
+        }
+    );
+    QueueWaitTillFrameEvent();
+
     QueueDoneEvent();
+
 }
 
 void EarthSpell8::Initialize()

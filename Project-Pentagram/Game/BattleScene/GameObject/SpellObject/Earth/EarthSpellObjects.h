@@ -94,6 +94,7 @@ public:
 class EarthSpell7 : public BaseSpellObject
 {
 private:
+    GameObject* reflectObj = new GameObject("Reflect_Spell");;
     void Initialize();
 public:
     EarthSpell7(CasterPosition target) :BaseSpellObject(
