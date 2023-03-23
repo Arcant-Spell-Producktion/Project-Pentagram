@@ -340,12 +340,94 @@ void EarthSpell7::Initialize()
 
 void EarthSpell8::Initialize()
 {
+    float size = 320.0f;
+    float xPos = (CASTER_POSITION_X - 200.0f) * -m_SpellTarget;
+    float yPos = -160.0f;
+    this->scale = { size, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+    this->SetIsAnimationLoop(false);
+    float timePerFrame = 0.15f;
+    this->SetAnimationPlayTime(timePerFrame);
+
+    QueueWaitTillFrameEvent(false);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationLoop(true);
+            this->SetSpriteByIndex(1, 0);
+
+            Next();
+        }
+    );
+    QueueWaitEvent(1.0f);
+
+    QueueWaitTriggerEvent();
+
+    QueueWaitEvent(1.0f);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationLoop(false);
+            this->SetSpriteByIndex(2, 0);
+
+            Next();
+        }
+    );
+    QueueWaitTillFrameEvent();
+
     QueueHitEvent();
     QueueDoneEvent();
 }
 
 void EarthSpell9::Initialize()
 {
+    auto scene = GameStateController::GetInstance()->currentScene;
+
+    float size = 640.0f;
+    float xPos = CASTER_POSITION_X * -m_SpellTarget;
+    float yPos = -320.0f;
+    this->scale = { size * 2, size, 1.0f };
+    this->position = { xPos, yPos, 1.0f };
+    this->SetIsAnimationObject(true);
+    this->SetIsAnimationLoop(false);
+
+    float timePerFrame = 0.15f;
+    this->SetAnimationPlayTime(timePerFrame);
+    
+    float blastTime = 1.5f;
+
+    QueueUpdateFunction(
+        [this, scene, blastTime](float dt)
+        {
+            scene->GetCamera()->Shake(blastTime, 25, { 50.0f,100.0f });
+            Next();
+        }
+    );
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            int currentRow = this->GetCurrentAnimationRow() - 1;
+            int currentColumn = this->GetCurrentAnimationColumn() - 1;
+            int lastRow = this->GetAnimationRow();
+            int lastColumn = this->GetAnimationColumn(currentRow);
+
+            if (currentColumn == lastColumn - 1)
+            {
+                if (currentRow + 1 == lastRow)
+                {
+                    Next();
+                    return;
+                }
+                this->SetSpriteByIndex(currentRow + 1, 0, true);
+            }
+        }
+    );
+
+    QueueWaitEvent(1.0f);
+
     QueueHitEvent();
     QueueDoneEvent();
 }
