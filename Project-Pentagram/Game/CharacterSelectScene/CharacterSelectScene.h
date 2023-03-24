@@ -5,6 +5,7 @@
 #include "Engine/Input.h"
 #include "Utilities/Color.h"
 #include "Game/Spells/Element.h"
+#include "Game/CharacterSelectScene/CharacterInfoUI.h"
 
 class CharacterSelectScene : public GameScene
 {
@@ -17,6 +18,8 @@ private:
 
     Element::Type m_SelectedElement = Element::Fire;
     std::vector<UIObject*> m_Characters;
+
+    CharacterInfoUI* m_CharacterInfoUI;
 
     void FadeOut(const float& fadeTime, GameState nextState)
     {

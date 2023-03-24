@@ -28,6 +28,7 @@ void CharacterSelectScene::OnSelect(Element::Type element)
         if (i == (int)element)
         {
             c->Select();
+			m_CharacterInfoUI->UpdateSelectedCharacter(element);
         }
         else
         {
@@ -65,17 +66,19 @@ void CharacterSelectScene::GameSceneInit()
     {
         Element::Type e = (Element::Type)i;
         CharacterSelectUI* temp = CreateObject(new CharacterSelectUI(e));
-        temp->position = { spacing * 2 * (i - 1) - spacing, 0.0f, 0.0f };
+        temp->position = { spacing * 2 * (i - 1) - spacing, 150.0f, 0.0f };
         m_Characters.push_back(temp);
 
         temp->OnCharacterSelect.AddListener([this](Element::Type element) { if(element != m_SelectedElement) { OnSelect(element); } });
     }
 
-    OnSelect(Element::Fire);
+	m_CharacterInfoUI = CreateObject(new CharacterInfoUI());
+    
+	OnSelect(Element::Fire);
 
 	// Select Button
-	Button* selectButton = CreateObject(new ScrollButton("Select"));
-	selectButton->position = { 0.0f, -400.0f, 0.0f };
+	Button* selectButton = CreateObject(new ScrollButton("Select", { 400.0f, 160.0f, 1.0f }, { 450.0f, 160.0f, 1.0f }));
+	selectButton->position = { 400.0f, -400.0f, 0.0f };
 	selectButton->onClick.AddListener([this](Button* button)
         {
             OnConfirm();
