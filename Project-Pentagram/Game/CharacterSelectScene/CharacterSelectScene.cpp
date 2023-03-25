@@ -40,6 +40,15 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 
 void CharacterSelectScene::OnConfirm()
 {
+	// TO DO: Change range to [0, 4) When Wind and Earth Boss have added
+	for (int i = 1; i < 3; i++)
+	{
+		CharacterSelectUI* c = dynamic_cast<CharacterSelectUI*>(m_Characters[i]);
+		if (i != (int)m_SelectedElement)
+		{
+			c->ChangeForm();
+		}
+	}
     dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement])->Confirm();
     
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
@@ -60,7 +69,7 @@ void CharacterSelectScene::GameSceneLoad()
 
 void CharacterSelectScene::GameSceneInit()
 {
-    float spacing = 175.0f;
+    float spacing = 200.0f;
 
     for (int i = (int)(Element::Earth); i <= (int)(Element::Water); i++)
     {
@@ -73,16 +82,25 @@ void CharacterSelectScene::GameSceneInit()
     }
 
 	m_CharacterInfoUI = CreateObject(new CharacterInfoUI());
-    
+	m_CharacterInfoUI->position = { -400.0f, -300.0f, 0.0f };
+
 	OnSelect(Element::Fire);
 
 	// Select Button
-	Button* selectButton = CreateObject(new ScrollButton("Select", { 400.0f, 160.0f, 1.0f }, { 450.0f, 160.0f, 1.0f }));
-	selectButton->position = { 400.0f, -400.0f, 0.0f };
+	Button* selectButton = CreateObject(new ScrollButton("Select this Witch", { 650.0f, 160.0f, 1.0f }, { 670.0f, 160.0f, 1.0f }));
+	selectButton->position = { 450.0f, -200.0f, 0.0f };
 	selectButton->onClick.AddListener([this](Button* button)
         {
             OnConfirm();
         });
+	// Test Button
+	Button* testButton = CreateObject(new ScrollButton("Test this Witch", { 650.0f, 160.0f, 1.0f }, { 670.0f, 160.0f, 1.0f }));
+	testButton->position = { 450.0f, -400.0f, 0.0f };
+	testButton->color.a = 0.5f;
+	testButton->onClick.AddListener([this](Button* button)
+		{
+
+		});
 
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");

@@ -92,6 +92,12 @@ void CasterObject::OnUpdate(const float& dt)
 
 }
 
+void CasterObject::SetCaster(CasterType type, Element::Type element)
+{
+    std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] << "\n";
+
+    SetTexture(CasterSpritePath[(int)type][(int)element]);
+}
 void CasterObject::SetCaster(CasterType type, Element::Type element, CasterPosition pos)
 {
     std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] <<"\n";

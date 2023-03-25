@@ -8,6 +8,8 @@ private:
     ScrollButton* m_SelectButton = nullptr;
     CasterObject* m_Caster = nullptr;
 
+    Element::Type m_CurrentElement;
+
 public:
     Event<Element::Type> OnCharacterSelect;
 
@@ -18,4 +20,6 @@ public:
     void Deselect();
 
     void Confirm();
+
+    void ChangeForm();
 };

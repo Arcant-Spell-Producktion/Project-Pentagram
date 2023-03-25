@@ -3,7 +3,6 @@
 CharacterInfoUI::CharacterInfoUI()
 	: UIObject("CharacterInfoUI")
 {
-	this->position = { -400.0f, -300.0f, 0.0f };
 	this->color = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 	m_InfoBackground = new UIObject("CharacterInfoUI_InfoBackground");
@@ -11,7 +10,7 @@ CharacterInfoUI::CharacterInfoUI()
 	m_InfoBackground->scale = { 900.0f, 400.0f, 1.0f };
 	m_InfoBackground->SetTexture("Sprites/UI/Game/ui_game_pause-panel.png");
 	m_InfoBackground->SetIsSlicing(true);
-	m_InfoBackground->SetSlicingType(SlicingType::STRETCH);
+	m_InfoBackground->SetSlicingType(SlicingType::REPEAT);
 	m_InfoBackground->SetSlicingBorderSize(160.0f);
 	m_InfoBackground->SetSlicingBorderMultiplier(0.5f);
 	this->SetChildRenderFront(m_InfoBackground);
@@ -49,7 +48,7 @@ void CharacterInfoUI::UpdateSelectedCharacter(Element::Type element)
 			m_EffectInfoUI[1]->SetEffectIconIndex({ 0, 5 });
 			m_EffectInfoUI[1]->SetEffectInfo(EarthEffectInfo[1]);
 
-			m_CasterInfo->text = EarthCharacterInfo;
+			m_CasterInfo->text = EarthCharacterInfo + "\n\n" + "Effect of earth spell:";
 			break;
 		
 		case Element::Fire :
@@ -61,7 +60,7 @@ void CharacterInfoUI::UpdateSelectedCharacter(Element::Type element)
 			m_EffectInfoUI[1]->SetEffectIconIndex({ 0, 1 });
 			m_EffectInfoUI[1]->SetEffectInfo(FireEffectInfo[1]);
 
-			m_CasterInfo->text = FireCharacterInfo;
+			m_CasterInfo->text = FireCharacterInfo + "\n\n" + "Effect of fire spell:";
 			break;
 		
 		case Element::Water :
@@ -73,7 +72,7 @@ void CharacterInfoUI::UpdateSelectedCharacter(Element::Type element)
 			m_EffectInfoUI[1]->SetEffectIconIndex({ 0, 3 });
 			m_EffectInfoUI[1]->SetEffectInfo(WaterEffectInfo[1]);
 
-			m_CasterInfo->text = WaterCharacterInfo;
+			m_CasterInfo->text = WaterCharacterInfo + "\n\n" + "Effect of water spell:";
 			break;
 
 		case Element::Wind :
@@ -83,7 +82,7 @@ void CharacterInfoUI::UpdateSelectedCharacter(Element::Type element)
 			m_EffectInfoUI[0]->SetEffectIconIndex({ 0, 6 });
 			m_EffectInfoUI[0]->SetEffectInfo(WindEffectInfo[0]);
 
-			m_CasterInfo->text = WindCharacterInfo;
+			m_CasterInfo->text = WindCharacterInfo + "\n\n" + "Effect of wind spell:";
 			break;
 	}
 }
