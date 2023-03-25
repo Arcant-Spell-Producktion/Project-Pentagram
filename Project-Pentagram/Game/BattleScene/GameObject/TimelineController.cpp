@@ -21,7 +21,8 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     top->SetChildRenderFront(trackMarker);
 
     box = new UIObject("TimelineUIBOX");
-    box->scale = { 1920.0f,280,1.0f };
+    box->scale = { 1920.0f, 140.0f, 1.0f };
+    box->position = { 0.0f, 140.0f / 2.0f, 0.0f };
     box->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_header.png");
     this->SetChildRenderBack(box);
 
@@ -35,8 +36,9 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     }
 
     timelineExpander = new UIObject("TimelineExpander");
-    timelineExpander->position.y -= 195.0f;
-    timelineExpander->scale = { 1325.0f,120.0f,1.0f };
+    timelineExpander->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png");
+    timelineExpander->position.y -= 175.0f;
+    timelineExpander->scale = { 1320.0f, 128.0f, 1.0f };
     timelineExpander->SetActive(false);
     this->SetChildRenderFront(timelineExpander);
 }
@@ -212,6 +214,6 @@ void TimelineController::InsertTimetrackToExpander(int index)
         timelineExpander->SetChildRenderFront(spellIcon);
         spellIcon->SetActive(true);
         spellIcon->SetIsExtra(false);
-        spellIcon->position = { ((idx + 1) * spellIcon->scale.x) + initXPosition, 0.0f, 0.0f };
+        spellIcon->position = { ((idx + 1) * spellIcon->scale.x) + initXPosition, 10.0f, 0.0f };
     }
 }

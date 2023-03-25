@@ -3,11 +3,11 @@
 
 const int maxIcon = 7;
 
-const float trackY = -10.0f;
+const float trackY = -70.0f;
 
 const float trackWidth = 120.0f;
 
-const float scaleDefault = 220.0f;
+const float scaleDefault = 200.0f;
 const float iconSize = 80.0f;
 const float iconGap = 20.0f;
 
@@ -34,9 +34,9 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bo
 
     m_Box->SetTexture(TimelineTrackSprite[0]);
     m_Box->SetIsSlicing(true);
-    m_Box->SetSlicingBorderSize(50.0f);
-    m_Box->SetSlicingBorderMultiplier(0.4f);
-    m_Box->SetSlicingType(SlicingType::REPEAT);
+    m_Box->SetSlicingBorderSize(32.0f);
+    m_Box->SetSlicingBorderMultiplier(1.0f);
+    m_Box->SetSlicingType(SlicingType::STRETCH);
 
 
     m_PreviewIcon = new SpellIconUI("PreviewIcon_" + std::to_string(m_TrackIndex), iconSize);
