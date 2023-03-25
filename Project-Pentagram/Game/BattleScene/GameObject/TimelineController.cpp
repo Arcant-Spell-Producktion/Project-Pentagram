@@ -20,11 +20,19 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     trackMarker->SetSpriteByIndex(0, 2);
     top->SetChildRenderFront(trackMarker);
 
+
     box = new UIObject("TimelineUIBOX");
     box->scale = { 1920.0f, 140.0f, 1.0f };
     box->position = { 0.0f, 140.0f / 2.0f, 0.0f };
     box->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_header.png");
     this->SetChildRenderBack(box);
+
+    timelineExpander = new UIObject("TimelineExpander");
+    timelineExpander->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png");
+    timelineExpander->position.y -= (165.0f + box->scale.y / 2.0f);
+    timelineExpander->scale = { 1320.0f, 128.0f, 1.0f };
+    timelineExpander->SetActive(false);
+    box->SetChildRenderFront(timelineExpander);
 
     auto bm = BattleManager::GetInstance();
     for (size_t i = 0; i < 11; i++)
@@ -34,13 +42,8 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }
+    
 
-    timelineExpander = new UIObject("TimelineExpander");
-    timelineExpander->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png");
-    timelineExpander->position.y -= 175.0f;
-    timelineExpander->scale = { 1320.0f, 128.0f, 1.0f };
-    timelineExpander->SetActive(false);
-    this->SetChildRenderFront(timelineExpander);
 }
 
 void TimelineController::SetTrackerActive(bool isActive)
@@ -203,6 +206,8 @@ void TimelineController::InsertTimetrackToExpander(int index)
 {
     currentExpanderIndex = index;
 
+    const float offset = 65.0f;
+    const float gap = 15.0f;
     float initXPosition = -timelineExpander->scale.x / 2.0f;
 
     std::vector<SpellIconUI*> curSpellIconList = m_Tracks[index]->GetSpellDetailUIList();
@@ -214,6 +219,6 @@ void TimelineController::InsertTimetrackToExpander(int index)
         timelineExpander->SetChildRenderFront(spellIcon);
         spellIcon->SetActive(true);
         spellIcon->SetIsExtra(false);
-        spellIcon->position = { ((idx + 1) * spellIcon->scale.x) + initXPosition, 10.0f, 0.0f };
+        spellIcon->position = { (idx * (spellIcon->scale.x + gap)) + initXPosition + offset, 0.0f, 0.0f};
     }
 }

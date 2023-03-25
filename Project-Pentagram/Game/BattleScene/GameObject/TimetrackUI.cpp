@@ -26,11 +26,11 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bo
     this->color.a = 0.0f;
 
     m_Box = new UIObject("TrackUI_Box_" + std::to_string(m_TrackIndex));
-    m_Box->scale = { trackWidth,scaleDefault,1.0f };
+    m_Box->scale = { trackWidth, scaleDefault, 1.0f };
 
     m_IconParent = new UIObject("TrackUI_IconParent_" + std::to_string(m_TrackIndex));
     m_IconParent->color.a = 0.0f;
-    m_IconParent->position.y += 65.0f;
+    m_IconParent->position.y += 55.0f;
 
     m_Box->SetTexture(TimelineTrackSprite[0]);
     m_Box->SetIsSlicing(true);
