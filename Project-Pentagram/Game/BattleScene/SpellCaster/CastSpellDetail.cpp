@@ -78,6 +78,17 @@ void CastSpellDetail::OnResolve()
     CasterController* caster = battleManager->Data.GetCaster(casterPosition);
     CasterController* target = battleManager->Data.GetCaster(targetPosition);
 
+    if (resolveEffect.DoCancelDamage())
+    {
+        caster->SetImmune(this->Channel != CastSpellDetail::End);
+    }
+
+    if (this->GetSpellDetail()->GetChannelEffectType() >= ChannelEffectEnum::Active && this->Channel == CastSpellDetail::End && this->TriggeredSpell == nullptr)
+    {
+        //Spell End with out trigger
+        return;
+    }
+
     if (this->TriggeredSpell != nullptr)
     {
 
@@ -119,11 +130,6 @@ void CastSpellDetail::OnResolve()
                 break;
             }
         }
-    }
-
-    if (resolveEffect.DoCancelDamage())
-    {
-        caster->SetImmune(this->Channel != CastSpellDetail::End);
     }
 
     if (resolveEffect.DoDamage())

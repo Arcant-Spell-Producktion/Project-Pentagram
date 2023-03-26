@@ -99,7 +99,6 @@ void SpellTimetrack::SimulateSpellTrigger()
         }
     }
 
-    
 }
 
 CasterPosition SpellTimetrack::CalculateWillCompareResult(bool recalculate = false)
@@ -159,10 +158,18 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
             }
           
         }
-        else if(spell ->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
+        
+        if(spell->GetSpellDetail()->GetChannelEffectType() >= ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
         {
+            std::cout << "Spell END RESOLVES\n";
+
             spell->doCast = true;
-            SpellToEnd.push_back(spell);
+            if (spell->TriggeredSpell == nullptr)
+            {
+                std::cout << "ADD\n";
+
+                SpellToEnd.push_back(spell);
+            }
         }
     }
 

@@ -76,7 +76,7 @@ void ResolveBattleState::ResolveSpell(int spell_index)
 
         if (m_CurrentSpellDetail->doCast)
         {
-            if (m_CurrentSpellDetail->TriggeredSpell == nullptr)
+            if (m_CurrentSpellDetail->TriggeredSpell == nullptr && m_CurrentSpellDetail->ParentSpell == nullptr)
             {
 				m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail, targetPosition);
 				m_State = ResolveState::PlaySpell;
@@ -84,8 +84,6 @@ void ResolveBattleState::ResolveSpell(int spell_index)
             }
             else
             {
-
-				m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell)->Trigger = true;
 
                 /*m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
                 m_State = ResolveState::PlaySpell;*/
@@ -98,7 +96,18 @@ void ResolveBattleState::ResolveSpell(int spell_index)
                 else
                 {
 					m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
-					m_State = ResolveState::PlaySpell;
+                    if (m_CurrentSpellDetail->TriggeredSpell != nullptr || m_CurrentSpellDetail->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Active)
+                    {
+                        m_CurrentSpellController->Trigger = true;
+					    m_State = ResolveState::PlaySpell;
+                    }
+                    else
+                    {
+                        m_Dispatcher.DestroySpell(m_CurrentSpellDetail->ParentSpell);
+                        m_CurrentSpellController = nullptr;
+                        Step();
+                        return;
+                    }
                 }
 
             }
