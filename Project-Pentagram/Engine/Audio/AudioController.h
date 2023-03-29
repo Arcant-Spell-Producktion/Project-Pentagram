@@ -91,9 +91,9 @@ class BGMController
 				const float bgmVolume = audioEngine->GetBGMVolume();
 
 				AudioSource*& curAudioSource = m_BGMSourceList[idx];
+				curAudioSource->setDefaultVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
+
 				Audio* audio = audioEngine->GetEngine()->play2D(curAudioSource, true, false, true, true);
-				
-				audio->setVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
 				
 				m_BGMAudioList.push_back(new BGMAudio(audio));
 			}
