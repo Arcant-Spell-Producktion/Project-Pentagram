@@ -45,3 +45,28 @@ void FreezeSpellEffect::ResolveEffect(std::va_list args)
     CasterController* caster = va_arg(args, CasterController*);
     caster->GetCasterManager()->SetTimeDebuff(m_EffectStack);
 }
+
+void FortifySpellEffect::ResolveEffect(std::va_list args)
+{
+    if (!m_IsEffectActive) return;
+
+    int* damage = va_arg(args, int*);
+
+    (*damage) = 0;
+
+    va_end(args);
+
+    m_EffectStack--;
+    if (m_EffectStack == 0)
+    {
+        ResetEffect();
+    }
+}
+
+void PetrifySpellEffect::ResolveEffect(std::va_list args)
+{
+    if (!m_IsEffectActive) return;
+
+    CasterController* caster = va_arg(args, CasterController*);
+    caster->GetCasterManager()->SetWillDebuff(m_EffectStack);
+}

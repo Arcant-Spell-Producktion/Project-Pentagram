@@ -52,9 +52,38 @@ public:
     {
         m_IsEffectStack = true;
         m_IsEffectActiveOnce = true;
+        m_IsEffectResetOnEndOfCastPhase = true;
     }
 
     virtual void ResolveEffect(std::va_list args) override;
+};
+
+class FortifySpellEffect :public BaseSpellEffect
+{
+
+public:
+    FortifySpellEffect() :BaseSpellEffect(SpellEffectEnum::Fortify, EffectResolveType::OnDamageCalculation)
+    {
+        m_IsEffectStack = true;
+        m_EffectStackLimit = 10;
+    }
+
+    virtual void ResolveEffect(std::va_list args) override;
+};
+
+class PetrifySpellEffect :public BaseSpellEffect
+{
+private:
+public:
+    PetrifySpellEffect() :BaseSpellEffect(SpellEffectEnum::Petrify, EffectResolveType::OnStartTurn)
+    {
+        m_IsEffectStack = true;
+        m_IsEffectActiveOnce = true;
+        m_IsEffectResetOnEndOfCastPhase = true;
+    }
+
+    virtual void ResolveEffect(std::va_list args) override;
+    
 };
 
 class SpellEffects
@@ -67,7 +96,9 @@ public:
             new BurnSpellEffect(),
             new MarkSpellEffect(),
             new OverflowSpellEffect(),
-            new FreezeSpellEffect()
+            new FreezeSpellEffect(),
+            new FortifySpellEffect(),
+            new PetrifySpellEffect(),
         };
 
         return effects;

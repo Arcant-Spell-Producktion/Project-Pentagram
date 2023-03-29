@@ -221,6 +221,7 @@
     <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -545,6 +546,7 @@
     <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialManager.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

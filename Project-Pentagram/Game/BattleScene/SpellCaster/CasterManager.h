@@ -16,6 +16,7 @@ protected:
 
     std::array<bool, 6> m_ManaWheelTracker = { false, false, false, false, false, false };
 
+    int m_WillDebuff = 0;
     int m_TimeDebuff = 0;
 
     int GetTimeCost();
@@ -61,9 +62,11 @@ public:
 
     void ResetMana();
 
+    void SetWillDebuff(int debuff);
+
     void SetTimeDebuff(int debuff);
 
-    void ResetTimeDebuff();
+    void ResetDebuff();
 
 
   /*  ~CasterManager()

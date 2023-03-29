@@ -6,7 +6,7 @@ CasterEffectBarUI::CasterEffectBarUI(int position) :UIObject("EffectBar_" + std:
 
     m_Direction = position == 0 ? -1 : 1;
 
-    for (size_t i = 0; i <= (int)SpellEffectEnum::Freeze; i++)
+    for (size_t i = 0; i <= (int)SpellEffectEnum::Petrify; i++)
     {
         SpellEffectEnum effEnum = (SpellEffectEnum)i;
         CasterEffectIconUI* newEffIcon = new CasterEffectIconUI(effEnum,0);

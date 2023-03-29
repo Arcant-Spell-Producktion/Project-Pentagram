@@ -12,8 +12,9 @@ void BaseSpellObject::OnUpdate(const float& dt)
 {
     if (m_SpellState == SpellObjectState::Init || m_SpellState == SpellObjectState::Done) return;
     if (m_CurrentUpdateFunc == nullptr) Next();
-        m_TotalTime += dt;
-        m_CurrentUpdateFunc(dt);
+    
+    m_TotalTime += dt;
+    m_CurrentUpdateFunc(dt);
 
 }
 
@@ -38,12 +39,20 @@ BaseSpellObject::BaseSpellObject(CasterPosition target, std::string spellName, s
 
     m_TexturePath = spellTexturePath;
     this->SetTexture(spellTexturePath);
+
+    Trigger = false;
+
+    QueueUpdateFunction([this](float dt) {});
+        
 }
 
 void BaseSpellObject::Activate()
 {
-    while (m_SpellState != SpellObjectState::Ready) continue;
+    if (m_SpellState >= SpellObjectState::Activate) { return; }
+
+    while (m_SpellState < SpellObjectState::Ready) { std::cout << "NOT READY"; continue; }
     m_TotalTime = 0.0f;
     m_SpellState = SpellObjectState::Activate;
     this->SetActive(true);
+    Next();
 }
