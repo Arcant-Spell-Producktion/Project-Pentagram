@@ -45,8 +45,18 @@ void PentagramCircleUI::UpdateCircleUI(PentagramEvent e)
     }
 }
 
+int PentagramCircleUI::GetComplexValue()
+{
+    return m_ComplexValue;
+}
+int PentagramCircleUI::GetCircleValue()
+{
+    return m_CircleValue;
+}
+
 void PentagramCircleUI::SetCircle(int value)
 {
+    m_CircleValue = value;
     for (size_t i = 0; i < 4; i++)
     {
         if (i == 0)
@@ -59,6 +69,7 @@ void PentagramCircleUI::SetCircle(int value)
 
 void PentagramCircleUI::SetComplex(int value)
 {
+    m_ComplexValue = value;
     for (size_t i = 1; i < 4; i++)
     {
         m_PentragramObj[i]->SetSpriteByIndex(i, value - 1);

@@ -50,6 +50,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
@@ -70,6 +71,8 @@
     <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
+    <ClInclude Include="Game\MapScene\CasterStatUI.h" />
+    <ClInclude Include="Game\MapScene\MapInfoUI.h" />
     <ClInclude Include="Game\MapScene\MapNode.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
@@ -155,6 +158,7 @@
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
@@ -180,6 +184,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
     <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
@@ -226,6 +231,8 @@
     <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
     <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
     <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
+    <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />

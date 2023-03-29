@@ -1,14 +1,6 @@
 ﻿#pragma once
 #include "Game/BattleScene/BattleSceneData.h"
-
-enum class BattleState
-{
-    SetupState = 0,
-    StandbyState,
-    CastState,
-    ResolveState,
-    ResultState
-};
+#include "Game/BattleScene/BattleStates/BattleState.h"
 
 class BaseBattleState
 {
