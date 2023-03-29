@@ -33,7 +33,7 @@ const std::string FireEffectInfo[2] =
 
 // ------------------------- Water Character Info -------------------------
 const std::string WaterCharacterInfo =
-R"(Water Witch: A water witch, Gain mana faster and slow down 
+R"(Seina Aquarone: A water witch, Gain mana faster and slow down 
 the enemy cast time.)";
 
 const std::string WaterEffectInfo[2] =
@@ -47,7 +47,7 @@ const std::string WaterEffectInfo[2] =
 
 // ------------------------- Wind Character Info -------------------------
 const std::string WindCharacterInfo =
-R"(Wind Witch: A wind witch, the more you compare the
+R"(Fumi Ventis: A wind witch, the more you compare the
 will the more she become strong in the next turn.)";
 
 const std::string WindEffectInfo[1] =
