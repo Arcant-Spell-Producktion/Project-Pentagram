@@ -76,8 +76,10 @@ bool RuntimeGameData::LoadGameData()
         inputFile.close();
 
         Element::Type element = static_cast<Element::Type>(playerData.element_index);
-        Player = new PlayerData({ CasterStatDatabase::GetInstance()->GetStat(
-            element,CasterType::Player,playerData.level), element, CasterPosition::CasterA }, playerData.level);
+
+        SetPlayer(new PlayerData({ CasterStatDatabase::GetInstance()->GetStat(
+            element,CasterType::Player,playerData.level), element, CasterPosition::CasterA }, playerData.level));
+
         Player->Stat().CurrentHealth = playerData.hp;
 
         Map = new MapData(Player->Element());

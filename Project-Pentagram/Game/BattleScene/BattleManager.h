@@ -3,10 +3,11 @@
 #include <vector>
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/BattleSceneData.h"
+#include "Game/BattleScene/IBattleController.h"
 #include "Game/BattleScene/BattleStates/BattleStateModel.h"
 #include "Utilities/Singleton.h"
 
-class BattleManager : public Singleton<BattleManager>
+class BattleManager : public Singleton<BattleManager>, virtual public IBattleController<BattleState>
 {
 private:
     BattleState m_CurrentState = BattleState::SetupState;
@@ -15,18 +16,18 @@ private:
 public:
     BattleSceneData Data;
 
-    void SetBattleState(BattleState state);
+    void SetBattleState(BattleState state) override;
 
-    BaseBattleState* GetBattleStates() { return m_BattleStates[m_CurrentState]; }
+    BaseBattleState* GetBattleStates() override { return m_BattleStates[m_CurrentState]; }
 
-    void Init(IGameObjectManager* scene);
+    void Init(IGameObjectManager* scene) override;
 
-    void StartBattle();
-    void SwapCaster();
-    void EndBattle() { SetBattleState(BattleState::ResultState); } //TODO
+    void StartBattle() override;
+    void SwapCaster() override;
+    void EndBattle() override { SetBattleState(BattleState::ResultState); }
 
     void UpdateDisplaySpellDetail(CasterPosition position,CastSpellDetail* spell = nullptr, bool isMainData = false, glm::vec3 IconPos = {0,0,0});
 
 
-    ~BattleManager();
+    ~BattleManager() override;
 };

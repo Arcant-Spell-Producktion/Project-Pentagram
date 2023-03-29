@@ -1,5 +1,8 @@
 ﻿#include "GameStateController.h"
 
+#include "Game/TutorialScene/TutorialScene.h"
+#include "Game/TutorialScene/TutorialSelectScene.h"
+
 GameStateController::GameStateController()
 	: currentState(GameState::GS_NONE), 
 	  nextState(GameState::GS_NONE), 
@@ -38,6 +41,12 @@ void GameStateController::UpdateGameScene()
 			break;
 		case GameState::GS_BATTLE_SCENE :
             currentScene = new BattleScene();
+            break;
+	    case GameState::GS_TUTORIAL_SELECT_SCENE:
+            currentScene = new TutorialSelectScene();
+            break;
+	    case GameState::GS_TUTORIAL_SCENE:
+            currentScene = new TutorialScene();
 			break;
 	}
 

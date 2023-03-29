@@ -58,8 +58,13 @@ void MenuScene::GameSceneInit()
 
 	// Play Button
 	Button* playButton = CreateObject(new ScrollButton("Play"));
-	playButton->position = { 0.0f, 0.0f, 0.0f };
+	playButton->position = { -150.0f, 0.0f, 0.0f };
 	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
+
+    // Play Button
+    Button* turButton = CreateObject(new ScrollButton("Tutorial"));
+    turButton->position = { 150.0f, 0.0f, 0.0f };
+    turButton->onClick.AddListener([this](Button* button) { SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE); });
 
 	// Options Button
 	Button* optionsButton = CreateObject(new ScrollButton("Options"));
