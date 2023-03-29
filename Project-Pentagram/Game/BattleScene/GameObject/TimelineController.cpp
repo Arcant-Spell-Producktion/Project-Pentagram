@@ -213,7 +213,7 @@ void TimelineController::InsertTimetrackToExpander(int index)
     currentExpanderIndex = index;
 
     const float offset = 65.0f;
-    const float gap = 15.0f;
+    const float gap = 50.0f;
     float initXPosition = -timelineExpander->scale.x / 2.0f;
 
     std::vector<SpellIconUI*> curSpellIconList = m_Tracks[index]->GetSpellDetailUIList();
@@ -225,6 +225,7 @@ void TimelineController::InsertTimetrackToExpander(int index)
         timelineExpander->SetChildRenderFront(spellIcon);
         spellIcon->SetActive(true);
         spellIcon->SetIsExtra(false);
-        spellIcon->position = { (idx * (spellIcon->scale.x + gap)) + initXPosition + offset, 0.0f, 0.0f};
+        //spellIcon->position = { (idx * (spellIcon->scale.x + gap)) + initXPosition + offset, 0.0f, 0.0f };
+        spellIcon->position = { (idx * gap) + initXPosition + offset, 0.0f, 0.0f};
     }
 }
