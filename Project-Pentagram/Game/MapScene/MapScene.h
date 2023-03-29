@@ -15,6 +15,13 @@ private:
     float m_FadeCurrentTime = 0.0f;
     bool m_IsFadeOut = false;
 
+    float m_MoveTime = 1.0f;
+    float m_CurrentMoveTime = 0.0f;
+    GameObject* m_Character;
+    glm::vec3 m_StartPoint;
+    glm::vec3 m_Destination;
+    bool m_MoveCharacter = false;
+
     void FadeOut(const float& fadeTime, GameState nextState)
     {
         m_NextState = nextState;
