@@ -49,6 +49,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
@@ -151,6 +152,7 @@
     <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
     <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
     <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
     <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
     <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
@@ -175,6 +177,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
     <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
     <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />

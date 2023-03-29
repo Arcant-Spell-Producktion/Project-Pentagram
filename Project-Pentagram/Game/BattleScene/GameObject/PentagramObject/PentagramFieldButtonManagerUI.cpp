@@ -84,11 +84,12 @@ void PentagramFieldButtonUI::ResetFieldRune()
 PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObject("PentagramFieldButtons")
 {
     this->color.a = 0.0f;
+    this->position.y = -10.0f;
 
     for (size_t i = 0; i < 5; i++)
     {
         float theta = 2.0f * 3.142526f * (i / 5.0f);
-        float radius = 185.0f;
+        float radius = 175.0f;
 
         PentagramField field_value = GetFieldByIndex(i);
 

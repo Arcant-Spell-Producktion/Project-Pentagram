@@ -10,6 +10,9 @@ class PentagramCircleUI : public UIObject
 private:
     std::vector<UIObject*> m_PentragramObj;
 
+    int m_ComplexValue = 1;
+    int m_CircleValue = 1;
+
     void SetComplex(int value);
     void SetCircle(int value);
 
@@ -21,4 +24,7 @@ public:
     void SetPentagramUI(int circle, int complex);
 
     void UpdateCircleUI(PentagramEvent e);
+
+    int GetComplexValue();
+    int GetCircleValue();
 };

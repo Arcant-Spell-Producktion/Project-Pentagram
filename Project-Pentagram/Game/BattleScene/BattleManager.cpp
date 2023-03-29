@@ -9,6 +9,9 @@ void BattleManager::SetBattleState(BattleState state)
     {
         m_CurrentState = state;
 
+        // Use in checking condition for Toggle PentagramUI
+        Data.Timeline.UI->SetCurrentState(state);
+
         m_BattleStates[OldState]->OnBattleStateOut();
         m_BattleStates[m_CurrentState]->OnBattleStateIn();
     }
@@ -24,7 +27,10 @@ void BattleManager::Init(IGameObjectManager* scene)
     }
 
     Data.Pentagram = new PentragramController(scene);
+    
     Data.Timeline.UI = scene->CreateObject(new TimelineController());
+    Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
+
     Data.WillCompare = scene->CreateObject(new WillCompareController());
 
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
