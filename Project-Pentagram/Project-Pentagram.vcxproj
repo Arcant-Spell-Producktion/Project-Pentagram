@@ -60,8 +60,11 @@
     <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
+    <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
@@ -212,8 +215,10 @@
     <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline.cpp" />
     <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterInfoUI.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />

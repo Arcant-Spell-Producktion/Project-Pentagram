@@ -1,6 +1,7 @@
 ﻿#include "ScrollButton.h"
 
-ScrollButton::ScrollButton(std::string text):Button("Scroll-Button_"+text)
+ScrollButton::ScrollButton(std::string text, const glm::vec3& _DefaultScale, const glm::vec3& _ExpandScale)
+        :Button("Scroll-Button_"+text), DefaultScale(_DefaultScale), ExpandScale(_ExpandScale)
 {
     this->scale = DefaultScale;
     this->color = { 1.0f, 1.0f, 1.0f, 1.0f };
