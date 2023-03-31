@@ -68,6 +68,23 @@ void MapScene::GameSceneInit()
         MapNode* node = CreateObject(new MapNode(e));
         node->SetActive(gameData->Map->CanVisitChapter(e));
 
+        node->onClick.AddListener([this, e, gameData, mapInfoUI](Button* button)
+            {
+				mapInfoUI->SetMapInfo(e);
+
+				mapInfoUI->m_MapEnterButton->onClick.AddListener([this, e, gameData, button](Button* _button)
+					{
+						// TEMP
+						button->SetActive(false);
+
+						m_MoveCharacter = true;
+						m_StartPoint = m_Character->position;
+						m_Destination = button->position;
+						gameData->Map->SelectChapter(e);
+						FadeOut(4.0f, GameState::GS_BATTLE_SCENE);
+					});
+            });
+
         switch (e)
         {
 			case Element::Earth:
@@ -86,22 +103,6 @@ void MapScene::GameSceneInit()
 				break;
         }
 
-        node->onClick.AddListener([this, e, gameData, mapInfoUI](Button* button)
-            {
-				mapInfoUI->SetMapInfo(e);
-
-				mapInfoUI->m_MapEnterButton->onClick.AddListener([this, e, gameData, button](Button* _button)
-					{
-						// TEMP
-						button->SetActive(false);
-
-						m_MoveCharacter = true;
-						m_StartPoint = m_Character->position;
-						m_Destination = button->position;
-						gameData->Map->SelectChapter(e);
-						FadeOut(4.0f, GameState::GS_BATTLE_SCENE);
-					});
-            });
     }
 
 	CasterStatUI* casterStatUI = CreateObject(new CasterStatUI(gameData->Player));
