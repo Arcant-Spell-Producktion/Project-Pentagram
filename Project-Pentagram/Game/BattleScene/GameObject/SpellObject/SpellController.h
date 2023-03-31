@@ -21,7 +21,7 @@ public:
     SpellObjectState GetSpellState() const { return m_SpellState; }
     bool IsSpellWaitTrigger() const { return m_SpellState == SpellObjectState::WaitTrigger; }
     bool IsSpellHit() { return m_SpellState == SpellObjectState::Hit; }
-    bool IsSpellDone() { return m_SpellState == SpellObjectState::Done; }
+     bool IsSpellDone() { return m_SpellState == SpellObjectState::Done; }
 
     virtual void Activate() = 0;
 };

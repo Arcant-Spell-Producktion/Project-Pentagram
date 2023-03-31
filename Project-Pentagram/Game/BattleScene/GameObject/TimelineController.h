@@ -37,6 +37,7 @@ public:
     void SetExpandTimeline(int index, bool doExpand);
     void UpdatePreviewIcon(CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);
+    void RemoveIconFromTrack(int index, CastSpellDetail* spell);
     void ClearTrack(int index);
     void UpdateAllTracks();
     void ClearAllTrack();

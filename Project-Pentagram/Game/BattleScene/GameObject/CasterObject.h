@@ -43,6 +43,7 @@ public:
 
     void SetState(CasterObjectState state, CasterObjectState nextState);
 
+    void SetCaster(CasterType type, Element::Type element);
     void SetCaster(CasterType type, Element::Type element, CasterPosition pos);
 
     void PlayChannelAnim(int ChannelCount = 0);

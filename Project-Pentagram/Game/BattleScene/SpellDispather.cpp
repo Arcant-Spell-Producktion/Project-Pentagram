@@ -1,21 +1,24 @@
 ﻿#include "SpellDispather.h"
 #include "Engine/GameStateController.h"
+#include "Game/BattleScene/GameObject/SpellObject/Earth/EarthSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Fire/FireSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h"
 
 SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosition target)
 {
     BaseSpellObject* newSpell = nullptr;
-    switch (detail->OriginalSpell->m_Element)
+    switch (detail->GetSpellDetail()->m_Element)
     {
     case Element::Earth:
+        newSpell = EarthSpellObject::CreateSpellObject(detail->GetSpellDetail()->m_Index, target);
+        m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Fire:
-        newSpell = FireSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
+        newSpell = FireSpellObject::CreateSpellObject(detail->GetSpellDetail()->m_Index, target);
         m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Water:
-        newSpell = WaterSpellObject::CreateSpellObject(detail->OriginalSpell->m_Index, target);
+        newSpell = WaterSpellObject::CreateSpellObject(detail->GetSpellDetail()->m_Index, target);
         m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Wind:

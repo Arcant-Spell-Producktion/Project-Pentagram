@@ -17,18 +17,18 @@ void SpellDetailUI::SetText(CastSpellDetail* details)
     ssEff << "Effect: ";
     ssCha << "Channel Type: ";
 
-    if (details != nullptr && details->OriginalSpell != nullptr)
+    if (details != nullptr && details->GetSpellDetail() != nullptr)
     {
-        ssName << details->OriginalSpell->GetSpellName();
+        ssName << details->GetSpellDetail()->GetSpellName();
         
         ssDmg << details->GetDamage() << "(" << details->SelectedWill << ")";
 
-        auto effType = details->OriginalSpell->GetSpellEffectType();
+        auto effType = details->GetSpellDetail()->GetSpellEffectType();
         effName = SpellEffectType::GetString(effType);
         std::string persent = SpellEffectType::IsEffectApplyByChance(effType) ? "%" : "";
         ssEff << effName << " (" << details->GetEffectValue() << persent << ")";
 
-        ssCha << ChannelEffectType::GetString(details->OriginalSpell->GetChannelEffectType());
+        ssCha << ChannelEffectType::GetString(details->GetSpellDetail()->GetChannelEffectType());
     }
     else
     {

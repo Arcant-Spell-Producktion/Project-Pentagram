@@ -46,10 +46,10 @@ protected:
         );
     }
 
-    void QueueWaitTillFrameEvent(bool doNextCol = false,bool waitLastFrame = true, int targetFrame = -1)
+    void QueueWaitTillFrameEvent(bool doNextRow = false,bool waitLastFrame = true, int targetFrame = -1)
     {
         QueueUpdateFunction(
-            [this, doNextCol, waitLastFrame , targetFrame](float dt)
+            [this, doNextRow, waitLastFrame , targetFrame](float dt)
             {
                 int _target = targetFrame;
                 int currentRow = this->GetCurrentAnimationRow() - 1;
@@ -60,7 +60,8 @@ protected:
                 int curFrame = this->GetCurrentAnimationColumn();
                 if (curFrame == _target)
                 {
-                    if (doNextCol) this->SetSpriteByIndex(currentRow + 1, 0 , true);
+                    if (doNextRow) this->SetSpriteByIndex(currentRow + 1, 0 , true);
+                    
                     Next();
                     return;
                 }
@@ -95,8 +96,9 @@ protected:
     {
         QueueUpdateFunction([this](float dt)
             {
-                if (Trigger == true)
+                if (this->Trigger == true)
                 {
+                    m_SpellState = SpellObjectState::Activate;
                     Next();
                 }
                 else

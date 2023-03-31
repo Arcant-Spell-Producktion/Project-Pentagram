@@ -34,6 +34,9 @@ public:
     void AddIcon(CastSpellDetail* spell);
     void AddIcon(SpellIconUI* spellIcon);
 
+    void RemoveIcon(CastSpellDetail* spell);
+
+    void ExpandTrack(bool isExpand);
     void RemoveAllIcon();
 
     void UpdateTrack();

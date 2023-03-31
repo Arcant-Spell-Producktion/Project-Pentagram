@@ -8,6 +8,8 @@ enum class SpellEffectEnum
     Burn,
     Overflow,
     Freeze,
+    Fortify,
+    Petrify,
 };
 
 struct EffectDetail_T

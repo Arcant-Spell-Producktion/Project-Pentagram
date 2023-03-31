@@ -9,7 +9,7 @@ const float trackWidth = 120.0f;
 
 const float scaleDefault = 200.0f;
 const float iconSize = 80.0f;
-const float iconGap = 20.0f;
+const float iconGap = 17.5f;
 
 std::string TimelineTrackSprite[2] =
 {
@@ -30,7 +30,7 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bo
 
     m_IconParent = new UIObject("TrackUI_IconParent_" + std::to_string(m_TrackIndex));
     m_IconParent->color.a = 0.0f;
-    m_IconParent->position.y += 55.0f;
+    m_IconParent->position.y += 57.0f;
 
     m_Box->SetTexture(TimelineTrackSprite[0]);
     m_Box->SetIsSlicing(true);
@@ -137,11 +137,11 @@ void TimetrackUI::UpdateTrack()
         float offset = (gap * (m_Icons.size() - (i + 1)));
         icon->position.y =-offset;
 
-        if (i >= topIconIndex || m_IsExpanded)
+        if (i >= topIconIndex)
         {
             icon->SetActive(true);
             icon->UpdateIcon();
-            icon->SetIsExtra(i == topIconIndex && isOversize && !m_IsExpanded);
+            icon->SetIsExtra(i == topIconIndex && isOversize);
         }
         else
         {
@@ -161,7 +161,7 @@ void TimetrackUI::UpdateTrack()
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
 {
     PreviewIcon(spell,false,false);
-    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->OriginalSpell->GetSpellName() + "_icon", iconSize));
+    auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->GetSpellDetail()->GetSpellName() + "_icon", iconSize));
     icon->SetIcon(spell, spell->doCast);
     m_IconParent->SetChildRenderBack(icon);
     m_Icons.push_back(icon);
@@ -186,6 +186,28 @@ void TimetrackUI::AddIcon(SpellIconUI* spellIcon)
 void TimetrackUI::RemoveAllIcon()
 {
     m_Icons.clear();
+}
+
+void TimetrackUI::RemoveIcon(CastSpellDetail* spell)
+{
+    auto it = m_Icons.begin();
+    for (it = m_Icons.begin(); it != m_Icons.end(); ++it)
+    {
+        SpellIconUI* iconSpell = *it;
+        if (iconSpell-> SpellDetail == spell)
+        {
+            break;
+        }
+    }
+
+    if (it != m_Icons.end())
+    {
+        SpellIconUI* iconSpell = *it;
+        m_IconParent->RemoveChild(iconSpell);
+        m_Icons.erase(it);
+    }
+
+    UpdateTrack();
 }
 
 void TimetrackUI::ClearTrack()
