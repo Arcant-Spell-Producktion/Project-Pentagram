@@ -6,8 +6,7 @@
 void CastSpell()
 {
     auto bm = BattleManager::GetInstance();
-    auto spell = bm->Data.GetCurrentCaster()->CastSpell();
-
+    CastSpellDetail*  spell = bm->Data.GetCurrentCaster()->CastSpell();
     bm->SwapCaster();
 }
 

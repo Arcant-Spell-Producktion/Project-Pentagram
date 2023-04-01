@@ -5,11 +5,11 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "StandByTutorialState.h"
 
-#include "Game/TutorialScene/TutorialManager.h"
+#include "Game/BattleScene/BattleManager.h"
 
 void StandByTutorialState::OnBattleStateIn()
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     battleManager->Data.Pentagram->SetActive(false);
 
     battleManager->Data.StandbyAllCaster();
@@ -19,14 +19,14 @@ void StandByTutorialState::OnBattleStateIn()
 
 void StandByTutorialState::OnBattleStateUpdate(float dt)
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
 
     if (battleManager->Data.IsAllCasterIdle() && Timer > 0)
     {
         Timer -= dt;
         if (Timer < 0.0f)
         {
-            TutorialManager::GetInstance()->SetBattleState(TutorialState::CastState);
+            BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
         }
     }
 }
@@ -34,7 +34,7 @@ void StandByTutorialState::OnBattleStateUpdate(float dt)
 void StandByTutorialState::OnBattleStateOut()
 {
     Timer = 0.0f;
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     battleManager->Data.Pentagram->SetActive(true);
     for (auto caster : battleManager->Data.Casters)
     {

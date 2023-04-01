@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "Game/TutorialScene/TutorialManager.h"
+#include "Game/BattleScene/BattleManager.h"
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
@@ -14,14 +14,19 @@
 
 void SetupTutorialState::OnBattleStateIn()
 {
-    TutorialManager* bm = TutorialManager::GetInstance();
+    BattleManager* bm = BattleManager::GetInstance();
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-    NodeData* currentNode = gameData->Map->GetNextNode();
+    TutorialNode* currentNode = gameData->Tutorial.GetTutorialNode();
     std::cout << "DEBUG ENEMY ELEMENT: " << (int)currentNode->GetEnemyData().Element() << "\n";
 
-    bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
+    gameData->Player = new PlayerData(*currentNode->GetPlayerData(), 0);
+    bm->Data.AddCaster(new PlayerController(*gameData->Player));
 
     bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
+
+    bm->Data.GetCaster(CasterPosition::CasterA)->SetHp(10);
+
+    bm->SwapCaster();
 
     AudioController* audioController = AudioController::GetInstance();
     BGMController* bgm = nullptr;

@@ -62,6 +62,18 @@ void CasterController::StartTurn()
     UpdateCasterUI();
 }
 
+bool CasterController::SetHp(int value)
+{
+    m_CasterManager.SetHealth(value);
+
+    if (m_CasterManager.GetHealth() <= 0)
+    {
+        CasterDied();
+    }
+
+    return IsAlive();
+}
+
 bool CasterController::IsAlive()
 {
     return m_IsAlive;

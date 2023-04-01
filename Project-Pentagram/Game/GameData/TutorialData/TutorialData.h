@@ -1,4 +1,7 @@
 ﻿#pragma once
+#include <map>
+#include "TutorialNodes/TutorialNode.h"
+
 enum class TutorialType
 {
     PentagramTutorial = 0,
@@ -12,6 +15,12 @@ enum class TutorialType
 
 class TutorialData
 {
+protected:
+    std::map<TutorialType, TutorialNode* > m_TutorialNodes;
 public:
     TutorialType SelectedTutorial = TutorialType::TimelineTutorial;
+
+    TutorialData();
+
+    TutorialNode* GetTutorialNode();
 };
