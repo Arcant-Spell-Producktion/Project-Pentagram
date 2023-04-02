@@ -118,7 +118,8 @@ void CastSpellDetail::OnResolve()
 
         for (int i = this->SelectedTime ; i <= 10; ++i)
         {
-            auto toDelete = battleManager->Data.Timeline.GetTimetrack(i)->RemoveChildSpell(this->ParentSpell);
+            CastSpellDetail* toDelete = nullptr;
+            toDelete = battleManager->Data.Timeline.GetTimetrack(i)->RemoveChildSpell(this->ParentSpell);
             if (toDelete != nullptr)
             {
                 std::cout << "\t remove child spell from track: " << i << "\n";
