@@ -15,12 +15,14 @@ private:
 
     glm::vec3 m_DefaultPosition;
 
-    void SetText(CastSpellDetail* details);
-    void InitTextObjectComponent(TextObject* textObject);
+    void SetText(CastSpellDetail* details, bool isHideInfo);
+    void InitTextObjectComponent(TextObject* textObject, float fontSize);
     void InsertSpellDetailUI(TextObject* textObject, const std::string &newStr);
 
 public:
-    SpellDetailUI(int position);
+    SpellDetailUI(int position, float fontSize = 28);
+    SpellDetailUI(glm::vec3 position, glm::vec3 scale, float fontSize = 28);
 
-    void SetDetail(CastSpellDetail* details = nullptr, bool isDefault = false);
+    void SetCasterPosition(CasterPosition position);
+    void SetDetail(CastSpellDetail* details = nullptr, bool isDefault = false, bool isHideInfo = false);
 };
