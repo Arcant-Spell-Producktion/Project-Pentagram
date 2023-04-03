@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include "BaseTutorialState.h"
+#include "Game/BattleScene/BattleStates/BaseBattleState.h"
 #include "Game/BattleScene/SpellDispather.h"
 
-class ResolveTutorialState : public BaseTutorialState
+class ResolveTutorialState : public BaseBattleState
 {
 private:
     enum class ResolveState
@@ -33,7 +33,7 @@ private:
     void ResolveSpell(int spell_index = -1);
     void ResolveDamageCalculation();
 public:
-    ResolveTutorialState() :BaseTutorialState(TutorialState::ResolveState) {}
+    ResolveTutorialState() :BaseBattleState(BattleState::ResolveState) {}
     virtual void OnBattleStateIn() override;
     virtual void OnBattleStateUpdate(float dt) override;
     virtual void OnBattleStateOut() override;

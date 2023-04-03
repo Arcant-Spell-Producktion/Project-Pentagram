@@ -60,6 +60,8 @@ public:
 
     virtual void StartTurn();
 
+    bool SetHp(int value);
+
     bool TakeDamage(int value);
 
     bool IsAlive();

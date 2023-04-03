@@ -217,13 +217,15 @@
     <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
-    <ClCompile Include="Game\TutorialScene\TutorialManager.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\CastTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
+    <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
+    <ClCompile Include="Game\Objects\TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -529,7 +531,7 @@
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
     <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
-    <ClInclude Include="Game\BattleScene\IBattleController.h" />
+    <ClInclude Include="Game\BattleScene\IBattleManager.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
@@ -537,7 +539,6 @@
     <ClInclude Include="Game\GameState\BaseGameState.h" />
     <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
     <ClInclude Include="Game\Spells\SpellTarget.h" />
-    <ClInclude Include="Game\TutorialScene\TutorialStates\BaseTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\CastTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\ResultTutorialState.h" />
@@ -547,11 +548,15 @@
     <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
     <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
-    <ClInclude Include="Game\TutorialScene\TutorialManager.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
     <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
     <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
     <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
+    <ClInclude Include="Game\BattleScene\IBaseBattleManager.h" />
+    <ClInclude Include="Game\Objects\TextBox.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

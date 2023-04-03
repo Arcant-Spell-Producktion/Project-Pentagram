@@ -1,12 +1,12 @@
 ﻿#include "CastTutorialState.h"
 
+#include "Game/BattleScene/BattleManager.h"
 #include "Game/BattleScene/SpellCaster/EnemyController.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
-#include "Game/TutorialScene/TutorialManager.h"
 
 void TurEnemyCastUpdate(float dt)
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
     CasterManager* currentCaster = currentController->GetCasterManager();
 
@@ -18,7 +18,7 @@ void TurEnemyCastUpdate(float dt)
 
 void TurPlayerCastUpdate(float dt)
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
     CasterManager* currentCaster = currentController->GetCasterManager();
 
@@ -38,7 +38,7 @@ void TurPlayerCastUpdate(float dt)
 
 void CastTutorialState::OnBattleStateIn()
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     battleManager->Data.StartRound();
 
     if (battleManager->Data.GetCurrentCaster()->IsAlive())
@@ -52,7 +52,7 @@ void CastTutorialState::OnBattleStateIn()
 
 void CastTutorialState::OnBattleStateUpdate(float dt)
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();//Using currentCaster to display appropriate SpellCircle
 
     if (currentController->GetCasterManager()->GetMana() <= 0)
@@ -82,7 +82,7 @@ void CastTutorialState::OnBattleStateUpdate(float dt)
 
 void CastTutorialState::OnBattleStateOut()
 {
-    TutorialManager* battleManager = TutorialManager::GetInstance();
+    BattleManager* battleManager = BattleManager::GetInstance();
     battleManager->Data.Pentagram->SetActive(false);
     battleManager->Data.Timeline.UI->UpdatePreviewIcon(0);
 }

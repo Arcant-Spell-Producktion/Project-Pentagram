@@ -1,10 +1,10 @@
 ﻿#pragma once
-#include "BaseTutorialState.h"
+#include "Game/BattleScene/BattleStates/BaseBattleState.h"
 
-class SetupTutorialState : public BaseTutorialState
+class SetupTutorialState : public BaseBattleState
 {
 public:
-    SetupTutorialState() :BaseTutorialState(TutorialState::SetupState) {}
+    SetupTutorialState() :BaseBattleState(BattleState::SetupState) {}
     virtual void OnBattleStateIn()override;
     virtual void OnBattleStateUpdate(float dt) override;
     virtual void OnBattleStateOut() override;

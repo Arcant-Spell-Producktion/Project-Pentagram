@@ -1,18 +1,10 @@
 ﻿#pragma once
 #include "BaseBattleState.h"
 
-
-
-class CastBattleState : public BaseBattleState
+class ExplainTutorialState : public BaseBattleState
 {
 public:
-    enum class CastUpdateState
-    {
-        Casting,
-        Casted,
-    };
-
-    CastBattleState() :BaseBattleState(BattleState::CastState) {}
+    ExplainTutorialState() :BaseBattleState(BattleState::ExplainState) {}
     virtual void OnBattleStateIn()override;
     virtual void OnBattleStateUpdate(float dt) override;
     virtual void OnBattleStateOut() override;

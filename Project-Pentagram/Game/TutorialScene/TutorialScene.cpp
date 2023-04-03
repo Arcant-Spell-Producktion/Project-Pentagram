@@ -1,20 +1,21 @@
 ﻿#include "TutorialScene.h"
+
+#include "Game/BattleScene/BattleManager.h"
 #include "Game/TutorialScene/TutorialStates/TutorialStateModel.h"
 
 #include "Game/GameData/RuntimeGameData.h"
-#include "Game/TutorialScene/TutorialManager.h"
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
 
 float tur_track_t = 0.0f;
 
-TutorialManager* tutorialManager;
+BattleManager* tutorialManager;
 PauseMenuObject* tur_pauseMenuObject;
 
 void TutorialScene::GameSceneLoad()
 {
     tur_track_t = 0.0f;
-    tutorialManager = TutorialManager::GetInstance();
+    tutorialManager = BattleManager::GetInstance();
     std::cout << "Tutorial Scene : Load Completed\n";
 }
 
@@ -22,9 +23,9 @@ void TutorialScene::GameSceneInit()
 {
     objectsList.push_back(new StageObject(Element::Water));
 
-    tutorialManager->Init(this);
+    tutorialManager->Init(this,true);
     std::cout << "Tutorial Scene : Initialize Completed\n";
-    tutorialManager->StartBattle();
+    tutorialManager->StartBattle(true);
 
     tur_pauseMenuObject = CreateObject(new PauseMenuObject());
     tur_pauseMenuObject->SetCurrentGameScene(this);

@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "BattleManager.h"
 
+#include "Game/TutorialScene/TutorialStates/TutorialStateModel.h"
+
 void BattleManager::SetBattleState(BattleState state)
 {
     BattleState OldState = m_CurrentState;
@@ -19,9 +21,10 @@ void BattleManager::SetBattleState(BattleState state)
     std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to " << (int)m_CurrentState << "\n\n";
 }
 
-void BattleManager::Init(IGameObjectManager* scene)
+void BattleManager::Init(IGameObjectManager* scene,bool isTutorial)
 {
-    for (auto state : BattleStateModel::GetBattleStates())
+    const std::vector <BaseBattleState*> states = isTutorial? TutorialStateModel::GetTutorialStates() : BattleStateModel::GetBattleStates();
+    for (auto state : states)
     {
         m_BattleStates.emplace(state->StateID, state);
     }
@@ -36,14 +39,14 @@ void BattleManager::Init(IGameObjectManager* scene)
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
 }
 
-void BattleManager::StartBattle()
+void BattleManager::StartBattle(bool isTutorial)
 {
     for(auto caster: Data.Casters)
     {
         caster->GetCasterManager()->ResetMana();
     }
 
-    SetBattleState(BattleState::StandbyState);
+    SetBattleState(isTutorial? BattleState::ExplainState : BattleState::StandbyState);
 }
 
 void BattleManager::SwapCaster()

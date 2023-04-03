@@ -1,16 +1,19 @@
 ﻿#pragma once
-#include "BaseTutorialState.h"
+#include "Game/BattleScene/BattleStates/BaseBattleState.h"
 
-enum class CastUpdateState
-{
-    Casting,
-    Casted,
-};
 
-class CastTutorialState : public BaseTutorialState
+
+class CastTutorialState : public BaseBattleState
 {
 public:
-    CastTutorialState() :BaseTutorialState(TutorialState::CastState) {}
+
+    enum class CastUpdateState
+    {
+        Casting,
+        Casted,
+    };
+
+    CastTutorialState() :BaseBattleState(BattleState::CastState) {}
     virtual void OnBattleStateIn()override;
     virtual void OnBattleStateUpdate(float dt) override;
     virtual void OnBattleStateOut() override;
