@@ -148,4 +148,11 @@ void PentragramController::ResetPentagram()
     m_PentragramCircle->SetPentagramUI(1,1);
 
 }
+void PentragramController::ResetPentagramButtonField()
+{
+    SetPentagramField(m_currentField);
+    m_PentragramFieldButtons->ToggleButton(m_currentField);
+
+    m_PentragramCircle->SetPentagramUI(m_PentragramCircle->GetCircleValue(), m_PentragramCircle->GetComplexValue());
+}
 

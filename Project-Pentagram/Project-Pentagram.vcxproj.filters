@@ -213,6 +213,8 @@
     <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
     <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />
     <ClCompile Include="Game\Spells\SpellTarget.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterInfoUI.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialManager.cpp" />
@@ -547,6 +549,9 @@
     <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialManager.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

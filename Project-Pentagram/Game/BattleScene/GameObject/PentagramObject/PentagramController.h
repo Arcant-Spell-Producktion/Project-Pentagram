@@ -53,5 +53,6 @@ public:
     void SetPentagramOwner(CasterController* caster);
 
     void ResetPentagram();
+    void ResetPentagramButtonField();
 
 };

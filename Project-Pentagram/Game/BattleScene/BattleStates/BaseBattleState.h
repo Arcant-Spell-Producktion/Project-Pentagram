@@ -19,7 +19,3 @@ public:
     void OnBattleStateUpdate(float dt) override = 0;
     void OnBattleStateOut() override = 0;
 };
-
-
-
- 

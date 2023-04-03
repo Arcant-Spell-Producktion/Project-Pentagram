@@ -2,6 +2,7 @@
 #include "Engine/IGameObjectManager.h"
 #include "Game/BattleScene/SpellTimeline/SpellTimetrack.h"
 #include <Game/BattleScene/GameObject/SpellIconUI.h>
+#include "Game/BattleScene/GameObject/WillCompareUI.h"
 
 class TimetrackUI : public UIObject
 {
@@ -20,21 +21,32 @@ private:
 
     bool m_IsExpanded = false;
 
+    WillCompareUI* m_WillCompareUI;
+
     void SetExpandButtonScale(float scale);
 
 public:
 
-    TimetrackUI(int index,SpellTimetrack* track, std::function<void()> expand);
+    TimetrackUI(int index,SpellTimetrack* track, std::function<void(bool doExpand)> expand);
 
     void PreviewIcon(CastSpellDetail* spell = nullptr, bool doCast = false ,bool active = false);
 
     void AddIcon(CastSpellDetail* spell);
+    void AddIcon(SpellIconUI* spellIcon);
+
+    void RemoveIcon(CastSpellDetail* spell);
 
     void RemoveIcon(CastSpellDetail* spell);
 
     void ExpandTrack(bool isExpand);
+    void RemoveAllIcon();
 
     void UpdateTrack();
 
     void ClearTrack();
+
+    void SetIsExpand(bool expand);
+
+    const std::vector<SpellIconUI*>& GetSpellDetailUIList() const;
+    const SpellIconUI* GetPreviewIcon() const;
 };
