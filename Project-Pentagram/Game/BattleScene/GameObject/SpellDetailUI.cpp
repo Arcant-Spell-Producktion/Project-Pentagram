@@ -154,11 +154,6 @@ void SpellDetailUI::SetCasterPosition(CasterPosition position)
 {
     m_Box->SetSpriteByValue((int)position, 1);
 
-    if (position == CasterPosition::CasterB)
-    {
-
-    }
-
     m_TextSpellDmg->color = AC_RED;
     m_TextSpellEff->color = AC_YELLOW;
 }

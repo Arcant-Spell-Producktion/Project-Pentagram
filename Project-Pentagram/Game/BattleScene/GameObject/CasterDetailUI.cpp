@@ -50,8 +50,30 @@ CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_s
     m_EffectBar->position = { -16.0f * flip ,32.0f,0.0f };
     this->SetChildRenderFront(m_EffectBar);
 
+    const float effecDetailUIOffset = 150.0f;
+    m_EffectDetailUI = new EffectDetailUI(position, { 560.0f, 210.0f, 1.0f }, 28.0f);
+    m_EffectDetailUI->position.y = effecDetailUIOffset;
+    m_EffectDetailUI->SetActive(false);
+    this->SetChildRenderFront(m_EffectDetailUI);
+
     SetHealthText(0, 0);
     SetManaText(0, 0);
+}
+
+void CasterDetailUI::OnUpdate(const float& dt)
+{
+    UIObject::OnUpdate(dt);
+
+    CasterEffectIconUI* effectIcon = m_EffectBar->GetHoverEffectIcon();
+    if (effectIcon != nullptr)
+    {
+        m_EffectDetailUI->SetActive(true);
+        m_EffectDetailUI->SetDetail(effectIcon);
+    }
+    else
+    {
+        m_EffectDetailUI->SetActive(false);
+    }
 }
 
 void CasterDetailUI::SetHealthText(int cur, int max)

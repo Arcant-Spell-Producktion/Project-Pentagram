@@ -216,6 +216,11 @@
     <ClCompile Include="Game\Spells\SpellTarget.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\CharacterInfoUI.cpp" />
     <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
+    <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
+    <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -531,6 +536,10 @@
     <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
     <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
     <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
+    <ClInclude Include="Game\MapScene\CasterStatUI.h" />
+    <ClInclude Include="Game\MapScene\MapInfoUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
