@@ -1,14 +1,18 @@
 ﻿#pragma once
 #include "Game/BattleScene/BattleStates/BaseBattleState.h"
 #include "Game/Objects/TextBox.h"
+#include "Game/GameData/TutorialData/TutorialNodes/TutorialEvent.h"
 
 class ExplainTutorialState : public BaseBattleState
 {
 private:
-    int m_CurrentText;
-    std::vector<std::string> m_explainTexts;
+    int m_CurrentEvent;
+    TutorialEvents m_TutorialStep;
 
     TextBox* m_Texts;
+
+    void UpdateEvent();
+    void OnTextClick();
 public:
     ExplainTutorialState() :BaseBattleState(BattleState::ExplainState) {}
     virtual void OnBattleStateIn()override;

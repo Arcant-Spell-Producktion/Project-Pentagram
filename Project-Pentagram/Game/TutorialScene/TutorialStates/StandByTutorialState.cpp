@@ -10,34 +10,21 @@
 void StandByTutorialState::OnBattleStateIn()
 {
     BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->Data.Pentagram->SetActive(false);
+    for (auto caster : battleManager->Data.Casters)
+    {
+        caster->UpdateCasterUI();
+        caster->GetCasterUI()->SetWheelActive(false);
+    }
+    BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
 
-    battleManager->Data.StandbyAllCaster();
-
-    Timer = MaxTime;
 }
 
 void StandByTutorialState::OnBattleStateUpdate(float dt)
 {
-    BattleManager* battleManager = BattleManager::GetInstance();
-
-    if (battleManager->Data.IsAllCasterIdle() && Timer > 0)
-    {
-        Timer -= dt;
-        if (Timer < 0.0f)
-        {
-            BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
-        }
-    }
+    
 }
 
 void StandByTutorialState::OnBattleStateOut()
 {
     Timer = 0.0f;
-    BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->Data.Pentagram->SetActive(true);
-    for (auto caster : battleManager->Data.Casters)
-    {
-        caster->GetCasterUI()->SetWheelActive(false);
-    }
 }

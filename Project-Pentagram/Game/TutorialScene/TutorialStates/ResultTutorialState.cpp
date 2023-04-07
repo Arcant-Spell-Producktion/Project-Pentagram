@@ -14,10 +14,12 @@ void ResultTutorialState::OnBattleStateUpdate(float dt)
 {
     if (m_Timer < 0.0f)
     {
+        BattleManager* battleManager = BattleManager::GetInstance();
         RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-        if (gameData->Player->Stat().CurrentHealth <= 0)
+        if (!battleManager->Data.GetCaster(CasterPosition::CasterA)->IsAlive())
         {
-            SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE);
+            SceneManager::LoadScene(GameState::GS_RESTART);
+            return;
         }
         else
         {

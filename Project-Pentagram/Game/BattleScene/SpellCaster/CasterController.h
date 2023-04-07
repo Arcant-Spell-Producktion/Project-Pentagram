@@ -62,6 +62,8 @@ public:
 
     bool SetHp(int value);
 
+    void SetMana(int value);
+
     bool TakeDamage(int value);
 
     bool IsAlive();

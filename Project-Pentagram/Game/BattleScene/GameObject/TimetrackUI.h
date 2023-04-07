@@ -36,8 +36,6 @@ public:
 
     void RemoveIcon(CastSpellDetail* spell);
 
-    void RemoveIcon(CastSpellDetail* spell);
-
     void ExpandTrack(bool isExpand);
     void RemoveAllIcon();
 

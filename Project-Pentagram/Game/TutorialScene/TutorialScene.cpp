@@ -7,7 +7,6 @@
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
 
-float tur_track_t = 0.0f;
 
 BattleManager* tutorialManager;
 PauseMenuObject* tur_pauseMenuObject;

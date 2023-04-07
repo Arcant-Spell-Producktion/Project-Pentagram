@@ -71,7 +71,17 @@ bool CasterController::SetHp(int value)
         CasterDied();
     }
 
+    UpdateCasterUI();
+
     return IsAlive();
+}
+
+void CasterController::SetMana(int value)
+{
+    m_CasterManager.Data().Stat().MaxMana = value;
+    m_CasterManager.Data().Stat().CurrentMana = m_CasterManager.Data().Stat().MaxMana;
+
+    UpdateCasterUI();
 }
 
 bool CasterController::IsAlive()

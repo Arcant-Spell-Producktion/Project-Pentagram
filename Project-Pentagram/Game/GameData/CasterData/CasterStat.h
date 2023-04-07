@@ -3,11 +3,11 @@
 
 struct CasterStat
 {
-    int CurrentHealth;
-    int MaxHealth;
+    int CurrentHealth = 0;
+    int MaxHealth = 0;
 
-    int CurrentMana;
-    int MaxMana;
+    int CurrentMana = 0;
+    int MaxMana = 0;
     
     int CurrentManaWheel = 0;
     std::array<int, 6> ManaWheel;

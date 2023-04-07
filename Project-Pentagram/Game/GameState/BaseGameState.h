@@ -3,7 +3,6 @@ template <class STATE>
 class BaseGameState
 {
 public:
-    virtual ~BaseGameState() = default;
     const STATE StateID;
 
     BaseGameState() :StateID(static_cast<STATE>(0)) {}

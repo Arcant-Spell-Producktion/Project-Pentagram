@@ -30,7 +30,7 @@ void CasterStatDatabase::LoadResource()
         int hp = std::stoi(values[2]);
         std::array<int, 6> mana;
         for (int i = 0; i < 6; ++i) {
-            mana[i] = std::stoi(values[i + 3]) + 100;
+            mana[i] = std::stoi(values[i + 3]);
         }
         CasterStat stat(hp, mana);
 

@@ -11,30 +11,53 @@
 
 #include "Engine/GameStateController.h"
 
+void ExplainTutorialState::UpdateEvent()
+{
+    m_Texts->textObject.text = m_TutorialStep[m_CurrentEvent].TutorialText;
+    for (TutorialObjectEvent e : m_TutorialStep[m_CurrentEvent].ObjectEvents)
+    {
+        if (e.Obj >= MainObjectEnum::Pentagram)
+        {
+            BattleManager::GetInstance()->Data.Pentagram->SetPentagramActive(e.Obj, e.Active);
+        }
+    }
+}
+
+void ExplainTutorialState::OnTextClick()
+{
+
+    m_CurrentEvent++;
+
+    if (m_CurrentEvent >= m_TutorialStep.size())
+    {
+        BattleManager::GetInstance()->SetBattleState(BattleState::StandbyState);
+    }
+    else
+    {
+        UpdateEvent();
+    }
+}
+
 void ExplainTutorialState::OnBattleStateIn()
 {
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
     TutorialNode* currentNode = gameData->Tutorial.GetTutorialNode();
+    BattleManager* bm = BattleManager::GetInstance();
 
-    m_CurrentText = 0;
-    m_explainTexts = currentNode->GetTexts();
+    bm->Data.Pentagram->SetActive(true);
+    bm->Data.Pentagram->SetPentagramOwner(bm->Data.GetCurrentCaster());
 
-    m_Texts = GameStateController::GetInstance()->currentScene->CreateObject(new TextBox(m_explainTexts[m_CurrentText]));
-    m_Texts->textObject.text = m_explainTexts[m_CurrentText];
+
+    m_TutorialStep = currentNode->GetTutorialEvents();
+    m_CurrentEvent = 0;
+
+    m_Texts = GameStateController::GetInstance()->currentScene->CreateObject(new TextBox(m_TutorialStep[m_CurrentEvent].TutorialText));
+    UpdateEvent();
 
     m_Texts->position.y -= 300.0f;
-    m_Texts->onClick += [this](Button* button)
+    m_Texts->onClick += [this, bm](Button* button)
     {
-        m_CurrentText++;
-
-        if (m_CurrentText >= m_explainTexts.size())
-        {
-            BattleManager::GetInstance()->SetBattleState(BattleState::StandbyState);
-        }
-        else
-        {
-            button->textObject.text = m_explainTexts[m_CurrentText];
-        }
+        OnTextClick();
     };
 }
 

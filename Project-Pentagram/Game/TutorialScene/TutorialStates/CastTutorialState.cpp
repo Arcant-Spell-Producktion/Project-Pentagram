@@ -4,7 +4,7 @@
 #include "Game/BattleScene/SpellCaster/EnemyController.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
 
-void TurEnemyCastUpdate(float dt)
+void CastTutorialState::EnemyCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
@@ -12,11 +12,11 @@ void TurEnemyCastUpdate(float dt)
 
     dynamic_cast<EnemyController*>(currentController)->CastEnemySpell();
 
-    currentController->EndTurn();
+    currentController->EndTurn(true);
     battleManager->SwapCaster();
 }
 
-void TurPlayerCastUpdate(float dt)
+void CastTutorialState::PlayerCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
@@ -45,7 +45,7 @@ void CastTutorialState::OnBattleStateIn()
     {
     battleManager->Data.GetCurrentCaster()->StartTurn(); //TODO:: Need to add check if caster is alive before start turn
 
-    battleManager->Data.Pentagram->SetActive(true);
+    //battleManager->Data.Pentagram->SetActive(true);
     battleManager->Data.Pentagram->SetPentagramOwner(battleManager->Data.GetCurrentCaster());
     }
 }
@@ -67,11 +67,11 @@ void CastTutorialState::OnBattleStateUpdate(float dt)
     {
         if (dynamic_cast<PlayerController*>(currentController) != nullptr)
         {
-            TurPlayerCastUpdate(dt);
+            PlayerCastUpdate(dt);
         }
         else
         {
-            TurEnemyCastUpdate(dt);
+            EnemyCastUpdate(dt);
         }
     }
     else

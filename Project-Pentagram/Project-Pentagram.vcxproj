@@ -31,6 +31,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.h" />
@@ -76,6 +77,7 @@
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />
     <ClInclude Include="Game\GameState\BaseGameState.h" />
     <ClInclude Include="Game\MapScene\CasterStatUI.h" />

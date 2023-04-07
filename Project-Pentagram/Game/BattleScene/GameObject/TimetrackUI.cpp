@@ -210,28 +210,6 @@ void TimetrackUI::RemoveIcon(CastSpellDetail* spell)
     UpdateTrack();
 }
 
-void TimetrackUI::RemoveIcon(CastSpellDetail* spell)
-{
-    auto it = m_Icons.begin();
-    for (it = m_Icons.begin(); it != m_Icons.end(); ++it)
-    {
-        SpellIconUI* iconSpell = *it;
-        if (iconSpell-> SpellDetail == spell)
-        {
-            break;
-        }
-    }
-
-    if (it != m_Icons.end())
-    {
-        SpellIconUI* iconSpell = *it;
-        m_IconParent->RemoveChild(iconSpell);
-        m_Icons.erase(it);
-    }
-
-    UpdateTrack();
-}
-
 void TimetrackUI::ClearTrack()
 {
     for (auto icon : m_Icons)

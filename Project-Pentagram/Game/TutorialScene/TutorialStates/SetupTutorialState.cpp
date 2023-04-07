@@ -24,7 +24,13 @@ void SetupTutorialState::OnBattleStateIn()
 
     bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
 
-    bm->Data.GetCaster(CasterPosition::CasterA)->SetHp(10);
+    CasterController* player = bm->Data.GetCaster(CasterPosition::CasterA);
+    player->SetHp(currentNode->PlayerHP);
+    player->SetMana(currentNode->PlayerMana);
+
+    CasterController* enemy = bm->Data.GetCaster(CasterPosition::CasterB);
+    enemy->SetHp(currentNode->EnemyHP);
+    enemy->SetMana(currentNode->EnemyMana);
 
     bm->SwapCaster();
 

@@ -5,40 +5,40 @@
 #include <string>
 #include <vector>
 
+#include "TutorialEvent.h"
+#include "Game/BattleScene/GameObject/MainObjectEnum.h"
+
 enum class TutorialGoal
 {
     Kill,
     Survive,
 };
 
+
 class TutorialNode : public NodeData
 {
 protected:
-    std::vector<std::string> m_TutorialText;
+    TutorialEvents m_TutorialEvents;
 
     CasterData* m_TutorialPlayerData = nullptr;
 
     TutorialGoal m_TutorialGoal = TutorialGoal::Kill;
 public:
+    int PlayerHP = 10;
+    int EnemyHP = 10;
+
+
+    int PlayerMana = 3;
+    int EnemyMana = 3;
+
     TutorialNode(EnemyData enemy) : NodeData(enemy)
     {
 
     }
 
-    std::string GetText(int i)
+    TutorialEvents GetTutorialEvents() const
     {
-        return m_TutorialText[i];
-    }
-
-    std::vector<std::string> GetTexts()
-    {
-        return m_TutorialText;
-    };
-
-
-    int GetTextCount() const
-    {
-        return m_TutorialText.size();
+        return m_TutorialEvents;
     }
 
     TutorialGoal GetTutorialGoal()

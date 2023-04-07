@@ -2,16 +2,6 @@
 #include "Game/BattleScene/BattleSceneData.h"
 #include "Game/GameState/BaseGameState.h"
 
-enum class BattleState
-{
-    SetupState = 0,
-    ExplainState,
-    StandbyState,
-    CastState,
-    ResolveState,
-    ResultState
-};
-
 class BaseBattleState :public BaseGameState<BattleState>
 {
 public:

@@ -43,7 +43,7 @@ void BattleManager::StartBattle(bool isTutorial)
 {
     for(auto caster: Data.Casters)
     {
-        caster->GetCasterManager()->ResetMana();
+        if(!isTutorial)caster->GetCasterManager()->ResetMana();
     }
 
     SetBattleState(isTutorial? BattleState::ExplainState : BattleState::StandbyState);

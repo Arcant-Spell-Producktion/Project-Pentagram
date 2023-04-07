@@ -226,6 +226,10 @@
     <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
     <ClCompile Include="Game\Objects\TextBox.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
+    <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
+    <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -557,6 +561,12 @@
     <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
     <ClInclude Include="Game\BattleScene\IBaseBattleManager.h" />
     <ClInclude Include="Game\Objects\TextBox.h" />
+    <ClInclude Include="Game\BattleScene\IBattleController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
+    <ClInclude Include="Game\MapScene\CasterStatUI.h" />
+    <ClInclude Include="Game\MapScene\MapInfoUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
