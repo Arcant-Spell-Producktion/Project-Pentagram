@@ -39,13 +39,17 @@ public:
         );
 
         m_TutorialEvents.AddStep("However, you may increase or decrease speed of that spell\n by spending mana on the cast time section in the spell circle.");
+        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB, true });
 
         m_TutorialEvents.AddStep(
             "Now let's try to cast a spell that is faster\n than the enemy spell.");
-        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton, true });
+
+        CompleteText = "And that is how the timeline work.\nNow you may proceed to the next part of the tutorial.";
+        RetryText = "Try to cast the spell before the enemy spell\nBy increasing the speed of the spell.";
+
 
         EnemyMana = 10;
     }

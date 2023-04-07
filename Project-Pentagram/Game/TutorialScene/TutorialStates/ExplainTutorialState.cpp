@@ -3,9 +3,6 @@
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
-#include "Game/GameData/CasterData/CasterMovesetDatabase.h"
-
-#include "Engine/Audio/AudioController.h"
 
 #include "ExplainTutorialState.h"
 
@@ -52,6 +49,7 @@ void ExplainTutorialState::OnBattleStateIn()
     m_CurrentEvent = 0;
 
     m_Texts = GameStateController::GetInstance()->currentScene->CreateObject(new TextBox(m_TutorialStep[m_CurrentEvent].TutorialText));
+    bm->Data.Texts = m_Texts;
     UpdateEvent();
 
     m_Texts->position.y -= 300.0f;
@@ -68,6 +66,5 @@ void ExplainTutorialState::OnBattleStateUpdate(float dt)
 
 void ExplainTutorialState::OnBattleStateOut()
 {
-    GameStateController::GetInstance()->currentScene->DeleteObjectByPointer(m_Texts);
-    m_Texts = nullptr;
+    m_Texts->SetActive(false);
 }

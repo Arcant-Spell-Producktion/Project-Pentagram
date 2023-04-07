@@ -7,32 +7,35 @@
 
 void ResultTutorialState::OnBattleStateIn()
 {
-    m_Timer = m_WaitTime;
-}
+    BattleManager* battleManager = BattleManager::GetInstance();
+    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+    TutorialNode* currentNode = gameData->Tutorial.GetTutorialNode();
 
-void ResultTutorialState::OnBattleStateUpdate(float dt)
-{
-    if (m_Timer < 0.0f)
+    bool isPlayerAlive = battleManager->Data.GetCaster(CasterPosition::CasterA)->IsAlive();
+    battleManager->Data.Pentagram->SetActive(false);
+    battleManager->Data.Texts->SetActive(true);
+
+    battleManager->Data.Texts->textObject.text = isPlayerAlive? currentNode->CompleteText : currentNode->RetryText;
+
+    battleManager->Data.Texts->onClick = [this, isPlayerAlive, currentNode](Button* button)
     {
-        BattleManager* battleManager = BattleManager::GetInstance();
-        RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-        if (!battleManager->Data.GetCaster(CasterPosition::CasterA)->IsAlive())
+        if (!isPlayerAlive)
         {
             SceneManager::LoadScene(GameState::GS_RESTART);
             return;
         }
-        else
-        {
-            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-        }
 
-    }else
-    {
-        m_Timer -= dt;
-    }
+        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+    };
+
+}
+
+void ResultTutorialState::OnBattleStateUpdate(float dt)
+{
+ 
 }
 
 void ResultTutorialState::OnBattleStateOut()
 {
-    m_Timer = 0;
+
 }

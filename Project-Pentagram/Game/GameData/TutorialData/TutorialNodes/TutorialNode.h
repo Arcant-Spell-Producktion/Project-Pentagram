@@ -24,6 +24,9 @@ protected:
 
     TutorialGoal m_TutorialGoal = TutorialGoal::Kill;
 public:
+    std::string CompleteText = "Goodjob!";
+    std::string RetryText = "Try Again!";
+
     int PlayerHP = 10;
     int EnemyHP = 10;
 

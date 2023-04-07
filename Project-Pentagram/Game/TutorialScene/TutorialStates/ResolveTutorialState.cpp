@@ -233,7 +233,7 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
 
     if (m_TrackResolveIndex == 10)
     {
-        m_ResolveTurManager->SetBattleState(BattleState::StandbyState);
+        m_ResolveTurManager->SetBattleState(BattleState::ResultState);
     }
     //m_ResolveTurManager->SwapCaster();
 }

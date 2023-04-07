@@ -4,6 +4,7 @@
 #include "Game/BattleScene/SpellTimeline/SpellTimeline.h"
 #include "Game/BattleScene/GameObject/WillCompareController.h"
 #include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
+#include "Game/Objects/TextBox.h"
 
 class BattleSceneData
 {
@@ -15,6 +16,8 @@ public:
     PentragramController* Pentagram = nullptr;
 
     WillCompareController* WillCompare = nullptr;
+
+    TextBox* Texts = nullptr;
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 
