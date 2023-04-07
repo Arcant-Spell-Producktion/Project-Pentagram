@@ -162,7 +162,7 @@ void SpellIconUI::HoldDetailBox()
 
 void SpellIconUI::ReleaseDetailBox()
 {
-    BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition())
+    BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
 }
 
 void SpellIconUI::SetActive(const bool& active)
