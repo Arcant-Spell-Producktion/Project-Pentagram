@@ -22,6 +22,12 @@ const std::string OverflowEffectDetail =
 R"(Permanently
 increase 1 max mana
 during combat)";
+const std::string FortifyEffectDetail =
+R"(Consume 1 stack to reduce
+incoming damage to 0)";
+const std::string PerifyEffectDetail =
+R"(-1 total will per stack
+(max 3))";
 
 class EffectDetailUI : public UIObject
 {

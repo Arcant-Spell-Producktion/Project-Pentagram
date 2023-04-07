@@ -61,6 +61,18 @@ void EffectDetailUI::SetText(CasterEffectIconUI* details)
             m_TextEffectDetail->color = AC_GREEN;
             ssDetail << OverflowEffectDetail;
             break;
+
+        case SpellEffectEnum::Fortify :
+            m_TextEffectDetail->color = AC_GREEN;
+            ssDetail << FortifyEffectDetail;
+            break;
+
+        case SpellEffectEnum::Petrify :
+            m_TextEffectDetail->color = AC_YELLOW;
+            ssDetail << PerifyEffectDetail;
+            break;
+
+        // TO DO - Added Wind Status Effect Detail
     }
 
     m_TextEffectName->text = ssName.str();
