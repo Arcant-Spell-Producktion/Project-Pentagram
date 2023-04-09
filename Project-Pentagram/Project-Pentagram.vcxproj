@@ -76,6 +76,7 @@
     <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />

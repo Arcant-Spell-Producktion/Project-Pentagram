@@ -567,6 +567,7 @@
     <ClInclude Include="Game\MapScene\MapInfoUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

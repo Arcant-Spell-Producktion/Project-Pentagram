@@ -8,9 +8,6 @@ void CastTutorialState::EnemyCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
-    CasterManager* currentCaster = currentController->GetCasterManager();
-
-    dynamic_cast<EnemyController*>(currentController)->CastEnemySpell();
 
     currentController->EndTurn(true);
     battleManager->SwapCaster();

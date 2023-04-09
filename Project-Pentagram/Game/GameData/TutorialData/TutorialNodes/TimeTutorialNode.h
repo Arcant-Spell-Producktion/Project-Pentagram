@@ -9,10 +9,7 @@ private:
 public:
     TimeTutorialNode() : TutorialNode(EnemyData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Water, CasterPosition::CasterB), CasterType::Minion, CasterMoveSet()))
     {
-        std::array<PentagramData_T, 20> moveSet;
-        moveSet.fill({ 1,1,6,1,0 });
-        CasterMoveSet enemyMove(moveSet);
-        m_Enemy.SetMove(enemyMove);
+        TutorialSpells.push_back({ 1,1,6,1,0 });
 
         m_TutorialPlayerData = new PlayerData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Fire, CasterPosition::CasterA));
 

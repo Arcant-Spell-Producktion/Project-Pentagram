@@ -31,8 +31,11 @@ void SetupTutorialState::OnBattleStateIn()
     CasterController* enemy = bm->Data.GetCaster(CasterPosition::CasterB);
     enemy->SetHp(currentNode->EnemyHP);
     enemy->SetMana(currentNode->EnemyMana);
+    for (PentagramData_T spellPentagram : currentNode->TutorialSpells)
+    {
+        dynamic_cast<EnemyController*>(enemy)->CastEnemySpell(spellPentagram);
+    }
 
-    bm->SwapCaster();
 
     AudioController* audioController = AudioController::GetInstance();
     BGMController* bgm = nullptr;
