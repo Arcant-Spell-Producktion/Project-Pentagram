@@ -23,11 +23,15 @@ private:
 
     WillCompareUI* m_WillCompareUI;
 
+    SpellIconUI* m_HoverSpellIcon;
+
     void SetExpandButtonScale(float scale);
 
 public:
 
     TimetrackUI(int index,SpellTimetrack* track, std::function<void(bool doExpand)> expand);
+
+    void OnUpdate(const float& dt) override;
 
     void PreviewIcon(CastSpellDetail* spell = nullptr, bool doCast = false ,bool active = false);
 
@@ -45,6 +49,7 @@ public:
 
     void SetIsExpand(bool expand);
 
+    SpellIconUI* GetHoverSpellIcon() const;
     const std::vector<SpellIconUI*>& GetSpellDetailUIList() const;
     const SpellIconUI* GetPreviewIcon() const;
 };

@@ -3,6 +3,7 @@
 #include "Game/Spells/Element.h"
 #include <string>
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
+#include <Game/BattleScene/GameObject/SpellDetailUI.h>
 
 class SpellIconUI: public Button
 {
@@ -57,4 +58,7 @@ public:
 
     void UpdateIcon();
 
+    void SetActive(const bool& active) override;
+
+    bool IsBeingHover() const;
 };

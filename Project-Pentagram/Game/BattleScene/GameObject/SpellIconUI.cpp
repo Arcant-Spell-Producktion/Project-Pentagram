@@ -15,8 +15,8 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     {
         if (!m_isPentagramIcon && !m_IsBeingHover)
         {
+            std::cout << this->name << ": Hold\n";
             m_IsBeingHover = true;
-            HoldDetailBox();
         }
     };
     this->unHover = [this](Button* button)
@@ -25,7 +25,6 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
         {
             std::cout << this->name << ": Release\n";
             m_IsBeingHover = false;
-            ReleaseDetailBox();
         }
     };
 
@@ -164,4 +163,14 @@ void SpellIconUI::HoldDetailBox()
 void SpellIconUI::ReleaseDetailBox()
 {
     BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
+}
+
+void SpellIconUI::SetActive(const bool& active)
+{
+    Button::SetActive(active);
+}
+
+bool SpellIconUI::IsBeingHover() const
+{
+    return m_IsBeingHover;
 }
