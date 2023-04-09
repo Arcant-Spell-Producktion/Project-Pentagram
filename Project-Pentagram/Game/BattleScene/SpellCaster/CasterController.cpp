@@ -92,7 +92,7 @@ bool CasterController::IsAlive()
 bool CasterController::TakeDamage(int value)
 {
     int totalDamage = -value;
-    if (m_IsImmune)
+    if (IsImmune())
     {
         totalDamage = 0;
     }

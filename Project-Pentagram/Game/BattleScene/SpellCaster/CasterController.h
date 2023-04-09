@@ -19,8 +19,8 @@ private:
 
 protected:
     bool m_IsAlive = true;
-    bool m_IsImmune = false;
     bool m_IsReflective = false;
+    int m_IsImmune = 0;
 
     CasterManager m_CasterManager;
     CasterState m_CasterState = CasterState::Idle;
@@ -46,9 +46,9 @@ public:
 
     CasterState GetState() { return m_CasterState; }
 
-    bool IsImmune() const { return m_IsImmune; }
+    bool IsImmune() const { return m_IsImmune > 0; }
 
-    void SetImmune(const bool isImmune) { m_IsImmune = isImmune; }
+    void SetImmune(const bool isImmune) { m_IsImmune += isImmune? 1 : -1; }
 
     void SetState(CasterState state) { m_CasterState = state; }
 

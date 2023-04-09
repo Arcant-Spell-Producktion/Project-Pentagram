@@ -59,6 +59,13 @@ void CastSpellDetail::OnCast(int* ChannelCount)
         }
     }
 
+    SpellResolveEffect resolveEffect = this->GetSpellDetail()->GetResolvesEffects();
+    CasterController* caster = battleManager->Data.GetCaster(this->SpellOwner);
+    if (resolveEffect.DoCancelDamage())
+    {
+        caster->SetImmune(this->Channel != CastSpellDetail::End);
+    }
+
     this->isCasted = true;
 
     if (ChannelCount != nullptr)
@@ -77,11 +84,6 @@ void CastSpellDetail::OnResolve()
 
     CasterController* caster = battleManager->Data.GetCaster(casterPosition);
     CasterController* target = battleManager->Data.GetCaster(targetPosition);
-
-    if (resolveEffect.DoCancelDamage())
-    {
-        caster->SetImmune(this->Channel != CastSpellDetail::End);
-    }
 
     if (this->GetSpellDetail()->GetChannelEffectType() >= ChannelEffectEnum::Active && this->Channel == CastSpellDetail::End && this->TriggeredSpell == nullptr)
     {
