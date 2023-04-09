@@ -236,6 +236,8 @@
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />
+    <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
+    <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />

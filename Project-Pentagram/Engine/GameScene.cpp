@@ -161,6 +161,62 @@ GameObject* GameScene::FindObject(const std::string& objName)
 
 	return nullptr;
 }
+void GameScene::FocusObject(GameObject* focusObj)
+{
+	if (focusObj != nullptr)
+	{
+		for (int idx = 0; idx < uiObjectsList.size(); idx++)
+		{
+			UIObject* curObj = uiObjectsList[idx];
+			if (curObj->parent == nullptr && curObj->name != "PauseMenuObject")
+			{
+				FocusObject(curObj, curObj == focusObj);
+			}
+		}
+		for (int idx = 0; idx < objectsList.size(); idx++)
+		{
+			GameObject* curObj = objectsList[idx];
+			if(curObj->parent == nullptr)
+			{
+				FocusObject(curObj, curObj == focusObj);
+			}
+		}
+	}
+	else
+	{
+		for (int idx = 0; idx < uiObjectsList.size(); idx++)
+		{
+			UIObject* curObj = uiObjectsList[idx];
+			if (prevObjectColor.contains(curObj))
+			{
+				curObj->color = prevObjectColor[curObj];
+			}
+		}
+		for (int idx = 0; idx < objectsList.size(); idx++)
+		{
+			GameObject* curObj = objectsList[idx]; 
+			if (prevObjectColor.contains(curObj))
+			{
+				curObj->color = prevObjectColor[curObj];
+			}
+		}
+		prevObjectColor.clear();
+	}
+}
+void GameScene::FocusObject(GameObject* obj, const bool& isFocus)
+{
+	if (isFocus) { return; }
+
+	const std::vector<GameObject*>& childList = obj->GetChildList();
+	prevObjectColor[obj] = obj->color;
+	obj->color = glm::vec4(0.25f, 0.25f, 0.25f, 1.0f) * obj->color;
+
+	for (GameObject* child : childList)
+	{
+		FocusObject(child, isFocus);
+	}
+	return;
+}
 
 // ----------------- Button Events ----------------- 
 
