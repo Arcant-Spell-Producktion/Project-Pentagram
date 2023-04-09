@@ -36,7 +36,6 @@ void SetupTutorialState::OnBattleStateIn()
         dynamic_cast<EnemyController*>(enemy)->CastEnemySpell(spellPentagram);
     }
 
-
     AudioController* audioController = AudioController::GetInstance();
     BGMController* bgm = nullptr;
 
@@ -55,6 +54,15 @@ void SetupTutorialState::OnBattleStateIn()
     }
 
     bgm->Play();
+
+    bm->Data.StartRound();
+
+    if (bm->Data.GetCurrentCaster()->IsAlive())
+    {
+        bm->Data.GetCurrentCaster()->StartTurn(); //TODO:: Need to add check if caster is alive before start turn
+
+        bm->Data.Pentagram->SetPentagramOwner(bm->Data.GetCurrentCaster());
+    }
 }
 
 void SetupTutorialState::OnBattleStateUpdate(float dt)

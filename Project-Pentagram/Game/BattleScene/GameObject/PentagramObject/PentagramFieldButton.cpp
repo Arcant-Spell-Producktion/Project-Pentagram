@@ -169,16 +169,16 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     switch (m_SelectedField)
     {
     case PentagramField::Circle:
-        m_RuneList = RuneObjectFactory::CreateRunes("ARM");
+        m_RuneList = RuneObjectFactory::CreateRunes("NOARM");
 
         break;
     case PentagramField::Complex:
-        m_RuneList = RuneObjectFactory::CreateRunes("TUN");
+        m_RuneList = RuneObjectFactory::CreateRunes("TUNER");
         ComplexRune->SetActive(true);
 
         break;
     case PentagramField::Will:
-        m_RuneList = RuneObjectFactory::CreateRunes("ABCDEF");
+        m_RuneList = RuneObjectFactory::CreateRunes("VWXYZA");
         break;
     case PentagramField::Effect:
         m_RuneList = RuneObjectFactory::CreateRunes("AMOGUS");

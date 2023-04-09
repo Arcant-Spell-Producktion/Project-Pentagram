@@ -35,16 +35,6 @@ void CastTutorialState::PlayerCastUpdate(float dt)
 
 void CastTutorialState::OnBattleStateIn()
 {
-    BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->Data.StartRound();
-
-    if (battleManager->Data.GetCurrentCaster()->IsAlive())
-    {
-    battleManager->Data.GetCurrentCaster()->StartTurn(); //TODO:: Need to add check if caster is alive before start turn
-
-    //battleManager->Data.Pentagram->SetActive(true);
-    battleManager->Data.Pentagram->SetPentagramOwner(battleManager->Data.GetCurrentCaster());
-    }
 }
 
 void CastTutorialState::OnBattleStateUpdate(float dt)

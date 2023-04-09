@@ -84,10 +84,7 @@ void ResolveTutorialState::ResolveSpell(int spell_index)
             else
             {
 
-                /*m_CurrentSpellController = m_Dispatcher.GetControllerBySpell(m_CurrentSpellDetail->ParentSpell);
-                m_State = ResolveState::PlaySpell;*/
-
-                if (!m_CurrentSpellDetail->GetSpellDetail()->GetResolvesEffects().DoCancelSpell())
+                if (!m_CurrentSpellDetail->GetSpellDetail()->GetResolvesEffects().DoCancelSpell() && !m_CurrentSpellDetail->GetSpellDetail()->GetResolvesEffects().DoCancelDamage())
                 {
                     m_CurrentSpellController = m_Dispatcher.SpawnSpell(m_CurrentSpellDetail->TriggeredSpell, m_CurrentSpellDetail->TriggeredSpell->GetTarget());
                     m_State = ResolveState::PlayTriggeredSpell;

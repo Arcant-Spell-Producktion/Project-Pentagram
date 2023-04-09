@@ -43,6 +43,8 @@ public:
 
     PentragramController(IGameObjectManager* scene);
 
+    void SetPentagramData(PentagramData_T data);
+
     void SetActive(const bool& active);
 
     void SetPentagramField(PentagramField selectedField);

@@ -24,6 +24,8 @@ protected:
 
     TutorialGoal m_TutorialGoal = TutorialGoal::Kill;
 public:
+
+    PentagramData_T PlayerStartSpell;
     std::vector<PentagramData_T> TutorialSpells;
 
     std::string CompleteText = "Goodjob!";
