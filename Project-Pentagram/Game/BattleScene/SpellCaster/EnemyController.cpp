@@ -27,3 +27,10 @@ void EnemyController::CastEnemySpell()
         EndTurn(true);
     }
 }
+
+void EnemyController::CastEnemySpell(PentagramData_T pentagram)
+{
+    m_CasterManager.SetPentagramData(pentagram);
+    m_CasterManager.GetSpellDetail()->isHidden = true;
+    CastSpell();
+}

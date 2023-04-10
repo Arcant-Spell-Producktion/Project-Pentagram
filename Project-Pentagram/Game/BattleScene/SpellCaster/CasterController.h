@@ -60,6 +60,10 @@ public:
 
     virtual void StartTurn();
 
+    bool SetHp(int value);
+
+    void SetMana(int value);
+
     bool TakeDamage(int value);
 
     bool IsAlive();

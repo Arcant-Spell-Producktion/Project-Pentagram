@@ -21,6 +21,8 @@ public:
         m_Moves(enemyData.m_Moves)
     {}
 
+    void SetMove(CasterMoveSet moves) { m_Moves = moves; }
+
     CasterType EnemyType() { return m_Type; }
 
     CasterMoveSet EnemyMoves() { return m_Moves; }

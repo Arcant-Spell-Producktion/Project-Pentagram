@@ -31,6 +31,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
     <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h" />
@@ -51,7 +52,10 @@
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
+    <ClInclude Include="Game\BattleScene\IBattleController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
+    <ClInclude Include="Game\BattleScene\IBaseBattleManager.h" />
+    <ClInclude Include="Game\BattleScene\IBattleManager.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
@@ -72,6 +76,12 @@
     <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
     <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />
+    <ClInclude Include="Game\GameState\BaseGameState.h" />
     <ClInclude Include="Game\MapScene\CasterStatUI.h" />
     <ClInclude Include="Game\MapScene\MapInfoUI.h" />
     <ClInclude Include="Game\MapScene\MapNode.h" />
@@ -84,10 +94,20 @@
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
+    <ClInclude Include="Game\Objects\TextBox.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
     <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
     <ClInclude Include="Game\Spells\SpellTarget.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\CastTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResultTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\SetupTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\StandByTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\TutorialStateModel.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\Audio\AudioEngine.h" />
@@ -235,6 +255,7 @@
     <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
     <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
     <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
+    <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />
@@ -242,6 +263,7 @@
     <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
+    <ClCompile Include="Game\Objects\TextBox.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
     <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
@@ -249,6 +271,14 @@
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
     <ClCompile Include="Game\Spells\SpellTarget.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\CastTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>

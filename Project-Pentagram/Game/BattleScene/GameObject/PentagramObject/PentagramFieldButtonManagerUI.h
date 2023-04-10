@@ -19,5 +19,7 @@ public:
 
     void ResetFieldRune();
 
+    void SetFieldButtonActive(PentagramField field, bool active);
+
     PentagramFieldButtonUI(IGameObjectManager* scene);
 };

@@ -33,7 +33,6 @@ void StandByBattleState::OnBattleStateOut()
 {
     Timer = 0.0f;
     BattleManager* battleManager = BattleManager::GetInstance();
-    battleManager->Data.Pentagram->SetActive(true);
     for (auto caster : battleManager->Data.Casters)
     {
         caster->GetCasterUI()->SetWheelActive(false);

@@ -37,4 +37,6 @@ public:
     CasterPosition& Position() { return m_Position; }
 
     CasterStat& Stat() { return m_Stat; }
+
+
 };

@@ -14,4 +14,7 @@ public:
     }
 
     void CastEnemySpell();
+
+    void CastEnemySpell(PentagramData_T pentagram);
+
 };

@@ -5,9 +5,12 @@
 #include <Game/BattleScene/SpellCaster/CastSpellDetail.h>
 #include <Game/BattleScene/GameObject/SpellDetailUI.h>
 
+
 class SpellIconUI: public Button
 {
 private:
+
+
     IGameObjectManager* m_ObjectManager;
 
     UIObject* m_IconObject;

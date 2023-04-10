@@ -3,7 +3,7 @@
 #include "Game/GameData/CasterData/EnemyData.h"
 class NodeData
 {
-private:
+protected:
     EnemyData m_Enemy;
 
     bool m_IsCompleted;

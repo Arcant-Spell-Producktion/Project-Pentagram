@@ -88,7 +88,7 @@ bool CasterManager::UpdateCurrentSpell()
     else
     {
         if (m_CurrentSpell != nullptr) delete m_CurrentSpell;
-
+        
         m_CurrentSpell = new CastSpellDetail
             (m_CurrentData.Position(), selectedSpell, remainWill, m_PentagramData.effect);
         

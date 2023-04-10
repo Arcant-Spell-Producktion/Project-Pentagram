@@ -3,7 +3,7 @@
 #include "Game/BattleScene/SpellCaster/EnemyController.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
 
-void EnemyCastUpdate(float dt)
+void CastBattleState::EnemyCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
@@ -15,7 +15,7 @@ void EnemyCastUpdate(float dt)
     battleManager->SwapCaster();
 }
 
-void PlayerCastUpdate(float dt)
+void CastBattleState::PlayerCastUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();

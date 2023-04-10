@@ -6,8 +6,7 @@
 void CastSpell()
 {
     auto bm = BattleManager::GetInstance();
-    auto spell = bm->Data.GetCurrentCaster()->CastSpell();
-
+    CastSpellDetail* spell = bm->Data.GetCurrentCaster()->CastSpell();
     bm->SwapCaster();
 }
 
@@ -34,13 +33,14 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramFieldButtons = m_ObjectManager->CreateObject(new PentagramFieldButtonUI(m_ObjectManager));
     m_PentagramScrollButton = m_ObjectManager->CreateObject(new PentagramScrollButtonManagerUI(m_ObjectManager));
 
-    m_PentragramFieldButtons->OnFieldButtonClicked.AddListener([this](PentagramField field) {this->SetPentagramField(field);});
+    m_PentragramFieldButtons->OnFieldButtonClicked.AddListener([this](PentagramField field) {this->SetPentagramField(field); });
     m_PentagramScrollButton->OnScrollButtonClicked.AddListener([this](int value) {this->SetPentagramValue(value); });
 
     OnPentagramValueChange.AddListener([this](PentagramEvent e)
         {
-            m_PentragramCircle->UpdateCircleUI(e);
-            m_PentagramScrollButton->SetScrollMode(e);
+            m_LastestEvent = e;
+    m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
+    m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
         });
 
 #pragma region OtherButton
@@ -64,7 +64,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramCircle->SetChildRenderBack(m_CastButton);
     m_PentragramCircle->SetChildRenderBack(m_PassButton);
 #pragma endregion
-    
+
     m_SpellIcon = m_ObjectManager->CreateObject(new SpellIconUI("PentagramIcon"));
     m_PentragramCircle->SetChildRenderBack(m_SpellIcon);
     m_PentragramCircle->SetChildRenderFront(m_PentragramFieldButtons);
@@ -73,15 +73,42 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_SpellIcon->ToggleIsPentagramIcon(true);
 }
 
+void PentragramController::SetPentagramData(PentagramData_T data)
+{
+    m_currentData = data;
+    m_currentCaster->GetCasterManager()->SetPentagramData(m_currentData);
+    m_currentData = m_currentCaster->GetCasterManager()->GetPentagramData();
+
+    m_SpellIcon->ToggleIsPentagramIcon(true);
+    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
+    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
+
+    SetPentagramField(PentagramField::Time);
+
+    m_PentragramFieldButtons->ToggleButton(PentagramField::Time);
+
+    m_PentragramCircle->SetPentagramUI(m_currentData.circle, m_currentData.complex);
+
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Time, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Time));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Circle, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Circle));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Complex, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Complex));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Will, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Will));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Effect, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Effect));
+}
+
 void PentragramController::SetActive(const bool& active)
 {
     m_PentragramCircle->SetActive(active);
     m_PentagramScrollButton->SetActive(active);
+
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);
 
     m_SpellIcon->ToggleIsPentagramIcon(true);
-}               
+
+    m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
+    m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
+}
 
 void PentragramController::SetPentagramField(PentagramField selectedField)
 {
@@ -129,24 +156,54 @@ void PentragramController::SetPentagramOwner(CasterController* caster)
     ResetPentagram();
 }
 
+void PentragramController::SetPentagramActive(MainObjectEnum obj, const bool& isActive)
+{
+    switch (obj) {
+    case MainObjectEnum::Pentagram:
+        this->SetActive(isActive);
+        break;
+    case MainObjectEnum::PentagramCircleUI:
+        m_PentragramCircle->SetActive(isActive);
+        if (isActive)
+        {
+            m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
+        }
+        break;
+    case MainObjectEnum::PentagramTimeB:
+        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Time, isActive);
+        break;
+    case MainObjectEnum::PentagramCircleB:
+        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Circle, isActive);
+        break;
+    case MainObjectEnum::PentagramComplexB:
+        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Complex, isActive);
+        break;
+    case MainObjectEnum::PentagramWillB:
+        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Will, isActive);
+        break;
+    case MainObjectEnum::PentagramEffectB:
+        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Effect, isActive);
+        break;
+    case MainObjectEnum::PentagramScroll:
+        m_PentagramScrollButton->SetActive(isActive);
+        if (isActive)
+        {
+            m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
+        }
+        break;
+    case MainObjectEnum::CastButton:
+        m_CastButton->SetActive(isActive);
+        break;
+    case MainObjectEnum::PassButton:
+        m_PassButton->SetActive(isActive);
+        break;
+    }
+}
+
 void PentragramController::ResetPentagram()
 {
-    m_currentData = { 1,1,1,1,0 };
-    m_currentCaster->GetCasterManager()->SetPentagramData(m_currentData);
-    m_currentData = m_currentCaster->GetCasterManager()->GetPentagramData();
-
-    SetPentagramField(PentagramField::Time);
-
-    m_SpellIcon->ToggleIsPentagramIcon(true);
-    m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
-
-    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
-
-    m_PentragramFieldButtons->ToggleButton(PentagramField::Time);
+    SetPentagramData({ 1,1,1,1,0 });
     m_PentragramFieldButtons->ResetFieldRune();
-
-    m_PentragramCircle->SetPentagramUI(1,1);
-
 }
 void PentragramController::ResetPentagramButtonField()
 {

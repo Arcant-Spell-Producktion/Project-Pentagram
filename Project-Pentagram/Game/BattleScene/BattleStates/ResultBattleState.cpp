@@ -15,8 +15,11 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 {
     if (m_Timer < 0.0f)
     {
+        BattleManager* battleManager = BattleManager::GetInstance();
         RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-        if (gameData->Player->Stat().CurrentHealth <= 0)
+        CasterController* player = battleManager->Data.GetCaster(CasterPosition::CasterA);
+
+        if (!player->IsAlive())
         {
             SceneManager::LoadScene(GameState::GS_MENU_SCENE);
             gameData->DeleteSave();
@@ -26,11 +29,12 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             if (gameData->Map->CompleteNode())
             {
                 gameData->Player->LevelUp();
-                SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+                SceneManager::LoadScene(GameState::GS_MAP_SCENE);
             }
-            //SceneManager::LoadScene(GameState::GS_MAP_SCENE);
             else
             {
+                gameData->Player->Stat().CurrentHealth = player->GetCasterManager()->Data().Stat().CurrentHealth;
+
                 SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
             }
             gameData->SaveGameData();

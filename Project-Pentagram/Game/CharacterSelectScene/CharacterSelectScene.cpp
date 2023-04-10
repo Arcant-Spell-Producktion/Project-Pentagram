@@ -50,12 +50,12 @@ void CharacterSelectScene::OnConfirm()
 		}
 	}
     dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement])->Confirm();
-    
+
     RuntimeGameData* gameData = RuntimeGameData::GetInstance();
 
-    gameData->Player =
+    gameData->SetPlayer(
         new PlayerData({ CasterStatDatabase::GetInstance()->GetStat(
-            m_SelectedElement,CasterType::Player,0), m_SelectedElement, CasterPosition::CasterA }, 0);
+            m_SelectedElement,CasterType::Player,0), m_SelectedElement, CasterPosition::CasterA }, 0));
 
     gameData->Map = new MapData(m_SelectedElement);
 

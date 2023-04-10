@@ -1,6 +1,6 @@
 ﻿#include "SpellIconUI.h"
 #include "Engine/GameStateController.h"
-#include <Game/BattleScene/BattleManager.h>
+#include "Game/BattleScene/BattleManager.h"
 
 const std::string iconPath = "Sprites/UI/Game/ui_game_spell-icons.png";
 const std::string iconVariationPath = "Sprites/UI/Game/ui_game_spell-icon_variation.png";
@@ -61,6 +61,8 @@ SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(Gam
     this->SetChildRenderFront(m_IconBorder);
 
     SetTransparency(false);
+
+   
 }
 
 void SpellIconUI::ToggleIsPentagramIcon(bool flag)
@@ -148,7 +150,8 @@ void SpellIconUI::UpdateIcon()
     SetTransparency(m_isPreview || SpellDetail->isCasted);
     if (m_isPentagramIcon)
     {
-        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner,SpellDetail,true);
+        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, true);;
+
     }
 }
 
@@ -157,12 +160,14 @@ void SpellIconUI::HoldDetailBox()
     if (SpellDetail != nullptr)
     {
         BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, false, this->GetWorldPosition());
+
     }
 }
 
 void SpellIconUI::ReleaseDetailBox()
 {
     BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
+
 }
 
 void SpellIconUI::SetActive(const bool& active)

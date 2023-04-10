@@ -9,11 +9,12 @@
 #include "PentagramCircleUI.h"
 #include "PentagramFieldButtonManagerUI.h"
 #include "PentagramScrollButtonManagerUI.h"
+#include "Game/BattleScene/GameObject/MainObjectEnum.h"
 
 class PentragramController
 {
 private:
-
+    PentagramEvent m_LastestEvent = {PentagramField::Time,0};
     IGameObjectManager* m_ObjectManager;
 
     CasterController* m_currentCaster = nullptr;
@@ -42,6 +43,8 @@ public:
 
     PentragramController(IGameObjectManager* scene);
 
+    void SetPentagramData(PentagramData_T data);
+
     void SetActive(const bool& active);
 
     void SetPentagramField(PentagramField selectedField);
@@ -51,6 +54,8 @@ public:
     void SetCastButtonActive(bool isActive) { m_CastButton->SetActive(isActive); }
 
     void SetPentagramOwner(CasterController* caster);
+
+    void SetPentagramActive(MainObjectEnum obj,const bool& isActive);
 
     void ResetPentagram();
     void ResetPentagramButtonField();
