@@ -60,6 +60,7 @@ class BGMController
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
 
 		float m_BGMLocalVolume = 1.0f;
+		bool m_IsStartPlay = false;
 		
 		std::vector<std::string> m_FilepathList;
 		std::vector<AudioSource*> m_BGMSourceList;
@@ -82,6 +83,8 @@ class BGMController
 
 		void Play()
 		{
+			m_IsStartPlay = true;
+
 			// If BGM Already played
 			if (!m_BGMAudioList.empty()) { return; }
 
@@ -102,7 +105,7 @@ class BGMController
 		{
 			m_BGMLocalVolume = volume;
 		}
-		void OnUpdate()
+		void OnUpdateVolume()
 		{
 			const float masterVolume = audioEngine->GetMasterVolume();
 			const float bgmVolume = audioEngine->GetBGMVolume();
@@ -112,6 +115,8 @@ class BGMController
 				m_BGMAudioList[idx]->SetVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
 			}
 		}
+
+		bool IsStartPlay() const { return m_IsStartPlay; }
 
 		BGMAudio* operator[](int index)
 		{
@@ -128,8 +133,12 @@ class AudioController : public Singleton<AudioController>
 {
 	private:
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
+		BGMController* m_PrevBGMController = nullptr;
 		BGMController* m_BGMController = nullptr;
 		std::map<std::string, Audio*> LoopSFX;
+
+		const float fadeTime = 2.0f;
+		float m_CurrentTime = 0.0f;
 
 	public:
 		void PlaySFX(const std::string& filePath, const float& volume);
@@ -137,7 +146,8 @@ class AudioController : public Singleton<AudioController>
 		void StopSFXLoop(const std::string& filePath);
 		BGMController* CreateBGM(const std::vector<std::string>& filepathList, const std::vector<float>& volumeList);
 
-		void OnUpdate();
+		void OnUpdateVolume();
+		void OnUpdate(const float& dt);
 
 		// ----------------- Free Memory -----------------
 		void Free();

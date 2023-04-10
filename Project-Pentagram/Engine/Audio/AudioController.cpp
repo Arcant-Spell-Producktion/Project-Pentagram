@@ -40,11 +40,12 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 		}
 		else
 		{
-			delete m_BGMController;
-			m_BGMController = nullptr;
+			m_PrevBGMController = m_BGMController;
 		}
 	}
 
+	// Set CurrentTime to 0.0f => For Fading BGM
+	m_CurrentTime = 0.0f;
 	// Convert filePathList -> audioList
 	std::vector<AudioSource*> audioList;
 	for (const std::string& filepath : filepathList)
@@ -57,10 +58,33 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 	return m_BGMController;
 }
 
-void AudioController::OnUpdate()
+void AudioController::OnUpdateVolume()
 {
 	if (m_BGMController == nullptr) { return; }
-	m_BGMController->OnUpdate();
+	m_BGMController->OnUpdateVolume();
+}
+void AudioController::OnUpdate(const float& dt)
+{
+	if (m_BGMController == nullptr) { return; }
+
+	if (m_CurrentTime < fadeTime && m_BGMController->IsStartPlay())
+	{
+		m_CurrentTime += dt;
+		m_BGMController->ChangeVolume(m_CurrentTime / fadeTime);
+		m_BGMController->OnUpdateVolume();
+		if (m_PrevBGMController != nullptr)
+		{
+			m_PrevBGMController->ChangeVolume(1.0f - (m_CurrentTime / fadeTime));
+			m_PrevBGMController->OnUpdateVolume();
+		}
+
+		// If fade finished -> Deallocate m_PrevBGMController
+		if(m_CurrentTime >= fadeTime) 
+		{
+			delete m_PrevBGMController;
+			m_PrevBGMController = nullptr;
+		}
+	}
 }
 
 // ----------------- Free Memory -----------------

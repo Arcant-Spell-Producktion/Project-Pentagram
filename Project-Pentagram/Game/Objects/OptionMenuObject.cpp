@@ -15,7 +15,7 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::MASTER]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetMasterVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdate();
+			AudioController::GetInstance()->OnUpdateVolume();
 		};
 		VolumeSlider[VolumeType::MASTER]->position = { 150.0f, 150.0f, 0.0f };
 		VolumeSlider[VolumeType::MASTER]->SetValue(AudioEngine::GetInstance()->GetMasterVolume());
@@ -34,7 +34,7 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::BGM]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetBGMVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdate();
+			AudioController::GetInstance()->OnUpdateVolume();
 		};
 		VolumeSlider[VolumeType::BGM]->position = { 150.0f, 50.0f, 0.0f };
 		VolumeSlider[VolumeType::BGM]->SetValue(AudioEngine::GetInstance()->GetBGMVolume());
@@ -53,7 +53,7 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::SFX]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetSFXVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdate();
+			AudioController::GetInstance()->OnUpdateVolume();
 		};
 		VolumeSlider[VolumeType::SFX]->position = { 150.0f, -50.0f, 0.0f };
 		VolumeSlider[VolumeType::SFX]->SetValue(AudioEngine::GetInstance()->GetSFXVolume());
