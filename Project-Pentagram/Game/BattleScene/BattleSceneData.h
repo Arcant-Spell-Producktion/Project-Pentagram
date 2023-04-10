@@ -25,6 +25,9 @@ public:
     {
         for (CasterController* caster : Casters)
         {
+            // If caster is enemy => Don't show CasterDetail
+            if (caster->GetCasterManager()->Data().Position() == CasterPosition::CasterB) { continue; }
+            
             caster->SetIsShowCasterDetail(active);
         }
     }

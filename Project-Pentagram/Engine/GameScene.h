@@ -15,6 +15,9 @@ class GameScene : public IGameObjectManager
 		void UpdateButtonOnClick();
 		void UpdateButtonOnHover();
 		void UpdateButtonOnPress();
+		void FocusObject(GameObject* obj, const bool& isFocus);
+
+		std::map<GameObject*, glm::vec4> prevObjectColor;
 
 	protected:
 		// ----------------- Rendering Component List -----------------
@@ -60,6 +63,7 @@ class GameScene : public IGameObjectManager
 		virtual void DeleteObjectByName(const std::string& objName) override;
 		virtual void DeleteObjectByPointer(GameObject* objPtr) override;
 		virtual GameObject* FindObject(const std::string& objName) override;
+		void FocusObject(GameObject* focusObj);
 
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);

@@ -84,6 +84,19 @@ TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bo
     SetExpandButtonScale(30.0f);
 }
 
+
+void TimetrackUI::OnUpdate(const float& dt)
+{
+    m_HoverSpellIcon = nullptr;
+    for (SpellIconUI* icon : m_Icons)
+    {
+        if (icon->IsBeingHover())
+        {
+            m_HoverSpellIcon = icon;
+        }
+    }
+}
+
 void TimetrackUI::SetExpandButtonScale(float scale)
 {
     m_ExpandButton->scale.y = scale;
@@ -227,6 +240,11 @@ void TimetrackUI::SetIsExpand(bool expand)
     m_IsExpanded = expand;
 }
 
+
+SpellIconUI* TimetrackUI::GetHoverSpellIcon() const
+{
+    return m_HoverSpellIcon;
+}
 const std::vector<SpellIconUI*>& TimetrackUI::GetSpellDetailUIList() const
 {
     return m_Icons;

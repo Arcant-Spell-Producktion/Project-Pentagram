@@ -15,6 +15,7 @@ UIObject* gObject;
 Slider* slider;
 ManaRouletteUI* rou;
 PauseMenuObject* pauseMenuObj;
+bool flag = true;
 
 void DemoScene::GameSceneInit()
 {
@@ -179,6 +180,11 @@ void DemoScene::GameSceneUpdate(float dt)
 	{
 		slider->SetValue(0.75f);
 		ArcantEngine::GetInstance()->GetWindow()->SetFullScreen(ArcantEngine::GetInstance()->GetWindow()->IsFullScreen() ? false : true);
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_F))
+	{
+		FocusObject(flag ? cur : nullptr);
+		flag = !flag;
 	}
 
 	// Update GameObject

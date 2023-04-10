@@ -19,6 +19,8 @@ private:
 
     std::vector<TimetrackUI*> m_Tracks;
 
+    SpellDetailUI* m_SpellDetailUI;
+
     PentragramController* pentragramControllerRef;
     BattleState currentState;
 
@@ -27,6 +29,8 @@ private:
 
 public:
     TimelineController();
+
+    void OnUpdate(const float& dt) override;
 
     void SetTrackerActive(bool isActive);
     void SetTrackerPositionByIndex(int index);

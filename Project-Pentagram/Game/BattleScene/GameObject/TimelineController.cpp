@@ -43,7 +43,54 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
         box->SetChildRenderFront(track);
     }
     
+    m_SpellDetailUI = new SpellDetailUI({ 0.0f, 0.0f, 0.0f }, { 560.0f, 210.0f, 1.0f }, 28.0f);
+    m_SpellDetailUI->SetActive(false);
+    this->SetChildRenderFront(m_SpellDetailUI);
+}
 
+void TimelineController::OnUpdate(const float& dt)
+{
+    UIObject::OnUpdate(dt);
+
+    SpellIconUI* hoverIcon = nullptr;
+    // Check with each TimetrackUI
+    for (TimetrackUI* track : m_Tracks)
+    {
+        hoverIcon = track->GetHoverSpellIcon();
+        if (hoverIcon != nullptr)
+        {
+            CastSpellDetail* spellDetail = hoverIcon->SpellDetail;
+
+            m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
+            m_SpellDetailUI->SetCasterPosition(spellDetail->SpellOwner);
+            m_SpellDetailUI->position = track->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            m_SpellDetailUI->SetActive(true);
+            break;
+        }
+    }
+    // Check with TimelineExpander
+    std::vector<GameObject*> childList = timelineExpander->GetChildList();
+    for (GameObject* child : childList)
+    {
+        SpellIconUI* icon = dynamic_cast<SpellIconUI*>(child);
+        if (icon->IsBeingHover())
+        {
+            hoverIcon = icon;
+            CastSpellDetail* spellDetail = hoverIcon->SpellDetail;
+
+            m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
+            m_SpellDetailUI->SetCasterPosition(spellDetail->SpellOwner);
+            m_SpellDetailUI->position = timelineExpander->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            m_SpellDetailUI->SetActive(true);
+            break;
+        }
+    }
+
+
+    if (hoverIcon == nullptr)
+    {
+        m_SpellDetailUI->SetActive(false);
+    }
 }
 
 void TimelineController::SetTrackerActive(bool isActive)

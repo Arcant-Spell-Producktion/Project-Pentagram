@@ -230,6 +230,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
     <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
     <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -568,6 +569,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

@@ -15,6 +15,21 @@ CasterEffectBarUI::CasterEffectBarUI(int position) :UIObject("EffectBar_" + std:
     }
 }
 
+void CasterEffectBarUI::OnUpdate(const float& dt)
+{
+    UIObject::OnUpdate(dt);
+
+    m_HoverEffectIcon = nullptr;
+    for (auto it = m_EffectIcons.begin(); it != m_EffectIcons.end(); it++)
+    {
+        if (it->second->IsActive() && it->second->IsBeingHover())
+        {
+            m_HoverEffectIcon = it->second;
+            break;
+        }
+    }
+}
+
 void CasterEffectBarUI::UpdateEffectIcons(std::vector<EffectDetail_T> effects)
 {
     int i = 0;
@@ -30,4 +45,9 @@ void CasterEffectBarUI::UpdateEffectIcons(std::vector<EffectDetail_T> effects)
             i++;
         }
     }
+}
+
+CasterEffectIconUI* CasterEffectBarUI::GetHoverEffectIcon() const
+{
+    return m_HoverEffectIcon;
 }
