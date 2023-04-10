@@ -6,9 +6,12 @@
 #include "Engine/UIObject.h"
 #include "Engine/Button.h"
 
+#include "Utilities/Color.h"
+
 class Slider : public UIObject
 {
 	protected:
+		UIObject* m_ForeGround;
 		Button* m_Button;
 		float m_Value;
 		bool m_IsPress;

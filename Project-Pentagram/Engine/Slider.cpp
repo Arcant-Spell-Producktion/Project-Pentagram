@@ -12,26 +12,45 @@ Slider::Slider(const std::string& objName)
 	this->m_Value = 0.5f;
 	this->onValueChanged = [](Slider* slider) {};
 
+	m_ForeGround = new UIObject("Slider_" + objName + "_ForeGround");
+	m_ForeGround->color = AC_GREEN;
+	m_ForeGround->scale = { 1.0f, this->scale.y, 1.0f };
+	this->SetChildRenderFront(m_ForeGround);
+
 	InitButton();
 }
 
 void Slider::InitButton()
 {
 	this->m_Button = new Button(name + "_Button");
-	SetChildRenderFront(this->m_Button);
+	this->SetChildRenderFront(this->m_Button);
 
 	this->m_Button->scale = glm::vec3(30.0f, 75.0f, 1.0f);
 	this->m_Button->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	this->m_Button->onPress = [this](Button* button) { this->m_IsPress = true; };
-	this->m_Button->unPress = [this](Button* button) { this->m_IsPress = false; };
-	this->m_Button->unHover = [this](Button* button) { if (!m_IsPress) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); } };
+	this->m_Button->onPress = [this](Button* button) { m_IsPress = true; };
+	this->m_Button->unPress = [this](Button* button) { m_IsPress = false; };
+	this->m_Button->unHover = [this](Button* button) { if (!m_IsPress) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); } m_IsPress = false; };
 }
 void Slider::OnUpdate(const float& dt)
 {
+	m_ForeGround->scale.x = (m_Button->position.x + this->scale.x / 2.0f);
+	m_ForeGround->position.x = (m_Button->position.x + this->scale.x / 2.0f) / 2.0f - this->scale.x / 2.0f;
+
 	if (m_IsPress)
 	{
-		this->m_Button->position.x += Input::deltaMouseX;
+		float outMax = WINDOW_WIDTH / 2.0f;
+		float outMin = -WINDOW_WIDTH / 2.0f;
+		float inMax = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
+		float inMin = 0.0f;
+		glm::vec3 worldPos = m_Button->GetWorldPosition();
+		float newPosX = (outMin) + (outMax - outMin) / (inMax - inMin) * (Input::mouseX - inMin);
+
+		/*
+		float newPosX = Input::mouseX - (ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth() / 2.0f);
+		float newPosY = Input::mouseY - (ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight() / 2.0f);
+		*/
+		this->m_Button->position.x += Input::deltaMouseX / ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio().x;
 		if (this->m_Button->position.x > this->scale.x / 2.0f)
 		{
 			this->m_Button->position.x = this->scale.x / 2.0f;
