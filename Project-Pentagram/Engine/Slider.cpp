@@ -39,17 +39,6 @@ void Slider::OnUpdate(const float& dt)
 
 	if (m_IsPress)
 	{
-		float outMax = WINDOW_WIDTH / 2.0f;
-		float outMin = -WINDOW_WIDTH / 2.0f;
-		float inMax = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
-		float inMin = 0.0f;
-		glm::vec3 worldPos = m_Button->GetWorldPosition();
-		float newPosX = (outMin) + (outMax - outMin) / (inMax - inMin) * (Input::mouseX - inMin);
-
-		/*
-		float newPosX = Input::mouseX - (ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth() / 2.0f);
-		float newPosY = Input::mouseY - (ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight() / 2.0f);
-		*/
 		this->m_Button->position.x += Input::deltaMouseX / ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio().x;
 		if (this->m_Button->position.x > this->scale.x / 2.0f)
 		{
