@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "BattleManager.h"
 
+#include "Game/TestScene/TestStates/TestStateModel.h"
 #include "Game/TutorialScene/TutorialStates/TutorialStateModel.h"
 
 void BattleManager::SetBattleState(BattleState state)
@@ -21,9 +22,20 @@ void BattleManager::SetBattleState(BattleState state)
     std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to " << (int)m_CurrentState << "\n\n";
 }
 
-void BattleManager::Init(IGameObjectManager* scene,bool isTutorial)
+void BattleManager::Init(IGameObjectManager* scene, BattleMode mode)
 {
-    const std::vector <BaseBattleState*> states = isTutorial? TutorialStateModel::GetTutorialStates() : BattleStateModel::GetBattleStates();
+    std::vector <BaseBattleState*> states;
+    switch (mode) {
+    case BattleMode::Battle:
+        states = BattleStateModel::GetBattleStates();
+        break;
+    case BattleMode::Test:
+        states = TestStateModel::GetTestStates();
+        break;
+    case BattleMode::Tutorial:
+        states = TutorialStateModel::GetTutorialStates();
+        break;
+    }
     for (auto state : states)
     {
         m_BattleStates.emplace(state->StateID, state);
@@ -39,14 +51,14 @@ void BattleManager::Init(IGameObjectManager* scene,bool isTutorial)
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
 }
 
-void BattleManager::StartBattle(bool isTutorial)
+void BattleManager::StartBattle(BattleMode mode)
 {
     for(auto caster: Data.Casters)
     {
-        if(!isTutorial)caster->GetCasterManager()->ResetMana();
+        if(mode == BattleMode::Battle)caster->GetCasterManager()->ResetMana();
     }
 
-    SetBattleState(isTutorial? BattleState::ExplainState : BattleState::StandbyState);
+    SetBattleState(mode == BattleMode::Tutorial? BattleState::ExplainState : BattleState::StandbyState);
 }
 
 void BattleManager::SwapCaster()

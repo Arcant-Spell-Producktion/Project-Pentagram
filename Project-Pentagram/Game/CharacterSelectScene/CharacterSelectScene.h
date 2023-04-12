@@ -34,6 +34,7 @@ private:
 
 public:
     void OnSelect(Element::Type element);
+    void OnTest();
     void OnConfirm();
 
     virtual void GameSceneLoad() override;

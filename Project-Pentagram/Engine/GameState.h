@@ -8,6 +8,8 @@ enum class GameState
     GS_TUTORIAL_SELECT_SCENE,
     GS_CHARACTER_SCENE,
 
+    GS_TEST_SCENE,
+
 	GS_MAP_SCENE,
 	GS_BATTLE_SCENE,
 

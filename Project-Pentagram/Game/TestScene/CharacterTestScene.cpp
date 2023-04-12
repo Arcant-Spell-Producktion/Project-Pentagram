@@ -1,37 +1,36 @@
-﻿#include "TutorialScene.h"
+﻿#include "CharacterTestScene.h"
 
 #include "Game/BattleScene/BattleManager.h"
-#include "Game/TutorialScene/TutorialStates/TutorialStateModel.h"
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
 
 
-BattleManager* tutorialManager;
-PauseMenuObject* tur_pauseMenuObject;
+BattleManager* charTestManager;
+PauseMenuObject* test_pauseMenuObject;
 
-void TutorialScene::GameSceneLoad()
+void CharacterTestScene::GameSceneLoad()
 {
-    tur_track_t = 0.0f;
-    tutorialManager = BattleManager::GetInstance();
+    test_track_t = 0.0f;
+    charTestManager = BattleManager::GetInstance();
     std::cout << "Tutorial Scene : Load Completed\n";
 }
 
-void TutorialScene::GameSceneInit()
+void CharacterTestScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(Element::Water));
+    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance()->Player->Element()));
 
-    tutorialManager->Init(this, BattleMode::Tutorial);
+    charTestManager->Init(this,BattleMode::Test);
     std::cout << "Tutorial Scene : Initialize Completed\n";
-    tutorialManager->StartBattle(BattleMode::Tutorial);
+    charTestManager->StartBattle(BattleMode::Test);
 
-    tur_pauseMenuObject = CreateObject(new PauseMenuObject());
-    tur_pauseMenuObject->SetCurrentGameScene(this);
-    tur_pauseMenuObject->SetActive(false);
+    test_pauseMenuObject = CreateObject(new PauseMenuObject());
+    test_pauseMenuObject->SetCurrentGameScene(this);
+    test_pauseMenuObject->SetActive(false);
 }
 
-void TutorialScene::GameSceneUpdate(float dt)
+void CharacterTestScene::GameSceneUpdate(float dt)
 {
     GameScene::GameSceneUpdate(dt);
 
@@ -43,26 +42,26 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_K))
     {
-        tutorialManager->EndBattle();
+        charTestManager->EndBattle();
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        tur_pauseMenuObject->SetActive(tur_pauseMenuObject->IsActive() ? false : true);
+        test_pauseMenuObject->SetActive(test_pauseMenuObject->IsActive() ? false : true);
         timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {
-        bool isShow = tutorialManager->Data.IsShowCasterDetail();
-        tutorialManager->Data.SetIsShowCasterDetail(isShow ? false : true);
+        bool isShow = charTestManager->Data.IsShowCasterDetail();
+        charTestManager->Data.SetIsShowCasterDetail(isShow ? false : true);
     }
 
-    tutorialManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
+    charTestManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
 
-    if (tur_track_t >= 1.0f)
+    if (test_track_t >= 1.0f)
     {
-        tur_track_t = 0.0f;
+        test_track_t = 0.0f;
     }
-    tur_track_t += scaledDeltaTime;
+    test_track_t += scaledDeltaTime;
     // Update GameObject
     for (GLuint idx = 0; idx < objectsList.size(); idx++)
     {
@@ -91,17 +90,17 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
 }
 
-void TutorialScene::GameSceneUnload()
+void CharacterTestScene::GameSceneUnload()
 {
     GameScene::GameSceneUnload();
 }
 
-void TutorialScene::GameSceneFree()
+void CharacterTestScene::GameSceneFree()
 {
     GameScene::GameSceneFree();
 
     //Free Tutorial Manager
-    tutorialManager->Free();
+    charTestManager->Free();
 
     std::cout << "Tutorial Scene : Free Memory Completed\n";
 }
