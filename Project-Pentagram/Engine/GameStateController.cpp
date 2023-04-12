@@ -1,5 +1,6 @@
 ﻿#include "GameStateController.h"
 
+#include "Game/TestScene/CharacterTestScene.h"
 #include "Game/TutorialScene/TutorialScene.h"
 #include "Game/TutorialScene/TutorialSelectScene.h"
 
@@ -33,6 +34,9 @@ void GameStateController::UpdateGameScene()
         case GameState::GS_CHARACTER_SCENE:
             currentScene = new CharacterSelectScene();
             break;
+        case GameState::GS_TEST_SCENE:
+			currentScene = new CharacterTestScene();
+			break;
 		case GameState::GS_MAP_SCENE :
 			currentScene = new MapScene();
 			break;

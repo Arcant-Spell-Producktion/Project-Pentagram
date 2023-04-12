@@ -14,15 +14,17 @@ private:
     std::map<BattleState, BaseBattleState*> m_BattleStates;
 
 public:
+    
+
     BattleSceneData Data;
 
     void SetBattleState(BattleState state) override;
 
     BaseBattleState* GetBattleStates() override { return m_BattleStates[m_CurrentState]; }
 
-    void Init(IGameObjectManager* scene, bool isTutorial = false) override;
+    void Init(IGameObjectManager* scene, BattleMode mode = BattleMode::Battle) override;
 
-    void StartBattle(bool isTutorial = false) override;
+    void StartBattle(BattleMode mode = BattleMode::Battle) override;
     void SwapCaster() override;
     void EndBattle() override { SetBattleState(BattleState::ResultState); }
 

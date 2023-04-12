@@ -99,6 +99,12 @@
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
     <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
     <ClInclude Include="Game\Spells\SpellTarget.h" />
+    <ClInclude Include="Game\TestScene\TestStates\CastTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResolveTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\SetupTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\StandByTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
+    <ClInclude Include="Game\TestScene\CharacterTestScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
     <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
@@ -271,6 +277,11 @@
     <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
     <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
     <ClCompile Include="Game\Spells\SpellTarget.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\CastTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResolveTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\SetupTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
+    <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />

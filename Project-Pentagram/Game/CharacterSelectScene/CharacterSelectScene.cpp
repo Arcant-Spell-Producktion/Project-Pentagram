@@ -38,6 +38,19 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 
 }
 
+void CharacterSelectScene::OnTest()
+{
+    dynamic_cast<CharacterSelectUI*>(m_Characters[(int)m_SelectedElement])->Confirm();
+
+    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+
+    gameData->SetPlayer(
+        new PlayerData({ CasterStatDatabase::GetInstance()->GetStat(
+            m_SelectedElement,CasterType::Player,0), m_SelectedElement, CasterPosition::CasterA }, 0));
+
+    FadeOut(2.0f, GameState::GS_TEST_SCENE);
+}
+
 void CharacterSelectScene::OnConfirm()
 {
 	// TO DO: Change range to [0, 4) When Wind Boss have added
@@ -96,10 +109,9 @@ void CharacterSelectScene::GameSceneInit()
 	// Test Button
 	Button* testButton = CreateObject(new ScrollButton("Test this Witch", { 650.0f, 160.0f, 1.0f }, { 670.0f, 160.0f, 1.0f }));
 	testButton->position = { 450.0f, -400.0f, 0.0f };
-	testButton->color.a = 0.5f;
-	testButton->onClick.AddListener([this](Button* button)
-		{
-
+    testButton->onClick.AddListener([this](Button* button)
+        {
+            OnTest();
 		});
 
 	// Set FadeScreen Component
