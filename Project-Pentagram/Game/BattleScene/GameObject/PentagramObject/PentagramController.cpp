@@ -213,3 +213,42 @@ void PentragramController::ResetPentagramButtonField()
     m_PentragramCircle->SetPentagramUI(m_PentragramCircle->GetCircleValue(), m_PentragramCircle->GetComplexValue());
 }
 
+GameObject* PentragramController::GetPentagramObject(MainObjectEnum obj) const
+{
+    GameObject* objPtr = nullptr;
+
+    switch (obj) {
+    case MainObjectEnum::Pentagram:
+        break;
+    case MainObjectEnum::PentagramCircleUI:
+            objPtr = m_PentragramCircle;
+        break;
+    case MainObjectEnum::PentagramTimeB:
+        objPtr = m_PentragramFieldButtons->GetButtonByField(PentagramField::Time);
+        break;
+    case MainObjectEnum::PentagramCircleB:
+        objPtr = m_PentragramFieldButtons->GetButtonByField(PentagramField::Circle);
+        break;
+    case MainObjectEnum::PentagramComplexB:
+        objPtr = m_PentragramFieldButtons->GetButtonByField(PentagramField::Complex);
+        break;
+    case MainObjectEnum::PentagramWillB:
+        objPtr = m_PentragramFieldButtons->GetButtonByField(PentagramField::Will);
+        break;
+    case MainObjectEnum::PentagramEffectB:
+        objPtr = m_PentragramFieldButtons->GetButtonByField(PentagramField::Effect);
+        break;
+    case MainObjectEnum::PentagramScroll:
+        objPtr = m_PentagramScrollButton;
+        break;
+    case MainObjectEnum::CastButton:
+        objPtr = m_CastButton;
+        break;
+    case MainObjectEnum::PassButton:
+        objPtr = m_PassButton;
+        break;
+    }
+
+    return objPtr;
+}
+

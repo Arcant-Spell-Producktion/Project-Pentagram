@@ -64,6 +64,7 @@ class GameScene : public IGameObjectManager
 		virtual void DeleteObjectByPointer(GameObject* objPtr) override;
 		virtual GameObject* FindObject(const std::string& objName) override;
 		void FocusObject(GameObject* focusObj);
+        void UnFocusObject();
 
 		void UpdateButtonEvents();
 		void UpdateScaleDeltaTime(float deltaTime);

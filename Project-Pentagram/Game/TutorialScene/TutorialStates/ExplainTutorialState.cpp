@@ -13,9 +13,23 @@ void ExplainTutorialState::UpdateEvent()
     m_Texts->textObject.text = m_TutorialStep[m_CurrentEvent].TutorialText;
     for (TutorialObjectEvent e : m_TutorialStep[m_CurrentEvent].ObjectEvents)
     {
+        if (e.Obj == MainObjectEnum::Null && e.Type == TutorialEventType::Focus)
+        {
+            GameStateController::GetInstance()->currentScene->UnFocusObject();
+            continue;
+        }
+
         if (e.Obj >= MainObjectEnum::Pentagram)
         {
-            BattleManager::GetInstance()->Data.Pentagram->SetPentagramActive(e.Obj, e.Active);
+            if (e.Type == TutorialEventType::Toggle)
+            {
+                BattleManager::GetInstance()->Data.Pentagram->SetPentagramActive(e.Obj, e.Active);
+            }
+
+            if (e.Type == TutorialEventType::Focus)
+            {
+                GameStateController::GetInstance()->currentScene->FocusObject(BattleManager::GetInstance()->Data.Pentagram->GetPentagramObject(e.Obj));
+            }
         }
     }
 }
@@ -28,6 +42,7 @@ void ExplainTutorialState::OnTextClick()
     if (m_CurrentEvent >= m_TutorialStep.size())
     {
         BattleManager::GetInstance()->SetBattleState(BattleState::StandbyState);
+        GameStateController::GetInstance()->currentScene->UnFocusObject();
     }
     else
     {
@@ -66,5 +81,6 @@ void ExplainTutorialState::OnBattleStateUpdate(float dt)
 
 void ExplainTutorialState::OnBattleStateOut()
 {
+    GameStateController::GetInstance()->currentScene->UnFocusObject();
     m_Texts->SetActive(false);
 }

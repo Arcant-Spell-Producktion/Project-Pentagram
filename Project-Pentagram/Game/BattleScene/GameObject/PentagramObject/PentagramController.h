@@ -40,8 +40,10 @@ private:
 public:
 
     Event<PentagramData_T&> OnPentagramDataChange;
+    
 
     PentragramController(IGameObjectManager* scene);
+
 
     void SetPentagramData(PentagramData_T data);
 
@@ -60,4 +62,5 @@ public:
     void ResetPentagram();
     void ResetPentagramButtonField();
 
+    GameObject* GetPentagramObject(MainObjectEnum obj) const;
 };

@@ -21,5 +21,7 @@ public:
 
     void SetFieldButtonActive(PentagramField field, bool active);
 
+    PentagramFieldButton* GetButtonByField(PentagramField field);
+
     PentagramFieldButtonUI(IGameObjectManager* scene);
 };

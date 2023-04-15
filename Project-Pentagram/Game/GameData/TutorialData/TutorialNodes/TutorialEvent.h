@@ -4,9 +4,16 @@
 
 #include "Game/BattleScene/GameObject/MainObjectEnum.h"
 
+enum class TutorialEventType
+{
+    Toggle,
+    Focus,
+};
+
 struct TutorialObjectEvent
 {
     MainObjectEnum Obj;
+    TutorialEventType Type;
     bool Active;
 };
 

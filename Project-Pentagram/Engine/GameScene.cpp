@@ -203,6 +203,12 @@ void GameScene::FocusObject(GameObject* focusObj)
 		prevObjectColor.clear();
 	}
 }
+
+void GameScene::UnFocusObject()
+{
+    FocusObject(nullptr);
+}
+
 void GameScene::FocusObject(GameObject* obj, const bool& isFocus)
 {
 	if (isFocus) { return; }

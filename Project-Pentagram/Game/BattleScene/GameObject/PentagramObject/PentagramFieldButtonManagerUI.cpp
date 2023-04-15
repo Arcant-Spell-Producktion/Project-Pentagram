@@ -86,6 +86,11 @@ void PentagramFieldButtonUI::SetFieldButtonActive(PentagramField field, bool act
     m_PentragramButtons[GetIndexByField(field)]->SetActive(active);
 }
 
+PentagramFieldButton* PentagramFieldButtonUI::GetButtonByField(PentagramField field)
+{
+    return m_PentragramButtons[GetIndexByField(field)];
+}
+
 PentagramFieldButtonUI::PentagramFieldButtonUI(IGameObjectManager* scene): UIObject("PentagramFieldButtons")
 {
     this->color.a = 0.0f;
