@@ -83,13 +83,14 @@ void CasterObject::OnUpdate(const float& dt)
         glm::vec4 red = { 0.6f,0.0f,0.0f,1.0f };
         glm::vec4 normal = { 1.0f,1.0f,1.0f,1.0f };
         this->color = isRed ? red : normal;
+
+        if (m_FlashTimer <= 0.0f) { m_FlashTimer = false; this->color = originColor; }
     }
     else
     {
         m_FlashTimer = 0.0f;
-        this->color = { 1.0f,1.0f,1.0f,1.0f };
+        originColor = this->color;
     }
-
 }
 
 void CasterObject::SetCaster(CasterType type, Element::Type element)

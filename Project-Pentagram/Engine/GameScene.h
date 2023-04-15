@@ -18,6 +18,9 @@ class GameScene : public IGameObjectManager
 		void FocusObject(GameObject* obj, const bool& isFocus);
 
 		std::map<GameObject*, glm::vec4> prevObjectColor;
+		bool m_IsFocus = false;
+		const glm::vec4 UnFocusColor = glm::vec4(0.25f, 0.25f, 0.25f, 1.0f);
+
 
 	protected:
 		// ----------------- Rendering Component List -----------------

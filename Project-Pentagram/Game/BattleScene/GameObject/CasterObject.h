@@ -32,7 +32,9 @@ private:
     int m_ChannelCounter = 0;
     bool m_doLoop = false;
 
+    glm::vec4 originColor;
     float m_FlashTimer = 0.0f;
+    bool m_IsStartFlash = false;
 
 public:
     CasterObject();
@@ -52,6 +54,6 @@ public:
 
     void PlayDiedAnim();
 
-    void PlayRedFlash() { m_FlashTimer = 0.8f; }
+    void PlayRedFlash() { m_IsStartFlash = true; m_FlashTimer = 0.8f; }
 
 };

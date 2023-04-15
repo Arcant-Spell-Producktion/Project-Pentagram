@@ -165,12 +165,16 @@ void GameScene::FocusObject(GameObject* focusObj)
 {
 	if (focusObj != nullptr)
 	{
+		if (m_IsFocus) { FocusObject(nullptr); }
+
+		m_IsFocus = true;
+		// Make All Object Darken
 		for (int idx = 0; idx < uiObjectsList.size(); idx++)
 		{
 			UIObject* curObj = uiObjectsList[idx];
 			if (curObj->parent == nullptr && curObj->name != "PauseMenuObject")
 			{
-				FocusObject(curObj, curObj == focusObj);
+				FocusObject(curObj, false);
 			}
 		}
 		for (int idx = 0; idx < objectsList.size(); idx++)
@@ -178,18 +182,26 @@ void GameScene::FocusObject(GameObject* focusObj)
 			GameObject* curObj = objectsList[idx];
 			if(curObj->parent == nullptr)
 			{
-				FocusObject(curObj, curObj == focusObj);
+				FocusObject(curObj, false);
 			}
 		}
+
+		// Make focusObj be more bright
+		FocusObject(focusObj, true);
 	}
 	else
 	{
+		m_IsFocus = false;
 		for (int idx = 0; idx < uiObjectsList.size(); idx++)
 		{
 			UIObject* curObj = uiObjectsList[idx];
 			if (prevObjectColor.contains(curObj))
 			{
 				curObj->color = prevObjectColor[curObj];
+				if (Button* button = dynamic_cast<Button*>(curObj))
+				{
+					button->textObject.color = 1.0f / UnFocusColor * button->textObject.color;
+				}
 			}
 		}
 		for (int idx = 0; idx < objectsList.size(); idx++)
@@ -211,16 +223,31 @@ void GameScene::UnFocusObject()
 
 void GameScene::FocusObject(GameObject* obj, const bool& isFocus)
 {
-	if (isFocus) { return; }
-
 	const std::vector<GameObject*>& childList = obj->GetChildList();
-	prevObjectColor[obj] = obj->color;
-	obj->color = glm::vec4(0.25f, 0.25f, 0.25f, 1.0f) * obj->color;
-
 	for (GameObject* child : childList)
 	{
 		FocusObject(child, isFocus);
 	}
+
+	if (isFocus) 
+	{
+		// Is obj == focusObj -> Invert UnFocusColor
+		obj->color = 1.0f / UnFocusColor * obj->color;
+		// If obj is Button -> Apply Invert UnFocusColor on both button & text
+		if (Button* button = dynamic_cast<Button*>(obj))
+		{
+			button->textObject.color = 1.0f / UnFocusColor * button->textObject.color;
+		}
+		return;
+	}
+
+	prevObjectColor[obj] = obj->color;
+	// If obj is Button -> Apply UnFocusColor on both button & text
+	if (Button* button = dynamic_cast<Button*>(obj))
+	{
+		button->textObject.color = UnFocusColor * button->textObject.color;
+	}
+	obj->color = UnFocusColor * obj->color;
 	return;
 }
 
