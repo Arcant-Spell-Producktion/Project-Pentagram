@@ -56,7 +56,7 @@ public:
 
     bool IsShowCasterDetail() { return m_CasterUI.IsShowDetail(); }
     
-    void SpinManaWheel();
+    void SpinManaWheel(int forceValue = -1);
 
     virtual void StartTurn();
 

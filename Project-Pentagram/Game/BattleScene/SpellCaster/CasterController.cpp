@@ -26,7 +26,7 @@ void CasterController::UpdateCasterUI()
     OnStatUpdate.Invoke((m_CasterManager.Data().Stat()));
 }
 
-void CasterController::SpinManaWheel()
+void CasterController::SpinManaWheel(int forceValue)
 {
     m_CasterState = CasterState::Spin;
 
@@ -38,7 +38,7 @@ void CasterController::SpinManaWheel()
         m_CasterUI.ResetWheel();
     }
 
-    int RandomWheelIndex = m_CasterManager.RandomManaWheelIndex();
+    int RandomWheelIndex = forceValue < 0 ? m_CasterManager.RandomManaWheelIndex() : forceValue - 1;
 
     m_CasterUI.SpinWheel(RandomWheelIndex, [this, RandomWheelIndex]()
     {

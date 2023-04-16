@@ -25,7 +25,7 @@ protected:
     TutorialGoal m_TutorialGoal = TutorialGoal::Kill;
 public:
 
-    PentagramData_T PlayerStartSpell;
+    PentagramData_T PlayerStartSpell = {1,1,1,1,0};
     std::vector<PentagramData_T> TutorialSpells;
 
     std::string CompleteText = "Goodjob!";
@@ -35,7 +35,9 @@ public:
     int EnemyHP = 10;
 
 
-    int PlayerMana = 3;
+    int PlayerMana = 2;
+    int PlayerManaWheel = 1;
+
     int EnemyMana = 3;
 
     TutorialNode(EnemyData enemy) : NodeData(enemy)

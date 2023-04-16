@@ -14,6 +14,10 @@
 class PentragramController
 {
 private:
+
+    Event<PentagramField> OnPentagramFieldChange;
+    Event<PentagramEvent> OnPentagramValueChange;
+
     PentagramEvent m_LastestEvent = {PentagramField::Time,0};
     IGameObjectManager* m_ObjectManager;
 
@@ -34,9 +38,7 @@ private:
     SpellIconUI* m_SpellIcon;
 
     int& FieldData(PentagramField field);
-
-    Event<PentagramField> OnPentagramFieldChange;
-    Event<PentagramEvent> OnPentagramValueChange;
+    void TogglePentagramField(PentagramField field, bool isActive);
 public:
 
     Event<PentagramData_T&> OnPentagramDataChange;

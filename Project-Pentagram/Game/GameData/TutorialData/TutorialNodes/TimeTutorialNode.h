@@ -7,11 +7,29 @@ class TimeTutorialNode : public TutorialNode
 private:
 
 public:
-    TimeTutorialNode() : TutorialNode(EnemyData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Water, CasterPosition::CasterB), CasterType::Minion, CasterMoveSet()))
+    TimeTutorialNode() : TutorialNode(
+        EnemyData(
+            CasterData(
+                CasterStat(
+                    100, 
+                    { 6,6,6,6,6,6 }), 
+                Element::Water, 
+                CasterPosition::CasterB), 
+            CasterType::Minion, 
+            CasterMoveSet()))
     {
         TutorialSpells.push_back({ 1,1,6,1,0 });
 
-        m_TutorialPlayerData = new PlayerData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Fire, CasterPosition::CasterA));
+        m_TutorialPlayerData = new PlayerData(
+            CasterData(
+                CasterStat(
+                    100, 
+                    { 1,2,3,4,5,6 }),
+                Element::Fire, 
+                CasterPosition::CasterA));
+
+        EnemyMana = 10;
+        PlayerManaWheel = 1;
 
         m_TutorialEvents.AddStep("As you can see enemy spells\n were added to the banner. This is Timeline.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
@@ -50,6 +68,5 @@ public:
         RetryText = "Try to cast the spell before the enemy spell\nBy increasing the speed of the spell.";
 
 
-        EnemyMana = 10;
     }
 };

@@ -37,20 +37,15 @@ void TutorialSelectScene::GameSceneInit()
 {
     float spacing = 175.0f;
 
-    for (int i = static_cast<int>(TutorialType::PentagramTutorial); i <= static_cast<int>(TutorialType::CounterTutorial); i++)
+    for (int i = static_cast<int>(TutorialType::WillTutorial); i <= static_cast<int>(TutorialType::CounterTutorial); i++)
     {
         std::stringstream ss;
         ss << "Tur_" << i;
 
-        Button* selectButton = CreateObject(new ScrollButton(ss.str()));
+        Button* selectButton = CreateObject(new ScrollButton(TutorialData::GetTutorialName(static_cast<TutorialType>(i))));
 
         float pos_x = spacing * 2 * (i%4 - 1) - spacing;
         float pos_y = i < 4 ? 200.0f : -200.0f;
-
-        if (i >= 4)
-        {
-            pos_x += selectButton->scale.x / 2.0f;
-        }
 
         selectButton->position = { pos_x, pos_y, 0.0f };
 

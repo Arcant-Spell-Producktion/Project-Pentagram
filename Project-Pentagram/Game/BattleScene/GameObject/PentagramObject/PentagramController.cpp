@@ -27,6 +27,16 @@ int& PentragramController::FieldData(PentagramField field)
     }
 }
 
+void PentragramController::TogglePentagramField(PentagramField field, bool isActive)
+{
+    m_PentragramFieldButtons->SetFieldButtonActive(field, isActive);
+    if (isActive)
+    {
+        SetPentagramField(field);
+    }
+
+}
+
 PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectManager(scene)
 {
     m_PentragramCircle = m_ObjectManager->CreateObject(new PentagramCircleUI(m_ObjectManager));
@@ -158,6 +168,7 @@ void PentragramController::SetPentagramOwner(CasterController* caster)
 
 void PentragramController::SetPentagramActive(MainObjectEnum obj, const bool& isActive)
 {
+
     switch (obj) {
     case MainObjectEnum::Pentagram:
         this->SetActive(isActive);
@@ -170,19 +181,19 @@ void PentragramController::SetPentagramActive(MainObjectEnum obj, const bool& is
         }
         break;
     case MainObjectEnum::PentagramTimeB:
-        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Time, isActive);
+        TogglePentagramField(PentagramField::Time, isActive);
         break;
     case MainObjectEnum::PentagramCircleB:
-        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Circle, isActive);
+        TogglePentagramField(PentagramField::Circle, isActive);
         break;
     case MainObjectEnum::PentagramComplexB:
-        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Complex, isActive);
+        TogglePentagramField(PentagramField::Complex, isActive);
         break;
     case MainObjectEnum::PentagramWillB:
-        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Will, isActive);
+        TogglePentagramField(PentagramField::Will, isActive);
         break;
     case MainObjectEnum::PentagramEffectB:
-        m_PentragramFieldButtons->SetFieldButtonActive(PentagramField::Effect, isActive);
+        TogglePentagramField(PentagramField::Effect, isActive);
         break;
     case MainObjectEnum::PentagramScroll:
         m_PentagramScrollButton->SetActive(isActive);
@@ -197,6 +208,11 @@ void PentragramController::SetPentagramActive(MainObjectEnum obj, const bool& is
     case MainObjectEnum::PassButton:
         m_PassButton->SetActive(isActive);
         break;
+    }
+
+    if (true)
+    {
+        
     }
 }
 

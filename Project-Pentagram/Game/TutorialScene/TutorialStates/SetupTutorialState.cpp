@@ -19,6 +19,7 @@ void SetupTutorialState::OnBattleStateIn()
     TutorialNode* currentNode = gameData->Tutorial.GetTutorialNode();
     std::cout << "DEBUG ENEMY ELEMENT: " << (int)currentNode->GetEnemyData().Element() << "\n";
 
+
     gameData->Player = new PlayerData(*currentNode->GetPlayerData(), 0);
     bm->Data.AddCaster(new PlayerController(*gameData->Player));
 
@@ -33,6 +34,7 @@ void SetupTutorialState::OnBattleStateIn()
     enemy->SetMana(currentNode->EnemyMana);
     for (PentagramData_T spellPentagram : currentNode->TutorialSpells)
     {
+        enemy->GetCasterManager()->SetPentagramData(spellPentagram);
         dynamic_cast<EnemyController*>(enemy)->CastEnemySpell(spellPentagram);
     }
 

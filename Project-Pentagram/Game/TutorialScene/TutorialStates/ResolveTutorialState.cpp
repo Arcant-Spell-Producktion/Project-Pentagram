@@ -237,6 +237,8 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
 
 void ResolveTutorialState::OnBattleStateOut()
 {
+    m_ResolveTurManager->Data.StartRound();
+
     m_ResolveTurManager->Data.Timeline.UI->SetTrackerActive(false);
     m_ResolveTurManager->Data.Timeline.CompleteTimeline();
 

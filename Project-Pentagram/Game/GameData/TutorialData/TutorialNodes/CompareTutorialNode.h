@@ -15,7 +15,9 @@ public:
 
         EnemyHP = 100;
 
-        m_TutorialPlayerData = new PlayerData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Fire, CasterPosition::CasterA));
+        PlayerManaWheel = 1;
+
+        m_TutorialPlayerData = new PlayerData(CasterData(CasterStat(100, { 1,2,3,4,5,6 }), Element::Fire, CasterPosition::CasterA));
 
 
 

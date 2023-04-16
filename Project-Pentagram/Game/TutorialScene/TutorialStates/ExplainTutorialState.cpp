@@ -41,7 +41,7 @@ void ExplainTutorialState::OnTextClick()
 
     if (m_CurrentEvent >= m_TutorialStep.size())
     {
-        BattleManager::GetInstance()->SetBattleState(BattleState::StandbyState);
+        BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
         GameStateController::GetInstance()->currentScene->UnFocusObject();
     }
     else
@@ -58,7 +58,7 @@ void ExplainTutorialState::OnBattleStateIn()
 
     bm->Data.Pentagram->SetActive(true);
     bm->Data.Pentagram->SetPentagramOwner(bm->Data.GetCurrentCaster());
-
+    bm->Data.Pentagram->SetPentagramData(currentNode->PlayerStartSpell);
 
     m_TutorialStep = currentNode->GetTutorialEvents();
     m_CurrentEvent = 0;

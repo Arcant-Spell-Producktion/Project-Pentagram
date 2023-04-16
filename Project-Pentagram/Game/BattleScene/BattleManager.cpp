@@ -58,7 +58,7 @@ void BattleManager::StartBattle(BattleMode mode)
         if(mode == BattleMode::Battle)caster->GetCasterManager()->ResetMana();
     }
 
-    SetBattleState(mode == BattleMode::Tutorial? BattleState::ExplainState : BattleState::StandbyState);
+    SetBattleState(BattleState::StandbyState);
 }
 
 void BattleManager::SwapCaster()

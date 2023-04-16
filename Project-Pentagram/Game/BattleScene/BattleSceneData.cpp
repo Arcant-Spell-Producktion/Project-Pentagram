@@ -18,7 +18,6 @@ void BattleSceneData::StandbyAllCaster()
 {
     for (auto caster : Casters)
     {
-        caster->UpdateCasterUI();
         caster->SpinManaWheel();
     }
 }
