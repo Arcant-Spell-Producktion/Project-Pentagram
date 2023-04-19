@@ -489,7 +489,7 @@ void GameScene::GameSceneUpdate(float dt)
 	UpdateDeleteObject();
 	UpdateButtonEvents();
 	audioController->OnUpdate(dt);
-	camera.OnUpdate(dt);
+	camera.OnUpdate(scaledDeltaTime);
 }
 void GameScene::GameSceneDraw()
 {

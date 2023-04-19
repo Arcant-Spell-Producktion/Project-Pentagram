@@ -396,19 +396,24 @@ void EarthSpell9::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
     
-    float blastTime = 1.5f;
+    float blastTime = 4.0f;
 
     QueueUpdateFunction(
         [this, scene, blastTime](float dt)
         {
-            scene->GetCamera()->Shake(blastTime, 25, { 50.0f,100.0f });
+            scene->GetCamera()->Shake(blastTime, 50, { 50.0f,100.0f });
+            this->color.a = 0.0f;
             Next();
         }
     );
 
+    QueueWaitEvent(2.5f);
+
     QueueUpdateFunction(
         [this](float dt)
         {
+            this->color.a = 1.0f;
+
             int currentRow = this->GetCurrentAnimationRow() - 1;
             int currentColumn = this->GetCurrentAnimationColumn() - 1;
             int lastRow = this->GetAnimationRow();
