@@ -18,7 +18,7 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 20;
+        EnemyHP = 100;
         EnemyMana = 20;
         TutorialSpells.push_back({ 1,1,1,1,5 });
         TutorialSpells.push_back({ 1,1,1,1,5 });

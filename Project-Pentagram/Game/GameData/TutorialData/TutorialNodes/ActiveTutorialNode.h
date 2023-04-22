@@ -18,11 +18,10 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 20;
+        EnemyHP =100;
         EnemyMana = 20;
         TutorialSpells.push_back({ 1,1,3,1,3 });
         TutorialSpells.push_back({ 1,1,4,1,4 });
-        TutorialSpells.push_back({ 1,1,5,1,5 });
 
 
         m_TutorialPlayerData = new PlayerData(
