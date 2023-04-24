@@ -49,7 +49,7 @@ void PentagramScrollButtonManagerUI::SetScrollMode(PentagramField field)
         {
             m_ArrowButtons[i]->SetActive(false);
         }
-        m_Scroll->scale = { 420.0f, 160.0f,0.0f };
+        m_Scroll->scale = { 420.0f, 160.0f,1.0f };
         break;
     case PentagramField::Will:
     case PentagramField::Effect:
@@ -62,7 +62,7 @@ void PentagramScrollButtonManagerUI::SetScrollMode(PentagramField field)
         {
             m_ArrowButtons[i]->SetActive(false);
         }
-        m_Scroll->scale = { 800.0f, 160.0f,0.0f };
+        m_Scroll->scale = { 800.0f, 160.0f,1.0f };
         break;
     case PentagramField::Time:
         for (size_t i = 0; i < 6; i++)
@@ -73,7 +73,7 @@ void PentagramScrollButtonManagerUI::SetScrollMode(PentagramField field)
         {
             m_ArrowButtons[i]->SetActive(true);
         }
-        m_Scroll->scale = { 400.0f, 160.0f,0.0f };
+        m_Scroll->scale = { 400.0f, 160.0f,1.0f };
         break;
     }
 }
@@ -95,7 +95,7 @@ PentagramScrollButtonManagerUI::PentagramScrollButtonManagerUI(IGameObjectManage
     m_Scroll->SetSlicingBorderMultiplier(0.25f);
     m_Scroll->SetSlicingType(SlicingType::REPEAT);
     m_Scroll->position = { 0.0f, -250.0f, 0.0f };
-    m_Scroll->scale = { 800.0f, 160.0f, 0.0f };
+    m_Scroll->scale = { 800.0f, 160.0f, 1.0f };
     this->SetChildRenderBack(m_Scroll);
 
     for (size_t i = 1; i <= 6; i++)
