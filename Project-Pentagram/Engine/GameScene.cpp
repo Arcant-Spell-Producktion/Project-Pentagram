@@ -161,9 +161,9 @@ GameObject* GameScene::FindObject(const std::string& objName)
 
 	return nullptr;
 }
-void GameScene::FocusObject(GameObject* focusObj)
+void GameScene::FocusObject(GameObject* focusObject)
 {
-	if (focusObj != nullptr)
+	if (focusObject != nullptr)
 	{
 		if (m_IsFocus) { FocusObject(nullptr); }
 
@@ -187,7 +187,7 @@ void GameScene::FocusObject(GameObject* focusObj)
 		}
 
 		// Make focusObj be more bright
-		FocusObject(focusObj, true);
+		FocusObject(focusObject, true);
 	}
 	else
 	{
@@ -213,6 +213,35 @@ void GameScene::FocusObject(GameObject* focusObj)
 			}
 		}
 		prevObjectColor.clear();
+	}
+}
+void GameScene::FocusObject(const std::vector<GameObject*>& focusObjects)
+{
+	if (m_IsFocus) { FocusObject(nullptr); }
+
+	m_IsFocus = true;
+	// Make All Object Darken
+	for (int idx = 0; idx < uiObjectsList.size(); idx++)
+	{
+		UIObject* curObj = uiObjectsList[idx];
+		if (curObj->parent == nullptr && curObj->name != "PauseMenuObject")
+		{
+			FocusObject(curObj, false);
+		}
+	}
+	for (int idx = 0; idx < objectsList.size(); idx++)
+	{
+		GameObject* curObj = objectsList[idx];
+		if (curObj->parent == nullptr)
+		{
+			FocusObject(curObj, false);
+		}
+	}
+
+	for (GameObject* focusObject : focusObjects)
+	{
+		// Make focusObj be more bright
+		FocusObject(focusObject, true);
 	}
 }
 
@@ -489,7 +518,7 @@ void GameScene::GameSceneUpdate(float dt)
 	UpdateDeleteObject();
 	UpdateButtonEvents();
 	audioController->OnUpdate(dt);
-	camera.OnUpdate(dt);
+	camera.OnUpdate(scaledDeltaTime);
 }
 void GameScene::GameSceneDraw()
 {

@@ -114,10 +114,13 @@ void PentragramController::SetActive(const bool& active)
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);
 
-    m_SpellIcon->ToggleIsPentagramIcon(true);
+    if(active)
+    {
+        m_SpellIcon->ToggleIsPentagramIcon(true);
+        m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
+        m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
+    }
 
-    m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
-    m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
 }
 
 void PentragramController::SetPentagramField(PentagramField selectedField)

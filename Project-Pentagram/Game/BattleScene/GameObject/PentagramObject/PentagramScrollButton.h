@@ -39,7 +39,7 @@ class PentagramScrollArrowButton : public PentagramScrollButton
 private:
     float m_downTime = 0.15f;
     float m_curtime = 0.0f;
-    virtual void OnUpdate(const float& dt);
+    virtual void OnUpdate(const float& dt) override;
 public:
     PentagramScrollArrowButton(int value, IGameObjectManager* scene);
 };
