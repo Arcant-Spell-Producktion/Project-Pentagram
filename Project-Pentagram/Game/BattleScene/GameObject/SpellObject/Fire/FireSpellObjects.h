@@ -36,8 +36,8 @@ public:
 class FireSpell3: public BaseSpellObject
 {
 private:
-    float lifeTime = 1.5f;
-    float spawnTime = 0.2f;
+    float lifeTime = 0.5f;
+    float spawnTime = 0.075f;
     int amount = 20;
 
     void Initialize();
@@ -76,7 +76,7 @@ private:
     std::vector<GameObject*> m_objectList;
 
     float m_localTimer = 0.0f;
-    const int m_SpawnCount = 10;
+    const int m_SpawnCount = 5;
     int m_SnapCount = 10;
     int m_DoneCount = 0;
     void Initialize();
@@ -143,6 +143,7 @@ public:
 class FireSpell9 : public BaseSpellObject
 {
 private:
+    float m_localTimer = 0.0f;
     void Initialize();
 public:
     FireSpell9(CasterPosition target) :BaseSpellObject(

@@ -84,7 +84,7 @@ void FireSpell2::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_2.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -117,7 +117,7 @@ void FireSpell3::Initialize()
 
     this->SetChildRenderFront(particle);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_3.wav", 1.0f);
     QueueWaitEvent(lifeTime);
 
     QueueHitEvent();
@@ -148,11 +148,11 @@ void FireSpell4::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
     
-    float timePerFrame = 0.15f;
+    float timePerFrame = 0.115f;
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_4.wav", 1.0f);
     QueueWaitTillFrameEvent(false,false,7);
 
     QueueHitEvent();
@@ -162,6 +162,8 @@ void FireSpell4::Initialize()
         {
             if (m_TotalTime >= timePerFrame * 15)
             {
+                this->SetIsAnimationObject(false);
+                localTimer = 0.0f;
                 Next();
                 return;
             }
@@ -171,6 +173,26 @@ void FireSpell4::Initialize()
             {
                 std::cout << "\tFLIP\n";
                 this->scale.x = this->scale.x * -1;
+                localTimer = 0.0f;
+            }
+        }
+    );
+
+    // Play Animation Invert
+    QueueUpdateFunction(
+        [this, timePerFrame](float dt)
+        {
+            int currentCol = this->GetCurrentAnimationIndex().y - 1;
+            if (currentCol <= 4)
+            {
+                Next();
+                return;
+            }
+
+            localTimer += dt;
+            if (localTimer >= timePerFrame)
+            {
+                this->SetSpriteByIndex(0, currentCol - 1);
                 localTimer = 0.0f;
             }
         }
@@ -245,7 +267,7 @@ void FireSpell5::Initialize()
         }
     );
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_5.wav", 1.0f);
     QueueHitEvent();
 
     QueueDoneEvent();
@@ -261,11 +283,12 @@ void FireSpell6::Initialize()
     this->scale = { size / 2 , size, 1.0f };
     this->position = { -CASTER_POSITION_X * m_SpellTarget, yPos, 1.0f };
     this->SetIsAnimationObject(true);
+    this->SetIsAnimationLoop(false);
 
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
     
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_6.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
@@ -279,6 +302,7 @@ void FireSpell6::Initialize()
         {
             auto scene = GameStateController::GetInstance()->currentScene;
             scene->GetCamera()->Shake(spinTime, 16, { 50.0f,0.0f });
+            this->SetIsAnimationLoop(true);
             this->SetIsAnimationObject(true);
             Next();
         }
@@ -290,6 +314,7 @@ void FireSpell6::Initialize()
         [this](float dt)
         {
             this->SetSpriteByIndex(2, 0);
+            this->SetIsAnimationLoop(false);
             Next();
         }
     );
@@ -318,14 +343,14 @@ void FireSpell7::Initialize()
 
     //Move A to B
     glm::vec3 direction = endPos - startPos;
-    float travelTime = 1.0f;
+    float travelTime = 0.5f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_7.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
 
-    float shakeTime = 1.5f;
+    float shakeTime = 1.0f;
     QueueUpdateFunction(
         [this, shakeTime](float dt)
         {
@@ -361,7 +386,7 @@ void FireSpell8::Initialize()
     float distant = glm::distance(startX, endX);
     float travelTime = distant / (distant * speed);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_8.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(animSpeed);
 
@@ -393,14 +418,14 @@ void FireSpell9::Initialize()
     float speed = 2.0f;
     float startX = (-330.0f) * m_SpellTarget; // Assume A shooter
     float yPos = -160.0f;
-    float animSpeed = 1 / 12.0f;
+    float timePerFrame = 1 / 12.0f;
     this->scale = { -size * m_SpellTarget, size / 3, 1.0f };
     this->position = { startX, yPos, 0.0f };
      
-    this->SetAnimationPlayTime(animSpeed);
+    this->SetAnimationPlayTime(timePerFrame);
     this->SetIsAnimationObject(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_9.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
@@ -416,7 +441,45 @@ void FireSpell9::Initialize()
         }
     );
 
-    QueueWaitEvent(1.5f);
+    QueueWaitEvent(blastTime);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetIsAnimationObject(false);
+            Next();
+            return;
+        }
+    );
+
+    // Play Animation Invert
+    QueueUpdateFunction(
+        [this, timePerFrame](float dt)
+        {
+            int currentRow = this->GetCurrentAnimationIndex().x - 1;
+            int currentCol = this->GetCurrentAnimationIndex().y - 1;
+            if (currentCol <= 0 && currentRow <= 0)
+            {
+                Next();
+                return;
+            }
+
+            m_localTimer += dt;
+            if (m_localTimer >= timePerFrame)
+            {
+                if (currentCol - 1 < 0)
+                {
+                    this->SetSpriteByIndex(currentRow - 1, this->GetAnimationColumn(currentRow - 1) - 1);
+                }
+                else
+                {
+                    this->SetSpriteByIndex(currentRow, currentCol - 1);
+                }
+                m_localTimer = 0.0f;
+
+            }
+        }
+    );
 
     QueueDoneEvent();
 }
