@@ -27,7 +27,9 @@ void SetupBattleState::OnBattleStateIn()
 
     switch(currentNode->GetEnemyData().Element())
     {
-    case Element::Earth: break;
+    case Element::Earth:
+        bgm = audioController->CreateBGM({ "Audio/BGM/Earth/bgm_earth_1-1.wav", "Audio/BGM/Earth/bgm_earth_1-2.wav","Audio/BGM/Earth/bgm_earth_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        break;
     case Element::Fire:
         bgm = audioController->CreateBGM({ "Audio/BGM/Fire/bgm_fire_1-1.wav", "Audio/BGM/Fire/bgm_fire_1-2.wav","Audio/BGM/Fire/bgm_fire_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;

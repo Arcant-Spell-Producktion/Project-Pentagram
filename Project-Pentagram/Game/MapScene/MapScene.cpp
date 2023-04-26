@@ -89,7 +89,6 @@ void MapScene::GameSceneInit()
         {
 			case Element::Earth:
 				node->position = { 300.0f, -100.0f, 0.0f };
-				node->onClick.RemoveAllListeners();//TODO REMOVE AFTER IMPLEMENT
 				break;
 			case Element::Fire:
 				node->position = { -250.0f, 130.0f, 0.0f };

@@ -36,7 +36,9 @@ void MapInfoUI::SetMapInfo(const Element::Type& element)
 	switch (element)
 	{
 		case Element::Earth:
-			//Set Earth Stage Background
+			this->position = { 625.0f, -350.0f, 0.0f };
+			this->SetTexture("Sprites/Stage/Earth/stage_earth_background.png");
+			this->SetActive(true);
 			break;
 
 		case Element::Fire:	
