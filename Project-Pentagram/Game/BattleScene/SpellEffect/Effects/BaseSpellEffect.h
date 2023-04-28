@@ -21,6 +21,7 @@ protected:
     int m_EffectStackLimit = 99;
 
     //Effect Setting
+    bool m_IsEffectApplyWillCompareWin = false;
     bool m_IsEffectApplyByChance = false;
     bool m_IsEffectStack = false;
     bool m_IsEffectActiveOnce = false;

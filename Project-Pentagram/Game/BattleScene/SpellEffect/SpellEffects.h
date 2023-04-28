@@ -86,6 +86,20 @@ public:
     
 };
 
+class BoostSpellEffect :public BaseSpellEffect
+{
+private:
+
+public:
+    BoostSpellEffect() :BaseSpellEffect(SpellEffectEnum::Boost, EffectResolveType::OnStartTurn)
+    {
+        m_IsEffectApplyWillCompareWin = true;
+        m_IsEffectStack = true;
+    }
+
+    virtual void ResolveEffect(std::va_list args) override;
+};
+
 class SpellEffects
 {
 public:

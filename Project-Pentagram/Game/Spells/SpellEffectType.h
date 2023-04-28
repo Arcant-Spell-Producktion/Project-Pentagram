@@ -10,6 +10,10 @@ enum class SpellEffectEnum
     Freeze,
     Fortify,
     Petrify,
+    Boost,
+    BoostTime,
+    BoostWill,
+    BoostDmg,
 };
 
 struct EffectDetail_T

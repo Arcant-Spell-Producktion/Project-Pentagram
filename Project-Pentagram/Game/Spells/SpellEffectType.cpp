@@ -7,7 +7,11 @@ const std::string SpellEffectType::enum_string[] = {
     "Overflow",
     "Freeze",
     "Fortify",
-    "Petrify"
+    "Petrify",
+    "Boost",
+    "BoostTime",
+    "BoostWill",
+    "BoostDmg"
 };
 
 SpellEffectEnum SpellEffectType::GetEnum(std::string typeString)
@@ -33,6 +37,11 @@ bool SpellEffectType::IsEffectApplyByChance(SpellEffectEnum type)
     case SpellEffectEnum::Fortify:
     case SpellEffectEnum::Petrify:
         return true;
+    case SpellEffectEnum::Boost:
+    case SpellEffectEnum::BoostTime:
+    case SpellEffectEnum::BoostWill:
+    case SpellEffectEnum::BoostDmg:
+        return false;
     }
 }
 
@@ -50,5 +59,10 @@ bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
     case SpellEffectEnum::Fortify:
     case SpellEffectEnum::Petrify:
         return true;
+    case SpellEffectEnum::Boost:
+    case SpellEffectEnum::BoostTime:
+    case SpellEffectEnum::BoostWill:
+    case SpellEffectEnum::BoostDmg:
+        return false;
     }
 }

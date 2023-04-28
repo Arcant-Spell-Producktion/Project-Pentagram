@@ -70,3 +70,7 @@ void PetrifySpellEffect::ResolveEffect(std::va_list args)
     CasterController* caster = va_arg(args, CasterController*);
     caster->GetCasterManager()->SetWillDebuff(m_EffectStack);
 }
+
+void BoostSpellEffect::ResolveEffect(std::va_list args)
+{
+}
