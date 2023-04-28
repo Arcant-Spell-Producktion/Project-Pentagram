@@ -99,11 +99,11 @@ void PentragramController::SetPentagramData(PentagramData_T data)
 
     m_PentragramCircle->SetPentagramUI(m_currentData.circle, m_currentData.complex);
 
-    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Time, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Time));
-    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Circle, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Circle));
-    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Complex, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Complex));
-    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Will, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Will));
-    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Effect, m_currentCaster->GetCasterManager()->GetFieldCost(PentagramField::Effect));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Time, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Time));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Circle, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Circle));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Complex, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Complex));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Will, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Will));
+    m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Effect, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Effect));
 }
 
 void PentragramController::SetActive(const bool& active)
@@ -158,7 +158,7 @@ void PentragramController::SetPentagramValue(int value)
 
     BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
-    m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldCost(m_currentField));
+    m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldValue(m_currentField));
 
     m_CastButton->SetActive(m_currentCaster->GetCasterManager()->CanCastSpell());
 }

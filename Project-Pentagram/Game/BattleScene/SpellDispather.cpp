@@ -3,6 +3,7 @@
 #include "Game/BattleScene/GameObject/SpellObject/Earth/EarthSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Fire/FireSpellObjects.h"
 #include "Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h"
+#include "GameObject/SpellObject/Wind/WindSpellObjects.h"
 
 SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosition target)
 {
@@ -22,6 +23,8 @@ SpellController* SpellDispatcher::SpawnSpell(CastSpellDetail* detail,CasterPosit
         m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     case Element::Wind:
+        newSpell = WindSpellObject::CreateSpellObject(detail->GetSpellDetail()->m_Index, target);
+        m_Spells[detail] = m_ObjectManager->CreateObject<BaseSpellObject>(newSpell);
         break;
     }
 

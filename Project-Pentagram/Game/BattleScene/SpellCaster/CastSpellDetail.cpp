@@ -143,15 +143,34 @@ void CastSpellDetail::OnResolve()
         if (!target->TakeDamage(damage)) return;
     }
 
+    AppliedEffect();
+}
+
+void CastSpellDetail::AppliedEffect(bool isWinCompare)
+{
+    BattleManager* battleManager = BattleManager::GetInstance();
+
+    SpellResolveEffect resolveEffect = this->GetSpellDetail()->GetResolvesEffects();
+    CasterPosition casterPosition = this->SpellOwner;
+    CasterPosition targetPosition = this->GetTarget();
+
+    CasterController* caster = battleManager->Data.GetCaster(casterPosition);
+    CasterController* target = battleManager->Data.GetCaster(targetPosition);
+
     auto effectType = this->GetSpellDetail()->GetSpellEffectType();
     auto effectValue = this->GetEffectValue();
 
-    if (SpellEffectType::IsEffectTargetEnemy(effectType))
+    bool isApplyByWillWin = SpellEffectType::IsEffectApplyWillCompareWin(effectType);
+
+    if ( !isApplyByWillWin || isApplyByWillWin && isWinCompare)
     {
-        target->GetEffectManager()->AppliedEffect(effectType, effectValue);
-    }
-    else
-    {
-        caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
+        if (SpellEffectType::IsEffectTargetEnemy(effectType))
+        {
+            target->GetEffectManager()->AppliedEffect(effectType, effectValue);
+        }
+        else
+        {
+            caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
+        }
     }
 }

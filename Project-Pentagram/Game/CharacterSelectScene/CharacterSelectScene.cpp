@@ -22,7 +22,7 @@ void CharacterSelectScene::OnSelect(Element::Type element)
 {
     m_SelectedElement = element;
 
-    for (int i = 0; i < 3 ; i++)
+    for (int i = 0; i < 4 ; i++)
     {
         CharacterSelectUI* c = dynamic_cast<CharacterSelectUI*>(m_Characters[i]);
         if (i == (int)element)
@@ -84,7 +84,7 @@ void CharacterSelectScene::GameSceneInit()
 {
     float spacing = 200.0f;
 
-    for (int i = (int)(Element::Earth); i <= (int)(Element::Water); i++)
+    for (int i = (int)(Element::Earth); i <= (int)(Element::Wind); i++)
     {
         Element::Type e = (Element::Type)i;
         CharacterSelectUI* temp = CreateObject(new CharacterSelectUI(e));

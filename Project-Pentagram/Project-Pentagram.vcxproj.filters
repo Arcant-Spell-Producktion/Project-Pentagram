@@ -231,6 +231,14 @@
     <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
     <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
+    <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
+    <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\CastTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResolveTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\SetupTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
+    <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -570,6 +578,19 @@
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
     <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
     <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\ActiveTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CounterTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\EffectTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TrapTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WaitTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WillTutorialNode.h" />
+    <ClInclude Include="Game\TestScene\TestStates\CastTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResolveTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\SetupTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\StandByTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
+    <ClInclude Include="Game\TestScene\CharacterTestScene.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObjects.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

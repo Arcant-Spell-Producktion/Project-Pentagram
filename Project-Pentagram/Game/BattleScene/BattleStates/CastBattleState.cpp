@@ -87,6 +87,7 @@ void CastBattleState::OnBattleStateOut()
 
     for (auto caster : battleManager->Data.Casters)
     {
+        caster->GetCasterManager()->ResetBuff();
         caster->GetCasterManager()->ResetDebuff();
         caster->GetEffectManager()->OnCastPhaseEnd();
     }

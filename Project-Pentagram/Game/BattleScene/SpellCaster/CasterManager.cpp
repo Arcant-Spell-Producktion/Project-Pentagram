@@ -4,10 +4,10 @@
 #include <ctime>
 #include "CasterManager.h"
 
-CasterManager::CasterManager(CasterData caster):m_CurrentData(caster)
+CasterManager::CasterManager(CasterData caster) :m_CurrentData(caster)
 {
     m_CurrentBook = SpellDatabase::GetInstance()->GetBookByElement(m_CurrentData.Element());
-    m_PentagramData = {1,1,1,1,0};
+    m_PentagramData = { 1,1,1,1,0 };
     UpdateCurrentSpell();
 }
 
@@ -25,14 +25,12 @@ CastSpellDetail* CasterManager::GetSpellDetail()
 
 int CasterManager::GetSpellCost()
 {
-
     int sum = 1;//All spell start with value 1
 
-    sum += (m_PentagramData.circle - 1) * 2;
-    sum += (m_PentagramData.complex - 1) * 2;
-    sum += m_PentagramData.will - 1;
-    sum += m_PentagramData.effect - 1;
-    sum += GetTimeCost();
+    for (int i = static_cast<int>(PentagramField::Time); i < static_cast<int>(PentagramField::Effect); i++)
+    {
+        sum += GetFieldCost(static_cast<PentagramField>(i));
+    }
 
     return sum;
 }
@@ -46,10 +44,35 @@ int CasterManager::GetFieldCost(PentagramField field)
         value = GetTimeCost();
         break;
     case PentagramField::Circle:
-        value = m_PentagramData.circle;
+        value = (m_PentagramData.circle - 1) * 2;
         break;
     case PentagramField::Complex:
-        value = m_PentagramData.complex;
+        value = (m_PentagramData.complex - 1) * 2;
+        break;
+    case PentagramField::Will:
+        value = m_PentagramData.will - 1;
+        value = value - m_WillBuff < 0 ? 0 : value - m_WillBuff;
+        break;
+    case PentagramField::Effect:
+        value = m_PentagramData.effect - 1;
+        break;
+    }
+    return value;
+}
+
+int CasterManager::GetFieldValue(PentagramField field)
+{
+    int value = 0;
+    switch (field)
+    {
+    case PentagramField::Time:
+        value = GetTimeCost();
+        break;
+    case PentagramField::Circle:
+        value = (m_PentagramData.circle) * 2;
+        break;
+    case PentagramField::Complex:
+        value = (m_PentagramData.complex) * 2;
         break;
     case PentagramField::Will:
         value = m_PentagramData.will;
@@ -65,7 +88,7 @@ int CasterManager::GetTimeCost()
 {
     int timeDiff = m_PentagramData.time - m_CurrentSpell->GetSpellDetail()->GetCastTime();
 
-    timeDiff = timeDiff < 0 ? std::abs(timeDiff) : 0;
+    timeDiff = (timeDiff + m_TimeBuff) < 0 ? std::abs(timeDiff + m_TimeBuff) : 0;
 
     return  timeDiff + timeDiff * m_TimeDebuff;
 }
@@ -88,12 +111,14 @@ bool CasterManager::UpdateCurrentSpell()
     else
     {
         if (m_CurrentSpell != nullptr) delete m_CurrentSpell;
-        
+
         m_CurrentSpell = new CastSpellDetail
-            (m_CurrentData.Position(), selectedSpell, remainWill, m_PentagramData.effect);
-        
+        (m_CurrentData.Position(), selectedSpell, remainWill, m_PentagramData.effect);
+
         isSpellChanged = true;
     }
+
+    m_CurrentSpell->bonusDamage = m_DmgBuff;
 
     std::cout << "\nSelected Spell\n" << *m_CurrentSpell << "\n\tCost: " << std::to_string(GetSpellCost()) << "\n";
     return isSpellChanged;
@@ -103,6 +128,17 @@ void CasterManager::CommitSpell()
 {
     std::cout << "COMMIT " << GetSpellCost() << "\n";
     ChangeMana(-GetSpellCost());
+
+    if (m_PentagramData.time < m_CurrentSpell->GetSpellDetail()->GetCastTime() && m_TimeBuff > 0)
+    {
+        m_TimeBuff = 0;
+    }
+
+    if (m_PentagramData.will > 1 && m_WillBuff > 0)
+    {
+        m_WillBuff = 0;
+    }
+
     m_CurrentSpell = nullptr;
 }
 
@@ -169,6 +205,16 @@ void CasterManager::ResetMana()
 {
     m_CurrentData.Stat().MaxMana = 0;
     ResetManaWheelTracker();
+}
+
+void CasterManager::SetWillBuff(int buff) { m_WillBuff = buff; }
+void CasterManager::SetTimeBuff(int buff) { m_TimeBuff = buff; }
+void CasterManager::SetDmgBuff(int buff) { m_DmgBuff = buff; }
+void CasterManager::ResetBuff()
+{
+    m_WillBuff = 0;
+    m_TimeBuff = 0;
+    m_DmgBuff = 0;
 }
 
 void CasterManager::SetWillDebuff(int debuff) { m_WillDebuff = debuff; }

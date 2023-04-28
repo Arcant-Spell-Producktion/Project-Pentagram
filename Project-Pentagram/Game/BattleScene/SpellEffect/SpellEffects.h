@@ -86,6 +86,22 @@ public:
     
 };
 
+class BoostSpellEffect :public BaseSpellEffect
+{
+private:
+    int m_WillBuff = 1;
+    int m_TimeBuff = 1;
+    int m_DmgBuff = 10;
+
+public:
+    BoostSpellEffect() :BaseSpellEffect(SpellEffectEnum::Boost, EffectResolveType::OnStartTurn)
+    {
+        m_IsEffectStack = true;
+    }
+
+    virtual void ResolveEffect(std::va_list args) override;
+};
+
 class SpellEffects
 {
 public:
@@ -99,6 +115,7 @@ public:
             new FreezeSpellEffect(),
             new FortifySpellEffect(),
             new PetrifySpellEffect(),
+            new BoostSpellEffect(),
         };
 
         return effects;

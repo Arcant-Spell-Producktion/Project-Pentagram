@@ -70,3 +70,26 @@ void PetrifySpellEffect::ResolveEffect(std::va_list args)
     CasterController* caster = va_arg(args, CasterController*);
     caster->GetCasterManager()->SetWillDebuff(m_EffectStack);
 }
+
+void BoostSpellEffect::ResolveEffect(std::va_list args)
+{
+    if (!m_IsEffectActive) return;
+
+    CasterManager* cm = va_arg(args, CasterController*)->GetCasterManager();
+
+    if (m_EffectStack >= 2)
+    {
+        cm->SetTimeBuff(m_TimeBuff);
+    }
+
+    if (m_EffectStack >= 5)
+    {
+        cm->SetWillBuff(m_WillBuff);
+    }
+
+    if (m_EffectStack >= 8)
+    {
+        cm->SetDmgBuff(m_DmgBuff);
+    }
+
+}

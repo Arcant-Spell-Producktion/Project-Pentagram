@@ -19,6 +19,10 @@ protected:
     int m_WillDebuff = 0;
     int m_TimeDebuff = 0;
 
+    int m_WillBuff = 0;
+    int m_TimeBuff = 0;
+    int m_DmgBuff = 0;
+
     int GetTimeCost();
 
 public:
@@ -36,6 +40,7 @@ public:
 
     int GetSpellCost();
     int GetFieldCost(PentagramField field);
+    int GetFieldValue(PentagramField field);
     bool CanCastSpell();
     bool UpdateCurrentSpell();
     void CommitSpell();
@@ -61,6 +66,13 @@ public:
     void ChangeMaxMana(int mana);
 
     void ResetMana();
+
+    void SetWillBuff(int buff);
+
+    void SetTimeBuff(int buff);
+
+    void SetDmgBuff(int buff);
+    void ResetBuff();
 
     void SetWillDebuff(int debuff);
 
