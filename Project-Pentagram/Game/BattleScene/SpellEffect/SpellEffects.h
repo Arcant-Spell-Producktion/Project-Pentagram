@@ -96,6 +96,8 @@ private:
 public:
     BoostSpellEffect() :BaseSpellEffect(SpellEffectEnum::Boost, EffectResolveType::OnStartTurn)
     {
+        m_EffectStackLimit = 8;
+        m_IsEffectResetAtStackLimit = true;
         m_IsEffectStack = true;
     }
 
