@@ -21,6 +21,7 @@ protected:
     int m_EffectStackLimit = 99;
 
     //Effect Setting
+    bool m_IsEffectResetAtStackLimit = false;
     bool m_IsEffectApplyWillCompareWin = false;
     bool m_IsEffectApplyByChance = false;
     bool m_IsEffectStack = false;
@@ -33,6 +34,7 @@ public:
         m_EffectType(effectType), m_ResolveType(resolveType)
     {
         m_IsEffectApplyByChance = SpellEffectType::IsEffectApplyByChance(effectType);
+        m_IsEffectApplyWillCompareWin = SpellEffectType::IsEffectApplyWillCompareWin(effectType);
     }
 
     SpellEffectEnum GetEffectType() { return m_EffectType; }
@@ -78,7 +80,7 @@ public:
     {
         if (m_IsEffectStackDecreaseOnEndRound) m_EffectStack -= 1;
         if (m_IsEffectActiveOnce) { m_IsEffectStack = 0; }
-        if (m_IsEffectStack == 0) ResetEffect();
+        if (m_IsEffectStack == 0 || m_IsEffectResetAtStackLimit && (m_EffectStack == m_EffectStackLimit) ) ResetEffect();
     }
 
     void ResetEffect()

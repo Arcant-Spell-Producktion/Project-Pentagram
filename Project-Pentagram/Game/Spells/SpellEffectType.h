@@ -36,4 +36,6 @@ public:
     static bool IsEffectApplyByChance(SpellEffectEnum type);
 
     static bool IsEffectTargetEnemy(SpellEffectEnum type);
+
+    static bool IsEffectApplyWillCompareWin(SpellEffectEnum type);
 };

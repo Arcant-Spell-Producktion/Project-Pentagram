@@ -2,6 +2,7 @@
 
 void SpellTimetrack::AdjustWillAfterCompare()
 {
+    bool didCompare = DoWillCompare();
     CasterPosition winCaster = GetWillCompareResult();
 
     CasterPosition lossCaster = (winCaster == CasterPosition::CasterB) ? CasterPosition::CasterA : CasterPosition::CasterB;
@@ -27,6 +28,8 @@ void SpellTimetrack::AdjustWillAfterCompare()
 
         if (csd->SpellOwner == winCaster)
         {
+            csd->AppliedEffect(didCompare);
+
             int currentWill = csd->SelectedWill;
             if (currentWill > 1)
             {

@@ -66,3 +66,8 @@ bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
         return false;
     }
 }
+
+bool SpellEffectType::IsEffectApplyWillCompareWin(SpellEffectEnum type)
+{
+    return  type >= SpellEffectEnum::Boost;
+}

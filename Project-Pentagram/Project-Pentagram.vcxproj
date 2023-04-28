@@ -49,6 +49,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObjects.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
     <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />

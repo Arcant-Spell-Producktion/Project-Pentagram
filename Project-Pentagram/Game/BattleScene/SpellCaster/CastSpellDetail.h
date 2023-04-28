@@ -23,6 +23,8 @@ class CastSpellDetail
         bool doCast = false;
         bool isHidden = false;
 
+        int bonusDamage = 0;
+
         ChannelType Channel = ChannelType::Head;
 
         CastSpellDetail* TriggeredSpell = nullptr;
@@ -44,7 +46,7 @@ class CastSpellDetail
         }
 
         int GetIndex() const { return OriginalSpell->GetSpellIndex(); }
-        int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1); }
+        int GetDamage() const { return OriginalSpell->GetWillValue(SelectedWill - 1) + bonusDamage; }
         int GetEffectValue() const { return OriginalSpell->GetSpellEffectValue(SelectedEffect - 1); }
 
         bool DoWillCompare() const
@@ -85,6 +87,7 @@ class CastSpellDetail
 
         void OnCast(int* ChannelCount = nullptr);
         void OnResolve();
+        void AppliedEffect(bool isWinCompare = false);
 
         friend std::ostream& operator<<(std::ostream& os, const CastSpellDetail& detail)
         {

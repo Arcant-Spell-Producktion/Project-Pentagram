@@ -35,7 +35,6 @@ public:
 
     void UpdateCasterUI();
 
-
     CasterObject* GetCasterObject() { return m_CasterObject; }
    
     CasterManager* GetCasterManager() { return &m_CasterManager; }
