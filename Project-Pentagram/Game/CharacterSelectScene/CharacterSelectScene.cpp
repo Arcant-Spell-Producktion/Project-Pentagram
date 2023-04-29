@@ -53,8 +53,7 @@ void CharacterSelectScene::OnTest()
 
 void CharacterSelectScene::OnConfirm()
 {
-	// TO DO: Change range to [0, 4) When Wind Boss have added
-	for (int i = 0; i < 3; i++)
+	for (int i = (int)(Element::Earth); i <= (int)(Element::Wind); i++)
 	{
 		CharacterSelectUI* c = dynamic_cast<CharacterSelectUI*>(m_Characters[i]);
 		if (i != (int)m_SelectedElement)
