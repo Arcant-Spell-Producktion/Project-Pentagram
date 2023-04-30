@@ -190,7 +190,7 @@ void FireSpell4::Initialize()
             }
 
             localTimer += dt;
-            if (localTimer >= timePerFrame)
+            if (localTimer >= timePerFrame * 0.75f)
             {
                 this->SetSpriteByIndex(0, currentCol - 1);
                 localTimer = 0.0f;
