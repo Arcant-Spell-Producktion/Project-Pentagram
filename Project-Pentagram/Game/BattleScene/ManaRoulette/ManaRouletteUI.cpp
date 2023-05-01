@@ -22,7 +22,6 @@ ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
 		float radius = 120.0f;
 		num->position = { radius * sinf(theta),radius * cosf(theta),0.0f };
 		num->rotation -= i * 60.0f;
-		//num->position = { 50.0f * i,0.0f,0.0f };
 		m_Numbers[i] = num;
         m_Body->SetChildRenderFront(num);
 
@@ -38,7 +37,6 @@ ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
 
 void ManaRouletteUI::SetRouletteNumbers(std::array<int, 6> numbers)
 {
-
     for (int i = 0; i < 6; ++i)
     {
         m_Numbers[i]->SetNumberByValue(numbers[i]);
@@ -49,64 +47,182 @@ void ManaRouletteUI::SetSpinResult(int n, std::function<void()> callback)
 {
     OnSpinEnd = callback;
 
+    m_Body->rotation = 360.0f;
+
     m_SpinResult = n;
+
+    // Calculate the destinated angle based on the spin result and direction
     m_DestinatedAngle = m_SpinResult * 60.0f;
+
+    if (m_Direction == 1) {
+     // m_DestinatedAngle -= 60.0f;
+    }
+    else {
+    }
+
     m_Body->rotation = 0.0f;
-    m_Timer = m_SpinTime;
+    m_SpinTimer = m_SpinTime;
     m_CurrentSpinSpeed = m_SpinSpeed;
+
+    m_State = SPINNING;
+
+    std::cout << "\t!!!!SPIN RESULT: " << m_Direction << " " << m_SpinResult << " " << m_DestinatedAngle << std::endl;
+
 }
+
 
 void ManaRouletteUI::ResetRoulette()
 {
-    for (auto num:m_Numbers)
+    for (auto num : m_Numbers)
     {
         num->SetIsUsed(false);
     }
 }
 
-
 void ManaRouletteUI::OnUpdate(const float& dt)
 {
-    if (m_Timer > 0 || m_SpinResult != -1)
+    if (m_State != IDLE)
     {
-        m_Timer -= dt;
+        RotateRoulette(dt);
+    }
+}
 
-        if (m_Timer <= 0)
+void ManaRouletteUI::RotateRoulette(const float& dt)
+{
+    switch (m_State)
+    {
+    case SPINNING:
+        Spin(dt);
+        break;
+    case SLOWING_DOWN:
+        SlowDown(dt);
+        break;
+    case OVERSHOOTING:
+        OvershootRotation(dt);
+        break;
+    case BACKTRACKING:
+        Backtrack(dt);
+        break;
+    case FREEZE:
+        if (m_FreezeTimer > 0)
         {
-            SnapRotation(dt);
+            m_FreezeTimer -= dt;
         }
         else
         {
-            m_CurrentSpinSpeed = m_SpinSpeed;
-            m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
+            m_FreezeTimer = 0;
+            m_State = DONE;
         }
+        break;
+
+    case DONE:
+        OnSpinEnd();
+        m_State = IDLE;
+        break;
+    }
+
+    m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
+
+    if (m_Body->rotation < 180.0f)
+    {
+        m_Body->rotation += 360.0f;
+    }
+
+    if (m_Body->rotation > 540.0f)
+    {
+        m_Body->rotation -= 360.0f;
     }
 }
 
-
-void ManaRouletteUI::SnapRotation(const float& dt)
+void ManaRouletteUI::Spin(const float& dt)
 {
-    int snapArea = 5;
-    int laps = static_cast<int>(m_Body->rotation / 360.0f);
-    int resultAngle = (360 * laps) - m_DestinatedAngle;
-    float distant = std::fabs(m_Body->rotation - resultAngle);
+    m_SpinTimer -= dt;
 
-    bool doSnap = distant < snapArea;
-    if (doSnap && m_CurrentSpinSpeed < 100.0f)
+    if (m_SpinTimer <= 0)
     {
-        m_CurrentSpinSpeed = 0.0f;
-        m_Body->rotation = m_DestinatedAngle;
-        m_Timer = 0;
-        m_Numbers[m_SpinResult]->SetIsUsed(true);
-        m_SpinResult = -1;
-        OnSpinEnd();
+        m_State = SLOWING_DOWN;
+        std::cout << m_Direction << " -> SLOW\n";
+
     }
     else
     {
-        m_CurrentSpinSpeed -= m_SpinSpeed * distant / 360.0f *dt;
         m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
     }
 }
+void ManaRouletteUI::SlowDown(const float& dt)
+{
+    float targetSpeed = m_SpinSpeed * 0.2f;
+    m_CurrentSpinSpeed = lerp(m_CurrentSpinSpeed, targetSpeed, dt * 2.0f);
 
+    m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
 
+    float angleDiff = AngleDifference(m_Body->rotation, m_DestinatedAngle);
 
+    if (angleDiff <= 15.0f && m_CurrentSpinSpeed <= targetSpeed * 1.1f)
+    {
+        m_OvershootTarget = m_DestinatedAngle + (rand() % 20 - 10) * m_Direction;
+        m_State = OVERSHOOTING;
+
+        std::cout << m_Direction << " -> OVERSHOOT\n";
+    }
+}
+
+void ManaRouletteUI::OvershootRotation(const float& dt)
+{
+    float targetSpeed = m_SpinSpeed * 0.1f;
+    m_CurrentSpinSpeed = lerp(m_CurrentSpinSpeed, targetSpeed, dt * 2.0f);
+    m_Body->rotation -= m_CurrentSpinSpeed * m_Direction * dt;
+
+    float angleDiff = AngleDifference(m_Body->rotation, m_OvershootTarget);
+    if (angleDiff <= 5.0f && m_CurrentSpinSpeed <= targetSpeed * 1.1f)
+    {
+        m_State = BACKTRACKING;
+        std::cout << m_Direction << " -> BACK\n";
+
+    }
+}
+
+void ManaRouletteUI::Backtrack(const float& dt)
+{
+    float targetSpeed = m_SpinSpeed * 0.05f;
+
+    m_CurrentSpinSpeed = lerp(m_CurrentSpinSpeed,targetSpeed , dt * 2);
+
+    m_Body->rotation -= m_CurrentSpinSpeed * -m_Direction * dt;
+
+    float angleDiff = AngleDifference(m_Body->rotation, m_DestinatedAngle);
+    if (angleDiff <= 5.0f || (int)m_CurrentSpinSpeed == targetSpeed)
+    {
+        FreezeRoulette();
+        std::cout << m_Direction << " -> FREZE\n";
+
+    }
+}
+
+void ManaRouletteUI::FreezeRoulette()
+{
+    std::cout << "ACTUAL END ROT" << m_Direction << " " << fmod(m_Body->rotation,360.0f) << "\n";
+    m_CurrentSpinSpeed = 0.0f;
+    //m_Body->rotation = m_DestinatedAngle;
+    m_Numbers[m_SpinResult]->SetIsUsed(true);
+    m_SpinResult = -1;
+    m_SpinTimer = 0;
+
+    m_FreezeTimer = m_FreezeTime;
+    m_State = FREEZE;
+}
+
+float ManaRouletteUI::AngleDifference(float angle1, float angle2)
+{
+    float diff = fmod(angle1 - angle2 + 360.0f, 360.0f);
+    if (diff > 180.0f)
+    {
+        diff = 360.0f - diff;
+    }
+    return diff;
+}
+
+float ManaRouletteUI::lerp(float a, float b, float t)
+{
+    return a + (b - a) * t;
+}
