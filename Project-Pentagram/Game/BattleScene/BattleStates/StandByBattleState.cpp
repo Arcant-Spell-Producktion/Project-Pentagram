@@ -12,20 +12,15 @@ void StandByBattleState::OnBattleStateIn()
 
     battleManager->Data.StandbyAllCaster();
 
-    Timer = MaxTime;
 }
 
 void StandByBattleState::OnBattleStateUpdate(float dt)
 {
     BattleManager* battleManager = BattleManager::GetInstance();
 
-    if (battleManager->Data.IsAllCasterIdle() && Timer > 0)
+    if (battleManager->Data.IsAllCasterIdle())
     {
-        Timer -= dt;
-        if (Timer < 0.0f)
-        {
-            BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
-        }
+        BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
     }
 }
 

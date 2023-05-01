@@ -42,6 +42,11 @@ void SetupBattleState::OnBattleStateIn()
     }
 
     bgm->Play();
+
+    for (auto caster : bm->Data.Casters)
+    {
+        caster->UpdateCasterUI();
+    }
 }
 
 void SetupBattleState::OnBattleStateUpdate(float dt)
