@@ -60,14 +60,22 @@ void ChapterData::UpdateChapter(int level)
 {
     CasterStatDatabase* casterDB = CasterStatDatabase::GetInstance();
 
-    if (m_Element == Element::NULLTYPE)
+    if (m_Element == Element::Corrupt)
     {
-        return; // TODO:: implement after big boss is here
-
-    /*    NodeData* node = nullptr;
+        NodeData* node = nullptr;
         CasterStat stat = casterDB->GetStat(m_Element, CasterType::BigBoss, 0);
         CasterData data(stat, m_Element, CasterPosition::CasterB);
-        EnemyData enemy(data, CasterType::BigBoss);
+
+        CasterMoveSet moveE = CasterMoveSetDatabase::GetInstance()->GetMoveSet(Element::Earth, CasterType::BigBoss, level);
+
+        EnemyData enemy(data, CasterType::BigBoss, moveE);
+
+        for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Wind);i++)
+        {
+            Element::Type e = static_cast<Element::Type>(i);
+            enemy.SetMove(e, CasterMoveSetDatabase::GetInstance()->GetMoveSet(e, CasterType::BigBoss, level));
+        }
+
         try {
             node = m_Nodes.at(0);
             node->GetEnemyData() = enemy;
@@ -75,7 +83,9 @@ void ChapterData::UpdateChapter(int level)
         catch (const std::out_of_range& e) {
             node = new NodeData(enemy);
             AddNode(node);
-        }*/
+        }
+
+        return;
     }
 
     for (size_t i = 0; i < NODE_PER_CHAPTER; i++)

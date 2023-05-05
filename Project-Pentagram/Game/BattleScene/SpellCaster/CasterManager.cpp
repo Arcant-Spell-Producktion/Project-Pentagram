@@ -6,9 +6,16 @@
 
 CasterManager::CasterManager(CasterData caster) :m_CurrentData(caster)
 {
-    m_CurrentBook = SpellDatabase::GetInstance()->GetBookByElement(m_CurrentData.Element());
-    m_PentagramData = { 1,1,1,1,0 };
-    UpdateCurrentSpell();
+    if (caster.Element() == Element::Corrupt)
+    {
+        SetCasterElement(Element::Earth);
+    }
+    else
+    {
+        SetCasterElement();
+    }
+
+    
 }
 
 CasterStat CasterManager::GetPreviewStat()
@@ -21,6 +28,14 @@ CasterStat CasterManager::GetPreviewStat()
 CastSpellDetail* CasterManager::GetSpellDetail()
 {
     return m_CurrentSpell;
+}
+
+void CasterManager::SetCasterElement(Element::Type element)
+{
+    if(element != Element::NULLTYPE) m_CurrentData.Element() = element;
+    m_CurrentBook = SpellDatabase::GetInstance()->GetBookByElement(m_CurrentData.Element());
+    m_PentagramData = { 1,1,1,1,0 };
+    UpdateCurrentSpell(true);
 }
 
 int CasterManager::GetSpellCost()
@@ -93,12 +108,12 @@ int CasterManager::GetTimeCost()
     return  timeDiff + timeDiff * m_TimeDebuff;
 }
 
-bool CasterManager::UpdateCurrentSpell()
+bool CasterManager::UpdateCurrentSpell(bool isElementChange)
 {
-    bool isSpellChanged = false;
+    bool isSpellChanged = false || isElementChange;
     int spellIndex = ((m_PentagramData.circle - 1) * 3) + (m_PentagramData.complex - 1);
     Spell* selectedSpell = m_CurrentBook->GetSpellByIndex(spellIndex);
-    bool isSpellChange = m_CurrentSpell == nullptr || selectedSpell->GetSpellIndex() != m_CurrentSpell->GetIndex();
+    bool isSpellChange = m_CurrentSpell == nullptr || isElementChange || selectedSpell->GetSpellIndex() != m_CurrentSpell->GetIndex() ;
 
     if (m_PentagramData.time < 1 || isSpellChange) m_PentagramData.time = selectedSpell->GetCastTime();
 

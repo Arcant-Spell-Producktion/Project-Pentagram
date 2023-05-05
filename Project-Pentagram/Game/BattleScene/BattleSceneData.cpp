@@ -38,7 +38,6 @@ void BattleSceneData::StartRound()
 {
     for (auto caster : Casters)
     {
-        caster->GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, caster);
-        caster->UpdateCasterUI();
+        caster->StartRound();
     }
 }

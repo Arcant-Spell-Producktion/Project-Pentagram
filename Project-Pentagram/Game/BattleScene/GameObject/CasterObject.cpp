@@ -95,15 +95,16 @@ void CasterObject::OnUpdate(const float& dt)
 
 void CasterObject::SetCaster(CasterType type, Element::Type element)
 {
+    if (type == CasterType::BigBoss)type = CasterType::Boss;
+    if (element == Element::Corrupt)element = Element::Earth;
+
     std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] << "\n";
 
     SetTexture(CasterSpritePath[(int)type][(int)element]);
 }
 void CasterObject::SetCaster(CasterType type, Element::Type element, CasterPosition pos)
 {
-    std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] <<"\n";
-    
-    SetTexture(CasterSpritePath[(int)type][(int)element]);
+    SetCaster(type, element);
 
     int flip = pos == CasterPosition::CasterA ? 1 : -1;
 

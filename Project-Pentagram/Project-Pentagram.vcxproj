@@ -59,6 +59,8 @@
     <ClInclude Include="Game\BattleScene\IBattleManager.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
     <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\BossController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterDetailUI.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
     <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h" />

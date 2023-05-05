@@ -2,7 +2,7 @@
 #include <iostream>
 MapData::MapData(Element::Type startElement):m_StartElement(startElement)
 {
-    for (int i = (int)Element::NULLTYPE; i <= (int)Element::Wind; i++)
+    for (int i = (int)Element::Earth; i <= (int)Element::Corrupt; i++)
     {
         Element::Type element = static_cast<Element::Type>(i);
         ChapterData* chapter = new ChapterData(element, m_StartElement);
@@ -67,7 +67,7 @@ bool MapData::CompleteNode()
             break;
         }
 
-        m_Chapters[Element::NULLTYPE]->CanVisit = true;
+        m_Chapters[Element::Corrupt]->CanVisit = true;
 
         for (int i = 0; i < 4; ++i)
         {

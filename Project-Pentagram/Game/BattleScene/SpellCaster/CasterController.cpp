@@ -2,7 +2,7 @@
 #include "Engine/GameStateController.h"
 #include "Game/BattleScene/BattleManager.h"
 
-CasterController::CasterController(CasterData caster):m_CasterManager(caster), m_CasterUI(m_CasterManager.Data().Position())
+CasterController::CasterController(CasterData caster): m_CasterManager(caster),m_CasterUI(m_CasterManager.Data().Position())
 {
     auto scene = GameStateController::GetInstance()->currentScene;
     m_CasterObject = scene->CreateObject<CasterObject>(new CasterObject());
@@ -20,6 +20,8 @@ void CasterController::CasterDied()
     BattleManager::GetInstance()->EndBattle();
     m_CasterObject->PlayDiedAnim();
 }
+
+
 
 void CasterController::UpdateCasterUI()
 {
@@ -46,6 +48,12 @@ void CasterController::SpinManaWheel(int forceValue)
         m_CasterManager.AddWheelToMana(RandomWheelIndex);
         UpdateCasterUI();
     });
+}
+
+void CasterController::StartRound()
+{
+    GetEffectManager()->ResolveEffect(EffectResolveType::OnStartTurn, 1, this);
+    UpdateCasterUI();
 }
 
 void CasterController::StartTurn()

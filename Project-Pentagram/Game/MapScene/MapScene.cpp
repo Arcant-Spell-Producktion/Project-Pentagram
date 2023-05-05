@@ -62,7 +62,7 @@ void MapScene::GameSceneInit()
 
 	MapInfoUI* mapInfoUI = CreateObject(new MapInfoUI());
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i <= 4; i++)
     {
         Element::Type e = static_cast<Element::Type>(i);
         MapNode* node = CreateObject(new MapNode(e));
@@ -98,8 +98,10 @@ void MapScene::GameSceneInit()
 				break;
 			case Element::Wind:
 				node->position = { -60.0f, -220.0f, 0.0f };
-				node->onClick.RemoveAllListeners();//TODO REMOVE AFTER IMPLEMENT
 				break;
+            case Element::Corrupt:
+                node->position = { 0.0f, 0.0f, 0.0f };
+                break;
         }
 
     }

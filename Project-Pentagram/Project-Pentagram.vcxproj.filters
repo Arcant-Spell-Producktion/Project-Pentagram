@@ -591,6 +591,12 @@
     <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
     <ClInclude Include="Game\TestScene\CharacterTestScene.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\BossController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterDetailUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

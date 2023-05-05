@@ -3,12 +3,14 @@
 
 class EnemyController : public CasterController
 {
-private:
+protected:
     CasterMoveSet m_MoveSet;
 public:
     EnemyController(EnemyData caster) : CasterController(caster), m_MoveSet(caster.EnemyMoves())
     {
         std::cout << "DEBUG ENEMY ELEMENT: " << (int)caster.Element() << "\n";
+
+
 
         this->m_CasterObject->SetCaster(caster.EnemyType(), caster.Element(),CasterPosition::CasterB);
     }

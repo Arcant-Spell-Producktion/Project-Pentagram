@@ -24,6 +24,8 @@ enum class CasterObjectState
 class CasterObject : public GameObject
 {
 private:
+
+
     std::function<void()> m_atk_callback = nullptr;
 
     CasterObjectState m_State = CasterObjectState::Idle;

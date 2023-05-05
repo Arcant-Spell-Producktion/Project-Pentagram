@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Game/BattleScene/BattleManager.h"
 #include "Game/BattleScene/SpellCaster/PlayerController.h"
-#include "Game/BattleScene/SpellCaster/EnemyController.h"
+
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
@@ -10,6 +10,8 @@
 #include "Engine/Audio/AudioController.h"
 
 #include "SetupBattleState.h"
+
+#include "Game/BattleScene/SpellCaster/BossController.h"
 
 void SetupBattleState::OnBattleStateIn()
 {
@@ -20,7 +22,14 @@ void SetupBattleState::OnBattleStateIn()
 
     bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
 
-    bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
+    if (currentNode->GetEnemyData().EnemyType() == CasterType::BigBoss)
+    {
+        bm->Data.AddCaster(new BossController(currentNode->GetEnemyData()));
+    }
+    else
+    {
+        bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
+    }
 
     AudioController* audioController = AudioController::GetInstance();
     BGMController* bgm = nullptr;
@@ -36,9 +45,13 @@ void SetupBattleState::OnBattleStateIn()
     case Element::Water:
         bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
-    case Element::Wind:
+    /*case Element::Wind:
         break;
-  
+    case Element::Corrupt:
+        break;*/
+     default:
+         bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        break;
     }
 
     bgm->Play();
