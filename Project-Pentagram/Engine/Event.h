@@ -3,6 +3,7 @@
 #include <set>
 #include <algorithm>
 #include <functional>
+#include <string>
 
 /**
 
@@ -17,6 +18,7 @@ template <typename T>
 class Action
 {
 public:
+    static int ActionId;
     /*
 
     @brief std::function that holds the wrapped function.
@@ -26,13 +28,13 @@ public:
 
     @brief Default constructor that initializes the std::function with a null function pointer.
     */
-    Action() : fn(nullptr) {}
+    Action() : fn(nullptr) { ActionId++; }
     /**
 
     @brief Constructor that takes a std::function.
     @param _fn The std::function to be wrapped.
     */
-    Action(std::function<void(T)> _fn) : fn(_fn) {}
+    Action(std::function<void(T)> _fn) : fn(_fn) { ActionId++; }
     /**
 
     @brief Constructor that takes a function pointer.
@@ -50,6 +52,7 @@ public:
     {
         // Assign the lambda to the std::function
         fn = lambda;
+        ActionId++;
     }
     /**
 
@@ -58,7 +61,7 @@ public:
     */
     std::string GetFuncValue() const
     {
-        return fn.target_type().name();
+        return std::to_string(ActionId) + fn.target_type().name();
     }
     /**
 
@@ -80,6 +83,9 @@ public:
         return GetFuncValue() == other.GetFuncValue();
     }
 };
+
+template <typename T>
+int Action<T>::ActionId = 0;
 
 /**
 

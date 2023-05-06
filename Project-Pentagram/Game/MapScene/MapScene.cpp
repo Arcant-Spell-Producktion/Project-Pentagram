@@ -72,7 +72,7 @@ void MapScene::GameSceneInit()
             {
 				mapInfoUI->SetMapInfo(e);
 
-				mapInfoUI->m_MapEnterButton->onClick.AddListener([this, e, gameData, button](Button* _button)
+				mapInfoUI->m_MapEnterButton->onClick = ([this, e, gameData, button](Button* _button)
 					{
 						// TEMP
 						button->SetActive(false);
