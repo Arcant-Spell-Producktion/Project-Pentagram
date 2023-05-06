@@ -165,7 +165,7 @@
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>3</ChannelTime>
-      <ChannelEffect>Active</ChannelEffect>
+      <ChannelEffect>Trap</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>17</ResolveFlag>
     </Spell>
