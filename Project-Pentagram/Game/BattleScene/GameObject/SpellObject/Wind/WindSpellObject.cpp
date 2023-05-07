@@ -45,7 +45,7 @@ void WindSpell1::Initialize()
     float size = 300.0f;
     float speed = 10.0f;
     float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
+    float endX = (-CASTER_POSITION_X) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
     this->scale = { -size * m_SpellTarget, size, 1.0f };
     glm::vec3 startPos = { startX, yPos, 0.0f };
@@ -79,7 +79,7 @@ void WindSpell2::Initialize()
     float size = 300.0f;
     float speed = 10.0f;
     float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
+    float endX = (-CASTER_POSITION_X) * m_SpellTarget; // Assume B recieve
     float yPos = -160.0f;
     this->scale = { -size * m_SpellTarget, size, 1.0f };
     glm::vec3 startPos = { startX, yPos, 0.0f };
@@ -116,19 +116,26 @@ void WindSpell2::Initialize()
 
 void WindSpell3::Initialize()
 {
-    std::cout << "Windball::Init\n";
+    std::cout << "WindStorm::Init\n";
     float size = 400.0f;
     float speed = 10.0f;
     float yPos = -200.0f;
     this->scale = { -size * m_SpellTarget, size / 2.0f, 1.0f };
 
     this->position = { (-CASTER_POSITION_X) * m_SpellTarget, yPos, 0.0f };
-    this->SetAnimationPlayTime(0.15f);
+    this->SetAnimationPlayTime(0.2f);
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
     m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetAnimationPlayTime(0.1f);
+            Next();
+        }
+    );
     QueueWaitEvent(1.25f);
 
     QueueHitEvent();
@@ -138,15 +145,15 @@ void WindSpell3::Initialize()
 void WindSpell4::Initialize()
 {
     std::cout << "WindTornado::Init\n";
-    float size = 300.0f;
+    float size = 500.0f;
     float speed = 10.0f;
     float startX = (CASTER_POSITION_X - 100.0f) * m_SpellTarget; // Assume A shooter
-    float endX = (-CASTER_POSITION_X + size / 4) * m_SpellTarget; // Assume B recieve
-    float yPos = -160.0f;
+    float endX = (-CASTER_POSITION_X) * m_SpellTarget * 2.0f; // Assume B recieve
+    float yPos = -75.0f;
     this->scale = { -size * m_SpellTarget, size, 1.0f };
     glm::vec3 startPos = { startX, yPos, 0.0f };
     glm::vec3 endPos = { endX, yPos, 0.0f };
-    float travelTime = 0.75f;
+    float travelTime = 1.0f;
 
     this->position = startPos;
     this->SetAnimationPlayTime(0.15f);
@@ -184,14 +191,15 @@ void WindSpell5::Initialize()
 
 
     ParticleProperty windProp;
-    windProp.position = { 800.0f * -m_SpellTarget, 400.0f };
+    windProp.position = { 900.0f * -m_SpellTarget, 400.0f };
     windProp.positionVariation = { 400.0f,0.0f };
     windProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
     windProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
-    windProp.sizeBegin = windProp.sizeEnd = 50.0f;
+    windProp.sizeBegin = windProp.sizeEnd = 80.0f;
+    windProp.sizeVariation = 5.0f;
     windProp.rotation = m_SpellTarget == -1 ? -135.0f : -45.0f;
     windProp.rotationVariation = 0.0f;
-    windProp.velocity = { -700.0f * m_SpellTarget, -750.0f };
+    windProp.velocity = { -500.0f * m_SpellTarget, -550.0f };
     windProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
@@ -200,7 +208,7 @@ void WindSpell5::Initialize()
     m_LeafParticle->SetIsAnimationObject(true);
     m_LeafParticle->SetIsFixRotation(true);
     m_LeafParticle->SetIsAnimationLoop(true);
-    m_LeafParticle->SetSpawnTime(0.05f);
+    m_LeafParticle->SetSpawnTime(0.1f);
 
     this->SetChildRenderFront(m_LeafParticle);
 
@@ -224,10 +232,12 @@ void WindSpell5::Initialize()
 
 void WindSpell6::Initialize()
 {
+    auto scene = GameStateController::GetInstance()->currentScene;
+
     std::cout << "WindTundra::Init\n";
     float size = 500.0f;
     float speed = 10.0f;
-    float yPos = -75.0f;
+    float yPos = -60.0f;
     this->scale = { size * m_SpellTarget, size, 1.0f };
 
     this->position = { (-CASTER_POSITION_X) * m_SpellTarget, yPos, 0.0f };
@@ -236,6 +246,19 @@ void WindSpell6::Initialize()
     this->SetIsAnimationLoop(false);
 
     m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    QueueUpdateFunction(
+        [this, scene](float dt)
+        {
+            scene->GetCamera()->Shake(0.5f, 30, { 10.0f, 0.0f });
+            Next();
+        });
+    QueueWaitTillFrameEvent(false, false, 8);
+    QueueUpdateFunction(
+        [this, scene](float dt)
+        {
+            scene->GetCamera()->Shake(0.5f, 40, { 30.0f, 30.0f });
+            Next();
+        });
     QueueWaitTillFrameEvent(false);
 
     QueueHitEvent();
@@ -244,14 +267,16 @@ void WindSpell6::Initialize()
 
 void WindSpell7::Initialize()
 {
+    auto scene = GameStateController::GetInstance()->currentScene;
+
     std::cout << "WindFairy::Init\n";
-    float size = 300.0f;
+    float size = 600.0f;
     float speed = 10.0f;
-    float yPos = -160.0f;
+    float yPos = -40.0f;
     this->scale = { size * m_SpellTarget, size, 1.0f };
 
     this->position = { (-CASTER_POSITION_X) * m_SpellTarget, yPos, 0.0f };
-    this->SetAnimationPlayTime(0.1f);
+    this->SetAnimationPlayTime(0.15f);
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
@@ -259,14 +284,24 @@ void WindSpell7::Initialize()
     QueueWaitTillFrameEvent(false);
 
     QueueWaitTriggerEvent();
-
     QueueUpdateFunction(
         [this](float dt)
         {
-            this->SetSpriteByIndex(1, 0, true);
+            this->SetIsAnimationObject(true);
+            this->SetAnimationPlayTime(0.1f);
             Next();
         }
     );
+
+    QueueUpdateFunction(
+        [this, scene](float dt)
+        {
+            this->SetSpriteByIndex(1, 0, true);
+            scene->GetCamera()->Shake(0.1f * this->GetAnimationColumn(1), 50, { 30.0f, 30.0f });
+            Next();
+        }
+    );
+
     QueueWaitEvent(0.1f * this->GetAnimationColumn(1));
 
     QueueHitEvent();
@@ -275,6 +310,8 @@ void WindSpell7::Initialize()
 
 void WindSpell8::Initialize()
 {
+    auto scene = GameStateController::GetInstance()->currentScene;
+
     std::cout << "WindDragon::Init\n";
     float sizeX = 1750.0f;
     float sizeY = 640.0f;
@@ -300,7 +337,14 @@ void WindSpell8::Initialize()
         }
     );
 
-    QueueWaitEvent(2.0f);
+    QueueWaitEvent(0.25f);
+    QueueUpdateFunction(
+        [this, scene](float dt)
+        {
+            scene->GetCamera()->Shake(1.75f, 45, { 100.0f, 50.0f });
+            Next();
+        });
+    QueueWaitEvent(1.75f);
 
     QueueWaitTillFrameEvent(true);
     QueueWaitTillFrameEvent(false);
@@ -319,7 +363,7 @@ void WindSpell9::Initialize()
 
     this->color.a = 0.0f;
 
-    float size = 600.0f;
+    float size = 700.0f;
     float speed = 10.0f;
     float yPos = 0.0f;
     this->scale = { -size * m_SpellTarget, size, 1.0f };
@@ -334,7 +378,7 @@ void WindSpell9::Initialize()
     particleProp.positionVariation = { 500.0f,0.0f };
     particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
-    particleProp.rotation = 0.0f;
+    particleProp.rotation = 15.0f;
     particleProp.rotationVariation = 0.0f;
     particleProp.velocity = { -600.0f * m_SpellTarget, -650.0f };
     particleProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
@@ -355,8 +399,9 @@ void WindSpell9::Initialize()
     m_WindParticle->SetIsAnimationLoop(true);
     m_WindParticle->SetSpawnTime(0.15f);
 
-    particleProp.rotation = m_SpellTarget == 1 ? 135.0f : 45.0f;
-    particleProp.sizeBegin = particleProp.sizeEnd = 75.0f;
+    particleProp.rotation = m_SpellTarget == -1 ? -135.0f : -45.0f;
+    particleProp.sizeBegin = particleProp.sizeEnd = 90.0f;
+    //m_LeafParticle.sizeVariation = 5.0f;
     m_LeafParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
     m_LeafParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind5_particle.png");
     m_LeafParticle->SetIsAnimationObject(true);
@@ -365,7 +410,7 @@ void WindSpell9::Initialize()
     m_LeafParticle->SetSpawnTime(99);
 
     particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
-    particleProp.sizeBegin = particleProp.sizeEnd = 300.0f;
+    particleProp.sizeBegin = particleProp.sizeEnd = 250.0f;
     m_FireParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
     m_FireParticle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
     m_FireParticle->SetIsAnimationObject(true);
@@ -373,7 +418,7 @@ void WindSpell9::Initialize()
     m_FireParticle->SetIsAnimationLoop(false);
     m_FireParticle->SetSpawnTime(99);
 
-    particleProp.sizeBegin = particleProp.sizeEnd = 100.0f;
+    particleProp.sizeBegin = particleProp.sizeEnd = 75.0f;
     m_WaterParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
     m_WaterParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
     m_WaterParticle->SetIsAnimationObject(true);
@@ -388,25 +433,50 @@ void WindSpell9::Initialize()
 
     m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
 
-    QueueWaitEvent(2.0f);
+    QueueWaitEvent(1.0f);
 
     QueueUpdateFunction(
         [this](float dt)
         {
-            m_WindParticle->SetSpawnTime(99);
-            Next();
-        });
-
-    QueueUpdateFunction(
-        [this](float dt)
-        {
-            m_FireParticle->SetSpawnTime(0.1f);
-            m_WaterParticle->SetSpawnTime(0.1f);
             m_LeafParticle->SetSpawnTime(0.1f);
             Next();
         });
 
-    QueueWaitEvent(2.5f);
+    QueueWaitEvent(1.0f);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            m_WindParticle->SetSpawnTime(99);
+            m_WaterParticle->SetSpawnTime(0.1f);
+            Next();
+        });
+
+    QueueUpdateFunction(
+        [this, scene](float dt)
+        {
+            scene->GetCamera()->Shake(2.5f, 80, { 30.0f, 30.0f });
+            Next();
+        });
+
+    QueueWaitEvent(0.5f);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            m_FireParticle->SetSpawnTime(0.1f);
+            m_LeafParticle->SetSpawnTime(99);
+            Next();
+        });
+
+    QueueWaitEvent(1.5f);
+
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            m_WaterParticle->SetSpawnTime(99);
+            Next();
+        });
+
+    QueueWaitEvent(0.5f);
 
     QueueUpdateFunction(
         [this](float dt)
@@ -417,7 +487,7 @@ void WindSpell9::Initialize()
             Next();
         });
 
-    QueueWaitEvent(0.5f);
+    QueueWaitEvent(1.0f);
 
     QueueUpdateFunction(
         [this](float dt)
@@ -431,7 +501,7 @@ void WindSpell9::Initialize()
     QueueUpdateFunction(
         [this, scene](float dt)
         {
-            scene->GetCamera()->Shake(0.75f, 40, { 50.0f,100.0f });
+            scene->GetCamera()->Shake(0.75f, 40, { 150.0f,100.0f });
             Next();
         });
     QueueWaitTillFrameEvent(false);
