@@ -111,11 +111,14 @@ void CastSpellDetail::OnResolve()
         }
         if (resolveEffect.DoDelaySpell())
         {
-            this->TriggeredSpell->isCasted = false;
-            battleManager->Data.Timeline.GetTimetrack(this->TriggeredSpell->SelectedTime)->RemoveSpell(this->TriggeredSpell);
-            this->TriggeredSpell->SelectedTime += 1;
-            battleManager->Data.Timeline.AddSpellToTimeline(this->TriggeredSpell);
+            battleManager->Data.Timeline.GetTimetrack(this->TriggeredSpell->SelectedTime)
+                                                       ->RemoveSpell(this->TriggeredSpell);
 
+            CastSpellDetail* newSpell = new CastSpellDetail(*this->TriggeredSpell);
+
+            newSpell->isCasted = false;
+            newSpell->SelectedTime += 1;
+            battleManager->Data.Timeline.AddSpellToTimeline(newSpell);
         }
 
         for (int i = this->SelectedTime ; i <= 10; ++i)
