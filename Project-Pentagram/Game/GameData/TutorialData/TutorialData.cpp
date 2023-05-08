@@ -11,7 +11,14 @@
 
 const std::string TutorialData::m_TutorialNames[] =
 {
-    "Will","Effect","Timeline","Will\nCompare","Channel\nWait","Channel\nActive","Channel\nTrap","Channel\nCounter"
+    "Part 1\nWill",
+    "Part 2\nEffect",
+    "Part 3\nTimeline",
+    "Part 4\nSpell\nClashing",
+    "Part 5\nChanneling\nSpell: Wait",
+    "Part 6\nChanneling\nSpell: Active",
+    "Part 7\nChanneling\nSpell: Trap",
+    "Part 8\nChanneling\nSpell: Counter"
 };
 
 TutorialData::TutorialData()
