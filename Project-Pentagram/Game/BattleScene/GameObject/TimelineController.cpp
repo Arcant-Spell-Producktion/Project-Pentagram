@@ -54,8 +54,9 @@ void TimelineController::OnUpdate(const float& dt)
 
     SpellIconUI* hoverIcon = nullptr;
     // Check with each TimetrackUI
-    for (TimetrackUI* track : m_Tracks)
+    for(int idx = 0; idx < m_Tracks.size(); idx++)
     {
+        TimetrackUI* track = m_Tracks[idx];
         hoverIcon = track->GetHoverSpellIcon();
         if (hoverIcon != nullptr)
         {
@@ -63,15 +64,23 @@ void TimelineController::OnUpdate(const float& dt)
 
             m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
             m_SpellDetailUI->SetCasterPosition(spellDetail->SpellOwner);
-            m_SpellDetailUI->position = track->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            if (idx < m_Tracks.size() / 2)
+            {
+                m_SpellDetailUI->position = track->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            }
+            else
+            {
+                m_SpellDetailUI->position = track->position + hoverIcon->position + glm::vec3(-300.0f, 70.0f, 0.0f);
+            }
             m_SpellDetailUI->SetActive(true);
             break;
         }
     }
     // Check with TimelineExpander
     std::vector<GameObject*> childList = timelineExpander->GetChildList();
-    for (GameObject* child : childList)
+    for(int idx = 0; idx < childList.size(); idx++)
     {
+        GameObject* child = childList[idx];
         SpellIconUI* icon = dynamic_cast<SpellIconUI*>(child);
         if (icon->IsBeingHover())
         {
@@ -80,7 +89,14 @@ void TimelineController::OnUpdate(const float& dt)
 
             m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
             m_SpellDetailUI->SetCasterPosition(spellDetail->SpellOwner);
-            m_SpellDetailUI->position = timelineExpander->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            if (idx <= 10)
+            {
+                m_SpellDetailUI->position = timelineExpander->position + hoverIcon->position + glm::vec3(300.0f, 70.0f, 0.0f);
+            }
+            else
+            {
+                m_SpellDetailUI->position = timelineExpander->position + hoverIcon->position + glm::vec3(-300.0f, 70.0f, 0.0f);
+            }
             m_SpellDetailUI->SetActive(true);
             break;
         }
