@@ -3,8 +3,10 @@
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/MapScene/CasterStatUI.h"
 #include "Game/MapScene/MapInfoUI.h"
+#include "Game/Objects/PauseMenuObject.h"
 #include "MapNode.h"
 
+PauseMenuObject* map_PauseMenuObject;
 
 void MapScene::FadeUpdate(const float& dt)
 {
@@ -108,6 +110,10 @@ void MapScene::GameSceneInit()
 
 	CasterStatUI* casterStatUI = CreateObject(new CasterStatUI(gameData->Player));
 
+	map_PauseMenuObject = CreateObject(new PauseMenuObject());
+	map_PauseMenuObject->SetCurrentGameScene(this);
+	map_PauseMenuObject->SetActive(false);
+
     // Set FadeScreen Component
     m_FadeScreen = CreateUIObject("fadeScreen");
     m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
@@ -124,6 +130,11 @@ void MapScene::GameSceneUpdate(float dt)
 	{
 		m_CurrentMoveTime = (m_CurrentMoveTime + dt > m_MoveTime ? m_MoveTime : m_CurrentMoveTime + dt);
 		m_Character->position = m_StartPoint + (m_CurrentMoveTime / m_MoveTime) * (m_Destination - m_StartPoint);
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
+	{
+		map_PauseMenuObject->SetActive(map_PauseMenuObject->IsActive() ? false : true);
+		timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
 	}
 
 	// Update GameObject
