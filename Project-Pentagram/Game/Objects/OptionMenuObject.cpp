@@ -5,9 +5,14 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 	this->color = { 0.0f, 0.0f, 0.0f, 0.0f };
 
 	bgMenu = new UIObject("BackgroundMenu");
-	bgMenu->scale = { 1000.0f, 500.0f, 1.0f };
-	bgMenu->color = { 0.8f, 0.8f, 0.8f, 1.0f };
+	bgMenu->SetTexture("Sprites/UI/Game/ui_game_pause-panel.png");
+	bgMenu->scale = { 1100.0f, 500.0f, 1.0f };
+	bgMenu->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	bgMenu->SetBlockRaycast(true);
+	bgMenu->SetIsSlicing(true);
+	bgMenu->SetSlicingType(SlicingType::REPEAT);
+	bgMenu->SetSlicingBorderSize(180.0f);
+	bgMenu->SetSlicingBorderMultiplier(0.5f);
 	SetChildRenderBack(bgMenu);
 
 	#pragma region Master_Volume_UI
