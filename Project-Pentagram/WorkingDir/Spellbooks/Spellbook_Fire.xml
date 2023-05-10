@@ -4,20 +4,20 @@
     <Spell SpellName="Fireball">
       <WillValue>
         <Value>10</Value>
-        <Value>10</Value>
-        <Value>10</Value>
+        <Value>15</Value>
         <Value>20</Value>
-        <Value>20</Value>
+        <Value>25</Value>
+        <Value>25</Value>
         <Value>30</Value>
       </WillValue>
       <SpellEffect>Mark</SpellEffect>
       <EffectValue>
-        <Value>10</Value>
         <Value>20</Value>
-        <Value>20</Value>
+        <Value>25</Value>
         <Value>30</Value>
-        <Value>30</Value>
+        <Value>35</Value>
         <Value>40</Value>
+        <Value>45</Value>
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -27,12 +27,12 @@
     </Spell>
     <Spell SpellName="Flame bolt">
       <WillValue>
-        <Value>20</Value>
-        <Value>20</Value>
-        <Value>30</Value>
+        <Value>25</Value>
         <Value>30</Value>
         <Value>35</Value>
+        <Value>35</Value>
         <Value>40</Value>
+        <Value>45</Value>
       </WillValue>
       <SpellEffect>Mark</SpellEffect>
       <EffectValue>
@@ -51,21 +51,21 @@
     </Spell>
     <Spell SpellName="Flame shower">
       <WillValue>
-        <Value>45</Value>
-        <Value>45</Value>
-        <Value>50</Value>
         <Value>50</Value>
         <Value>55</Value>
         <Value>60</Value>
+        <Value>65</Value>
+        <Value>65</Value>
+        <Value>70</Value>
       </WillValue>
       <SpellEffect>Mark</SpellEffect>
       <EffectValue>
-        <Value>30</Value>
-        <Value>30</Value>
         <Value>40</Value>
-        <Value>40</Value>
+        <Value>45</Value>
         <Value>50</Value>
-        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>65</Value>
       </EffectValue>
       <CastTime>5</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -75,12 +75,12 @@
     </Spell>
     <Spell SpellName="Flame pillar">
       <WillValue>
+        <Value>20</Value>
+        <Value>25</Value>
         <Value>30</Value>
-        <Value>30</Value>
+        <Value>35</Value>
+        <Value>35</Value>
         <Value>40</Value>
-        <Value>40</Value>
-        <Value>40</Value>
-        <Value>45</Value>
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
@@ -102,18 +102,18 @@
         <Value>40</Value>
         <Value>45</Value>
         <Value>50</Value>
-        <Value>55</Value>
-        <Value>60</Value>
-        <Value>65</Value>
-      </WillValue>
-      <SpellEffect>Mark</SpellEffect>
-      <EffectValue>
-        <Value>30</Value>
-        <Value>40</Value>
-        <Value>45</Value>
         <Value>50</Value>
         <Value>55</Value>
         <Value>60</Value>
+      </WillValue>
+      <SpellEffect>Mark</SpellEffect>
+      <EffectValue>
+        <Value>60</Value>
+        <Value>65</Value>
+        <Value>70</Value>
+        <Value>75</Value>
+        <Value>80</Value>
+        <Value>85</Value>
       </EffectValue>
       <CastTime>6</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -147,12 +147,12 @@
     </Spell>
     <Spell SpellName="Meteor">
       <WillValue>
+        <Value>45</Value>
         <Value>50</Value>
         <Value>55</Value>
-        <Value>55</Value>
+        <Value>60</Value>
         <Value>60</Value>
         <Value>65</Value>
-        <Value>70</Value>
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>
@@ -171,21 +171,21 @@
     </Spell>
     <Spell SpellName="Flame dragon">
       <WillValue>
-        <Value>65</Value>
-        <Value>70</Value>
         <Value>75</Value>
         <Value>80</Value>
         <Value>85</Value>
         <Value>90</Value>
+        <Value>90</Value>
+        <Value>95</Value>
       </WillValue>
       <SpellEffect>Mark</SpellEffect>
       <EffectValue>
-        <Value>45</Value>
-        <Value>50</Value>
-        <Value>50</Value>
-        <Value>55</Value>
-        <Value>60</Value>
-        <Value>65</Value>
+        <Value>70</Value>
+        <Value>75</Value>
+        <Value>80</Value>
+        <Value>80</Value>
+        <Value>85</Value>
+        <Value>90</Value>
       </EffectValue>
       <CastTime>7</CastTime>
       <ChannelTime>1</ChannelTime>
@@ -195,12 +195,12 @@
     </Spell>
     <Spell SpellName="EXPLOSION!!!">
       <WillValue>
+        <Value>90</Value>
         <Value>100</Value>
+        <Value>110</Value>
         <Value>120</Value>
+        <Value>130</Value>
         <Value>140</Value>
-        <Value>160</Value>
-        <Value>180</Value>
-        <Value>200</Value>
       </WillValue>
       <SpellEffect>Burn</SpellEffect>
       <EffectValue>

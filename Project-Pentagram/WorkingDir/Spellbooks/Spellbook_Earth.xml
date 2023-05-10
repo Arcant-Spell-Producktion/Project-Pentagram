@@ -3,45 +3,21 @@
   <SpellList>
     <Spell SpellName="Rock bullet">
       <WillValue>
-        <Value>10</Value>
-        <Value>10</Value>
-        <Value>20</Value>
-        <Value>25</Value>
-        <Value>25</Value>
-        <Value>30</Value>
-      </WillValue>
-      <SpellEffect>Fortify</SpellEffect>
-      <EffectValue>
-        <Value>10</Value>
         <Value>15</Value>
         <Value>20</Value>
-        <Value>20</Value>
         <Value>25</Value>
         <Value>30</Value>
-      </EffectValue>
-      <CastTime>3</CastTime>
-      <ChannelTime>0</ChannelTime>
-      <ChannelEffect>None</ChannelEffect>
-      <SpellTarget>Opponent</SpellTarget>
-      <ResolveFlag>1</ResolveFlag>
-    </Spell>
-    <Spell SpellName="Wave rock">
-      <WillValue>
-        <Value>20</Value>
-        <Value>20</Value>
-        <Value>25</Value>
-        <Value>25</Value>
         <Value>30</Value>
         <Value>35</Value>
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>15</Value>
-        <Value>20</Value>
         <Value>20</Value>
         <Value>25</Value>
         <Value>30</Value>
         <Value>35</Value>
+        <Value>40</Value>
+        <Value>45</Value>
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
@@ -49,25 +25,49 @@
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
-    <Spell SpellName="Rising Pillar">
+    <Spell SpellName="Wave rock">
       <WillValue>
         <Value>35</Value>
         <Value>40</Value>
-        <Value>40</Value>
-        <Value>45</Value>
         <Value>45</Value>
         <Value>50</Value>
+        <Value>50</Value>
+        <Value>55</Value>
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
         <Value>30</Value>
-        <Value>30</Value>
-        <Value>40</Value>
+        <Value>35</Value>
         <Value>40</Value>
         <Value>45</Value>
         <Value>50</Value>
+        <Value>55</Value>
       </EffectValue>
-      <CastTime>6</CastTime>
+      <CastTime>5</CastTime>
+      <ChannelTime>0</ChannelTime>
+      <ChannelEffect>None</ChannelEffect>
+      <SpellTarget>Opponent</SpellTarget>
+      <ResolveFlag>1</ResolveFlag>
+    </Spell>
+    <Spell SpellName="Rising Pillar">
+      <WillValue>
+        <Value>45</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+      </WillValue>
+      <SpellEffect>Fortify</SpellEffect>
+      <EffectValue>
+        <Value>40</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>65</Value>
+      </EffectValue>
+      <CastTime>4</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -76,22 +76,22 @@
     <Spell SpellName="Shaping Stone">
       <WillValue>
         <Value>25</Value>
-        <Value>25</Value>
-        <Value>30</Value>
         <Value>30</Value>
         <Value>35</Value>
+        <Value>35</Value>
         <Value>40</Value>
+        <Value>45</Value>
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>10</Value>
-        <Value>10</Value>
-        <Value>20</Value>
-        <Value>20</Value>
-        <Value>30</Value>
-        <Value>35</Value>
+        <Value>40</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>65</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>2</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -108,14 +108,14 @@
       </WillValue>
       <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
-        <Value>65</Value>
-        <Value>70</Value>
         <Value>75</Value>
         <Value>80</Value>
         <Value>85</Value>
         <Value>90</Value>
+        <Value>95</Value>
+        <Value>100</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>7</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Self</SpellTarget>
@@ -123,23 +123,23 @@
     </Spell>
     <Spell SpellName="Earth prison">
       <WillValue>
-        <Value>30</Value>
-        <Value>30</Value>
-        <Value>35</Value>
-        <Value>35</Value>
-        <Value>40</Value>
-        <Value>45</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>60</Value>
+        <Value>65</Value>
+        <Value>70</Value>
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
         <Value>1</Value>
-        <Value>1</Value>
-        <Value>2</Value>
         <Value>2</Value>
         <Value>2</Value>
         <Value>3</Value>
+        <Value>3</Value>
+        <Value>3</Value>
       </EffectValue>
-      <CastTime>2</CastTime>
+      <CastTime>5</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Trap</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -147,23 +147,23 @@
     </Spell>
     <Spell SpellName="Reflect Shield">
       <WillValue>
-        <Value>25</Value>
-        <Value>25</Value>
-        <Value>30</Value>
-        <Value>35</Value>
-        <Value>35</Value>
         <Value>40</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
         <Value>1</Value>
         <Value>1</Value>
-        <Value>1</Value>
         <Value>2</Value>
         <Value>2</Value>
         <Value>3</Value>
+        <Value>3</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>3</CastTime>
       <ChannelTime>3</ChannelTime>
       <ChannelEffect>Counter</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -183,11 +183,11 @@
         <Value>1</Value>
         <Value>1</Value>
         <Value>2</Value>
-        <Value>2</Value>
+        <Value>3</Value>
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>2</CastTime>
+      <CastTime>4</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Active</ChannelEffect>
       <SpellTarget>Self</SpellTarget>
@@ -195,23 +195,23 @@
     </Spell>
     <Spell SpellName="Earth Dragon">
       <WillValue>
-        <Value>70</Value>
-        <Value>80</Value>
-        <Value>90</Value>
-        <Value>100</Value>
         <Value>110</Value>
+        <Value>115</Value>
         <Value>120</Value>
+        <Value>125</Value>
+        <Value>130</Value>
+        <Value>135</Value>
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
         <Value>1</Value>
-        <Value>1</Value>
         <Value>2</Value>
-        <Value>2</Value>
+        <Value>3</Value>
+        <Value>3</Value>
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>2</CastTime>
+      <CastTime>6</CastTime>
       <ChannelTime>4</ChannelTime>
       <ChannelEffect>Wait</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
