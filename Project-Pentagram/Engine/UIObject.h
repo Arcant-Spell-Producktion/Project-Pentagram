@@ -23,6 +23,8 @@ class UIObject : public GameObject
 		bool m_IsGradient = false;
 		float m_GradientValue = 0.0f;
 		bool m_BlockRaycast = false;
+		bool m_IsClip = false;
+		float m_ClipPercentage = 0.0f;
 		SlicingType m_SlicingType = SlicingType::STRETCH;
 
 	public:
@@ -51,4 +53,6 @@ class UIObject : public GameObject
 		void SetStartGradientTexture(const std::string& filePath);
 		void SetEndGradientTexture(const std::string& filePath);
 		void SetBlockRaycast(const bool& active);
+		void SetIsClip(const bool& active);
+		void SetClipPercentage(const float& percent);
 };

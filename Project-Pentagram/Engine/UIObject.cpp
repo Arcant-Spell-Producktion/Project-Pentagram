@@ -11,6 +11,9 @@ UIObject::UIObject(const std::string& objName)
 	this->m_SlicingBorderMultiplier = 1.0f;
 	this->m_IsGradient = false;
 	this->m_GradientValue = 0.0f;
+
+	this->m_IsClip = false;
+	this->m_ClipPercentage = 0.0f;
 }
 
 void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
@@ -48,6 +51,9 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 	m_Texture->Activate(GL_TEXTURE0);
 	shader.setInt("u_Texture", 0);
 	shader.setBool("u_IsSlicing", m_IsSlicing);
+
+	shader.setBool("u_IsClip", m_IsClip);
+	shader.setFloat("u_ClipPercent", m_ClipPercentage);
 
 	// Set Button Slicing
 	if (m_IsSlicing)
@@ -189,4 +195,12 @@ void UIObject::SetEndGradientTexture(const std::string& filePath)
 void UIObject::SetBlockRaycast(const bool& active)
 {
 	this->m_BlockRaycast = active;
+}
+void UIObject::SetIsClip(const bool& active)
+{
+	this->m_IsClip = active;
+}
+void UIObject::SetClipPercentage(const float& percent)
+{
+	this->m_ClipPercentage = percent;
 }

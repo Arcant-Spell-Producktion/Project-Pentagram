@@ -25,10 +25,11 @@ void Slider::InitButton()
 	this->m_Button = new Button(name + "_Button");
 	this->SetChildRenderFront(this->m_Button);
 
-	this->m_Button->scale = glm::vec3(30.0f, 75.0f, 1.0f);
+	this->m_Button->scale = glm::vec3(60.0f, 80.0f, 1.0f);
 	this->m_Button->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 	this->m_Button->onPress = [this](Button* button) { m_IsPress = true; };
+	this->m_Button->onHover = [this](Button* button) { button->hoverColor = glm::vec4(0.7f, 0.7f, 0.7f, 1.0f); };
 	this->m_Button->unPress = [this](Button* button) { m_IsPress = false; };
 	this->m_Button->unHover = [this](Button* button) { if (!m_IsPress) { button->hoverColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f); } m_IsPress = false; };
 }
@@ -136,6 +137,10 @@ float Slider::GetValue()
 bool Slider::IsButtonPressed() 
 { 
 	return this->m_IsPress; 
+}
+UIObject* Slider::GetForegroundUI()
+{
+	return this->m_ForeGround;
 }
 Button* Slider::GetSliderButton() 
 { 

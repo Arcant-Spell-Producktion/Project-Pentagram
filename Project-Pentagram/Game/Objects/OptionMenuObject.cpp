@@ -17,14 +17,19 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 
 	#pragma region Master_Volume_UI
 		VolumeSlider[VolumeType::MASTER] = new Slider("MasterVolumeSlider");
+		VolumeSlider[VolumeType::MASTER]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::MASTER]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetMasterVolume(slider->GetValue());
 			AudioController::GetInstance()->OnUpdateVolume();
+			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::MASTER]->position = { 150.0f, 150.0f, 0.0f };
 		VolumeSlider[VolumeType::MASTER]->SetValue(AudioEngine::GetInstance()->GetMasterVolume());
-		VolumeSlider[VolumeType::MASTER]->GetSliderButton()->color = AC_YELLOW;
+		VolumeSlider[VolumeType::MASTER]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
+		VolumeSlider[VolumeType::MASTER]->GetSliderButton()->SetIsSlicing(false);
+		VolumeSlider[VolumeType::MASTER]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
+		VolumeSlider[VolumeType::MASTER]->GetForegroundUI()->SetIsClip(true);
 		VolumeText[VolumeType::MASTER] = new TextObject("MasterVolumeText");
 		VolumeText[VolumeType::MASTER]->position = { -450.0f, 150.0f, 0.0f };
 		VolumeText[VolumeType::MASTER]->text = "MasterVolume";
@@ -36,14 +41,19 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 
 	#pragma region BGM_UI
 		VolumeSlider[VolumeType::BGM] = new Slider("BGMVolumeSlider");
+		VolumeSlider[VolumeType::BGM]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::BGM]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetBGMVolume(slider->GetValue());
 			AudioController::GetInstance()->OnUpdateVolume();
+			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::BGM]->position = { 150.0f, 50.0f, 0.0f };
 		VolumeSlider[VolumeType::BGM]->SetValue(AudioEngine::GetInstance()->GetBGMVolume());
-		VolumeSlider[VolumeType::BGM]->GetSliderButton()->color = AC_YELLOW;
+		VolumeSlider[VolumeType::BGM]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
+		VolumeSlider[VolumeType::BGM]->GetSliderButton()->SetIsSlicing(false);
+		VolumeSlider[VolumeType::BGM]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
+		VolumeSlider[VolumeType::BGM]->GetForegroundUI()->SetIsClip(true);
 		VolumeText[VolumeType::BGM] = new TextObject("BGMVolumeText");
 		VolumeText[VolumeType::BGM]->position = { -450.0f, 50.0f, 0.0f };
 		VolumeText[VolumeType::BGM]->text = "BGMVolume";
@@ -55,14 +65,19 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 
 	#pragma region SFX_UI
 		VolumeSlider[VolumeType::SFX] = new Slider("SFXVolumeSlider");
+		VolumeSlider[VolumeType::SFX]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::SFX]->onValueChanged = [](Slider* slider)
 		{
 			AudioEngine::GetInstance()->SetSFXVolume(slider->GetValue());
 			AudioController::GetInstance()->OnUpdateVolume();
+			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::SFX]->position = { 150.0f, -50.0f, 0.0f };
 		VolumeSlider[VolumeType::SFX]->SetValue(AudioEngine::GetInstance()->GetSFXVolume());
-		VolumeSlider[VolumeType::SFX]->GetSliderButton()->color = AC_YELLOW;
+		VolumeSlider[VolumeType::SFX]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
+		VolumeSlider[VolumeType::SFX]->GetSliderButton()->SetIsSlicing(false);
+		VolumeSlider[VolumeType::SFX]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
+		VolumeSlider[VolumeType::SFX]->GetForegroundUI()->SetIsClip(true);
 		VolumeText[VolumeType::SFX] = new TextObject("BGMVolumeText");
 		VolumeText[VolumeType::SFX]->position = { -450.0f, -50.0f, 0.0f };
 		VolumeText[VolumeType::SFX]->text = "SFXVolume";

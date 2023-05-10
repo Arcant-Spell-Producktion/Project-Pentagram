@@ -29,6 +29,7 @@ class Slider : public UIObject
 		// ----------------- Getter ----------------- 
 		float GetValue();
 		bool IsButtonPressed();
+		UIObject* GetForegroundUI();
 		Button* GetSliderButton();
 
 		// ----------------- Setter ----------------- 
