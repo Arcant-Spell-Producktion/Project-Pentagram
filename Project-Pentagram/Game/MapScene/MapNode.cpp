@@ -8,6 +8,8 @@ MapNode::MapNode(Element::Type element): Button(element + "mapNode")
     m_Element = element;
     this->SetTexture(MapNodeSpritePath);
     this->SetIsSlicing(false);
-    this->SetSpriteByIndex(0,(int)element);
+
+    if(element != Element::Corrupt) this->SetSpriteByIndex(0,(int)element);
+
     this->scale = {70.0f,105.0f,1.0f};
 }

@@ -168,7 +168,7 @@ void EarthSpell4::Initialize()
 void EarthSpell5::Initialize()
 {
     float size = 320.0f;
-    float xPos = CASTER_POSITION_X * m_SpellTarget; // Assume A shooter // How to Flip m_SpellTarget
+    float xPos = -CASTER_POSITION_X * m_SpellTarget; // Assume A shooter // How to Flip m_SpellTarget
     float yPos = -160.0f;
     this->scale = { size * 2, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };

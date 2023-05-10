@@ -23,6 +23,9 @@ StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateContro
 
     m_Element = element;
 
+    // TODO:: remove this code
+    if(m_Element == Element::Corrupt) m_Element = Element::Earth;
+
     m_Background = m_ObjectManager->CreateGameObject("Background");
     m_Background->SetTexture(backgroundPath[(int)m_Element]);
     m_Background->scale = { 2160.0f, 1280.0f, 1.0f };

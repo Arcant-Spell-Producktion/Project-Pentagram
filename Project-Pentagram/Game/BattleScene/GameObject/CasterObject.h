@@ -24,10 +24,15 @@ enum class CasterObjectState
 class CasterObject : public GameObject
 {
 private:
+
+
     std::function<void()> m_atk_callback = nullptr;
 
     CasterObjectState m_State = CasterObjectState::Idle;
     CasterObjectState m_NextState = CasterObjectState::Idle;
+
+    CasterType m_CasterType = CasterType::Player;
+    Element::Type m_CasterElement = Element::Type::Earth;
 
     int m_ChannelCounter = 0;
     bool m_doLoop = false;

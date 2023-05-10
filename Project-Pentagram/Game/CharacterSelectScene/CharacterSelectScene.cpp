@@ -113,6 +113,13 @@ void CharacterSelectScene::GameSceneInit()
             OnTest();
 		});
 
+	TextObject* title = CreateTextObject("ChooseYourWitch");
+	title->position.y = 475.0f;
+	title->text = "Choose Your Witch";
+	title->textAlignment = TextAlignment::MID;
+	title->fontSize = 92.0f;
+	title->color = AC_WHITE;
+
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };

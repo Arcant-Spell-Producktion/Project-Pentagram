@@ -236,6 +236,8 @@ CastSpellDetail* SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
         {
             m_ActiveSpells.erase(std::find(m_ActiveSpells.begin(), m_ActiveSpells.end(), spell));
         }
+
+        
         return spell;
     }
 

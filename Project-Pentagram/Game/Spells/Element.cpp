@@ -6,5 +6,6 @@ const std::string Element::enum_string[] = {
     "Fire",
     "Water",
     "Wind",
+    "Corrupt",
     "Debug"
 };

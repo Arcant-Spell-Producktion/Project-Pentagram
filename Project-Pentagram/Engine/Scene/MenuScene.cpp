@@ -40,7 +40,7 @@ void MenuScene::GameSceneInit()
 
 
     // Continue Button
-    Button* continueButton = CreateObject(new ScrollButton("Continue"));
+    Button* continueButton = CreateObject(new ScrollButton("Continue", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
     continueButton->position = { 0.0f, 200.0f, 0.0f };
     continueButton->onClick.AddListener([this](Button* button)
     {
@@ -57,21 +57,21 @@ void MenuScene::GameSceneInit()
     });
 
 	// Play Button
-	Button* playButton = CreateObject(new ScrollButton("Play"));
-	playButton->position = { -150.0f, 0.0f, 0.0f };
+	Button* playButton = CreateObject(new ScrollButton("Play", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+	playButton->position = { -200.0f, 0.0f, 0.0f };
 	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
 
     // Play Button
-    Button* turButton = CreateObject(new ScrollButton("Tutorial"));
-    turButton->position = { 150.0f, 0.0f, 0.0f };
+	Button* turButton = CreateObject(new ScrollButton("Tutorial", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+    turButton->position = { 200.0f, 0.0f, 0.0f };
     turButton->onClick.AddListener([this](Button* button) { SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE); });
 
 	// Options Button
-	Button* optionsButton = CreateObject(new ScrollButton("Options"));
+	Button* optionsButton = CreateObject(new ScrollButton("Options", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
 	optionsButton->position = { 0.0f, -200.0f, 0.0f };
 
 	// Exit Button
-	Button* exitButton = CreateObject(new ScrollButton("Exit"));
+	Button* exitButton = CreateObject(new ScrollButton("Exit", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
 	exitButton->position = { 0.0f, -400.0f, 0.0f };
 	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 

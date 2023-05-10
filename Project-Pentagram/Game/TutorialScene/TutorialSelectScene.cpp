@@ -35,17 +35,20 @@ void TutorialSelectScene::GameSceneLoad()
 
 void TutorialSelectScene::GameSceneInit()
 {
-    float spacing = 175.0f;
+    float spacing = 200.0f;
 
     for (int i = static_cast<int>(TutorialType::WillTutorial); i <= static_cast<int>(TutorialType::CounterTutorial); i++)
     {
         std::stringstream ss;
         ss << "Tur_" << i;
 
-        Button* selectButton = CreateObject(new ScrollButton(TutorialData::GetTutorialName(static_cast<TutorialType>(i))));
+		Button* selectButton = CreateObject(new ScrollButton(TutorialData::GetTutorialName(static_cast<TutorialType>(i)), { 310.0f, 200.0f, 1.0f }, {330.0f, 200.0f, 1.0f}));
+		int newLineCount = std::count(selectButton->textObject.text.begin(), selectButton->textObject.text.end(), '\n');
+		selectButton->textObject.position.y = (newLineCount * 25.0f);
+		selectButton->textObject.fontSize = (newLineCount == 2 ? 34.0f : 36.0f);
 
         float pos_x = spacing * 2 * (i%4 - 1) - spacing;
-        float pos_y = i < 4 ? 200.0f : -200.0f;
+        float pos_y = i < 4 ? 150.0f : -150.0f;
 
         selectButton->position = { pos_x, pos_y, 0.0f };
 
@@ -56,6 +59,21 @@ void TutorialSelectScene::GameSceneInit()
         };
 
     }
+
+	TextObject* title = CreateTextObject("Tutorial Selection");
+	title->text = "Tutorial Selection";
+	title->textAlignment = TextAlignment::MID;
+	title->fontSize = 68.0f;
+	title->position.y = 400.0f;
+
+	Button* backButton = CreateObject(new ScrollButton("BACK", { 225.0f, 140.0f, 1.0f }, { 250.0f, 140.0f, 1.0f }));
+	backButton->textObject.fontSize = 36.0f;
+	backButton->position = { -775.0f, -425.0f, 0.0f };
+	backButton->onClick.AddListener([this](Button* button)
+		{
+			SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+		});
+
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };

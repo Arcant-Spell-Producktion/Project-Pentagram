@@ -13,11 +13,12 @@ public:
         Fire = 1,
         Water = 2,
         Wind = 3,
+        Corrupt = 4,
         Debug = 1
     };
 
     static Element::Type GetEnum(std::string typeString) {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i <= 4; i++)
         {
             if (typeString.compare(enum_string[i])) return Element::Type(i);
         }

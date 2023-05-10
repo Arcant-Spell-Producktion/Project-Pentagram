@@ -163,8 +163,13 @@
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
+<<<<<<< HEAD
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
+=======
+      <CastTime>4</CastTime>
+      <ChannelTime>3</ChannelTime>
+>>>>>>> eb62db04e156f93cdf5e1d5cc4481e6ee26c3179
       <ChannelEffect>Trap</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>17</ResolveFlag>

@@ -3,7 +3,7 @@
 
 class EnemyController : public CasterController
 {
-private:
+protected:
     CasterMoveSet m_MoveSet;
 public:
     EnemyController(EnemyData caster) : CasterController(caster), m_MoveSet(caster.EnemyMoves())

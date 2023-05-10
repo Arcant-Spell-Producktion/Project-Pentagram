@@ -57,6 +57,10 @@ CasterStatUI::CasterStatUI(PlayerData* playerData)
 
 	// Hp Object
 	m_HPUI = new UIObject("HP_UI");
+	m_HPUI->SetTexture("Sprites/UI/Game/Caster/ui_game_caster_hp-bar.png");
+	m_HPUI->SetStartGradientTexture("Sprites/GradientMap/gradiant-map_green.png");
+	m_HPUI->SetEndGradientTexture("Sprites/GradientMap/gradiant-map_red.png");
+	m_HPUI->SetIsGradient(true);
 	m_HPUI->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	m_HPUI->scale = { 300.0f, 80.0f, 1.0f };
 	m_HPUI->position = { (this->scale.x / 2.0f) - (m_HPUI->scale.x / 2.0f) - offset,

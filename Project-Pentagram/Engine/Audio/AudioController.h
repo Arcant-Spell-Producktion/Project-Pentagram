@@ -59,7 +59,7 @@ class BGMController
 	private:
 		AudioEngine* audioEngine = AudioEngine::GetInstance();
 
-		float m_BGMLocalVolume = 1.0f;
+		float m_BGMLocalVolume = 0.0f;
 		bool m_IsStartPlay = false;
 		
 		std::vector<std::string> m_FilepathList;

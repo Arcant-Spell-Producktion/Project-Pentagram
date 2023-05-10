@@ -36,13 +36,15 @@ public:
 
     CastSpellDetail* GetSpellDetail();
 
+    void SetCasterElement(Element::Type element = Element::NULLTYPE);
+
     bool SetPentagramData(PentagramData_T pentagram);
 
     int GetSpellCost();
     int GetFieldCost(PentagramField field);
     int GetFieldValue(PentagramField field);
     bool CanCastSpell();
-    bool UpdateCurrentSpell();
+    bool UpdateCurrentSpell(bool isElementChange = false);
     void CommitSpell();
 
     bool IsManaWheelAllUsed();
