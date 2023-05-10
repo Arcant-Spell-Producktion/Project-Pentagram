@@ -81,9 +81,16 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		windowSettingText->color = AC_BLACK;
 		windowSettingText->fontSize = 36.0f;
 		windowSettingButton = new Button("WindowSettingButton");
+		windowSettingButton->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
+		windowSettingButton->SetSlicingBorderMultiplier(0.25f);
+		windowSettingButton->SetSlicingType(SlicingType::REPEAT);
+		windowSettingButton->SetSlicingBorderSize(120.0f);
+		windowSettingButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
+		windowSettingButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
+		windowSettingButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
 		windowSettingButton->textObject.text = (window->IsFullScreen() ? "On" : "Off");
 		windowSettingButton->position = { 150.0f, -150.0f, 0.0f };
-		windowSettingButton->scale = { 150.0f, 50.0f, 0.0f };
+		windowSettingButton->scale = { 250.0f, 90.0f, 0.0f };
 		windowSettingButton->onClick.AddListener([this, window](Button* button)
 			{
 				if (button->textObject.text == "Off")
