@@ -113,12 +113,15 @@ void CastSpellDetail::OnResolve()
         {
             battleManager->Data.Timeline.GetTimetrack(this->TriggeredSpell->SelectedTime)
                                                        ->RemoveSpell(this->TriggeredSpell);
+            battleManager->Data.Timeline.UI->RemoveIconFromTrack(this->TriggeredSpell->SelectedTime, this->TriggeredSpell);
 
             CastSpellDetail* newSpell = new CastSpellDetail(*this->TriggeredSpell);
 
             newSpell->isCasted = false;
             newSpell->SelectedTime += 1;
             battleManager->Data.Timeline.AddSpellToTimeline(newSpell);
+
+            //TODO:: find a way to delete TriggeredSpell without crash
         }
 
         for (int i = this->SelectedTime ; i <= 10; ++i)

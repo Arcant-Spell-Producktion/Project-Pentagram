@@ -24,6 +24,8 @@ const std::string CasterSpritePath[3][4] =
     }
 };
 
+const std::string CorruptSpritePath = "Sprites/Character/Boss/character_boss_corrupt.png";
+
 void CasterObject::SetState(CasterObjectState state)
 {
     SetState(state, state);
@@ -33,7 +35,9 @@ void CasterObject::SetState(CasterObjectState state, CasterObjectState nextState
 {
     m_State = state;
     m_NextState = nextState;
-    SetSpriteByIndex((int)m_State, 0);
+
+    SetSpriteByIndex(m_CasterType != CasterType::BigBoss ? (int)m_State : (int)m_CasterElement, 0);
+
     SetAnimationPlayTime(0.1f);
 }
 
@@ -95,12 +99,26 @@ void CasterObject::OnUpdate(const float& dt)
 
 void CasterObject::SetCaster(CasterType type, Element::Type element)
 {
-    if (type == CasterType::BigBoss)type = CasterType::Boss;
+    if (m_CasterType != type && type == CasterType::BigBoss)
+    {
+        this->scale = { 640.0f, 640.0f, 1.0f };
+    }
+    m_CasterType = type;
+
     if (element == Element::Corrupt)element = Element::Earth;
+    m_CasterElement = element;
 
-    std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)element] << "\n";
+    if (m_CasterType != CasterType::BigBoss)
+    {
+        std::cout << "SET TEXUTER " << CasterSpritePath[(int)type][(int)m_CasterElement] << "\n";
 
-    SetTexture(CasterSpritePath[(int)type][(int)element]);
+        SetTexture(CasterSpritePath[(int)type][(int)m_CasterElement]);
+    }
+    else
+    {
+        SetTexture(CorruptSpritePath);
+        SetSpriteByIndex(static_cast<int>(m_CasterElement),this->GetCurrentAnimationColumn());
+    }
 }
 void CasterObject::SetCaster(CasterType type, Element::Type element, CasterPosition pos)
 {
@@ -112,6 +130,12 @@ void CasterObject::SetCaster(CasterType type, Element::Type element, CasterPosit
 
     float x = -CASTER_POSITION_X;
     float y = CASTER_POSITION_Y;
+
+    if (m_CasterType == CasterType::BigBoss)
+    {
+        y = 0.0f;
+    }
+
     this->position = { x * flip, y,0.0f };
 }
 

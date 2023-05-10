@@ -10,8 +10,6 @@ public:
     {
         std::cout << "DEBUG ENEMY ELEMENT: " << (int)caster.Element() << "\n";
 
-
-
         this->m_CasterObject->SetCaster(caster.EnemyType(), caster.Element(),CasterPosition::CasterB);
     }
 
