@@ -55,8 +55,8 @@ bool SpellEffectType::IsEffectTargetEnemy(SpellEffectEnum type)
     case SpellEffectEnum::Freeze:
         return true;
     case SpellEffectEnum::Overflow:
-        return false;
     case SpellEffectEnum::Fortify:
+        return false;
     case SpellEffectEnum::Petrify:
         return true;
     case SpellEffectEnum::Boost:
