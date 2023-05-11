@@ -93,7 +93,7 @@ void ChapterData::UpdateChapter(int level)
         bool isMinion =(i != (NODE_PER_CHAPTER - 1));
         NodeData* node = nullptr;
         CasterType type = isMinion ? CasterType::Minion : CasterType::Boss;
-        int type_level = isMinion ? level + i : level;
+        int type_level = isMinion ? level * 2 + i : level;
 
         CasterStat stat = casterDB->GetStat(m_Element, type , type_level);
         CasterMoveSet moves = CasterMoveSetDatabase::GetInstance()->GetMoveSet(m_Element, type, type_level);
@@ -102,7 +102,7 @@ void ChapterData::UpdateChapter(int level)
         EnemyData enemy(data, type, moves);
         try {
             node = m_Nodes.at(i);
-            node->GetEnemyData() = enemy;
+            node->SetEnemyData(enemy);
         }
         catch (const std::out_of_range& e) {
             node = new NodeData(enemy);

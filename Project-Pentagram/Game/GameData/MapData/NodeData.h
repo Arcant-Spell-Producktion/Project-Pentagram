@@ -12,5 +12,7 @@ public:
 
     EnemyData GetEnemyData() { return m_Enemy; }
 
+    void SetEnemyData(EnemyData enemy) { m_Enemy = enemy; }
+
     void CompleteNode();
 };
