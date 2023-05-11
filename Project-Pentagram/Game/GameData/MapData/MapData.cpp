@@ -33,7 +33,7 @@ void MapData::AddChapter(ChapterData* c)
 
 bool MapData::CanVisitChapter(Element::Type element)
 {
-    return m_Chapters[element]->CanVisit;
+    return m_Chapters[element]->CanVisit && !m_Chapters[element]->m_IsCompleted;
 }
 
 void MapData::SelectChapter(Element::Type element)

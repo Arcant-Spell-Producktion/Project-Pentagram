@@ -7,7 +7,6 @@ private:
     int m_NodeCount = 0;
     Element::Type m_Element;
     std::vector<NodeData*> m_Nodes;
-    bool m_IsCompleted;
 
     int m_CurrentNode = 0;
 
@@ -16,6 +15,7 @@ private:
     void AddNode(NodeData* node);
 public:
 
+    bool m_IsCompleted;
     bool CanVisit;
 
     ChapterData(Element::Type element, Element::Type startElement);
