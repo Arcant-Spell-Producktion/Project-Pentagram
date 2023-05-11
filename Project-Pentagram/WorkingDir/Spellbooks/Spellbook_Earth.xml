@@ -189,7 +189,7 @@
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Active</ChannelEffect>
+      <ChannelEffect>Lasting</ChannelEffect>
       <SpellTarget>Self</SpellTarget>
       <ResolveFlag>2</ResolveFlag>
     </Spell>
@@ -213,7 +213,7 @@
       </EffectValue>
       <CastTime>6</CastTime>
       <ChannelTime>4</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>

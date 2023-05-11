@@ -3,8 +3,8 @@
 
 const std::string ChannelEffectType::enum_string[] = {
     "None",
-    "Wait",
-    "Active",
+    "Delay",
+    "Lasting",
     "Trap",
     "Counter"
 };
