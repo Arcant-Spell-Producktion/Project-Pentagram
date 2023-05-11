@@ -31,7 +31,7 @@ public:
         EnemyMana = 10;
         PlayerManaWheel = 1;
 
-        m_TutorialEvents.AddStep("As you can see enemy spells\n were added to the banner. This is Timeline.");
+        m_TutorialEvents.AddStep("Tutorial topic: Timeline\n\nObjective:\nReduce your opponent's health to 0.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, false });
@@ -41,31 +41,37 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, false });
 
+        //add focus on timeline here
         m_TutorialEvents.AddStep(
-            "Each turn you may cast any amount of the spell\n (If your mana is still available).\nSo this thing will help track the spell in the round."
+            "The enemy spells is added to the TIMELINE.\n\nEach column in the timeline is TIME TRACK."
+        );
+        //m_TutorialEvents.AddEvent({ MainObjectEnum::Timeline,TutorialEventType::Focus, true });
+
+        m_TutorialEvents.AddStep(
+            "You can cast as many spells as you want \neach turn if you have enough mana for it.\n\nThe timeline will help you \nkeep track of the spell cast that round."
         );
 
         m_TutorialEvents.AddStep(
-            "The spell will be cast from the left most first.\nThe more it appears to the left the faster it will be cast."
+            "The spell will start casting \nfrom the left-most TIME TRACK  to the right."
         );
 
         m_TutorialEvents.AddStep(
-            "Each spell will have their own cast time\nwhich will determine the speed of that spell."
+            "Each spell has its own cast time \nand will determine the spot on the timeline."
         );
 
-        m_TutorialEvents.AddStep("However, you may increase or decrease speed of that spell\n by spending mana on the cast time section in the spell circle.");
+        m_TutorialEvents.AddStep("You can add mana to the spell to hasten it\n\n(delaying the spell don't take mana)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now let's try to cast a spell that is faster\n than the enemy spell.");
+            "Now! let's try casting a single spell \nthat's faster that the enemy spell.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        CompleteText = "And that is how the timeline work.\nNow you may proceed to the next part of the tutorial.";
-        RetryText = "Try to cast the spell before the enemy spell\nBy increasing the speed of the spell.";
+        CompleteText = "And thats the basic of how timeline work.\n\nLet's proceed to the next part of the tutorial.";
+        RetryText = "You need to be faster \ntry adjusting the spell to the left.\n\nPress R to restart";
 
 
     }

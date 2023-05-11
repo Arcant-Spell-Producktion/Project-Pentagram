@@ -18,7 +18,7 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 50;
+        EnemyHP = 40;
         EnemyMana = 10;
         TutorialSpells.push_back({ 1,1,6,1,11 });
 
@@ -34,7 +34,7 @@ public:
         PlayerManaWheel = 6;
         PlayerStartSpell = {2,1,1,1,0};
 
-        m_TutorialEvents.AddStep("Objective:\nReduce your opponent health to 0");
+        m_TutorialEvents.AddStep("Tutorial topic: Effect\n\nObjective: \nReduce your opponent's  health to 0");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, false });
@@ -45,28 +45,26 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
 
         m_TutorialEvents.AddStep(
-            "You can custom each attribute of the spell\nby spending mana."
+            "In this game, you can spend mana \nto customize a spell to attack the enemy \nby adjusting each section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(
-            "In this tutorial is about EFFECT.\nAdding mana to this attribute make the Spell Effect stronger."
+            "In this tutorial, you will learn about Effect.\n\nEach spell have its own effect.\nAdding mana to it will \nempower that effect. "
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Focus, true });
 
 
-        m_TutorialEvents.AddStep("Each spell have it own Effect\nThis one is BURNING, which deal damage at the\start of a round, base on the stack it have.");
+        m_TutorialEvents.AddStep("There are many effects in the game.\n\nEx: Burning: \nUnit with burning will take 10 damage per stack \nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Press ALT to toggle spell info\n");
-        m_TutorialEvents.AddStep(
-            "Try to defeat the enemy with the burning effect.");
+        m_TutorialEvents.AddStep("Try to use a single flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "That the basic of Effect,\n continue to the next tutorial to learn more.";
-        RetryText = "Try to Add more mana to the Effect to\n make burning stack higher.";
+        CompleteText = "That is the basics of Effect,\n lets proceed to the next part of the tutorial.";
+        RetryText = "This needs some more fire\ntry adding more effect this time.\n\nPress R to restart";
 
 
     }

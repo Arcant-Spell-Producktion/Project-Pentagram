@@ -117,7 +117,7 @@
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>1</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>0</ResolveFlag>
     </Spell>
@@ -141,7 +141,7 @@
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>3</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
@@ -165,7 +165,7 @@
       </EffectValue>
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
@@ -189,7 +189,7 @@
       </EffectValue>
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
@@ -213,7 +213,7 @@
       </EffectValue>
       <CastTime>3</CastTime>
       <ChannelTime>6</ChannelTime>
-      <ChannelEffect>Wait</ChannelEffect>
+      <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>

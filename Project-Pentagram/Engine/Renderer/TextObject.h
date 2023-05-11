@@ -37,6 +37,7 @@ class TextObject : public UIObject
 	public:
 		std::string text;
 		TextAlignment textAlignment;
+		bool isVCenterAlignment = false;	// Vertical Center Alignment
 		float fontSize;
 		float lineSpacing;
 		glm::vec4 outlineColor;

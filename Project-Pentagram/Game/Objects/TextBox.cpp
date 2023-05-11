@@ -12,4 +12,5 @@ TextBox::TextBox(std::string text) : Button("TextBox")
     this->SetSlicingType(SlicingType::REPEAT);
 
     textObject.fontSize = 24.0f;
+    textObject.isVCenterAlignment = true;
 }
