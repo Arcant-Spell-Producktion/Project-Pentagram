@@ -50,19 +50,19 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial, we are going to talk about channeling spells.\n\nChanneling is a type of spell that may take more than one turn to cast or have a lasting effect in that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell \nthat may take more than one turn \nto cast or have a lasting effect \nin that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling.\n\nThis one is Counter. Counter type when cast will do nothing until the enemy casts a spell that targets you."
+            "There are multiple types of channeling.\n\nThis one is Counter.\nCounter type when cast will do nothing \nuntil the enemy casts a spell that targets you."
         );
 
 
 
-        m_TutorialEvents.AddStep("The counter will activate and activate some special effects.");
+        m_TutorialEvents.AddStep("The counter will activate and activate \nsome special effects.");
 
         m_TutorialEvents.AddStep(
-            "Let's try casting a counter spell to defend against an enemy spell."
+            "Lets try casting a counter spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -71,8 +71,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "And that how the channeling spell Counter work.\n\nLet’s proceed to the next part of the tutorial.";
-        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can cancel a spell that targets you in the time track and reflect the damage to the enemy instead.\n\nPress R to restart";
+        CompleteText = "And that how the channeling spell Counter work.\n\nLets proceed to the next part of the tutorial.";
+        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can cancel a spell that targets you \nin the time track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
 
 
     }

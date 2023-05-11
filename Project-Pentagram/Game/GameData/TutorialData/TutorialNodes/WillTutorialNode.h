@@ -34,22 +34,24 @@ public:
         PlayerManaWheel = 6;
 
 
-        m_TutorialEvents.AddStep("Tutorial topic: Will\n\nObjective:\nReduce your opponent's  health to 0");
+        m_TutorialEvents.AddStep(
+            "Tutorial topic: Will\n\nObjective:\nReduce your opponent  health to 0"
+        );
         
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, false });
 
         m_TutorialEvents.AddStep(
-            "Both sides will gain mana at the start of the turn by rolling this roulette.\n\nMana gain from roulette will be different depending on each witch you select."
+            "Both sides will gain mana at the start of the turn \nby rolling this roulette.\n\nMana gain from roulette will be different \ndepending on each witch you select."
         );
 
         m_TutorialEvents.AddStep(
-            "You can spend mana to customize a spell to attack the enemy by adjusting each section of the spell circle.\n\nThe more mana spent the more effective spell becomes"
+            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict"
         );
 
         m_TutorialEvents.AddStep(
-            "In this tutorial you will learn about WILL.\n\nAdding mana in this section will increase the damage of the spell."
+            "In this tutorial you will learn about WILL.\n\nAdding mana in this section \nwill increase the damage of the spell."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, false });
@@ -58,17 +60,17 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Try defeating this enemy by adding more WILL into this fireball.\n\n(Press ALT to inspect the spell info.)");
+        m_TutorialEvents.AddStep("Try defeating this enemy by \nadding more WILL into this fireball.\n\n(Press ALT to inspect the spell info.)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now! let's try to defeat the enemy.");
+            "Now, lets try to defeat the enemy.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "That is the basics of WILL,\n let’s proceed to the next part of the tutorial.";
-        RetryText = "It’s too weak, try again with more WILL this time.\n\nPress R to restart";
+        CompleteText = "That is the basics of WILL,\nlets proceed to the next part of the tutorial.";
+        RetryText = "It is too weak, try again with more WILL this time.\n\nPress R to restart";
 
 
     }

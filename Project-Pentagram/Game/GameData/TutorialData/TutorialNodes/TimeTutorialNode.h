@@ -48,30 +48,30 @@ public:
         //m_TutorialEvents.AddEvent({ MainObjectEnum::Timeline,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "You can cast as many spells as you want each turn if you have enough mana for it.\n\nThe timeline will help you keep track of the spell cast that round."
+            "You can cast as many spells as you want \neach turn if you have enough mana for it.\n\nThe timeline will help you \nkeep track of the spell cast that round."
         );
 
         m_TutorialEvents.AddStep(
-            "The spell will start casting from the left-most TIME TRACK  to the right."
+            "The spell will start casting \nfrom the left-most TIME TRACK  to the right."
         );
 
         m_TutorialEvents.AddStep(
-            "Each spell has its own cast time and will determine the spot on the timeline."
+            "Each spell has its own cast time \nand will determine the spot on the timeline."
         );
 
-        m_TutorialEvents.AddStep("You can add mana to the spell to hasten it\n\n(delaying the spell don’t take mana)");
+        m_TutorialEvents.AddStep("You can add mana to the spell to hasten it\n\n(delaying the spell do not take mana)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now! let's try casting a spell that’s faster that the enemy spell.");
+            "Now let's try casting a spell thats faster \nthat the enemy spell.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        CompleteText = "And that’s the basic of how timeline work.\n\nLet’s proceed to the next part of the tutorial.";
-        RetryText = "You need to be faster! try adjusting the spell to the left.\n\nPress R to restart";
+        CompleteText = "And thats the basic of how timeline work.\n\nLet's proceed to the next part of the tutorial.";
+        RetryText = "You need to be faster \ntry adjusting the spell to the left.\n\nPress R to restart";
 
 
     }

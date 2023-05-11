@@ -51,16 +51,16 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial, we are going to talk about channeling spells.\n\nChanneling is a type of spell that may take more than one turn to cast or have a lasting effect in that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell \nthat may take more than one turn \nto cast or have a lasting effect \nin that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling. \n\nThis one is Lasting. The lasting type will remain active for a certain time on the timeline."
+            "There are multiple types of channeling. \n\nThis one is Lasting. \nThe lasting type will remain active \nfor a certain time on the timeline."
         );
 
 
         m_TutorialEvents.AddStep(
-            "Let's try casting Lasting spell to defend against an enemy spell"
+            "Lets try casting Lasting spell \nto defend against an enemy spell"
         );
        
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -69,7 +69,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "And that is how the channeling spell Lasting works. \n\nLet’s proceed to the next part of the tutorial.";
+        CompleteText = "And that is how the \nchanneling spell Lasting works. \n\nLets proceed to the next part of the tutorial.";
         RetryText = "Try casting an unbreakable shield (Circle 3 Complexity 2)\nIt ignores all of the damage during activation.\n\nPress R to restart";
 
 

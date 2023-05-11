@@ -45,26 +45,26 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
 
         m_TutorialEvents.AddStep(
-            "In this game, you can spend mana to customize a spell to attack the enemy by adjusting each section of the spell circle.\n\nThe more mana spends more damage/effect the spell can inflict."
+            "In this game, you can spend mana \nto customize a spell to attack the enemy \nby adjusting each section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(
-            "In this tutorial, you will learn about Effect.\n\nEach spell have its own effect.\nAdding mana to it will empower that effect. "
+            "In this tutorial, you will learn about Effect.\n\nEach spell have its own effect.\nAdding mana to it will \nempower that effect. "
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Focus, true });
 
 
-        m_TutorialEvents.AddStep("There are many effects in the game.\nEx: Burning: Unit with burning will take 10 damage per stack at the start of the turn.\n(Stack decrease by 1 after taking damage)");
+        m_TutorialEvents.AddStep("There are many effects in the game.\nEx: Burning: \nUnit with burning will take 10 damage per stack \nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Try to use a flame pillar to kill the enemy by the start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
+        m_TutorialEvents.AddStep("Try to use a flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "That is the basics of Effect,\n let’s proceed to the next part of the tutorial.";
-        RetryText = "This needs some more fire\ntry adding more effect this time. \n\nPress R to restart";
+        CompleteText = "That is the basics of Effect,\n lets proceed to the next part of the tutorial.";
+        RetryText = "This needs some more fire\ntry adding more effect this time.\n\nPress R to restart";
 
 
     }
