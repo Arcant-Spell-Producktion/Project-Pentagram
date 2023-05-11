@@ -107,7 +107,8 @@ void MapScene::GameSceneInit()
 
     }
 
-	CasterStatUI* casterStatUI = CreateObject(new CasterStatUI(gameData->Player));
+	// Disable CasterStatUI
+	// CasterStatUI* casterStatUI = CreateObject(new CasterStatUI(gameData->Player));
 
 	map_PauseMenuObject = CreateObject(new PauseMenuObject());
 	map_PauseMenuObject->SetCurrentGameScene(this);
