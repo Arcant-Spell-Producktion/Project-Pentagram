@@ -33,7 +33,7 @@ public:
         PlayerHP = 10;
         PlayerManaWheel = 6;
 
-        m_TutorialEvents.AddStep("Tutorial topic: Channeling - Delayed\n\nObjective:\nReduce your opponent health to 0");
+        m_TutorialEvents.AddStep("Tutorial topic: Channeling - Delayed\n\nObjective:\nReduce your opponent's health to 0");
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
@@ -45,7 +45,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, true });
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell \nthat may take more than one turn \nto cast or have a lasting effect \nin that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell that may take \nmore than one turn to cast or have a lasting effect \nin that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
@@ -69,11 +69,11 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Focus, true });
 
 
-        m_TutorialEvents.AddStep("Press ALT to toggle spell info\n");
+        m_TutorialEvents.AddStep("Press ALT to toggle spell info");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Lets try to cast some channeling spells\nclash the enemy spell and defeat them.");
+            "Let's try to cast some channeling spells\nclash the enemy spell and defeat them.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });

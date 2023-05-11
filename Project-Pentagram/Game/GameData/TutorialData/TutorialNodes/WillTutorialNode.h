@@ -35,7 +35,7 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Tutorial topic: Will\n\nObjective:\nReduce your opponent  health to 0"
+            "Tutorial topic: Will\n\nObjective:\nReduce your opponent's  health to 0"
         );
         
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
@@ -64,12 +64,12 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now, lets try to defeat the enemy.");
+            "Now! let's try to defeat the enemy.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "That is the basics of WILL,\nlets proceed to the next part of the tutorial.";
+        CompleteText = "That is the basics of WILL,\nlet's proceed to the next part of the tutorial.";
         RetryText = "It is too weak, try again with more WILL this time.\n\nPress R to restart";
 
 
