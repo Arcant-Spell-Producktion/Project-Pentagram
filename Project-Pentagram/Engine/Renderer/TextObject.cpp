@@ -107,6 +107,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 	float x = this->position.x;
 	float y = this->position.y;
 	float lineSpace = BASE_FONT_SIZE * m_FontScale * this->lineSpacing;
+	int allLine = std::count(text.begin(), text.end(), '\n');
 	int countLine = 0;
 	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
 	// Iterate through all characters
@@ -149,6 +150,12 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 		{
 			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3((xpos + w / 2.0f) - m_TextSumX[countLine], ypos + (h / 2.0f) - (m_TextMaxY / 2.0f) - (lineSpace * countLine), 0.0f));
 		}
+
+		if (isVCenterAlignment)
+		{
+			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, (BASE_FONT_SIZE * m_FontScale * allLine) / 2.0f, 0.0f));
+		}
+
 		textModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));
 		textModel *= glm::scale(glm::mat4(1.0f), glm::vec3(w, h, 1.0f));
 		shader.setMat4("u_Model", textModel);
