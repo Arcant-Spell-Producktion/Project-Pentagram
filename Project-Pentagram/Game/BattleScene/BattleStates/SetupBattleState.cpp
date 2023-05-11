@@ -45,10 +45,13 @@ void SetupBattleState::OnBattleStateIn()
     case Element::Water:
         bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
-    /*case Element::Wind:
+    case Element::Wind:
+        bgm = audioController->CreateBGM({ "Audio/BGM/Wind/bgm_wind_sub.wav"}, { 1.0f });
         break;
+    /*
     case Element::Corrupt:
-        break;*/
+        break;
+    */
      default:
          bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
