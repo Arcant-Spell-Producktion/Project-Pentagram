@@ -85,9 +85,10 @@ bool MapData::CompleteNode()
 MapSaveData MapData::SaveMapData()
 {
     MapSaveData data;
+    data.isAtMap = IsAtMap;
     data.completeChapter = m_CompleteChapterCount;
     data.currentChapterElement = (int)m_CurrentChapter;
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i <= 4; ++i)
     {
         ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
         data.nodeIndex[i] = chapter->GetCurrentNode();
@@ -98,9 +99,10 @@ MapSaveData MapData::SaveMapData()
 
 void MapData::LoadMapData(MapSaveData data)
 {
+    IsAtMap = data.isAtMap;
     m_CompleteChapterCount = data.completeChapter;
     m_CurrentChapter = static_cast<Element::Type>(data.currentChapterElement);
-    for (int i = 0; i < 4; ++i)
+    for (int i = 0; i <= 4; ++i)
     {
         ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
         chapter->CanVisit = data.canVisit[i];

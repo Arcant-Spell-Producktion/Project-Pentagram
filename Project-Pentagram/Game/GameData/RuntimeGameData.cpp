@@ -29,7 +29,7 @@ void RuntimeGameData::SaveGameData()
         outputFile << playerData.element_index << " " << playerData.level << " " << playerData.hp << std::endl;
 
         // Save map data to file
-        outputFile << mapData.completeChapter << " " << mapData.currentChapterElement << " ";
+        outputFile << mapData.isAtMap << " " << mapData.completeChapter << " " << mapData.currentChapterElement << " ";
         for (int i = 0; i < mapData.nodeIndex.size(); i++)
         {
             outputFile << mapData.nodeIndex[i] << " ";
@@ -63,7 +63,7 @@ bool RuntimeGameData::LoadGameData()
         inputFile >> playerData.element_index >> playerData.level >> playerData.hp;
 
         // Load map data from file
-        inputFile >> mapData.completeChapter >> mapData.currentChapterElement;
+        inputFile >> mapData.isAtMap >> mapData.completeChapter >> mapData.currentChapterElement;
         for (int i = 0; i < mapData.nodeIndex.size(); i++)
         {
             inputFile >> mapData.nodeIndex[i];

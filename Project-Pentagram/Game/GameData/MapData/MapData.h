@@ -7,10 +7,11 @@
 
 struct MapSaveData
 {
+    bool isAtMap;
     int completeChapter;
     int currentChapterElement;
-    std::array<int, 4> nodeIndex;
-    std::array<bool,4> canVisit;
+    std::array<int, 5> nodeIndex;
+    std::array<bool,5> canVisit;
 };
 
 class MapData
@@ -22,6 +23,8 @@ private:
     std::map<Element::Type,ChapterData*> m_Chapters;
 
 public:
+    bool IsAtMap = false;
+
     MapData(Element::Type startElement);
 
     void AddChapter(ChapterData* c);

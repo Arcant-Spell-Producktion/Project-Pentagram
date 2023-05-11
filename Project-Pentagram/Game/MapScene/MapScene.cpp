@@ -24,7 +24,6 @@ void MapScene::FadeUpdate(const float& dt)
 void MapScene::GameSceneLoad()
 {
 	std::cout << "Map Scene : Load Completed\n";
-   
 }
 
 void MapScene::GameSceneInit()
@@ -119,6 +118,9 @@ void MapScene::GameSceneInit()
     m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
     m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
     m_FadeScreen->SetActive(false);
+
+    gameData->Map->IsAtMap = true;
+    gameData->SaveGameData();
 }
 
 void MapScene::GameSceneUpdate(float dt)
