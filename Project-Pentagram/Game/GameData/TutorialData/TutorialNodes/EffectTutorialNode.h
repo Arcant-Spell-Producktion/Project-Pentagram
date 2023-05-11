@@ -18,7 +18,7 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 50;
+        EnemyHP = 40;
         EnemyMana = 10;
         TutorialSpells.push_back({ 1,1,6,1,11 });
 
@@ -55,10 +55,10 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Focus, true });
 
 
-        m_TutorialEvents.AddStep("There are many effects in the game.\nEx: Burning: \nUnit with burning will take 10 damage per stack \nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
+        m_TutorialEvents.AddStep("There are many effects in the game.\n\nEx: Burning: \nUnit with burning will take 10 damage per stack \nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Try to use a flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
+        m_TutorialEvents.AddStep("Try to use a single flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });

@@ -18,7 +18,7 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 65;
+        EnemyHP = 60;
         EnemyMana = 4;
         TutorialSpells.push_back({ 2,1,1,1,6 });
 
@@ -49,11 +49,11 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling. \n\nThis one is Delayed. \nWait type will take time to charge up \nthe spell before casting it."
+            "There are multiple types of channeling. \n\nThis one is Delayed. \nDelayed type will take time to charge up \nthe spell before casting it."
         );
 
         m_TutorialEvents.AddStep(
-            "The starting track of the Delayed type, \nwhen the spell is launched, \nwill not count toward total WILL in that Time track, \nbut will count in the Time track that the spell landed."
+            "The starting track of the Delayed type, \nwhen the spell is launched, \nit will not count toward total WILL in that Time track, \nbut will count in the Time track that the spell landed."
         );
 
         m_TutorialEvents.AddStep(
@@ -64,22 +64,19 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Each adjustment of this section \ncost 2 mana per modification."
+            "Each adjustment of this section \ncost 2 mana per modification.\n\n(Press ALT to toggle spell info)"
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Focus, true });
 
-
-        m_TutorialEvents.AddStep("Press ALT to toggle spell info");
-        m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
-
         m_TutorialEvents.AddStep(
-            "Let's try to cast some channeling spells\nclash the enemy spell and defeat them.");
+            "Let's try to cast a single channeling spells\nto clash the enemy spell and defeat them.");
+        m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        RetryText = "Try casting a meteor(Circle 3 complexity 1).\nIt has the same cast time as an enemy spell. \n\nPress R to restart";
-        CompleteText = "And that is how the channeling spell Delayed works. \n\nLets proceed to the next part of the tutorial.";
+        RetryText = "Try casting a meteor (Circle 3 complexity 1).\nIt has the same cast time as an enemy spell. \n\nPress R to restart";
+        CompleteText = "And that is how the channeling spell Delayed works. \n\nLet's proceed to the next part of the tutorial.";
 
 
     }

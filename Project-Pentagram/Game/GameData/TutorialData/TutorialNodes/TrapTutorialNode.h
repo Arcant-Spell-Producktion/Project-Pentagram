@@ -20,10 +20,10 @@ public:
     {
         EnemyHP = 100;
         EnemyMana = 20;
-        TutorialSpells.push_back({ 1,1,1,1,5 });
-        TutorialSpells.push_back({ 1,1,1,1,5 });
-        TutorialSpells.push_back({ 1,1,1,1,5 });
-        TutorialSpells.push_back({ 1,1,1,1,5 });
+        TutorialSpells.push_back({ 1,1,1,1,6 });
+        TutorialSpells.push_back({ 1,1,1,1,6 });
+        TutorialSpells.push_back({ 1,1,1,1,6 });
+        TutorialSpells.push_back({ 1,1,1,1,6 });
 
 
         m_TutorialPlayerData = new PlayerData(
@@ -49,23 +49,19 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, false });
-        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, false });
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell \nthat may take more than one turn \nto cast or have a lasting effect \nin that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells again.\n\nChanneling is a type of spell that may take \nmore than one turn to cast or have a lasting effect \nin that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling.\n\nThis one is Trap. \nThe trap type will do nothing until the enemy casts a spell."
+            "There are multiple types of channeling.\n\nThis one is Trap. \nThe trap type will do nothing until the enemy casts a spell \nduring it's activation."
         );
 
 
-
-        m_TutorialEvents.AddStep("The trap will also perform some special effects\nwhen activates.");
-
         m_TutorialEvents.AddStep(
-            "Lets try casting a trap spell to defend against an enemy spell."
+            "Let's try casting a single trap spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -74,7 +70,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "And that is how the channeling spell trap works. \n\nLets proceed to the next part of the tutorial.";
+        CompleteText = "And that is how the channeling spell trap works. \n\nLet's proceed to the next part of the tutorial.";
         RetryText = "Try casting Earth Prison (Circle 2 Complexity 3).\n\nIt can cancel out all of the spells in that time track.\n\nPress R to restart";
 
 

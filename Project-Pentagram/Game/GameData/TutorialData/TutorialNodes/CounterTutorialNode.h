@@ -20,7 +20,7 @@ public:
     {
         EnemyHP = 100;
         EnemyMana = 20;
-        TutorialSpells.push_back({ 1,3,1,1,7 });
+        TutorialSpells.push_back({ 1,3,1,1,4 });
 
 
         m_TutorialPlayerData = new PlayerData(
@@ -46,23 +46,19 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, false });
-        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, false });
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell \nthat may take more than one turn \nto cast or have a lasting effect \nin that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells again.\n\nChanneling is a type of spell that may take \nmore than one turn to cast or have a lasting effect \nin that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling.\n\nThis one is Counter.\nCounter type when cast will do nothing \nuntil the enemy casts a spell that targets you."
+            "There are multiple types of channeling.\n\nThis one is Counter.\nCounter type when cast will do nothing \nuntil the enemy casts a spell that \ntargets you during activation."
         );
 
 
-
-        m_TutorialEvents.AddStep("The counter will activate and activate \nsome special effects.");
-
         m_TutorialEvents.AddStep(
-            "Lets try casting a counter spell \nto defend against an enemy spell."
+            "Let's try casting a single counter spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -71,7 +67,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "And that how the channeling spell Counter work.\n\nLets proceed to the next part of the tutorial.";
+        CompleteText = "And that how the channeling spell Counter work.\n\nLet's proceed to the next part of the tutorial.";
         RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can cancel a spell that targets you \nin the time track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
 
 

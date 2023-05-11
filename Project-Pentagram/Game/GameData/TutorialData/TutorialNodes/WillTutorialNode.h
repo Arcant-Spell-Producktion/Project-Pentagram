@@ -47,7 +47,7 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict"
+            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(
@@ -60,7 +60,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Try defeating this enemy by \nadding more WILL into this fireball.\n\n(Press ALT to inspect the spell info.)");
+        m_TutorialEvents.AddStep("Try defeating this enemy with a single spell by \nadding more WILL into this fireball.\n\n(Press ALT to inspect the spell info.)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
@@ -69,7 +69,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "That is the basics of WILL,\nlet's proceed to the next part of the tutorial.";
+        CompleteText = "That is the basics of WILL\n\nlet's proceed to the next part of the tutorial.";
         RetryText = "It is too weak, try again with more WILL this time.\n\nPress R to restart";
 
 
