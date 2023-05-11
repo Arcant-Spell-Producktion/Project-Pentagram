@@ -9,23 +9,23 @@
 
 void StandByTestState::OnBattleStateIn()
 {
-    BattleManager* battleManager = BattleManager::GetInstance();
-    for (auto caster : battleManager->Data.Casters)
+    BattleManager& battleManager = BattleManager::GetInstance();
+    for (auto caster : battleManager.Data.Casters)
     {
         caster->SetState(CasterState::Idle);
         caster->UpdateCasterUI();
         caster->GetCasterUI()->SetWheelActive(false);
     }
 
-    CasterController* playerC = battleManager->Data.GetCaster(CasterPosition::CasterA);
+    CasterController* playerC = battleManager.Data.GetCaster(CasterPosition::CasterA);
     playerC->SetHp(999);
     playerC->SetMana(20);
 
-    CasterController* enemy = battleManager->Data.GetCaster(CasterPosition::CasterB);
+    CasterController* enemy = battleManager.Data.GetCaster(CasterPosition::CasterB);
     enemy->SetHp(999);
     enemy->SetMana(1);
 
-    BattleManager::GetInstance()->SetBattleState(BattleState::CastState);
+    BattleManager::GetInstance().SetBattleState(BattleState::CastState);
 }
 
 void StandByTestState::OnBattleStateUpdate(float dt)

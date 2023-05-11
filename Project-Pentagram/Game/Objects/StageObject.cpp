@@ -17,7 +17,7 @@ const std::string floorPath[] =
     "Sprites/Stage/Wind/stage_wind_floor.png"
 };
 
-StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateController::GetInstance()->currentScene), GameObject("Stage")
+StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateController::GetInstance().currentScene), GameObject("Stage")
 {
     this->color.a = 0.0f;
 

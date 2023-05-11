@@ -57,7 +57,7 @@ void WindSpell1::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
@@ -91,7 +91,7 @@ void WindSpell2::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
         [this](float dt)
@@ -127,7 +127,7 @@ void WindSpell3::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueUpdateFunction(
         [this](float dt)
@@ -160,7 +160,7 @@ void WindSpell4::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
@@ -203,7 +203,7 @@ void WindSpell5::Initialize()
     windProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
-    m_LeafParticle = GameStateController::GetInstance()->currentScene->CreateParticle(windProp);
+    m_LeafParticle = GameStateController::GetInstance().currentScene->CreateParticle(windProp);
     m_LeafParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind5_particle.png");
     m_LeafParticle->SetIsAnimationObject(true);
     m_LeafParticle->SetIsFixRotation(true);
@@ -212,7 +212,7 @@ void WindSpell5::Initialize()
 
     this->SetChildRenderFront(m_LeafParticle);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueWaitEvent(2.5f);
@@ -232,7 +232,7 @@ void WindSpell5::Initialize()
 
 void WindSpell6::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     std::cout << "WindTundra::Init\n";
     float size = 500.0f;
@@ -245,7 +245,7 @@ void WindSpell6::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueUpdateFunction(
         [this, scene](float dt)
         {
@@ -267,7 +267,7 @@ void WindSpell6::Initialize()
 
 void WindSpell7::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     std::cout << "WindFairy::Init\n";
     float size = 600.0f;
@@ -280,7 +280,7 @@ void WindSpell7::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(false);
 
     QueueWaitTriggerEvent();
@@ -310,7 +310,7 @@ void WindSpell7::Initialize()
 
 void WindSpell8::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     std::cout << "WindDragon::Init\n";
     float sizeX = 1750.0f;
@@ -325,7 +325,7 @@ void WindSpell8::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitTillFrameEvent(false);
 
@@ -359,7 +359,7 @@ void WindSpell9::Initialize()
 {
     std::cout << "WindChaos::Init\n";
     
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     this->color.a = 0.0f;
 
@@ -385,7 +385,7 @@ void WindSpell9::Initialize()
     particleProp.lifeTime = 1.5f;
 
     particleProp.sizeBegin = particleProp.sizeEnd = 150.0f;
-    m_WindParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    m_WindParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
     if (m_SpellTarget == -1)
     {
         m_WindParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind9_particle.png");
@@ -402,7 +402,7 @@ void WindSpell9::Initialize()
     particleProp.rotation = m_SpellTarget == -1 ? -135.0f : -45.0f;
     particleProp.sizeBegin = particleProp.sizeEnd = 90.0f;
     //m_LeafParticle.sizeVariation = 5.0f;
-    m_LeafParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    m_LeafParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
     m_LeafParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind5_particle.png");
     m_LeafParticle->SetIsAnimationObject(true);
     m_LeafParticle->SetIsFixRotation(true);
@@ -411,7 +411,7 @@ void WindSpell9::Initialize()
 
     particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     particleProp.sizeBegin = particleProp.sizeEnd = 250.0f;
-    m_FireParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    m_FireParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
     m_FireParticle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
     m_FireParticle->SetIsAnimationObject(true);
     m_FireParticle->SetIsFixRotation(true);
@@ -419,7 +419,7 @@ void WindSpell9::Initialize()
     m_FireParticle->SetSpawnTime(99);
 
     particleProp.sizeBegin = particleProp.sizeEnd = 75.0f;
-    m_WaterParticle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    m_WaterParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
     m_WaterParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
     m_WaterParticle->SetIsAnimationObject(true);
     m_WaterParticle->SetIsFixRotation(true);
@@ -431,7 +431,7 @@ void WindSpell9::Initialize()
     this->SetChildRenderBack(m_WaterParticle);
     this->SetChildRenderBack(m_LeafParticle);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
 
     QueueWaitEvent(1.0f);
 

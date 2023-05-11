@@ -15,51 +15,51 @@
 
 void SetupBattleState::OnBattleStateIn()
 {
-    BattleManager* bm = BattleManager::GetInstance();
-    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-    NodeData* currentNode = gameData->Map->GetNextNode();
+    BattleManager& bm = BattleManager::GetInstance();
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+    NodeData* currentNode = gameData.Map->GetNextNode();
     std::cout << "DEBUG ENEMY ELEMENT: " << (int)currentNode->GetEnemyData().Element() << "\n";
 
-    bm->Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance()->Player)));
+    bm.Data.AddCaster(new PlayerController(*(RuntimeGameData::GetInstance().Player)));
 
     if (currentNode->GetEnemyData().EnemyType() == CasterType::BigBoss)
     {
-        bm->Data.AddCaster(new BossController(currentNode->GetEnemyData()));
+        bm.Data.AddCaster(new BossController(currentNode->GetEnemyData()));
     }
     else
     {
-        bm->Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
+        bm.Data.AddCaster(new EnemyController( currentNode->GetEnemyData()));
     }
 
-    AudioController* audioController = AudioController::GetInstance();
+    AudioController& audioController = AudioController::GetInstance();
     BGMController* bgm = nullptr;
 
     switch(currentNode->GetEnemyData().Element())
     {
     case Element::Earth:
-        bgm = audioController->CreateBGM({ "Audio/BGM/Earth/bgm_earth_1-1.wav", "Audio/BGM/Earth/bgm_earth_1-2.wav","Audio/BGM/Earth/bgm_earth_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Earth/bgm_earth_1-1.wav", "Audio/BGM/Earth/bgm_earth_1-2.wav","Audio/BGM/Earth/bgm_earth_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
     case Element::Fire:
-        bgm = audioController->CreateBGM({ "Audio/BGM/Fire/bgm_fire_1-1.wav", "Audio/BGM/Fire/bgm_fire_1-2.wav","Audio/BGM/Fire/bgm_fire_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Fire/bgm_fire_1-1.wav", "Audio/BGM/Fire/bgm_fire_1-2.wav","Audio/BGM/Fire/bgm_fire_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
     case Element::Water:
-        bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
     case Element::Wind:
-        bgm = audioController->CreateBGM({ "Audio/BGM/Wind/bgm_wind_sub.wav"}, { 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Wind/bgm_wind_sub.wav"}, { 1.0f });
         break;
     /*
     case Element::Corrupt:
         break;
     */
      default:
-         bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+         bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
     }
 
     bgm->Play();
 
-    for (auto caster : bm->Data.Casters)
+    for (auto caster : bm.Data.Casters)
     {
         caster->UpdateCasterUI();
     }

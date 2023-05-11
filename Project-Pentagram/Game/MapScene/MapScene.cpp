@@ -30,7 +30,7 @@ void MapScene::GameSceneInit()
 {
 	std::cout << "Map Scene : Initialize Completed\n";
 
-    RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
 
     auto MapBGObject = CreateGameObject("MapBG");
     MapBGObject->SetTexture("Sprites/Map/map.png");
@@ -40,7 +40,7 @@ void MapScene::GameSceneInit()
 	m_Character->scale = { 200.0f, 200.0f, 1.0f };
 	m_Character->SetIsAnimationObject(true);
 	m_Character->SetIsAnimationLoop(true);
-	switch (gameData->Player->Element())
+	switch (gameData.Player->Element())
 	{
 		case Element::Earth:
 			m_Character->SetTexture("Sprites/Character/Player/character_player_earth.png");
@@ -67,13 +67,13 @@ void MapScene::GameSceneInit()
     {
         Element::Type e = static_cast<Element::Type>(i);
         MapNode* node = CreateObject(new MapNode(e));
-        node->SetActive(gameData->Map->CanVisitChapter(e));
+        node->SetActive(gameData.Map->CanVisitChapter(e));
 
-        node->onClick.AddListener([this, e, gameData, mapInfoUI](Button* button)
+        node->onClick.AddListener([this, e, &gameData, mapInfoUI](Button* button)
             {
 				mapInfoUI->SetMapInfo(e);
 
-				mapInfoUI->m_MapEnterButton->onClick = ([this, e, gameData, button](Button* _button)
+				mapInfoUI->m_MapEnterButton->onClick = ([this, e, &gameData, button](Button* _button)
 					{
 						// TEMP
 						button->SetActive(false);
@@ -81,7 +81,7 @@ void MapScene::GameSceneInit()
 						m_MoveCharacter = true;
 						m_StartPoint = m_Character->position;
 						m_Destination = button->position;
-						gameData->Map->SelectChapter(e);
+						gameData.Map->SelectChapter(e);
 						FadeOut(4.0f, GameState::GS_BATTLE_SCENE);
 					});
             });
@@ -120,8 +120,8 @@ void MapScene::GameSceneInit()
     m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
     m_FadeScreen->SetActive(false);
 
-    gameData->Map->IsAtMap = true;
-    gameData->SaveGameData();
+    gameData.Map->IsAtMap = true;
+    gameData.SaveGameData();
 }
 
 void MapScene::GameSceneUpdate(float dt)

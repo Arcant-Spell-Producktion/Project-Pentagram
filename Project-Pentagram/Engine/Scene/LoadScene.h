@@ -21,8 +21,8 @@ class LoadScene : public GameScene
 		std::atomic<int> m_IsLoadDone = 0;
 		int temp = 0;
 	public:
-		void GameSceneLoadUtilityResource(EngineDataCollector* engineDataCollector);
-		void GameSceneLoadTextureResource(EngineDataCollector* engineDataCollector, const std::string& filePath);
+		void GameSceneLoadUtilityResource(EngineDataCollector& engineDataCollector);
+		void GameSceneLoadTextureResource(EngineDataCollector& engineDataCollector, const std::string& filePath);
 
 		virtual void GameSceneLoad() override;
 		virtual void GameSceneInit() override;

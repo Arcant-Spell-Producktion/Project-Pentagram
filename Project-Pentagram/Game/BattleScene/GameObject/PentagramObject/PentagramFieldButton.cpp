@@ -98,7 +98,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     {
         if (m_buttonState == ButtonState::Idle)
         {
-            AudioController::GetInstance()->PlaySFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav", 0.5f);
+            AudioController::GetInstance().PlaySFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav", 0.5f);
         }
     };
 
@@ -113,7 +113,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
     this->unBeginHover = [this](Button* button)
     {
-        AudioController::GetInstance()->StopSFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav");
+        AudioController::GetInstance().StopSFXLoop("Audio/SFX/UI/Game/sfx_ui_game_pentagramcrystal_button_hover_loop.wav");
     };
 
     this->unHover = [this](Button* button)
@@ -125,7 +125,7 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
         }
     };
 
-    auto GameObjManager = GameStateController::GetInstance()->currentScene;
+    auto GameObjManager = GameStateController::GetInstance().currentScene;
 
     int fieldIndex = (int)m_SelectedField + 1;
     int elementIndex = (int)m_CurrentElement + 1;

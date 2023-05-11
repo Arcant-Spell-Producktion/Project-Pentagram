@@ -6,7 +6,7 @@ const std::string iconPath = "Sprites/UI/Game/ui_game_spell-icons.png";
 const std::string iconVariationPath = "Sprites/UI/Game/ui_game_spell-icon_variation.png";
 const std::string iconBorderPath = "Sprites/UI/Game/ui_game_spell-icon_border.png";
 
-SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(GameStateController::GetInstance()->currentScene), Button(objName)
+SpellIconUI::SpellIconUI(std::string objName, float _scale) :m_ObjectManager(GameStateController::GetInstance().currentScene), Button(objName)
 {
     m_IconSize = _scale;
     m_BorderSize = m_IconSize / 100.0f * 114.0f;
@@ -150,7 +150,7 @@ void SpellIconUI::UpdateIcon()
     SetTransparency(m_isPreview || SpellDetail->isCasted);
     if (m_isPentagramIcon)
     {
-        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, true);;
+        BattleManager::GetInstance().UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, true);;
 
     }
 }
@@ -159,14 +159,14 @@ void SpellIconUI::HoldDetailBox()
 {
     if (SpellDetail != nullptr)
     {
-        BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, false, this->GetWorldPosition());
+        BattleManager::GetInstance().UpdateDisplaySpellDetail(SpellDetail->SpellOwner, SpellDetail, false, this->GetWorldPosition());
 
     }
 }
 
 void SpellIconUI::ReleaseDetailBox()
 {
-    BattleManager::GetInstance()->UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
+    BattleManager::GetInstance().UpdateDisplaySpellDetail(SpellDetail->SpellOwner, nullptr, false, this->GetWorldPosition());
 
 }
 

@@ -80,7 +80,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 	CalculateGlyphText(end);
 
 	// Activate corresponding render state
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->TextShader;
+	Shader& shader = EngineDataCollector::GetInstance().GetShaderCollector()->TextShader;
 	shader.Activate();
 
 	// Update MVP Matrix
@@ -95,7 +95,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 	}
 
 	// Set Uniform in shader
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 
 	shader.setMat4("u_View", glm::mat4(1.0f));
 	shader.setMat4("u_Projection", camera.GetProjectionMatrix(m_IsZoomObject));
@@ -108,7 +108,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 	float y = this->position.y;
 	float lineSpace = BASE_FONT_SIZE * m_FontScale * this->lineSpacing;
 	int countLine = 0;
-	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
+	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance().GetFontCollector()->GetFonts(m_Fonts);
 	// Iterate through all characters
 	for (unsigned int idx = start; idx < end; idx++)
 	{
@@ -175,7 +175,7 @@ void TextObject::CalculateGlyphText(const int& endIndex)
 
 	float curTextSumX = 0.0f;
 	int countLine = 0;
-	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance()->GetFontCollector()->GetFonts(m_Fonts);
+	std::map<GLchar, Character>* characters = EngineDataCollector::GetInstance().GetFontCollector()->GetFonts(m_Fonts);
 	// Pre-Calculated for justify text alignment
 	for (unsigned int idx = 0; idx < endIndex; idx++)
 	{

@@ -3,7 +3,7 @@
 
 CasterUIController::CasterUIController(CasterPosition position)
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     int pos = (int)position - 1;
     m_StatUI = scene->CreateObject(new CasterDetailUI(pos));
     m_DetailBox = scene->CreateObject(new SpellDetailUI(pos));

@@ -55,7 +55,7 @@ void WaterSpell1::Initialize()
     this->position = startPos;
     this->SetIsAnimationObject(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -81,7 +81,7 @@ void WaterSpell2::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_aquaflurry.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_aquaflurry.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(timePerFrame);
     QueueMoveEvent(startPos, endPos, travelTime);
@@ -106,7 +106,7 @@ void WaterSpell4::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_repelwave.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_repelwave.wav", 1.0f);
     QueueUpdateFunction(
         [this, yPos](float dt)
         {
@@ -124,7 +124,7 @@ void WaterSpell4::Initialize()
                 }
                 else
                 {
-                    auto scene = GameStateController::GetInstance()->currentScene;
+                    auto scene = GameStateController::GetInstance().currentScene;
                     scene->GetCamera()->Shake(0.5f, 8, { 50.0f,0.0f });
                     x_index = 2;
                     this->scale.x *= -1;
@@ -178,7 +178,7 @@ void WaterSpell3::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_angeltear.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_angeltear.wav", 1.0f);
 
     QueueWaitTillFrameEvent();
 
@@ -202,7 +202,7 @@ void WaterSpell5::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     
     QueueHitEvent();
@@ -224,7 +224,7 @@ void WaterSpell6::Initialize()
     this->color.a = 0.0f;
     this->SetIsAnimationObject(false);
 
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     for (size_t i = 0; i < 4; i++)
     {
         auto _section = scene->CreateGameObject("WaterBeam"+i);
@@ -241,7 +241,7 @@ void WaterSpell6::Initialize()
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueUpdateFunction(
         [this](float dt)
         {
@@ -284,7 +284,7 @@ void WaterSpell7::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueMoveEvent(startPos, endPos, travelTime);
@@ -310,7 +310,7 @@ void WaterSpell8::Initialize()
     windProp.velocityVariation = {100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
-    m_WindParticle = GameStateController::GetInstance()->currentScene->CreateParticle(windProp);
+    m_WindParticle = GameStateController::GetInstance().currentScene->CreateParticle(windProp);
     m_WindParticle->SetTexture("Sprites/Spell/Water/spell_water_8-2.png");
     m_WindParticle->SetIsAnimationObject(true);
     m_WindParticle->SetIsFixRotation(true);
@@ -319,7 +319,7 @@ void WaterSpell8::Initialize()
 
     this->SetChildRenderFront(m_WindParticle);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueWaitEvent(1.5f);
 
     QueueUpdateFunction(
@@ -337,7 +337,7 @@ void WaterSpell8::Initialize()
             hailProp.velocityVariation = { 100.0f, 100.0f };
             hailProp.lifeTime = 1.5f;
 
-            m_HailParticle = GameStateController::GetInstance()->currentScene->CreateParticle(hailProp);
+            m_HailParticle = GameStateController::GetInstance().currentScene->CreateParticle(hailProp);
             m_HailParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
             m_HailParticle->SetIsAnimationObject(true);
             m_HailParticle->SetIsFixRotation(true);
@@ -367,7 +367,7 @@ void WaterSpell8::Initialize()
 
 void WaterSpell9::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     float size = 1920.0f;
     float speed = 2.0f;
@@ -397,7 +397,7 @@ void WaterSpell9::Initialize()
 
     int lastBubbleFrame = _bubbleObj->GetAnimationColumn(_bubbleObj->GetCurrentAnimationRow() - 1);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
     QueueUpdateFunction(
         [this, _bubbleObj, lastBubbleFrame](float dt)
         {

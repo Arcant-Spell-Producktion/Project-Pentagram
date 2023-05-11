@@ -57,7 +57,7 @@ class BGMAudio
 class BGMController
 {
 	private:
-		AudioEngine* audioEngine = AudioEngine::GetInstance();
+		AudioEngine& audioEngine = AudioEngine::GetInstance();
 
 		float m_BGMLocalVolume = 0.0f;
 		bool m_IsStartPlay = false;
@@ -90,13 +90,13 @@ class BGMController
 
 			for (int idx = 0; idx < m_BGMSourceList.size(); idx++)
 			{
-				const float masterVolume = audioEngine->GetMasterVolume();
-				const float bgmVolume = audioEngine->GetBGMVolume();
+				const float masterVolume = audioEngine.GetMasterVolume();
+				const float bgmVolume = audioEngine.GetBGMVolume();
 
 				AudioSource*& curAudioSource = m_BGMSourceList[idx];
 				curAudioSource->setDefaultVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
 
-				Audio* audio = audioEngine->GetEngine()->play2D(curAudioSource, true, false, true, true);
+				Audio* audio = audioEngine.GetEngine()->play2D(curAudioSource, true, false, true, true);
 				
 				m_BGMAudioList.push_back(new BGMAudio(audio));
 			}
@@ -107,8 +107,8 @@ class BGMController
 		}
 		void OnUpdateVolume()
 		{
-			const float masterVolume = audioEngine->GetMasterVolume();
-			const float bgmVolume = audioEngine->GetBGMVolume();
+			const float masterVolume = audioEngine.GetMasterVolume();
+			const float bgmVolume = audioEngine.GetBGMVolume();
 
 			for (int idx = 0; idx < m_BGMSourceList.size(); idx++)
 			{
@@ -132,7 +132,7 @@ class BGMController
 class AudioController : public Singleton<AudioController>
 {
 	private:
-		AudioEngine* audioEngine = AudioEngine::GetInstance();
+		AudioEngine& audioEngine = AudioEngine::GetInstance();
 		BGMController* m_PrevBGMController = nullptr;
 		BGMController* m_BGMController = nullptr;
 		std::map<std::string, Audio*> LoopSFX;

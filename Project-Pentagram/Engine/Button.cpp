@@ -30,7 +30,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 		return;
 	}
 
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->UISlicingShader;
+	Shader& shader = EngineDataCollector::GetInstance().GetShaderCollector()->UISlicingShader;
 
 	glm::mat4 model = parentModel;
 
@@ -45,7 +45,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	// !!Not Set scale to child -> Messy to encounter with
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);

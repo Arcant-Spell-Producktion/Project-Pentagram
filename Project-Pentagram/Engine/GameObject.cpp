@@ -17,7 +17,7 @@ GameObject::GameObject(const std::string& objName)
 	// Set Color
 	this->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
-	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
+	Texture* texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture("Sprites/default.png");
 
 	// Set Row & Coloumn of SpriteSheet
 	this->m_AnimationRow = texture->GetImageRow();
@@ -61,7 +61,7 @@ GameObject::GameObject(const std::string& objName, const int& animRow, const std
 	this->m_IsAnimationLoop = true;
 
 	// Set Texture
-	this->m_Texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture("Sprites/default.png");
+	this->m_Texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture("Sprites/default.png");
 }
 GameObject::~GameObject()
 {
@@ -81,7 +81,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	}
 
 	// Get GameObject Shader
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
+	Shader& shader = EngineDataCollector::GetInstance().GetShaderCollector()->GameObjectShader;
 
 	// Update MVP Matrix
 	glm::mat4 model = parentModel;
@@ -97,7 +97,7 @@ void GameObject::Draw(Camera& camera, glm::mat4 parentModel)
 	// !!Not Set scale to child -> Messy to encounter with
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 
 	shader.Activate();
 	if (m_IsSpriteSheet)
@@ -359,7 +359,7 @@ void GameObject::SetAnimationPlayTime(const float& animationPlayTime)
 }
 void GameObject::SetTexture(const std::string& filePath)
 {
-	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
+	Texture* texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture(filePath);
 	
 	this->m_Texture = texture;
 	// Set Row & Coloumn of SpriteSheet

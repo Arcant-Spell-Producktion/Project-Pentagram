@@ -11,7 +11,7 @@ void PlayerData::SetPlayerLevel(int level)
 {
     m_Level = level;
     if (m_Level > 2) m_Level = 2;
-    m_Stat = CasterStatDatabase::GetInstance()->GetStat(m_Element, CasterType::Player, level);
+    m_Stat = CasterStatDatabase::GetInstance().GetStat(m_Element, CasterType::Player, level);
 }
 
 PlayerSaveData PlayerData::SavePlayerData()

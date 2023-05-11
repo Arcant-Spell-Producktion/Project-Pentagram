@@ -14,7 +14,7 @@ PauseMenuObject* tur_pauseMenuObject;
 void TutorialScene::GameSceneLoad()
 {
     tur_track_t = 0.0f;
-    tutorialManager = BattleManager::GetInstance();
+    tutorialManager = &BattleManager::GetInstance();
     std::cout << "Tutorial Scene : Load Completed\n";
 }
 

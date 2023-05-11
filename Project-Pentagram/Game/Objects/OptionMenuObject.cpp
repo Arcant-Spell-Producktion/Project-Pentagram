@@ -20,12 +20,12 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::MASTER]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::MASTER]->onValueChanged = [](Slider* slider)
 		{
-			AudioEngine::GetInstance()->SetMasterVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdateVolume();
+			AudioEngine::GetInstance().SetMasterVolume(slider->GetValue());
+			AudioController::GetInstance().OnUpdateVolume();
 			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::MASTER]->position = { 150.0f, 150.0f, 0.0f };
-		VolumeSlider[VolumeType::MASTER]->SetValue(AudioEngine::GetInstance()->GetMasterVolume());
+		VolumeSlider[VolumeType::MASTER]->SetValue(AudioEngine::GetInstance().GetMasterVolume());
 		VolumeSlider[VolumeType::MASTER]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
 		VolumeSlider[VolumeType::MASTER]->GetSliderButton()->SetIsSlicing(false);
 		VolumeSlider[VolumeType::MASTER]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
@@ -44,12 +44,12 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::BGM]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::BGM]->onValueChanged = [](Slider* slider)
 		{
-			AudioEngine::GetInstance()->SetBGMVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdateVolume();
+			AudioEngine::GetInstance().SetBGMVolume(slider->GetValue());
+			AudioController::GetInstance().OnUpdateVolume();
 			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::BGM]->position = { 150.0f, 50.0f, 0.0f };
-		VolumeSlider[VolumeType::BGM]->SetValue(AudioEngine::GetInstance()->GetBGMVolume());
+		VolumeSlider[VolumeType::BGM]->SetValue(AudioEngine::GetInstance().GetBGMVolume());
 		VolumeSlider[VolumeType::BGM]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
 		VolumeSlider[VolumeType::BGM]->GetSliderButton()->SetIsSlicing(false);
 		VolumeSlider[VolumeType::BGM]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
@@ -68,12 +68,12 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeSlider[VolumeType::SFX]->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_inactive.png");
 		VolumeSlider[VolumeType::SFX]->onValueChanged = [](Slider* slider)
 		{
-			AudioEngine::GetInstance()->SetSFXVolume(slider->GetValue());
-			AudioController::GetInstance()->OnUpdateVolume();
+			AudioEngine::GetInstance().SetSFXVolume(slider->GetValue());
+			AudioController::GetInstance().OnUpdateVolume();
 			slider->GetForegroundUI()->SetClipPercentage(slider->GetValue());
 		};
 		VolumeSlider[VolumeType::SFX]->position = { 150.0f, -50.0f, 0.0f };
-		VolumeSlider[VolumeType::SFX]->SetValue(AudioEngine::GetInstance()->GetSFXVolume());
+		VolumeSlider[VolumeType::SFX]->SetValue(AudioEngine::GetInstance().GetSFXVolume());
 		VolumeSlider[VolumeType::SFX]->GetSliderButton()->SetTexture("Sprites/UI/Interactable/Slider/handle/ui_interactable_slider_handle_default.png");
 		VolumeSlider[VolumeType::SFX]->GetSliderButton()->SetIsSlicing(false);
 		VolumeSlider[VolumeType::SFX]->GetForegroundUI()->SetTexture("Sprites/UI/Interactable/Slider/bar/ui_interactable_slider_bar_active.png");
@@ -88,7 +88,7 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 	#pragma endregion
 
 	#pragma region Window_Setting_UI
-		Window* window = ArcantEngine::GetInstance()->GetWindow();
+		Window* window = ArcantEngine::GetInstance().GetWindow();
 
 		windowSettingText = new TextObject("WindowSettingText");
 		windowSettingText->position = { -450.0f, -150.0f, 0.0f };

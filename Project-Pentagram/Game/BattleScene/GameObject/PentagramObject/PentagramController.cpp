@@ -5,9 +5,9 @@
 
 void CastSpell()
 {
-    auto bm = BattleManager::GetInstance();
-    CastSpellDetail* spell = bm->Data.GetCurrentCaster()->CastSpell();
-    bm->SwapCaster();
+    BattleManager& bm = BattleManager::GetInstance();
+    CastSpellDetail* spell = bm.Data.GetCurrentCaster()->CastSpell();
+    bm.SwapCaster();
 }
 
 int& PentragramController::FieldData(PentagramField field)
@@ -58,7 +58,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_CastButton->position = { -180.0f, -440.0f - PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
     m_CastButton->onClick = [](Button* button)
     {
-        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_invoke_button_press.wav", 1.0f);
+        AudioController::GetInstance().PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_invoke_button_press.wav", 1.0f);
         CastSpell();
     };
 
@@ -66,9 +66,9 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PassButton->position = { 180.0f, -440.0f - PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
     m_PassButton->onClick = [](Button* button)
     {
-        auto bm = BattleManager::GetInstance();
-        bm->Data.GetCurrentCaster()->EndTurn(true);
-        bm->SwapCaster();
+        BattleManager& bm = BattleManager::GetInstance();
+        bm.Data.GetCurrentCaster()->EndTurn(true);
+        bm.SwapCaster();
     };
 
     m_PentragramCircle->SetChildRenderBack(m_CastButton);
@@ -91,7 +91,7 @@ void PentragramController::SetPentagramData(PentagramData_T data)
 
     m_SpellIcon->ToggleIsPentagramIcon(true);
     m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
-    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
+    BattleManager::GetInstance().Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     SetPentagramField(PentagramField::Time);
 
@@ -156,7 +156,7 @@ void PentragramController::SetPentagramValue(int value)
 
     m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
 
-    BattleManager::GetInstance()->Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
+    BattleManager::GetInstance().Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldValue(m_currentField));
 

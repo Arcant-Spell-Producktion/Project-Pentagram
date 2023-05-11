@@ -2,23 +2,23 @@
 
 void AudioController::PlaySFX(const std::string& filePath, const float& volume)
 {
-	AudioSource* sfxSource = audioEngine->findSFXAudioSource(filePath);
-	const float masterVolume = audioEngine->GetMasterVolume();
-	const float sfxVolume = audioEngine->GetSFXVolume();
+	AudioSource* sfxSource = audioEngine.findSFXAudioSource(filePath);
+	const float masterVolume = audioEngine.GetMasterVolume();
+	const float sfxVolume = audioEngine.GetSFXVolume();
 
 	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 	
-	audioEngine->GetEngine()->play2D(sfxSource);
+	audioEngine.GetEngine()->play2D(sfxSource);
 }
 void AudioController::PlaySFXLoop(const std::string& filePath, const float& volume)
 {
-	AudioSource* sfxSource = audioEngine->findSFXAudioSource(filePath);
-	const float masterVolume = audioEngine->GetMasterVolume();
-	const float sfxVolume = audioEngine->GetSFXVolume();
+	AudioSource* sfxSource = audioEngine.findSFXAudioSource(filePath);
+	const float masterVolume = audioEngine.GetMasterVolume();
+	const float sfxVolume = audioEngine.GetSFXVolume();
 
 	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 
-	Audio* curSFX = audioEngine->GetEngine()->play2D(sfxSource, true, false, true, false);
+	Audio* curSFX = audioEngine.GetEngine()->play2D(sfxSource, true, false, true, false);
 	LoopSFX[filePath] = curSFX;
 }
 void AudioController::StopSFXLoop(const std::string& filePath)
@@ -50,7 +50,7 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 	std::vector<AudioSource*> audioList;
 	for (const std::string& filepath : filepathList)
 	{
-		audioList.push_back(audioEngine->findBGMAudioSource(filepath));
+		audioList.push_back(audioEngine.findBGMAudioSource(filepath));
 	}
 
 	m_BGMController = new BGMController(audioList, volumeList, filepathList);

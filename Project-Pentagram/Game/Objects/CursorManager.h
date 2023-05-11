@@ -13,7 +13,7 @@ class CursorManager : public Singleton<CursorManager>
 		float onClickCurrentTime = 0.0f;
 		bool isOnClick = false;
 
-		Window* windowRef = ArcantEngine::GetInstance()->GetWindow();
+		Window* windowRef = ArcantEngine::GetInstance().GetWindow();
 
 		void InitParticle(ParticleSystem*& particle, std::string objName);
 		void UpdateCursorPosition();

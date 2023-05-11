@@ -58,22 +58,22 @@ void ChapterData::CompleteChapter()
 
 void ChapterData::UpdateChapter(int level)
 {
-    CasterStatDatabase* casterDB = CasterStatDatabase::GetInstance();
+    CasterStatDatabase& casterDB = CasterStatDatabase::GetInstance();
 
     if (m_Element == Element::Corrupt)
     {
         NodeData* node = nullptr;
-        CasterStat stat = casterDB->GetStat(m_Element, CasterType::BigBoss, 0);
+        CasterStat stat = casterDB.GetStat(m_Element, CasterType::BigBoss, 0);
         CasterData data(stat, m_Element, CasterPosition::CasterB);
 
-        CasterMoveSet moveE = CasterMoveSetDatabase::GetInstance()->GetMoveSet(Element::Earth, CasterType::BigBoss, level);
+        CasterMoveSet moveE = CasterMoveSetDatabase::GetInstance().GetMoveSet(Element::Earth, CasterType::BigBoss, level);
 
         EnemyData enemy(data, CasterType::BigBoss, moveE);
 
         for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Wind);i++)
         {
             Element::Type e = static_cast<Element::Type>(i);
-            enemy.SetMove(e, CasterMoveSetDatabase::GetInstance()->GetMoveSet(e, CasterType::BigBoss, level));
+            enemy.SetMove(e, CasterMoveSetDatabase::GetInstance().GetMoveSet(e, CasterType::BigBoss, level));
         }
 
         try {
@@ -95,8 +95,8 @@ void ChapterData::UpdateChapter(int level)
         CasterType type = isMinion ? CasterType::Minion : CasterType::Boss;
         int type_level = isMinion ? level * 2 + i : level;
 
-        CasterStat stat = casterDB->GetStat(m_Element, type , type_level);
-        CasterMoveSet moves = CasterMoveSetDatabase::GetInstance()->GetMoveSet(m_Element, type, type_level);
+        CasterStat stat = casterDB.GetStat(m_Element, type , type_level);
+        CasterMoveSet moves = CasterMoveSetDatabase::GetInstance().GetMoveSet(m_Element, type, type_level);
 
         CasterData data(stat,m_Element,CasterPosition::CasterB);
         EnemyData enemy(data, type, moves);

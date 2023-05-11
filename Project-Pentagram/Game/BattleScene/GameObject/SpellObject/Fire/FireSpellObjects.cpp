@@ -58,7 +58,7 @@ void FireSpell1::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -84,7 +84,7 @@ void FireSpell2::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_2.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_2.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -107,7 +107,7 @@ void FireSpell3::Initialize()
     particleProp.velocityVariation = { 50.0f, 50.0f };
     particleProp.lifeTime = 1.5f;
 
-    ParticleSystem* particle = GameStateController::GetInstance()->currentScene->CreateParticle(particleProp);
+    ParticleSystem* particle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
     particle->SetTexture(this->m_TexturePath);
     particle->SetIsAnimationObject(true);
     particle->SetIsFixRotation(true);
@@ -117,7 +117,7 @@ void FireSpell3::Initialize()
 
     this->SetChildRenderFront(particle);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_3.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_3.wav", 1.0f);
     QueueWaitEvent(lifeTime);
 
     QueueHitEvent();
@@ -152,7 +152,7 @@ void FireSpell4::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_4.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_4.wav", 1.0f);
     QueueWaitTillFrameEvent(false,false,7);
 
     QueueHitEvent();
@@ -203,7 +203,7 @@ void FireSpell4::Initialize()
 
 void FireSpell5::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     
     float spawnDelay = 0.15f;
 
@@ -267,7 +267,7 @@ void FireSpell5::Initialize()
         }
     );
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_5.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_5.wav", 1.0f);
     QueueHitEvent();
 
     QueueDoneEvent();
@@ -288,7 +288,7 @@ void FireSpell6::Initialize()
     float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
     
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_6.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_6.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
@@ -300,7 +300,7 @@ void FireSpell6::Initialize()
     QueueUpdateFunction(
         [this, spinTime](float dt)
         {
-            auto scene = GameStateController::GetInstance()->currentScene;
+            auto scene = GameStateController::GetInstance().currentScene;
             scene->GetCamera()->Shake(spinTime, 16, { 50.0f,0.0f });
             this->SetIsAnimationLoop(true);
             this->SetIsAnimationObject(true);
@@ -345,7 +345,7 @@ void FireSpell7::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 0.5f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_7.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_7.wav", 1.0f);
     QueueMoveEvent(startPos, endPos, travelTime);
 
     QueueHitEvent();
@@ -354,7 +354,7 @@ void FireSpell7::Initialize()
     QueueUpdateFunction(
         [this, shakeTime](float dt)
         {
-            auto scene = GameStateController::GetInstance()->currentScene;
+            auto scene = GameStateController::GetInstance().currentScene;
             scene->GetCamera()->Shake(shakeTime, 30, { 300.0f, 100.0f });
             Next();
 
@@ -386,7 +386,7 @@ void FireSpell8::Initialize()
     float distant = glm::distance(startX, endX);
     float travelTime = distant / (distant * speed);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_8.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_8.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(animSpeed);
 
@@ -412,7 +412,7 @@ void FireSpell8::Initialize()
 void FireSpell9::Initialize()
 {
     std::cout << "Hell::Init\n";
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     float size = 2000.0f;
     float speed = 2.0f;
@@ -425,7 +425,7 @@ void FireSpell9::Initialize()
     this->SetAnimationPlayTime(timePerFrame);
     this->SetIsAnimationObject(true);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_9.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_spell_fire_9.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();

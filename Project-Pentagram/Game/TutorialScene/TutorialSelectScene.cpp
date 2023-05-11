@@ -54,7 +54,7 @@ void TutorialSelectScene::GameSceneInit()
 
         selectButton->onClick += [this, i](Button* button)
         {
-            RuntimeGameData::GetInstance()->Tutorial.SelectedTutorial = (static_cast<TutorialType>(i));
+            RuntimeGameData::GetInstance().Tutorial.SelectedTutorial = (static_cast<TutorialType>(i));
             FadeOut(2.0f, GameState::GS_TUTORIAL_SCENE);
         };
 

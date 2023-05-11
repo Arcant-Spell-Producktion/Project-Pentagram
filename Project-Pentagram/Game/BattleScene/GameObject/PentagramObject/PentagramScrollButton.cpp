@@ -55,7 +55,7 @@ PentagramScrollNumberButton::PentagramScrollNumberButton(int value, IGameObjectM
     {
         if (m_buttonState == ButtonState::Hover)
         {
-            AudioController::GetInstance()->PlaySFX(randomTrackSFX, 1.0f);
+            AudioController::GetInstance().PlaySFX(randomTrackSFX, 1.0f);
             OnButtonClicked.Invoke(value);
         }
     };
@@ -90,12 +90,12 @@ PentagramScrollArrowButton::PentagramScrollArrowButton(int value, IGameObjectMan
 {
     this->onBeginHover = [this](Button* button)
     {
-        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_scroll_button_hover.wav", 0.75f);
+        AudioController::GetInstance().PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_scroll_button_hover.wav", 0.75f);
     };
 
     this->onClick = [this, value](Button* button)
     {
-        AudioController::GetInstance()->PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_timeline_button_press.wav", 0.75f);
+        AudioController::GetInstance().PlaySFX("Audio/SFX/UI/Game/sfx_ui_game_timeline_button_press.wav", 0.75f);
         m_curtime = 0;
         SetState(ButtonState::Down);
         OnButtonClicked.Invoke(value);

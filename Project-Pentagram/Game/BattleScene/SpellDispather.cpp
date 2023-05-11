@@ -45,6 +45,6 @@ void SpellDispatcher::DestroySpell(CastSpellDetail* detail)
     }
 }
 
-SpellDispatcher::SpellDispatcher():m_ObjectManager(GameStateController::GetInstance()->currentScene)
+SpellDispatcher::SpellDispatcher():m_ObjectManager(GameStateController::GetInstance().currentScene)
 {
 }
