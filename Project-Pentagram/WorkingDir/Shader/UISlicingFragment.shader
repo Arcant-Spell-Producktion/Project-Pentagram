@@ -13,6 +13,9 @@ uniform vec2 u_SlicingRepeatValue;
 uniform bool u_IsSlicing;
 uniform int u_SlicingType;
 
+uniform bool u_IsClip;
+uniform float u_ClipPercent;
+
 in vec2 TexCoord;
 out vec4 FragColor;
 
@@ -91,7 +94,14 @@ void main()
     }
     else
     {
-        textureResult = texture(u_Texture, TexCoord);
+        if (u_IsClip)
+        {
+            textureResult = texture(u_Texture, vec2(map(TexCoord.x, 0.0f, 1.0f, 0.0f, u_ClipPercent), TexCoord.y));
+        }
+        else
+        {
+            textureResult = texture(u_Texture, TexCoord);
+        }
         // If alpha less than 0.1f => Don't render
         if (textureResult.a <= 0.1f)
         {

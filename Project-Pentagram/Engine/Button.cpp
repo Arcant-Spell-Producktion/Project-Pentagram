@@ -57,6 +57,9 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	shader.setInt("u_Texture", 0);
 	shader.setBool("u_IsSlicing", m_IsSlicing);
 
+	shader.setBool("u_IsClip", m_IsClip);
+	shader.setFloat("u_ClipPercent", m_ClipPercentage);
+
 	// Set Button Slicing
 	if (m_IsSlicing)
 	{
