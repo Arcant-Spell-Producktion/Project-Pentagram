@@ -168,8 +168,8 @@ void ParticleSystem::Emit(const ParticleProperty& particleProperty)
 	particle.sizeEnd = particleProperty.sizeEnd;
 
 
-	particle.curAnimCol = 1;
-	particle.curAnimRow = 1;
+	particle.curAnimCol = m_CurrentAnimationColumn;
+	particle.curAnimRow = m_CurrentAnimationRow;
 
 	particle.animPlayTime = 0.0f;
 

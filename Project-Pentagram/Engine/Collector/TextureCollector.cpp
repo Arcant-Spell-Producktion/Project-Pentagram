@@ -22,6 +22,7 @@ void TextureCollector::PreLoadResource()
 		}
 	}
 	LoadFile("Sprites/PreLoad");
+	LoadFile("Sprites/Particle");
 }
 
 Texture* TextureCollector::GetTexture(const std::string& filePath)
