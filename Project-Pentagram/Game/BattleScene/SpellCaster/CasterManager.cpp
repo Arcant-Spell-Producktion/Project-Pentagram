@@ -42,7 +42,7 @@ int CasterManager::GetSpellCost()
 {
     int sum = 1;//All spell start with value 1
 
-    for (int i = static_cast<int>(PentagramField::Time); i < static_cast<int>(PentagramField::Effect); i++)
+    for (int i = static_cast<int>(PentagramField::Time); i <= static_cast<int>(PentagramField::Effect); i++)
     {
         sum += GetFieldCost(static_cast<PentagramField>(i));
     }

@@ -46,14 +46,17 @@ void MenuScene::GameSceneInit()
     {
         RuntimeGameData* gameData = RuntimeGameData::GetInstance();
 
-        if (gameData->LoadGameData())
-        {
-            FadeOut(2.0f, GameState::GS_BATTLE_SCENE);
-        }
-        else
-        {
-            FadeOut(2.0f, GameState::GS_CHARACTER_SCENE);
-        }
+    GameState nextState = GameState::GS_CHARACTER_SCENE;
+
+    if (gameData->LoadGameData())
+    {
+        nextState = gameData->Map->IsAtMap ?
+            GameState::GS_MAP_SCENE :
+            GameState::GS_BATTLE_SCENE;
+    }
+    FadeOut(2.0f, nextState);
+
+
     });
 
 	// Play Button
