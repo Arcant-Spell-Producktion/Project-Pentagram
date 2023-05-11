@@ -11,6 +11,8 @@ void CastTutorialState::EnemyCastUpdate(float dt)
 
     currentController->EndTurn(true);
     battleManager->SwapCaster();
+    currentController->EndTurn(true);
+    battleManager->SwapCaster();
 }
 
 void CastTutorialState::PlayerCastUpdate(float dt)
