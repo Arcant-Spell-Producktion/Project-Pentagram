@@ -36,7 +36,7 @@ public:
         PlayerMana = 2;
         PlayerManaWheel = 5;
 
-        m_TutorialEvents.AddStep("Objective:\nSurvive");
+        m_TutorialEvents.AddStep("Tutorial topic: Channeling - Counter\n\nObjective:\nSurvive an attack from the enemy");
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
@@ -50,19 +50,19 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Counter is 1...."
+            "In this tutorial, we are going to talk about channeling spells.\n\nChanneling is a type of spell that may take more than one turn to cast or have a lasting effect in that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "Counter is 2...."
+            "There are multiple types of channeling.\n\nThis one is Counter. Counter type when cast will do nothing until the enemy casts a spell that targets you."
         );
 
 
 
-        m_TutorialEvents.AddStep("Press ALT to toggle spell info\n");
+        m_TutorialEvents.AddStep("The counter will activate and activate some special effects.");
 
         m_TutorialEvents.AddStep(
-            "Try to cancel all enemy spell with Counter Spell"
+            "Let's try casting a counter spell to defend against an enemy spell."
         );
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -71,8 +71,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "???";
-        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1)";
+        CompleteText = "And that how the channeling spell Counter work.\n\nLet’s proceed to the next part of the tutorial.";
+        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can cancel a spell that targets you in the time track and reflect the damage to the enemy instead.\n\nPress R to restart";
 
 
     }

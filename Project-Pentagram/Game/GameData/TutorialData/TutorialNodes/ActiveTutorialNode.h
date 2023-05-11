@@ -37,7 +37,7 @@ public:
         PlayerMana = 4;
         PlayerManaWheel = 5;
 
-        m_TutorialEvents.AddStep("Objective:\nSurvive");
+        m_TutorialEvents.AddStep("Tutorial topic: Lasting - Trap\n\nObjective:\nSurvive an attack from the enemy");
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
@@ -51,19 +51,16 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Active is 1...."
+            "In this tutorial, we are going to talk about channeling spells.\n\nChanneling is a type of spell that may take more than one turn to cast or have a lasting effect in that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "Active is 2...."
+            "There are multiple types of channeling. \n\nThis one is Lasting. The lasting type will remain active for a certain time on the timeline."
         );
 
 
-        
-        m_TutorialEvents.AddStep("Press ALT to toggle spell info\n");
-
         m_TutorialEvents.AddStep(
-            "Try to block all enemy spell with Active Spell"
+            "Let's try casting Lasting spell to defend against an enemy spell"
         );
        
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
@@ -72,8 +69,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "???";
-        RetryText = "Try using unbreakable shield (Circle 3\nComplexity 2) to ignore all of the damage\nthat come from enemy";
+        CompleteText = "And that is how the channeling spell Lasting works. \n\nLet’s proceed to the next part of the tutorial.";
+        RetryText = "Try casting an unbreakable shield (Circle 3 Complexity 2)\nIt ignores all of the damage during activation.\n\nPress R to restart";
 
 
     }

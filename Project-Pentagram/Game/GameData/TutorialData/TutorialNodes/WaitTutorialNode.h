@@ -33,7 +33,7 @@ public:
         PlayerHP = 10;
         PlayerManaWheel = 6;
 
-        m_TutorialEvents.AddStep("Objective:\nReduce your opponent health to 0");
+        m_TutorialEvents.AddStep("Tutorial topic: Channeling - Delayed\n\nObjective:\nReduce your opponent's health to 0");
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
@@ -45,22 +45,26 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Toggle, true });
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about\nchanneling spells. Channeling spell is a spell that\ntake more than one turn to cast or effect active\nmore than one turn."
+            "In this tutorial, we are going to talk about channeling spells.\n\nChanneling is a type of spell that may take more than one turn to cast or have a lasting effect in that turn once cast."
         );
 
         m_TutorialEvents.AddStep(
-            "Wait spell is bruh"
+            "There are multiple types of channeling. \n\nThis one is Delayed. Wait type will take time to charge up the spell before casting it."
         );
 
         m_TutorialEvents.AddStep(
-            "This is CIRCLE. It control type of the spell\nthat you are using, this use 2 mana to change"
+            "The starting track of the Delayed type, \nwhen the spell is launched, \nwill not count toward total WILL in that Time track, \nbut will count in the Time track that the spell landed."
+        );
+
+        m_TutorialEvents.AddStep(
+            "To change the type of the spell player can adjust the circle and complexity in the spell circle."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "This is COMPLEX\n along with CIRCLE it control type\nof the spell, using these 2 combine to\ncreate unique spell."
+            "Each adjustment of this section will cost 2 mana per modification."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Focus, true });
 
@@ -69,13 +73,13 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Try to cast a channeling wait spell and defeat the enemy.");
+            "Let's try to cast some channeling spells\nclash the enemy spell and defeat them.");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        RetryText = "Using meteor(Circle 3 complexity 1) will have\nthe same time as enemy spell.";
-        CompleteText = "And that how the channeling spell Wait work.\nYou may proceed to the next part of the tutorial.";
+        RetryText = "Try casting a meteor(Circle 3 complexity 1).\nIt has the same cast time as an enemy spell. \n\nPress R to restart";
+        CompleteText = "And that is how the channeling spell Delayed works. \n\nLet’s proceed to the next part of the tutorial.";
 
 
     }
