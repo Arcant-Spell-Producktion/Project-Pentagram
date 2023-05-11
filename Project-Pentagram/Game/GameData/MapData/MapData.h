@@ -22,10 +22,16 @@ private:
     Element::Type m_CurrentChapter;
     std::map<Element::Type,ChapterData*> m_Chapters;
 
+    NodeData* m_CurrentNode = nullptr;
+
 public:
     bool IsAtMap = false;
 
     MapData(Element::Type startElement);
+
+    Element::Type GetCurrentChapter() {
+        return m_CurrentChapter;
+    }
 
     void AddChapter(ChapterData* c);
 

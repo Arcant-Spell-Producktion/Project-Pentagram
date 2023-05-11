@@ -28,8 +28,17 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
         {
             if (gameData->Map->CompleteNode())
             {
-                gameData->Player->LevelUp();
-                SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+                if(gameData->Map->GetCurrentChapter() == Element::Corrupt)
+                {
+                    gameData->DeleteSave();
+                    SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+                }
+                else
+                {
+                    gameData->Player->LevelUp();
+                    SceneManager::LoadScene(GameState::GS_MAP_SCENE);
+                }
+                
             }
             else
             {
