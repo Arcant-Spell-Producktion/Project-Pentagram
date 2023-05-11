@@ -1,22 +1,35 @@
 ﻿#pragma once
+
+#include <mutex>
+
 template <class T>
 class Singleton
 {
-protected:
-    static T* instance;
-public:
+    protected:
+        static T* instance;
+        static std::mutex mutex;
+    public:
 
-    static T* GetInstance()
-    {
-        if (instance == nullptr)
+        static T* GetInstance()
         {
-            instance = new T();
+            std::lock_guard<std::mutex> lock(mutex);
+            if (instance == nullptr)
+            {
+                instance = new T();
+            }
+            return instance;
         }
-        return instance;
-    }
 
-    void Free() { delete instance; instance = nullptr; }
+        void Free()
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            delete instance;
+            instance = nullptr;
+        }
 };
 
 template <class T>
 T* Singleton<T>::instance = nullptr;
+
+template <class T>
+std::mutex Singleton<T>::mutex;
