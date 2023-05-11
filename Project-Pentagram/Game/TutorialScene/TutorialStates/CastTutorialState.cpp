@@ -9,8 +9,10 @@ void CastTutorialState::EnemyCastUpdate(float dt)
     BattleManager* battleManager = BattleManager::GetInstance();
     CasterController* currentController = battleManager->Data.GetCurrentCaster();
 
+    currentController->EndTurn(true);
     battleManager->SwapCaster();
-    
+    currentController->EndTurn(true);
+    battleManager->SwapCaster();
 }
 
 void CastTutorialState::PlayerCastUpdate(float dt)
@@ -64,9 +66,6 @@ void CastTutorialState::OnBattleStateUpdate(float dt)
     else
     {
         battleManager->SwapCaster();
-        currentController->EndTurn(true);
-        battleManager->SwapCaster();
-
     }
 }
 
