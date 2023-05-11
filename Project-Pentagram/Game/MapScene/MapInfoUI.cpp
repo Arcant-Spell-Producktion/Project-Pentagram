@@ -62,10 +62,11 @@ void MapInfoUI::SetMapInfo(const Element::Type& element)
 
 		case Element::Wind:
             this->position = { -625.0f, -350.0f, 0.0f };
-            //this->SetTexture("Sprites/Stage/Water/stage_wind_background.png");
+            this->SetTexture("Sprites/Stage/Wind/stage_wind_background.png");
             this->SetActive(true);
 			break;
-	case Element::Corrupt:
+
+		case Element::Corrupt:
             this->position = { 0.0f, 0.0f, 0.0f };
             //this->SetTexture("Sprites/Stage/Corrupt/stage_corrupt_background.png");
             this->SetActive(true);

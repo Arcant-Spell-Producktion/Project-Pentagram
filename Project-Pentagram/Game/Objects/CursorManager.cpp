@@ -40,7 +40,8 @@ void CursorManager::InitParticle(ParticleSystem*& particle, std::string objName)
 	particle->baseParticle.sizeEnd = 25.0f;
 	particle->baseParticle.lifeTime = 0.75f;
 	particle->SetSpawnTime(0.01f);
-	particle->SetTexture("Sprites/CursorParticle.png");
+	particle->SetTexture("Sprites/Particle/particle.png");
+	particle->SetSpriteByIndex(4, 0);
 }
 void CursorManager::UpdateCursorPosition()
 {
