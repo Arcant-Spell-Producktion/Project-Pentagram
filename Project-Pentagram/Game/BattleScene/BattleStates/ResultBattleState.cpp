@@ -46,6 +46,8 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 
                 SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
             }
+
+            gameData.Map->IsAtMap = false;
             gameData.SaveGameData();
         }
 
