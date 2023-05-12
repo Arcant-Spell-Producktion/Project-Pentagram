@@ -168,15 +168,14 @@ void CastSpellDetail::AppliedEffect(bool isWinCompare)
 
     bool isApplyByWillWin = SpellEffectType::IsEffectApplyWillCompareWin(effectType);
 
-    if ( !isApplyByWillWin || isApplyByWillWin && isWinCompare)
+    if (isWinCompare != isApplyByWillWin) return;
+
+    if (SpellEffectType::IsEffectTargetEnemy(effectType))
     {
-        if (SpellEffectType::IsEffectTargetEnemy(effectType))
-        {
-            target->GetEffectManager()->AppliedEffect(effectType, effectValue);
-        }
-        else
-        {
-            caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
-        }
+        target->GetEffectManager()->AppliedEffect(effectType, effectValue);
+    }
+    else
+    {
+        caster->GetEffectManager()->AppliedEffect(effectType, effectValue);
     }
 }
