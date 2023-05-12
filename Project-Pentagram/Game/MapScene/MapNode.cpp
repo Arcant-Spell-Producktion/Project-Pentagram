@@ -9,7 +9,7 @@ MapNode::MapNode(Element::Type element): Button(element + "mapNode")
     this->SetTexture(MapNodeSpritePath);
     this->SetIsSlicing(false);
 
-    if(element != Element::Corrupt) this->SetSpriteByIndex(0,(int)element);
+    this->SetSpriteByIndex(0,(int)element);
 
-    this->scale = {70.0f,105.0f,1.0f};
+    this->scale = {80.0f, 120.0f, 1.0f};
 }
