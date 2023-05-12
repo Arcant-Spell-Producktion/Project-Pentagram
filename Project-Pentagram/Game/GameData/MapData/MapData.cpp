@@ -1,6 +1,6 @@
 ﻿#include "MapData.h"
 #include <iostream>
-MapData::MapData(Element::Type startElement):m_StartElement(startElement)
+MapData::MapData(Element::Type startElement):m_StartElement(startElement),m_CurrentChapter(startElement)
 {
     for (int i = (int)Element::Earth; i <= (int)Element::Corrupt; i++)
     {

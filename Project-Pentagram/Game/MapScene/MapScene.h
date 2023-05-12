@@ -9,6 +9,8 @@
 class MapScene : public GameScene
 {
 private:
+    TextObject* m_LevelUpText = nullptr;
+
     UIObject* m_FadeScreen = nullptr;
     GameState m_NextState;
     float m_FadeTime;

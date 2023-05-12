@@ -131,9 +131,19 @@ void MapScene::GameSceneInit()
 	// Disable CasterStatUI
 	// CasterStatUI* casterStatUI = CreateObject(new CasterStatUI(gameData->Player));
 
+
+    m_LevelUpText = CreateTextObject("Level Up!");
+    m_LevelUpText->text = "Level Up!";
+    m_LevelUpText->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
+    m_Character->SetChildRenderFront(m_LevelUpText);
+    m_LevelUpText->SetActive(gameData.Player->Element() != gameData.Map->GetCurrentChapter());
+    m_LevelUpText->position.x -= 100.0f;
+    m_LevelUpText->position.y += 140.0f;
+
 	map_PauseMenuObject = CreateObject(new PauseMenuObject());
 	map_PauseMenuObject->SetCurrentGameScene(this);
 	map_PauseMenuObject->SetActive(false);
+
 
     // Set FadeScreen Component
     m_FadeScreen = CreateUIObject("fadeScreen");
@@ -152,6 +162,7 @@ void MapScene::GameSceneUpdate(float dt)
 
 	if (m_MoveCharacter)
 	{
+        m_LevelUpText->SetActive(false);
 		m_CurrentMoveTime = (m_CurrentMoveTime + dt > m_MoveTime ? m_MoveTime : m_CurrentMoveTime + dt);
 		m_Character->position = m_StartPoint + (m_CurrentMoveTime / m_MoveTime) * (m_Destination - m_StartPoint);
 	}
