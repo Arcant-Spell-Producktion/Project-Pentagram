@@ -62,15 +62,17 @@ void ChapterData::UpdateChapter(int level)
 
     if (m_Element == Element::Corrupt)
     {
+        std::cout << "!!!\t\tUpdate final boss data to level "<< level << "   \n";
+
         NodeData* node = nullptr;
-        CasterStat stat = casterDB.GetStat(m_Element, CasterType::BigBoss, 0);
+        CasterStat stat = casterDB.GetStat(m_Element, CasterType::BigBoss, level);
         CasterData data(stat, m_Element, CasterPosition::CasterB);
 
         CasterMoveSet moveE = CasterMoveSetDatabase::GetInstance().GetMoveSet(Element::Earth, CasterType::BigBoss, level);
 
         EnemyData enemy(data, CasterType::BigBoss, moveE);
 
-        for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Wind);i++)
+        for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Wind); i++)
         {
             Element::Type e = static_cast<Element::Type>(i);
             enemy.SetMove(e, CasterMoveSetDatabase::GetInstance().GetMoveSet(e, CasterType::BigBoss, level));
@@ -78,38 +80,39 @@ void ChapterData::UpdateChapter(int level)
 
         try {
             node = m_Nodes.at(0);
-            node->GetEnemyData() = enemy;
-        }
-        catch (const std::out_of_range& e) {
-            node = new NodeData(enemy);
-            AddNode(node);
-        }
-
-        return;
-    }
-
-    for (size_t i = 0; i < NODE_PER_CHAPTER; i++)
-    {
-        bool isMinion =(i != (NODE_PER_CHAPTER - 1));
-        NodeData* node = nullptr;
-        CasterType type = isMinion ? CasterType::Minion : CasterType::Boss;
-        int type_level = isMinion ? level * 2 + i : level;
-
-        CasterStat stat = casterDB.GetStat(m_Element, type , type_level);
-        CasterMoveSet moves = CasterMoveSetDatabase::GetInstance().GetMoveSet(m_Element, type, type_level);
-
-        CasterData data(stat,m_Element,CasterPosition::CasterB);
-        EnemyData enemy(data, type, moves);
-        try {
-            node = m_Nodes.at(i);
             node->SetEnemyData(enemy);
         }
         catch (const std::out_of_range& e) {
             node = new NodeData(enemy);
             AddNode(node);
         }
+
     }
-   
+    else
+    {
+        for (size_t i = 0; i < NODE_PER_CHAPTER; i++)
+        {
+            bool isMinion = (i != (NODE_PER_CHAPTER - 1));
+            NodeData* node = nullptr;
+            CasterType type = isMinion ? CasterType::Minion : CasterType::Boss;
+            int type_level = isMinion ? level * 2 + i : level;
+
+            CasterStat stat = casterDB.GetStat(m_Element, type, type_level);
+            CasterMoveSet moves = CasterMoveSetDatabase::GetInstance().GetMoveSet(m_Element, type, type_level);
+
+            CasterData data(stat, m_Element, CasterPosition::CasterB);
+            EnemyData enemy(data, type, moves);
+            try {
+                node = m_Nodes.at(i);
+                node->SetEnemyData(enemy);
+            }
+            catch (const std::out_of_range& e) {
+                node = new NodeData(enemy);
+                AddNode(node);
+            }
+        }
+
+    }
 }
 
 ChapterData::~ChapterData()

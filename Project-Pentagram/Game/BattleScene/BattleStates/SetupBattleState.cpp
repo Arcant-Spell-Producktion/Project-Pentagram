@@ -24,7 +24,15 @@ void SetupBattleState::OnBattleStateIn()
 
     if (currentNode->GetEnemyData().EnemyType() == CasterType::BigBoss)
     {
-        bm.Data.AddCaster(new BossController(currentNode->GetEnemyData()));
+        EnemyData bossData = currentNode->GetEnemyData();
+        int remainHp = bossData.Stat().MaxHealth;
+
+        bossData.Stat().MaxHealth = 800;
+
+        BossController* bc = new BossController(bossData);
+        bc->SetHp(remainHp);
+
+        bm.Data.AddCaster(bc);
     }
     else
     {

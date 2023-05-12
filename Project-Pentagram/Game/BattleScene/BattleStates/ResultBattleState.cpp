@@ -28,10 +28,13 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
         {
             if (gameData.Map->CompleteNode())
             {
+                std::cout << "!!!!!!!!XXXX\t\tSaving at " << gameData.Map->GetCurrentChapter() << std::endl;
+
                 if(gameData.Map->GetCurrentChapter() == Element::Corrupt)
                 {
                     gameData.DeleteSave();
                     SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+                    return;
                 }
                 else
                 {

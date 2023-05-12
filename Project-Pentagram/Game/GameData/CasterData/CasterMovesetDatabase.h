@@ -14,7 +14,7 @@ public:
 
     CasterMoveSet GetMoveSetByLv(int lvl)
     {
-        int _lvl = lvl < 0 ? 0 : lvl < m_MaxLvl ? lvl : m_MaxLvl;
+        int _lvl = lvl < 0 ? 0 : lvl < m_MaxLvl ? lvl : m_MaxLvl - 1;
         return m_Levels[_lvl];
     }
 

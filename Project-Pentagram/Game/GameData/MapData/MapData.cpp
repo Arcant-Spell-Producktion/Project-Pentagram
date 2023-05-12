@@ -69,7 +69,7 @@ bool MapData::CompleteNode()
 
         m_Chapters[Element::Corrupt]->CanVisit = true;
 
-        for (int i = 0; i < 4; ++i)
+        for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Corrupt); ++i)
         {
             Element::Type e = static_cast<Element::Type>(i);
             ChapterData* chapter = m_Chapters[e];
@@ -102,7 +102,7 @@ void MapData::LoadMapData(MapSaveData data)
     IsAtMap = data.isAtMap;
     m_CompleteChapterCount = data.completeChapter;
     m_CurrentChapter = static_cast<Element::Type>(data.currentChapterElement);
-    for (int i = 0; i <= 4; ++i)
+    for (int i = static_cast<int>(Element::Earth); i <= static_cast<int>(Element::Corrupt); ++i)
     {
         ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
         chapter->CanVisit = data.canVisit[i];
