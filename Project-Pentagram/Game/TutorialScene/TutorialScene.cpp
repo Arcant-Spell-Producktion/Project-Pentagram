@@ -7,24 +7,23 @@
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/PauseMenuObject.h"
 
-
-BattleManager* tutorialManager;
 PauseMenuObject* tur_pauseMenuObject;
 
 void TutorialScene::GameSceneLoad()
 {
     tur_track_t = 0.0f;
-    tutorialManager = &BattleManager::GetInstance();
+    BattleManager& tutorialManager = BattleManager::GetInstance();
     std::cout << "Tutorial Scene : Load Completed\n";
 }
 
 void TutorialScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(Element::Water));
+    BattleManager& tutorialManager = BattleManager::GetInstance();
 
-    tutorialManager->Init(this, BattleMode::Tutorial);
+    objectsList.push_back(new StageObject(Element::Water));
+    tutorialManager.Init(this, BattleMode::Tutorial);
     std::cout << "Tutorial Scene : Initialize Completed\n";
-    tutorialManager->StartBattle(BattleMode::Tutorial);
+    tutorialManager.StartBattle(BattleMode::Tutorial);
 
     tur_pauseMenuObject = CreateObject(new PauseMenuObject());
     tur_pauseMenuObject->SetCurrentGameScene(this);
@@ -33,6 +32,8 @@ void TutorialScene::GameSceneInit()
 
 void TutorialScene::GameSceneUpdate(float dt)
 {
+    BattleManager& tutorialManager = BattleManager::GetInstance();
+
     GameScene::GameSceneUpdate(dt);
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_R))
@@ -43,7 +44,7 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_K))
     {
-        tutorialManager->EndBattle();
+        tutorialManager.EndBattle();
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
@@ -52,11 +53,11 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {
-        bool isShow = tutorialManager->Data.IsShowCasterDetail();
-        tutorialManager->Data.SetIsShowCasterDetail(isShow ? false : true);
+        bool isShow = tutorialManager.Data.IsShowCasterDetail();
+        tutorialManager.Data.SetIsShowCasterDetail(isShow ? false : true);
     }
 
-    tutorialManager->GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
+    tutorialManager.GetBattleStates()->OnBattleStateUpdate(scaledDeltaTime);
 
     if (tur_track_t >= 1.0f)
     {
@@ -98,10 +99,12 @@ void TutorialScene::GameSceneUnload()
 
 void TutorialScene::GameSceneFree()
 {
+    BattleManager& tutorialManager = BattleManager::GetInstance();
+
     GameScene::GameSceneFree();
 
     //Free Tutorial Manager
-    tutorialManager->Free();
+    tutorialManager.Free();
 
     std::cout << "Tutorial Scene : Free Memory Completed\n";
 }

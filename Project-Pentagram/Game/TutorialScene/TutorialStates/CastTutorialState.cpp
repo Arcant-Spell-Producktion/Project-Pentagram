@@ -11,8 +11,6 @@ void CastTutorialState::EnemyCastUpdate(float dt)
 
     currentController->EndTurn(true);
     battleManager.SwapCaster();
-    currentController->EndTurn(true);
-    battleManager.SwapCaster();
 }
 
 void CastTutorialState::PlayerCastUpdate(float dt)
@@ -28,7 +26,7 @@ void CastTutorialState::PlayerCastUpdate(float dt)
 
     battleManager.Data.Pentagram->SetCastButtonActive(canCostSpell >= 0);
 
-    if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
+    if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0|| currentCaster->GetMana() != currentCaster->GetMaxMana())//End Turn
     {
         currentController->EndTurn(true);
         battleManager.SwapCaster();
