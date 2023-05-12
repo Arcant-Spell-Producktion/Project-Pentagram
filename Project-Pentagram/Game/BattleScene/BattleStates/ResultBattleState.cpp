@@ -15,38 +15,38 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 {
     if (m_Timer < 0.0f)
     {
-        BattleManager* battleManager = BattleManager::GetInstance();
-        RuntimeGameData* gameData = RuntimeGameData::GetInstance();
-        CasterController* player = battleManager->Data.GetCaster(CasterPosition::CasterA);
+        BattleManager& battleManager = BattleManager::GetInstance();
+        RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+        CasterController* player = battleManager.Data.GetCaster(CasterPosition::CasterA);
 
         if (!player->IsAlive())
         {
             SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-            gameData->DeleteSave();
+            gameData.DeleteSave();
         }
         else
         {
-            if (gameData->Map->CompleteNode())
+            if (gameData.Map->CompleteNode())
             {
-                if(gameData->Map->GetCurrentChapter() == Element::Corrupt)
+                if(gameData.Map->GetCurrentChapter() == Element::Corrupt)
                 {
-                    gameData->DeleteSave();
+                    gameData.DeleteSave();
                     SceneManager::LoadScene(GameState::GS_MENU_SCENE);
                 }
                 else
                 {
-                    gameData->Player->LevelUp();
+                    gameData.Player->LevelUp();
                     SceneManager::LoadScene(GameState::GS_MAP_SCENE);
                 }
                 
             }
             else
             {
-                gameData->Player->Stat().CurrentHealth = player->GetCasterManager()->Data().Stat().CurrentHealth;
+                gameData.Player->Stat().CurrentHealth = player->GetCasterManager()->Data().Stat().CurrentHealth;
 
                 SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
             }
-            gameData->SaveGameData();
+            gameData.SaveGameData();
         }
 
     }else

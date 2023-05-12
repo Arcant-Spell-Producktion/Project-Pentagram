@@ -25,32 +25,32 @@ Camera mainCamera;
 int main()
 {
 	// Initialize Engine
-	engine = ArcantEngine::GetInstance();
+	engine = &ArcantEngine::GetInstance();
 	engine->Init();
 
 	// Initialize ShaderCollector(For collecting type of Shader)
 	// Initialize FontCollector(For collecting type of Font)
 	// Initialize TextureCollector(For collecting all of texture in game)
 	// engineDataCollector->LoadResource() was already in LoadScene
-	engineDataCollector = EngineDataCollector::GetInstance();
+	engineDataCollector = &EngineDataCollector::GetInstance();
 
 	// Initialize gameStateController
-	gameStateController = GameStateController::GetInstance();
+	gameStateController = &GameStateController::GetInstance();
 	gameStateController->InitGameScene(GameState::GS_LOAD_SCENE);
 
     // Initialize SpellDatabase (For collecting all spell data)
-    spellDatabase = SpellDatabase::GetInstance();
+    spellDatabase = &SpellDatabase::GetInstance();
     spellDatabase->LoadResource();
 
     // Initialize CasterDatabase (For collecting all caster data)
-    casterDatabase = CasterStatDatabase::GetInstance();
+    casterDatabase = &CasterStatDatabase::GetInstance();
     casterDatabase->LoadResource();
 
-    moveDatabase = CasterMoveSetDatabase::GetInstance();
+    moveDatabase = &CasterMoveSetDatabase::GetInstance();
     moveDatabase->LoadResource();
 
     //Initialize GameData (For data management during runtime)
-    currentGame = RuntimeGameData::GetInstance();
+    currentGame = &RuntimeGameData::GetInstance();
 
     srand(time(0));
 
@@ -77,7 +77,7 @@ int main()
 		gameStateController->currentScene->GameSceneDraw();
 
 		engine->GetWindow()->UpdateCursorViewport();
-		CursorManager::GetInstance()->Update(mainCamera, currTime - prevTime);
+		CursorManager::GetInstance().Update(mainCamera, currTime - prevTime);
 
 		// End Frame
 		Input::EndFrame();

@@ -17,7 +17,7 @@ std::string TimelineTrackSprite[2] =
     "Sprites/UI/Game/Timeline/ui_game_timeline_banner-border.png"
 };
 
-TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bool doExpand)> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TrackUI_" + std::to_string(index))
+TimetrackUI::TimetrackUI(int index, SpellTimetrack* track, std::function<void(bool doExpand)> expand):m_TrackPtr(track),m_ObjectManager(GameStateController::GetInstance().currentScene), UIObject("TrackUI_" + std::to_string(index))
 {
     m_TrackIndex = index;
 

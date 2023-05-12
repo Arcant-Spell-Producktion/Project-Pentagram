@@ -307,10 +307,10 @@ void GameScene::UpdateButtonOnClick()
 	{
 		return;
 	}
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
+	int screen_width = ArcantEngine::GetInstance().GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance().GetWindow()->GetWindowHeight();
 
-	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
+	glm::vec2 viewportScale = ArcantEngine::GetInstance().GetWindow()->GetViewportDiffRatio();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
@@ -357,15 +357,15 @@ void GameScene::UpdateButtonOnClick()
 }
 void GameScene::UpdateButtonOnHover()
 {
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
+	int screen_width = ArcantEngine::GetInstance().GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance().GetWindow()->GetWindowHeight();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
 	bool isHover = false;
 
-	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
+	glm::vec2 viewportScale = ArcantEngine::GetInstance().GetWindow()->GetViewportDiffRatio();
 
 	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
@@ -430,13 +430,13 @@ void GameScene::UpdateButtonOnHover()
 }
 void GameScene::UpdateButtonOnPress()
 {
-	int screen_width = ArcantEngine::GetInstance()->GetWindow()->GetWindowWidth();
-	int screen_height = ArcantEngine::GetInstance()->GetWindow()->GetWindowHeight();
+	int screen_width = ArcantEngine::GetInstance().GetWindow()->GetWindowWidth();
+	int screen_height = ArcantEngine::GetInstance().GetWindow()->GetWindowHeight();
 
 	float curX = (Input::mouseX - screen_width / 2.0f);
 	float curY = (screen_height / 2.0f - Input::mouseY);
 
-	glm::vec2 viewportScale = ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio();
+	glm::vec2 viewportScale = ArcantEngine::GetInstance().GetWindow()->GetViewportDiffRatio();
 
 	for (int idx = uiObjectsList.size() - 1; idx >= 0; idx--)
 	{
@@ -517,7 +517,7 @@ void GameScene::GameSceneUpdate(float dt)
 	UpdateScaleDeltaTime(dt);
 	UpdateDeleteObject();
 	UpdateButtonEvents();
-	audioController->OnUpdate(dt);
+	audioController.OnUpdate(dt);
 	camera.OnUpdate(scaledDeltaTime);
 }
 void GameScene::GameSceneDraw()
@@ -649,7 +649,7 @@ void GameScene::SetTimeScale(const float& timeScale)
 // ----------------- Getter Implement -----------------
 AudioController* GameScene::GetAudioController() const
 {
-	return this->audioController;
+	return &(this->audioController);
 }
 Camera* GameScene::GetCamera()
 {

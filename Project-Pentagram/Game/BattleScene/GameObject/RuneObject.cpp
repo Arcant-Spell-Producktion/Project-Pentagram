@@ -30,7 +30,7 @@ RuneObject::RuneObject(int runeIndex) :UIObject("RuneObj")
 std::vector<RuneObject*> RuneObjectFactory::CreateRunes(const std::string text)
 {
     std::vector<RuneObject*> runeList;
-    auto GameObjManager = GameStateController::GetInstance()->currentScene;
+    auto GameObjManager = GameStateController::GetInstance().currentScene;
 
     for (auto _char :text)
     {

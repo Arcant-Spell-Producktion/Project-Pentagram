@@ -19,12 +19,12 @@ class Thread
 			: m_Thread(f, args...)
 		{
 			glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-			m_ThreadWindow = glfwCreateWindow(640, 480, "", NULL, ArcantEngine::GetInstance()->GetWindow()->GetWindowPointer());
+			m_ThreadWindow = glfwCreateWindow(640, 480, "", NULL, ArcantEngine::GetInstance().GetWindow()->GetWindowPointer());
 		}
 		Thread() 
 		{
 			glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-			m_ThreadWindow = glfwCreateWindow(640, 480, "", NULL, ArcantEngine::GetInstance()->GetWindow()->GetWindowPointer());
+			m_ThreadWindow = glfwCreateWindow(640, 480, "", NULL, ArcantEngine::GetInstance().GetWindow()->GetWindowPointer());
 		}
 		~Thread()
 		{

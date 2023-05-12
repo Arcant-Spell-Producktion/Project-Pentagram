@@ -56,7 +56,7 @@ glm::mat4 Camera::GetViewMatrix()
 }
 glm::mat4 Camera::GetProjectionMatrix(const bool& isZoom)
 {
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 	float screenWidth = window->GetWindowWidth() / (isZoom ? m_Zoom : 1.0f);
 	float screenHeight = window->GetWindowHeight() / (isZoom ? m_Zoom : 1.0f);
 	float _near = -1.0f;

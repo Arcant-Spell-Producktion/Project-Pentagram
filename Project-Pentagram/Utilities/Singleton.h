@@ -1,22 +1,25 @@
 ﻿#pragma once
+
+#include <mutex>
+
 template <class T>
 class Singleton
 {
-protected:
-    static T* instance;
-public:
+    public:
+        Singleton() = default;
+        ~Singleton() = default;
 
-    static T* GetInstance()
-    {
-        if (instance == nullptr)
+        static T& GetInstance()
         {
-            instance = new T();
+            static T instance;
+            return instance;
         }
-        return instance;
-    }
 
-    void Free() { delete instance; instance = nullptr; }
+        void Free()
+        {
+        }
+
+    private:
+        Singleton(const Singleton&) = delete;
+        Singleton& operator=(const Singleton&) = delete;
 };
-
-template <class T>
-T* Singleton<T>::instance = nullptr;

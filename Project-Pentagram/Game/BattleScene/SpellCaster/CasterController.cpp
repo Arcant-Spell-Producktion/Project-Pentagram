@@ -4,7 +4,7 @@
 
 CasterController::CasterController(CasterData caster): m_CasterManager(caster),m_CasterUI(m_CasterManager.Data().Position())
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     m_CasterObject = scene->CreateObject<CasterObject>(new CasterObject());
 
     OnStatUpdate.AddListener([this](CasterStat stat) {m_CasterUI.SetStat(stat); });
@@ -17,7 +17,7 @@ CasterController::CasterController(CasterData caster): m_CasterManager(caster),m
 void CasterController::CasterDied()
 {
     m_IsAlive = false;
-    BattleManager::GetInstance()->EndBattle();
+    BattleManager::GetInstance().EndBattle();
     m_CasterObject->PlayDiedAnim();
 }
 
@@ -124,15 +124,15 @@ bool CasterController::TakeDamage(int value)
 
 CastSpellDetail* CasterController::CastSpell()
 {
-    auto bm = BattleManager::GetInstance();
+    BattleManager& bm = BattleManager::GetInstance();
     CastSpellDetail* spell = m_CasterManager.GetSpellDetail();
 
     bool doCompare =
         spell->GetSpellDetail()->GetChannelEffectType() != ChannelEffectEnum::Wait;
 
-    bm->Data.Timeline.AddSpellToTimeline(spell);
-    bm->Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
-    bm->Data.GetCurrentCaster()->EndTurn();
+    bm.Data.Timeline.AddSpellToTimeline(spell);
+    bm.Data.GetCurrentCaster()->GetCasterObject()->PlayChannelAnim();
+    bm.Data.GetCurrentCaster()->EndTurn();
 
     m_CasterManager.CommitSpell();
 

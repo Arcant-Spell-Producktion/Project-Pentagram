@@ -9,7 +9,7 @@ std::string TextFormat(int a, int b)
 
 CasterDetailUI::CasterDetailUI(int position):UIObject("m_CasterBar_" + std::to_string((int)position))
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     int flip = position == 0 ? 1 : -1;
 
     this->position = { -600.0f * flip, -440.0f , 0.0f };

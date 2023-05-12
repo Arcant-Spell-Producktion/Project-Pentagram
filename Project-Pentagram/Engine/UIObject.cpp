@@ -24,7 +24,7 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 	}
 
 	// Get UI(GameObject) Shader || Button Shader(Handle UI Slicing)
-	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance()->GetShaderCollector();
+	ShaderCollector* shaderCollector = EngineDataCollector::GetInstance().GetShaderCollector();
 	Shader& shader = (m_IsGradient ? shaderCollector->GradientShader : shaderCollector->UISlicingShader);
 
 	// Update MVP Matrix
@@ -40,7 +40,7 @@ void UIObject::Draw(Camera& camera, glm::mat4 parentModel)
 	// !!Not Set scale to child -> Messy to encounter with
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);
@@ -182,13 +182,13 @@ void UIObject::SetGradientValue(const float& gradiantValue)
 }
 void UIObject::SetStartGradientTexture(const std::string& filePath) 
 {
-	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
+	Texture* texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture(filePath);
 
 	this->m_StartGradientTexture = texture;
 }
 void UIObject::SetEndGradientTexture(const std::string& filePath)
 {
-	Texture* texture = EngineDataCollector::GetInstance()->GetTextureCollector()->GetTexture(filePath);
+	Texture* texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture(filePath);
 
 	this->m_EndGradientTexture = texture;
 }

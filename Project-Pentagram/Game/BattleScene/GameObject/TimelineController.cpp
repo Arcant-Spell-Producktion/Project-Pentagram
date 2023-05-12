@@ -2,7 +2,7 @@
 #include "Game/BattleScene/BattleManager.h"
 #include "TimelineController.h"
 
-TimelineController::TimelineController():m_ObjectManager(GameStateController::GetInstance()->currentScene), UIObject("TimelineUI")
+TimelineController::TimelineController():m_ObjectManager(GameStateController::GetInstance().currentScene), UIObject("TimelineUI")
 {
     this->color.a = 0.0f;
     this->position.y += 400.0f;
@@ -34,11 +34,11 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     timelineExpander->SetActive(false);
     box->SetChildRenderFront(timelineExpander);
 
-    auto bm = BattleManager::GetInstance();
+    BattleManager& bm = BattleManager::GetInstance();
     for (size_t i = 0; i < 11; i++)
     {
         std::function<void(bool doExpand)> expandFunc = [this, i](bool doExpand) { SetExpandTimeline(i, doExpand); };
-        auto track = new TimetrackUI(i, bm->Data.Timeline.GetTimetrack(i), expandFunc);
+        auto track = new TimetrackUI(i, bm.Data.Timeline.GetTimetrack(i), expandFunc);
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
     }

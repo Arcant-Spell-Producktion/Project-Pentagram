@@ -13,13 +13,13 @@ PauseMenuObject* test_pauseMenuObject;
 void CharacterTestScene::GameSceneLoad()
 {
     test_track_t = 0.0f;
-    charTestManager = BattleManager::GetInstance();
+    charTestManager = &BattleManager::GetInstance();
     std::cout << "Tutorial Scene : Load Completed\n";
 }
 
 void CharacterTestScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance()->Player->Element()));
+    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance().Player->Element()));
 
     charTestManager->Init(this,BattleMode::Test);
     std::cout << "Tutorial Scene : Initialize Completed\n";

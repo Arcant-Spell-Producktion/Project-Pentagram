@@ -33,7 +33,7 @@ CastSpellDetail* CasterManager::GetSpellDetail()
 void CasterManager::SetCasterElement(Element::Type element)
 {
     if(element != Element::NULLTYPE) m_CurrentData.Element() = element;
-    m_CurrentBook = SpellDatabase::GetInstance()->GetBookByElement(m_CurrentData.Element());
+    m_CurrentBook = SpellDatabase::GetInstance().GetBookByElement(m_CurrentData.Element());
     m_PentagramData = { 1,1,1,1,0 };
     UpdateCurrentSpell(true);
 }

@@ -159,7 +159,7 @@ void DemoScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_1))
 	{
-		audioController->PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
+		audioController.PlaySFX("Audio/SFX/Gameplay/Spell/Fire/sfx_gameplay_fire_shooting_generic.wav", 1.0f);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Z))
 	{
@@ -179,7 +179,7 @@ void DemoScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_Y))
 	{
 		slider->SetValue(0.75f);
-		ArcantEngine::GetInstance()->GetWindow()->SetFullScreen(ArcantEngine::GetInstance()->GetWindow()->IsFullScreen() ? false : true);
+		ArcantEngine::GetInstance().GetWindow()->SetFullScreen(ArcantEngine::GetInstance().GetWindow()->IsFullScreen() ? false : true);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_F))
 	{

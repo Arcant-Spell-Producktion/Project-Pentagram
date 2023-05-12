@@ -62,7 +62,7 @@ void EarthSpell1::Initialize()
     glm::vec3 direction = endPos - startPos;
     float travelTime = 1.0f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_1.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueMoveEvent(startPos, endPos, travelTime);
 
@@ -89,7 +89,7 @@ void EarthSpell2::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_2.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_2.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueMoveEvent(startPos, endPos, travelTime);
@@ -129,7 +129,7 @@ void EarthSpell3::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_3.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_3.wav", 1.0f);
     QueueWaitTillFrameEvent();
 
     QueueHitEvent();
@@ -156,7 +156,7 @@ void EarthSpell4::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_4.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_4.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(timePerFrame);
     QueueMoveEvent(startPos, endPos, travelTime);
@@ -179,7 +179,7 @@ void EarthSpell5::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_5.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_5.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueHitEvent();
@@ -206,7 +206,7 @@ void EarthSpell6::Initialize()
 
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_6.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_6.wav", 1.0f);
     QueueWaitTriggerEvent();
 
     QueueUpdateFunction(
@@ -265,7 +265,7 @@ void EarthSpell7::Initialize()
 
     QueueWaitTillFrameEvent(false);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_7.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_7.wav", 1.0f);
     QueueUpdateFunction(
         [this](float dt)
         {
@@ -284,7 +284,7 @@ void EarthSpell7::Initialize()
     QueueUpdateFunction(
         [this](float dt)
         {
-            m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_1.wav", 1.0f);
+            m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_1.wav", 1.0f);
             Next();
             return;
         }
@@ -365,7 +365,7 @@ void EarthSpell8::Initialize()
     float timePerFrame = 0.15f;
     this->SetAnimationPlayTime(timePerFrame);
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_8.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_8.wav", 1.0f);
     QueueWaitTillFrameEvent(false);
 
     QueueUpdateFunction(
@@ -399,7 +399,7 @@ void EarthSpell8::Initialize()
 
 void EarthSpell9::Initialize()
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     float size = 640.0f;
     float xPos = CASTER_POSITION_X * -m_SpellTarget;
@@ -414,7 +414,7 @@ void EarthSpell9::Initialize()
     
     float blastTime = 4.0f;
 
-    m_AudioControllerPtr->PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_9.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Earth/sfx_gameplay_spell_earth_9.wav", 1.0f);
     QueueUpdateFunction(
         [this, scene, blastTime](float dt)
         {

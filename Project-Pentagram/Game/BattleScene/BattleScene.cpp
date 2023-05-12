@@ -14,13 +14,13 @@ PauseMenuObject* pauseMenuObject;
 void BattleScene::GameSceneLoad()
 {
     track_t = 0.0f;
-    battleManager = BattleManager::GetInstance();
+    battleManager = &BattleManager::GetInstance();
     std::cout << "Battle Scene : Load Completed\n";
 }
 
 void BattleScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance()->Map->GetNextNode()->GetEnemyData().Element()));
+    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance().Map->GetNextNode()->GetEnemyData().Element()));
 
     battleManager->Init(this);
     std::cout << "Battle Scene : Initialize Completed\n";

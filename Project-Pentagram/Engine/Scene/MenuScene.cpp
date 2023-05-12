@@ -44,13 +44,13 @@ void MenuScene::GameSceneInit()
     continueButton->position = { 0.0f, 200.0f, 0.0f };
     continueButton->onClick.AddListener([this](Button* button)
     {
-        RuntimeGameData* gameData = RuntimeGameData::GetInstance();
+        RuntimeGameData& gameData = RuntimeGameData::GetInstance();
 
     GameState nextState = GameState::GS_CHARACTER_SCENE;
 
-    if (gameData->LoadGameData())
+    if (gameData.LoadGameData())
     {
-        nextState = gameData->Map->IsAtMap ?
+        nextState = gameData.Map->IsAtMap ?
             GameState::GS_MAP_SCENE :
             GameState::GS_BATTLE_SCENE;
     }
@@ -84,7 +84,7 @@ void MenuScene::GameSceneInit()
 	m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
 	m_FadeScreen->SetActive(false);
 
-	BGMController* bgm = audioController->CreateBGM({ "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" },
+	BGMController* bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_1-1.wav", "Audio/BGM/Water/bgm_water_1-3.wav","Audio/BGM/Water/bgm_water_1-4.wav" },
 		{ 1.0f, 1.0f, 1.0f, 1.0f });
 
 	/*

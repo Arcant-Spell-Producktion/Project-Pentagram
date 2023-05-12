@@ -1,17 +1,17 @@
 #include "LoadScene.h"
 
-void LoadScene::GameSceneLoadUtilityResource(EngineDataCollector* engineDataCollector)
+void LoadScene::GameSceneLoadUtilityResource(EngineDataCollector& engineDataCollector)
 {
 	m_LoadUtilityThread.MakeContext();
-	engineDataCollector->LoadResource();
+	engineDataCollector.LoadResource();
 	m_IsLoadDone++;
 }
-void LoadScene::GameSceneLoadTextureResource(EngineDataCollector* engineDataCollector, const std::string& filePath)
+void LoadScene::GameSceneLoadTextureResource(EngineDataCollector& engineDataCollector, const std::string& filePath)
 {
 	m_TextureThread.MakeContext();
 	std::string start = "START : " + filePath + "\n\n";
 	std::cout << start;
-	engineDataCollector->GetTextureCollector()->LoadFile(filePath);
+	engineDataCollector.GetTextureCollector()->LoadFile(filePath);
 	//std::cout << "LOG : " << curFilePath << " is DONE!!!!\n";
 	m_IsLoadDone++;
 }
@@ -25,8 +25,8 @@ GameObject* obj;
 
 void LoadScene::GameSceneInit()
 {
-	EngineDataCollector* engineDataCollector = EngineDataCollector::GetInstance();
-	engineDataCollector->GetTextureCollector()->PreLoadResource();
+	EngineDataCollector& engineDataCollector = EngineDataCollector::GetInstance();
+	engineDataCollector.GetTextureCollector()->PreLoadResource();
 
 	// engineDataCollector->LoadResource();
 	// engineDataCollector->GetTextureCollector()->LoadFile("Sprites");

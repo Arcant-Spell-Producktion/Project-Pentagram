@@ -142,7 +142,7 @@ void ResolveTutorialState::ResolveDamageCalculation()
 
 void ResolveTutorialState::OnBattleStateIn()
 {
-    m_ResolveTurManager = BattleManager::GetInstance();
+    m_ResolveTurManager = &BattleManager::GetInstance();
     m_State = ResolveState::ResolveTrack;
     m_TrackResolveIndex = 0;
     m_SpellResolveIndex = 0;

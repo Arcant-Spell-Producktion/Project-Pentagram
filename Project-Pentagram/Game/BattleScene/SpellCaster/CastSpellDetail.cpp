@@ -5,7 +5,7 @@
 void CastSpellDetail::OnCast(int* ChannelCount)
 {
     ChannelEffectEnum spellChannelType = OriginalSpell->GetChannelEffectType();
-    BattleManager* battleManager = BattleManager::GetInstance();
+    BattleManager& battleManager = BattleManager::GetInstance();
     int cc = 0;
 
     if (this->Channel == CastSpellDetail::Head)
@@ -23,7 +23,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
                 newSpell->SelectedTime += newSpell->GetSpellDetail()->GetChannelTime();
                 newSpell->doCast = true;
                 newSpell->Channel = CastSpellDetail::End;
-                battleManager->Data.Timeline.AddSpellToTimeline(newSpell);
+                battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
                 cc = 1;
                 break;
             }
@@ -43,7 +43,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
                     newSpell->doCast = this->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Active;
                     newSpell->ParentSpell = this;
                     newSpell->Channel = i < endTime ? CastSpellDetail::Body : CastSpellDetail::End;
-                    battleManager->Data.Timeline.AddSpellToTimeline(newSpell);
+                    battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
 
                     std::cout <<"\t add more spell at t -> "<< i << " : " << newSpell->Channel << "\n";
                 }
@@ -60,7 +60,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
     }
 
     SpellResolveEffect resolveEffect = this->GetSpellDetail()->GetResolvesEffects();
-    CasterController* caster = battleManager->Data.GetCaster(this->SpellOwner);
+    CasterController* caster = battleManager.Data.GetCaster(this->SpellOwner);
     if (resolveEffect.DoCancelDamage())
     {
         caster->SetImmune(this->Channel != CastSpellDetail::End);
@@ -76,14 +76,14 @@ void CastSpellDetail::OnCast(int* ChannelCount)
 
 void CastSpellDetail::OnResolve()
 {
-    BattleManager* battleManager = BattleManager::GetInstance();
+    BattleManager& battleManager = BattleManager::GetInstance();
 
     SpellResolveEffect resolveEffect = this->GetSpellDetail()->GetResolvesEffects();
     CasterPosition casterPosition = this->SpellOwner;
     CasterPosition targetPosition = this->GetTarget();
 
-    CasterController* caster = battleManager->Data.GetCaster(casterPosition);
-    CasterController* target = battleManager->Data.GetCaster(targetPosition);
+    CasterController* caster = battleManager.Data.GetCaster(casterPosition);
+    CasterController* target = battleManager.Data.GetCaster(targetPosition);
 
     if (this->GetSpellDetail()->GetChannelEffectType() >= ChannelEffectEnum::Active && this->Channel == CastSpellDetail::End && this->TriggeredSpell == nullptr)
     {
@@ -111,15 +111,15 @@ void CastSpellDetail::OnResolve()
         }
         if (resolveEffect.DoDelaySpell())
         {
-            battleManager->Data.Timeline.GetTimetrack(this->TriggeredSpell->SelectedTime)
+            battleManager.Data.Timeline.GetTimetrack(this->TriggeredSpell->SelectedTime)
                                                        ->RemoveSpell(this->TriggeredSpell);
-            battleManager->Data.Timeline.UI->RemoveIconFromTrack(this->TriggeredSpell->SelectedTime, this->TriggeredSpell);
+            battleManager.Data.Timeline.UI->RemoveIconFromTrack(this->TriggeredSpell->SelectedTime, this->TriggeredSpell);
 
             CastSpellDetail* newSpell = new CastSpellDetail(*this->TriggeredSpell);
 
             newSpell->isCasted = false;
             newSpell->SelectedTime += 1;
-            battleManager->Data.Timeline.AddSpellToTimeline(newSpell);
+            battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
 
             //TODO:: find a way to delete TriggeredSpell without crash
         }
@@ -127,12 +127,12 @@ void CastSpellDetail::OnResolve()
         for (int i = this->SelectedTime ; i <= 10; ++i)
         {
             CastSpellDetail* toDelete = nullptr;
-            toDelete = battleManager->Data.Timeline.GetTimetrack(i)->RemoveChildSpell(this->ParentSpell);
+            toDelete = battleManager.Data.Timeline.GetTimetrack(i)->RemoveChildSpell(this->ParentSpell);
             if (toDelete != nullptr)
             {
                 std::cout << "\t remove child spell from track: " << i << "\n";
 
-                battleManager->Data.Timeline.UI->RemoveIconFromTrack(i, toDelete);
+                battleManager.Data.Timeline.UI->RemoveIconFromTrack(i, toDelete);
                 delete toDelete;
             }else
             {
@@ -154,14 +154,14 @@ void CastSpellDetail::OnResolve()
 
 void CastSpellDetail::AppliedEffect(bool isWinCompare)
 {
-    BattleManager* battleManager = BattleManager::GetInstance();
+    BattleManager& battleManager = BattleManager::GetInstance();
 
     SpellResolveEffect resolveEffect = this->GetSpellDetail()->GetResolvesEffects();
     CasterPosition casterPosition = this->SpellOwner;
     CasterPosition targetPosition = this->GetTarget();
 
-    CasterController* caster = battleManager->Data.GetCaster(casterPosition);
-    CasterController* target = battleManager->Data.GetCaster(targetPosition);
+    CasterController* caster = battleManager.Data.GetCaster(casterPosition);
+    CasterController* target = battleManager.Data.GetCaster(targetPosition);
 
     auto effectType = this->GetSpellDetail()->GetSpellEffectType();
     auto effectValue = this->GetEffectValue();

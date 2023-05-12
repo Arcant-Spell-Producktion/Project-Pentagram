@@ -85,7 +85,7 @@ void SpellDetailUI::InsertSpellDetailUI(TextObject* textObject, const std::strin
 
 SpellDetailUI::SpellDetailUI(int position, float fontSize) : UIObject("SpellDetailUI_" + std::to_string(position))
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
     int flip = position == 0 ? 1 : -1;
     float box_x = 520.0f;
 
@@ -119,7 +119,7 @@ SpellDetailUI::SpellDetailUI(int position, float fontSize) : UIObject("SpellDeta
 }
 SpellDetailUI::SpellDetailUI(glm::vec3 position, glm::vec3 scale, float fontSize) : UIObject("SpellDetailUI_")
 {
-    auto scene = GameStateController::GetInstance()->currentScene;
+    auto scene = GameStateController::GetInstance().currentScene;
 
     this->position = position;
 

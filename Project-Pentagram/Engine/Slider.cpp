@@ -40,7 +40,7 @@ void Slider::OnUpdate(const float& dt)
 
 	if (m_IsPress)
 	{
-		this->m_Button->position.x += Input::deltaMouseX / ArcantEngine::GetInstance()->GetWindow()->GetViewportDiffRatio().x;
+		this->m_Button->position.x += Input::deltaMouseX / ArcantEngine::GetInstance().GetWindow()->GetViewportDiffRatio().x;
 		if (this->m_Button->position.x > this->scale.x / 2.0f)
 		{
 			this->m_Button->position.x = this->scale.x / 2.0f;
@@ -64,7 +64,7 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	}
 
 	// Get UI(GameObject) Shader || Button Shader(Handle UI Slicing)
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->UISlicingShader;
+	Shader& shader = EngineDataCollector::GetInstance().GetShaderCollector()->UISlicingShader;
 
 	// Update MVP Matrix
 	glm::mat4 model = parentModel;
@@ -79,7 +79,7 @@ void Slider::Draw(Camera& camera, glm::mat4 parentModel)
 	// !!Not Set scale to child -> Messy to encounter with
 	glm::mat4 scaleMat = glm::scale(glm::mat4(1.0f), this->scale);
 
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 	
 	shader.Activate();
 	shader.setMat4("u_Model", model * scaleMat);

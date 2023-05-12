@@ -31,7 +31,7 @@ class GameScene : public IGameObjectManager
 		std::vector<GameObject*> objectsToDeleteList;
 
 		// ----------------- Utilities -----------------
-		AudioController* audioController = AudioController::GetInstance();
+		AudioController& audioController = AudioController::GetInstance();
 		Camera camera;
 		float timeScale = 1.0f;
 		float scaledDeltaTime;

@@ -3,7 +3,7 @@
 void EngineDataCollector::LoadResource()
 {
 	m_FontCollector.LoadResource();
-	AudioEngine::GetInstance()->LoadResource();
+	AudioEngine::GetInstance().LoadResource();
 	// m_Texture.LoadResource was Loaded in LoadScene.cpp
 }
 
@@ -26,6 +26,6 @@ void EngineDataCollector::Free()
 	m_ShaderCollector.Free();
 	m_FontCollector.Free();
 	m_TextureCollector.Free();
-	AudioEngine::GetInstance()->Free();
+	AudioEngine::GetInstance().Free();
 	Singleton::Free();
 }

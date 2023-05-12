@@ -50,11 +50,11 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		return;
 	}
 	// Get Particle(GameObject) Shader
-	Shader& shader = EngineDataCollector::GetInstance()->GetShaderCollector()->GameObjectShader;
+	Shader& shader = EngineDataCollector::GetInstance().GetShaderCollector()->GameObjectShader;
 
 	shader.Activate();
 
-	Window* window = ArcantEngine::GetInstance()->GetWindow();
+	Window* window = ArcantEngine::GetInstance().GetWindow();
 	this->m_Texture->Activate(GL_TEXTURE0);
 	
 	shader.setMat4("u_View", camera.GetViewMatrix());
