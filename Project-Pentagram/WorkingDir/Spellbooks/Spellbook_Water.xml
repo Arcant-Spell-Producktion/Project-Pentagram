@@ -28,7 +28,7 @@
     <Spell SpellName="Aqua flurry">
       <WillValue>
         <Value>35</Value>
-        <Value>4</Value>
+        <Value>40</Value>
         <Value>45</Value>
         <Value>45</Value>
         <Value>50</Value>
