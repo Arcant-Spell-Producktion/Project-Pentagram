@@ -15,4 +15,5 @@ public:
     void ChangeStack(int n);
     bool IsBeingHover() const;
     SpellEffectEnum GetEffectType() const;
+    int GetStack() const;
 };

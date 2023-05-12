@@ -28,6 +28,12 @@ incoming damage to 0)";
 const std::string PerifyEffectDetail =
 R"(-1 total will per stack
 (max 3))";
+const std::string BoostEffectDetail[3] =
+{ R"(2+ Stack: TimeTrack mod. cost -1)",
+  R"(5+ Stack: Will mod. cost -1)",
+  R"(8+ Stack: All spell atk. +10 next turn
+(lose all stack after))"
+};
 
 class EffectDetailUI : public UIObject
 {
@@ -35,6 +41,9 @@ class EffectDetailUI : public UIObject
         UIObject* m_Box;
         TextObject* m_TextEffectName;
         TextObject* m_TextEffectDetail;
+
+        // Used with Boost
+        TextObject* m_TextEffectDetailUtility;
 
         CasterEffectIconUI* m_CurrentDetails = nullptr;
 

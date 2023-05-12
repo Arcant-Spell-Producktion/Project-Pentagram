@@ -57,3 +57,7 @@ SpellEffectEnum CasterEffectIconUI::GetEffectType() const
 {
     return m_Type;
 }
+int CasterEffectIconUI::GetStack() const
+{
+    return m_Stack;
+}
