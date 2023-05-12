@@ -51,7 +51,6 @@ public:
     FreezeSpellEffect() :BaseSpellEffect(SpellEffectEnum::Freeze, EffectResolveType::OnStartTurn)
     {
         m_IsEffectStack = true;
-        m_IsEffectActiveOnce = true;
         m_IsEffectResetOnEndOfCastPhase = true;
     }
 
