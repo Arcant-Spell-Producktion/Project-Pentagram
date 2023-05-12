@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Engine/UIObject.h"
 #include "Engine/GameStateController.h"
@@ -23,6 +23,8 @@ class CursorManager : public Singleton<CursorManager>
 		void MapCursorPosition(const glm::vec2& cursorPos);
 	public:
 		CursorManager();
+
+        void ChangeParticleElement(int elementIndex);
 
 		void Update(Camera& camera, float dt);
 

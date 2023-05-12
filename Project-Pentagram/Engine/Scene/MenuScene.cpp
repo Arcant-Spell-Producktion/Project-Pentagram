@@ -5,6 +5,7 @@
 #include <Game/Objects/StageObject.h>
 
 #include "Game/GameData/RuntimeGameData.h"
+#include "Game/Objects/CursorManager.h"
 
 void MenuScene::FadeUpdate(const float& dt)
 {
@@ -21,6 +22,7 @@ void MenuScene::FadeUpdate(const float& dt)
 
 void MenuScene::GameSceneLoad()
 {
+    CursorManager::GetInstance().ChangeParticleElement(4);
 	std::cout << "Menu Scene : Load Completed\n";
 }
 
@@ -50,6 +52,8 @@ void MenuScene::GameSceneInit()
 
     if (gameData.LoadGameData())
     {
+        CursorManager::GetInstance().ChangeParticleElement(gameData.Player->Element());
+
         nextState = gameData.Map->IsAtMap ?
             GameState::GS_MAP_SCENE :
             GameState::GS_BATTLE_SCENE;

@@ -1,4 +1,4 @@
-#include "CursorManager.h"
+﻿#include "CursorManager.h"
 
 CursorManager::CursorManager()
 {
@@ -11,6 +11,12 @@ CursorManager::CursorManager()
 	onClickParticle->baseParticle.velocityVariation = { 250.0f, 250.0f };
 	onClickParticle->baseParticle.lifeTime = 0.3f;
 	onClickParticle->SetSpawnTime(0.005f);
+}
+
+void CursorManager::ChangeParticleElement(int elementIndex)
+{
+    trailParticle->SetSpriteByIndex(elementIndex, 0);
+    onClickParticle->SetSpriteByIndex(elementIndex, 0);
 }
 
 void CursorManager::Update(Camera& camera, float dt)

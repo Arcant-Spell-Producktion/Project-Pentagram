@@ -68,7 +68,7 @@ void MapInfoUI::SetMapInfo(const Element::Type& element)
 
 		case Element::Corrupt:
             this->position = { -350.0f, 350.0f, 0.0f };
-            //this->SetTexture("Sprites/Stage/Corrupt/stage_corrupt_background.png");
+            this->SetTexture("Sprites/Stage/Corrupt/stage_corrupt_background.png");
             this->SetActive(true);
             break;
 	}

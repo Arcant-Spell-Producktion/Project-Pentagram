@@ -3,6 +3,7 @@
 #include "Engine/GameStateController.h"
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/GameData/CasterData/CasterStatDatabase.h"
+#include "Game/Objects/CursorManager.h"
 #include "Game/Objects/StageObject.h"
 
 void CharacterSelectScene::FadeUpdate(const float& dt)
@@ -21,6 +22,7 @@ void CharacterSelectScene::FadeUpdate(const float& dt)
 void CharacterSelectScene::OnSelect(Element::Type element)
 {
     m_SelectedElement = element;
+    CursorManager::GetInstance().ChangeParticleElement((int)m_SelectedElement);
 
     for (int i = 0; i < 4 ; i++)
     {
