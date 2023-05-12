@@ -14,8 +14,6 @@ private:
     std::map<BattleState, BaseBattleState*> m_BattleStates;
 
 public:
-    
-
     BattleSceneData Data;
 
     void SetBattleState(BattleState state) override;

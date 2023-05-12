@@ -240,6 +240,6 @@ void ResolveTestState::OnBattleStateOut()
 {
     m_ResolveTestManager->Data.Timeline.UI->SetTrackerActive(false);
     m_ResolveTestManager->Data.Timeline.CompleteTimeline();
-
+    m_ResolveTestManager->Data.EndRound();
     m_ResolveTestManager->Data.WillCompare->OnCompareDone.RemoveAllListeners();
 }

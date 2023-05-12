@@ -62,6 +62,10 @@ public:
 
     virtual void StartTurn();
 
+    virtual void EndCastPhase();
+
+    virtual void EndRound();
+
     bool SetHp(int value);
 
     void SetMana(int value);

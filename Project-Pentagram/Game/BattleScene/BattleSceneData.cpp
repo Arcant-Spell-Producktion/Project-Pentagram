@@ -41,3 +41,19 @@ void BattleSceneData::StartRound()
         caster->StartRound();
     }
 }
+
+void BattleSceneData::EndCastPhase()
+{
+    for (auto caster : Casters)
+    {
+        caster->EndCastPhase();
+    }
+}
+
+void BattleSceneData::EndRound()
+{
+    for (auto caster : Casters)
+    {
+        caster->EndRound();
+    }
+}

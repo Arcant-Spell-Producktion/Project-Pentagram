@@ -73,22 +73,34 @@ void PetrifySpellEffect::ResolveEffect(std::va_list args)
 
 void BoostSpellEffect::ResolveEffect(std::va_list args)
 {
+    std::cout << "BoostSpellEffect::ResolveEffect\n";
+
     if (!m_IsEffectActive) return;
 
-    CasterManager* cm = va_arg(args, CasterController*)->GetCasterManager();
+    std::cout << "BoostSpellEffect::ACTIVE\n";
+
+    CasterController* cc = va_arg(args, CasterController*);
+    CasterManager* cm =cc->GetCasterManager();
+    std::cout << "BoostSpellEffect::CC " << cc << "\n";
 
     if (m_EffectStack >= 2)
     {
+        std::cout << "BoostSpellEffect::TIME BUFF\n";
+
         cm->SetTimeBuff(m_TimeBuff);
     }
 
     if (m_EffectStack >= 5)
     {
+        std::cout << "BoostSpellEffect::WILL BUFF\n";
+
         cm->SetWillBuff(m_WillBuff);
     }
 
     if (m_EffectStack >= 8)
     {
+        std::cout << "BoostSpellEffect::DMG BUFF\n";
+
         cm->SetDmgBuff(m_DmgBuff);
     }
 

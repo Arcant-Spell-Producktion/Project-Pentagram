@@ -70,6 +70,20 @@ void CasterController::StartTurn()
     UpdateCasterUI();
 }
 
+void CasterController::EndCastPhase()
+{
+    GetCasterManager()->ResetBuff();
+    GetCasterManager()->ResetDebuff();
+    GetEffectManager()->OnCastPhaseEnd();
+    UpdateCasterUI();
+}
+
+void CasterController::EndRound()
+{
+    GetEffectManager()->OnEndRound();
+    UpdateCasterUI();
+}
+
 bool CasterController::SetHp(int value)
 {
     m_CasterManager.SetHealth(value);

@@ -73,14 +73,15 @@ public:
 
     void OnCastPhaseEnd()
     {
+        if (m_IsEffectResetAtStackLimit && (m_EffectStack == m_EffectStackLimit)) ResetEffect();
         if (m_IsEffectResetOnEndOfCastPhase) { ResetEffect(); }
     }
 
     void OnEndRound()
     {
-        if (m_IsEffectStackDecreaseOnEndRound) m_EffectStack -= 1;
-        if (m_IsEffectActiveOnce) { m_IsEffectStack = 0; }
-        if (m_IsEffectStack == 0 || m_IsEffectResetAtStackLimit && (m_EffectStack == m_EffectStackLimit) ) ResetEffect();
+        if (m_IsEffectActive && m_IsEffectStackDecreaseOnEndRound) m_EffectStack -= 1;
+        if (m_IsEffectActive && m_IsEffectActiveOnce) { m_IsEffectStack = 0; }
+        if (m_IsEffectStack == 0) ResetEffect();
     }
 
     void ResetEffect()

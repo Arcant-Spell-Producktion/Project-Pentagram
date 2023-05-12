@@ -85,9 +85,5 @@ void CastTestState::OnBattleStateOut()
     battleManager.Data.Pentagram->SetActive(false);
     battleManager.Data.Timeline.UI->UpdatePreviewIcon(0);
 
-    for (auto caster : battleManager.Data.Casters)
-    {
-        caster->GetCasterManager()->ResetDebuff();
-        caster->GetEffectManager()->OnCastPhaseEnd();
-    }
+    battleManager.Data.EndCastPhase();
 }

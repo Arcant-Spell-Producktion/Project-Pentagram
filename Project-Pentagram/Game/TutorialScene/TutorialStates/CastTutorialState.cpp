@@ -72,4 +72,7 @@ void CastTutorialState::OnBattleStateOut()
     BattleManager& battleManager = BattleManager::GetInstance();
     battleManager.Data.Pentagram->SetActive(false);
     battleManager.Data.Timeline.UI->UpdatePreviewIcon(0);
+
+    battleManager.Data.EndCastPhase();
+
 }

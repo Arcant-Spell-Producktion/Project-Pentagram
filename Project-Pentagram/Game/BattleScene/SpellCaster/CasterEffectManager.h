@@ -65,6 +65,16 @@ public:
         UpdateSpellEvent();
     }
 
+    void OnEndRound()
+    {
+        for (auto effectPair : m_Effects)
+        {
+            auto effect = effectPair.second;
+            effect->OnEndRound();
+        }
+        UpdateSpellEvent();
+    }
+
     ~CasterEffectManager()
     {
         for (auto effectPair : m_Effects)

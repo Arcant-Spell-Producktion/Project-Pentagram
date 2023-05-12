@@ -42,4 +42,6 @@ public:
     bool IsAllCasterIdle();
 
     void StartRound();
+    void EndCastPhase();
+    void EndRound();
 };
