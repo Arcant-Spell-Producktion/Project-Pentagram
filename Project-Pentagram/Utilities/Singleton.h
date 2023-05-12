@@ -17,9 +17,16 @@ class Singleton
 
         void Free()
         {
+            ReinitializeInstance();
         }
 
     private:
-        Singleton(const Singleton&) = delete;
-        Singleton& operator=(const Singleton&) = delete;
+
+        static void ReinitializeInstance()
+        {
+            static std::mutex mutex;
+            std::lock_guard<std::mutex> lock(mutex);
+            static T& instance = GetInstance();
+            instance = T(); // Reinitialize the instance
+        }
 };
