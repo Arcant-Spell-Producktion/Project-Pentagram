@@ -31,13 +31,16 @@ void ResolveBattleState::ResolveTrack()
 	m_ResolveTrack = m_CurrentTrack->GetSpellResolveList();
     std::cout << "\tTrack Size: " << m_ResolveTrack.size() << "\n";
 
+    int elementA = static_cast<int>(m_ResolveBattleManager->Data.GetCaster(CasterPosition::CasterA)->GetCasterManager()->Data().Element());
+    int elementB = static_cast<int>(m_ResolveBattleManager->Data.GetCaster(CasterPosition::CasterB)->GetCasterManager()->Data().Element());
+
 
     auto position = m_CurrentTrack->GetWillCompareResult();
     if (position >= CasterPosition::TIED)
     {
         if (m_CurrentTrack->DoWillCompare())
         {
-            m_ResolveBattleManager->Data.WillCompare->StartCompare(position);
+            m_ResolveBattleManager->Data.WillCompare->StartCompare(position, elementA, elementB);
             m_State = ResolveState::PlayCompare;
         }
         else

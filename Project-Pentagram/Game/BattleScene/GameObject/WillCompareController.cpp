@@ -1,6 +1,9 @@
 ﻿#include "WillCompareController.h"
 #include "Engine/GameStateController.h"
 
+#include <string>
+
+std::string WillCompareParticleTexture = "Sprites/Particle/particle.png";
 
 ParticleProperty GetCrashParticleProp()
 {
@@ -8,10 +11,8 @@ ParticleProperty GetCrashParticleProp()
 
     particleProp.position = { 0.0f, -50.0f };
     particleProp.positionVariation = { 50.0f, 150.0f };
-    particleProp.colorBegin = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-    particleProp.colorEnd = glm::vec4(1.0f, 1.0f, 1.0f, 0.5f);
-    particleProp.sizeBegin = 80.0f;
-    particleProp.sizeEnd = 50.0f;
+    particleProp.sizeBegin = 150.0f;
+    particleProp.sizeEnd = 80.0f;
     particleProp.rotationVariation = 0.0f;
     particleProp.velocityVariation = { 300.0f, 300.0f };
     particleProp.lifeTime = 0.5f;
@@ -19,7 +20,7 @@ ParticleProperty GetCrashParticleProp()
     return particleProp;
 }
 
-ParticleProperty GetCasterParticleProp(int caster,bool isStrong)
+ParticleProperty GetCasterParticleProp(int caster, bool isStrong)
 {
     int flip = caster == 0 ? 1 : -1;
     ParticleProperty particleProp;
@@ -28,10 +29,8 @@ ParticleProperty GetCasterParticleProp(int caster,bool isStrong)
 
     float posVariation = !isStrong ? 0.0f : 50.0f;
     particleProp.positionVariation = { posVariation, posVariation };
-    particleProp.colorBegin = caster ? 
-        glm::vec4(0.0f, 0.0f, 1.0f, 1.0f) : glm::vec4(1.0f, 0.0f, 0.0f, 1.0f);
-    particleProp.colorEnd = !isStrong ? glm::vec4(1.0f, 0.0f, 0.7f, 0.5f) : caster ?
-        glm::vec4(0.0f, 0.5f, 1.0f, 1.0f) : glm::vec4(1.0f, 0.5f, 0.0f, 1.0f);;
+    particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+    particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 0.4f };
     particleProp.sizeBegin = !isStrong ? 50.0f : 75.0f;
     particleProp.sizeEnd = !isStrong ? 10.0f : 15.0f;
     particleProp.rotationVariation = 0.0f;
@@ -42,7 +41,7 @@ ParticleProperty GetCasterParticleProp(int caster,bool isStrong)
     return particleProp;
 }
 
-bool TimerEnd(float& timer , float newTimerValue = 0)
+bool TimerEnd(float& timer, float newTimerValue = 0)
 {
     bool isEnd = timer <= 0;
     if (isEnd) timer = newTimerValue;
@@ -103,7 +102,7 @@ void WillCompareController::EndCompare()
     m_CurrentState = CompareState::None;
 }
 
-WillCompareController::WillCompareController():GameObject("WillCompareController")
+WillCompareController::WillCompareController() :GameObject("WillCompareController")
 {
     m_CompareResult = CasterPosition::TIED;
 
@@ -112,6 +111,10 @@ WillCompareController::WillCompareController():GameObject("WillCompareController
     m_ParticleA = new ParticleSystem("ParticleWillA");
     m_ParticleB = new ParticleSystem("ParticleWillB");
     m_ParticleCenter = new ParticleSystem("ParticleWillCenter");
+    m_ParticleA->SetTexture(WillCompareParticleTexture);
+    m_ParticleB->SetTexture(WillCompareParticleTexture);
+    m_ParticleCenter->SetTexture(WillCompareParticleTexture);
+    m_ParticleCenter->SetSpriteByIndex(4, 0);
 
     this->SetChildRenderFront(m_ParticleA);
     this->SetChildRenderFront(m_ParticleB);
@@ -122,7 +125,7 @@ WillCompareController::WillCompareController():GameObject("WillCompareController
 
 }
 
-void WillCompareController::StartCompare(CasterPosition pos)
+void WillCompareController::StartCompare(CasterPosition pos, int elementA, int elementB)
 {
     m_CompareResult = pos;
 
@@ -132,10 +135,13 @@ void WillCompareController::StartCompare(CasterPosition pos)
     m_ParticleA->baseParticle = GetCasterParticleProp(0, isStrong);
     m_ParticleA->SetSpawnTime(isStrong ? 0.001f : 0.015f);
     m_ParticleA->Emit(m_ParticleA->baseParticle);
+    m_ParticleA->SetSpriteByIndex(elementA, 0);
 
     m_ParticleB->baseParticle = GetCasterParticleProp(1, isStrong);
     m_ParticleB->SetSpawnTime(isStrong ? 0.001f : 0.015f);
     m_ParticleB->Emit(m_ParticleB->baseParticle);
+    m_ParticleB->SetSpriteByIndex(elementB, 0);
+
 
     m_CurrentState = CompareState::Start;
     m_curTime = 1.0f;

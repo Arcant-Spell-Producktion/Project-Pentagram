@@ -2,7 +2,6 @@
 #include "Engine/IGameObjectManager.h"
 #include <Game/GameData/CasterData/CasterPosition.h>
 
-
 class WillCompareController : public GameObject
 {
 private:
@@ -37,5 +36,5 @@ public:
 
     void OnUpdate(const float& dt) override;
 
-    void StartCompare(CasterPosition pos);
+    void StartCompare(CasterPosition pos, int elementA, int elementB);
 };
