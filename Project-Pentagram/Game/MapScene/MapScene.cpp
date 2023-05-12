@@ -30,10 +30,19 @@ void MapScene::GameSceneInit()
 {
 	std::cout << "Map Scene : Initialize Completed\n";
 
+	const glm::vec3 earthNodePosition = { 523.0f, 0.0f, 0.0f };
+	const glm::vec3 fireNodePosition = { -456.0f, 85.0f, 0.0f };
+	const glm::vec3 waterNodePosition = { 232.0f, 380.0f, 0.0f };
+	const glm::vec3 windNodePosition = { -172.0f, -220.0f, 0.0f };
+	const glm::vec3 corruptNodePosition = { 10.0f, 120.0f, 0.0f };
+
+	const glm::vec3 offset = { 0.0f, 10.0f, 0.0f };
+
+
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
 
     auto MapBGObject = CreateGameObject("MapBG");
-    MapBGObject->SetTexture("Sprites/Map/map.png");
+    MapBGObject->SetTexture("Sprites/Map/world_map.png");
     MapBGObject->scale = { 1920.0f,1080.0f,0.0f };
 
 	m_Character = CreateGameObject("Character");
@@ -55,20 +64,21 @@ void MapScene::GameSceneInit()
 			m_Character->SetTexture("Sprites/Character/Player/character_player_wind.png");
 			break;
 	}
+
     switch (gameData.Map->GetCurrentChapter())
     {
-    case Element::Earth:
-        m_Character->position = { 300.0f, -100.0f + 10.0f, 0.0f };
-        break;
-    case Element::Fire:
-        m_Character->position = { -250.0f, 130.0f + 10.0f, 0.0f };
-        break;
-    case Element::Water:
-        m_Character->position = { 210.0f, 350.0f + 10.0f, 0.0f };
-        break;
-    case Element::Wind:
-        m_Character->position = { -60.0f, -220.0f + 10.0f, 0.0f };
-        break;
+		case Element::Earth:
+			m_Character->position = earthNodePosition + offset;
+			break;
+		case Element::Fire:
+			m_Character->position = fireNodePosition + offset;
+			break;
+		case Element::Water:
+			m_Character->position = waterNodePosition + offset;
+			break;
+		case Element::Wind:
+			m_Character->position = windNodePosition + offset;
+			break;
     }
 
 
@@ -100,19 +110,19 @@ void MapScene::GameSceneInit()
         switch (e)
         {
 			case Element::Earth:
-				node->position = { 300.0f, -100.0f, 0.0f };
+				node->position = earthNodePosition;
 				break;
 			case Element::Fire:
-				node->position = { -250.0f, 130.0f, 0.0f };
+				node->position = fireNodePosition;
 				break;
 			case Element::Water:
-				node->position = { 210.0f, 350.0f, 0.0f };
+				node->position = waterNodePosition;
 				break;
 			case Element::Wind:
-				node->position = { -60.0f, -220.0f, 0.0f };
+				node->position = windNodePosition;
 				break;
             case Element::Corrupt:
-                node->position = { 0.0f, 0.0f, 0.0f };
+                node->position = corruptNodePosition;
                 break;
         }
 
