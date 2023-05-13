@@ -34,7 +34,6 @@ private:
 
     int m_CurrentSpellIndex = -1;
 
-    void SetTransparency(bool flag);
 
     void SetOverlayToggle(bool flag);
 
@@ -46,6 +45,10 @@ public:
     CastSpellDetail* SpellDetail = nullptr;
 
     SpellIconUI(std::string objName,float scale = 100.0f);
+
+    void SetDarken(bool flag);
+
+    void SetTransparency(bool flag);
 
     void ToggleIsPentagramIcon(bool flag);
 
