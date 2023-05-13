@@ -76,7 +76,7 @@ void WaterSpell2::Initialize()
 
     glm::vec3 startPos = { startX, yPos, 0.0f };
     glm::vec3 endPos = { endX, yPos, 0.0f };
-    float travelTime = 1.5f;
+    float travelTime = 0.75f;
 
 
     this->SetAnimationPlayTime(timePerFrame);

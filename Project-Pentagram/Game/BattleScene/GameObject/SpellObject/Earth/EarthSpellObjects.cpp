@@ -74,7 +74,7 @@ void EarthSpell2::Initialize()
 {
     float size = 320.0f;
     float startX = (CASTER_POSITION_X - size) * m_SpellTarget; // Assume A shooter
-    float endX = (-540.0f + size / 4) * m_SpellTarget;
+    float endX = (-540.0f + size / 1.5) * m_SpellTarget;
     float yPos = -size / 2;
     this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
     this->position = { startX, yPos, 1.0f };
@@ -83,7 +83,7 @@ void EarthSpell2::Initialize()
 
     glm::vec3 startPos = { startX ,yPos,0.0f };
     glm::vec3 endPos = { endX ,yPos,0.0f };
-    float travelTime = 1.5f;
+    float travelTime = 1.0f;
 
 
     float timePerFrame = 0.15f;
@@ -94,13 +94,17 @@ void EarthSpell2::Initialize()
 
     QueueMoveEvent(startPos, endPos, travelTime);
 
-    QueueWaitTillFrameEvent(true);
+    QueueUpdateFunction(
+        [this](float dt)
+        {
+            this->SetSpriteByIndex(2, 0);
+            Next();
+        }
+    );
 
-    QueueWaitEvent(timePerFrame* 2);
+    QueueWaitEvent(timePerFrame * 2);
 
     QueueHitEvent();
-
-    QueueWaitEvent(timePerFrame);
 
     QueueUpdateFunction(
         [this](float dt)
@@ -355,9 +359,9 @@ void EarthSpell7::Initialize()
 
 void EarthSpell8::Initialize()
 {
-    float size = 320.0f;
-    float xPos = (CASTER_POSITION_X - 200.0f) * -m_SpellTarget;
-    float yPos = -160.0f;
+    float size = 550.0f;
+    float xPos = (CASTER_POSITION_X  - (size / 5)) * -m_SpellTarget;
+    float yPos = -50.0f;
     this->scale = { size, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
