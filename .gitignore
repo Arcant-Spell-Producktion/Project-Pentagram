@@ -6,4 +6,4 @@
 #ignore debug build/log folders
 lib/glm/out/**
 Project-Pentagram/**/[Dd]ebug
-
+[Rr]elease
