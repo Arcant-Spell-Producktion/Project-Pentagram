@@ -31,7 +31,10 @@ class CastSpellDetail
 
         CastSpellDetail* ParentSpell = nullptr;
 
+        CastSpellDetail* SetSpell(Spell* spell){ OriginalSpell = spell; return this; }
+
         Spell* GetSpellDetail() const { return OriginalSpell; }
+
 
         CasterPosition GetTarget() const
         {

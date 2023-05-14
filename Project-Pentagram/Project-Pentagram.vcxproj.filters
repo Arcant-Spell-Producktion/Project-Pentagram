@@ -12,25 +12,25 @@
       <Filter>Engine\Collector\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\EBO.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\Mesh.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\Shader.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\TextObject.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\Texture.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\VAO.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderer\VBO.cpp">
-      <Filter>Engine\Renderer\Source File</Filter>
+      <Filter>Engine\etc\Renderer\Source File</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Scene\MenuScene.cpp">
       <Filter>Engine\Scene\Source File</Filter>
@@ -239,6 +239,7 @@
     <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
     <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -255,25 +256,25 @@
       <Filter>Engine\Collector\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\EBO.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\Mesh.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\Shader.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\TextObject.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\Texture.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\VAO.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderer\VBO.h">
-      <Filter>Engine\Renderer\Header File</Filter>
+      <Filter>Engine\etc\Renderer\Header File</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Scene\MenuScene.h">
       <Filter>Engine\Scene\Header File</Filter>
@@ -597,6 +598,9 @@
     <ClInclude Include="Game\BattleScene\SpellCaster\CasterDetailUI.h">
       <Filter>Game\BattleScene\SpellCaster</Filter>
     </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -645,15 +649,6 @@
     </Filter>
     <Filter Include="Engine\Collector\Source File">
       <UniqueIdentifier>{366dc780-d3e0-4a7e-995c-b448fd449ced}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Renderer">
-      <UniqueIdentifier>{edab6d46-9ff4-4b2d-89b9-70c0d9d80f8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Renderer\Header File">
-      <UniqueIdentifier>{89639f19-6b73-455e-90e9-04a9187341f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Renderer\Source File">
-      <UniqueIdentifier>{9bbe79d4-e4c0-4bbe-8135-db89a3427d03}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\Scene">
       <UniqueIdentifier>{d3ec8239-9fd6-436a-8e93-c0dd6ebae721}</UniqueIdentifier>
@@ -882,6 +877,15 @@
     </Filter>
     <Filter Include="Game\GameData\MapData">
       <UniqueIdentifier>{51f54860-10e6-4a9e-bc27-511079606c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer">
+      <UniqueIdentifier>{edab6d46-9ff4-4b2d-89b9-70c0d9d80f8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer\Header File">
+      <UniqueIdentifier>{89639f19-6b73-455e-90e9-04a9187341f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer\Source File">
+      <UniqueIdentifier>{9bbe79d4-e4c0-4bbe-8135-db89a3427d03}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

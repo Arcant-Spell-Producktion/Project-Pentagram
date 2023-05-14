@@ -39,6 +39,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.h" />
     <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
     <ClInclude Include="Game\BattleScene\GameObject\ScrollButton.h" />
     <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp" />
