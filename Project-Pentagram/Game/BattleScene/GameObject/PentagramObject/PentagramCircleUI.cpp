@@ -1,5 +1,13 @@
 ﻿#include "PentagramCircleUI.h"
 
+const std::string pentagramCircleTexture[] =
+{
+    "Sprites/UI/Game/ui_game_pentagram_Earth.png",
+    "Sprites/UI/Game/ui_game_pentagram_Fire.png",
+    "Sprites/UI/Game/ui_game_pentagram_Water.png",
+    "Sprites/UI/Game/ui_game_pentagram_Wind.png",
+};
+
 PentagramCircleUI::PentagramCircleUI(IGameObjectManager* scene): UIObject("PentagramCircleUI")
 {
     this->position = { 0.0f, PENTAGRAM_CIRCLE_OFFSET_Y, 0.0f };
@@ -14,7 +22,7 @@ PentagramCircleUI::PentagramCircleUI(IGameObjectManager* scene): UIObject("Penta
         circle->SetIsAnimationObject(false);
         circle->scale = { radius, radius, 1.0f };
         circle->SetSpriteByIndex(i, 0);
-        circle->SetTexture("Sprites/UI/Game/ui_game_pentagram.png");
+        circle->SetTexture(pentagramCircleTexture[0]);
         circle->SetActive(!(i > 1));
         if (i > 0)
         {
@@ -23,6 +31,14 @@ PentagramCircleUI::PentagramCircleUI(IGameObjectManager* scene): UIObject("Penta
 
         m_PentragramObj.push_back(circle);
         this->SetChildRenderBack(circle);
+    }
+}
+
+void PentagramCircleUI::SetElement(int value)
+{
+    for (auto circle : m_PentragramObj)
+    {
+        circle->SetTexture(pentagramCircleTexture[value]);
     }
 }
 
