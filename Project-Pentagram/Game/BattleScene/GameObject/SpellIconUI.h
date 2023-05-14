@@ -34,9 +34,6 @@ private:
 
     int m_CurrentSpellIndex = -1;
 
-
-    void SetOverlayToggle(bool flag);
-
     void HoldDetailBox();
 
     void ReleaseDetailBox();
@@ -45,6 +42,8 @@ public:
     CastSpellDetail* SpellDetail = nullptr;
 
     SpellIconUI(std::string objName,float scale = 100.0f);
+
+    void SetOverlayToggle(bool flag);
 
     void SetDarken(bool flag);
 

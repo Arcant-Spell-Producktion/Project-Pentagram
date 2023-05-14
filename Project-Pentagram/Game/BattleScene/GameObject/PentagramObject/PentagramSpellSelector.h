@@ -32,11 +32,17 @@ private:
     int m_Effect = 1;
 
     std::array<std::array<ClickableSpellIconUI*,3>,3> m_SpellIcons;
+    SpellDetailUI* m_SpellDetailUI;
+
 
     void UpdateIconDetail();
 
     void ClickIcon(int index);
+
+    
 public:
+    void OnUpdate(const float& dt) override;
+
     Event<PentagramData_T> OnSpellClick;
 
     PentagramSpellSelector();

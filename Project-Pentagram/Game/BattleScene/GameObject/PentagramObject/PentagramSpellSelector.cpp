@@ -10,7 +10,7 @@ PentagramSpellSelector::PentagramSpellSelector(): UIObject("PentagramSpellSelect
         for (int complex = 0; complex < 3; complex++)
         {
             ClickableSpellIconUI* icon =
-                new ClickableSpellIconUI("SpellIcon_" + std::to_string(circle) + "_" + std::to_string(complex));
+                new ClickableSpellIconUI("SelectorSpellIcon_" + std::to_string(circle) + "_" + std::to_string(complex));
 
             icon->OnSpellClick.AddListener([this](int index) {ClickIcon(index); });
 
@@ -19,7 +19,7 @@ PentagramSpellSelector::PentagramSpellSelector(): UIObject("PentagramSpellSelect
             CastSpellDetail* spellDetail = new CastSpellDetail(CasterPosition::CasterA, spell,1,1);
 
             icon->SetIcon(spellDetail,false);
-            icon->ToggleIsPentagramIcon(true);
+            icon->SetOverlayToggle(false);
 
             m_SpellIcons[circle][complex] = icon;
 
@@ -31,6 +31,10 @@ PentagramSpellSelector::PentagramSpellSelector(): UIObject("PentagramSpellSelect
 
         }
     }
+
+    m_SpellDetailUI = new SpellDetailUI({ 0.0f, 0.0f, 0.0f }, { 560.0f, 210.0f, 1.0f }, 28.0f);
+    m_SpellDetailUI->SetActive(false);
+    this->SetChildRenderFront(m_SpellDetailUI);
 }
 
 void PentagramSpellSelector::SetElement(Element::Type element)
@@ -78,12 +82,12 @@ void PentagramSpellSelector::Reset()
 
 void PentagramSpellSelector::UpdateIconDetail()
 {
-
+    ClickableSpellIconUI* icon = nullptr;
     for (int circle = 0; circle < 3; circle++)
     {
         for (int complex = 0; complex < 3; complex++)
         {
-            ClickableSpellIconUI* icon = m_SpellIcons[circle][complex];
+            icon = m_SpellIcons[circle][complex];
 
             Spell* spell = SpellDatabase::GetInstance().GetBookByElement(m_CurrentElement)->GetSpellByIndex(circle * 3 + complex);
 
@@ -93,7 +97,7 @@ void PentagramSpellSelector::UpdateIconDetail()
             spellDetail->SelectedEffect = m_Effect;
 
             icon->SetIcon(spellDetail, false);
-            icon->ToggleIsPentagramIcon(true);
+            icon->SetOverlayToggle(false);
 
             if(!m_IsHighlightColumn)
             {
@@ -107,6 +111,9 @@ void PentagramSpellSelector::UpdateIconDetail()
 
         }
     }
+
+    CastSpellDetail* spellDetail = m_SpellIcons[m_Circle - 1][m_Complex - 1]->SpellDetail;
+    m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
 }
 
 void PentagramSpellSelector::ClickIcon(int index)
@@ -114,4 +121,46 @@ void PentagramSpellSelector::ClickIcon(int index)
     m_Circle = (index / 3) + 1;
     m_Complex = (index % 3) + 1;
     OnSpellClick.Invoke({ m_Circle,m_Complex,m_Will,m_Effect,0 });
+}
+
+void PentagramSpellSelector::OnUpdate(const float& dt)
+{
+    UIObject::OnUpdate(dt);
+
+    SpellIconUI* hoverIcon = nullptr;
+
+    float x = 325.0f;
+    float y = 0.0f;
+    for (int circle = 0; circle < 3; circle++)
+    {
+        for (int complex = 0; complex < 3; complex++)
+        {
+
+            if (m_SpellIcons[circle][complex]->IsBeingHover())
+            {
+                hoverIcon = m_SpellIcons[circle][complex];
+
+                CastSpellDetail* spellDetail = hoverIcon->SpellDetail;
+
+                m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);
+                m_SpellDetailUI->SetCasterPosition(spellDetail->SpellOwner);
+                m_SpellDetailUI->SetActive(true);
+
+                if (complex < 2)
+                {
+                    m_SpellDetailUI->position = hoverIcon->position + glm::vec3(x, y, 0.0f);
+                }
+                else
+                {
+                    m_SpellDetailUI->position = hoverIcon->position + glm::vec3(-x, y, 0.0f);
+                }
+                break;
+            }
+        }
+    }
+
+    if (hoverIcon == nullptr)
+    {
+        m_SpellDetailUI->SetActive(false);
+    }
 }
