@@ -71,6 +71,11 @@ void SpellIconUI::ToggleIsPentagramIcon(bool flag)
     SetOverlayToggle(!flag);
 }
 
+void SpellIconUI::SetDarken(bool flag)
+{
+    m_IconObject->color.a = flag ? 0.4f : 1.0f;
+}
+
 void SpellIconUI::SetTransparency(bool flag)
 {
     m_IconObject->color.a = flag ? 0.8f : 1.0f;

@@ -9,6 +9,7 @@
 #include "PentagramCircleUI.h"
 #include "PentagramFieldButtonManagerUI.h"
 #include "PentagramScrollButtonManagerUI.h"
+#include "PentagramSpellSelector.h"
 #include "Game/BattleScene/GameObject/MainObjectEnum.h"
 
 class PentragramController
@@ -29,6 +30,7 @@ private:
     PentagramCircleUI* m_PentragramCircle;
     PentagramFieldButtonUI* m_PentragramFieldButtons;
     PentagramScrollButtonManagerUI* m_PentagramScrollButton;
+    PentagramSpellSelector* m_PentagramSpellSelector;
 
     ScrollButton* m_CastButton;
     ScrollButton* m_PassButton;
@@ -42,10 +44,8 @@ private:
 public:
 
     Event<PentagramData_T&> OnPentagramDataChange;
-    
 
     PentragramController(IGameObjectManager* scene);
-
 
     void SetPentagramData(PentagramData_T data);
 

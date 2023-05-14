@@ -20,6 +20,7 @@ private:
 
 public:
     PentagramCircleUI(IGameObjectManager* scene);
+    void SetElement(int value);
 
     void SetPentagramUI(int circle, int complex);
 

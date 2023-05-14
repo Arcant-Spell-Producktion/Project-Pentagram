@@ -42,15 +42,21 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramCircle = m_ObjectManager->CreateObject(new PentagramCircleUI(m_ObjectManager));
     m_PentragramFieldButtons = m_ObjectManager->CreateObject(new PentagramFieldButtonUI(m_ObjectManager));
     m_PentagramScrollButton = m_ObjectManager->CreateObject(new PentagramScrollButtonManagerUI(m_ObjectManager));
+    m_PentagramSpellSelector = m_ObjectManager->CreateObject(new PentagramSpellSelector());
 
     m_PentragramFieldButtons->OnFieldButtonClicked.AddListener([this](PentagramField field) {this->SetPentagramField(field); });
     m_PentagramScrollButton->OnScrollButtonClicked.AddListener([this](int value) {this->SetPentagramValue(value); });
+
+    m_PentagramSpellSelector->OnSpellClick.AddListener([this](PentagramData_T data) {this->SetPentagramData(data); });
 
     OnPentagramValueChange.AddListener([this](PentagramEvent e)
         {
             m_LastestEvent = e;
     m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
     m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
+    m_PentagramSpellSelector->UpdateSpellIcons(m_LastestEvent);
+    m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
+
         });
 
 #pragma region OtherButton
@@ -110,6 +116,7 @@ void PentragramController::SetActive(const bool& active)
 {
     m_PentragramCircle->SetActive(active);
     m_PentagramScrollButton->SetActive(active);
+    m_PentagramSpellSelector->SetActive(active);
 
     m_CastButton->SetActive(active);
     m_PassButton->SetActive(active);
@@ -119,6 +126,7 @@ void PentragramController::SetActive(const bool& active)
         m_SpellIcon->ToggleIsPentagramIcon(true);
         m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
         m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
+        m_PentagramSpellSelector->UpdateSpellIcons(m_LastestEvent);
     }
 
 }
@@ -154,8 +162,6 @@ void PentragramController::SetPentagramValue(int value)
 
     m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
 
-    m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
-
     BattleManager::GetInstance().Data.Timeline.UI->UpdatePreviewIcon(m_currentCaster->GetCasterManager()->GetSpellDetail());
 
     m_PentragramFieldButtons->SetFieldButtonRune(m_currentField, m_currentCaster->GetCasterManager()->GetFieldValue(m_currentField));
@@ -166,6 +172,10 @@ void PentragramController::SetPentagramValue(int value)
 void PentragramController::SetPentagramOwner(CasterController* caster)
 {
     m_currentCaster = caster;
+    Element::Type element = m_currentCaster->GetCasterManager()->Data().Element();
+    m_PentragramFieldButtons->SetElement(element);
+    m_PentagramSpellSelector->SetElement(element);
+    m_PentragramCircle->SetElement(element);
     ResetPentagram();
 }
 
