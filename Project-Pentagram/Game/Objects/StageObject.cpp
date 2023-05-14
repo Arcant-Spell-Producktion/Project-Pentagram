@@ -16,7 +16,7 @@ const std::string floorPath[] =
     "Sprites/Stage/Fire/stage_fire_floor.png",
     "Sprites/Stage/Water/stage_water_floor.png",
     "Sprites/Stage/Wind/stage_wind_floor.png",
-    "Sprites/Stage/Water/stage_water_floor.png"
+    "Sprites/Stage/Corrupt/stage_corrupt_floor.png"
 };
 
 StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateController::GetInstance().currentScene), GameObject("Stage")
@@ -29,8 +29,17 @@ StageObject::StageObject(Element::Type element) :m_ObjectManager(GameStateContro
     m_Background->SetTexture(backgroundPath[(int)m_Element]);
     m_Background->scale = { 2160.0f, 1280.0f, 1.0f };
 
+    glm::vec3 floor_scale = { 2160.0f, 436.0f, 1.0f };
+    glm::vec3 floor_position = { 0.0f, -460.0f, 0.0f };
+
     m_Floor = m_ObjectManager->CreateGameObject("Floor");
     m_Floor->SetTexture(floorPath[(int)m_Element]);
-    m_Floor->scale = { 2160.0f, 436.0f, 1.0f };
-    m_Floor->position = { 0.0f, -460.0f, 0.0f };
+    if (m_Element == Element::Corrupt)
+    {
+        floor_scale.y = 564.0f;
+        floor_position.y = -396.5f;
+    }
+
+    m_Floor->scale = floor_scale;
+    m_Floor->position = floor_position;
 }
