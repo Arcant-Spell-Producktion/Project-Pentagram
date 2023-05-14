@@ -172,7 +172,10 @@ void PentragramController::SetPentagramValue(int value)
 void PentragramController::SetPentagramOwner(CasterController* caster)
 {
     m_currentCaster = caster;
-    m_PentagramSpellSelector->SetElement(m_currentCaster->GetCasterManager()->Data().Element());
+    Element::Type element = m_currentCaster->GetCasterManager()->Data().Element();
+    m_PentragramFieldButtons->SetElement(element);
+    m_PentagramSpellSelector->SetElement(element);
+    m_PentragramCircle->SetElement(element);
     ResetPentagram();
 }
 

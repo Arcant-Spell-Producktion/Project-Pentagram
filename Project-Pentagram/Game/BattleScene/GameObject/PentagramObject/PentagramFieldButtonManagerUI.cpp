@@ -86,6 +86,14 @@ void PentagramFieldButtonUI::SetFieldButtonActive(PentagramField field, bool act
     m_PentragramButtons[GetIndexByField(field)]->SetActive(active);
 }
 
+void PentagramFieldButtonUI::SetElement(Element::Type element)
+{
+    for (PentagramFieldButton* button : m_PentragramButtons)
+    {
+        button->SetElement(element);
+    }
+}
+
 PentagramFieldButton* PentagramFieldButtonUI::GetButtonByField(PentagramField field)
 {
     return m_PentragramButtons[GetIndexByField(field)];
