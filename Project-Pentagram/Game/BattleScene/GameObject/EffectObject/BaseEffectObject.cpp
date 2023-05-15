@@ -11,8 +11,6 @@ const std::string EffectTexturePath[] =
     "Sprites/StatusEffect/Fortify.png",
     "Sprites/StatusEffect/Petrify.png",
     "Sprites/StatusEffect/Boost.png",
-
-
 };
 
 BaseEffectObject::BaseEffectObject(SpellEffectEnum effect) :
@@ -77,7 +75,7 @@ void BaseEffectObject::OnUpdate(const float& dt)
     {
         if (m_PlayMode == EffectObjectPlayMode::Once)
         {
-            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
+            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
             {
                 isPlaying = false;
                 this->SetActive(false);
@@ -85,14 +83,14 @@ void BaseEffectObject::OnUpdate(const float& dt)
         }
         else if (m_PlayMode == EffectObjectPlayMode::Freeze)
         {
-            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
+            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
             {
                 this->SetIsAnimationObject(false);
             }
         }
         else if(m_PlayMode == EffectObjectPlayMode::Loop)
         {
-            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow -1) - 1 && m_CurrentAnimationRow == 1)
+            if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) && m_CurrentAnimationRow == 1)
             {
                 this->SetSpriteByIndex(1, 0, true);
             }
@@ -104,18 +102,18 @@ void BaseEffectObject::OnUpdate(const float& dt)
         {
             if (m_PlayMode == EffectObjectPlayMode::Freeze)
             {
-                if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
+                if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
                 {
                     this->SetActive(false);
                 }
             }
             else if (m_PlayMode == EffectObjectPlayMode::Loop)
             {
-                if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) - 1)
+                if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
                 {
-                    if (GetAnimationRow() == 2)
+                    if (GetCurrentAnimationRow() == 2)
                     {
-                        this->SetSpriteByIndex(2, 0,true);
+                        this->SetSpriteByIndex(2, 0, true);
                     }
                     else
                     {
