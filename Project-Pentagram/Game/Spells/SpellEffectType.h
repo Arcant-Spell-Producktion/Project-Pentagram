@@ -3,7 +3,7 @@
 
 enum class SpellEffectEnum
 {
-    None = 0,
+    None = -1,
     Mark = 1,
     Burn = 2,
     Overflow = 3,

@@ -240,6 +240,7 @@
     <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -601,6 +602,9 @@
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.h">
       <Filter>Game\BattleScene\Objects\Pentagram</Filter>
     </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.h">
+      <Filter>Game\BattleScene\SpellEffect\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
@@ -886,6 +890,9 @@
     </Filter>
     <Filter Include="Engine\etc\Renderer\Source File">
       <UniqueIdentifier>{9bbe79d4-e4c0-4bbe-8135-db89a3427d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect\Object">
+      <UniqueIdentifier>{96d079fe-51eb-412e-9fdb-2350499571d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

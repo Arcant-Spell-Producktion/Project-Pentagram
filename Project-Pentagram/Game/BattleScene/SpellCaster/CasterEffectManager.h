@@ -7,12 +7,20 @@ class CasterEffectManager
 private:
     std::map<SpellEffectEnum,BaseSpellEffect*> m_Effects;
 public:
+    Event<SpellEffectEnum> OnEffectApply;
+    Event<SpellEffectEnum> OnEffectResolve;
+    Event<SpellEffectEnum> OnEffectReset;
+
     Event<std::vector<EffectDetail_T>&> OnEffectUpdate;
 
     CasterEffectManager()
     {
         for (auto effect: SpellEffects::GetSpellEffects())
         {
+            effect->OnEffectApply = [this](SpellEffectEnum type) { OnEffectApply.Invoke(type); };
+            effect->OnEffectResolve = [this](SpellEffectEnum type) { OnEffectResolve.Invoke(type); };
+            effect->OnEffectReset = [this](SpellEffectEnum type) { OnEffectReset.Invoke(type); };
+
             m_Effects.emplace(effect->GetEffectType(),effect);
         }
     }

@@ -31,6 +31,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.h" />
     <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
     <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
     <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.cpp" />

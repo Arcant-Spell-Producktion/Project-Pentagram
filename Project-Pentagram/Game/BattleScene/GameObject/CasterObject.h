@@ -1,6 +1,8 @@
 ﻿#pragma once
 
 #include <functional>
+
+#include "EffectObject/BaseEffectObject.h"
 #include "Engine/IGameObjectManager.h"
 #include "Game/Spells/Element.h"
 #include "Game/GameData/CasterData/CasterType.h"
@@ -24,7 +26,7 @@ enum class CasterObjectState
 class CasterObject : public GameObject
 {
 private:
-
+    std::map<SpellEffectEnum, BaseEffectObject*> m_Effects;
 
     std::function<void()> m_atk_callback = nullptr;
 
@@ -60,5 +62,9 @@ public:
     void PlayDiedAnim();
 
     void PlayRedFlash() { m_IsStartFlash = true; m_FlashTimer = 0.8f; }
+
+    void PlayEffect(SpellEffectEnum effect);
+
+    void StopEffect(SpellEffectEnum effect);
 
 };

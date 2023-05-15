@@ -30,6 +30,11 @@ protected:
     bool m_IsEffectResetOnEndOfCastPhase = false;
 
 public:
+    Event<SpellEffectEnum> OnEffectApply;
+    Event<SpellEffectEnum> OnEffectResolve;
+    Event<SpellEffectEnum> OnEffectReset;
+
+
     BaseSpellEffect(SpellEffectEnum effectType, EffectResolveType resolveType) :
         m_EffectType(effectType), m_ResolveType(resolveType)
     {
@@ -69,6 +74,8 @@ public:
         printf("Stack: %d\n", m_EffectStack);
 
         m_IsEffectActive = true;
+
+        if(m_IsEffectActive) OnEffectApply.Invoke(m_EffectType);
     }
 
     void OnCastPhaseEnd()
@@ -88,5 +95,7 @@ public:
     {
         m_IsEffectActive = false;
         m_EffectStack = 0;
+
+        OnEffectReset.Invoke(m_EffectType);
     }
 };

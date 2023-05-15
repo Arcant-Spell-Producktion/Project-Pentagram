@@ -12,6 +12,11 @@ CasterController::CasterController(CasterData caster): m_CasterManager(caster),m
     m_EffectManager.OnEffectUpdate.AddListener([this](std::vector<EffectDetail_T> effects) {
         m_CasterUI.UpdateEffectBar(effects);
         });
+
+    m_EffectManager.OnEffectApply = [this](SpellEffectEnum type) {m_CasterObject->PlayEffect(type); };
+    m_EffectManager.OnEffectResolve = [this](SpellEffectEnum type) {m_CasterObject->PlayEffect(type); };
+    m_EffectManager.OnEffectReset = [this](SpellEffectEnum type) {m_CasterObject->StopEffect(type); };
+
 }
 
 void CasterController::CasterDied()
@@ -20,8 +25,6 @@ void CasterController::CasterDied()
     BattleManager::GetInstance().EndBattle();
     m_CasterObject->PlayDiedAnim();
 }
-
-
 
 void CasterController::UpdateCasterUI()
 {

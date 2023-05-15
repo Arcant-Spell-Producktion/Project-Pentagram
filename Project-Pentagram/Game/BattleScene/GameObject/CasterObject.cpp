@@ -47,6 +47,21 @@ CasterObject::CasterObject(): GameObject("CasterObject")
 
     this->SetIsAnimationObject(true);
     this->scale = { 320.0f, 320.0f, 1.0f };
+
+    for(int i = static_cast<int>(SpellEffectEnum::Mark); i <= static_cast<int>(SpellEffectEnum::Boost); i++)
+    {
+        SpellEffectEnum eff = static_cast<SpellEffectEnum>(i);
+        BaseEffectObject* effObj = new BaseEffectObject(eff);
+        m_Effects[eff] = effObj;
+        if ((eff == SpellEffectEnum::Overflow) || (eff == SpellEffectEnum::Boost))
+        {
+            this->SetChildRenderBack(effObj);
+        }
+        else
+        {
+            this->SetChildRenderFront(effObj);
+        }
+    }
 }
 
 void CasterObject::OnUpdate(const float& dt)
@@ -172,6 +187,16 @@ void CasterObject::PlayAttackAnim(bool isChannelSpell,std::function<void()> call
 void CasterObject::PlayDiedAnim()
 {
     SetState(CasterObjectState::Die);
+}
+
+void CasterObject::PlayEffect(SpellEffectEnum effect)
+{
+    m_Effects[effect]->Play();
+}
+
+void CasterObject::StopEffect(SpellEffectEnum effect)
+{
+    m_Effects[effect]->Stop();
 }
 
 

@@ -4,6 +4,8 @@ void BurnSpellEffect::ResolveEffect(std::va_list args)
 {
     if (!m_IsEffectActive) return;
 
+    OnEffectResolve.Invoke(m_EffectType);
+
     CasterController* caster = va_arg(args, CasterController*);
     caster->TakeDamage(m_EffectStack * BurnDamagePerStack);
 
@@ -35,7 +37,6 @@ void OverflowSpellEffect::ResolveEffect(std::va_list args)
 
     CasterController* caster = va_arg(args, CasterController*);
     caster->GetCasterManager()->ChangeMana(m_EffectStack);
-
 }
 
 void FreezeSpellEffect::ResolveEffect(std::va_list args)
