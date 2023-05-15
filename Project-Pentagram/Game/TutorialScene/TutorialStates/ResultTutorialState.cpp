@@ -25,7 +25,7 @@ void ResultTutorialState::OnBattleStateIn()
             return;
         }
 
-        SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+        SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE);
     };
 
 }
