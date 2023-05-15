@@ -38,6 +38,11 @@ BGMController* AudioController::CreateBGM(const std::vector<std::string>& filepa
 		{
 			return m_BGMController;
 		}
+		else if (m_PrevBGMController != nullptr)
+		{
+			delete m_PrevBGMController;
+			m_PrevBGMController = m_BGMController;
+		}
 		else
 		{
 			m_PrevBGMController = m_BGMController;
