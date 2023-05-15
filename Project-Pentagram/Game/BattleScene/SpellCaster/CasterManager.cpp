@@ -96,6 +96,7 @@ int CasterManager::GetFieldValue(PentagramField field)
         value = m_PentagramData.effect;
         break;
     }
+
     return value;
 }
 

@@ -55,8 +55,6 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramCircle->UpdateCircleUI(m_LastestEvent);
     m_PentagramScrollButton->SetScrollMode(m_LastestEvent);
     m_PentagramSpellSelector->UpdateSpellIcons(m_LastestEvent);
-    m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
-
         });
 
 #pragma region OtherButton
@@ -87,6 +85,7 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
 
     m_PentragramCircle->SetPentagramUI(1, 1);
     m_SpellIcon->ToggleIsPentagramIcon(true);
+
 }
 
 void PentragramController::SetPentagramData(PentagramData_T data)
@@ -110,6 +109,8 @@ void PentragramController::SetPentagramData(PentagramData_T data)
     m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Complex, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Complex));
     m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Will, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Will));
     m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Effect, m_currentCaster->GetCasterManager()->GetFieldValue(PentagramField::Effect));
+
+    if (m_currentCaster != nullptr)m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
 }
 
 void PentragramController::SetActive(const bool& active)
@@ -159,6 +160,8 @@ void PentragramController::SetPentagramValue(int value)
         m_currentData = m_currentCaster->GetCasterManager()->GetPentagramData();
         m_PentragramFieldButtons->SetFieldButtonRune(PentagramField::Time, 0);
     }
+
+    m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
 
     m_SpellIcon->SetIcon(m_currentCaster->GetCasterManager()->GetSpellDetail(), false);
 
@@ -233,6 +236,8 @@ void PentragramController::ResetPentagram()
 {
     SetPentagramData({ 1,1,1,1,0 });
     m_PentragramFieldButtons->ResetFieldRune();
+    if(m_currentCaster != nullptr)m_currentCaster->GetCasterUI()->SetStat(m_currentCaster->GetCasterManager()->GetPreviewStat());
+
 }
 void PentragramController::ResetPentagramButtonField()
 {

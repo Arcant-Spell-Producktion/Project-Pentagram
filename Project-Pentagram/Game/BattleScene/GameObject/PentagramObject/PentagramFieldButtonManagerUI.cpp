@@ -77,7 +77,10 @@ void PentagramFieldButtonUI::ResetFieldRune()
 {
     for (size_t i = 0; i < 5; i++)
     {
-        m_PentragramButtons[i]->SetRuneActive(GetFieldByIndex(i) == PentagramField::Time ? 0 : 1);
+        PentagramField field = GetFieldByIndex(i);
+        int runeN = (field <= PentagramField::Time) ? 0 : ((field <= PentagramField::Complex) ? 2 : 1);
+
+        m_PentragramButtons[i]->SetRuneActive(runeN);
     }
 }
 
