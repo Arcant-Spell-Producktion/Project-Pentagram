@@ -168,8 +168,7 @@ void MapScene::GameSceneUpdate(float dt)
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
 	{
-		map_PauseMenuObject->SetActive(map_PauseMenuObject->IsActive() ? false : true);
-		timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
+		map_PauseMenuObject->ToggleEvent(timeScale);
 	}
 
 	// Update GameObject

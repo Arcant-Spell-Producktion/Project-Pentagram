@@ -82,6 +82,24 @@ PauseMenuObject::PauseMenuObject() : UIObject("PauseMenuObject")
 	SetChildRenderFront(optionMenuObject);
 }
 
+void PauseMenuObject::ToggleEvent(float& timeScale)
+{
+	if (optionMenuObject->IsActive())
+	{
+		optionMenuObject->SetActive(false);
+	}
+	else if (this->IsActive())
+	{
+		this->SetActive(false);
+		timeScale = 1.0f;
+	}
+	else
+	{
+		this->SetActive(true);
+		timeScale = 0.0f;
+	}
+}
+
 void PauseMenuObject::SetActive(const bool& active)
 {
 	GameObject::SetActive(active);

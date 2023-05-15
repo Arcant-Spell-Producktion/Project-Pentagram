@@ -47,8 +47,7 @@ void BattleScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        pauseMenuObject->SetActive(pauseMenuObject->IsActive() ? false : true);
-        timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
+        pauseMenuObject->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {

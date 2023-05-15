@@ -48,8 +48,7 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        tur_pauseMenuObject->SetActive(tur_pauseMenuObject->IsActive() ? false : true);
-        timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
+        tur_pauseMenuObject->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {

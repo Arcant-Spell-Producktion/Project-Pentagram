@@ -22,6 +22,8 @@ class PauseMenuObject : public UIObject
 	public:
 		PauseMenuObject();
 
+		void ToggleEvent(float& timeScale);
+
 		virtual void SetActive(const bool& active) override;
 		void SetCurrentGameScene(GameScene* gameScene);
 

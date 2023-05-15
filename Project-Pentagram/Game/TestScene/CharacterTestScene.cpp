@@ -46,8 +46,7 @@ void CharacterTestScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        test_pauseMenuObject->SetActive(test_pauseMenuObject->IsActive() ? false : true);
-        timeScale = (timeScale == 1.0f ? 0.0f : 1.0f);
+        test_pauseMenuObject->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {
