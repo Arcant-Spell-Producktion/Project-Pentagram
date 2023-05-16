@@ -114,6 +114,8 @@ WillCompareController::WillCompareController() :GameObject("WillCompareControlle
     m_ParticleA->SetTexture(WillCompareParticleTexture);
     m_ParticleB->SetTexture(WillCompareParticleTexture);
     m_ParticleCenter->SetTexture(WillCompareParticleTexture);
+    m_ParticleA->SetSpriteByIndex(4, 0);
+    m_ParticleB->SetSpriteByIndex(4, 0);
     m_ParticleCenter->SetSpriteByIndex(4, 0);
 
     this->SetChildRenderFront(m_ParticleA);

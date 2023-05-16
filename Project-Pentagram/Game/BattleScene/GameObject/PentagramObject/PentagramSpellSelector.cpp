@@ -35,6 +35,28 @@ PentagramSpellSelector::PentagramSpellSelector(): UIObject("PentagramSpellSelect
     m_SpellDetailUI = new SpellDetailUI({ 0.0f, 0.0f, 0.0f }, { 560.0f, 210.0f, 1.0f }, 28.0f);
     m_SpellDetailUI->SetActive(false);
     this->SetChildRenderFront(m_SpellDetailUI);
+
+    m_ParticleSystem = new ParticleSystem("SelectedSpellParticle");
+    m_ParticleSystem->SetTexture("Sprites/Particle/particle.png");
+    m_ParticleSystem->SetSpriteByIndex(4, 0);
+
+    ParticleProperty particleProp;
+
+    particleProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
+    particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 0.6f };
+    particleProp.sizeBegin = 40.0f;
+    particleProp.sizeEnd = 10.0f;
+    particleProp.rotationVariation = 360.0f;
+    particleProp.velocity = { 0.0f, 0.0f };
+    particleProp.velocityVariation = { 50.0f, 50.0f };
+    particleProp.lifeTime = 1.0f;
+
+    m_ParticleSystem->baseParticle = particleProp;
+    m_ParticleSystem->SetSpawnTime(0.01f);
+    m_ParticleSystem->Emit(particleProp);
+
+    this->SetChildRenderBack(m_ParticleSystem);
+    m_ParticleSystem->position = m_SpellIcons[0][0]->position;
 }
 
 void PentagramSpellSelector::SetElement(Element::Type element)
@@ -111,6 +133,8 @@ void PentagramSpellSelector::UpdateIconDetail()
 
         }
     }
+
+    m_ParticleSystem->position = m_SpellIcons[m_Circle - 1][m_Complex - 1]->position;
 
     CastSpellDetail* spellDetail = m_SpellIcons[m_Circle - 1][m_Complex - 1]->SpellDetail;
     m_SpellDetailUI->SetDetail(spellDetail, false, spellDetail->isHidden);

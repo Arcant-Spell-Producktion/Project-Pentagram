@@ -33,7 +33,7 @@ private:
 
     std::array<std::array<ClickableSpellIconUI*,3>,3> m_SpellIcons;
     SpellDetailUI* m_SpellDetailUI;
-
+    ParticleSystem* m_ParticleSystem;
 
     void UpdateIconDetail();
 
