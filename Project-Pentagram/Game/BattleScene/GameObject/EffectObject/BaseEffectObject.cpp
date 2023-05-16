@@ -88,7 +88,7 @@ void BaseEffectObject::OnUpdate(const float& dt)
                 this->SetIsAnimationObject(false);
             }
         }
-        else if(m_PlayMode == EffectObjectPlayMode::Loop)
+        else if (m_PlayMode == EffectObjectPlayMode::Loop)
         {
             if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1) && m_CurrentAnimationRow == 1)
             {
@@ -98,9 +98,17 @@ void BaseEffectObject::OnUpdate(const float& dt)
     }
     else
     {
-        if(IsActive())
+        if (IsActive())
         {
-            if (m_PlayMode == EffectObjectPlayMode::Freeze)
+            if (m_PlayMode == EffectObjectPlayMode::Once)
+            {
+                if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
+                {
+                    isPlaying = false;
+                    this->SetActive(false);
+                }
+            }
+            else if (m_PlayMode == EffectObjectPlayMode::Freeze)
             {
                 if (m_CurrentAnimationColumn == GetAnimationColumn(m_CurrentAnimationRow - 1))
                 {
