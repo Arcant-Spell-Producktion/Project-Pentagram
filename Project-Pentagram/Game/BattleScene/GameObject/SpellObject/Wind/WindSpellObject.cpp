@@ -57,7 +57,7 @@ void WindSpell1::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
@@ -91,7 +91,7 @@ void WindSpell2::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
         [this](float dt)
@@ -127,7 +127,7 @@ void WindSpell3::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueUpdateFunction(
         [this](float dt)
@@ -160,7 +160,7 @@ void WindSpell4::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitEvent(0.5f);
     QueueUpdateFunction(
@@ -212,7 +212,7 @@ void WindSpell5::Initialize()
 
     this->SetChildRenderFront(m_LeafParticle);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
 
     QueueWaitEvent(2.5f);
@@ -245,7 +245,7 @@ void WindSpell6::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueUpdateFunction(
         [this, scene](float dt)
         {
@@ -280,7 +280,7 @@ void WindSpell7::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(false);
 
     QueueWaitTriggerEvent();
@@ -325,7 +325,7 @@ void WindSpell8::Initialize()
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(true);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
     QueueWaitTillFrameEvent(true);
     QueueWaitTillFrameEvent(false);
 
@@ -431,7 +431,7 @@ void WindSpell9::Initialize()
     this->SetChildRenderBack(m_WaterParticle);
     this->SetChildRenderBack(m_LeafParticle);
 
-    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_water_shooting_generic.wav", 1.0f);
+    m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_1.wav", 1.0f);
 
     QueueWaitEvent(1.0f);
 

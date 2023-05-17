@@ -145,15 +145,15 @@ void CasterManager::CommitSpell()
     std::cout << "COMMIT " << GetSpellCost() << "\n";
     ChangeMana(-GetSpellCost());
 
-    if (m_PentagramData.time < m_CurrentSpell->GetSpellDetail()->GetCastTime() && m_TimeBuff > 0)
-    {
-        m_TimeBuff = 0;
-    }
+    //if (m_PentagramData.time < m_CurrentSpell->GetSpellDetail()->GetCastTime() && m_TimeBuff > 0)
+    //{
+    //    m_TimeBuff = 0;
+    //}
 
-    if (m_PentagramData.will > 1 && m_WillBuff > 0)
-    {
-        m_WillBuff = 0;
-    }
+    //if (m_PentagramData.will > 1 && m_WillBuff > 0)
+    //{
+    //    m_WillBuff = 0;
+    //}
 
     m_CurrentSpell = nullptr;
 }
