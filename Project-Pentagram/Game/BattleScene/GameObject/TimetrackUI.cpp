@@ -225,6 +225,7 @@ void TimetrackUI::RemoveIcon(CastSpellDetail* spell)
 
 void TimetrackUI::ClearTrack()
 {
+
     for (auto icon : m_Icons)
     {
         m_ObjectManager->DeleteObjectByPointer(icon);
@@ -238,6 +239,11 @@ void TimetrackUI::ClearTrack()
 void TimetrackUI::SetIsExpand(bool expand)
 {
     m_IsExpanded = expand;
+}
+
+void TimetrackUI::HighlightTrack(bool doHighlight)
+{
+    m_Box->color = doHighlight ? glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) : glm::vec4(0.6f, 0.6f, 0.6f, 1.0f);
 }
 
 

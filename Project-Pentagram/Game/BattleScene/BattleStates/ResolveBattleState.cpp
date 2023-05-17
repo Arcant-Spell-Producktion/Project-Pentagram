@@ -26,7 +26,7 @@ void ResolveBattleState::ResolveTrack()
     m_CurrentTrack = m_ResolveBattleManager->Data.Timeline.GetTimetrack(m_TrackResolveIndex);
     m_ResolveBattleManager->Data.Timeline.UI->SetTrackerPositionByIndex(m_TrackResolveIndex);
     std::cout << "\tGet Track: " << m_TrackResolveIndex << "\n";
-
+    m_ResolveBattleManager->Data.Timeline.UI->HighlightTrack(m_TrackResolveIndex);
     m_CurrentTrack->UpdateTimetrack();
 	m_ResolveTrack = m_CurrentTrack->GetSpellResolveList();
     std::cout << "\tTrack Size: " << m_ResolveTrack.size() << "\n";

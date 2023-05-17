@@ -129,6 +129,11 @@ void TimelineController::SetCurrentState(BattleState state)
     currentState = state;
 }
 
+void TimelineController::HighlightTrack(int index)
+{
+    m_Tracks[index]->HighlightTrack(false);
+}
+
 void TimelineController::SetExpandTimeline(int index, bool doExpand)
 {
     if (doExpand)
@@ -236,6 +241,7 @@ void TimelineController::ClearAllTrack()
 {
     for (TimetrackUI* track: m_Tracks)
     {
+        track->HighlightTrack(true);
         track->ClearTrack();
     }
 

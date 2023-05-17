@@ -49,6 +49,8 @@ public:
 
     void SetIsExpand(bool expand);
 
+    void HighlightTrack(bool doHighlight);
+
     SpellIconUI* GetHoverSpellIcon() const;
     const std::vector<SpellIconUI*>& GetSpellDetailUIList() const;
     const SpellIconUI* GetPreviewIcon() const;

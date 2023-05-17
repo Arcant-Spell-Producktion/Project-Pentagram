@@ -38,6 +38,8 @@ public:
     void SetPentragramControllerReference(PentragramController* _pentragramControllerRef);
     void SetCurrentState(BattleState state);
 
+    void HighlightTrack(int index);
+
     void SetExpandTimeline(int index, bool doExpand);
     void UpdatePreviewIcon(CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);

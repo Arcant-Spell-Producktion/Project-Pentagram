@@ -26,7 +26,7 @@ void ResolveTestState::ResolveTrack()
     m_CurrentTrack = m_ResolveTestManager->Data.Timeline.GetTimetrack(m_TrackResolveIndex);
     m_ResolveTestManager->Data.Timeline.UI->SetTrackerPositionByIndex(m_TrackResolveIndex);
     std::cout << "\tGet Track: " << m_TrackResolveIndex << "\n";
-
+    m_ResolveTestManager->Data.Timeline.UI->HighlightTrack(m_TrackResolveIndex);
     m_CurrentTrack->UpdateTimetrack();
 	m_ResolveTrack = m_CurrentTrack->GetSpellResolveList();
     std::cout << "\tTrack Size: " << m_ResolveTrack.size() << "\n";
