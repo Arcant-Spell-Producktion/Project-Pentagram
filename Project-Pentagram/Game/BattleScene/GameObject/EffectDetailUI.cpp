@@ -87,7 +87,7 @@ void EffectDetailUI::SetText(CasterEffectIconUI* details)
 
             ssDetail << "Boost\n";
             if (details->GetStack() >= 2) { ssDetail << BoostEffectDetail[0]; m_TextEffectDetailUtility->position.y -= (m_TextEffectDetail->fontSize + 3.0f); }
-            else { ssDetailUtility << BoostEffectDetail[0]; }
+            else { ssDetailUtility << "\n" << BoostEffectDetail[0]; }
 
             if (details->GetStack() >= 5) { ssDetail << "\n" << BoostEffectDetail[1]; m_TextEffectDetailUtility->position.y -= (m_TextEffectDetail->fontSize + 3.0f); }
             else { ssDetailUtility << "\n" << BoostEffectDetail[1]; }
