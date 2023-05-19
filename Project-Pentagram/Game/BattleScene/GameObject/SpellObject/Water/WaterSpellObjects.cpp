@@ -231,6 +231,7 @@ void WaterSpell6::Initialize()
     this->position = { xPos, yPos, 1.0f };
     this->color.a = 0.0f;
     this->SetIsAnimationObject(false);
+    float timePerFrame = 0.25f;
 
     auto scene = GameStateController::GetInstance().currentScene;
     for (size_t i = 0; i < 4; i++)
@@ -242,32 +243,33 @@ void WaterSpell6::Initialize()
         _section->SetTexture(this->m_TexturePath);
         _section->SetSpriteByIndex(i, 0);
         _section->SetIsAnimationObject(true);
+        _section->SetAnimationPlayTime(timePerFrame);
 
         this->SetChildRenderFront(_section);
         m_Section.push_back(_section);
     }
-    float timePerFrame = 0.1f;
     this->SetAnimationPlayTime(timePerFrame);
 
     m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_6.wav", 1.0f);
     QueueUpdateFunction(
-        [this](float dt)
+        [this, timePerFrame](float dt)
         {
             if (m_Section[3]->GetCurrentAnimationColumn() == 7)
             {
                 for (size_t i = 0; i < 4; i++)
                 {
                     m_Section[i]->SetSpriteByIndex(i + 4, 0,true);
+                    m_Section[i]->SetAnimationPlayTime(timePerFrame / 2.0f);
                 }
                 Next();
-                return; 
+                return;
             }
         }
     );
 
     QueueHitEvent();
 
-    QueueWaitEvent(3.0f);
+    QueueWaitEvent(2.0f);
 
     QueueDoneEvent();
 
