@@ -24,6 +24,13 @@ void BattleManager::SetBattleState(BattleState state)
 
 void BattleManager::Init(IGameObjectManager* scene, BattleMode mode)
 {
+    Data.Pentagram = new PentragramController(scene);
+    
+    Data.Timeline.UI = scene->CreateObject(new TimelineController());
+    Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
+
+    Data.WillCompare = scene->CreateObject(new WillCompareController());
+
     std::vector <BaseBattleState*> states;
     switch (mode) {
     case BattleMode::Battle:
@@ -40,13 +47,6 @@ void BattleManager::Init(IGameObjectManager* scene, BattleMode mode)
     {
         m_BattleStates.emplace(state->StateID, state);
     }
-
-    Data.Pentagram = new PentragramController(scene);
-    
-    Data.Timeline.UI = scene->CreateObject(new TimelineController());
-    Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
-
-    Data.WillCompare = scene->CreateObject(new WillCompareController());
 
     m_BattleStates[BattleState::SetupState]->OnBattleStateIn();
 }

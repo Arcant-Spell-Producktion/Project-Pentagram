@@ -84,7 +84,7 @@ void ParticleSystem::Draw(Camera& camera, glm::mat4 parentModel)
 		}
 
 		float life = particle.lifeRemaining / particle.lifeTime;
-		glm::vec4 color = glm::lerp(particle.colorEnd, particle.colorBegin, life);
+		glm::vec4 color = glm::lerp(particle.colorEnd, particle.colorBegin, life) * this->color;
 		float size = glm::lerp(particle.sizeBegin, particle.sizeEnd, life);
 
 		if (color.a <= 0.0f)

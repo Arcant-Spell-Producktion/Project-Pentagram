@@ -172,7 +172,7 @@ void GameScene::FocusObject(GameObject* focusObject)
 		for (int idx = 0; idx < uiObjectsList.size(); idx++)
 		{
 			UIObject* curObj = uiObjectsList[idx];
-			if (curObj->parent == nullptr && curObj->name != "PauseMenuObject")
+			if (curObj->parent == nullptr && curObj->name != "PauseMenuObject" && curObj->name != "TextBox")
 			{
 				FocusObject(curObj, false);
 			}
@@ -224,7 +224,7 @@ void GameScene::FocusObject(const std::vector<GameObject*>& focusObjects)
 	for (int idx = 0; idx < uiObjectsList.size(); idx++)
 	{
 		UIObject* curObj = uiObjectsList[idx];
-		if (curObj->parent == nullptr && curObj->name != "PauseMenuObject")
+		if (curObj->parent == nullptr && curObj->name != "PauseMenuObject" && curObj->name != "TextBox")
 		{
 			FocusObject(curObj, false);
 		}

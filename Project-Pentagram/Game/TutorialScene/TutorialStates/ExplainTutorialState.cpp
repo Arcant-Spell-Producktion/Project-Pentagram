@@ -63,8 +63,8 @@ void ExplainTutorialState::OnBattleStateIn()
     m_TutorialStep = currentNode->GetTutorialEvents();
     m_CurrentEvent = 0;
 
-    m_Texts = GameStateController::GetInstance().currentScene->CreateObject(new TextBox(m_TutorialStep[m_CurrentEvent].TutorialText));
-    bm.Data.Texts = m_Texts;
+    bm.Data.Texts->SetActive(true);
+    bm.Data.Texts->textObject.text = m_TutorialStep[m_CurrentEvent].TutorialText;
     UpdateEvent();
 
     m_Texts->position.y -= 300.0f;
