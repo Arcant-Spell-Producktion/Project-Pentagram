@@ -103,7 +103,7 @@ void Button::Draw(Camera& camera, glm::mat4 parentModel)
 	m_Mesh.Render();
 	m_Texture->UnBind();
 
-	this->textObject.RenderText(model * glm::vec4(0.0f, 0.0f, 0.0f, 1.0f), camera, glm::mat4(1.0f));
+	this->textObject.Draw(camera, model);
 
 	// Draw Front Child
 	for (unsigned int idx = 0; idx < m_FrontRenderedChildList.size(); idx++)
@@ -115,6 +115,10 @@ void Button::UnloadMesh()
 {
 	this->textObject.UnloadMesh();
 	GameObject::UnloadMesh();
+}
+void Button::OnUpdate(const float& dt)
+{
+	textObject.OnUpdate(dt);
 }
 
 void Button::SetIsBeginHover(const bool& active)

@@ -30,6 +30,7 @@ class Button : public UIObject
 		Button(const std::string& objName);
 		virtual void Draw(Camera& camera, glm::mat4 parentModel = glm::mat4(1.0f)) override;
 		virtual void UnloadMesh() override;
+		virtual void OnUpdate(const float& dt) override;
 
 		void SetIsBeginHover(const bool& active);
 		void SetIsBeginUnHover(const bool& active);
