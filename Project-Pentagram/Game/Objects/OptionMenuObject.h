@@ -25,4 +25,6 @@ class OptionMenuObject : public UIObject
 
 	public:
 		OptionMenuObject();
+
+		Button* GetCloseButton() const;
 };

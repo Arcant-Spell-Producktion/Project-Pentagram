@@ -10,14 +10,35 @@ class PauseMenuObject : public UIObject
 {
 	private:
 		UIObject* canvas;
-		UIObject* bgMenu;
-		Button* resumeButton;
-		Button* optionButton;
-		Button* exitToMenuButton;
-		Button* exitGameButton;
-		OptionMenuObject* optionMenuObject;
+		struct MenuUI : public UIObject
+		{
+			UIObject* MenuBG;
+			Button* ResumeButton;
+			Button* OptionButton;
+			Button* ExitToMenuButton;
+			Button* ExitGameButton;
+
+			MenuUI() : UIObject("MenuUI") {}
+
+		} *m_MenuUI;
+
+		OptionMenuObject* m_OptionMenuObject;
+
+		struct ConfirmUI : public UIObject
+		{
+			TextObject* ConfirmText;
+			Button* Yes;
+			Button* No;
+			Button* CloseButton;
+
+			ConfirmUI() : UIObject("ConfirmUI") {}
+
+		} *m_ConfirmUI;
 
 		GameScene* currentGameScene;
+
+		void InitMenuUI();
+		void InitConfirmUI();
 
 	public:
 		PauseMenuObject();

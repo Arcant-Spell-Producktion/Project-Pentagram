@@ -133,3 +133,5 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 	#pragma endregion
 
 }
+
+Button* OptionMenuObject::GetCloseButton() const { return this->closeButton; }
