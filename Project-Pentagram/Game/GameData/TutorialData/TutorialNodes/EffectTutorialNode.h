@@ -59,6 +59,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep("Try to use a single flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
+
+        m_TutorialEvents.AddStep("");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });

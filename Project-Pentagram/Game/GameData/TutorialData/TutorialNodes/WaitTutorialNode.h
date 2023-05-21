@@ -70,6 +70,9 @@ public:
 
         m_TutorialEvents.AddStep(
             "Let's try to cast a single channeling spells\nto clash the enemy spell and defeat them.");
+
+        m_TutorialEvents.AddStep("");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });

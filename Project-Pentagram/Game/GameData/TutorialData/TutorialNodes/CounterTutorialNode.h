@@ -61,6 +61,8 @@ public:
             "Let's try casting a single counter spell \nto defend against an enemy spell."
         );
 
+        m_TutorialEvents.AddStep("");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });

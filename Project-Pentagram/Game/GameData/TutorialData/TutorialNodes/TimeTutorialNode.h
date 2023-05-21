@@ -65,6 +65,9 @@ public:
 
         m_TutorialEvents.AddStep(
             "Now! let's try casting a single spell \nthat's faster that the enemy spell.");
+
+        m_TutorialEvents.AddStep("");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });

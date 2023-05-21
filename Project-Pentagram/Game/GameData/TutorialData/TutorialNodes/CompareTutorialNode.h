@@ -52,6 +52,9 @@ public:
         m_TutorialEvents.AddStep(
             "Now! let's cancel out an enemy spell by\ndecreasing the cast time of your spell and\n increasing the WILL of your spell."
         );
+
+        m_TutorialEvents.AddStep("");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton, TutorialEventType::Toggle,true });

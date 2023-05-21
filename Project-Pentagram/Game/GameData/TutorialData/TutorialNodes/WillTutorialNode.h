@@ -61,10 +61,13 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep("Try defeating this enemy with a single spell by \nadding more WILL into this fireball.\n\n(Press ALT to inspect the spell info.)");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep(
-            "Now! let's try to defeat the enemy.");
+        m_TutorialEvents.AddStep("Now! let's try to defeat the enemy.");
+
+        m_TutorialEvents.AddStep("");
+
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });

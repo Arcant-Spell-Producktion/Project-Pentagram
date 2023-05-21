@@ -32,6 +32,11 @@ void ExplainTutorialState::UpdateEvent()
             }
         }
     }
+
+    if(m_TutorialStep[m_CurrentEvent].TutorialText.length() == 0)
+    {
+        OnTextClick();
+    }
 }
 
 void ExplainTutorialState::OnTextClick()

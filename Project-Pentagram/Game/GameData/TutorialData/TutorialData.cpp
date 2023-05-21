@@ -15,8 +15,8 @@ const std::string TutorialData::m_TutorialNames[] =
     "Part 2\nEffect",
     "Part 3\nTimeline",
     "Part 4\nSpell\nClashing",
-    "Part 5\nChanneling\nSpell: Wait",
-    "Part 6\nChanneling\nSpell: Active",
+    "Part 5\nChanneling\nSpell: Delay",
+    "Part 6\nChanneling\nSpell: Lasting",
     "Part 7\nChanneling\nSpell: Trap",
     "Part 8\nChanneling\nSpell: Counter"
 };
