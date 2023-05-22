@@ -5,6 +5,7 @@
 #include "Game/BattleScene/GameObject/WillCompareController.h"
 #include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
 #include "Game/Objects/StageObject.h"
+#include "Game/Objects/GameOverUI.h"
 #include "Game/Objects/TextBox.h"
 
 class BattleSceneData
@@ -19,6 +20,8 @@ public:
     PentragramController* Pentagram = nullptr;
 
     WillCompareController* WillCompare = nullptr;
+
+    GameOverUI* GameOverUI = nullptr;
 
     TextBox* Texts = nullptr;
 

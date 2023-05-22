@@ -101,6 +101,7 @@
     <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
     <ClInclude Include="Game\GameData\MapData\NodeData.h" />
     <ClInclude Include="Game\MapScene\MapScene.h" />
+    <ClInclude Include="Game\Objects\GameOverUI.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
@@ -280,6 +281,7 @@
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />
+    <ClCompile Include="Game\Objects\GameOverUI.cpp" />
     <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
     <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />

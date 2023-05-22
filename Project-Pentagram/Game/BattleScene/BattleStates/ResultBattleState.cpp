@@ -22,9 +22,17 @@ void ResultBattleState::OnBattleStateIn()
         battleManager.Data.HideCasterUI();
         battleManager.Data.Timeline.UI->SetActive(false);
 
-       // camera->SetZoom(2.5f);
-        // SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-        //gameData.DeleteSave();
+        battleManager.Data.GameOverUI->ButtonA->onClick = [this](Button* button)
+        {
+            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+        };
+
+        battleManager.Data.GameOverUI->ButtonB->onClick = [this](Button* button)
+        {
+            SceneManager::LoadScene(GameState::GS_QUIT);
+        };
+
+        gameData.DeleteSave();
     }
 }
 
@@ -35,6 +43,9 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
     PlayerController* player = dynamic_cast<PlayerController*>(battleManager.Data.GetCaster(CasterPosition::CasterA));
 
+    GameScene* scene = GameStateController::GetInstance().currentScene;
+    Camera* camera = scene->GetCamera();
+
     if (m_Timer >= m_WaitTime)
     {
 
@@ -44,7 +55,7 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             {
                 std::cout << "!!!!!!!!XXXX\t\tSaving at " << gameData.Map->GetCurrentChapter() << std::endl;
 
-                if(gameData.Map->GetCurrentChapter() == Element::Corrupt)
+                if (gameData.Map->GetCurrentChapter() == Element::Corrupt)
                 {
                     gameData.DeleteSave();
                     SceneManager::LoadScene(GameState::GS_MENU_SCENE);
@@ -55,7 +66,7 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
                     gameData.Player->LevelUp();
                     SceneManager::LoadScene(GameState::GS_MAP_SCENE);
                 }
-                
+
             }
             else
             {
@@ -66,10 +77,6 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 
             gameData.Map->IsAtMap = false;
             gameData.SaveGameData();
-        }
-        else
-        {
-           
         }
 
     }
@@ -83,6 +90,8 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             player->GetCasterObject()->SetIsAnimationObject(true);
             player->GetCasterObject()->SetAnimationPlayTime(0.15f);
 
+            battleManager.Data.GameOverUI->SetActive(true);
+
             m_Timer = m_WaitTime;
         }
 
@@ -92,11 +101,10 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             Camera* camera = scene->GetCamera();
             //cam pos -150 -50 ,zoom 1.7f
 
+            float camX = -220.0f * (m_Timer / m_WaitTime);
+            float camY = -100.0f * (m_Timer / m_WaitTime);
 
-            float camX = -170.0f * (m_Timer / m_WaitTime);
-            float camY = -50.0f * (m_Timer / m_WaitTime);
-
-            float camZoom = 1.0f + ((m_Timer / m_WaitTime) * 0.7f);
+            float camZoom = 1.0f + ((m_Timer / m_WaitTime) * 1.0f);
 
             camera->SetZoom(camZoom);
             camera->position.x = camX;

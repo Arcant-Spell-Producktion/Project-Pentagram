@@ -31,6 +31,8 @@ void BattleManager::Init(IGameObjectManager* scene, Element::Type stageElement, 
     Data.Timeline.UI = scene->CreateObject(new TimelineController());
     Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
 
+    Data.GameOverUI = scene->CreateObject(new GameOverUI());
+
     Data.WillCompare = scene->CreateObject(new WillCompareController());
 
     std::vector <BaseBattleState*> states;
