@@ -47,3 +47,9 @@ void ScrollButton::SetExpand(bool isExpand)
     m_isExpand = isExpand;
     this->scale = m_isExpand ? ExpandScale : DefaultScale;
 }
+
+void ScrollButton::SetButtonScale(const glm::vec3& defaultScale, const glm::vec3& expandScale)
+{
+    DefaultScale = defaultScale;
+    ExpandScale = expandScale;
+}

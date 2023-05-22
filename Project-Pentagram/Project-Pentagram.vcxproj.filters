@@ -241,6 +241,8 @@
     <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
     <ClCompile Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\PlayerController.cpp" />
+    <ClCompile Include="Game\Objects\GameOverUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -605,6 +607,7 @@
     <ClInclude Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.h">
       <Filter>Game\BattleScene\SpellEffect\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Objects\GameOverUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

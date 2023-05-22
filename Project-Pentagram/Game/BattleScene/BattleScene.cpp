@@ -20,9 +20,7 @@ void BattleScene::GameSceneLoad()
 
 void BattleScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance().Map->GetNextNode()->GetEnemyData().Element()));
-
-    battleManager->Init(this);
+    battleManager->Init(this, RuntimeGameData::GetInstance().Map->GetNextNode()->GetEnemyData().Element());
     std::cout << "Battle Scene : Initialize Completed\n";
     battleManager->StartBattle();
 
@@ -40,6 +38,10 @@ void BattleScene::GameSceneUpdate(float dt)
         SceneManager::LoadScene(GameState::GS_RESTART);
         // If not return will cause memory problem
         return;
+    }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_L))
+    {
+        battleManager->Data.GetCaster(CasterPosition::CasterA)->TakeDamage(999);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_K))
     {

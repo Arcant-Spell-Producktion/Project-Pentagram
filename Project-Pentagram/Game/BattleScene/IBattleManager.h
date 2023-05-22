@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Game/BattleScene/BattleStates/BaseBattleState.h"
-
+#include "Game/Spells/Element.h"
 enum class BattleMode
 {
     Battle,
@@ -20,7 +20,7 @@ public:
 
     virtual BaseGameState<STATE>* GetBattleStates() = 0;
 
-    virtual void  Init(IGameObjectManager* scene, BattleMode mode = BattleMode::Battle) = 0;
+    virtual void  Init(IGameObjectManager* scene, Element::Type stageElement,BattleMode mode = BattleMode::Battle) = 0;
 
     virtual void StartBattle(BattleMode mode) = 0;
     virtual void SwapCaster() = 0;

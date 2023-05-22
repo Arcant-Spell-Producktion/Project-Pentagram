@@ -22,12 +22,16 @@ void BattleManager::SetBattleState(BattleState state)
     std::cout << "\n\t Battle State transition: from " << (int)OldState << " , to " << (int)m_CurrentState << "\n\n";
 }
 
-void BattleManager::Init(IGameObjectManager* scene, BattleMode mode)
+void BattleManager::Init(IGameObjectManager* scene, Element::Type stageElement, BattleMode mode)
 {
+    Data.Stage = scene->CreateObject(new StageObject(stageElement));
+
     Data.Pentagram = new PentragramController(scene);
     
     Data.Timeline.UI = scene->CreateObject(new TimelineController());
     Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
+
+    Data.GameOverUI = scene->CreateObject(new GameOverUI());
 
     Data.WillCompare = scene->CreateObject(new WillCompareController());
 

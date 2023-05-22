@@ -25,4 +25,6 @@ public:
     void SpinWheel(int n, std::function<void()> callback);
     void ResetWheel();
 
+    void SetActive(bool isActive);
+
 };

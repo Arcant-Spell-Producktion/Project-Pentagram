@@ -10,11 +10,16 @@ void ResultTutorialState::OnBattleStateIn()
     BattleManager& battleManager = BattleManager::GetInstance();
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
     TutorialNode* currentNode = gameData.Tutorial.GetTutorialNode();
+    PlayerController* player = dynamic_cast<PlayerController*>(battleManager.Data.GetCaster(CasterPosition::CasterA));
+    bool isPlayerAlive = player->IsAlive();
 
-    bool isPlayerAlive = battleManager.Data.GetCaster(CasterPosition::CasterA)->IsAlive();
+    if (!isPlayerAlive)
+    {
+        player->GetCasterObject()->PlayDiedAnim();
+    }
+
     battleManager.Data.Pentagram->SetActive(false);
     battleManager.Data.Texts->SetActive(true);
-
     battleManager.Data.Texts->textObject.text = isPlayerAlive? currentNode->CompleteText : currentNode->RetryText;
 
     battleManager.Data.Texts->onClick = [this, isPlayerAlive, currentNode](Button* button)

@@ -14,6 +14,14 @@ CasterController* BattleSceneData::GetCaster(CasterPosition position)
     return caster;
 }
 
+void BattleSceneData::HideCasterUI()
+{
+    for (auto caster : Casters)
+    {
+        caster->GetCasterUI()->SetActive(false);
+    }
+}
+
 void BattleSceneData::StandbyAllCaster()
 {
     for (auto caster : Casters)

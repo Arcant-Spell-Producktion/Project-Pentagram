@@ -20,7 +20,7 @@ public:
 
     BaseBattleState* GetBattleStates() override { return m_BattleStates[m_CurrentState]; }
 
-    void Init(IGameObjectManager* scene, BattleMode mode = BattleMode::Battle) override;
+    void Init(IGameObjectManager* scene, Element::Type stageElement, BattleMode mode = BattleMode::Battle) override;
 
     void StartBattle(BattleMode mode = BattleMode::Battle) override;
     void SwapCaster() override;
