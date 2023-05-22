@@ -6,12 +6,14 @@ GameOverUI::GameOverUI():UIObject("GameOverUI")
     this->color.a = 0.0f;
     this->position.x = 400.0f;
 
-    Header = new TextObject("EJECTED!");
+    Header = new TextObject("GameOver_Text");
     Header->textAlignment = TextAlignment::MID;
-    Header->text = "SKILL ISSUE!";
+    Header->text = "You Died";
     Header->fontSize = 128.0f;
     Header->position.y = 300.0f;
-    Header->color = AC_WHITE;
+    Header->color = AC_RED;
+    Header->outlineColor = AC_WHITE;
+
     
 
     ButtonA = new ScrollButton("Return to\nMain menu");
