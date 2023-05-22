@@ -9,7 +9,6 @@
 class Camera
 {
 	private:
-		glm::vec3 m_Position;
 		glm::vec3 m_Direction;
 		glm::vec3 m_Up;
 		// ----------------- Camera Zoom Properties -----------------
@@ -26,6 +25,8 @@ class Camera
 		void UpdateShake(const float& dt);
 
 	public:
+		glm::vec3 position;
+
 		Camera(const glm::vec3& position = glm::vec3(0.0f, 0.0f, 0.0f));
 		~Camera() {}
 
@@ -36,14 +37,12 @@ class Camera
 		void Shake(const float& shakeTime, const int& shakeFrequency, glm::vec2 variation);
 
 		// ----------------- Setter -----------------
-		void SetPosition(const glm::vec3& position);
 		void ResetPosition();
 		void SetZoom(const float& zoom);
 
 		// ----------------- Getter -----------------
 		glm::mat4 GetViewMatrix();
 		glm::mat4 GetProjectionMatrix(const bool& isZoom);
-		glm::vec3 GetPosition() const;
 		float GetZoom() const;
 		bool IsShake() const;
 		int GetShakeFrequency() const;
