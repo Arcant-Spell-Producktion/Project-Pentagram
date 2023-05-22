@@ -4,6 +4,7 @@
 #include "Game/BattleScene/SpellTimeline/SpellTimeline.h"
 #include "Game/BattleScene/GameObject/WillCompareController.h"
 #include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
+#include "Game/Objects/StageObject.h"
 #include "Game/Objects/TextBox.h"
 
 class BattleSceneData
@@ -11,6 +12,8 @@ class BattleSceneData
 public:
     int CurrentCasterIndex = 0;
     std::vector<CasterController*> Casters;
+
+    StageObject* Stage = nullptr;
 
     SpellTimeline Timeline;
     PentragramController* Pentagram = nullptr;

@@ -19,9 +19,7 @@ void CharacterTestScene::GameSceneLoad()
 
 void CharacterTestScene::GameSceneInit()
 {
-    objectsList.push_back(new StageObject(RuntimeGameData::GetInstance().Player->Element()));
-
-    charTestManager->Init(this,BattleMode::Test);
+    charTestManager->Init(this, RuntimeGameData::GetInstance().Player->Element(),BattleMode::Test);
     std::cout << "Tutorial Scene : Initialize Completed\n";
     charTestManager->StartBattle(BattleMode::Test);
 

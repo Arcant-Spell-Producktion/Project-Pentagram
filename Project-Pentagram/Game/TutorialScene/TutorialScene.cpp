@@ -20,8 +20,7 @@ void TutorialScene::GameSceneInit()
 {
     BattleManager& tutorialManager = BattleManager::GetInstance();
 
-    objectsList.push_back(new StageObject(Element::Water));
-    tutorialManager.Init(this, BattleMode::Tutorial);
+    tutorialManager.Init(this, Element::Water,BattleMode::Tutorial);
     std::cout << "Tutorial Scene : Initialize Completed\n";
     tutorialManager.StartBattle(BattleMode::Tutorial);
 

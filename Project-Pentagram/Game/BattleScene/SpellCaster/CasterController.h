@@ -28,7 +28,6 @@ protected:
     CasterUIController m_CasterUI;
 
     CasterObject* m_CasterObject;
-    void CasterDied();
 
 public:
 
@@ -57,6 +56,8 @@ public:
     bool IsShowCasterDetail() { return m_CasterUI.IsShowDetail(); }
     
     void SpinManaWheel(int forceValue = -1);
+
+    virtual void CasterDied();
 
     virtual void StartRound();
 

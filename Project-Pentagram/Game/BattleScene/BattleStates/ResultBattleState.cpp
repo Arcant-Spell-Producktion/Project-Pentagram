@@ -8,7 +8,16 @@
 void ResultBattleState::OnBattleStateIn()
 {
     m_Timer = m_WaitTime;
- 
+    BattleManager& battleManager = BattleManager::GetInstance();
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+    CasterController* player = battleManager.Data.GetCaster(CasterPosition::CasterA);
+
+    if (!player->IsAlive())
+    {
+        player->CasterDied();
+        battleManager.Data.Stage->FadeToBlack();
+        m_Timer = 10.0f;
+    }
 }
 
 void ResultBattleState::OnBattleStateUpdate(float dt)
