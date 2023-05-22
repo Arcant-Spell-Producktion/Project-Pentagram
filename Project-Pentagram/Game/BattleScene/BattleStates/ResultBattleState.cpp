@@ -7,33 +7,38 @@
 
 void ResultBattleState::OnBattleStateIn()
 {
-    m_Timer = m_WaitTime;
     BattleManager& battleManager = BattleManager::GetInstance();
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
-    CasterController* player = battleManager.Data.GetCaster(CasterPosition::CasterA);
+    PlayerController* player = dynamic_cast<PlayerController*>(battleManager.Data.GetCaster(CasterPosition::CasterA));
 
-    if (!player->IsAlive())
+    GameScene* scene = GameStateController::GetInstance().currentScene;
+    Camera* camera = scene->GetCamera();
+
+    m_IsAlive = player->IsAlive();
+    if (!m_IsAlive)
     {
-        player->CasterDied();
+        player->GetCasterObject()->SetIsAnimationObject(false);
         battleManager.Data.Stage->FadeToBlack();
-        m_Timer = 10.0f;
+        battleManager.Data.HideCasterUI();
+        battleManager.Data.Timeline.UI->SetActive(false);
+
+       // camera->SetZoom(2.5f);
+        // SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+        //gameData.DeleteSave();
     }
 }
 
 void ResultBattleState::OnBattleStateUpdate(float dt)
 {
-    if (m_Timer < 0.0f)
-    {
-        BattleManager& battleManager = BattleManager::GetInstance();
-        RuntimeGameData& gameData = RuntimeGameData::GetInstance();
-        CasterController* player = battleManager.Data.GetCaster(CasterPosition::CasterA);
 
-        if (!player->IsAlive())
-        {
-            SceneManager::LoadScene(GameState::GS_MENU_SCENE);
-            gameData.DeleteSave();
-        }
-        else
+    BattleManager& battleManager = BattleManager::GetInstance();
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+    PlayerController* player = dynamic_cast<PlayerController*>(battleManager.Data.GetCaster(CasterPosition::CasterA));
+
+    if (m_Timer >= m_WaitTime)
+    {
+
+        if (m_IsAlive)
         {
             if (gameData.Map->CompleteNode())
             {
@@ -62,10 +67,41 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             gameData.Map->IsAtMap = false;
             gameData.SaveGameData();
         }
+        else
+        {
+           
+        }
 
-    }else
+    }
+    else
     {
-        m_Timer -= dt;
+        m_Timer += dt;
+
+        if (m_Timer >= m_WaitTime)
+        {
+            player->GetCasterObject()->PlayDiedAnim();
+            player->GetCasterObject()->SetIsAnimationObject(true);
+            player->GetCasterObject()->SetAnimationPlayTime(0.15f);
+
+            m_Timer = m_WaitTime;
+        }
+
+        if (!m_IsAlive)
+        {
+            GameScene* scene = GameStateController::GetInstance().currentScene;
+            Camera* camera = scene->GetCamera();
+            //cam pos -150 -50 ,zoom 1.7f
+
+
+            float camX = -170.0f * (m_Timer / m_WaitTime);
+            float camY = -50.0f * (m_Timer / m_WaitTime);
+
+            float camZoom = 1.0f + ((m_Timer / m_WaitTime) * 0.7f);
+
+            camera->SetZoom(camZoom);
+            camera->position.x = camX;
+            camera->position.y = camY;
+        }
     }
 }
 

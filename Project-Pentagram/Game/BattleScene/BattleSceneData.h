@@ -40,6 +40,8 @@ public:
     CasterController* GetCurrentCaster() { return Casters[CurrentCasterIndex]; }
     CasterController* GetNextCaster() { return Casters[(CurrentCasterIndex + 1) % Casters.size()]; }
 
+    void HideCasterUI();
+
     void StandbyAllCaster();
 
     bool IsAllCasterIdle();

@@ -52,3 +52,10 @@ void CasterUIController::ResetWheel()
 {
     m_Roulette->ResetRoulette();
 }
+
+void CasterUIController::SetActive(bool isActive)
+{
+    m_StatUI->SetActive(isActive);
+    m_Roulette->SetActive(isActive);
+    m_DetailBox->SetActive(isActive);
+}
