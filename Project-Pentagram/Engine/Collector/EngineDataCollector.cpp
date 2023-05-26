@@ -27,5 +27,4 @@ void EngineDataCollector::Free()
 	m_FontCollector.Free();
 	m_TextureCollector.Free();
 	AudioEngine::GetInstance().Free();
-	Singleton::Free();
 }
