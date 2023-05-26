@@ -144,6 +144,16 @@ void SpellIconUI::SetPosition(glm::vec3 position)
     m_IconObject->position = position;
 }
 
+void SpellIconUI::SetScale(glm::vec3 scale)
+{
+    m_IconObject->scale = scale;
+    m_IconHidden->scale = scale;
+    m_IconOverlay->scale = scale;
+    m_IconBorder->scale = scale / 100.0f * 114.0f;
+
+    this->scale = scale;
+}
+
 void SpellIconUI::UpdateIcon()
 {
     m_CurrentElement = SpellDetail->GetSpellDetail()->m_Element;

@@ -1,9 +1,9 @@
 ﻿#include "MapInfoUI.h"
 
 const std::string earthMapDescription = R"(Earth stage: A city of stone and science,
-found in a cavern and fill with machinery fueled 
-with magic led by Tierra Tarrencrest
-witch of the moving plateau.)";
+found in a cavern and fill with machinery 
+fueled with magic led by Tierra
+Tarrencrest witch of the moving plateau.)";
 
 const std::string fireMapDescription = R"(Fire stage: A city of flame surrounded
 by lava and volcano. Once guarded by 
@@ -18,7 +18,10 @@ isolated land of serenity and breeze
 overseen by Fumi Ventis witch of 
 wailing wind)";
 
-const std::string corruptMapDescription = R"(Corrupt stage: )";
+const std::string corruptMapDescription = R"(Corrupts stage: Once a small deserted
+island fill with vegetation, now center
+of corruptions that plague this land as
+the source of corruptions lies within.)";
 
 MapInfoUI::MapInfoUI()
 	: UIObject("MapInfoUI")

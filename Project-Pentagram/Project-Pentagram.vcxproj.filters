@@ -608,6 +608,7 @@
       <Filter>Game\BattleScene\SpellEffect\Object</Filter>
     </ClInclude>
     <ClInclude Include="Game\Objects\GameOverUI.h" />
+    <ClInclude Include="Game\Objects\PlayerAidUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

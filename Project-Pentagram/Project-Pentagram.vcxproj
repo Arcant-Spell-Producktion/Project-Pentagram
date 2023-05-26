@@ -104,6 +104,7 @@
     <ClInclude Include="Game\Objects\GameOverUI.h" />
     <ClInclude Include="Game\Objects\PauseMenuObject.h" />
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
+    <ClInclude Include="Game\Objects\PlayerAidUI.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Objects\TextBox.h" />

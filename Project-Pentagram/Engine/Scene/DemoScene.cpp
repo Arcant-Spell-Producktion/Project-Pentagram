@@ -2,6 +2,9 @@
 #include <Game/Objects/StageObject.h>
 #include "Game/Objects/PauseMenuObject.h"
 #include "Game/BattleScene/ManaRoulette/ManaRouletteUI.h"
+
+#include "Game/Objects/PlayerAidUI.h"
+
 float t = 0.0f;
 void DemoScene::GameSceneLoad()
 {
@@ -16,6 +19,7 @@ Slider* slider;
 ManaRouletteUI* rou;
 PauseMenuObject* pauseMenuObj;
 bool flag = true;
+PlayerAidUI* aidUI;
 
 void DemoScene::GameSceneInit()
 {
@@ -136,6 +140,7 @@ void DemoScene::GameSceneInit()
     
     rou = CreateObject(new ManaRouletteUI(2));
 
+	aidUI = CreateObject(new PlayerAidUI());
 }
 
 void DemoScene::GameSceneUpdate(float dt)
@@ -152,8 +157,11 @@ void DemoScene::GameSceneUpdate(float dt)
 	t += dt;
 
 
-
-	if (Input::IsKeyBeginPressed(GLFW_KEY_R))
+	if (Input::IsKeyBeginPressed(GLFW_KEY_F1))
+	{
+		aidUI->ToggleEvent();
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_R))
 	{
 		SceneManager::RestartScene();
 	}

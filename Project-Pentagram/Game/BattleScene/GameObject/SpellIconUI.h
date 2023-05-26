@@ -61,6 +61,8 @@ public:
 
     void SetPosition(glm::vec3 position);
 
+    void SetScale(glm::vec3 scale);
+
     void UpdateIcon();
 
     void SetActive(const bool& active) override;
