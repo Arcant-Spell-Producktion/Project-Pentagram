@@ -3,12 +3,12 @@
   <SpellList>
     <Spell SpellName="Wind Cutter">
       <WillValue>
+        <Value>10</Value>
         <Value>15</Value>
         <Value>20</Value>
-        <Value>25</Value>
+        <Value>20</Value>
         <Value>25</Value>
         <Value>30</Value>
-        <Value>35</Value>
       </WillValue>
       <SpellEffect>Boost</SpellEffect>
       <EffectValue>
@@ -19,7 +19,7 @@
         <Value>2</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>4</CastTime>
+      <CastTime>9</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -43,7 +43,7 @@
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>3</CastTime>
+      <CastTime>8</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -67,7 +67,7 @@
         <Value>3</Value>
         <Value>4</Value>
       </EffectValue>
-      <CastTime>6</CastTime>
+      <CastTime>7</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -91,7 +91,7 @@
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>9</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -115,7 +115,7 @@
         <Value>3</Value>
         <Value>4</Value>
       </EffectValue>
-      <CastTime>4</CastTime>
+      <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -139,8 +139,8 @@
         <Value>3</Value>
         <Value>4</Value>
       </EffectValue>
-      <CastTime>6</CastTime>
-      <ChannelTime>1</ChannelTime>
+      <CastTime>3</CastTime>
+      <ChannelTime>3</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
@@ -163,7 +163,7 @@
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>6</CastTime>
       <ChannelTime>2</ChannelTime>
       <ChannelEffect>Trap</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -187,9 +187,9 @@
         <Value>3</Value>
         <Value>4</Value>
       </EffectValue>
-      <CastTime>2</CastTime>
-      <ChannelTime>2</ChannelTime>
-      <ChannelEffect>Delay</ChannelEffect>
+      <CastTime>4</CastTime>
+      <ChannelTime>0</ChannelTime>
+      <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
@@ -212,7 +212,7 @@
         <Value>5</Value>
       </EffectValue>
       <CastTime>1</CastTime>
-      <ChannelTime>5</ChannelTime>
+      <ChannelTime>4</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>

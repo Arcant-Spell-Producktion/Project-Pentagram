@@ -3,12 +3,12 @@
   <SpellList>
     <Spell SpellName="Fireball">
       <WillValue>
-        <Value>10</Value>
         <Value>15</Value>
         <Value>20</Value>
         <Value>25</Value>
-        <Value>25</Value>
         <Value>30</Value>
+        <Value>30</Value>
+        <Value>35</Value>
       </WillValue>
       <SpellEffect>Mark</SpellEffect>
       <EffectValue>
@@ -19,7 +19,7 @@
         <Value>40</Value>
         <Value>45</Value>
       </EffectValue>
-      <CastTime>3</CastTime>
+      <CastTime>10</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -43,7 +43,7 @@
         <Value>40</Value>
         <Value>45</Value>
       </EffectValue>
-      <CastTime>4</CastTime>
+      <CastTime>8</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -67,7 +67,7 @@
         <Value>60</Value>
         <Value>65</Value>
       </EffectValue>
-      <CastTime>5</CastTime>
+      <CastTime>7</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -91,7 +91,7 @@
         <Value>3</Value>
         <Value>3</Value>
       </EffectValue>
-      <CastTime>3</CastTime>
+      <CastTime>9</CastTime>
       <ChannelTime>0</ChannelTime>
       <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
@@ -139,8 +139,8 @@
         <Value>4</Value>
         <Value>5</Value>
       </EffectValue>
-      <CastTime>4</CastTime>
-      <ChannelTime>3</ChannelTime>
+      <CastTime>2</CastTime>
+      <ChannelTime>2</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
@@ -163,8 +163,8 @@
         <Value>3</Value>
         <Value>4</Value>
       </EffectValue>
-      <CastTime>2</CastTime>
-      <ChannelTime>4</ChannelTime>
+      <CastTime>5</CastTime>
+      <ChannelTime>2</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
@@ -187,13 +187,13 @@
         <Value>85</Value>
         <Value>90</Value>
       </EffectValue>
-      <CastTime>7</CastTime>
-      <ChannelTime>1</ChannelTime>
-      <ChannelEffect>Delay</ChannelEffect>
+      <CastTime>4</CastTime>
+      <ChannelTime>0</ChannelTime>
+      <ChannelEffect>None</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
     </Spell>
-    <Spell SpellName="EXPLOSION!!!">
+    <Spell SpellName="Abyssal Eruption">
       <WillValue>
         <Value>90</Value>
         <Value>100</Value>
@@ -211,8 +211,8 @@
         <Value>5</Value>
         <Value>6</Value>
       </EffectValue>
-      <CastTime>1</CastTime>
-      <ChannelTime>9</ChannelTime>
+      <CastTime>2</CastTime>
+      <ChannelTime>3</ChannelTime>
       <ChannelEffect>Delay</ChannelEffect>
       <SpellTarget>Opponent</SpellTarget>
       <ResolveFlag>1</ResolveFlag>
