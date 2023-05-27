@@ -5,6 +5,7 @@
 #include "Engine/SceneManager.h"
 
 #include "Game/Objects/OptionMenuObject.h"
+#include "Game/Objects/ConfirmUI.h"
 
 class PauseMenuObject : public UIObject
 {
@@ -24,16 +25,7 @@ class PauseMenuObject : public UIObject
 
 		OptionMenuObject* m_OptionMenuObject;
 
-		struct ConfirmUI : public UIObject
-		{
-			TextObject* ConfirmText;
-			Button* Yes;
-			Button* No;
-			Button* CloseButton;
-
-			ConfirmUI() : UIObject("ConfirmUI") {}
-
-		} *m_ConfirmUI;
+		ConfirmUI *m_ConfirmUI;
 
 		GameScene* currentGameScene;
 

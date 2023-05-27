@@ -96,6 +96,7 @@
     <ClInclude Include="Game\MapScene\CasterStatUI.h" />
     <ClInclude Include="Game\MapScene\MapInfoUI.h" />
     <ClInclude Include="Game\MapScene\MapNode.h" />
+    <ClInclude Include="Game\Objects\ConfirmUI.h" />
     <ClInclude Include="Game\Objects\CursorManager.h" />
     <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
     <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
@@ -280,6 +281,7 @@
     <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
     <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
     <ClCompile Include="Game\MapScene\MapNode.cpp" />
+    <ClCompile Include="Game\Objects\ConfirmUI.cpp" />
     <ClCompile Include="Game\Objects\CursorManager.cpp" />
     <ClCompile Include="Game\MapScene\MapScene.cpp" />
     <ClCompile Include="Game\Objects\GameOverUI.cpp" />

@@ -116,8 +116,8 @@ void PauseMenuObject::InitMenuUI()
 		{ 
 			m_MenuUI->SetActive(false); 
 			m_ConfirmUI->SetActive(true);
-			m_ConfirmUI->ConfirmText->text = "Do you want to exit to menu?";
-			m_ConfirmUI->Yes->onClick = [this](Button* button) { SceneManager::LoadScene(GameState::GS_MENU_SCENE); };
+			m_ConfirmUI->GetConfirmText()->text = "Do you want to exit to menu?";
+			m_ConfirmUI->GetYesButton()->onClick = [this](Button* button) { SceneManager::LoadScene(GameState::GS_MENU_SCENE); };
 		});
 	m_MenuUI->SetChildRenderFront(m_MenuUI->ExitToMenuButton);
 
@@ -137,8 +137,8 @@ void PauseMenuObject::InitMenuUI()
 		{ 
 			m_MenuUI->SetActive(false); 
 			m_ConfirmUI->SetActive(true);
-			m_ConfirmUI->ConfirmText->text = "Do you want to exit game?";
-			m_ConfirmUI->Yes->onClick = [this](Button* button) { SceneManager::LoadScene(GameState::GS_QUIT); };
+			m_ConfirmUI->GetConfirmText()->text = "Do you want to exit game?";
+			m_ConfirmUI->GetYesButton()->onClick = [this](Button* button) { SceneManager::LoadScene(GameState::GS_QUIT); };
 		});
 	m_MenuUI->SetChildRenderFront(m_MenuUI->ExitGameButton);
 
@@ -153,68 +153,15 @@ void PauseMenuObject::InitMenuUI()
 void PauseMenuObject::InitConfirmUI()
 {
 	m_ConfirmUI = new ConfirmUI();
-	m_ConfirmUI->SetTexture("Sprites/UI/Game/ui_game_pause-panel.png");
-	m_ConfirmUI->scale = { 750.0f, 350.0f, 1.0f };
-	m_ConfirmUI->color = { 1.0f, 1.0f, 1.0f, 1.0f };
-	m_ConfirmUI->SetBlockRaycast(true);
-	m_ConfirmUI->SetIsSlicing(true);
-	m_ConfirmUI->SetSlicingType(SlicingType::REPEAT);
-	m_ConfirmUI->SetSlicingBorderSize(180.0f);
-	m_ConfirmUI->SetSlicingBorderMultiplier(0.5f);
 	SetChildRenderBack(m_ConfirmUI);
 
-	m_ConfirmUI->ConfirmText = new TextObject("ConfirmationText");
-	m_ConfirmUI->ConfirmText->position = { 0.0f, 100.0f, 0.0f };
-	m_ConfirmUI->ConfirmText->text = "Are you sure?";
-	m_ConfirmUI->ConfirmText->fontSize = 40.0f;
-	m_ConfirmUI->ConfirmText->textAlignment = TextAlignment::MID;
-	m_ConfirmUI->ConfirmText->color = AC_WHITE;
-	m_ConfirmUI->ConfirmText->outlineColor = AC_BLACK;
-	m_ConfirmUI->SetChildRenderFront(m_ConfirmUI->ConfirmText);
-
-	m_ConfirmUI->Yes = new Button("Yes_Button");
-	m_ConfirmUI->Yes->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-	m_ConfirmUI->Yes->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_ConfirmUI->Yes->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_ConfirmUI->Yes->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-	m_ConfirmUI->Yes->SetSlicingBorderMultiplier(0.25f);
-	m_ConfirmUI->Yes->SetSlicingType(SlicingType::REPEAT);
-	m_ConfirmUI->Yes->SetSlicingBorderSize(120.0f);
-	m_ConfirmUI->Yes->scale = { 200.0f, 100.0f, 0.0f };
-	m_ConfirmUI->Yes->position = { -150.0f, -50.0f, 0.0f };
-	m_ConfirmUI->Yes->textObject.text = "Yes";
-	m_ConfirmUI->Yes->textObject.color = AC_WHITE;
-	m_ConfirmUI->Yes->textObject.outlineColor = AC_BLACK;
-	m_ConfirmUI->SetChildRenderFront(m_ConfirmUI->Yes);
-
-	m_ConfirmUI->No = new Button("No_Button");
-	m_ConfirmUI->No->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-	m_ConfirmUI->No->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_ConfirmUI->No->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_ConfirmUI->No->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-	m_ConfirmUI->No->onClick.AddListener([this](Button* button)
+	m_ConfirmUI->GetNoButton()->onClick.AddListener([this](Button* button)
 		{
 			m_MenuUI->SetActive(true);
-			m_ConfirmUI->SetActive(false);
 		});
-	m_ConfirmUI->No->SetSlicingBorderMultiplier(0.25f);
-	m_ConfirmUI->No->SetSlicingType(SlicingType::REPEAT);
-	m_ConfirmUI->No->SetSlicingBorderSize(120.0f);
-	m_ConfirmUI->No->scale = { 200.0f, 100.0f, 0.0f };
-	m_ConfirmUI->No->position = { 150.0f, -50.0f, 0.0f };
-	m_ConfirmUI->No->textObject.text = "No";
-	m_ConfirmUI->No->textObject.color = AC_WHITE;
-	m_ConfirmUI->No->textObject.outlineColor = AC_BLACK;
-	m_ConfirmUI->SetChildRenderFront(m_ConfirmUI->No);
 
-	m_ConfirmUI->CloseButton = new Button("Close_Button");
-	m_ConfirmUI->CloseButton->position = { 750.0f / 2.0f, 350.0f / 2.0f, 0.0f };
-	m_ConfirmUI->CloseButton->scale = { 50.0f, 50.0f, 1.0f };
-	m_ConfirmUI->CloseButton->textObject.text = "X";
-	m_ConfirmUI->CloseButton->onClick.AddListener([this](Button* button) 
+	m_ConfirmUI->GetCloseButton()->onClick.AddListener([this](Button* button)
 		{ 
-			m_MenuUI->SetActive(true); 
-			m_ConfirmUI->SetActive(false); 
+			m_MenuUI->SetActive(true);
 		});
-	m_ConfirmUI->SetChildRenderFront(m_ConfirmUI->CloseButton);
 }
