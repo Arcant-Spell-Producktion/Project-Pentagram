@@ -101,10 +101,10 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
             Camera* camera = scene->GetCamera();
             //cam pos -150 -50 ,zoom 1.7f
 
-            float camX = -220.0f * (m_Timer / m_WaitTime);
+            float camX = -235.0f * (m_Timer / m_WaitTime);
             float camY = -100.0f * (m_Timer / m_WaitTime);
 
-            float camZoom = 1.0f + ((m_Timer / m_WaitTime) * 1.0f);
+            float camZoom = 1.0f + ((m_Timer / m_WaitTime) * 0.5f);
 
             camera->SetZoom(camZoom);
             camera->position.x = camX;
