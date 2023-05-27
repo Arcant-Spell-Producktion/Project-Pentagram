@@ -7,7 +7,11 @@ class Singleton
 {
     public:
         Singleton() = default;
-        ~Singleton() = default;
+        virtual ~Singleton() = default;
+        Singleton(const Singleton&) = default;
+        Singleton(Singleton&&) = default;
+        Singleton& operator=(const Singleton&) = default;
+        Singleton& operator=(Singleton&&) = default;
 
         static T& GetInstance()
         {
