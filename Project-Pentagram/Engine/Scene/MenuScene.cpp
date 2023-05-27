@@ -28,8 +28,11 @@ void MenuScene::GameSceneLoad()
 
 void MenuScene::GameSceneInit()
 {
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+    bool haveActiveSave = gameData.LoadGameData();
+
 	// Added Stage Background
-	objectsList.push_back(new StageObject(Element::Water));
+	objectsList.push_back(new StageObject(static_cast<Element::Type>(rand() % 4)));
 	
 	// Game Name
 	TextObject* gameName = CreateTextObject("gameName");
@@ -41,36 +44,40 @@ void MenuScene::GameSceneInit()
 	gameName->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
 
 
-    // Continue Button
-    Button* continueButton = CreateObject(new ScrollButton("Continue", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
-    continueButton->position = { 0.0f, 200.0f, 0.0f };
-    continueButton->onClick.AddListener([this](Button* button)
-    {
-        RuntimeGameData& gameData = RuntimeGameData::GetInstance();
-
-    GameState nextState = GameState::GS_CHARACTER_SCENE;
-
-    if (gameData.LoadGameData())
-    {
-        CursorManager::GetInstance().ChangeParticleElement(gameData.Player->Element());
-
-        nextState = gameData.Map->IsAtMap ?
-            GameState::GS_MAP_SCENE :
-            GameState::GS_BATTLE_SCENE;
-    }
-    FadeOut(2.0f, nextState);
-
-
-    });
-
-	// Play Button
-	Button* playButton = CreateObject(new ScrollButton("Play", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
-	playButton->position = { -200.0f, 0.0f, 0.0f };
-	playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
-
     // Play Button
+    Button* playButton = CreateObject(new ScrollButton("Play", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+
+    playButton->position = { 0.0f, 200.0f, 0.0f };
+
+    if (haveActiveSave)
+    {
+        playButton->position = { 200.0f, 200.0f, 0.0f };
+    }
+    playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
+
+    // Continue Button
+    if (haveActiveSave) {
+        Button* continueButton = CreateObject(new ScrollButton("Continue", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+        continueButton->position = { -200.0f, 200.0f, 0.0f };
+        continueButton->onClick.AddListener([this, gameData](Button* button)
+            {
+                GameState nextState = GameState::GS_CHARACTER_SCENE;
+
+                CursorManager::GetInstance().ChangeParticleElement(gameData.Player->Element());
+
+                nextState = gameData.Map->IsAtMap ?
+                    GameState::GS_MAP_SCENE :
+                    GameState::GS_BATTLE_SCENE;
+
+                FadeOut(2.0f, nextState);
+
+            });
+    }
+
+	
+    // Tutorial Button
 	Button* turButton = CreateObject(new ScrollButton("Tutorial", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
-    turButton->position = { 200.0f, 0.0f, 0.0f };
+    turButton->position = { 0.0f, 0.0f, 0.0f };
     turButton->onClick.AddListener([this](Button* button) { SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE); });
 
 	// Options Button
