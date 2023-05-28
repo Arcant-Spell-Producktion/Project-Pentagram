@@ -5,6 +5,9 @@
 #include "Engine/Input.h"
 #include "Utilities/Color.h"
 
+#include "Game/Objects/OptionMenuObject.h"
+#include "Game/Objects/ConfirmUI.h"
+
 class MenuScene : public GameScene
 {
 	private:
@@ -13,6 +16,9 @@ class MenuScene : public GameScene
 		float m_FadeTime;
 		float m_FadeCurrentTime = 0.0f;
 		bool m_IsFadeOut = false;
+
+		ConfirmUI* confirmUI;
+		OptionMenuObject* optionMenuObject;
 
 		void FadeOut(const float& fadeTime, GameState nextState) 
 		{

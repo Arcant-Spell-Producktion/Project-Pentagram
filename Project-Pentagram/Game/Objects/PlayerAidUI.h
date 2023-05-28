@@ -327,10 +327,11 @@ class PlayerAidUI : public UIObject
 			this->SetActive(false);
 		}
 
-		void ToggleEvent()
+		void ToggleEvent(float& timeScale)
 		{
 			if (!this->IsActive())
 			{
+				timeScale = 0.0f;
 				this->SetActive(true);
 
 				m_EffectAidUI->SetActive(true);
@@ -338,6 +339,7 @@ class PlayerAidUI : public UIObject
 			}
 			else
 			{
+				timeScale = 1.0f;
 				this->SetActive(false);
 			}
 		}

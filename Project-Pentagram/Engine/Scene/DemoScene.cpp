@@ -159,7 +159,7 @@ void DemoScene::GameSceneUpdate(float dt)
 
 	if (Input::IsKeyBeginPressed(GLFW_KEY_F1))
 	{
-		aidUI->ToggleEvent();
+		aidUI->ToggleEvent(timeScale);
 	}
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_R))
 	{

@@ -24,6 +24,9 @@ void BattleScene::GameSceneInit()
     std::cout << "Battle Scene : Initialize Completed\n";
     battleManager->StartBattle();
 
+    playerAidUI = CreateObject(new PlayerAidUI());
+    playerAidUI->SetActive(false);
+
     pauseMenuObject = CreateObject(new PauseMenuObject());
     pauseMenuObject->SetCurrentGameScene(this);
     pauseMenuObject->SetActive(false);
@@ -49,7 +52,13 @@ void BattleScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        pauseMenuObject->ToggleEvent(timeScale);
+        if(!playerAidUI->IsActive())
+            pauseMenuObject->ToggleEvent(timeScale);
+    }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_F1))
+    {
+        if (!pauseMenuObject->IsActive())
+            playerAidUI->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {

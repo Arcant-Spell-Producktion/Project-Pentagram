@@ -1,7 +1,6 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/Objects/ScrollButton.h"
-#include "Game/Objects/OptionMenuObject.h"
 #include <Game/Objects/StageObject.h>
 
 #include "Game/GameData/RuntimeGameData.h"
@@ -43,17 +42,9 @@ void MenuScene::GameSceneInit()
 	gameName->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	gameName->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
 
-
     // Play Button
     Button* playButton = CreateObject(new ScrollButton("Play", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
-
     playButton->position = { 0.0f, 200.0f, 0.0f };
-
-    if (haveActiveSave)
-    {
-        playButton->position = { 200.0f, 200.0f, 0.0f };
-    }
-    playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
 
     // Continue Button
     if (haveActiveSave) {
@@ -92,6 +83,34 @@ void MenuScene::GameSceneInit()
 	exitButton->position = { 0.0f, -400.0f, 0.0f };
 	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
+	// Option Menu
+	optionMenuObject = CreateObject(new OptionMenuObject());
+	optionMenuObject->SetActive(false);
+
+	optionsButton->onClick.AddListener([this](Button* button) { optionMenuObject->SetActive(optionMenuObject->IsActive() ? false : true); });
+
+
+	// ConfirmUI for PlayButton
+	confirmUI = CreateObject(new ConfirmUI({ 900.0f, 350.0f, 1.0f }));
+	confirmUI->GetConfirmText()->fontSize = 32.0f;
+	confirmUI->GetConfirmText()->text =
+R"(Are you sure you want to start a new game?
+All your saved files will be deleted.)";
+	confirmUI->SetActive(false);
+	if (haveActiveSave)
+	{
+		playButton->position = { 200.0f, 200.0f, 0.0f };
+		playButton->onClick.AddListener([this](Button* button)
+			{
+				confirmUI->SetActive(true);
+				confirmUI->GetYesButton()->onClick = [this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); };
+			});
+	}
+	else
+	{
+		playButton->onClick.AddListener([this](Button* button) { FadeOut(2.0f, GameState::GS_CHARACTER_SCENE); });
+	}
+
 	// Set FadeScreen Component
 	m_FadeScreen = CreateUIObject("fadeScreen");
 	m_FadeScreen->scale = { 1920.0f, 1080.0f, 1.0f };
@@ -109,11 +128,6 @@ void MenuScene::GameSceneInit()
 	bgm->Play();
 
 	std::cout << "Menu Scene : Initialize Completed\n";
-	
-	OptionMenuObject* optionMenuObject = CreateObject(new OptionMenuObject());
-	optionMenuObject->SetActive(false);
-
-	optionsButton->onClick.AddListener([this, optionMenuObject](Button* button) { optionMenuObject->SetActive(optionMenuObject->IsActive() ? false : true); });
 }
 
 void MenuScene::GameSceneUpdate(float dt)
@@ -128,6 +142,11 @@ void MenuScene::GameSceneUpdate(float dt)
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);
+	}
+	else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
+	{
+		if (confirmUI->IsActive()) { confirmUI->SetActive(false); }
+		else if (optionMenuObject->IsActive()) { optionMenuObject->SetActive(false); }
 	}
 
 	// Update GameObject

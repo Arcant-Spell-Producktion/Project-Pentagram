@@ -125,9 +125,16 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 
 	#pragma region Close_Button_UI
 		closeButton = new Button("CloseButton");
-		closeButton->position = { 500.0f, 250.0f, 0.0f };
-		closeButton->scale = { 50.0f, 50.0f, 1.0f };
+		closeButton->SetSlicingBorderMultiplier(0.2f);
+		closeButton->SetSlicingType(SlicingType::REPEAT);
+		closeButton->SetSlicingBorderSize(120.0f);
+		closeButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
+		closeButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
+		closeButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
+		closeButton->scale = { 75.0f, 75.0f, 1.0f };
+		closeButton->position = { (bgMenu->scale.x / 2.0f) - (closeButton->scale.x / 2.0f), (bgMenu->scale.y / 2.0f) - (closeButton->scale.y / 2.0f), 0.0f };
 		closeButton->textObject.text = "X";
+		closeButton->textObject.fontSize = 44.0f;
 		closeButton->onClick.AddListener([this](Button* button) { this->SetActive(false); });
 		SetChildRenderFront(closeButton);
 	#pragma endregion

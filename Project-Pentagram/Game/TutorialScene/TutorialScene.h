@@ -9,6 +9,8 @@ class TutorialScene :public GameScene
 private:
     float tur_track_t = 0.0f;
 
+    PlayerAidUI* playerAidUI;
+
 public:
     virtual void GameSceneLoad() override;
     virtual void GameSceneInit() override;

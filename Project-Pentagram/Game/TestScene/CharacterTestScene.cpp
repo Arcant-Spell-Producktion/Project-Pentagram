@@ -23,6 +23,9 @@ void CharacterTestScene::GameSceneInit()
     std::cout << "Tutorial Scene : Initialize Completed\n";
     charTestManager->StartBattle(BattleMode::Test);
 
+    playerAidUI = CreateObject(new PlayerAidUI());
+    playerAidUI->SetActive(false);
+
     test_pauseMenuObject = CreateObject(new PauseMenuObject());
     test_pauseMenuObject->SetCurrentGameScene(this);
     test_pauseMenuObject->SetActive(false);
@@ -44,7 +47,13 @@ void CharacterTestScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        test_pauseMenuObject->ToggleEvent(timeScale);
+        if (!playerAidUI->IsActive())
+            test_pauseMenuObject->ToggleEvent(timeScale);
+    }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_F1))
+    {
+        if (!test_pauseMenuObject->IsActive())
+            playerAidUI->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {

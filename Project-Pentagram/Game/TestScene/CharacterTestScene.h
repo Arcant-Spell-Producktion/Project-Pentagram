@@ -9,6 +9,8 @@ class CharacterTestScene :public GameScene
 private:
     float test_track_t = 0.0f;
 
+    PlayerAidUI* playerAidUI;
+
 public:
     virtual void GameSceneLoad() override;
     virtual void GameSceneInit() override;

@@ -4,8 +4,13 @@
 #include "Engine/Input.h"
 #include "Engine/Collector/EngineDataCollector.h"
 
+#include "Game/Objects/PlayerAidUI.h"
+
 class BattleScene :public GameScene
 {
+    private:
+        PlayerAidUI* playerAidUI;
+
     public:
         virtual void GameSceneLoad() override;
         virtual void GameSceneInit() override;

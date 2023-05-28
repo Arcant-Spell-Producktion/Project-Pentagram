@@ -8,13 +8,14 @@
 class ConfirmUI : public UIObject
 {
 	private:
-		TextObject* ConfirmText;
-		Button* Yes;
-		Button* No;
-		Button* CloseButton;
+		UIObject* m_Background;
+		TextObject* m_ConfirmText;
+		Button* m_Yes;
+		Button* m_No;
+		Button* m_CloseButton;
 
 	public:
-		ConfirmUI();
+		ConfirmUI(const glm::vec3& scale = { 750.0f, 350.0f, 1.0f });
 
 		TextObject* GetConfirmText() const;
 		Button* GetYesButton() const;

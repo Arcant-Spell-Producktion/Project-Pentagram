@@ -24,6 +24,9 @@ void TutorialScene::GameSceneInit()
     std::cout << "Tutorial Scene : Initialize Completed\n";
     tutorialManager.StartBattle(BattleMode::Tutorial);
 
+    playerAidUI = CreateObject(new PlayerAidUI());
+    playerAidUI->SetActive(false);
+
     tur_pauseMenuObject = CreateObject(new PauseMenuObject());
     tur_pauseMenuObject->SetCurrentGameScene(this);
     tur_pauseMenuObject->SetActive(false);
@@ -47,7 +50,13 @@ void TutorialScene::GameSceneUpdate(float dt)
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_ESCAPE))
     {
-        tur_pauseMenuObject->ToggleEvent(timeScale);
+        if (!playerAidUI->IsActive())
+            tur_pauseMenuObject->ToggleEvent(timeScale);
+    }
+    else if (Input::IsKeyBeginPressed(GLFW_KEY_F1))
+    {
+        if (!tur_pauseMenuObject->IsActive())
+            playerAidUI->ToggleEvent(timeScale);
     }
     else if (Input::IsKeyBeginPressed(GLFW_KEY_LEFT_ALT) || Input::IsKeyBeginPressed(GLFW_KEY_RIGHT_ALT))
     {
