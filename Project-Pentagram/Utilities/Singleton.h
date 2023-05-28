@@ -10,7 +10,7 @@ class Singleton
         virtual ~Singleton() = default;
         Singleton(const Singleton&) = default;
         Singleton(Singleton&&) = default;
-        Singleton& operator=(const Singleton&) = default;
+        Singleton& operator=(const Singleton&) = delete;
         Singleton& operator=(Singleton&&) = default;
 
         static T& GetInstance()
