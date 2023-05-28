@@ -29,7 +29,7 @@ void MenuScene::GameSceneLoad()
 void MenuScene::GameSceneInit()
 {
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
-    bool haveActiveSave = gameData.LoadGameData();
+    bool haveActiveSave = gameData.HaveSaveData();
 
 	// Added Stage Background
 	objectsList.push_back(new StageObject(static_cast<Element::Type>(rand() % 4)));
@@ -59,8 +59,11 @@ void MenuScene::GameSceneInit()
     if (haveActiveSave) {
         Button* continueButton = CreateObject(new ScrollButton("Continue", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
         continueButton->position = { -200.0f, 200.0f, 0.0f };
-        continueButton->onClick.AddListener([this, gameData](Button* button)
+        continueButton->onClick.AddListener([this](Button* button)
             {
+                RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+                gameData.LoadGameData();
+
                 GameState nextState = GameState::GS_CHARACTER_SCENE;
 
                 CursorManager::GetInstance().ChangeParticleElement(gameData.Player->Element());

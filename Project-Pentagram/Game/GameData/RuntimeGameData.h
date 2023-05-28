@@ -30,6 +30,8 @@ public:
 
     bool LoadGameData();
 
+    bool HaveSaveData();
+
     void ClearGameData()
     {
         delete Player;

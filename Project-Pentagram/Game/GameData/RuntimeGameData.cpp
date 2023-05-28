@@ -94,3 +94,10 @@ bool RuntimeGameData::LoadGameData()
 
     return false;
 }
+
+bool RuntimeGameData::HaveSaveData()
+{
+    std::ifstream inputFile("save.dat");
+
+   return inputFile.good();
+}
