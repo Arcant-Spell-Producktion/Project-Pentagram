@@ -86,18 +86,23 @@ void BattleManager::UpdateDisplaySpellDetail(CasterPosition position,CastSpellDe
     Data.GetCaster(position)->GetCasterUI()->SetDetail(spell,isMainData,IconPos);
 }
 
-BattleManager::~BattleManager()
+void BattleManager::Free()
 {
-    for(CasterController* cc : Data.Casters)
+    for (CasterController* cc : Data.Casters)
     {
         delete cc;
     }
     Data.Casters.clear();
 
-    for (auto statePair: m_BattleStates)
+    for (auto statePair : m_BattleStates)
     {
         delete statePair.second;
     }
 
     m_BattleStates.clear();
+
+    m_CurrentState = BattleState::SetupState;
+    Data = BattleSceneData();
+
+    Singleton::Free();
 }

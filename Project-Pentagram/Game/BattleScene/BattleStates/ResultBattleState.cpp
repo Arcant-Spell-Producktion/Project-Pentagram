@@ -86,11 +86,14 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 
         if (m_Timer >= m_WaitTime)
         {
-            player->GetCasterObject()->PlayDiedAnim();
-            player->GetCasterObject()->SetIsAnimationObject(true);
-            player->GetCasterObject()->SetAnimationPlayTime(0.15f);
+            if (!m_IsAlive)
+            {
+                player->GetCasterObject()->PlayDiedAnim();
+                player->GetCasterObject()->SetIsAnimationObject(true);
+                player->GetCasterObject()->SetAnimationPlayTime(0.15f);
 
-            battleManager.Data.GameOverUI->SetActive(true);
+                battleManager.Data.GameOverUI->SetActive(true);
+            }
 
             m_Timer = m_WaitTime;
         }

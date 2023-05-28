@@ -8,10 +8,6 @@ class Singleton
     public:
         Singleton() = default;
         virtual ~Singleton() = default;
-        Singleton(const Singleton&) = default;
-        Singleton(Singleton&&) = default;
-        Singleton& operator=(const Singleton&) = default;
-        Singleton& operator=(Singleton&&) = default;
 
         static T& GetInstance()
         {
@@ -19,7 +15,7 @@ class Singleton
             return instance;
         }
 
-        void Free()
+        virtual void Free()
         {
             ReinitializeInstance();
         }
@@ -31,6 +27,7 @@ class Singleton
             static std::mutex mutex;
             std::lock_guard<std::mutex> lock(mutex);
             static T& instance = GetInstance();
-            instance = T(); // Reinitialize the instance
+            instance.~T(); // Call the destructor
+            new (&instance) T(); // Reinitialize the instance
         }
 };
