@@ -104,6 +104,8 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
     this->onHover = [this](Button* button)
     {
+        m_HoverText->SetActive(true);
+
         if (m_buttonState == ButtonState::Idle)
         {
             m_buttonState = ButtonState::Hover;
@@ -113,6 +115,8 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
 
     this->unHover = [this](Button* button)
     {
+        m_HoverText->SetActive(false);
+
         if (m_buttonState == ButtonState::Hover)
         {
             m_buttonState = ButtonState::Idle;
@@ -153,6 +157,11 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     ComplexRune->SetIsAnimationObject(true);
     ComplexRune->SetAnimationPlayTime(0.5f);
 
+    m_HoverText = new TextObject("HoverText");
+    m_HoverText->fontSize = 32;
+    m_HoverText->outlineColor = AC_BLACK;
+    m_HoverText->textAlignment = TextAlignment::MID;
+    
     this->SetChildRenderFront(FieldSignature);
      
     this->SetChildRenderFront(ComplexRune);
@@ -165,23 +174,31 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
     {
     case PentagramField::Circle:
         m_RuneList = RuneObjectFactory::CreateRunes("NOARML");
-
+        m_HoverText->text = "Circle";
+        m_HoverText->position = {0.0f,60.0f,0.0f};
         break;
     case PentagramField::Complex:
         m_RuneList = RuneObjectFactory::CreateRunes("TUNERF");
         ComplexRune->SetActive(true);
+        m_HoverText->text = "Complex";
+        m_HoverText->position = { 0.0f, 60.0f,0.0f };
 
         break;
     case PentagramField::Will:
         m_RuneList = RuneObjectFactory::CreateRunes("VWXYZA");
+        m_HoverText->text = "Will";
+        m_HoverText->position = { -90.0f, 0.0f,0.0f };
         break;
     case PentagramField::Effect:
         m_RuneList = RuneObjectFactory::CreateRunes("AMOGUS");
+        m_HoverText->text = "Effect";
+        m_HoverText->position = { 110.0f, 0.0f,0.0f };
 
         break;
     case PentagramField::Time:
         m_RuneList = RuneObjectFactory::CreateRunes("DAPINGPREAWAMAMAYMON");
-
+        m_HoverText->text = "Time";
+        m_HoverText->position = { -90.0f, 0.0f,0.0f };
         break;
     }
 
@@ -198,4 +215,6 @@ PentagramFieldButton::PentagramFieldButton(PentagramField field, Element::Type e
         rune_i++;
         rune->SetActive(false);
     }
+
+    this->SetChildRenderFront(m_HoverText);
 }

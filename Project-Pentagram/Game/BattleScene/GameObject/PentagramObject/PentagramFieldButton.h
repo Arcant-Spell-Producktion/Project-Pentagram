@@ -19,6 +19,8 @@ private:
     Element::Type m_CurrentElement;
     ButtonState m_buttonState;
 
+    TextObject* m_HoverText;
+
     UIObject* ButtonCover;
     UIObject* FieldSignature;
     UIObject* ElementSignature;
