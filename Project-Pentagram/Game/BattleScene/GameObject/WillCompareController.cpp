@@ -144,6 +144,19 @@ void WillCompareController::StartCompare(CasterPosition pos, int elementA, int e
     m_ParticleB->Emit(m_ParticleB->baseParticle);
     m_ParticleB->SetSpriteByIndex(elementB, 0);
 
+    if (m_CompareResult == CasterPosition::CasterA)
+    {
+        AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Compare/sfx_gameplay_willcompare_win.wav", 1.0f);
+    }
+    else if (m_CompareResult == CasterPosition::CasterB)
+    {
+        AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Compare/sfx_gameplay_willcompare_lose.wav", 1.0f);
+    }
+    else
+    {
+        // TO DO:
+        // Add WillCompareTie SFX
+    }
 
     m_CurrentState = CompareState::Start;
     m_curTime = 1.0f;

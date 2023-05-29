@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Engine/IGameObjectManager.h"
+#include "Engine/Audio/AudioController.h"
 #include <Game/GameData/CasterData/CasterPosition.h>
 
 class WillCompareController : public GameObject
