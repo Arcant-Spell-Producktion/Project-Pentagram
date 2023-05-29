@@ -70,6 +70,12 @@ void TextObject::SetFonts(const std::string& fontPath)
 	this->m_Fonts = fontPath;
 }
 
+// ----------------- Getter -----------------
+bool TextObject::IsRenderComplete() const
+{
+	return !m_SlowRender;
+}
+
 // ----------------- Render Text -----------------
 void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 parentModel, int start, int end)
 {

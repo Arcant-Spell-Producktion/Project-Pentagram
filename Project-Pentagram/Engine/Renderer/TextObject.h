@@ -51,6 +51,9 @@ class TextObject : public UIObject
 		void SetRenderTime(const float& renderTime);
 		void SetFonts(const std::string& fontPath);
 
+		// ----------------- Getter -----------------
+		bool IsRenderComplete() const;
+
 		// ----------------- Render Text -----------------
 		void RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 parentModel, int start = -1, int end = -1);
 
