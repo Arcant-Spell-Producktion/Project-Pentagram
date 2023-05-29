@@ -6,11 +6,22 @@ SlideObject* EndingCutScene::Init()
 {
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
     bool IsChapterComplete[4] = { false,false,false,false };
+    
     std::vector <GameObject*> PanelA;
     std::vector <GameObject*> Map;
 
     std::vector <int> _PanelA;
     std::vector <int> _Map;
+
+    bool IsAllChapterComplete = true;
+    for (bool isComplete : IsChapterComplete)
+    {
+        if (!isComplete)
+        {
+            IsAllChapterComplete = false;
+            break;
+        }
+    }
 
 #pragma region Init
 
@@ -69,8 +80,16 @@ because all of the people that lived in it are at peace
 knowing that they are protected from the hand of the
 evil cult and their God by the guardian witches)";
 
+    std::string SceneBText = R"(The ancient entity has been defeated by the witch and all
+the other guardian witches was saved from being
+corrupted by the ancient entity's power.
+
+Peace has returned to some regions,but the guardians still
+need to purge the land of the lingering corruptions left by
+the ancient entity fragment.)";
+
     TextObject* textA = new TextObject("SceneAText");
-    textA->text = SceneAText;
+    textA->text = IsAllChapterComplete ? SceneAText : SceneBText;
     textA->fontSize = 64;
     textA->textAlignment = TextAlignment::MID;
     textA->isVCenterAlignment = true;
