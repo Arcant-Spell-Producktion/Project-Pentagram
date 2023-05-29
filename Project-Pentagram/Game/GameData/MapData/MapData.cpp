@@ -31,9 +31,14 @@ void MapData::AddChapter(ChapterData* c)
     m_Chapters.emplace(c->Element(),c);
 }
 
+bool MapData::IsChapterComplete(Element::Type element)
+{
+   return m_Chapters[element]->IsCompleted;
+}
+
 bool MapData::CanVisitChapter(Element::Type element)
 {
-    return m_Chapters[element]->CanVisit && !m_Chapters[element]->m_IsCompleted;
+    return m_Chapters[element]->CanVisit && !m_Chapters[element]->IsCompleted;
 }
 
 void MapData::SelectChapter(Element::Type element)

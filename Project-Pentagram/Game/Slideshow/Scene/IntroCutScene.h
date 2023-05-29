@@ -6,7 +6,7 @@
 
 #include "Game/Objects/OptionMenuObject.h"
 #include "Game/Objects/ConfirmUI.h"
-#include "Game/Slideshow/SlideObject.h"
+#include "Game/Slideshow/Slide/SlideObject.h"
 
 class IntroCutScene : public GameScene
 {

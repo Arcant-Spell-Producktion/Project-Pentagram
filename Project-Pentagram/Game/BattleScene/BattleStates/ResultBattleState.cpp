@@ -57,8 +57,7 @@ void ResultBattleState::OnBattleStateUpdate(float dt)
 
                 if (gameData.Map->GetCurrentChapter() == Element::Corrupt)
                 {
-                    gameData.DeleteSave();
-                    SceneManager::LoadScene(GameState::GS_MENU_SCENE);
+                    SceneManager::LoadScene(GameState::GS_FINAL_SCENE);
                     return;
                 }
                 else

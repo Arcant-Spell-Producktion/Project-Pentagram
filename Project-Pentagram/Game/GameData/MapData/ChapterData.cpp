@@ -9,12 +9,12 @@
 ChapterData::ChapterData(Element::Type element, Element::Type startElement)
 {
     m_Element = element;
-    m_IsCompleted = false;
+    IsCompleted = false;
 
     if (element == startElement)
     {
         CanVisit = false;
-        m_IsCompleted = true;
+        IsCompleted = true;
     }
 
     UpdateChapter(0);
@@ -45,15 +45,15 @@ bool ChapterData::CompleteNode()
 {
     CanVisit = false;
     m_CurrentNode++;
-    m_IsCompleted = m_NodeCount == m_CurrentNode;
-    return m_IsCompleted;
+    IsCompleted = m_NodeCount == m_CurrentNode;
+    return IsCompleted;
 }
 
 void ChapterData::CompleteChapter()
 {
     CanVisit = false;
     m_CurrentNode = m_NodeCount;
-    m_IsCompleted = true;
+    IsCompleted = true;
 }
 
 void ChapterData::UpdateChapter(int level)

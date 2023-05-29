@@ -2,8 +2,21 @@
 
 SlideObject* OpeningCutScene::Init()
 {
+    std::vector <GameObject*> Fog;
+    std::vector <int> _Fog;
 
 #pragma region Init
+
+    const std::string FogPath[4] =
+    {
+        "Sprites/Map/map_fog_Earth.png",
+        "Sprites/Map/map_fog_Fire.png",
+        "Sprites/Map/map_fog_Water.png",
+        "Sprites/Map/map_fog_Wind.png"
+    };
+
+    
+
     std::string SceneAText = R"(There was a world where the 4 magic nations once
 peacefully co-existing alongside each other with the help of
 the guardian witch of each nation.
@@ -13,7 +26,7 @@ ancient horror to grant them the power to take down those
 witches and rule over all the land.)";
 
     std::string SceneBText = R"(Only one persists  with the strongest WILL among the 4
-gradian witch, she's able to resist the corruption from the
+guardian witch, she's able to resist the corruption from the
 ancient entity.
 
 Now she is the last hope to stop the force of corruption
@@ -41,18 +54,12 @@ before it's too late.)";
     BossA->SetTexture("Sprites/CutScene/Cutscene_begining_appear.png");
     BossA->SetIsAnimationObject(true);
 
-    GameObject* FogA = new GameObject("FogA");
-    FogA->scale = { 1920.0f,1080.0f,1.0f };
-    FogA->SetTexture("Sprites/Map/map_fog_Earth.png");
-    GameObject* FogB = new GameObject("FogA");
-    FogB->scale = { 1920.0f,1080.0f,1.0f };
-    FogB->SetTexture("Sprites/Map/map_fog_Fire.png");
-    GameObject* FogC = new GameObject("FogA");
-    FogC->scale = { 1920.0f,1080.0f,1.0f };
-    FogC->SetTexture("Sprites/Map/map_fog_Water.png");
-    GameObject* FogD = new GameObject("FogA");
-    FogD->scale = { 1920.0f,1080.0f,1.0f };
-    FogD->SetTexture("Sprites/Map/map_fog_Wind.png");
+    for (int i = 0; i < 4; i++)
+    {
+       Fog.push_back(new GameObject("Fog"));
+        Fog[i]->scale = { 1920.0f,1080.0f,1.0f };
+        Fog[i]->SetTexture(FogPath[i]);
+    }
 
 #pragma endregion
 
@@ -60,13 +67,14 @@ before it's too late.)";
     int _TextB = AddTextObject(textB);
     int _BossA = AddImageObject(BossA);
     int _Map = AddImageObject(MapObj);
-    int _FogA = AddImageObject(FogA);
-    int _FogB = AddImageObject(FogB);
-    int _FogC = AddImageObject(FogC);
-    int _FogD = AddImageObject(FogD);
+
+    for (GameObject* obj : Fog)
+    {
+        _Fog.push_back(AddImageObject(obj));
+    }
 
     QueueTextEvent({ _TextA });
-    QueueWaitEvent(2.0f);
+    QueueWaitEvent(3.0f);
     QueueWaitClickEvent();
 
     QueueFadeFromBlackEvent({_Map});
@@ -84,14 +92,17 @@ before it's too late.)";
     QueueWaitEvent(1.0f);
     QueueFadeToBlackEvent();
 
-    QueueFadeFromBlackEvent({ _Map,_FogA,_FogB,_FogC,_FogD }, 2.0f);
+    std::vector <int> _MapNFog = _Fog;
+    _MapNFog.push_back(_Map);
+
+    QueueFadeFromBlackEvent(_MapNFog, 2.0f);
     QueueWaitEvent();
-    QueueFadeOutEvent({ _FogA,_FogB,_FogC,_FogD }, 0.3f, 3.0f);
+    QueueFadeOutEvent(_Fog, 0.3f, 3.0f);
     QueueWaitEvent(2.0f);
     QueueFadeToBlackEvent();
 
     QueueTextEvent({ _TextB });
-    QueueWaitEvent(2.0f);
+    QueueWaitEvent(3.0f);
     QueueWaitClickEvent();
 
     std::cout << "INITT INTOR CUNTSCACA\n";

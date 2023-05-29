@@ -15,6 +15,7 @@ enum class GameState
 	GS_MAP_SCENE,
 	GS_BATTLE_SCENE,
 
+    GS_FINAL_SCENE,
 
     GS_TUTORIAL_SCENE,
 	GS_DEMO_SCENE,

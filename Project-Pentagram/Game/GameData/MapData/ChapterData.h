@@ -15,7 +15,7 @@ private:
     void AddNode(NodeData* node);
 public:
 
-    bool m_IsCompleted;
+    bool IsCompleted;
     bool CanVisit;
 
     ChapterData(Element::Type element, Element::Type startElement);
@@ -27,7 +27,7 @@ public:
     void SetCurrentNode(int node)
     {
         m_CurrentNode = node;
-        m_IsCompleted = m_NodeCount == m_CurrentNode;
+        IsCompleted = m_NodeCount == m_CurrentNode;
     }
 
     NodeData* GetNextNode();

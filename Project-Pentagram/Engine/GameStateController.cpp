@@ -1,6 +1,7 @@
 ﻿#include "GameStateController.h"
 
-#include "IntroCutScene.h"
+#include "Game/Slideshow/Scene/FinalCutScene.h"
+#include "Game/Slideshow/Scene/IntroCutScene.h"
 #include "Game/TestScene/CharacterTestScene.h"
 #include "Game/TutorialScene/TutorialScene.h"
 #include "Game/TutorialScene/TutorialSelectScene.h"
@@ -55,6 +56,9 @@ void GameStateController::UpdateGameScene()
 			break;
         case GameState::GS_INTRO_SCENE:
             currentScene = new IntroCutScene();
+            break;
+        case GameState::GS_FINAL_SCENE:
+            currentScene = new FinalCutScene();
             break;
         default: ;
     }

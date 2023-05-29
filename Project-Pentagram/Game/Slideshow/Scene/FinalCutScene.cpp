@@ -1,8 +1,10 @@
-﻿#include "IntroCutScene.h"
+﻿#include "FinalCutScene.h"
 
-#include "Game/Slideshow/OpeningCutScene.h"
+#include "Game/GameData/RuntimeGameData.h"
+#include "Game/Slideshow/Slide/EndingCutScene.h"
 
-void IntroCutScene::FadeUpdate(const float& dt)
+
+void FinalCutScene::FadeUpdate(const float& dt)
 {
     if (m_IsFadeOut)
     {
@@ -15,12 +17,12 @@ void IntroCutScene::FadeUpdate(const float& dt)
     }
 }
 
-void IntroCutScene::GameSceneLoad()
+void FinalCutScene::GameSceneLoad()
 {
 
 }
 
-void IntroCutScene::GameSceneInit()
+void FinalCutScene::GameSceneInit()
 {
     // Set FadeScreen Component
     m_FadeScreen = CreateUIObject("fadeScreen");
@@ -28,19 +30,22 @@ void IntroCutScene::GameSceneInit()
     m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
     m_FadeScreen->SetActive(false);
 
-    m_IntroSlide = CreateObject((new OpeningCutScene())->Init());
-    m_IntroSlide->SlideDoneEvent.AddListener([this](bool isDone) { FadeOut(1.0f,GameState::GS_MAP_SCENE); });
-    m_IntroSlide->Play();
+    m_Slide = CreateObject((new EndingCutScene())->Init());
+    m_Slide->SlideDoneEvent.AddListener([this](bool isDone) { FadeOut(1.0f,GameState::GS_MENU_SCENE); });
+    m_Slide->Play();
+
+    RuntimeGameData& gameData = RuntimeGameData::GetInstance();
+    gameData.DeleteSave();
 }
 
-void IntroCutScene::GameSceneUpdate(float dt)
+void FinalCutScene::GameSceneUpdate(float dt)
 {
     GameScene::GameSceneUpdate(dt);
     FadeUpdate(dt);
 
     if (Input::IsKeyPressed(GLFW_KEY_ENTER))
     {
-        m_IntroSlide->SlideDoneEvent.Invoke(true);
+        m_Slide->SlideDoneEvent.Invoke(true);
     }
     else if (Input::IsKeyPressed(GLFW_KEY_R))
     {
@@ -73,7 +78,7 @@ void IntroCutScene::GameSceneUpdate(float dt)
     }
 }
 
-void IntroCutScene::GameSceneFree()
+void FinalCutScene::GameSceneFree()
 {
     GameScene::GameSceneFree();
 }

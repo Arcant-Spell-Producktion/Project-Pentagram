@@ -5,7 +5,6 @@
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/Objects/CursorManager.h"
-#include "Game/Slideshow/OpeningCutScene.h"
 
 void MenuScene::FadeUpdate(const float& dt)
 {

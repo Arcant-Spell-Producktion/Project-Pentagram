@@ -35,6 +35,8 @@ public:
 
     void AddChapter(ChapterData* c);
 
+    bool IsChapterComplete(Element::Type element);
+
     bool CanVisitChapter(Element::Type element);
 
     void SelectChapter(Element::Type element);

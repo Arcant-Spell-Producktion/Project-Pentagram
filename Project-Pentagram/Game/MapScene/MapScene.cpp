@@ -7,6 +7,13 @@
 #include "MapNode.h"
 
 PauseMenuObject* map_PauseMenuObject;
+const std::string MapFogTextures[4] =
+{
+    "Sprites/Map/map_fog_Earth.png",
+    "Sprites/Map/map_fog_Fire.png",
+    "Sprites/Map/map_fog_Water.png",
+    "Sprites/Map/map_fog_Wind.png"
+};
 
 void MapScene::FadeUpdate(const float& dt)
 {
@@ -41,9 +48,23 @@ void MapScene::GameSceneInit()
 
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
 
-    auto MapBGObject = CreateGameObject("MapBG");
+    GameObject* MapBGObject = CreateGameObject("MapBG");
     MapBGObject->SetTexture("Sprites/Map/world_map.png");
     MapBGObject->scale = { 1920.0f,1080.0f,0.0f };
+
+    for (int i = 0; i < 4; i++)
+    {
+        Element::Type element = static_cast<Element::Type>(i);
+        if (element != (gameData.Player->Element()) && !gameData.Map->IsChapterComplete(element))
+        {
+           GameObject* fogObject = CreateGameObject("Fog");
+            fogObject->SetTexture(MapFogTextures[i]);
+            fogObject->scale = { 1920.0f,1080.0f,0.0f };
+            fogObject->color.a = 0.7f;
+
+            MapBGObject->SetChildRenderFront(fogObject);
+        }
+    }
 
 	m_Character = CreateGameObject("Character");
 	m_Character->scale = { 200.0f, 200.0f, 1.0f };
