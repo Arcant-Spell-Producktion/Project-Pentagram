@@ -22,14 +22,10 @@ ConfirmUI::ConfirmUI(const glm::vec3 &scale)
 	m_ConfirmText->text = "Are you sure?";
 	m_ConfirmText->fontSize = 40.0f;
 	m_ConfirmText->textAlignment = TextAlignment::MID;
-	m_ConfirmText->color = AC_WHITE;
-	m_ConfirmText->outlineColor = AC_BLACK;
 	SetChildRenderFront(m_ConfirmText);
 
 	m_Yes = new StaticButton("Yes", { 200.0f, 100.0f, 1.0f });
 	m_Yes->position = { -150.0f, -50.0f, 0.0f };
-	m_Yes->textObject.color = AC_WHITE;
-	m_Yes->textObject.outlineColor = AC_BLACK;
 	SetChildRenderFront(m_Yes);
 
 	m_No = new StaticButton("No", { 200.0f, 100.0f, 1.0f });
@@ -38,8 +34,6 @@ ConfirmUI::ConfirmUI(const glm::vec3 &scale)
 			this->SetActive(false);
 		});
 	m_No->position = { 150.0f, -50.0f, 0.0f };
-	m_No->textObject.color = AC_WHITE;
-	m_No->textObject.outlineColor = AC_BLACK;
 	SetChildRenderFront(m_No);
 
 	m_CloseButton = new StaticButton("X", { 75.0f, 75.0f, 1.0f });

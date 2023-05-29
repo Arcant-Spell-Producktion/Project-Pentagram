@@ -1,6 +1,7 @@
 ﻿#include "Engine/Scene/MenuScene.h"
 #include "Engine/GameStateController.h"
 #include "Game/Objects/ScrollButton.h"
+#include "Game/Objects/StaticButton.h"
 #include <Game/Objects/StageObject.h>
 
 #include "Game/GameData/RuntimeGameData.h"
@@ -43,12 +44,14 @@ void MenuScene::GameSceneInit()
 	gameName->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
 
     // Play Button
-    Button* playButton = CreateObject(new ScrollButton("Play", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+    Button* playButton = CreateObject(new StaticButton("Play", { 330.0f, 160.0f, 1.0f }));
+	playButton->SetSlicingBorderMultiplier(0.5f);
     playButton->position = { 0.0f, 200.0f, 0.0f };
 
     // Continue Button
     if (haveActiveSave) {
-        Button* continueButton = CreateObject(new ScrollButton("Continue", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+		Button* continueButton = CreateObject(new StaticButton("Continue", { 330.0f, 160.0f, 1.0f }));
+		continueButton->SetSlicingBorderMultiplier(0.5f);
         continueButton->position = { -200.0f, 200.0f, 0.0f };
         continueButton->onClick.AddListener([this](Button* button)
             {
@@ -70,16 +73,19 @@ void MenuScene::GameSceneInit()
 
 	
     // Tutorial Button
-	Button* turButton = CreateObject(new ScrollButton("Tutorial", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+	Button* turButton = CreateObject(new StaticButton("Tutorial", { 330.0f, 160.0f, 1.0f }));
+	turButton->SetSlicingBorderMultiplier(0.5f);
     turButton->position = { 0.0f, 0.0f, 0.0f };
     turButton->onClick.AddListener([this](Button* button) { SceneManager::LoadScene(GameState::GS_TUTORIAL_SELECT_SCENE); });
 
 	// Options Button
-	Button* optionsButton = CreateObject(new ScrollButton("Options", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+	Button* optionsButton = CreateObject(new StaticButton("Options", { 330.0f, 160.0f, 1.0f }));
+	optionsButton->SetSlicingBorderMultiplier(0.5f);
 	optionsButton->position = { 0.0f, -200.0f, 0.0f };
 
 	// Exit Button
-	Button* exitButton = CreateObject(new ScrollButton("Exit", { 330.0f, 160.0f, 1.0f }, { 350.0f, 160.0f, 1.0f }));
+	Button* exitButton = CreateObject(new StaticButton("Exit", { 330.0f, 160.0f, 1.0f }));
+	exitButton->SetSlicingBorderMultiplier(0.5f);
 	exitButton->position = { 0.0f, -400.0f, 0.0f };
 	exitButton->onClick.AddListener([this](Button* button) { FadeOut(1.0f, GameState::GS_QUIT); });
 
