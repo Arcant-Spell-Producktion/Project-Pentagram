@@ -34,6 +34,12 @@ void ResultBattleState::OnBattleStateIn()
 
         gameData.DeleteSave();
     }
+    else
+    {
+        int lv = gameData.Map->SaveMapData().completeChapter;
+        int heal = 40 + (10 * lv);
+        player->Heal(heal);
+    }
 }
 
 void ResultBattleState::OnBattleStateUpdate(float dt)

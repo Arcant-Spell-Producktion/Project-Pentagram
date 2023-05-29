@@ -98,10 +98,9 @@ void CasterObject::OnUpdate(const float& dt)
     if (m_FlashTimer > 0.0f)
     {
         m_FlashTimer -= dt;
-        bool isRed = (int)(m_FlashTimer * 10) % 2 == 0;
-        glm::vec4 red = { 0.6f,0.0f,0.0f,1.0f };
+        bool doFlash = (int)(m_FlashTimer * 10) % m_FlashRate == 0;
         glm::vec4 normal = { 1.0f,1.0f,1.0f,1.0f };
-        this->color = isRed ? red : normal;
+        this->color = doFlash ? m_FlashColor : normal;
 
         if (m_FlashTimer <= 0.0f) { m_FlashTimer = false; this->color = originColor; }
     }

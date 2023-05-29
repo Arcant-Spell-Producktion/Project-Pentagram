@@ -71,6 +71,8 @@ public:
 
     void SetMana(int value);
 
+    void Heal(int value);
+
     bool TakeDamage(int value);
 
     bool IsAlive();

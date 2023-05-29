@@ -193,8 +193,22 @@ void CasterManager::AddWheelToMana(int index)
 }
 
 int const CasterManager::GetHealth() { return m_CurrentData.Stat().CurrentHealth; }
-void CasterManager::SetHealth(int health) { m_CurrentData.Stat().CurrentHealth = health; }
-void CasterManager::ChangeHealth(int health) { m_CurrentData.Stat().CurrentHealth += health; }
+void CasterManager::SetHealth(int health)
+{
+    m_CurrentData.Stat().CurrentHealth = health;
+    if (m_CurrentData.Stat().CurrentHealth > m_CurrentData.Stat().MaxHealth)
+    {
+        m_CurrentData.Stat().CurrentHealth = m_CurrentData.Stat().MaxHealth;
+    }
+}
+void CasterManager::ChangeHealth(int health)
+{
+    m_CurrentData.Stat().CurrentHealth += health;
+    if (m_CurrentData.Stat().CurrentHealth > m_CurrentData.Stat().MaxHealth)
+    {
+        m_CurrentData.Stat().CurrentHealth = m_CurrentData.Stat().MaxHealth;
+    }
+}
 
 int CasterManager::GetRemainMana()
 {

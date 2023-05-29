@@ -41,8 +41,10 @@ private:
 
     glm::vec4 originColor;
     float m_FlashTimer = 0.0f;
+    int m_FlashRate = 2;
     bool m_IsStartFlash = false;
 
+    glm::vec4 m_FlashColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 public:
     CasterObject();
 
@@ -61,7 +63,19 @@ public:
 
     void PlayDiedAnim();
 
-    void PlayRedFlash() { m_IsStartFlash = true; m_FlashTimer = 0.8f; }
+    void PlayGreenFlash() {
+        m_FlashColor = { 0.0f,0.6f,0.0f,1.0f };
+        m_IsStartFlash = true; m_FlashTimer = 0.8f;
+        m_FlashRate= 4;
+    }
+
+    void PlayRedFlash()
+    {
+        m_FlashColor = { 0.6f,0.0f,0.0f,1.0f };
+        m_IsStartFlash = true;
+        m_FlashTimer = 0.8f;
+        m_FlashRate = 2;
+    }
 
     void PlayEffect(SpellEffectEnum effect);
 

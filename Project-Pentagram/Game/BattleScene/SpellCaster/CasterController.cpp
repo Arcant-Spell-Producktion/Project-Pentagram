@@ -111,6 +111,19 @@ void CasterController::SetMana(int value)
     UpdateCasterUI();
 }
 
+void CasterController::Heal(int value)
+{
+    m_CasterManager.ChangeHealth(value);
+
+    std::cout << "Caster:" << (int)m_CasterManager.Data().Position()
+        << "\tHealed: " << value
+        << "\tRemained Hp: " << m_CasterManager.GetHealth() << "\n";
+
+    if (value > 0) m_CasterObject->PlayGreenFlash();
+
+    UpdateCasterUI();
+}
+
 bool CasterController::IsAlive()
 {
     return m_IsAlive;
