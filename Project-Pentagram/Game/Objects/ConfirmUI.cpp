@@ -26,50 +26,25 @@ ConfirmUI::ConfirmUI(const glm::vec3 &scale)
 	m_ConfirmText->outlineColor = AC_BLACK;
 	SetChildRenderFront(m_ConfirmText);
 
-	m_Yes = new Button("Yes_Button");
-	m_Yes->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-	m_Yes->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_Yes->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_Yes->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-	m_Yes->SetSlicingBorderMultiplier(0.25f);
-	m_Yes->SetSlicingType(SlicingType::REPEAT);
-	m_Yes->SetSlicingBorderSize(120.0f);
-	m_Yes->scale = { 200.0f, 100.0f, 0.0f };
+	m_Yes = new StaticButton("Yes", { 200.0f, 100.0f, 1.0f });
 	m_Yes->position = { -150.0f, -50.0f, 0.0f };
-	m_Yes->textObject.text = "Yes";
 	m_Yes->textObject.color = AC_WHITE;
 	m_Yes->textObject.outlineColor = AC_BLACK;
 	SetChildRenderFront(m_Yes);
 
-	m_No = new Button("No_Button");
-	m_No->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-	m_No->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_No->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_No->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
+	m_No = new StaticButton("No", { 200.0f, 100.0f, 1.0f });
 	m_No->onClick.AddListener([this](Button* button)
 		{
 			this->SetActive(false);
 		});
-	m_No->SetSlicingBorderMultiplier(0.25f);
-	m_No->SetSlicingType(SlicingType::REPEAT);
-	m_No->SetSlicingBorderSize(120.0f);
-	m_No->scale = { 200.0f, 100.0f, 0.0f };
 	m_No->position = { 150.0f, -50.0f, 0.0f };
-	m_No->textObject.text = "No";
 	m_No->textObject.color = AC_WHITE;
 	m_No->textObject.outlineColor = AC_BLACK;
 	SetChildRenderFront(m_No);
 
-	m_CloseButton = new Button("Close_Button");
+	m_CloseButton = new StaticButton("X", { 75.0f, 75.0f, 1.0f });
 	m_CloseButton->SetSlicingBorderMultiplier(0.2f);
-	m_CloseButton->SetSlicingType(SlicingType::REPEAT);
-	m_CloseButton->SetSlicingBorderSize(120.0f);
-	m_CloseButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_CloseButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_CloseButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-	m_CloseButton->scale = { 75.0f, 75.0f, 1.0f };
 	m_CloseButton->position = { (this->scale.x / 2.0f) - (m_CloseButton->scale.x / 2.0f), (this->scale.y / 2.0f) - (m_CloseButton->scale.y / 2.0f), 0.0f };
-	m_CloseButton->textObject.text = "X";
 	m_CloseButton->textObject.fontSize = 44.0f;
 	m_CloseButton->onClick.AddListener([this](Button* button)
 		{

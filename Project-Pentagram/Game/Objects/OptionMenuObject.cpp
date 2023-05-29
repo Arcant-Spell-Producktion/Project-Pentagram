@@ -95,17 +95,9 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		windowSettingText->text = "FullScreen Mode";
 		windowSettingText->color = AC_BLACK;
 		windowSettingText->fontSize = 36.0f;
-		windowSettingButton = new Button("WindowSettingButton");
-		windowSettingButton->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-		windowSettingButton->SetSlicingBorderMultiplier(0.25f);
-		windowSettingButton->SetSlicingType(SlicingType::REPEAT);
-		windowSettingButton->SetSlicingBorderSize(120.0f);
-		windowSettingButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-		windowSettingButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-		windowSettingButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
+		windowSettingButton = new StaticButton("WindowSettingButton", { 250.0f, 90.0f, 0.0f });
 		windowSettingButton->textObject.text = (window->IsFullScreen() ? "On" : "Off");
 		windowSettingButton->position = { 150.0f, -150.0f, 0.0f };
-		windowSettingButton->scale = { 250.0f, 90.0f, 0.0f };
 		windowSettingButton->onClick.AddListener([this, window](Button* button)
 			{
 				if (button->textObject.text == "Off")
@@ -124,16 +116,9 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 	#pragma endregion
 
 	#pragma region Close_Button_UI
-		closeButton = new Button("CloseButton");
+		closeButton = new StaticButton("X", { 75.0f, 75.0f, 1.0f });
 		closeButton->SetSlicingBorderMultiplier(0.2f);
-		closeButton->SetSlicingType(SlicingType::REPEAT);
-		closeButton->SetSlicingBorderSize(120.0f);
-		closeButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-		closeButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-		closeButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-		closeButton->scale = { 75.0f, 75.0f, 1.0f };
 		closeButton->position = { (bgMenu->scale.x / 2.0f) - (closeButton->scale.x / 2.0f), (bgMenu->scale.y / 2.0f) - (closeButton->scale.y / 2.0f), 0.0f };
-		closeButton->textObject.text = "X";
 		closeButton->textObject.fontSize = 44.0f;
 		closeButton->onClick.AddListener([this](Button* button) { this->SetActive(false); });
 		SetChildRenderFront(closeButton);

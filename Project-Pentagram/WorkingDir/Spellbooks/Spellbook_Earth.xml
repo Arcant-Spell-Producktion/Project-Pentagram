@@ -147,21 +147,21 @@
     </Spell>
     <Spell SpellName="Reflect Shield">
       <WillValue>
-        <Value>40</Value>
-        <Value>45</Value>
-        <Value>50</Value>
-        <Value>50</Value>
         <Value>55</Value>
         <Value>60</Value>
+        <Value>65</Value>
+        <Value>70</Value>
+        <Value>75</Value>
+        <Value>80</Value>
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>2</Value>
-        <Value>2</Value>
-        <Value>3</Value>
-        <Value>3</Value>
+        <Value>40</Value>
+        <Value>45</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>65</Value>
       </EffectValue>
       <CastTime>6</CastTime>
       <ChannelTime>3</ChannelTime>
@@ -180,12 +180,12 @@
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>1</Value>
-        <Value>2</Value>
-        <Value>3</Value>
-        <Value>3</Value>
-        <Value>3</Value>
+        <Value>50</Value>
+        <Value>55</Value>
+        <Value>60</Value>
+        <Value>65</Value>
+        <Value>70</Value>
+        <Value>75</Value>
       </EffectValue>
       <CastTime>5</CastTime>
       <ChannelTime>2</ChannelTime>
@@ -204,12 +204,12 @@
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>2</Value>
-        <Value>3</Value>
-        <Value>3</Value>
-        <Value>3</Value>
-        <Value>3</Value>
+        <Value>70</Value>
+        <Value>75</Value>
+        <Value>80</Value>
+        <Value>85</Value>
+        <Value>90</Value>
+        <Value>95</Value>
       </EffectValue>
       <CastTime>2</CastTime>
       <ChannelTime>2</ChannelTime>

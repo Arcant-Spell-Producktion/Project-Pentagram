@@ -6,6 +6,7 @@
 
 #include "Game/Objects/OptionMenuObject.h"
 #include "Game/Objects/ConfirmUI.h"
+#include "Game/Objects/StaticButton.h"
 
 class PauseMenuObject : public UIObject
 {
@@ -14,10 +15,10 @@ class PauseMenuObject : public UIObject
 		struct MenuUI : public UIObject
 		{
 			UIObject* MenuBG;
-			Button* ResumeButton;
-			Button* OptionButton;
-			Button* ExitToMenuButton;
-			Button* ExitGameButton;
+			StaticButton* ResumeButton;
+			StaticButton* OptionButton;
+			StaticButton* ExitToMenuButton;
+			StaticButton* ExitGameButton;
 
 			MenuUI() : UIObject("MenuUI") {}
 

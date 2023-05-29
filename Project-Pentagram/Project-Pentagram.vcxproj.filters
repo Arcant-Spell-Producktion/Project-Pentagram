@@ -249,6 +249,7 @@
     <ClCompile Include="Game\Slideshow\Scene\FinalCutScene.cpp" />
     <ClCompile Include="Game\Slideshow\Slide\EndingCutScene.cpp" />
     <ClCompile Include="Game\Slideshow\Scene\IntroCutScene.cpp" />
+    <ClCompile Include="Game\Objects\StaticButton.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -621,6 +622,7 @@
     <ClInclude Include="Game\Slideshow\Scene\FinalCutScene.h" />
     <ClInclude Include="Game\Slideshow\Slide\EndingCutScene.h" />
     <ClInclude Include="Game\Slideshow\Scene\IntroCutScene.h" />
+    <ClInclude Include="Game\Objects\StaticButton.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">
