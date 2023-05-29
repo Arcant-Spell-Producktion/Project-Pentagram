@@ -5,6 +5,7 @@
 #include "Engine/Button.h"
 
 #include "Game/Spells/Element.h"
+#include "Game/Objects/StaticButton.h"
 
 class MapInfoUI : public UIObject
 {
@@ -14,7 +15,7 @@ class MapInfoUI : public UIObject
 		TextObject* m_MapInfoText;
 
 	public:
-		Button* m_MapEnterButton;
+		StaticButton* m_MapEnterButton;
 		
 		MapInfoUI();
 		void SetMapInfo(const Element::Type& element);

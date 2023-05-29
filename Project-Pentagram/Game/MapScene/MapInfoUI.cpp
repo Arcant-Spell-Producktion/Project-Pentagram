@@ -43,17 +43,8 @@ MapInfoUI::MapInfoUI()
 	m_MapInfoText->color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	m_MapInfoText->outlineColor = { 0.0f, 0.0f, 0.0f, 1.0f };
 
-	m_MapEnterButton = new Button("MapEnterButton");
-	m_MapEnterButton->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
-	m_MapEnterButton->SetSlicingBorderMultiplier(0.25f);
-	m_MapEnterButton->SetSlicingType(SlicingType::REPEAT);
-	m_MapEnterButton->SetSlicingBorderSize(120.0f);
-	m_MapEnterButton->onHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png"); };
-	m_MapEnterButton->onPress = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png"); };
-	m_MapEnterButton->unHover = [this](Button* button) { button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png"); };
-	m_MapEnterButton->scale = { 200.0f, 90.0f, 1.0f };
+	m_MapEnterButton = new StaticButton("Enter", { 200.0f, 90.0f, 1.0f });
 	m_MapEnterButton->position = { (m_InfoBG->scale.x / 2.0f) - (m_MapEnterButton->scale.x / 2.0f) - 7.5f, 0.0f, 1.0f };
-	m_MapEnterButton->textObject.text = "Enter";
 
 	m_InfoBG->SetChildRenderFront(m_MapInfoText);
 	m_InfoBG->SetChildRenderFront(m_MapEnterButton);

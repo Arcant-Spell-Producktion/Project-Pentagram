@@ -7,6 +7,8 @@
 #include "Engine/Audio/AudioEngine.h"
 #include "Engine/Audio/AudioController.h"
 
+#include "Game/Objects/StaticButton.h"
+
 #include "Utilities/Color.h"
 
 enum VolumeType
@@ -20,10 +22,10 @@ class OptionMenuObject : public UIObject
 		UIObject* bgMenu;
 		Slider* VolumeSlider[3];
 		TextObject* VolumeText[3];
-		Button* closeButton;
+		StaticButton* closeButton;
 
 		TextObject* windowSettingText;
-		Button* windowSettingButton;
+		StaticButton* windowSettingButton;
 
 	public:
 		OptionMenuObject();
