@@ -17,6 +17,8 @@ CasterController::CasterController(CasterData caster): m_CasterManager(caster),m
     m_EffectManager.OnEffectResolve = [this](SpellEffectEnum type) {m_CasterObject->PlayEffect(type); };
     m_EffectManager.OnEffectReset = [this](SpellEffectEnum type) {m_CasterObject->StopEffect(type); };
 
+    // If Caster is Enemy -> Turn off DetailBox
+    if (caster.Position() == CasterPosition::CasterB) { m_CasterUI.SetIsShowDetail(false); }
 }
 
 void CasterController::CasterDied()

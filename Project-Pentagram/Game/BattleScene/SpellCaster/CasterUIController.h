@@ -10,6 +10,7 @@ class CasterUIController
 private:
     CasterDetailUI* m_StatUI;
     SpellDetailUI* m_DetailBox;
+    bool m_IsShowDetailBox;
     ManaRouletteUI* m_Roulette;
 public:
     CasterUIController(CasterPosition position);
@@ -21,7 +22,7 @@ public:
     void UpdateEffectBar(std::vector<EffectDetail_T> effects);
 
     void SetWheelValue(std::array<int, 6> numbers);
-    void SetWheelActive(bool isActive) { m_Roulette->SetActive(isActive); };
+    void SetWheelActive(bool isActive);
     void SpinWheel(int n, std::function<void()> callback);
     void ResetWheel();
 

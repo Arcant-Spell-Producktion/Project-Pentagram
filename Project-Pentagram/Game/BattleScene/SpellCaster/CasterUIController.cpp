@@ -8,6 +8,7 @@ CasterUIController::CasterUIController(CasterPosition position)
     m_StatUI = scene->CreateObject(new CasterDetailUI(pos));
     m_DetailBox = scene->CreateObject(new SpellDetailUI(pos));
     m_DetailBox->SetActive(false);
+    m_IsShowDetailBox = true;
     m_Roulette = scene->CreateObject(new ManaRouletteUI(pos));
     m_Roulette->SetActive(false);
 }
@@ -20,7 +21,10 @@ void CasterUIController::SetStat(CasterStat stat)
 
 void CasterUIController::SetIsShowDetail(bool active)
 {
+    if (m_Roulette->IsActive()) { return; }
+
     m_DetailBox->SetActive(active);
+    m_IsShowDetailBox = active;
 }
 bool CasterUIController::IsShowDetail()
 {
@@ -42,9 +46,22 @@ void CasterUIController::SetWheelValue(std::array<int, 6> numbers)
     m_Roulette->SetRouletteNumbers(numbers);
 }
 
+void CasterUIController::SetWheelActive(bool isActive)
+{
+    m_Roulette->SetActive(isActive);
+    if (isActive)
+    {
+        m_DetailBox->SetActive(false);
+    }
+    else
+    {
+        m_DetailBox->SetActive(m_IsShowDetailBox);
+    }
+};
+
 void CasterUIController::SpinWheel(int n, std::function<void()> callback)
 {
-    m_Roulette->SetActive(true);
+    this->SetWheelActive(true);
     m_Roulette->SetSpinResult(n, callback);
 }
 
