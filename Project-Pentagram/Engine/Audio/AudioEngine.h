@@ -17,7 +17,8 @@ class AudioEngine : public Singleton<AudioEngine>
 {
 	private:
 		// Loaded before GameStart
-		irrklang::ISoundEngine* m_AudioEngine;
+		irrklang::ISoundEngine* m_BGMEngine;
+		irrklang::ISoundEngine* m_SFXEngine;
 		std::map<std::string, AudioSource*> m_BGMSourceList;
 		std::map<std::string, AudioSource*> m_SFXSourceList;
 
@@ -26,7 +27,7 @@ class AudioEngine : public Singleton<AudioEngine>
 		float m_SFXVolume = 1.0f;
 
 		void InitSoundEngine();
-		void LoadFile(const std::string& filePath, std::map<std::string, AudioSource*>& listContainer);
+		void LoadFile(irrklang::ISoundEngine* engine, const std::string& filePath, std::map<std::string, AudioSource*>& listContainer);
 			
 	public:
 		AudioEngine();
@@ -39,7 +40,8 @@ class AudioEngine : public Singleton<AudioEngine>
 		void SetBGMVolume(const float& volume);
 		void SetSFXVolume(const float& volume);
 
-		irrklang::ISoundEngine* GetEngine() const;
+		irrklang::ISoundEngine* GetBGMEngine() const;
+		irrklang::ISoundEngine* GetSFXEngine() const;
 		float GetMasterVolume() const;
 		float GetBGMVolume() const;
 		float GetSFXVolume() const;

@@ -517,6 +517,18 @@ void GameScene::GameSceneUpdate(float dt)
 	UpdateScaleDeltaTime(dt);
 	UpdateDeleteObject();
 	UpdateButtonEvents();
+
+	if (timeScale == 0.0f)
+	{
+		m_IsSFXPause = true;
+		AudioEngine::GetInstance().GetSFXEngine()->setAllSoundsPaused(true);
+	}
+	else if (m_IsSFXPause)
+	{
+		m_IsSFXPause = false;
+		AudioEngine::GetInstance().GetSFXEngine()->setAllSoundsPaused(false);
+	}
+
 	audioController.OnUpdate(dt);
 	camera.OnUpdate(scaledDeltaTime);
 }

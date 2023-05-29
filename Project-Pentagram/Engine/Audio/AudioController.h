@@ -96,7 +96,7 @@ class BGMController
 				AudioSource*& curAudioSource = m_BGMSourceList[idx];
 				curAudioSource->setDefaultVolume(m_BGMVolumeList[idx] * m_BGMLocalVolume * masterVolume * bgmVolume);
 
-				Audio* audio = audioEngine.GetEngine()->play2D(curAudioSource, true, false, true, true);
+				Audio* audio = audioEngine.GetBGMEngine()->play2D(curAudioSource, true, false, true, true);
 				
 				m_BGMAudioList.push_back(new BGMAudio(audio));
 			}

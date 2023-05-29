@@ -7,9 +7,9 @@ AudioEngine::AudioEngine()
 void AudioEngine::LoadResource()
 {
 	// Load All BGM
-	LoadFile("Audio/BGM", m_BGMSourceList);
+	LoadFile(m_BGMEngine, "Audio/BGM", m_BGMSourceList);
 	// Load All SFX
-	LoadFile("Audio/SFX", m_SFXSourceList);
+	LoadFile(m_SFXEngine, "Audio/SFX", m_SFXSourceList);
 }
 
 AudioSource* AudioEngine::findSFXAudioSource(const std::string& filePath)
@@ -42,9 +42,13 @@ void AudioEngine::SetSFXVolume(const float& volume)
 	m_SFXVolume = volume;
 }
 
-irrklang::ISoundEngine* AudioEngine::GetEngine() const
+irrklang::ISoundEngine* AudioEngine::GetBGMEngine() const
 {
-	return m_AudioEngine;
+	return m_BGMEngine;
+}
+irrklang::ISoundEngine* AudioEngine::GetSFXEngine() const
+{
+	return m_SFXEngine;
 }
 float AudioEngine::GetMasterVolume() const
 {
@@ -62,22 +66,24 @@ float AudioEngine::GetSFXVolume() const
 // ----------------- Free Memory ----------------- 
 void AudioEngine::Free()
 {
-	m_AudioEngine->drop();
+	m_BGMEngine->drop();
+	m_SFXEngine->drop();
 	Singleton::Free();
 }
 
 // ----------------- Private Function----------------- 
 void AudioEngine::InitSoundEngine()
 {
-	m_AudioEngine = irrklang::createIrrKlangDevice();
+	m_BGMEngine = irrklang::createIrrKlangDevice();
+	m_SFXEngine = irrklang::createIrrKlangDevice();
 
-	if (!m_AudioEngine)
+	if (!m_BGMEngine || !m_SFXEngine)
 	{
 		std::cerr << "Error : Failed to Initialize Sound Engine\n";
 		exit(EXIT_FAILURE);
 	}
 }
-void AudioEngine::LoadFile(const std::string& filePath, std::map<std::string, AudioSource*>& listContainer)
+void AudioEngine::LoadFile(irrklang::ISoundEngine* engine, const std::string& filePath, std::map<std::string, AudioSource*>& listContainer)
 {
 	for (const std::filesystem::directory_entry& dirEntry : std::filesystem::recursive_directory_iterator(filePath))
 	{
@@ -85,7 +91,7 @@ void AudioEngine::LoadFile(const std::string& filePath, std::map<std::string, Au
 		if (!dirEntry.is_directory())
 		{
 			std::replace(filePathString.begin(), filePathString.end(), '\\', '/');
-			listContainer[filePathString] = m_AudioEngine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);
+			listContainer[filePathString] = engine->addSoundSourceFromFile(filePathString.c_str(), irrklang::ESM_AUTO_DETECT, true);
 		}
 	}
 }

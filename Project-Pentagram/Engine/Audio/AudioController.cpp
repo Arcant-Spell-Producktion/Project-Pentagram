@@ -8,7 +8,7 @@ void AudioController::PlaySFX(const std::string& filePath, const float& volume)
 
 	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 	
-	audioEngine.GetEngine()->play2D(sfxSource);
+	audioEngine.GetSFXEngine()->play2D(sfxSource);
 }
 void AudioController::PlaySFXLoop(const std::string& filePath, const float& volume)
 {
@@ -18,7 +18,7 @@ void AudioController::PlaySFXLoop(const std::string& filePath, const float& volu
 
 	sfxSource->setDefaultVolume(volume * masterVolume * sfxVolume);
 
-	Audio* curSFX = audioEngine.GetEngine()->play2D(sfxSource, true, false, true, false);
+	Audio* curSFX = audioEngine.GetSFXEngine()->play2D(sfxSource, true, false, true, false);
 	LoopSFX[filePath] = curSFX;
 }
 void AudioController::StopSFXLoop(const std::string& filePath)
