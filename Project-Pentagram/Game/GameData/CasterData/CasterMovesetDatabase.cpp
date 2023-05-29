@@ -57,7 +57,7 @@ void CasterMoveSetDatabase::LoadResource()
         CasterMoveSet moveSet;
 
         // Construct the PentagramData_T array from the remaining values
-        for (int i = 2,j=0; j < 20; i += 5 , j++) {
+        for (int i = 2,j=0; j < CASTER_MOVESET_SIZE; i += 5 , j++) {
 
             int k = j * 5 + 2;
 

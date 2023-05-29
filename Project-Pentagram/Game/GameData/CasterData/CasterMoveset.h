@@ -2,10 +2,12 @@
 #include <array>
 #include "Game/BattleScene/SpellCaster/PentagramData.h"
 
+#define CASTER_MOVESET_SIZE 25
+
 class CasterMoveSet
 {
 private:
-    std::array<PentagramData_T, 20> m_MoveSet;
+    std::array<PentagramData_T, CASTER_MOVESET_SIZE> m_MoveSet;
 
 public:
     CasterMoveSet()
@@ -13,7 +15,7 @@ public:
         
     }
 
-    CasterMoveSet(std::array<PentagramData_T, 20> moveSet) :m_MoveSet(moveSet)
+    CasterMoveSet(std::array<PentagramData_T, CASTER_MOVESET_SIZE> moveSet) :m_MoveSet(moveSet)
     {
 
     }

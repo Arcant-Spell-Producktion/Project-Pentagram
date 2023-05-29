@@ -37,6 +37,7 @@ private:
 public:
     OverflowSpellEffect() :BaseSpellEffect(SpellEffectEnum::Overflow, EffectResolveType::OnStartTurn)
     {
+        m_EffectStackLimit = 5;
         m_IsEffectStack = true;
     }
 
