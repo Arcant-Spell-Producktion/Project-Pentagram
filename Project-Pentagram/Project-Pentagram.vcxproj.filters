@@ -244,6 +244,9 @@
     <ClCompile Include="Game\BattleScene\SpellCaster\PlayerController.cpp" />
     <ClCompile Include="Game\Objects\GameOverUI.cpp" />
     <ClCompile Include="Game\Objects\ConfirmUI.cpp" />
+    <ClCompile Include="Game\Slideshow\SlideObject.cpp" />
+    <ClCompile Include="Game\Slideshow\OpeningCutScene.cpp" />
+    <ClCompile Include="IntroCutScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -611,6 +614,9 @@
     <ClInclude Include="Game\Objects\GameOverUI.h" />
     <ClInclude Include="Game\Objects\PlayerAidUI.h" />
     <ClInclude Include="Game\Objects\ConfirmUI.h" />
+    <ClInclude Include="Game\Slideshow\SlideObject.h" />
+    <ClInclude Include="Game\Slideshow\OpeningCutScene.h" />
+    <ClInclude Include="IntroCutScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

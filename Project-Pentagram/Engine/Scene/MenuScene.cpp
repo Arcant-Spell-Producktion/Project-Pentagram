@@ -5,6 +5,7 @@
 
 #include "Game/GameData/RuntimeGameData.h"
 #include "Game/Objects/CursorManager.h"
+#include "Game/Slideshow/OpeningCutScene.h"
 
 void MenuScene::FadeUpdate(const float& dt)
 {
@@ -139,6 +140,10 @@ void MenuScene::GameSceneUpdate(float dt)
 	{
 		SceneManager::LoadScene(GameState::GS_DEMO_SCENE);
 	}
+    else if (Input::IsKeyPressed(GLFW_KEY_2))
+    {
+        SceneManager::LoadScene(GameState::GS_INTRO_SCENE);
+    }
 	else if (Input::IsKeyBeginPressed(GLFW_KEY_9))
 	{
 		SceneManager::LoadScene(GameState::GS_BATTLE_SCENE);

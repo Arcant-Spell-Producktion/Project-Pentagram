@@ -73,7 +73,7 @@ void CharacterSelectScene::OnConfirm()
 
     gameData.Map = new MapData(m_SelectedElement);
 
-    FadeOut(2.0f, GameState::GS_MAP_SCENE);
+    FadeOut(2.0f, GameState::GS_INTRO_SCENE);
 }
 
 void CharacterSelectScene::GameSceneLoad()

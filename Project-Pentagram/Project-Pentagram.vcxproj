@@ -109,6 +109,7 @@
     <ClInclude Include="Game\Objects\ScrollButton.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Objects\TextBox.h" />
+    <ClInclude Include="Game\Slideshow\SlideObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
     <ClInclude Include="Game\Spells\SpellEffectType.h" />
     <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
@@ -128,7 +129,9 @@
     <ClInclude Include="Game\TutorialScene\TutorialStates\SetupTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\StandByTutorialState.h" />
     <ClInclude Include="Game\TutorialScene\TutorialStates\TutorialStateModel.h" />
+    <ClInclude Include="IntroCutScene.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="Game\Slideshow\OpeningCutScene.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\Audio\AudioEngine.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
@@ -290,6 +293,7 @@
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Objects\TextBox.cpp" />
+    <ClCompile Include="Game\Slideshow\SlideObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
     <ClCompile Include="Game\Spells\Element.cpp" />
     <ClCompile Include="Game\Spells\Spell.cpp" />
@@ -310,7 +314,9 @@
     <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
     <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
+    <ClCompile Include="IntroCutScene.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Game\Slideshow\OpeningCutScene.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>

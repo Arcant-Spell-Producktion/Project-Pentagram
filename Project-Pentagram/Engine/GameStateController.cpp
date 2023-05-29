@@ -1,5 +1,6 @@
 ﻿#include "GameStateController.h"
 
+#include "IntroCutScene.h"
 #include "Game/TestScene/CharacterTestScene.h"
 #include "Game/TutorialScene/TutorialScene.h"
 #include "Game/TutorialScene/TutorialSelectScene.h"
@@ -52,7 +53,11 @@ void GameStateController::UpdateGameScene()
 	    case GameState::GS_TUTORIAL_SCENE:
             currentScene = new TutorialScene();
 			break;
-	}
+        case GameState::GS_INTRO_SCENE:
+            currentScene = new IntroCutScene();
+            break;
+        default: ;
+    }
 
 	currentScene->GameSceneLoad();
 	currentScene->GameSceneInit();

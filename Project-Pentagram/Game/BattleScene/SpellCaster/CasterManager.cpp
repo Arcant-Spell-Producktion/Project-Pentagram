@@ -205,7 +205,10 @@ int CasterManager::GetMana() { return m_CurrentData.Stat().CurrentMana; }
 
 void CasterManager::SetMana(int mana) { m_CurrentData.Stat().CurrentMana = mana; }
 
-void CasterManager::ChangeMana(int mana) { m_CurrentData.Stat().CurrentMana += mana; }
+void CasterManager::ChangeMana(int mana)
+{
+    m_CurrentData.Stat().CurrentMana += mana;
+}
 
 int CasterManager::GetMaxMana() { return m_CurrentData.Stat().MaxMana; }
 
