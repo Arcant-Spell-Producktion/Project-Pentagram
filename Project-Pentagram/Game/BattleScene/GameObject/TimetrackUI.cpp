@@ -244,6 +244,7 @@ void TimetrackUI::SetIsExpand(bool expand)
 void TimetrackUI::HighlightTrack(bool doHighlight)
 {
     m_Box->color = doHighlight ? glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) : glm::vec4(0.6f, 0.6f, 0.6f, 1.0f);
+    m_ExpandButton->color = doHighlight ? glm::vec4(1.0f, 1.0f, 1.0f, 1.0f) : glm::vec4(0.6f, 0.6f, 0.6f, 1.0f);
 }
 
 

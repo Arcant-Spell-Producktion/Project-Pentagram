@@ -6,7 +6,7 @@ ManaRouletteUI::ManaRouletteUI(int position) :UIObject("ManaRoulette")
     m_Direction = position == 0 ? 1 : -1;
 
     this->color.a = 0.0f;
-    this->position.x -= 400.0f * m_Direction;
+    this->position.x -= 350.0f * m_Direction;
 
     m_Body = new UIObject("ManaRoulette_Body");
     m_Body->SetTexture("Sprites/UI/Game/ui_game_roulette_body.png");
