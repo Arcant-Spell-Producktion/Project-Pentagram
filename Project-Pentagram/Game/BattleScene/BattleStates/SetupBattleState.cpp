@@ -56,10 +56,9 @@ void SetupBattleState::OnBattleStateIn()
     case Element::Wind:
         bgm = audioController.CreateBGM({ "Audio/BGM/Wind/bgm_wind_1-1.wav", "Audio/BGM/Wind/bgm_wind_1-2.wav", "Audio/BGM/Wind/bgm_wind_1-3.wav" }, { 1.0f, 1.0f, 1.0f });
         break;
-    /*
     case Element::Corrupt:
+        bgm = audioController.CreateBGM({ "Audio/BGM/FinalBoss/bgm_finalboss_1-1.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-2.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-3.wav" }, { 1.0f, 1.0f, 1.0f });
         break;
-    */
      default:
          bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
         break;
