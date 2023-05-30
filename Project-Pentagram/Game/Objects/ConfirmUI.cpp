@@ -15,6 +15,7 @@ ConfirmUI::ConfirmUI(const glm::vec3 &scale)
 	m_Background = new UIObject("ConfirmUI_Background");
 	m_Background->scale = { 1920.0f, 1080.0f, 1.0f };
 	m_Background->color = { 0.0f, 0.0f, 0.0f, 0.7f };
+	m_Background->SetBlockRaycast(true);
 	SetChildRenderBack(m_Background);
 
 	m_ConfirmText = new TextObject("ConfirmationText");
@@ -22,6 +23,8 @@ ConfirmUI::ConfirmUI(const glm::vec3 &scale)
 	m_ConfirmText->text = "Are you sure?";
 	m_ConfirmText->fontSize = 40.0f;
 	m_ConfirmText->textAlignment = TextAlignment::MID;
+	m_ConfirmText->color = AC_WHITE;
+	m_ConfirmText->outlineColor = AC_BLACK;
 	SetChildRenderFront(m_ConfirmText);
 
 	m_Yes = new StaticButton("Yes", { 200.0f, 100.0f, 1.0f });
