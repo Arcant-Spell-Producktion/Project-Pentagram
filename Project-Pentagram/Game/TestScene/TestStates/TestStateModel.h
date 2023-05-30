@@ -4,6 +4,8 @@
 #include "StandByTestState.h"
 #include "CastTestState.h"
 #include "ResolveTestState.h"
+#include "ResultTestState.h"
+
 class TestStateModel
 {
 public:
@@ -12,9 +14,10 @@ public:
          std::vector<BaseBattleState*> states =
          {
              new SetupTestState(),
-             new StandByTestState(), 
+             new StandByTestState(),
              new CastTestState(),
              new ResolveTestState(),
+             new ResultTestState(),
          };
 
          for (BaseBattleState* state : states)

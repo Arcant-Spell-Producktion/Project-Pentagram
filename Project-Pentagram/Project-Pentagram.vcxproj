@@ -119,6 +119,7 @@
     <ClInclude Include="Game\Spells\SpellTarget.h" />
     <ClInclude Include="Game\TestScene\TestStates\CastTestState.h" />
     <ClInclude Include="Game\TestScene\TestStates\ResolveTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResultTestState.h" />
     <ClInclude Include="Game\TestScene\TestStates\SetupTestState.h" />
     <ClInclude Include="Game\TestScene\TestStates\StandByTestState.h" />
     <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
@@ -309,6 +310,7 @@
     <ClCompile Include="Game\Spells\SpellTarget.cpp" />
     <ClCompile Include="Game\TestScene\TestStates\CastTestState.cpp" />
     <ClCompile Include="Game\TestScene\TestStates\ResolveTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResultTestState.cpp" />
     <ClCompile Include="Game\TestScene\TestStates\SetupTestState.cpp" />
     <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
     <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />

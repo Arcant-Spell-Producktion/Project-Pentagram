@@ -192,7 +192,7 @@ void CasterManager::SetHealth(int health)
     m_CurrentData.Stat().CurrentHealth = health;
     if (m_CurrentData.Stat().CurrentHealth > m_CurrentData.Stat().MaxHealth)
     {
-        m_CurrentData.Stat().CurrentHealth = m_CurrentData.Stat().MaxHealth;
+        m_CurrentData.Stat().MaxHealth = m_CurrentData.Stat().CurrentHealth;
     }
 }
 void CasterManager::ChangeHealth(int health)

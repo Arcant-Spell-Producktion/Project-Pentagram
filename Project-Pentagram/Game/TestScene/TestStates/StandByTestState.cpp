@@ -18,11 +18,11 @@ void StandByTestState::OnBattleStateIn()
     }
 
     CasterController* playerC = battleManager.Data.GetCaster(CasterPosition::CasterA);
-    playerC->SetHp(999);
+    playerC->SetHp(1000);
     playerC->SetMana(20);
 
     CasterController* enemy = battleManager.Data.GetCaster(CasterPosition::CasterB);
-    enemy->SetHp(999);
+    enemy->SetHp(1000);
     enemy->SetMana(1);
 
     BattleManager::GetInstance().SetBattleState(BattleState::CastState);
