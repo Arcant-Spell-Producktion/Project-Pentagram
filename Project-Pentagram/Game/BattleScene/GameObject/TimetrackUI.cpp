@@ -1,6 +1,8 @@
 ﻿#include "Engine/GameStateController.h"
 #include "TimetrackUI.h"
 
+#include "Game/BattleScene/BattleManager.h"
+
 const int maxIcon = 7;
 
 const float trackY = -70.0f;
@@ -141,8 +143,8 @@ void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
         }
     }
 
-    UpdateTrack();
     m_PreviewIcon->SetActive(active);
+    UpdateTrack();
 
 }
 
@@ -182,6 +184,10 @@ void TimetrackUI::UpdateTrack()
 
     SetExpandButtonScale(30.0f);
     SetExpandHighlight(isOversize);
+
+    bool isTrackFull = BattleManager::GetInstance().Data.Timeline.GetTimetrack(m_TrackIndex)->IsTrackFull(m_PreviewIcon->SpellDetail->SpellOwner) && m_PreviewIcon->IsActive();
+    m_PreviewIcon->SetIsExtra(isTrackFull);
+    HighlightTrack(!isTrackFull);
 }
 
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
