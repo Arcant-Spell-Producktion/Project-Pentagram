@@ -20,7 +20,7 @@ public:
     {
         EnemyHP = 60;
         EnemyMana = 4;
-        TutorialSpells.push_back({ 2,1,1,1,6 });
+        TutorialSpells.push_back({ 2,1,1,1,7 });
 
         m_TutorialPlayerData = new PlayerData(
             CasterData(
@@ -57,14 +57,14 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "To change the type of the spell \nplayer can adjust the circle and complexity \nin the spell circle."
+            "To change the type of the spell \nplayer can adjust the circle and complexity \nin the Pentagram, \n\nor use the spell selector on the right."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Each adjustment of this section \ncost 2 mana per modification.\n\n(Press ALT to toggle spell info)"
+            "Each adjustment of this section of the pentragram\ncost 2 mana per modification,\nsame for the spell selector the further\nyou select from the first spell  \n\n(Press ALT to toggle spell info)"
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Focus, true });
 

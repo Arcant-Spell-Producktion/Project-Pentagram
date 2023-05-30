@@ -48,7 +48,7 @@ public:
         //m_TutorialEvents.AddEvent({ MainObjectEnum::Timeline,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "You can cast as many spells as you want \neach turn if you have enough mana for it.\n\nThe timeline will help you \nkeep track of the spell cast that round."
+            "You can cast maximum of 5 spells in each time track.\n\nThe timeline will help you \nkeep track of the spell cast that round."
         );
 
         m_TutorialEvents.AddStep(

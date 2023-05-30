@@ -9,9 +9,9 @@ private:
 public:
     CompareTutorialNode() : TutorialNode(EnemyData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Water, CasterPosition::CasterB), CasterType::Minion, CasterMoveSet()))
     {
-        TutorialSpells.push_back({ 1,1,2,1,4 });
+        TutorialSpells.push_back({ 1,1,2,1,9 });
 
-        PlayerMana = 4;
+        PlayerMana = 3;
 
         EnemyHP = 100;
 

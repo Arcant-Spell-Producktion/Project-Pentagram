@@ -20,8 +20,8 @@ public:
     {
         EnemyHP =100;
         EnemyMana = 20;
-        TutorialSpells.push_back({ 1,1,3,1,5 });
-        TutorialSpells.push_back({ 1,1,4,1,6 });
+        TutorialSpells.push_back({ 1,1,3,1,6 });
+        TutorialSpells.push_back({ 1,1,4,1,7 });
 
 
         m_TutorialPlayerData = new PlayerData(
