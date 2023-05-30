@@ -100,7 +100,7 @@ the ancient entity fragment.)";
 
     GameObject* MapObj = new GameObject("Map");
     MapObj->scale = { 1920.0f,1080.0f,1.0f };
-    MapObj->SetTexture("Sprites/Map/world_map.png");
+    MapObj->SetTexture("Sprites/Map/world_map_no_boss.png");
     Map.push_back(MapObj);
 
     for (int i = 3; i >= 0; i--)
