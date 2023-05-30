@@ -47,7 +47,16 @@ PentragramController::PentragramController(IGameObjectManager* scene) :m_ObjectM
     m_PentragramFieldButtons->OnFieldButtonClicked.AddListener([this](PentagramField field) {this->SetPentagramField(field); });
     m_PentagramScrollButton->OnScrollButtonClicked.AddListener([this](int value) {this->SetPentagramValue(value); });
 
-    m_PentagramSpellSelector->OnSpellClick.AddListener([this](PentagramData_T data) {this->SetPentagramData(data); });
+    m_PentagramSpellSelector->OnSpellClick.AddListener(
+        [this](PentagramData_T data)
+        {
+            PentagramField field = m_LastestEvent.Field;
+
+            this->SetPentagramData(data);
+
+            SetPentagramField(field);
+            m_PentragramFieldButtons->ToggleButton(field);
+        });
 
     OnPentagramValueChange.AddListener([this](PentagramEvent e)
         {
