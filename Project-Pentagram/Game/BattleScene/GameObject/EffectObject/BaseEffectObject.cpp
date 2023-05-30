@@ -1,4 +1,5 @@
 ﻿#include "BaseEffectObject.h"
+#include "Engine/Audio/AudioController.h"
 
 #include <string>
 
@@ -61,6 +62,31 @@ void BaseEffectObject::Play()
     this->SetActive(true);
     this->SetSpriteByIndex(0, 0);
     this->SetIsAnimationObject(isPlaying);
+
+    switch (m_Type) 
+    {
+        case SpellEffectEnum::Mark:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_fire_1_mark.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Burn:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_fire_2_burning.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Overflow:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_water_2_overflow.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Freeze:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_water_1_freeze.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Fortify:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_earth_1_fortify.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Petrify:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_earth_2_petrify.wav", 1.0f);
+            break;
+        case SpellEffectEnum::Boost:
+            AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Effect/sfx_gameplay_effect_wind_1_Boost.wav", 1.0f);
+            break;
+    }
 
 }
 
