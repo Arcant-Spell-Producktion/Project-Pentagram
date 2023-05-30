@@ -23,10 +23,7 @@ void CastBattleState::PlayerCastUpdate(float dt)
 
     if (currentCaster == nullptr) currentCaster->SetPentagramData({ 1, 1, 1, 1, 1 });
 
-    int spellCost = currentCaster->GetSpellCost();
-    int canCostSpell = currentCaster->GetMana() - spellCost;
-
-    battleManager.Data.Pentagram->SetCastButtonActive(canCostSpell >= 0);
+    battleManager.Data.Pentagram->SetCastButtonActive(currentCaster->CanCastSpell());
 
     if (Input::IsKeyBeginPressed(GLFW_KEY_4) || currentCaster->GetMana() == 0)//End Turn
     {

@@ -43,9 +43,12 @@ public:
     int GetSpellCost();
     int GetFieldCost(PentagramField field);
     int GetFieldValue(PentagramField field);
-    bool CanCastSpell();
     bool UpdateCurrentSpell(bool isElementChange = false);
     void CommitSpell();
+
+    bool HaveEnoughMana();
+    bool IsTrackFull();
+    bool CanCastSpell();
 
     bool IsManaWheelAllUsed();
 

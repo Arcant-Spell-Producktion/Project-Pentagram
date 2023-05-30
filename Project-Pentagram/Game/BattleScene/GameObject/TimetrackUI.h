@@ -25,6 +25,7 @@ private:
 
     SpellIconUI* m_HoverSpellIcon;
 
+    void SetExpandHighlight(bool doHighLight);
     void SetExpandButtonScale(float scale);
 
 public:

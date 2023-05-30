@@ -4,16 +4,44 @@ void EnemyController::CastEnemySpell()
 {
     int currentMana = m_CasterManager.GetMana();
     PentagramData_T currentPentagram = m_MoveSet.GetMove(currentMana - 1);
-
     m_CasterManager.SetPentagramData(currentPentagram);
 
-    int spellCost = m_CasterManager.GetSpellCost();
     bool canCast = m_CasterManager.CanCastSpell();
 
-    for (int i = currentMana; !canCast && i > 0; i--)
+    while (!canCast && currentMana > 0)
     {
-        currentPentagram = m_MoveSet.GetMove(currentMana - 1);
-        m_CasterManager.SetPentagramData(currentPentagram);
+        if(m_CasterManager.IsTrackFull())
+        {
+            bool changeSpell = false;
+            while (m_CasterManager.IsTrackFull())
+            {
+                currentPentagram.time += 1;
+                m_CasterManager.SetPentagramData(currentPentagram);
+
+                if (m_CasterManager.IsTrackFull() && currentPentagram.time > 11)
+                {
+                    changeSpell = true;
+                    currentMana--;
+                    currentPentagram = m_MoveSet.GetMove(currentMana - 1);
+                    m_CasterManager.SetPentagramData(currentPentagram);
+                    break;
+                }
+            }
+
+            if (changeSpell)
+            {
+                continue;
+            }
+        }
+
+        if(!m_CasterManager.HaveEnoughMana())
+        {
+            currentMana--;
+
+            currentPentagram = m_MoveSet.GetMove(currentMana - 1);
+            m_CasterManager.SetPentagramData(currentPentagram);
+        }
+
         canCast = m_CasterManager.CanCastSpell();
     }
 

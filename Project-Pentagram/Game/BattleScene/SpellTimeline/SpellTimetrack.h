@@ -30,6 +30,11 @@ public:
         return m_WillCompareTable[caster]; 
     }
 
+    bool IsTrackFull(CasterPosition caster)
+    {
+        return m_SpellCount[caster] >= 5;
+    }
+
     void PushSpell(CastSpellDetail* spell);
 
     CastSpellDetail* RemoveSpell(CastSpellDetail* spell);

@@ -196,12 +196,12 @@ void SpellTimetrack::PushSpell(CastSpellDetail* spell)
     if (m_WillCompareTable.find(spell->SpellOwner) == m_WillCompareTable.end())
     {
         m_WillCompareTable.emplace(spell->SpellOwner, willValue);
-        m_SpellCount.emplace(spell->SpellOwner, 1);
+        m_SpellCount[spell->SpellOwner] = 1;
     }
     else
     {
         m_WillCompareTable[spell->SpellOwner] += willValue;
-        m_SpellCount[spell->SpellOwner]++;
+        m_SpellCount[spell->SpellOwner] = m_SpellCount[spell->SpellOwner] + 1;
 
     }
 
@@ -228,7 +228,7 @@ CastSpellDetail* SpellTimetrack::RemoveSpell(CastSpellDetail* spell)
             m_WillCompareTable[spell->SpellOwner] -= spell->SelectedWill;
         }
 
-        m_SpellCount[spell->SpellOwner]--;
+        m_SpellCount[spell->SpellOwner] = m_SpellCount[spell->SpellOwner] - 1;
 
         m_TrackSpells.erase(it);
         

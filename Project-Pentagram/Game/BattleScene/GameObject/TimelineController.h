@@ -28,7 +28,7 @@ private:
     void InsertTimetrackToExpander(int index);
 
 public:
-    Event<bool> timelineExpandEvent;
+    Event<bool> OnTimetrackExpand;
 
     TimelineController();
 

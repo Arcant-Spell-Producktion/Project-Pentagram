@@ -17,6 +17,7 @@ public:
     StageObject* Stage = nullptr;
 
     SpellTimeline Timeline;
+
     PentragramController* Pentagram = nullptr;
 
     WillCompareController* WillCompare = nullptr;

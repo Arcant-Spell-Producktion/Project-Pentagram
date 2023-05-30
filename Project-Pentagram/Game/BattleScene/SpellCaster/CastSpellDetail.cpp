@@ -119,9 +119,11 @@ void CastSpellDetail::OnResolve()
 
             newSpell->isCasted = false;
             newSpell->SelectedTime += 1;
-            battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
 
-            //TODO:: find a way to delete TriggeredSpell without crash
+            if (!battleManager.Data.Timeline.GetTimetrack(newSpell->SelectedTime - 1)->IsTrackFull(newSpell->SpellOwner))
+            {
+                battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
+            }
         }
 
         for (int i = this->SelectedTime ; i <= 10; ++i)

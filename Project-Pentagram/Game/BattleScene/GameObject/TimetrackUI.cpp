@@ -97,6 +97,18 @@ void TimetrackUI::OnUpdate(const float& dt)
     }
 }
 
+void TimetrackUI::SetExpandHighlight(bool doHighLight)
+{
+    if (doHighLight)
+    {
+        m_ExpandButton->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_button-highlight.png");
+    }
+    else
+    {
+        m_ExpandButton->SetTexture("Sprites/UI/Game/Timeline/ui_game_timeline_button.png");
+    }
+}
+
 void TimetrackUI::SetExpandButtonScale(float scale)
 {
     m_ExpandButton->scale.y = scale;
@@ -169,6 +181,7 @@ void TimetrackUI::UpdateTrack()
     m_Box->position.y = (newScale - scaleDefault) / -2.0f;
 
     SetExpandButtonScale(30.0f);
+    SetExpandHighlight(isOversize);
 }
 
 void TimetrackUI::AddIcon(CastSpellDetail* spell)

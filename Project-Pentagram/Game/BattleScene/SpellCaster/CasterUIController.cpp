@@ -5,7 +5,7 @@
 
 CasterUIController::CasterUIController(CasterPosition position)
 {
-    BattleManager::GetInstance().Data.Timeline.UI->timelineExpandEvent.AddListener([this](bool doExpand)
+    BattleManager::GetInstance().Data.Timeline.UI->OnTimetrackExpand.AddListener([this](bool doExpand)
         {
             m_DetailBox->SetActive(doExpand ? false : m_IsShowDetailBox);
         });

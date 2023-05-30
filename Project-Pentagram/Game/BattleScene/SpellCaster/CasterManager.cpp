@@ -4,6 +4,8 @@
 #include <ctime>
 #include "CasterManager.h"
 
+#include "Game/BattleScene/BattleManager.h"
+
 CasterManager::CasterManager(CasterData caster) :m_CurrentData(caster)
 {
     if (caster.Element() == Element::Corrupt)
@@ -145,18 +147,10 @@ void CasterManager::CommitSpell()
     std::cout << "COMMIT " << GetSpellCost() << "\n";
     ChangeMana(-GetSpellCost());
 
-    //if (m_PentagramData.time < m_CurrentSpell->GetSpellDetail()->GetCastTime() && m_TimeBuff > 0)
-    //{
-    //    m_TimeBuff = 0;
-    //}
-
-    //if (m_PentagramData.will > 1 && m_WillBuff > 0)
-    //{
-    //    m_WillBuff = 0;
-    //}
-
     m_CurrentSpell = nullptr;
 }
+
+
 
 int CasterManager::GetManaWheelValue(int index) { return  m_CurrentData.Stat().ManaWheel[index]; }
 
@@ -259,9 +253,23 @@ void CasterManager::ResetDebuff()
     m_TimeDebuff = 0;
 }
 
-bool CasterManager::CanCastSpell()
+
+bool CasterManager::HaveEnoughMana()
 {
     return  GetRemainMana() >= 0;
+}
+
+bool CasterManager::IsTrackFull()
+{
+    BattleManager& battleManager = BattleManager::GetInstance();
+    int time = m_CurrentSpell->SelectedTime - 1;
+    if (time > 10) time = 10;
+    return battleManager.Data.Timeline.GetTimetrack(time)->IsTrackFull(Data().Position());
+}
+
+bool CasterManager::CanCastSpell()
+{
+    return HaveEnoughMana() && !IsTrackFull();
 }
 
 bool CasterManager::SetPentagramData(PentagramData_T pentagram)
