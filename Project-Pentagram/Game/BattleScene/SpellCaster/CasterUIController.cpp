@@ -1,8 +1,15 @@
 ﻿#include "Engine/GameStateController.h"
 #include "CasterUIController.h"
 
+#include "Game/BattleScene/BattleManager.h"
+
 CasterUIController::CasterUIController(CasterPosition position)
 {
+    BattleManager::GetInstance().Data.Timeline.UI->timelineExpandEvent.AddListener([this](bool doExpand)
+        {
+            m_DetailBox->SetActive(doExpand ? false : m_IsShowDetailBox);
+        });
+
     auto scene = GameStateController::GetInstance().currentScene;
     int pos = (int)position - 1;
     m_StatUI = scene->CreateObject(new CasterDetailUI(pos));

@@ -28,6 +28,8 @@ private:
     void InsertTimetrackToExpander(int index);
 
 public:
+    Event<bool> timelineExpandEvent;
+
     TimelineController();
 
     void OnUpdate(const float& dt) override;

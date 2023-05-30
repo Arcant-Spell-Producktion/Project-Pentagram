@@ -37,7 +37,7 @@ TimelineController::TimelineController():m_ObjectManager(GameStateController::Ge
     BattleManager& bm = BattleManager::GetInstance();
     for (size_t i = 0; i < 11; i++)
     {
-        std::function<void(bool doExpand)> expandFunc = [this, i](bool doExpand) { SetExpandTimeline(i, doExpand); };
+        std::function<void(bool doExpand)> expandFunc = [this, i](bool doExpand) { timelineExpandEvent.Invoke(doExpand); SetExpandTimeline(i, doExpand); };
         auto track = new TimetrackUI(i, bm.Data.Timeline.GetTimetrack(i), expandFunc);
         m_Tracks.push_back(track);
         box->SetChildRenderFront(track);
