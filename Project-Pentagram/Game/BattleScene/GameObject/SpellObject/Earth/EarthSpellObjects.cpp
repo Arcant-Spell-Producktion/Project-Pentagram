@@ -124,7 +124,7 @@ void EarthSpell3::Initialize()
     float size = 480.0f;
     float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = (320.0f - size) / 2.0f;
-    this->scale = { size / 2, size, 1.0f };
+    this->scale = { size / 2 * -m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
 
@@ -174,7 +174,7 @@ void EarthSpell5::Initialize()
     float size = 320.0f;
     float xPos = -CASTER_POSITION_X * m_SpellTarget; // Assume A shooter // How to Flip m_SpellTarget
     float yPos = -160.0f;
-    this->scale = { size * 2, size, 1.0f };
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
@@ -198,7 +198,7 @@ void EarthSpell6::Initialize()
     float size = 640.0f;
     float xPos = (-CASTER_POSITION_X) * m_SpellTarget; // Assume A shooter
     float yPos = (320.0f - size) / 2.0f;
-    this->scale = { size, size / 2.0f, 1.0f };
+    this->scale = { size * -m_SpellTarget, size / 2.0f, 1.0f };
     this->position = { xPos, yPos, 1.0f };
 
     // Don't Play animation
@@ -250,7 +250,7 @@ void EarthSpell7::Initialize()
     float size = 320.0f;
     float xPos = (CASTER_POSITION_X - 200.0f) * m_SpellTarget;
     float yPos = -160.0f;
-    this->scale = { size, size, 1.0f };
+    this->scale = { size * -m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
@@ -261,7 +261,7 @@ void EarthSpell7::Initialize()
     reflectObj->SetTexture("Sprites/Spell/Earth/spell_earth_1.png");
     reflectObj->position = { this->scale.x / 2.0f, 0.0f, 0.0f };
     reflectObj->color.a = 0.0f;
-    reflectObj->scale = { 320.0f, 320.0f, 1.0f };
+    reflectObj->scale = { 320.0f * -m_SpellTarget, 320.0f, 1.0f };
     reflectObj->SetSpriteByIndex(0, 0);
     reflectObj->SetIsAnimationObject(false);
     reflectObj->SetAnimationPlayTime(0.15f);
@@ -316,7 +316,7 @@ void EarthSpell7::Initialize()
 
     float travelTime = 1.0f;
     glm::vec3 startPos = reflectObj->position;
-    glm::vec3 endPos = { CASTER_POSITION_X + std::fabs(this->position.x), 0.0f, 0.0f};
+    glm::vec3 endPos = { CASTER_POSITION_X * -m_SpellTarget + std::fabs(this->position.x), 0.0f, 0.0f};
     glm::vec3 direction = endPos - startPos;
 
     std::cout << startPos.x << " " << startPos.y << " " << startPos.z << std::endl;
@@ -362,7 +362,7 @@ void EarthSpell8::Initialize()
     float size = 550.0f;
     float xPos = (CASTER_POSITION_X  - (size / 5)) * -m_SpellTarget;
     float yPos = -50.0f;
-    this->scale = { size, size, 1.0f };
+    this->scale = { size * -m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
@@ -408,7 +408,7 @@ void EarthSpell9::Initialize()
     float size = 640.0f;
     float xPos = CASTER_POSITION_X * -m_SpellTarget;
     float yPos = -320.0f;
-    this->scale = { size * 2, size, 1.0f };
+    this->scale = { size * 2 * -m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
