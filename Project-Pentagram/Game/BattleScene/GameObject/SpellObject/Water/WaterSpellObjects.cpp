@@ -140,14 +140,12 @@ void WaterSpell4::Initialize()
     QueueUpdateFunction(
         [this, yPos](float dt)
         {
-            std::cout << "---------------" << this->GetCurrentAnimationColumn() << "\n";
             if (this->GetCurrentAnimationColumn() == 5)
             { 
                 canMove = true;
             }
             else if(this->GetCurrentAnimationColumn() == 1 && canMove)
             {
-                std::cout << "HELLO------------\n";
                 if (x_index < 3)
                 {
                     float xPos = x_Positions[x_index] * m_SpellTarget;
