@@ -29,7 +29,17 @@ void TutorialScene::GameSceneInit()
 
     tur_pauseMenuObject = CreateObject(new PauseMenuObject());
     tur_pauseMenuObject->SetCurrentGameScene(this);
-    tur_pauseMenuObject->SetActive(false);
+    tur_pauseMenuObject->SetActive(false); 
+    
+    tutorialManager.Data.Shortcut->GetPauseButton()->onClick.AddListener([this](Button* button)
+        {
+            tur_pauseMenuObject->ToggleEvent(timeScale);
+        });
+
+    tutorialManager.Data.Shortcut->GetHelpButton()->onClick.AddListener([this](Button* button)
+        {
+            playerAidUI->ToggleEvent(timeScale);
+        });
 }
 
 void TutorialScene::GameSceneUpdate(float dt)

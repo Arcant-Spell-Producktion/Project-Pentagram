@@ -30,6 +30,16 @@ void BattleScene::GameSceneInit()
     pauseMenuObject = CreateObject(new PauseMenuObject());
     pauseMenuObject->SetCurrentGameScene(this);
     pauseMenuObject->SetActive(false);
+
+    battleManager->Data.Shortcut->GetPauseButton()->onClick.AddListener([this](Button* button)
+        {
+            pauseMenuObject->ToggleEvent(timeScale);
+        });
+
+    battleManager->Data.Shortcut->GetHelpButton()->onClick.AddListener([this](Button* button)
+        {
+            playerAidUI->ToggleEvent(timeScale);
+        });
 }
 
 void BattleScene::GameSceneUpdate(float dt)

@@ -23,6 +23,7 @@ public:
 
     void SetWheelValue(std::array<int, 6> numbers);
     void SetWheelActive(bool isActive);
+    bool IsWheelActive() const;
     void SpinWheel(int n, std::function<void()> callback);
     void ResetWheel();
 

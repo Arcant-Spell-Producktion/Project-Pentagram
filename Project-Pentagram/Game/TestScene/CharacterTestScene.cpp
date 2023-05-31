@@ -29,6 +29,16 @@ void CharacterTestScene::GameSceneInit()
     test_pauseMenuObject = CreateObject(new PauseMenuObject());
     test_pauseMenuObject->SetCurrentGameScene(this);
     test_pauseMenuObject->SetActive(false);
+
+    charTestManager->Data.Shortcut->GetPauseButton()->onClick.AddListener([this](Button* button)
+        {
+            test_pauseMenuObject->ToggleEvent(timeScale);
+        });
+
+    charTestManager->Data.Shortcut->GetHelpButton()->onClick.AddListener([this](Button* button)
+        {
+            playerAidUI->ToggleEvent(timeScale);
+        });
 }
 
 void CharacterTestScene::GameSceneUpdate(float dt)

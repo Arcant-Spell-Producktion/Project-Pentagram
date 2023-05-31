@@ -107,6 +107,7 @@
     <ClInclude Include="Game\Objects\OptionMenuObject.h" />
     <ClInclude Include="Game\Objects\PlayerAidUI.h" />
     <ClInclude Include="Game\Objects\ScrollButton.h" />
+    <ClInclude Include="Game\Objects\ShortcutUI.h" />
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Objects\StaticButton.h" />
     <ClInclude Include="Game\Objects\TextBox.h" />
@@ -295,6 +296,7 @@
     <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
     <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
     <ClCompile Include="Game\Objects\ScrollButton.cpp" />
+    <ClCompile Include="Game\Objects\ShortcutUI.cpp" />
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Objects\StaticButton.cpp" />
     <ClCompile Include="Game\Objects\TextBox.cpp" />

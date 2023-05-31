@@ -6,6 +6,7 @@
 #include "Game/BattleScene/GameObject/PentagramObject/PentagramController.h"
 #include "Game/Objects/StageObject.h"
 #include "Game/Objects/GameOverUI.h"
+#include "Game/Objects/ShortcutUI.h"
 #include "Game/Objects/TextBox.h"
 
 class BattleSceneData
@@ -25,6 +26,8 @@ public:
     GameOverUI* GameOverUI = nullptr;
 
     TextBox* Texts = nullptr;
+
+    ShortcutUI* Shortcut = nullptr;
 
     void AddCaster(CasterController* controller) { Casters.push_back(controller); }
 

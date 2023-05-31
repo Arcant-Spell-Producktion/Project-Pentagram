@@ -31,6 +31,8 @@ void BattleManager::Init(IGameObjectManager* scene, Element::Type stageElement, 
     Data.Timeline.UI = scene->CreateObject(new TimelineController());
     Data.Timeline.UI->SetPentragramControllerReference(Data.Pentagram);
 
+    Data.Shortcut = scene->CreateObject(new ShortcutUI());
+
     Data.GameOverUI = scene->CreateObject(new GameOverUI());
 
     Data.WillCompare = scene->CreateObject(new WillCompareController());

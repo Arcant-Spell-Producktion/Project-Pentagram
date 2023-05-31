@@ -66,6 +66,11 @@ void CasterUIController::SetWheelActive(bool isActive)
     }
 };
 
+bool CasterUIController::IsWheelActive() const
+{
+    return m_Roulette->IsActive();
+}
+
 void CasterUIController::SpinWheel(int n, std::function<void()> callback)
 {
     this->SetWheelActive(true);
