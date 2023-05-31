@@ -163,6 +163,10 @@ void TimelineController::SetExpandTimeline(int index, bool doExpand)
     }
 
 }
+bool TimelineController::IsTimelineExpand() const
+{
+    return timelineExpander->IsActive();
+}
 
 int TimeToIndex(int t)
 {

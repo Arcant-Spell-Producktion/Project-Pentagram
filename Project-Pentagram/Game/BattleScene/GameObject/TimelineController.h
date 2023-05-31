@@ -43,6 +43,8 @@ public:
     void HighlightTrack(int index);
 
     void SetExpandTimeline(int index, bool doExpand);
+    bool IsTimelineExpand() const;
+
     void UpdatePreviewIcon(CastSpellDetail* spell = nullptr);
     void AddIconToTrack(int index, CastSpellDetail* spell);
     void RemoveIconFromTrack(int index, CastSpellDetail* spell);

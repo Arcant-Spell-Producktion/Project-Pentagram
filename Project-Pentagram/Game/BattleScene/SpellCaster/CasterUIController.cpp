@@ -28,7 +28,7 @@ void CasterUIController::SetStat(CasterStat stat)
 
 void CasterUIController::SetIsShowDetail(bool active)
 {
-    if (m_Roulette->IsActive()) { return; }
+    if (m_Roulette->IsActive() || BattleManager::GetInstance().Data.Timeline.UI->IsTimelineExpand()) { return; }
 
     m_DetailBox->SetActive(active);
     m_IsShowDetailBox = active;
