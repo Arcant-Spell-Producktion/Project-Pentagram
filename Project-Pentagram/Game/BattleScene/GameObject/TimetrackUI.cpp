@@ -144,8 +144,12 @@ void TimetrackUI::PreviewIcon(CastSpellDetail* spell, bool doCast, bool active)
     }
 
     m_PreviewIcon->SetActive(active);
+
     UpdateTrack();
 
+    bool isTrackFull = BattleManager::GetInstance().Data.Timeline.GetTimetrack(m_TrackIndex)->IsTrackFull(m_PreviewIcon->SpellDetail->SpellOwner) && m_PreviewIcon->IsActive();
+    m_PreviewIcon->SetIsExtra(isTrackFull);
+    HighlightTrack(!isTrackFull);
 }
 
 void TimetrackUI::UpdateTrack()
@@ -185,9 +189,6 @@ void TimetrackUI::UpdateTrack()
     SetExpandButtonScale(30.0f);
     SetExpandHighlight(isOversize);
 
-    bool isTrackFull = BattleManager::GetInstance().Data.Timeline.GetTimetrack(m_TrackIndex)->IsTrackFull(m_PreviewIcon->SpellDetail->SpellOwner) && m_PreviewIcon->IsActive();
-    m_PreviewIcon->SetIsExtra(isTrackFull);
-    HighlightTrack(!isTrackFull);
 }
 
 void TimetrackUI::AddIcon(CastSpellDetail* spell)
