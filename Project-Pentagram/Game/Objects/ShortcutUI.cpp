@@ -13,15 +13,11 @@ ShortcutUI::ShortcutUI()
 	this->position = { WINDOW_WIDTH / 2.0f - offsetScreenX, WINDOW_HEIGHT / 2.0f - offsetScreenY, 0.0f };
 
 	
-	m_PauseButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Pause(ESC)");
-	m_PauseButton->image->SetSpriteByIndex(0, 0);
-	m_PauseButton->hoverText->textAlignment = TextAlignment::LEFT;
-	m_PauseButton->hoverText->position.x -= m_PauseButton->scale.x / 2.0f;
-	m_PauseButton->position.x -= (m_PauseButton->scale.x + offset);
-
 	m_InfoButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Info(ALT)");
 	m_InfoButton->image->SetSpriteByIndex(0, 1);
-	m_InfoButton->hoverText->textAlignment = TextAlignment::MID;
+	m_InfoButton->hoverText->textAlignment = TextAlignment::LEFT;
+	m_InfoButton->hoverText->position.x -= m_InfoButton->scale.x / 2.0f;
+	m_InfoButton->position.x -= (m_InfoButton->scale.x + offset);
 
 	m_InfoButton->onHover = [this](Button* button)
 	{
@@ -55,13 +51,18 @@ ShortcutUI::ShortcutUI()
 
 	m_HelpButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Help(F1)");
 	m_HelpButton->image->SetSpriteByIndex(0, 2);
-	m_HelpButton->hoverText->textAlignment = TextAlignment::RIGHT;
-	m_HelpButton->hoverText->position.x += m_HelpButton->scale.x / 2.0f;
-	m_HelpButton->position.x += (m_HelpButton->scale.x + offset);
+	m_HelpButton->hoverText->textAlignment = TextAlignment::MID;
 
-	this->SetChildRenderFront(m_PauseButton);
+
+	m_PauseButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Pause(ESC)");
+	m_PauseButton->image->SetSpriteByIndex(0, 0);
+	m_PauseButton->hoverText->textAlignment = TextAlignment::RIGHT;
+	m_PauseButton->hoverText->position.x += m_PauseButton->scale.x / 2.0f;
+	m_PauseButton->position.x += (m_PauseButton->scale.x + offset);
+
 	this->SetChildRenderFront(m_InfoButton);
 	this->SetChildRenderFront(m_HelpButton);
+	this->SetChildRenderFront(m_PauseButton);
 }
 
 void ShortcutUI::OnUpdate(const float& dt)

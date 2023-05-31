@@ -42,9 +42,9 @@ class ShortcutUI : public UIObject
 {
 	private:
 
-		ShortcutButton* m_PauseButton;
 		ShortcutButton* m_InfoButton;
 		ShortcutButton* m_HelpButton;
+		ShortcutButton* m_PauseButton;
 
 	public:
 		ShortcutUI();

@@ -16,7 +16,7 @@
 #define WINDOW_RATIO (16.0f / 9.0f)
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
-#define TITLE "Arcant Engine"
+#define TITLE "Will O' Witch"
 
 class Window
 {
