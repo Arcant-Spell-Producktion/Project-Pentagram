@@ -30,11 +30,11 @@ void SetupTestState::OnBattleStateIn()
             CasterMoveSet())));
 
     CasterController* playerC = bm.Data.GetCaster(CasterPosition::CasterA);
-    playerC->SetHp(999);
+    playerC->SetHp(1000);
     playerC->SetMana(20);
 
     CasterController* enemy = bm.Data.GetCaster(CasterPosition::CasterB);
-    enemy->SetHp(999);
+    enemy->SetHp(1000);
     enemy->SetMana(1);
    
     AudioController& audioController = AudioController::GetInstance();

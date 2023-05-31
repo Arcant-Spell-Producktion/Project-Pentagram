@@ -210,8 +210,6 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
 
         if (m_CurrentSpellController->IsSpellDone())
         {
-            ResolveDamageCalculation();
-
             if (m_CurrentSpellController->Trigger)
             {
                 m_Dispatcher.DestroySpell(m_CurrentSpellDetail->ParentSpell);
@@ -220,6 +218,9 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
             {
                 m_Dispatcher.DestroySpell(m_CurrentSpellDetail);
             }
+
+            ResolveDamageCalculation();
+
             Step();
         }
         else if (m_CurrentSpellController->IsSpellWaitTrigger())
