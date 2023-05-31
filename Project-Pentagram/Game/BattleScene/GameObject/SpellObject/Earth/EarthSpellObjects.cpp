@@ -360,9 +360,9 @@ void EarthSpell7::Initialize()
 void EarthSpell8::Initialize()
 {
     float size = 550.0f;
-    float xPos = (CASTER_POSITION_X  - (size / 5)) * -m_SpellTarget;
+    float xPos = (-CASTER_POSITION_X  + (size / 5)) * m_SpellTarget;
     float yPos = -50.0f;
-    this->scale = { size * -m_SpellTarget, size, 1.0f };
+    this->scale = { size * m_SpellTarget, size, 1.0f };
     this->position = { xPos, yPos, 1.0f };
     this->SetIsAnimationObject(true);
     this->SetIsAnimationLoop(false);
