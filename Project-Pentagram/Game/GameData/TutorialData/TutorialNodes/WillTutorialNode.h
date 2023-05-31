@@ -18,9 +18,9 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        EnemyHP = 20;
+        EnemyHP = 30;
         EnemyMana = 10;
-        TutorialSpells.push_back({ 1,1,6,1,10 });
+        TutorialSpells.push_back({ 1,1,6,1,9 });
 
         m_TutorialPlayerData = new PlayerData(
             CasterData(
@@ -32,15 +32,21 @@ public:
 
         PlayerHP = 10;
         PlayerManaWheel = 6;
+        PlayerStartSpell = {1,2,1,1,0};
 
 
         m_TutorialEvents.AddStep(
             "Tutorial topic: Will\n\nObjective:\nReduce your opponent's  health to 0"
         );
-        
+
+        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
+        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, false });
+        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, false });
+        m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton,TutorialEventType::Toggle, false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, false });
+
 
         m_TutorialEvents.AddStep(
             "Both sides will gain mana at the start of the turn \nby rolling this roulette.\n\nMana gain from roulette will be different \ndepending on each witch you select."
