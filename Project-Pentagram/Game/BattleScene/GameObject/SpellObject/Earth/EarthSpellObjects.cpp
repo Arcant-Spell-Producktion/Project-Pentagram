@@ -316,7 +316,7 @@ void EarthSpell7::Initialize()
 
     float travelTime = 1.0f;
     glm::vec3 startPos = reflectObj->position;
-    glm::vec3 endPos = { CASTER_POSITION_X * -m_SpellTarget + std::fabs(this->position.x), 0.0f, 0.0f};
+    glm::vec3 endPos = { CASTER_POSITION_X * -m_SpellTarget + (std::fabs(this->position.x) * -m_SpellTarget), 0.0f, 0.0f};
     glm::vec3 direction = endPos - startPos;
 
     std::cout << startPos.x << " " << startPos.y << " " << startPos.z << std::endl;
