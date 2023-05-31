@@ -141,31 +141,43 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
 
     CasterPosition winCaster = GetWillCompareResult();
 
+    bool didWillCompare = DoWillCompare();
+
     bool TrackIsSkip = false;
     for (CastSpellDetail* spell : m_TrackSpells)
     {
         ChannelEffectEnum channel = spell->GetSpellDetail()->GetChannelEffectType();
         CastSpellDetail::ChannelType time = spell->Channel;
         bool added = false;
-        //if (channel == ChannelEffectEnum::Active && time == CastSpellDetail::Body) continue;
-
-        if (!spell->isCasted && (spell->SpellOwner == winCaster) && !TrackIsSkip)
+        bool isNotCasted = !spell->isCasted;
+        if (isNotCasted && !TrackIsSkip)
         {
-            if (spell->TriggeredSpell == nullptr)
+            if ((spell->SpellOwner == winCaster))
             {
-                ResolveTrack.push_back(spell);
-            }
-            else
-            {
-                spell->TriggeredSpell->doCast = true;
-                ResolveTrack.push_back(spell->TriggeredSpell);
-                if (spell->TriggeredSpell->GetSpellDetail()->GetResolvesEffects().DoCancelTrack())
+                if (spell->TriggeredSpell == nullptr)
                 {
-                    TrackIsSkip = true;
+                    if (!added) ResolveTrack.push_back(spell);
+                    added = true;
+
+                }
+                else
+                {
+                    spell->TriggeredSpell->doCast = true;
+
+                    if (!added) ResolveTrack.push_back(spell->TriggeredSpell);
+                    added = true;
+
+                    if (spell->TriggeredSpell->GetSpellDetail()->GetResolvesEffects().DoCancelTrack())
+                    {
+                        TrackIsSkip = true;
+                    }
                 }
             }
-            added = true;
-            
+            else if(!didWillCompare && winCaster == CasterPosition::TIED)
+            {
+                if (!added) ResolveTrack.push_back(spell);
+                added = true;
+            }
         }
         
         if((channel >= ChannelEffectEnum::Active) && (time == CastSpellDetail::End))
@@ -278,7 +290,7 @@ void SpellTimetrack::UpdateTimetrack()
     CasterPosition winCaster = CalculateWillCompareResult(true);
     if (winCaster <= CasterPosition::TIED)
     {
-        if (m_TrackSpells.size() > 0 && DoWillCompare())
+        if ((m_TrackSpells.size() > 0 && DoWillCompare()))
         {
             for (CastSpellDetail* csd : m_TrackSpells)
             {
