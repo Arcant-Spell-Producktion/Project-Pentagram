@@ -18,7 +18,19 @@ PentagramSpellSelector::PentagramSpellSelector(): UIObject("PentagramSpellSelect
 
             CastSpellDetail* spellDetail = new CastSpellDetail(CasterPosition::CasterA, spell,1,1);
 
-            icon->SetIcon(spellDetail,false);
+            switch (spellDetail->GetSpellDetail()->GetChannelEffectType())
+            {
+            case ChannelEffectEnum::None:
+            case ChannelEffectEnum::Wait:
+                icon->SetIcon(spellDetail, false);
+                break;
+            case ChannelEffectEnum::Active:
+            case ChannelEffectEnum::Trap:
+            case ChannelEffectEnum::Counter:
+                icon->SetIcon(spellDetail, true);
+                break;
+            }
+            
             icon->SetOverlayToggle(false);
 
             m_SpellIcons[circle][complex] = icon;
@@ -118,7 +130,19 @@ void PentagramSpellSelector::UpdateIconDetail()
             spellDetail->SelectedWill = m_Will;
             spellDetail->SelectedEffect = m_Effect;
 
-            icon->SetIcon(spellDetail, false);
+            switch (spellDetail->GetSpellDetail()->GetChannelEffectType())
+            {
+            case ChannelEffectEnum::None:
+            case ChannelEffectEnum::Wait:
+                icon->SetIcon(spellDetail, false);
+                break;
+            case ChannelEffectEnum::Active:
+            case ChannelEffectEnum::Trap:
+            case ChannelEffectEnum::Counter:
+                icon->SetIcon(spellDetail, true);
+                break;
+            }
+
             icon->SetOverlayToggle(false);
 
             if(!m_IsHighlightColumn)

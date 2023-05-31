@@ -106,10 +106,17 @@ void SpellIconUI::SetIcon(CastSpellDetail* spellDetail, bool doCast)
         m_BorderIndex = isSpelldoCast ? 0 : 2;
         break;
     case ChannelEffectEnum::Active:
-    case ChannelEffectEnum::Trap:
-    case ChannelEffectEnum::Counter:
-
         m_OverlayIndex = 2;
+        m_BorderIndex = isSpelldoCast ? 1 : 0;
+        break;
+
+    case ChannelEffectEnum::Trap:
+        m_OverlayIndex = 5;
+        m_BorderIndex = isSpelldoCast ? 1 : 0;
+        break;
+
+    case ChannelEffectEnum::Counter:
+        m_OverlayIndex = 6;
         m_BorderIndex = isSpelldoCast ? 1 : 0;
         break;
     }

@@ -212,7 +212,7 @@ void TimelineController::UpdatePreviewIcon(CastSpellDetail* spell)
         }
         for (size_t i = 0; i < 11; i++)
         {
-            m_Tracks[i]->PreviewIcon(spell, true, timeIndexs.contains(i));
+            m_Tracks[i]->PreviewIcon(spell, !(spell->SelectedTime - 1 == i), timeIndexs.contains(i));
         }
         break;
     }

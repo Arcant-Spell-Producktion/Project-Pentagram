@@ -195,7 +195,21 @@ void TimetrackUI::AddIcon(CastSpellDetail* spell)
 {
     PreviewIcon(spell,false,false);
     auto icon = m_ObjectManager->CreateObject<SpellIconUI>(new SpellIconUI(spell->GetSpellDetail()->GetSpellName() + "_icon", iconSize));
-    icon->SetIcon(spell, spell->doCast);
+
+    switch (spell->GetSpellDetail()->GetChannelEffectType())
+    {
+    case ChannelEffectEnum::None:
+    case ChannelEffectEnum::Wait:
+        icon->SetIcon(spell, spell->doCast);
+        break;
+    case ChannelEffectEnum::Active:
+    case ChannelEffectEnum::Trap:
+    case ChannelEffectEnum::Counter:
+        icon->SetIcon(spell, spell->Channel != CastSpellDetail::Head);
+        break;
+    }
+
+    
     m_IconParent->SetChildRenderBack(icon);
     m_Icons.push_back(icon);
 
