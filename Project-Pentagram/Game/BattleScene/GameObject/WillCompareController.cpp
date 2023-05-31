@@ -154,8 +154,7 @@ void WillCompareController::StartCompare(CasterPosition pos, int elementA, int e
     }
     else
     {
-        // TO DO:
-        // Add WillCompareTie SFX
+        AudioController::GetInstance().PlaySFX("Audio/SFX/Gameplay/Compare/sfx_gameplay_willcompare_draw.wav", 1.0f);
     }
 
     m_CurrentState = CompareState::Start;
