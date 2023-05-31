@@ -144,7 +144,12 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
     bool TrackIsSkip = false;
     for (CastSpellDetail* spell : m_TrackSpells)
     {
-        if (!spell->isCasted && spell->SpellOwner == winCaster && !TrackIsSkip)
+        ChannelEffectEnum channel = spell->GetSpellDetail()->GetChannelEffectType();
+        CastSpellDetail::ChannelType time = spell->Channel;
+        bool added = false;
+        //if (channel == ChannelEffectEnum::Active && time == CastSpellDetail::Body) continue;
+
+        if (!spell->isCasted && (spell->SpellOwner == winCaster) && !TrackIsSkip)
         {
             if (spell->TriggeredSpell == nullptr)
             {
@@ -159,10 +164,11 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
                     TrackIsSkip = true;
                 }
             }
-          
+            added = true;
+            
         }
         
-        if(spell->GetSpellDetail()->GetChannelEffectType() >= ChannelEffectEnum::Active && spell->Channel == CastSpellDetail::End)
+        if((channel >= ChannelEffectEnum::Active) && (time == CastSpellDetail::End))
         {
             std::cout << "Spell END RESOLVES\n";
 
@@ -171,7 +177,7 @@ std::vector<CastSpellDetail*> SpellTimetrack::GetSpellResolveList()
             {
                 std::cout << "ADD\n";
 
-                SpellToEnd.push_back(spell);
+                if(!added)SpellToEnd.push_back(spell);
             }
         }
     }

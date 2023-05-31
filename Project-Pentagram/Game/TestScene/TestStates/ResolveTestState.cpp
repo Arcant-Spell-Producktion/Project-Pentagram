@@ -59,6 +59,12 @@ void ResolveTestState::ResolveTrack()
 
 void ResolveTestState::ResolveSpell(int spell_index)
 {
+    if (m_ResolveTrack.size() == 0)
+    {
+        Step();
+        m_ResolveTestManager->Data.Timeline.UpdateTimeline();
+        return;
+    }
 
     m_CurrentSpellDetail = m_ResolveTrack[m_SpellResolveIndex];
     std::cout << "\tResovel Spell: " << m_SpellResolveIndex << " " << m_CurrentSpellDetail->GetSpellDetail()->GetSpellName() << "\n";

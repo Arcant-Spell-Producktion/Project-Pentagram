@@ -40,7 +40,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
                 {
                     CastSpellDetail* newSpell = new CastSpellDetail(*this);
                     newSpell->SelectedTime = i;
-                    newSpell->doCast = this->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Active;
+                    newSpell->doCast = false;
                     newSpell->ParentSpell = this;
                     newSpell->Channel = i < endTime ? CastSpellDetail::Body : CastSpellDetail::End;
                     battleManager.Data.Timeline.AddSpellToTimeline(newSpell);
