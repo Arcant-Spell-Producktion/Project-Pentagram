@@ -33,7 +33,8 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeText[VolumeType::MASTER] = new TextObject("MasterVolumeText");
 		VolumeText[VolumeType::MASTER]->position = { -450.0f, 150.0f, 0.0f };
 		VolumeText[VolumeType::MASTER]->text = "MasterVolume";
-		VolumeText[VolumeType::MASTER]->color = AC_BLACK;
+		VolumeText[VolumeType::MASTER]->color = AC_WHITE;
+		VolumeText[VolumeType::MASTER]->outlineColor = AC_BLACK;
 		VolumeText[VolumeType::MASTER]->fontSize = 36.0f;
 		SetChildRenderFront(VolumeSlider[VolumeType::MASTER]);
 		SetChildRenderFront(VolumeText[VolumeType::MASTER]);
@@ -57,7 +58,8 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeText[VolumeType::BGM] = new TextObject("BGMVolumeText");
 		VolumeText[VolumeType::BGM]->position = { -450.0f, 50.0f, 0.0f };
 		VolumeText[VolumeType::BGM]->text = "BGMVolume";
-		VolumeText[VolumeType::BGM]->color = AC_BLACK;
+		VolumeText[VolumeType::BGM]->color = AC_WHITE;
+		VolumeText[VolumeType::BGM]->outlineColor = AC_BLACK;
 		VolumeText[VolumeType::BGM]->fontSize = 36.0f;
 		SetChildRenderFront(VolumeSlider[VolumeType::BGM]);
 		SetChildRenderFront(VolumeText[VolumeType::BGM]);
@@ -81,7 +83,8 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		VolumeText[VolumeType::SFX] = new TextObject("BGMVolumeText");
 		VolumeText[VolumeType::SFX]->position = { -450.0f, -50.0f, 0.0f };
 		VolumeText[VolumeType::SFX]->text = "SFXVolume";
-		VolumeText[VolumeType::SFX]->color = AC_BLACK;
+		VolumeText[VolumeType::SFX]->color = AC_WHITE;
+		VolumeText[VolumeType::SFX]->outlineColor = AC_BLACK;
 		VolumeText[VolumeType::SFX]->fontSize = 36.0f;
 		SetChildRenderFront(VolumeSlider[VolumeType::SFX]);
 		SetChildRenderFront(VolumeText[VolumeType::SFX]);
@@ -93,7 +96,8 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 		windowSettingText = new TextObject("WindowSettingText");
 		windowSettingText->position = { -450.0f, -150.0f, 0.0f };
 		windowSettingText->text = "FullScreen Mode";
-		windowSettingText->color = AC_BLACK;
+		windowSettingText->color = AC_WHITE;
+		windowSettingText->outlineColor = AC_BLACK;
 		windowSettingText->fontSize = 36.0f;
 		windowSettingButton = new StaticButton("WindowSettingButton", { 250.0f, 90.0f, 0.0f });
 		windowSettingButton->textObject.text = (window->IsFullScreen() ? "On" : "Off");
