@@ -49,6 +49,8 @@ class ShortcutUI : public UIObject
 	public:
 		ShortcutUI();
 
+		void OnUpdate(const float& dt) override;
+
 		ShortcutButton* GetPauseButton() const;
 		ShortcutButton* GetInfoButton() const;
 		ShortcutButton* GetHelpButton() const;

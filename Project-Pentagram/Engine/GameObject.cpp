@@ -31,6 +31,7 @@ GameObject::GameObject(const std::string& objName)
 
 	// Set Texture
 	this->m_Texture = texture;
+	this->m_TexturePath = "Sprites/default.png";
 }
 GameObject::GameObject(const std::string& objName, const int& animRow, const std::vector<int>& animCol)
 	: m_Mesh(animRow, *std::max_element(animCol.begin(), animCol.end()))
@@ -359,9 +360,12 @@ void GameObject::SetAnimationPlayTime(const float& animationPlayTime)
 }
 void GameObject::SetTexture(const std::string& filePath)
 {
+	if (this->m_TexturePath == filePath) { return; }
+
 	Texture* texture = EngineDataCollector::GetInstance().GetTextureCollector()->GetTexture(filePath);
 	
 	this->m_Texture = texture;
+	this->m_TexturePath = filePath;
 	// Set Row & Coloumn of SpriteSheet
 	this->m_AnimationRow = texture->GetImageRow();
 	this->m_AnimationColumn = texture->GetImageColumn();

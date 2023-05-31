@@ -17,7 +17,8 @@ public:
 
     void SetStat(CasterStat stat);
     void SetIsShowDetail(bool active);
-    bool IsShowDetail();
+    bool IsShowDetail() const;
+    bool IsReadyToShowDetail() const;
     void SetDetail(CastSpellDetail* spell, bool isMainData = false, glm::vec3 IconPos = { 0,0,0 });
     void UpdateEffectBar(std::vector<EffectDetail_T> effects);
 

@@ -5,8 +5,6 @@
 ShortcutUI::ShortcutUI()
 	: UIObject("ShortcutUI")
 {
-
-	BattleManager& bm = BattleManager::GetInstance();
 	float offset = 10.0f;
 	float offsetScreenX = 150.0f;
 	float offsetScreenY = 20.0f;
@@ -24,16 +22,36 @@ ShortcutUI::ShortcutUI()
 	m_InfoButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Info(ALT)");
 	m_InfoButton->image->SetSpriteByIndex(0, 1);
 	m_InfoButton->hoverText->textAlignment = TextAlignment::MID;
-	m_InfoButton->onClick.AddListener([this, &bm](Button* button) {
-		
-		CasterUIController* casterUI = bm.Data.GetCaster(CasterPosition::CasterA)->GetCasterUI();
 
-		if (bm.Data.Timeline.UI->IsTimelineExpand() || casterUI->IsWheelActive())
-			return;
+	m_InfoButton->onHover = [this](Button* button)
+	{
+		if (BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->IsReadyToShowDetail())
+		{
+			button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_hove.png");
+			m_InfoButton->hoverText->SetActive(true);
+		}
+	};
+	m_InfoButton->onPress = [this](Button* button)
+	{
+		if (BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->IsReadyToShowDetail())
+			button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png");
+	};
+	m_InfoButton->unHover = [this](Button* button)
+	{
+		if (BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->IsReadyToShowDetail())
+		{
+			button->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_default1.png");
+		}
+		m_InfoButton->hoverText->SetActive(false);
+	};
 
-		casterUI->SetIsShowDetail(casterUI->IsShowDetail() ? false : true);
+	m_InfoButton->onClick = [this](Button* button) {
 
-	});
+		if (BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->IsReadyToShowDetail())
+		{
+			BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->SetIsShowDetail(BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI()->IsShowDetail() ? false : true);
+		}
+	};
 
 	m_HelpButton = new ShortcutButton("Sprites/UI/Game/ui_game_topbar-icon.png", "Help(F1)");
 	m_HelpButton->image->SetSpriteByIndex(0, 2);
@@ -44,6 +62,16 @@ ShortcutUI::ShortcutUI()
 	this->SetChildRenderFront(m_PauseButton);
 	this->SetChildRenderFront(m_InfoButton);
 	this->SetChildRenderFront(m_HelpButton);
+}
+
+void ShortcutUI::OnUpdate(const float& dt)
+{
+	CasterUIController* casterUI = BattleManager::GetInstance().Data.GetCaster(CasterPosition::CasterA)->GetCasterUI();
+
+	if (!casterUI->IsReadyToShowDetail())
+	{
+		m_InfoButton->SetTexture("Sprites/UI/Interactable/Button/ui_interactable_button_press.png");
+	}
 }
 
 ShortcutButton* ShortcutUI::GetPauseButton() const { return m_PauseButton; }

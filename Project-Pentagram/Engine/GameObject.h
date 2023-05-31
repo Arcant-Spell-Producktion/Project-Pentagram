@@ -19,6 +19,7 @@ class GameObject
 		// ----------------- Rendering -----------------
 		Mesh m_Mesh;
 		Texture* m_Texture;
+		std::string m_TexturePath;
 		bool m_IsActive;
 		unsigned int m_Tag;
 		bool m_IsZoomObject;

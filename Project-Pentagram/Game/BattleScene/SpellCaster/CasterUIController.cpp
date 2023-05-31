@@ -5,10 +5,14 @@
 
 CasterUIController::CasterUIController(CasterPosition position)
 {
-    BattleManager::GetInstance().Data.Timeline.UI->OnTimetrackExpand.AddListener([this](bool doExpand)
+    BattleManager& bm = BattleManager::GetInstance();
+
+    bm.Data.Timeline.UI->OnTimetrackExpand.AddListener([this](bool doExpand)
         {
             m_DetailBox->SetActive(doExpand ? false : m_IsShowDetailBox);
         });
+
+
 
     auto scene = GameStateController::GetInstance().currentScene;
     int pos = (int)position - 1;
@@ -28,14 +32,19 @@ void CasterUIController::SetStat(CasterStat stat)
 
 void CasterUIController::SetIsShowDetail(bool active)
 {
-    if (m_Roulette->IsActive() || BattleManager::GetInstance().Data.Timeline.UI->IsTimelineExpand()) { return; }
-
-    m_DetailBox->SetActive(active);
-    m_IsShowDetailBox = active;
+    if (IsReadyToShowDetail()) 
+    {
+        m_DetailBox->SetActive(active);
+        m_IsShowDetailBox = active;
+    }
 }
-bool CasterUIController::IsShowDetail()
+bool CasterUIController::IsShowDetail() const
 {
     return m_DetailBox->IsActive();
+}
+bool CasterUIController::IsReadyToShowDetail() const
+{
+    return !(m_Roulette->IsActive() || BattleManager::GetInstance().Data.Timeline.UI->IsTimelineExpand());
 }
 
 void CasterUIController::SetDetail(CastSpellDetail* spell, bool isMainData, glm::vec3 IconPos)
