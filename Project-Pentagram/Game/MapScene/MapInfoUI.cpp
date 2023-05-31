@@ -1,27 +1,26 @@
 ﻿#include "MapInfoUI.h"
 
-const std::string earthMapDescription = R"(Earth stage: A city of stone and science,
-found in a cavern and fill with machinery 
-fueled with magic led by Tierra
-Tarrencrest witch of the moving plateau.)";
+const std::string earthMapDescription = R"(A city of stone and science, found in
+a cavern and fill with machinery fueled
+with magic led by Tierra Tarrencrest
+witch of the moving plateau.)";
 
-const std::string fireMapDescription = R"(Fire stage: A city of flame surrounded
-by lava and volcano. Once guarded by 
-Helia Hino the witch of undying flame.)";
+const std::string fireMapDescription = R"(A city of flame surrounded by lava 
+and volcano. Once guarded by Helia Hino
+the witch of undying flame.)";
 
-const std::string waterMapDescription = R"(Water stage: An Under water city locate
-under the oceanic island maintained by
+const std::string waterMapDescription = R"(An Under water city locate under
+the oceanic island maintained by
 Seina Aquarone witch of the deep sea.)";
 
-const std::string windMapDescription = R"(Wind stage: A city of wind. Floating
-isolated land of serenity and breeze
-overseen by Fumi Ventis witch of 
-wailing wind)";
+const std::string windMapDescription = R"(A city of wind. Floating isolated land
+of serenity and breeze overseen by
+Fumi Ventis witch of wailing wind)";
 
-const std::string corruptMapDescription = R"(Corrupts stage: Once a small deserted
-island fill with vegetation, now center
-of corruptions that plague this land as
-the source of corruptions lies within.)";
+const std::string corruptMapDescription = R"(Once a small deserted island fill
+with vegetation, now center of corruptions
+that plague this land as the source of
+corruptions lies within.)";
 
 MapInfoUI::MapInfoUI()
 	: UIObject("MapInfoUI")
