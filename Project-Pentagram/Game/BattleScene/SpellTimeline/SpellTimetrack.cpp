@@ -1,5 +1,7 @@
 ﻿#include "SpellTimetrack.h"
 
+#include "Game/BattleScene/BattleManager.h"
+
 void SpellTimetrack::AdjustWillAfterCompare()
 {
     bool didCompare = DoWillCompare();
@@ -286,6 +288,7 @@ bool SpellTimetrack::DoWillCompare()
 
 void SpellTimetrack::UpdateTimetrack()
 {
+    BattleManager& bm = BattleManager::GetInstance();
 
     CasterPosition winCaster = CalculateWillCompareResult(true);
     if (winCaster <= CasterPosition::TIED)
@@ -296,9 +299,27 @@ void SpellTimetrack::UpdateTimetrack()
             {
                 csd->isCasted = true;
                 csd->isHidden = false;
+
+                if (csd->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Wait)
+                {
+                    bm.Data.GetCaster(csd->SpellOwner)->GetCasterObject()->PlayChannelAnim(-1);
+                }
             }
         }
         return;
+    }
+    else
+    {
+        for (CastSpellDetail* csd : m_TrackSpells)
+        {
+            if (winCaster != csd->SpellOwner)
+            {
+                if (csd->GetSpellDetail()->GetChannelEffectType() == ChannelEffectEnum::Wait)
+                {
+                    bm.Data.GetCaster(csd->SpellOwner)->GetCasterObject()->PlayChannelAnim(-1);
+                }
+            }
+        }
     }
 
     AdjustWillAfterCompare();

@@ -91,6 +91,7 @@ void CasterObject::OnUpdate(const float& dt)
         else
         {
             SetState(m_NextState);
+            if (m_ChannelCounter <= 0) m_NextState = CasterObjectState::Idle;
         }
     }
 
