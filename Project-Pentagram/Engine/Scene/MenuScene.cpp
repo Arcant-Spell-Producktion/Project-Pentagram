@@ -69,7 +69,7 @@ void MenuScene::GameSceneInit()
 	#pragma region Button
 
 		// Play Button
-		Button* playButton = CreateObject(new StaticButton("Play", { 330.0f, 160.0f, 1.0f }));
+		Button* playButton = CreateObject(new StaticButton("New Game", { 330.0f, 160.0f, 1.0f }));
 		playButton->SetSlicingBorderMultiplier(0.5f);
 		playButton->position = { 0.0f, 60.0f, 0.0f };
 
