@@ -252,6 +252,11 @@
     <ClCompile Include="Game\Objects\StaticButton.cpp" />
     <ClCompile Include="Game\TestScene\TestStates\ResultTestState.cpp" />
     <ClCompile Include="Game\Objects\ShortcutUI.cpp" />
+    <ClCompile Include="Game\Objects\ArrowButton.cpp" />
+    <ClCompile Include="Game\Objects\SpellAidUI.cpp" />
+    <ClCompile Include="Game\Objects\EffectAidUI.cpp" />
+    <ClCompile Include="Game\Objects\PlayerAidUI.cpp" />
+    <ClCompile Include="Game\Objects\SpellTypeAidUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SOIL.h" />
@@ -627,6 +632,10 @@
     <ClInclude Include="Game\Objects\StaticButton.h" />
     <ClInclude Include="Game\TestScene\TestStates\ResultTestState.h" />
     <ClInclude Include="Game\Objects\ShortcutUI.h" />
+    <ClInclude Include="Game\Objects\SpellAidUI.h" />
+    <ClInclude Include="Game\Objects\ArrowButton.h" />
+    <ClInclude Include="Game\Objects\EffectAidUI.h" />
+    <ClInclude Include="Game\Objects\SpellTypeAidUI.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Engine\Texture\awesomeface.png">

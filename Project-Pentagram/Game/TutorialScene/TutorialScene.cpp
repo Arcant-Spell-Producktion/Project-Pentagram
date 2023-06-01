@@ -25,6 +25,11 @@ void TutorialScene::GameSceneInit()
     tutorialManager.StartBattle(BattleMode::Tutorial);
 
     playerAidUI = CreateObject(new PlayerAidUI());
+    playerAidUI->GetBackButton()->onClick = [this](Button* button)
+    {
+        timeScale = 1.0f;
+        playerAidUI->SetActive(false);
+    };
     playerAidUI->SetActive(false);
 
     tur_pauseMenuObject = CreateObject(new PauseMenuObject());

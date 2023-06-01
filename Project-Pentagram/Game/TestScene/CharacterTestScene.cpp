@@ -24,6 +24,11 @@ void CharacterTestScene::GameSceneInit()
     charTestManager->StartBattle(BattleMode::Test);
 
     playerAidUI = CreateObject(new PlayerAidUI());
+    playerAidUI->GetBackButton()->onClick = [this](Button* button)
+    {
+        timeScale = 1.0f;
+        playerAidUI->SetActive(false);
+    };
     playerAidUI->SetActive(false);
 
     test_pauseMenuObject = CreateObject(new PauseMenuObject());
