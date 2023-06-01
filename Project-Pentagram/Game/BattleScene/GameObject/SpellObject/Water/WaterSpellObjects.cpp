@@ -314,11 +314,12 @@ void WaterSpell8::Initialize()
     windProp.sizeBegin = windProp.sizeEnd = 180.0f;
     windProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     windProp.rotationVariation = 0.0f;
-    windProp.velocity = { -600.0f * m_SpellTarget, -650.0f };
-    windProp.velocityVariation = {100.0f * m_SpellTarget, 50.0f };
+    windProp.velocity = { -600.0f * m_SpellTarget * 2.0f, -650.0f * 2.0f };
+    windProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
-    m_WindParticle = GameStateController::GetInstance().currentScene->CreateParticle(windProp);
+    m_WindParticle = new ParticleSystem("WindParticle");
+    m_WindParticle->baseParticle = windProp;
     m_WindParticle->SetTexture("Sprites/Spell/Water/spell_water_8-2.png");
     m_WindParticle->SetIsAnimationObject(true);
     m_WindParticle->SetIsFixRotation(true);
@@ -326,6 +327,10 @@ void WaterSpell8::Initialize()
     m_WindParticle->SetSpawnTime(0.15f);
 
     this->SetChildRenderFront(m_WindParticle);
+    
+    m_HailParticle = new ParticleSystem("HailParticle");
+    m_HailParticle->SetActive(false);
+    this->SetChildRenderFront(m_HailParticle);
 
     m_AudioControllerPtr.PlaySFX("Audio/SFX/Gameplay/Spell/Water/sfx_gameplay_spell_water_8.wav", 1.0f);
     QueueWaitEvent(1.5f);
@@ -334,25 +339,26 @@ void WaterSpell8::Initialize()
         [this](float dt)
         {
             ParticleProperty hailProp;
-            hailProp.position = { 100.0f, 200.0f };
+            hailProp.position = { 150.0f, 300.0f };
             hailProp.positionVariation = { 250.0f,0.0f };
             hailProp.colorBegin = { 1.0f, 1.0f, 1.0f, 1.0f };
             hailProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
             hailProp.sizeBegin = hailProp.sizeEnd = 80.0f;
             hailProp.rotation = m_SpellTarget == 1 ? -125.0f : -35.0f;
             hailProp.rotationVariation = 0.0f;
-            hailProp.velocity = { -750.0f * m_SpellTarget, -700.0f };
+            hailProp.velocity = { -750.0f * m_SpellTarget * 2.0f, -700.0f * 2.0f };
             hailProp.velocityVariation = { 100.0f, 100.0f };
             hailProp.lifeTime = 1.5f;
 
-            m_HailParticle = GameStateController::GetInstance().currentScene->CreateParticle(hailProp);
+            m_HailParticle->baseParticle = hailProp;
             m_HailParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
             m_HailParticle->SetIsAnimationObject(true);
+            m_HailParticle->SetAnimationPlayTime(0.05f);
             m_HailParticle->SetIsFixRotation(true);
             m_HailParticle->SetIsAnimationLoop(false);
             m_HailParticle->SetSpawnTime(0.075f);
+            m_HailParticle->SetActive(true);
 
-            this->SetChildRenderFront(m_HailParticle);
             Next();
         });
 
