@@ -18,10 +18,10 @@ SpellAidUI::SpellAidUI() : UIObject("SpellAidUI")
 	{
 		switch (idx)
 		{
-			case 0: m_SpellList[idx] = new SpellObject(Element::Wind, 6, idx); break;
-			case 1: m_SpellList[idx] = new SpellObject(Element::Earth, 7, idx); break;
-			case 2: m_SpellList[idx] = new SpellObject(Element::Earth, 5, idx); break;
-			case 3: m_SpellList[idx] = new SpellObject(Element::Earth, 6, idx); break;
+			case 0: m_SpellList[idx] = new SpellObject(Element::Earth, 7, idx); break;
+			case 1: m_SpellList[idx] = new SpellObject(Element::Earth, 5, idx); break;
+			case 2: m_SpellList[idx] = new SpellObject(Element::Earth, 6, idx); break;
+			case 3: m_SpellList[idx] = new SpellObject(Element::Wind, 6, idx); break;
 		}
 
 		m_SpellList[idx]->position = m_SpellPositionList[idx];

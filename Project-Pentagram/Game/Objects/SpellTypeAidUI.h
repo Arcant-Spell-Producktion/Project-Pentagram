@@ -13,24 +13,30 @@
 
 const std::string SpellTypeDescription[5] =
 {
-R"(Normal Spell: when the spell the spell is launched in the same time track.)",
+R"(Basic Spell:
+- Engage in Spell Crashing.
+- Activate upon winning Spell Crashing.)",
 
-R"(Delayed Spell: when the spell is cast, it will 
-land after a certain time after its launch 
+R"(Delayed Spell:
+- Do not Engage in Spell Crashing.
+- Upon Activate, Cast the Spell)",
 
-The launch (head) part will not count
-toward the will compare in that time track
-but the landed (tail) parts will.)",
+R"(Lasting spell:
+- Do not Engage in Spell Crashing.
+- Once Activated, the Spell stay in effect
+  for the entire duration.)",
 
-R"(Lasting spell: when cast the spell last for
-more than one-time track.)",
+R"(Trap spell:
+- Do not Engage in Spell Crashing.
+- Activate upon Any Opponent Spell
+  Activate.
+- Only Activate once.)",
 
-R"(Trap spell: Activate when the opponent
-cast a spell during activation.)",
-
-R"(Counter spell: Activate when the opponent
-spells targets you during this spell
-activation.)"
+R"(Counter spell:
+- Do not Engage in Spell Crashing.
+- Activate upon Opponent Spell that
+  targeted the Another Unit Activate.
+- Only Activate once.)"
 
 };
 
@@ -113,13 +119,12 @@ class SpellTypeAidUI : public UIObject
 		SpellTypeObject* m_SpellTypeList[5];
 		glm::vec3 m_SpellTypePositionList[5] = {
 
-			glm::vec3(-200.0f, 250.0f, 0.0f),
+			glm::vec3(-650.0f, 250.0f, 0.0f),
+			glm::vec3( 100.0f, 250.0f, 0.0f),
 
-			glm::vec3(-650.0f, 25.0f, 0.0f),
-			glm::vec3(150.0f, 25.0f, 0.0f),
-
-			glm::vec3(-200.0f, -200.0f, 0.0f),
-			glm::vec3(-200.0f, -425.0f, 0.0f)
+			glm::vec3(-650.0f,-150.0f, 0.0f),
+			glm::vec3( 100.0f, 0.0f, 0.0f),
+			glm::vec3(100.0f, -250.0f, 0.0f),
 		};
 
 		TextObject* m_Header;

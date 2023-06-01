@@ -13,45 +13,46 @@
 
 const std::string EffectDescription[7] =
 {
-	// Marking
-	R"(Marking: Unit with mark effect take double
-damage from the next spell.)",
+// Marking
+R"(Marking: Unit with mark take double damage
+from the next spell during this turn.)",
 
 // Burning
-R"(Burning: Unit with burning will take 10 damage
-per stack at the start of the turn.
+R"(Burning: Unit with Burning take 10 damage per
+stack at the start of the turn.
 (Stack decrease by 1 after take damage))",
 
 // Overflow
-R"(Overflow: Unit with Overflow gain an extra
-mana during this battle (Maximum at 5))",
+R"(Overflow: Unit with Overflow gain 1 extra
+mana per stack during this battle.
+(Max stack 5))",
 
 // Freezing
-R"(Freezing: Unit with Freezing will use 1 more
-mana to adjust cast time.
-(this effect is stackable))",
+R"(Freezing: Unit with Freezing use 1 more mana
+per stack to decrease Cast Time, during this
+turn. (Max stack 3))",
 
 // Fortified
-R"(Fortified: Unit with fortified effect negate
-damage from spell (max stack 3))",
+R"(Fortified: Unit with Fortified negate damage
+from the next Spell. (Max stack 3))",
 
 // Petrify
-R"(Petrify: Unit with petrify will have 1 less will for
-each spell (can't go below 1))",
+R"(Petrify: Spell of Unit with Petrify have 1 less
+Will per stack, during this turn. (Minimum 1)
+(Max stack 3))",
 
 // Boost
-R"(Boost: When a spell wins in a Will Compare sequence
-gain a stack. On next turn gain a buff based on how
-many stacks you have.
+R"(Boost: Gain stack(s) upon winning spell crash.
+At start of the turn gain buffs based on the stacks.
 
-2+ stack: Reduce cost for changing Cast time this
-turn by 1
+2+ stack: Reduce cost for decrease Cast Time this turn by 1.
 
-5+ stack: Reduce cost for changing WILL this turn
-by 1
+5+ stack: Reduce cost for increasing Will this turn by 1.
 
-8+ stack: Damage from spell +10.
-(At the start of next turn boost stack become 0))"
+8 stack: Increase all Spell Damage cast this turn by 10.
+
+Upon reaching 8 stack, during this turn no stack is gain and
+the stack is reset at the end of this turn.)"
 
 };
 
@@ -101,7 +102,7 @@ class EffectAidUI : public UIObject
 			glm::vec3(125.0f, -50.0f, 0.0f),
 
 			// Wind Effect
-			glm::vec3(-300.0f,-325.0f, 0.0f),
+			glm::vec3(-400.0f,-325.0f, 0.0f),
 		};
 
 		TextObject* m_Header;

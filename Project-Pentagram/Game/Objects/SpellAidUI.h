@@ -13,20 +13,19 @@
 
 const std::string SpellDescription[4] =
 {
-R"(Fairy trick: During activation shift all the
-enemies spell in the time track backward by
-one track.)",
 
 R"(Unbreakable shield: Ignore all damage during
-spell activation actitation.)",
+spell activation.)",
 
-R"(Earth prison: during activation destroy all the
-enemies spell in the first time track on
-contract.)",
+R"(Earth prison: Upon Activation, cancel all the
+enemy spells in the TimeTrack.)",
 
-R"(Reflect shield: During activation destroy an
-enemies spell that target the witch and reflect
-the damage to the enemies.)"
+R"(Reflect shield: Upon Activation, cancel the
+spell that activate it, and reflect the damage.)",
+
+R"(Fairy trick: Upon Activation, decrease the
+enemy spell's Cast Time by one.)"
+
 };
 
 class SpellAidUI : public UIObject
@@ -46,11 +45,10 @@ class SpellAidUI : public UIObject
 				spell = new Spell(element, spellIndex);
 				switch (spellOrder)
 				{
-				case 0: spell->SetChannelEffectType(ChannelEffectEnum::Wait); break;
-				case 1: spell->SetChannelEffectType(ChannelEffectEnum::Active); break;
-				case 2: spell->SetChannelEffectType(ChannelEffectEnum::Trap); break;
-				case 3: spell->SetChannelEffectType(ChannelEffectEnum::Counter); break;
-				case 4: spell->SetChannelEffectType(ChannelEffectEnum::Active); break;
+					case 0: spell->SetChannelEffectType(ChannelEffectEnum::Active); break;
+					case 1: spell->SetChannelEffectType(ChannelEffectEnum::Trap); break;
+					case 2: spell->SetChannelEffectType(ChannelEffectEnum::Counter); break;
+					case 3: spell->SetChannelEffectType(ChannelEffectEnum::Trap); break;
 				}
 				spellDetail = new CastSpellDetail(CasterPosition::CasterA, spell, 0, 0);
 
@@ -80,12 +78,12 @@ class SpellAidUI : public UIObject
 
 		SpellObject* m_SpellList[5];
 		glm::vec3 m_SpellPositionList[5] = {
-			// Wind Spell
-			glm::vec3(-750.0f, 200.0f, 0.0f),
-
 			// Earth Spell
+			glm::vec3(-750.0f, 200.0f, 0.0f),
 			glm::vec3(125.0f, 200.0f, 0.0f),
 			glm::vec3(-750.0f, -50.0f, 0.0f),
+
+			// Wind Spell
 			glm::vec3(125.0f, -50.0f, 0.0f),
 		};
 
