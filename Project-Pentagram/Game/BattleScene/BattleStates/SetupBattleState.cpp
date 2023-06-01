@@ -45,22 +45,22 @@ void SetupBattleState::OnBattleStateIn()
     switch(currentNode->GetEnemyData().Element())
     {
     case Element::Earth:
-        bgm = audioController.CreateBGM({ "Audio/BGM/Earth/bgm_earth_1-1.wav", "Audio/BGM/Earth/bgm_earth_1-2.wav","Audio/BGM/Earth/bgm_earth_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Earth/bgm_earth_1-1.wav", "Audio/BGM/Earth/bgm_earth_1-2.wav","Audio/BGM/Earth/bgm_earth_1-3.wav" }, { 0.3f, 0.3f, 0.3f, 0.3f });
         break;
     case Element::Fire:
-        bgm = audioController.CreateBGM({ "Audio/BGM/Fire/bgm_fire_1-1.wav", "Audio/BGM/Fire/bgm_fire_1-2.wav","Audio/BGM/Fire/bgm_fire_1-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Fire/bgm_fire_1-1.wav", "Audio/BGM/Fire/bgm_fire_1-2.wav","Audio/BGM/Fire/bgm_fire_1-3.wav" }, { 0.4f, 0.4f, 0.4f, 0.4f });
         break;
     case Element::Water:
-        bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 0.5f, 0.5f, 0.5f, 0.5f });
         break;
     case Element::Wind:
-        bgm = audioController.CreateBGM({ "Audio/BGM/Wind/bgm_wind_1-1.wav", "Audio/BGM/Wind/bgm_wind_1-2.wav", "Audio/BGM/Wind/bgm_wind_1-3.wav" }, { 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/Wind/bgm_wind_1-1.wav", "Audio/BGM/Wind/bgm_wind_1-2.wav", "Audio/BGM/Wind/bgm_wind_1-3.wav" }, { 0.5f, 0.5f, 0.5f });
         break;
     case Element::Corrupt:
-        bgm = audioController.CreateBGM({ "Audio/BGM/FinalBoss/bgm_finalboss_1-1.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-2.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-3.wav" }, { 1.0f, 1.0f, 1.0f });
+        bgm = audioController.CreateBGM({ "Audio/BGM/FinalBoss/bgm_finalboss_1-1.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-2.wav", "Audio/BGM/FinalBoss/bgm_finalboss_1-3.wav" }, { 0.5f, 0.5f, 0.5f });
         break;
      default:
-         bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 1.0f, 1.0f, 1.0f, 1.0f });
+         bgm = audioController.CreateBGM({ "Audio/BGM/Water/bgm_water_2-1.wav", "Audio/BGM/Water/bgm_water_2-2.wav","Audio/BGM/Water/bgm_water_2-3.wav" }, { 0.5f, 0.5f, 0.5f, 0.5f });
         break;
     }
 
