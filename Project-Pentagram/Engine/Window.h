@@ -36,6 +36,7 @@ class Window
 		glm::vec2 m_ViewportRatio = glm::vec2(1.0f, 1.0f);
 		glm::vec2 m_ViewportPosition = glm::vec2(0.0f, 0.0f);
 		bool m_Close = false;
+		bool m_IsFullScreen = false;
 
 		glm::ivec2 prevScale;
 		glm::ivec2 prevPos;

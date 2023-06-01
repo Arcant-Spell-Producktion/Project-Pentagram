@@ -131,6 +131,8 @@ void Window::SetFullScreen(const bool fullscreen)
 	if (IsFullScreen() == fullscreen)
 		return;
 
+	m_IsFullScreen = fullscreen;
+
 	if (fullscreen)
 	{
 		// backup window position and window size
@@ -142,16 +144,21 @@ void Window::SetFullScreen(const bool fullscreen)
 		// get resolution of monitor
 		const GLFWvidmode* mode = glfwGetVideoMode(m_Monitor);
 
-		// switch to full screen
-		glfwSetWindowMonitor(m_Window, m_Monitor, 0, 0, mode->width, mode->height, 0);
+		// Set window hint for borderless window
+		glfwSetWindowAttrib(m_Window, GLFW_DECORATED, GLFW_FALSE);
 
-		this->InitMaximizeWidget();
+		// switch to borderless
+		glfwSetWindowMonitor(m_Window, nullptr, 0, 0, mode->width, mode->height, 0);
 	}
 	else
 	{
+		// Set window hint for windowed
+		glfwSetWindowAttrib(m_Window, GLFW_DECORATED, GLFW_TRUE);
+
 		// restore last window size and position		
 		glfwSetWindowMonitor(m_Window, nullptr, prevPos.x, prevPos.y, prevScale.x, prevScale.y, 0);
-
+		
+		this->InitMaximizeWidget();
 	}
 }
 
@@ -198,7 +205,7 @@ bool Window::IsRunning() const
 }
 bool Window::IsFullScreen() const
 {
-	return glfwGetWindowMonitor(m_Window) != nullptr;
+	return m_IsFullScreen;
 }
 
 void Window::Init()
