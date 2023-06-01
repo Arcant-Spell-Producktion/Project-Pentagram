@@ -132,12 +132,12 @@
       </WillValue>
       <SpellEffect>Petrify</SpellEffect>
       <EffectValue>
-        <Value>1</Value>
-        <Value>2</Value>
-        <Value>2</Value>
-        <Value>3</Value>
-        <Value>3</Value>
-        <Value>3</Value>
+        <Value>60</Value>
+        <Value>65</Value>
+        <Value>70</Value>
+        <Value>75</Value>
+        <Value>80</Value>
+        <Value>85</Value>
       </EffectValue>
       <CastTime>4</CastTime>
       <ChannelTime>2</ChannelTime>
@@ -178,7 +178,7 @@
         <Value>0</Value>
         <Value>0</Value>
       </WillValue>
-      <SpellEffect>Petrify</SpellEffect>
+      <SpellEffect>Fortify</SpellEffect>
       <EffectValue>
         <Value>50</Value>
         <Value>55</Value>
