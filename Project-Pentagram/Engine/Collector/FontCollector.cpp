@@ -62,7 +62,7 @@ void FontCollector::LoadFont(const std::string& fontPath)
 	std::map<GLchar, Character> characters;
 
 	// For loop for all possible characters
-	for (unsigned char c = 0; c < 128; c++)
+	for (unsigned int c = 0; c < 256; c++)
 	{
 		// Load Character
 		if (FT_Load_Char(face, c, FT_LOAD_NO_BITMAP | FT_LOAD_TARGET_NORMAL))
