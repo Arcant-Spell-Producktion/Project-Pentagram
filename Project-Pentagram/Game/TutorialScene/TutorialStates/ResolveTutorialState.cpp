@@ -20,12 +20,6 @@ void ResolveTutorialState::ResolveTrack()
 {
     BattleManager m_BattleManager = BattleManager::GetInstance();
 
-    if (m_ResolveTrack.size() == 0)
-    {
-        Step();
-        m_BattleManager.Data.Timeline.UpdateTimeline();
-        return;
-    }
     std::cout << "Resovel Track: " << m_TrackResolveIndex << "\n";
 
     m_CurrentTrack = m_BattleManager.Data.Timeline.GetTimetrack(m_TrackResolveIndex);
