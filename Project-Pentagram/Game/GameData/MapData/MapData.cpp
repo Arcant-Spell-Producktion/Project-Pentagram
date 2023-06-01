@@ -112,7 +112,7 @@ void MapData::LoadMapData(MapSaveData data)
         ChapterData* chapter = m_Chapters[static_cast<Element::Type>(i)];
         chapter->CanVisit = data.canVisit[i];
         chapter->SetCurrentNode(data.nodeIndex[i]);
-        if(chapter->CanVisit) chapter->UpdateChapter(m_CompleteChapterCount);
+        chapter->UpdateChapter(m_CompleteChapterCount);
     }
 }
 
