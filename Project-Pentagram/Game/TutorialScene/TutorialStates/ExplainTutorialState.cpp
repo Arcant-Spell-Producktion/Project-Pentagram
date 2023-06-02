@@ -10,7 +10,9 @@
 
 void ExplainTutorialState::UpdateEvent()
 {
+    m_Texts->textObject.SetRenderTime(0.015f);
     m_Texts->textObject.text = m_TutorialStep[m_CurrentEvent].TutorialText;
+
     for (TutorialObjectEvent e : m_TutorialStep[m_CurrentEvent].ObjectEvents)
     {
         if (e.Obj == MainObjectEnum::Null && e.Type == TutorialEventType::Focus)
@@ -75,13 +77,13 @@ void ExplainTutorialState::OnBattleStateIn()
     m_Texts->position.y -= 300.0f;
     m_Texts->onClick += [this, &bm](Button* button)
     {
-        OnTextClick();
+        if(m_IsClickAble) OnTextClick();
     };
 }
 
 void ExplainTutorialState::OnBattleStateUpdate(float dt)
 {
-
+    m_IsClickAble = m_Texts->textObject.IsRenderComplete();
 }
 
 void ExplainTutorialState::OnBattleStateOut()

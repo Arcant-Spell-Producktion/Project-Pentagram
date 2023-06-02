@@ -54,6 +54,7 @@ void PentagramFieldButton::SetActive(const bool& active)
 {
     GameObject::SetActive(active);
     if(m_SelectedField != PentagramField::Complex) ComplexRune->SetActive(false);
+    m_HoverText->SetActive(false);
 }
 
 void PentagramFieldButton::SetToggle(bool isToggle)
