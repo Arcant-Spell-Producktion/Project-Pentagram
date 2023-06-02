@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project-Pentagram", "Project-Pentagram\Project-Pentagram.vcxproj", "{FE823A51-0FB2-4C12-9DCD-005B00BCF49B}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PentagramInstaller", "PentagramInstaller\PentagramInstaller.vdproj", "{42647495-ED76-4BF6-91FA-15356FF8912D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PentagramInstaller", "PentagramInstaller\PentagramInstaller.vdproj", "{BDF5CE69-FB1A-4BA7-96AE-D448D3693CDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{FE823A51-0FB2-4C12-9DCD-005B00BCF49B}.Release|x64.Build.0 = Release|x64
 		{FE823A51-0FB2-4C12-9DCD-005B00BCF49B}.Release|x86.ActiveCfg = Release|Win32
 		{FE823A51-0FB2-4C12-9DCD-005B00BCF49B}.Release|x86.Build.0 = Release|Win32
-		{42647495-ED76-4BF6-91FA-15356FF8912D}.Debug|x64.ActiveCfg = Debug
-		{42647495-ED76-4BF6-91FA-15356FF8912D}.Debug|x86.ActiveCfg = Debug
-		{42647495-ED76-4BF6-91FA-15356FF8912D}.Release|x64.ActiveCfg = Release
-		{42647495-ED76-4BF6-91FA-15356FF8912D}.Release|x86.ActiveCfg = Release
+		{BDF5CE69-FB1A-4BA7-96AE-D448D3693CDB}.Debug|x64.ActiveCfg = Debug
+		{BDF5CE69-FB1A-4BA7-96AE-D448D3693CDB}.Debug|x86.ActiveCfg = Debug
+		{BDF5CE69-FB1A-4BA7-96AE-D448D3693CDB}.Release|x64.ActiveCfg = Release
+		{BDF5CE69-FB1A-4BA7-96AE-D448D3693CDB}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
