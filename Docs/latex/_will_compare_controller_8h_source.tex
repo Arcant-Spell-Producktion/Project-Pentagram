@@ -4,8 +4,8 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}>}}
-\DoxyCodeLine{4 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_controller_8h}{Engine/Audio/AudioController.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}>}}
 \DoxyCodeLine{5 }
 \DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_will_compare_controller}{WillCompareController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
 \DoxyCodeLine{7 \{}
@@ -31,19 +31,17 @@
 \DoxyCodeLine{27 }
 \DoxyCodeLine{28     \textcolor{keywordtype}{float} m\_curTime = 0.0f;}
 \DoxyCodeLine{29 }
-\DoxyCodeLine{30     \textcolor{keywordtype}{bool} m\_PlayedAnimation = \textcolor{keyword}{false};}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32     \textcolor{keywordtype}{void} UpdateParticle();}
-\DoxyCodeLine{33     \textcolor{keywordtype}{void} FadeOutParticle();}
-\DoxyCodeLine{34     \textcolor{keywordtype}{void} EndCompare();}
-\DoxyCodeLine{35 \textcolor{keyword}{public}:}
-\DoxyCodeLine{36     \mbox{\hyperlink{class_event}{Event<bool>}} \mbox{\hyperlink{class_will_compare_controller_a4b539a5172be198b7dfc152981fb50e3}{OnCompareDone}};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} UpdateParticle();}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} FadeOutParticle();}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} EndCompare();}
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_event}{Event<CasterPosition>}} \mbox{\hyperlink{class_will_compare_controller_adde49a5a2c669a9062254ffa878ecabd}{OnCompareDone}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_will_compare_controller_ad27f69b3a1468a3a077e64f1eb516f23}{WillCompareController}}();}
 \DoxyCodeLine{37 }
-\DoxyCodeLine{38     \mbox{\hyperlink{class_will_compare_controller_ad27f69b3a1468a3a077e64f1eb516f23}{WillCompareController}}();}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_a06962877ee52a146bb25184ef225ae22}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
 \DoxyCodeLine{39 }
-\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_a06962877ee52a146bb25184ef225ae22}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_a7322d4554de09f423957a9567fba6263}{StartCompare}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} pos);}
-\DoxyCodeLine{43 \};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_will_compare_controller_aa4c7e94700c3698ed0c0e95fc6b45541}{StartCompare}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} pos, \textcolor{keywordtype}{int} elementA, \textcolor{keywordtype}{int} elementB);}
+\DoxyCodeLine{41 \};}
 
 \end{DoxyCode}

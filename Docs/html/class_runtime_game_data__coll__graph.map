@@ -1,7 +1,9 @@
 <map id="RuntimeGameData" name="RuntimeGameData">
-<area shape="rect" id="node1" title=" " alt="" coords="45,171,177,197"/>
-<area shape="rect" id="node2" href="$class_singleton.html" title=" " alt="" coords="5,260,216,287"/>
-<area shape="rect" id="node3" href="$class_player_data.html" title=" " alt="" coords="14,81,101,108"/>
-<area shape="rect" id="node4" href="$class_caster_data.html" title=" " alt="" coords="14,5,101,32"/>
-<area shape="rect" id="node5" href="$class_map_data.html" title=" " alt="" coords="125,81,200,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="286,260,418,287"/>
+<area shape="rect" id="node2" href="$class_singleton.html" title=" " alt="" coords="5,171,216,197"/>
+<area shape="rect" id="node3" href="$class_player_data.html" title=" " alt="" coords="241,171,327,197"/>
+<area shape="rect" id="node4" href="$class_caster_data.html" title=" " alt="" coords="241,95,327,121"/>
+<area shape="rect" id="node5" href="$struct_caster_stat.html" title=" " alt="" coords="242,5,326,32"/>
+<area shape="rect" id="node6" href="$class_map_data.html" title=" " alt="" coords="352,171,427,197"/>
+<area shape="rect" id="node7" href="$class_tutorial_data.html" title=" " alt="" coords="451,171,541,197"/>
 </map>

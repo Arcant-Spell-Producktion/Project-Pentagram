@@ -1,0 +1,52 @@
+<map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteUI.cpp" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteUI.cpp">
+<area shape="rect" id="node1" title=" " alt="" coords="2420,5,2601,76"/>
+<area shape="rect" id="node2" href="$_mana_roulette_u_i_8h.html" title=" " alt="" coords="2389,124,2515,151"/>
+<area shape="rect" id="node50" title=" " alt="" coords="2539,124,2602,151"/>
+<area shape="rect" id="node3" href="$_i_game_object_manager_8h.html" title=" " alt="" coords="2041,273,2244,300"/>
+<area shape="rect" id="node45" title=" " alt="" coords="2579,572,2656,599"/>
+<area shape="rect" id="node48" href="$_mana_roulette_number_u_i_8h.html" title=" " alt="" coords="2305,199,2476,225"/>
+<area shape="rect" id="node49" title=" " alt="" coords="2592,199,2643,225"/>
+<area shape="rect" id="node4" href="$_game_object_tag_8h.html" title=" " alt="" coords="432,721,603,748"/>
+<area shape="rect" id="node5" href="$_game_object_8h.html" title=" " alt="" coords="766,647,917,673"/>
+<area shape="rect" id="node38" href="$_particle_system_8h.html" title=" " alt="" coords="325,572,491,599"/>
+<area shape="rect" id="node40" href="$_u_i_object_8h.html" title=" " alt="" coords="2174,572,2301,599"/>
+<area shape="rect" id="node41" href="$_text_object_8h.html" title=" " alt="" coords="1814,497,2010,524"/>
+<area shape="rect" id="node42" href="$_button_8h.html" title=" " alt="" coords="2085,423,2200,449"/>
+<area shape="rect" id="node46" href="$_slider_8h.html" title=" " alt="" coords="2275,348,2386,375"/>
+<area shape="rect" id="node6" title=" " alt="" coords="564,960,657,987"/>
+<area shape="rect" id="node7" title=" " alt="" coords="331,803,522,830"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1936,960,2011,987"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1368,960,1424,987"/>
+<area shape="rect" id="node10" href="$_arcant_engine_8h.html" title=" " alt="" coords="145,803,255,830"/>
+<area shape="rect" id="node22" href="$_camera_8h.html" title=" " alt="" coords="278,721,357,748"/>
+<area shape="rect" id="node23" href="$_mesh_8h.html" title=" " alt="" coords="830,721,951,748"/>
+<area shape="rect" id="node27" href="$_texture_8h.html" title=" " alt="" coords="1451,885,1583,912"/>
+<area shape="rect" id="node31" href="$_shader_8h.html" title=" " alt="" coords="1021,885,1152,912"/>
+<area shape="rect" id="node33" href="$_engine_data_collector_8h.html" title=" " alt="" coords="1789,721,1995,748"/>
+<area shape="rect" id="node11" title=" " alt="" coords="653,1035,717,1061"/>
+<area shape="rect" id="node12" title=" " alt="" coords="316,885,375,912"/>
+<area shape="rect" id="node13" href="$_window_8h.html" title=" " alt="" coords="162,885,241,912"/>
+<area shape="rect" id="node21" href="$_singleton_8h.html" title=" " alt="" coords="1761,885,1895,912"/>
+<area shape="rect" id="node14" title=" " alt="" coords="791,960,876,987"/>
+<area shape="rect" id="node15" title=" " alt="" coords="195,1035,283,1061"/>
+<area shape="rect" id="node16" title=" " alt="" coords="162,960,283,987"/>
+<area shape="rect" id="node17" href="$stb__image_8h.html" title=" " alt="" coords="901,960,1059,987"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1547,1035,1619,1061"/>
+<area shape="rect" id="node19" href="$_input_8h.html" title=" " alt="" coords="25,960,87,987"/>
+<area shape="rect" id="node20" title=" " alt="" coords="25,1035,87,1061"/>
+<area shape="rect" id="node24" href="$_v_a_o_8h.html" title=" " alt="" coords="851,803,912,830"/>
+<area shape="rect" id="node25" href="$_v_b_o_8h.html" title=" " alt="" coords="835,885,896,912"/>
+<area shape="rect" id="node26" href="$_e_b_o_8h.html" title=" " alt="" coords="749,885,811,912"/>
+<area shape="rect" id="node28" title=" " alt="" coords="1258,960,1323,987"/>
+<area shape="rect" id="node29" title=" " alt="" coords="2235,960,2290,987"/>
+<area shape="rect" id="node30" title=" " alt="" coords="1720,960,1789,987"/>
+<area shape="rect" id="node32" title=" " alt="" coords="1084,960,1153,987"/>
+<area shape="rect" id="node34" href="$_shader_collector_8h.html" title=" " alt="" coords="1189,803,1413,830"/>
+<area shape="rect" id="node35" href="$_font_collector_8h.html" title=" " alt="" coords="1489,803,1698,830"/>
+<area shape="rect" id="node36" href="$_texture_collector_8h.html" title=" " alt="" coords="1825,796,1989,837"/>
+<area shape="rect" id="node37" href="$_audio_engine_8h.html" title=" " alt="" coords="2013,803,2200,830"/>
+<area shape="rect" id="node39" title=" " alt="" coords="145,647,311,673"/>
+<area shape="rect" id="node43" href="$_event_8h.html" title=" " alt="" coords="2401,497,2466,524"/>
+<area shape="rect" id="node44" title=" " alt="" coords="2413,572,2453,599"/>
+<area shape="rect" id="node47" href="$_color_8h.html" title=" " alt="" coords="1950,423,2061,449"/>
+</map>

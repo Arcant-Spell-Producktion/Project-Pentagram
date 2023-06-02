@@ -83,6 +83,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abe1b83eda6980f2b9964aab08b5310ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef67808752d9e9b618859e698f31362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a4ef67808752d9e9b618859e698f31362">Close</a> ()</td></tr>
 <tr class="separator:a4ef67808752d9e9b618859e698f31362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe173020b0b215876e11bc91f146fcc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#afe173020b0b215876e11bc91f146fcc4">UpdateGameViewport</a> ()</td></tr>
+<tr class="separator:afe173020b0b215876e11bc91f146fcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e9639761e39eb7ca9f89d371fe97d0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a9e9639761e39eb7ca9f89d371fe97d0f">UpdateCursorViewport</a> ()</td></tr>
+<tr class="separator:a9e9639761e39eb7ca9f89d371fe97d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7411034f7c33f1db37e46cda453b8a92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a7411034f7c33f1db37e46cda453b8a92">SetWindowSize</a> (const glm::ivec2 windowSize)</td></tr>
 <tr class="separator:a7411034f7c33f1db37e46cda453b8a92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd64203f7a91f9d7b2132ae819ff8d2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#afd64203f7a91f9d7b2132ae819ff8d2c">SetWindowSize</a> (const int &amp;windowWidth, const int &amp;windowHeight)</td></tr>
@@ -99,6 +103,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a587a732c7bda14731ddab578621d92de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5b994f139071644c8ec0d7c935d172f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#ac5b994f139071644c8ec0d7c935d172f">SetViewportDiffRatio</a> (const glm::vec2 &amp;ratio)</td></tr>
 <tr class="separator:ac5b994f139071644c8ec0d7c935d172f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32258786e33dac3de812ab5705b1cf67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a32258786e33dac3de812ab5705b1cf67">SetViewportPosition</a> (const glm::vec2 &amp;position)</td></tr>
+<tr class="separator:a32258786e33dac3de812ab5705b1cf67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af982293d908d5acf7c92837579bf6782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#af982293d908d5acf7c92837579bf6782">SetClose</a> (const bool &amp;close)</td></tr>
 <tr class="separator:af982293d908d5acf7c92837579bf6782"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4571a6558a7e9e15cbe21c183458ffea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_window.html#a4571a6558a7e9e15cbe21c183458ffea">SetFullScreen</a> (const bool fullscreen)</td></tr>
@@ -510,6 +516,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a32258786e33dac3de812ab5705b1cf67" name="a32258786e33dac3de812ab5705b1cf67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32258786e33dac3de812ab5705b1cf67">&#9670;&nbsp;</a></span>SetViewportPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::SetViewportPosition </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9aee9a1cf4415115a753dcc11161db17" name="a9aee9a1cf4415115a753dcc11161db17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9aee9a1cf4415115a753dcc11161db17">&#9670;&nbsp;</a></span>SetViewportWidth()</h2>
 
@@ -636,6 +660,40 @@ Public Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void Window::SwapBuffers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e9639761e39eb7ca9f89d371fe97d0f" name="a9e9639761e39eb7ca9f89d371fe97d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e9639761e39eb7ca9f89d371fe97d0f">&#9670;&nbsp;</a></span>UpdateCursorViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::UpdateCursorViewport </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe173020b0b215876e11bc91f146fcc4" name="afe173020b0b215876e11bc91f146fcc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe173020b0b215876e11bc91f146fcc4">&#9670;&nbsp;</a></span>UpdateGameViewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::UpdateGameViewport </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

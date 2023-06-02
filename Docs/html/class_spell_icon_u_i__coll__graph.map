@@ -1,6 +1,6 @@
 <map id="SpellIconUI" name="SpellIconUI">
-<area shape="rect" id="node1" title=" " alt="" coords="349,576,435,603"/>
-<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="309,487,369,513"/>
+<area shape="rect" id="node1" title=" " alt="" coords="269,608,355,635"/>
+<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="229,517,289,544"/>
 <area shape="rect" id="node3" href="$class_u_i_object.html" title=" " alt="" coords="159,263,231,289"/>
 <area shape="rect" id="node11" href="$class_text_object.html" title=" " alt="" coords="216,339,301,365"/>
 <area shape="rect" id="node4" href="$class_game_object.html" title=" " alt="" coords="67,185,162,212"/>
@@ -10,6 +10,5 @@
 <area shape="rect" id="node8" href="$class_e_b_o.html" title=" " alt="" coords="155,5,205,32"/>
 <area shape="rect" id="node9" href="$class_texture.html" title=" " alt="" coords="201,95,266,121"/>
 <area shape="rect" id="node10" href="$class_event.html" title=" " alt="" coords="325,339,451,365"/>
-<area shape="rect" id="node12" href="$class_cast_spell_detail.html" title=" " alt="" coords="426,487,537,513"/>
-<area shape="rect" id="node13" href="$class_spell.html" title=" " alt="" coords="475,339,525,365"/>
+<area shape="rect" id="node12" href="$class_cast_spell_detail.html" title=" " alt="" coords="313,517,423,544"/>
 </map>

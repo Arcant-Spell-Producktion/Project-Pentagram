@@ -2,11 +2,18 @@ var searchData=
 [
   ['gameobject_0',['GAMEOBJECT',['../_game_object_tag_8h.html#a78d69c4c0df536fedbdd6ec864d34280a6b047533015a7fef54211117473756f4',1,'GameObjectTag.h']]],
   ['gs_5fbattle_5fscene_1',['GS_BATTLE_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a03f1f2510953ed3b7a3d16eea3e2c8f7',1,'GameState.h']]],
-  ['gs_5fdemo_5fscene_2',['GS_DEMO_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285afb8063c673f5f3bc6f1f67e2157f5602',1,'GameState.h']]],
-  ['gs_5fload_5fscene_3',['GS_LOAD_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285aba2ee25b1326bad1525a24b9d33a785e',1,'GameState.h']]],
-  ['gs_5fmenu_5fscene_4',['GS_MENU_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285ac7635eebce83699570e2fa6ecb9684c0',1,'GameState.h']]],
-  ['gs_5fnode_5fscene_5',['GS_NODE_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a8d86fb74c59f494bc0d46db1a414aaa2',1,'GameState.h']]],
-  ['gs_5fnone_6',['GS_NONE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a646ad2b77508a6c12412a113da693373',1,'GameState.h']]],
-  ['gs_5fquit_7',['GS_QUIT',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a713678f33714a26bc8b0e5dbec96115d',1,'GameState.h']]],
-  ['gs_5frestart_8',['GS_RESTART',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a741713062e858ff20344c0ada3e9134a',1,'GameState.h']]]
+  ['gs_5fcharacter_5fscene_2',['GS_CHARACTER_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a7930dc4e60080c1a8e040874acbef4f8',1,'GameState.h']]],
+  ['gs_5fcredit_5fscene_3',['GS_CREDIT_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285acd48fc467062438d02ac2fca64493ecf',1,'GameState.h']]],
+  ['gs_5fdemo_5fscene_4',['GS_DEMO_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285afb8063c673f5f3bc6f1f67e2157f5602',1,'GameState.h']]],
+  ['gs_5ffinal_5fscene_5',['GS_FINAL_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a45ed2c28ab5b6a58a169649b04945d2e',1,'GameState.h']]],
+  ['gs_5fintro_5fscene_6',['GS_INTRO_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285adcc864fbc2f7f9028a6108d063847fbd',1,'GameState.h']]],
+  ['gs_5fload_5fscene_7',['GS_LOAD_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285aba2ee25b1326bad1525a24b9d33a785e',1,'GameState.h']]],
+  ['gs_5fmap_5fscene_8',['GS_MAP_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a47294bfa189362a153f8c8e237c7421f',1,'GameState.h']]],
+  ['gs_5fmenu_5fscene_9',['GS_MENU_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285ac7635eebce83699570e2fa6ecb9684c0',1,'GameState.h']]],
+  ['gs_5fnone_10',['GS_NONE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a646ad2b77508a6c12412a113da693373',1,'GameState.h']]],
+  ['gs_5fquit_11',['GS_QUIT',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a713678f33714a26bc8b0e5dbec96115d',1,'GameState.h']]],
+  ['gs_5frestart_12',['GS_RESTART',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a741713062e858ff20344c0ada3e9134a',1,'GameState.h']]],
+  ['gs_5ftest_5fscene_13',['GS_TEST_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a7630326bcd00304bedcca2153b13d03a',1,'GameState.h']]],
+  ['gs_5ftutorial_5fscene_14',['GS_TUTORIAL_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a1cc653b7373aa9e48b17dfe2a96551ff',1,'GameState.h']]],
+  ['gs_5ftutorial_5fselect_5fscene_15',['GS_TUTORIAL_SELECT_SCENE',['../_game_state_8h.html#a7899b65f1ea0f655e4bbf8d2a5714285a97257dedd6ca873c23c241c1e6636359',1,'GameState.h']]]
 ];

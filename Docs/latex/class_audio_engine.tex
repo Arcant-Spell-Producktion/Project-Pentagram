@@ -15,7 +15,8 @@ Inheritance diagram for Audio\+Engine\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Audio\+Engine\+:\nopagebreak
+Collaboration diagram for Audio\+Engine\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,9 +34,21 @@ void \mbox{\hyperlink{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}{Load
 \item 
 \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ \mbox{\hyperlink{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}{find\+BGMAudio\+Source}} (const std\+::string \&file\+Path)
 \item 
-irrklang\+::\+ISound\+Engine $\ast$ \mbox{\hyperlink{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}{Get\+Engine}} ()
+void \mbox{\hyperlink{class_audio_engine_aaf7b8631a23a20a9532ac0dea77900d1}{Set\+Master\+Volume}} (const float \&volume)
 \item 
-float \mbox{\hyperlink{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}{Get\+Master\+Volume}} ()
+void \mbox{\hyperlink{class_audio_engine_ad655c1bd330b5796c1fd4b224294f777}{Set\+BGMVolume}} (const float \&volume)
+\item 
+void \mbox{\hyperlink{class_audio_engine_a53685d8ad7edaaf38b647923e9d6e27c}{Set\+SFXVolume}} (const float \&volume)
+\item 
+irrklang\+::\+ISound\+Engine $\ast$ \mbox{\hyperlink{class_audio_engine_a380fa123710e41d1706f103441f3fd95}{Get\+BGMEngine}} () const
+\item 
+irrklang\+::\+ISound\+Engine $\ast$ \mbox{\hyperlink{class_audio_engine_a15b9b4d2198ccd46da603af1531ddf6f}{Get\+SFXEngine}} () const
+\item 
+float \mbox{\hyperlink{class_audio_engine_a46ba6f469b73491428f0b38527bc57a0}{Get\+Master\+Volume}} () const
+\item 
+float \mbox{\hyperlink{class_audio_engine_add0ec44e7656be4f27d6cd0100fc4fee}{Get\+BGMVolume}} () const
+\item 
+float \mbox{\hyperlink{class_audio_engine_a91478b8eb5b8d95f047f9d095a65df8d}{Get\+SFXVolume}} () const
 \item 
 void \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Free}} ()
 \end{DoxyCompactItemize}
@@ -68,25 +81,65 @@ void \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Free
 \index{AudioEngine@{AudioEngine}!Free@{Free}}
 \index{Free@{Free}!AudioEngine@{AudioEngine}}
 \doxysubsubsection{\texorpdfstring{Free()}{Free()}}
-{\footnotesize\ttfamily void Audio\+Engine\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}\label{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}} 
-\index{AudioEngine@{AudioEngine}!GetEngine@{GetEngine}}
-\index{GetEngine@{GetEngine}!AudioEngine@{AudioEngine}}
-\doxysubsubsection{\texorpdfstring{GetEngine()}{GetEngine()}}
-{\footnotesize\ttfamily irrklang\+::\+ISound\+Engine $\ast$ Audio\+Engine\+::\+Get\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}\label{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}} 
+
+Reimplemented from \mbox{\hyperlink{class_singleton_a7e440f849b2b900be243779ff9df082c}{Singleton$<$ Audio\+Engine $>$}}.
+
+\mbox{\Hypertarget{class_audio_engine_a380fa123710e41d1706f103441f3fd95}\label{class_audio_engine_a380fa123710e41d1706f103441f3fd95}} 
+\index{AudioEngine@{AudioEngine}!GetBGMEngine@{GetBGMEngine}}
+\index{GetBGMEngine@{GetBGMEngine}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetBGMEngine()}{GetBGMEngine()}}
+{\footnotesize\ttfamily irrklang\+::\+ISound\+Engine $\ast$ Audio\+Engine\+::\+Get\+BGMEngine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_audio_engine_add0ec44e7656be4f27d6cd0100fc4fee}\label{class_audio_engine_add0ec44e7656be4f27d6cd0100fc4fee}} 
+\index{AudioEngine@{AudioEngine}!GetBGMVolume@{GetBGMVolume}}
+\index{GetBGMVolume@{GetBGMVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetBGMVolume()}{GetBGMVolume()}}
+{\footnotesize\ttfamily float Audio\+Engine\+::\+Get\+BGMVolume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_audio_engine_a46ba6f469b73491428f0b38527bc57a0}\label{class_audio_engine_a46ba6f469b73491428f0b38527bc57a0}} 
 \index{AudioEngine@{AudioEngine}!GetMasterVolume@{GetMasterVolume}}
 \index{GetMasterVolume@{GetMasterVolume}!AudioEngine@{AudioEngine}}
 \doxysubsubsection{\texorpdfstring{GetMasterVolume()}{GetMasterVolume()}}
-{\footnotesize\ttfamily float Audio\+Engine\+::\+Get\+Master\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float Audio\+Engine\+::\+Get\+Master\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_audio_engine_a15b9b4d2198ccd46da603af1531ddf6f}\label{class_audio_engine_a15b9b4d2198ccd46da603af1531ddf6f}} 
+\index{AudioEngine@{AudioEngine}!GetSFXEngine@{GetSFXEngine}}
+\index{GetSFXEngine@{GetSFXEngine}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetSFXEngine()}{GetSFXEngine()}}
+{\footnotesize\ttfamily irrklang\+::\+ISound\+Engine $\ast$ Audio\+Engine\+::\+Get\+SFXEngine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_audio_engine_a91478b8eb5b8d95f047f9d095a65df8d}\label{class_audio_engine_a91478b8eb5b8d95f047f9d095a65df8d}} 
+\index{AudioEngine@{AudioEngine}!GetSFXVolume@{GetSFXVolume}}
+\index{GetSFXVolume@{GetSFXVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{GetSFXVolume()}{GetSFXVolume()}}
+{\footnotesize\ttfamily float Audio\+Engine\+::\+Get\+SFXVolume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}\label{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}} 
 \index{AudioEngine@{AudioEngine}!LoadResource@{LoadResource}}
 \index{LoadResource@{LoadResource}!AudioEngine@{AudioEngine}}
 \doxysubsubsection{\texorpdfstring{LoadResource()}{LoadResource()}}
 {\footnotesize\ttfamily void Audio\+Engine\+::\+Load\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_ad655c1bd330b5796c1fd4b224294f777}\label{class_audio_engine_ad655c1bd330b5796c1fd4b224294f777}} 
+\index{AudioEngine@{AudioEngine}!SetBGMVolume@{SetBGMVolume}}
+\index{SetBGMVolume@{SetBGMVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{SetBGMVolume()}{SetBGMVolume()}}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Set\+BGMVolume (\begin{DoxyParamCaption}\item[{const float \&}]{volume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_aaf7b8631a23a20a9532ac0dea77900d1}\label{class_audio_engine_aaf7b8631a23a20a9532ac0dea77900d1}} 
+\index{AudioEngine@{AudioEngine}!SetMasterVolume@{SetMasterVolume}}
+\index{SetMasterVolume@{SetMasterVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{SetMasterVolume()}{SetMasterVolume()}}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Set\+Master\+Volume (\begin{DoxyParamCaption}\item[{const float \&}]{volume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_engine_a53685d8ad7edaaf38b647923e9d6e27c}\label{class_audio_engine_a53685d8ad7edaaf38b647923e9d6e27c}} 
+\index{AudioEngine@{AudioEngine}!SetSFXVolume@{SetSFXVolume}}
+\index{SetSFXVolume@{SetSFXVolume}!AudioEngine@{AudioEngine}}
+\doxysubsubsection{\texorpdfstring{SetSFXVolume()}{SetSFXVolume()}}
+{\footnotesize\ttfamily void Audio\+Engine\+::\+Set\+SFXVolume (\begin{DoxyParamCaption}\item[{const float \&}]{volume }\end{DoxyParamCaption})}
 
 
 

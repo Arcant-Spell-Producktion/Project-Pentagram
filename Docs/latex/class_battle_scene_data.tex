@@ -6,7 +6,8 @@
 
 
 
-Collaboration diagram for Battle\+Scene\+Data\+:\nopagebreak
+Collaboration diagram for Battle\+Scene\+Data\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -18,13 +19,27 @@ Collaboration diagram for Battle\+Scene\+Data\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{class_battle_scene_data_a08dae87d0328c5a5f796553ba6fda0e1}{Add\+Caster}} (\mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$controller)
 \item 
+void \mbox{\hyperlink{class_battle_scene_data_a852e81100c5145100f42b888517c9f1c}{Set\+Is\+Show\+Caster\+Detail}} (bool active)
+\item 
+bool \mbox{\hyperlink{class_battle_scene_data_a0f9e9ef798778071dfdedf2d588e57c3}{Is\+Show\+Caster\+Detail}} ()
+\item 
 \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_a7ccf9cb4cd055c72d4206f4ba4a3ff66}{Get\+Caster}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} position)
 \item 
 \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_a1ea0919be0dee7cb513cfb915a21a919}{Get\+Current\+Caster}} ()
 \item 
 \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_a6ce9fca7eec83f86b34b9f8b17f79a84}{Get\+Next\+Caster}} ()
 \item 
+void \mbox{\hyperlink{class_battle_scene_data_adca222b1a4711087695504d1ae3f809e}{Hide\+Caster\+UI}} ()
+\item 
 void \mbox{\hyperlink{class_battle_scene_data_abfd437601ebe74da41685ca4dc999346}{Standby\+All\+Caster}} ()
+\item 
+bool \mbox{\hyperlink{class_battle_scene_data_ae071612633e5d5da4ce725661248293a}{Is\+All\+Caster\+Idle}} ()
+\item 
+void \mbox{\hyperlink{class_battle_scene_data_a11f23ebac414c916c90d67650063274c}{Start\+Round}} ()
+\item 
+void \mbox{\hyperlink{class_battle_scene_data_a9c44d16266ad7f5d5ce166ceb60d1d8c}{End\+Cast\+Phase}} ()
+\item 
+void \mbox{\hyperlink{class_battle_scene_data_a16904ec062375c9bd3c421b4ab482ad2}{End\+Round}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -33,11 +48,19 @@ int \mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$ $>$ \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}
 \item 
+\mbox{\hyperlink{class_stage_object}{Stage\+Object}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_aaee4a2c9bd9d5a5e9965cf90d00ae802}{Stage}} = nullptr
+\item 
 \mbox{\hyperlink{class_spell_timeline}{Spell\+Timeline}} \mbox{\hyperlink{class_battle_scene_data_abd56efaa0d616e1ee142e1546abf07e7}{Timeline}}
 \item 
 \mbox{\hyperlink{class_pentragram_controller}{Pentragram\+Controller}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_ac83b2fa0894431f06f3a4c52d3a09889}{Pentagram}} = nullptr
 \item 
 \mbox{\hyperlink{class_will_compare_controller}{Will\+Compare\+Controller}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_a7cae67d7c7844806daf62d40570fd57a}{Will\+Compare}} = nullptr
+\item 
+\mbox{\hyperlink{class_game_over_u_i}{Game\+Over\+UI}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_acdf945a69f7ec6484e669390066b4eed}{Game\+Over\+UI}} = nullptr
+\item 
+\mbox{\hyperlink{class_text_box}{Text\+Box}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_aabda677a9e3453aa5f5f136df0870b21}{Texts}} = nullptr
+\item 
+\mbox{\hyperlink{class_shortcut_u_i}{Shortcut\+UI}} $\ast$ \mbox{\hyperlink{class_battle_scene_data_a996942d5918ab6dd060b59adac5f3b59}{Shortcut}} = nullptr
 \end{DoxyCompactItemize}
 
 
@@ -47,6 +70,18 @@ std\+::vector$<$ \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} 
 \index{AddCaster@{AddCaster}!BattleSceneData@{BattleSceneData}}
 \doxysubsubsection{\texorpdfstring{AddCaster()}{AddCaster()}}
 {\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+Add\+Caster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$}]{controller }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_battle_scene_data_a9c44d16266ad7f5d5ce166ceb60d1d8c}\label{class_battle_scene_data_a9c44d16266ad7f5d5ce166ceb60d1d8c}} 
+\index{BattleSceneData@{BattleSceneData}!EndCastPhase@{EndCastPhase}}
+\index{EndCastPhase@{EndCastPhase}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{EndCastPhase()}{EndCastPhase()}}
+{\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+End\+Cast\+Phase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_scene_data_a16904ec062375c9bd3c421b4ab482ad2}\label{class_battle_scene_data_a16904ec062375c9bd3c421b4ab482ad2}} 
+\index{BattleSceneData@{BattleSceneData}!EndRound@{EndRound}}
+\index{EndRound@{EndRound}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{EndRound()}{EndRound()}}
+{\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+End\+Round (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_battle_scene_data_a7ccf9cb4cd055c72d4206f4ba4a3ff66}\label{class_battle_scene_data_a7ccf9cb4cd055c72d4206f4ba4a3ff66}} 
 \index{BattleSceneData@{BattleSceneData}!GetCaster@{GetCaster}}
@@ -66,11 +101,41 @@ std\+::vector$<$ \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} 
 \doxysubsubsection{\texorpdfstring{GetNextCaster()}{GetNextCaster()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} $\ast$ Battle\+Scene\+Data\+::\+Get\+Next\+Caster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{class_battle_scene_data_adca222b1a4711087695504d1ae3f809e}\label{class_battle_scene_data_adca222b1a4711087695504d1ae3f809e}} 
+\index{BattleSceneData@{BattleSceneData}!HideCasterUI@{HideCasterUI}}
+\index{HideCasterUI@{HideCasterUI}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{HideCasterUI()}{HideCasterUI()}}
+{\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+Hide\+Caster\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_scene_data_ae071612633e5d5da4ce725661248293a}\label{class_battle_scene_data_ae071612633e5d5da4ce725661248293a}} 
+\index{BattleSceneData@{BattleSceneData}!IsAllCasterIdle@{IsAllCasterIdle}}
+\index{IsAllCasterIdle@{IsAllCasterIdle}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{IsAllCasterIdle()}{IsAllCasterIdle()}}
+{\footnotesize\ttfamily bool Battle\+Scene\+Data\+::\+Is\+All\+Caster\+Idle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_scene_data_a0f9e9ef798778071dfdedf2d588e57c3}\label{class_battle_scene_data_a0f9e9ef798778071dfdedf2d588e57c3}} 
+\index{BattleSceneData@{BattleSceneData}!IsShowCasterDetail@{IsShowCasterDetail}}
+\index{IsShowCasterDetail@{IsShowCasterDetail}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{IsShowCasterDetail()}{IsShowCasterDetail()}}
+{\footnotesize\ttfamily bool Battle\+Scene\+Data\+::\+Is\+Show\+Caster\+Detail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_battle_scene_data_a852e81100c5145100f42b888517c9f1c}\label{class_battle_scene_data_a852e81100c5145100f42b888517c9f1c}} 
+\index{BattleSceneData@{BattleSceneData}!SetIsShowCasterDetail@{SetIsShowCasterDetail}}
+\index{SetIsShowCasterDetail@{SetIsShowCasterDetail}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{SetIsShowCasterDetail()}{SetIsShowCasterDetail()}}
+{\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+Set\+Is\+Show\+Caster\+Detail (\begin{DoxyParamCaption}\item[{bool}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_battle_scene_data_abfd437601ebe74da41685ca4dc999346}\label{class_battle_scene_data_abfd437601ebe74da41685ca4dc999346}} 
 \index{BattleSceneData@{BattleSceneData}!StandbyAllCaster@{StandbyAllCaster}}
 \index{StandbyAllCaster@{StandbyAllCaster}!BattleSceneData@{BattleSceneData}}
 \doxysubsubsection{\texorpdfstring{StandbyAllCaster()}{StandbyAllCaster()}}
 {\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+Standby\+All\+Caster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_battle_scene_data_a11f23ebac414c916c90d67650063274c}\label{class_battle_scene_data_a11f23ebac414c916c90d67650063274c}} 
+\index{BattleSceneData@{BattleSceneData}!StartRound@{StartRound}}
+\index{StartRound@{StartRound}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{StartRound()}{StartRound()}}
+{\footnotesize\ttfamily void Battle\+Scene\+Data\+::\+Start\+Round (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -87,11 +152,35 @@ std\+::vector$<$ \mbox{\hyperlink{class_caster_controller}{Caster\+Controller}} 
 \doxysubsubsection{\texorpdfstring{CurrentCasterIndex}{CurrentCasterIndex}}
 {\footnotesize\ttfamily int Battle\+Scene\+Data\+::\+Current\+Caster\+Index = 0}
 
+\mbox{\Hypertarget{class_battle_scene_data_acdf945a69f7ec6484e669390066b4eed}\label{class_battle_scene_data_acdf945a69f7ec6484e669390066b4eed}} 
+\index{BattleSceneData@{BattleSceneData}!GameOverUI@{GameOverUI}}
+\index{GameOverUI@{GameOverUI}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{GameOverUI}{GameOverUI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_over_u_i}{Game\+Over\+UI}}$\ast$ Battle\+Scene\+Data\+::\+Game\+Over\+UI = nullptr}
+
 \mbox{\Hypertarget{class_battle_scene_data_ac83b2fa0894431f06f3a4c52d3a09889}\label{class_battle_scene_data_ac83b2fa0894431f06f3a4c52d3a09889}} 
 \index{BattleSceneData@{BattleSceneData}!Pentagram@{Pentagram}}
 \index{Pentagram@{Pentagram}!BattleSceneData@{BattleSceneData}}
 \doxysubsubsection{\texorpdfstring{Pentagram}{Pentagram}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_pentragram_controller}{Pentragram\+Controller}}$\ast$ Battle\+Scene\+Data\+::\+Pentagram = nullptr}
+
+\mbox{\Hypertarget{class_battle_scene_data_a996942d5918ab6dd060b59adac5f3b59}\label{class_battle_scene_data_a996942d5918ab6dd060b59adac5f3b59}} 
+\index{BattleSceneData@{BattleSceneData}!Shortcut@{Shortcut}}
+\index{Shortcut@{Shortcut}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{Shortcut}{Shortcut}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shortcut_u_i}{Shortcut\+UI}}$\ast$ Battle\+Scene\+Data\+::\+Shortcut = nullptr}
+
+\mbox{\Hypertarget{class_battle_scene_data_aaee4a2c9bd9d5a5e9965cf90d00ae802}\label{class_battle_scene_data_aaee4a2c9bd9d5a5e9965cf90d00ae802}} 
+\index{BattleSceneData@{BattleSceneData}!Stage@{Stage}}
+\index{Stage@{Stage}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{Stage}{Stage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stage_object}{Stage\+Object}}$\ast$ Battle\+Scene\+Data\+::\+Stage = nullptr}
+
+\mbox{\Hypertarget{class_battle_scene_data_aabda677a9e3453aa5f5f136df0870b21}\label{class_battle_scene_data_aabda677a9e3453aa5f5f136df0870b21}} 
+\index{BattleSceneData@{BattleSceneData}!Texts@{Texts}}
+\index{Texts@{Texts}!BattleSceneData@{BattleSceneData}}
+\doxysubsubsection{\texorpdfstring{Texts}{Texts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_text_box}{Text\+Box}}$\ast$ Battle\+Scene\+Data\+::\+Texts = nullptr}
 
 \mbox{\Hypertarget{class_battle_scene_data_abd56efaa0d616e1ee142e1546abf07e7}\label{class_battle_scene_data_abd56efaa0d616e1ee142e1546abf07e7}} 
 \index{BattleSceneData@{BattleSceneData}!Timeline@{Timeline}}

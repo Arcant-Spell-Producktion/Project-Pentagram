@@ -6,40 +6,43 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_position_8h}{CasterPosition.h}}"{}}}
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_stat_8h}{CasterStat.h}}"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_data}{CasterData}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{8 \textcolor{keyword}{private}:}
-\DoxyCodeLine{9     \mbox{\hyperlink{struct_caster_stat}{CasterStat}} m\_Stat;}
-\DoxyCodeLine{10     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_Element;}
-\DoxyCodeLine{11     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} m\_Position;}
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13     \mbox{\hyperlink{class_caster_data_a98b836b4ad1a9b6e4e85ba98bbf8941d}{CasterData}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat,\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position = \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889ab50339a10e1de285ac99d4c3990b8693}{CasterPosition::NONE}}) :}
-\DoxyCodeLine{14         m\_Stat(stat),}
-\DoxyCodeLine{15         m\_Element(element),}
-\DoxyCodeLine{16         m\_Position(position)}
-\DoxyCodeLine{17     \{\}}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_caster_data_aaebdbd555390eca8925910e059089da6}{CasterData}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_caster_data}{CasterData}} \&casterData):}
-\DoxyCodeLine{20         m\_Element(casterData.m\_Element),}
-\DoxyCodeLine{21         m\_Position(casterData.m\_Position),}
-\DoxyCodeLine{22         m\_Stat(casterData.m\_Stat)}
-\DoxyCodeLine{23     \{\}}
-\DoxyCodeLine{24     }
-\DoxyCodeLine{25     \mbox{\hyperlink{class_caster_data}{CasterData}}\& \mbox{\hyperlink{class_caster_data_ac2de0beaa76682ce0703eb03882080fb}{operator()}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position = \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889ab50339a10e1de285ac99d4c3990b8693}{CasterPosition::NONE}})}
-\DoxyCodeLine{26     \{}
-\DoxyCodeLine{27         m\_Stat = stat;}
-\DoxyCodeLine{28         m\_Element = element;}
-\DoxyCodeLine{29         m\_Position = position;}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{32     \}}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}}\& \mbox{\hyperlink{class_caster_data_aa23edd97f71c6e869064f458b4d3bf80}{Element}}() \{ \textcolor{keywordflow}{return} m\_Element; \}}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}}\& \mbox{\hyperlink{class_caster_data_a6bee58f773e6d5374b0f041883eff036}{Position}}() \{ \textcolor{keywordflow}{return} m\_Position; \}}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38     \mbox{\hyperlink{struct_caster_stat}{CasterStat}}\& \mbox{\hyperlink{class_caster_data_a3a592e1d83bfdc60596575a8bc43779e}{Stat}}() \{ \textcolor{keywordflow}{return} m\_Stat; \}}
-\DoxyCodeLine{39 \};}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_type_8h}{CasterType.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_data}{CasterData}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{struct_caster_stat}{CasterStat}} \mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}};}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}};}
+\DoxyCodeLine{12     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}};}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_caster_data_a98b836b4ad1a9b6e4e85ba98bbf8941d}{CasterData}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat,\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position = \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889ab50339a10e1de285ac99d4c3990b8693}{CasterPosition::NONE}}) :}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}}(stat),}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}}(element),}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}}(position)}
+\DoxyCodeLine{18     \{\}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_caster_data_aaebdbd555390eca8925910e059089da6}{CasterData}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_caster_data}{CasterData}} \&casterData):}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}}(casterData.\mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}}),}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}}(casterData.\mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}}),}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}}(casterData.\mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}})}
+\DoxyCodeLine{24     \{\}}
+\DoxyCodeLine{25     }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_caster_data}{CasterData}}\& \mbox{\hyperlink{class_caster_data_ac2de0beaa76682ce0703eb03882080fb}{operator()}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position = \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889ab50339a10e1de285ac99d4c3990b8693}{CasterPosition::NONE}})}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}} = stat;}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}} = element;}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}} = position;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}}\& \mbox{\hyperlink{class_caster_data_aa23edd97f71c6e869064f458b4d3bf80}{Element}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_data_aae83d1d4b97b89e08843c23bd3d40efb}{m\_Element}}; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}}\& \mbox{\hyperlink{class_caster_data_a6bee58f773e6d5374b0f041883eff036}{Position}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}}; \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \mbox{\hyperlink{struct_caster_stat}{CasterStat}}\& \mbox{\hyperlink{class_caster_data_a3a592e1d83bfdc60596575a8bc43779e}{Stat}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_data_a055c0b097f94f890473a295039c48316}{m\_Stat}}; \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \};}
 
 \end{DoxyCode}

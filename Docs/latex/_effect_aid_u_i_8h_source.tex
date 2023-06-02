@@ -1,0 +1,118 @@
+\hypertarget{_effect_aid_u_i_8h_source}{}\doxysection{Effect\+Aid\+UI.\+h}
+\label{_effect_aid_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/EffectAidUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/EffectAidUI.h}}
+\mbox{\hyperlink{_effect_aid_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arrow_button_8h}{Game/Objects/ArrowButton.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effect_type_8h}{Game/Spells/SpellEffectType.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_aid_u_i_8h_a3006dd7290f8bca8945881192067b2d1}{EffectDescription}}[7] =}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{comment}{// Marking}}
+\DoxyCodeLine{17 R\textcolor{stringliteral}{"{}(Marking: Unit with mark take double damage}}
+\DoxyCodeLine{18 \textcolor{stringliteral}{from the next spell during this turn.)"{},}}
+\DoxyCodeLine{19 \textcolor{stringliteral}{}}
+\DoxyCodeLine{20 \textcolor{stringliteral}{}\textcolor{comment}{// Burning}}
+\DoxyCodeLine{21 R\textcolor{stringliteral}{"{}(Burning: Unit with Burning take 10 damage per}}
+\DoxyCodeLine{22 \textcolor{stringliteral}{stack at the start of the turn.}}
+\DoxyCodeLine{23 \textcolor{stringliteral}{(Stack decrease by 1 after take damage))"{},}}
+\DoxyCodeLine{24 \textcolor{stringliteral}{}}
+\DoxyCodeLine{25 \textcolor{stringliteral}{}\textcolor{comment}{// Overflow}}
+\DoxyCodeLine{26 R\textcolor{stringliteral}{"{}(Overflow: Unit with Overflow gain 1 extra}}
+\DoxyCodeLine{27 \textcolor{stringliteral}{mana per stack during this battle.}}
+\DoxyCodeLine{28 \textcolor{stringliteral}{(Max stack 5))"{},}}
+\DoxyCodeLine{29 \textcolor{stringliteral}{}}
+\DoxyCodeLine{30 \textcolor{stringliteral}{}\textcolor{comment}{// Freezing}}
+\DoxyCodeLine{31 R\textcolor{stringliteral}{"{}(Freezing: Unit with Freezing use 1 more mana}}
+\DoxyCodeLine{32 \textcolor{stringliteral}{per stack to decrease Cast Time, during this}}
+\DoxyCodeLine{33 \textcolor{stringliteral}{turn. (Max stack 3))"{},}}
+\DoxyCodeLine{34 \textcolor{stringliteral}{}}
+\DoxyCodeLine{35 \textcolor{stringliteral}{}\textcolor{comment}{// Fortified}}
+\DoxyCodeLine{36 R\textcolor{stringliteral}{"{}(Fortified: Unit with Fortified negate damage}}
+\DoxyCodeLine{37 \textcolor{stringliteral}{from the next Spell. (Max stack 3))"{},}}
+\DoxyCodeLine{38 \textcolor{stringliteral}{}}
+\DoxyCodeLine{39 \textcolor{stringliteral}{}\textcolor{comment}{// Petrify}}
+\DoxyCodeLine{40 R\textcolor{stringliteral}{"{}(Petrify: Spell of Unit with Petrify have 1 less}}
+\DoxyCodeLine{41 \textcolor{stringliteral}{Will per stack, during this turn. (Minimum 1)}}
+\DoxyCodeLine{42 \textcolor{stringliteral}{(Max stack 3))"{},}}
+\DoxyCodeLine{43 \textcolor{stringliteral}{}}
+\DoxyCodeLine{44 \textcolor{stringliteral}{}\textcolor{comment}{// Boost}}
+\DoxyCodeLine{45 R\textcolor{stringliteral}{"{}(Boost: Gain stack(s) upon winning spell crash.}}
+\DoxyCodeLine{46 \textcolor{stringliteral}{At start of the turn gain buffs based on the stacks.}}
+\DoxyCodeLine{47 \textcolor{stringliteral}{}}
+\DoxyCodeLine{48 \textcolor{stringliteral}{2+ stack: Reduce cost for decrease Cast Time this turn by 1.}}
+\DoxyCodeLine{49 \textcolor{stringliteral}{}}
+\DoxyCodeLine{50 \textcolor{stringliteral}{5+ stack: Reduce cost for increasing Will this turn by 1.}}
+\DoxyCodeLine{51 \textcolor{stringliteral}{}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{8 stack: Increase all Spell Damage cast this turn by 10.}}
+\DoxyCodeLine{53 \textcolor{stringliteral}{}}
+\DoxyCodeLine{54 \textcolor{stringliteral}{Upon reaching 8 stack, during this turn no stack is gain and}}
+\DoxyCodeLine{55 \textcolor{stringliteral}{the stack is reset at the end of this turn.)"{}}}
+\DoxyCodeLine{56 \textcolor{stringliteral}{}}
+\DoxyCodeLine{57 \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{58 \textcolor{stringliteral}{}}
+\DoxyCodeLine{59 \textcolor{stringliteral}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_effect_aid_u_i}{EffectAidUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61     \textcolor{keyword}{private}:}
+\DoxyCodeLine{62         \textcolor{keyword}{struct }EffectObject : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{63         \{}
+\DoxyCodeLine{64             \mbox{\hyperlink{class_u_i_object}{UIObject}}* EffectIcon;}
+\DoxyCodeLine{65             \mbox{\hyperlink{class_text_object}{TextObject}}* EffectDetail;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67             EffectObject(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} effectEnum) : \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}Effect\_Aid\_Object\_"{}} + \mbox{\hyperlink{class_spell_effect_type_a6d960a9591e1a2e0839de948fa41265d}{SpellEffectType::GetString}}(effectEnum))}
+\DoxyCodeLine{68             \{}
+\DoxyCodeLine{69                 this-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.0f;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71                 EffectIcon = \textcolor{keyword}{new} \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}Effect\_Icon"{}});}
+\DoxyCodeLine{72                 EffectIcon-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ 160.0f, 160.0f, 1.0f \};}
+\DoxyCodeLine{73                 EffectIcon-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{stringliteral}{"{}Sprites/UI/Game/Caster/ui\_game\_caster\_status-\/icon.png"{}});}
+\DoxyCodeLine{74                 EffectIcon-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, (\textcolor{keywordtype}{int})effectEnum -\/ 1);}
+\DoxyCodeLine{75                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(EffectIcon);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77                 EffectDetail = \textcolor{keyword}{new} \mbox{\hyperlink{class_text_object}{TextObject}}(\textcolor{stringliteral}{"{}Effect\_Detail"{}});}
+\DoxyCodeLine{78                 EffectDetail-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.x += EffectIcon-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}.x / 2.0f + 30.0f;}
+\DoxyCodeLine{79                 EffectDetail-\/>\mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}} = \mbox{\hyperlink{_effect_aid_u_i_8h_a3006dd7290f8bca8945881192067b2d1}{EffectDescription}}[(int)effectEnum -\/ 1];}
+\DoxyCodeLine{80                 EffectDetail-\/>\mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{textAlignment}} = \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa684d325a7303f52e64011467ff5c5758}{TextAlignment::LEFT}};}
+\DoxyCodeLine{81                 EffectDetail-\/>\mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}} = 24.0f;}
+\DoxyCodeLine{82                 EffectDetail-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \mbox{\hyperlink{_color_8h_ab75759c1d915a41fe66b37a310634658}{AC\_WHITE}};}
+\DoxyCodeLine{83                 EffectDetail-\/>\mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}} = \mbox{\hyperlink{_color_8h_a805f4d466eb126be3328f10bf1158155}{AC\_BLACK}};}
+\DoxyCodeLine{84                 EffectDetail-\/>\mbox{\hyperlink{class_text_object_ae4d614d066ab2f185e572167d0834373}{isVCenterAlignment}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{85                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(EffectDetail);}
+\DoxyCodeLine{86             \}}
+\DoxyCodeLine{87         \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         EffectObject* m\_EffectList[7];}
+\DoxyCodeLine{90         glm::vec3 m\_EffectPositionList[7] = \{}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92             \textcolor{comment}{// Fire Effect}}
+\DoxyCodeLine{93             glm::vec3(-\/750.0f, 300.0f, 0.0f),}
+\DoxyCodeLine{94             glm::vec3(125.0f, 300.0f, 0.0f),}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96             \textcolor{comment}{// Water Effect}}
+\DoxyCodeLine{97             glm::vec3(-\/750.0f, 125.0f, 0.0f),}
+\DoxyCodeLine{98             glm::vec3(125.0f, 125.0f, 0.0f),}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100             \textcolor{comment}{// Earth Effect}}
+\DoxyCodeLine{101             glm::vec3(-\/750.0f, -\/50.0f, 0.0f),}
+\DoxyCodeLine{102             glm::vec3(125.0f, -\/50.0f, 0.0f),}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104             \textcolor{comment}{// Wind Effect}}
+\DoxyCodeLine{105             glm::vec3(-\/400.0f,-\/325.0f, 0.0f),}
+\DoxyCodeLine{106         \};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_Header;}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keyword}{public}:}
+\DoxyCodeLine{111         \mbox{\hyperlink{class_effect_aid_u_i_aec001135b4a6d28963a59bb42ffddc4e}{EffectAidUI}}();}
+\DoxyCodeLine{112 \};}
+
+\end{DoxyCode}

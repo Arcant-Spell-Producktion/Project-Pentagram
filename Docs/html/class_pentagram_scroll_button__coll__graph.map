@@ -1,6 +1,6 @@
 <map id="PentagramScrollButton" name="PentagramScrollButton">
-<area shape="rect" id="node1" title=" " alt="" coords="157,576,313,603"/>
-<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="205,487,265,513"/>
+<area shape="rect" id="node1" title=" " alt="" coords="157,605,313,632"/>
+<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="205,516,265,543"/>
 <area shape="rect" id="node3" href="$class_u_i_object.html" title=" " alt="" coords="159,263,231,289"/>
 <area shape="rect" id="node11" href="$class_text_object.html" title=" " alt="" coords="232,339,317,365"/>
 <area shape="rect" id="node4" href="$class_game_object.html" title=" " alt="" coords="67,185,162,212"/>
@@ -10,5 +10,5 @@
 <area shape="rect" id="node8" href="$class_e_b_o.html" title=" " alt="" coords="155,5,205,32"/>
 <area shape="rect" id="node9" href="$class_texture.html" title=" " alt="" coords="201,95,266,121"/>
 <area shape="rect" id="node10" href="$class_event.html" title=" " alt="" coords="341,339,467,365"/>
-<area shape="rect" id="node12" href="$class_event.html" title=" " alt="" coords="289,487,381,513"/>
+<area shape="rect" id="node12" href="$class_event.html" title=" " alt="" coords="289,516,381,543"/>
 </map>

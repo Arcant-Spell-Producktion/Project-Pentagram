@@ -1,0 +1,97 @@
+\hypertarget{_caster_moveset_database_8h_source}{}\doxysection{Caster\+Moveset\+Database.\+h}
+\label{_caster_moveset_database_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterMovesetDatabase.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterMovesetDatabase.h}}
+\mbox{\hyperlink{_caster_moveset_database_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_enemy_data_8h}{Game/GameData/CasterData/EnemyData.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_move_set_list}{CasterMoveSetList}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     std::vector<CasterMoveSet> m\_Levels;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_MaxLvl = 0;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_caster_move_set_list_acf6bb1e5744f8bd85be128b149e31a44}{CasterMoveSetList}}() \{\}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} \mbox{\hyperlink{class_caster_move_set_list_a122ce69a1ca03901d54289d1764ee187}{GetMoveSetByLv}}(\textcolor{keywordtype}{int} lvl)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         \textcolor{keywordtype}{int} \_lvl = lvl < 0 ? 0 : lvl < m\_MaxLvl ? lvl : m\_MaxLvl -\/ 1;}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} m\_Levels[\_lvl];}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_move_set_list_af44ca2b2befcfeb7865df2a54f604305}{Add}}(\mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} MoveSet) \{}
+\DoxyCodeLine{22         m\_MaxLvl++;}
+\DoxyCodeLine{23         m\_Levels.push\_back(MoveSet);}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_move_set_table}{CasterMoveSetTable}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     std::map<CasterType, CasterMoveSetList*> Lists;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_caster_move_set_table_ab05f943f2cbd2c2892f6563678128d00}{CasterMoveSetTable}}() \{\}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_move_set_table_ac765514895317c1d32f4455f8c2ae27b}{Add}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type , \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} MoveSet) \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordflow}{if} (!Lists.count(type))}
+\DoxyCodeLine{38         \{}
+\DoxyCodeLine{39             Lists.emplace(type, \textcolor{keyword}{new} \mbox{\hyperlink{class_caster_move_set_list}{CasterMoveSetList}}());}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         Lists[type]-\/>Add(MoveSet);}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_caster_move_set_list}{CasterMoveSetList}}* \mbox{\hyperlink{class_caster_move_set_table_a4ac62364dc61d9323594137f15824faf}{GetCasterMoveSetList}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (Lists.count(type))}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             \textcolor{keywordflow}{return} Lists[type];}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_caster_move_set_table_ad1ea205693b1ca4ff4a7b10b170ece96}{\string~CasterMoveSetTable}}()}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} list : Lists)}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             \textcolor{keyword}{delete}(list.second);}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         Lists.clear();}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_move_set_database}{CasterMoveSetDatabase}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<CasterMoveSetDatabase>}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{69 \textcolor{keyword}{private}:}
+\DoxyCodeLine{70     std::map<Element::Type, CasterMoveSetTable*> CasterMoveSetTables;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{public}:}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_move_set_database_aab5bb04f6fba9cc3a3f4c44674dfc177}{LoadResource}}();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_move_set_database_a7d14130280c5d7317379814e129fe94b}{Add}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} MoveSet);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} \mbox{\hyperlink{class_caster_move_set_database_a6d9f0e3e5ae0f0e037709b3a0ec69496}{GetMoveSet}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \textcolor{keywordtype}{int} level)}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} CasterMoveSetTables[element]-\/>GetCasterMoveSetList(type)-\/>GetMoveSetByLv(level);}
+\DoxyCodeLine{80     \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{class_caster_move_set_database_ac31ef4c200101c03f55b28ca0ff8eb45}{\string~CasterMoveSetDatabase}}()}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} table: CasterMoveSetTables)}
+\DoxyCodeLine{85         \{}
+\DoxyCodeLine{86             \textcolor{keyword}{delete}(table.second);}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         CasterMoveSetTables.clear();}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 \};}
+
+\end{DoxyCode}

@@ -15,13 +15,22 @@ Inheritance diagram for Pentagram\+Field\+Button\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Pentagram\+Field\+Button\+:\nopagebreak
+Collaboration diagram for Pentagram\+Field\+Button\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_pentagram_field_button__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{Button\+State}} \{ \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910ae599161956d626eda4cb0a5ffb85271c}{Idle}} = 2
+, \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910aeee0168be69b854c20621fc6f01cc3fc}{Hover}}
+, \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910a08a38277b0309070706f6652eeae9a53}{Down}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -33,11 +42,38 @@ void \mbox{\hyperlink{class_pentagram_field_button_a2ca4fcf626422f80f56065f4f5c3
 \item 
 void \mbox{\hyperlink{class_pentagram_field_button_a8d7dbc80c1b5e0301bfa6bb2f5424480}{Set\+Rune\+Active}} (int amount)
 \item 
+void \mbox{\hyperlink{class_pentagram_field_button_a09ce19833bde0c70d9f1b960882ea35f}{Set\+Rune\+Color}} (glm\+::vec4 rune\+Color)
+\item 
 \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}} \mbox{\hyperlink{class_pentagram_field_button_a59d8017b19615591bf59779e7ec5e3d2}{Get\+Button\+Field}} () const
+\item 
+\mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{Button\+State}} \mbox{\hyperlink{class_pentagram_field_button_aeed16152833547e82bb673207ba5065d}{Get\+Button\+State}} () const
 \item 
 \mbox{\hyperlink{class_pentagram_field_button_a8d3112e05961288836b907c55d46a797}{Pentagram\+Field\+Button}} (\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}} field, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}\label{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}} 
+\index{PentagramFieldButton@{PentagramFieldButton}!ButtonState@{ButtonState}}
+\index{ButtonState@{ButtonState}!PentagramFieldButton@{PentagramFieldButton}}
+\doxysubsubsection{\texorpdfstring{ButtonState}{ButtonState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{Pentagram\+Field\+Button\+::\+Button\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Idle@{Idle}!PentagramFieldButton@{PentagramFieldButton}}\index{PentagramFieldButton@{PentagramFieldButton}!Idle@{Idle}}}\mbox{\Hypertarget{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910ae599161956d626eda4cb0a5ffb85271c}\label{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910ae599161956d626eda4cb0a5ffb85271c}} 
+Idle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Hover@{Hover}!PentagramFieldButton@{PentagramFieldButton}}\index{PentagramFieldButton@{PentagramFieldButton}!Hover@{Hover}}}\mbox{\Hypertarget{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910aeee0168be69b854c20621fc6f01cc3fc}\label{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910aeee0168be69b854c20621fc6f01cc3fc}} 
+Hover&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Down@{Down}!PentagramFieldButton@{PentagramFieldButton}}\index{PentagramFieldButton@{PentagramFieldButton}!Down@{Down}}}\mbox{\Hypertarget{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910a08a38277b0309070706f6652eeae9a53}\label{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910a08a38277b0309070706f6652eeae9a53}} 
+Down&\\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -55,6 +91,12 @@ void \mbox{\hyperlink{class_pentagram_field_button_a8d7dbc80c1b5e0301bfa6bb2f542
 \index{GetButtonField@{GetButtonField}!PentagramFieldButton@{PentagramFieldButton}}
 \doxysubsubsection{\texorpdfstring{GetButtonField()}{GetButtonField()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}} Pentagram\+Field\+Button\+::\+Get\+Button\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_pentagram_field_button_aeed16152833547e82bb673207ba5065d}\label{class_pentagram_field_button_aeed16152833547e82bb673207ba5065d}} 
+\index{PentagramFieldButton@{PentagramFieldButton}!GetButtonState@{GetButtonState}}
+\index{GetButtonState@{GetButtonState}!PentagramFieldButton@{PentagramFieldButton}}
+\doxysubsubsection{\texorpdfstring{GetButtonState()}{GetButtonState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{Button\+State}} Pentagram\+Field\+Button\+::\+Get\+Button\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{class_pentagram_field_button_ac1730515a4c0f509cafcf74a5461d1d7}\label{class_pentagram_field_button_ac1730515a4c0f509cafcf74a5461d1d7}} 
 \index{PentagramFieldButton@{PentagramFieldButton}!SetActive@{SetActive}}
@@ -77,6 +119,12 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be40581
 \index{SetRuneActive@{SetRuneActive}!PentagramFieldButton@{PentagramFieldButton}}
 \doxysubsubsection{\texorpdfstring{SetRuneActive()}{SetRuneActive()}}
 {\footnotesize\ttfamily void Pentagram\+Field\+Button\+::\+Set\+Rune\+Active (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_pentagram_field_button_a09ce19833bde0c70d9f1b960882ea35f}\label{class_pentagram_field_button_a09ce19833bde0c70d9f1b960882ea35f}} 
+\index{PentagramFieldButton@{PentagramFieldButton}!SetRuneColor@{SetRuneColor}}
+\index{SetRuneColor@{SetRuneColor}!PentagramFieldButton@{PentagramFieldButton}}
+\doxysubsubsection{\texorpdfstring{SetRuneColor()}{SetRuneColor()}}
+{\footnotesize\ttfamily void Pentagram\+Field\+Button\+::\+Set\+Rune\+Color (\begin{DoxyParamCaption}\item[{glm\+::vec4}]{rune\+Color }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_pentagram_field_button_a2ca4fcf626422f80f56065f4f5c31a57}\label{class_pentagram_field_button_a2ca4fcf626422f80f56065f4f5c31a57}} 
 \index{PentagramFieldButton@{PentagramFieldButton}!SetToggle@{SetToggle}}

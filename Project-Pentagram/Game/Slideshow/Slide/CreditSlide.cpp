@@ -366,7 +366,7 @@ SlideObject* CreditSlide::Init()
         {
             Stage->SetElement(Element::Corrupt);
             CasterA->SetCaster(CasterType::Player, Element::Fire);
-            CasterB->SetCaster(CasterType::BigBoss, Element::Fire);
+            CasterB->SetCaster(CasterType::BigBoss, Element::Fire,CasterPosition::CasterB);
             CasterA->position = { -CASTER_POSITION_X + 175.0f, CASTER_POSITION_Y + 20.0f, 1.0f };
             Next();
         }

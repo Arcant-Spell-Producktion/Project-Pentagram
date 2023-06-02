@@ -1,0 +1,5 @@
+<map id="CharacterSelectScene" name="CharacterSelectScene">
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,157,181"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="34,80,129,107"/>
+<area shape="rect" id="node3" href="$class_i_game_object_manager.html" title=" " alt="" coords="7,5,155,32"/>
+</map>

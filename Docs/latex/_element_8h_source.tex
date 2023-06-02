@@ -17,17 +17,18 @@
 \DoxyCodeLine{13         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5a36c53c491b69d39a006046e467cddecc}{Fire}} = 1,}
 \DoxyCodeLine{14         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad80dea20c30bcb9c4cdd86aad6e3e8bb}{Water}} = 2,}
 \DoxyCodeLine{15         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5a0c9cb7b25432966386d1232c8b0c5890}{Wind}} = 3,}
-\DoxyCodeLine{16         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Debug}} = 1}
-\DoxyCodeLine{17     \};}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keyword}{static} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_element_afb5ae522de1b3f7173a1390ffe4cb923}{GetEnum}}(std::string typeString) \{}
-\DoxyCodeLine{20         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 3; i++)}
-\DoxyCodeLine{21         \{}
-\DoxyCodeLine{22             \textcolor{keywordflow}{if} (typeString.compare(enum\_string[i])) \textcolor{keywordflow}{return} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}}(i);}
-\DoxyCodeLine{23         \}}
-\DoxyCodeLine{24         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Element::Debug}};}
-\DoxyCodeLine{25     \}}
-\DoxyCodeLine{26     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_element_aa9968c2cc6e7b6da88b84f6a6b8956b8}{GetString}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} type) \{ \textcolor{keywordflow}{return} enum\_string[(int)type]; \}}
-\DoxyCodeLine{27 \};}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5aae48f738c8f2fe503fcd8673f8949221}{Corrupt}} = 4,}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Debug}} = 1}
+\DoxyCodeLine{18     \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{static} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_element_afb5ae522de1b3f7173a1390ffe4cb923}{GetEnum}}(std::string typeString) \{}
+\DoxyCodeLine{21         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= 4; i++)}
+\DoxyCodeLine{22         \{}
+\DoxyCodeLine{23             \textcolor{keywordflow}{if} (typeString.compare(enum\_string[i])) \textcolor{keywordflow}{return} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}}(i);}
+\DoxyCodeLine{24         \}}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Element::Debug}};}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_element_aa9968c2cc6e7b6da88b84f6a6b8956b8}{GetString}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} type) \{ \textcolor{keywordflow}{return} enum\_string[(int)type]; \}}
+\DoxyCodeLine{28 \};}
 
 \end{DoxyCode}

@@ -8,9 +8,9 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effect_type_8h}{SpellEffectType.h}}"{}}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_channel_effect_type_8h}{ChannelEffectType.h}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_target_8h}{SpellTarget.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_resolve_effect_8h}{SpellResolveEffect.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
 \DoxyCodeLine{10 }
 \DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell}{Spell}}}
 \DoxyCodeLine{12 \{}
@@ -22,46 +22,54 @@
 \DoxyCodeLine{18     \textcolor{keywordtype}{int} m\_OriginalCastTime = 1;}
 \DoxyCodeLine{19     \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} m\_ChannelEffectType = \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a6adf97f83acf6453d4a6a4b1070f3754}{ChannelEffectEnum::None}};}
 \DoxyCodeLine{20     \textcolor{keywordtype}{int} m\_ChannelTime = 0;}
-\DoxyCodeLine{21 \textcolor{keyword}{public}:}
-\DoxyCodeLine{22     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_spell_a4a64404cc3b8e26e8d1395f0903b18e2}{m\_Element}};}
-\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25     \mbox{\hyperlink{class_spell_afaa153297b1b249595217510b07afaba}{Spell}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Element::Debug}}, \textcolor{keywordtype}{int} index = -\/1) :}
-\DoxyCodeLine{26         \mbox{\hyperlink{class_spell_a4a64404cc3b8e26e8d1395f0903b18e2}{m\_Element}}(element),}
-\DoxyCodeLine{27         \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}}(index),}
-\DoxyCodeLine{28         m\_Name(\textcolor{stringliteral}{"{}New Spell"{}}),}
-\DoxyCodeLine{29         m\_WillValues\{ 0,0,0,0,0,0 \},}
-\DoxyCodeLine{30         m\_SpellEffectType(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}}),}
-\DoxyCodeLine{31         m\_SpellEffectValues\{ 0,0,0,0,0,0 \},}
-\DoxyCodeLine{32         m\_OriginalCastTime(1),}
-\DoxyCodeLine{33         m\_ChannelEffectType(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}}),}
-\DoxyCodeLine{34         m\_ChannelTime(0)}
-\DoxyCodeLine{35     \{\}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_ae634294c144ee72bea867791ec31cd35}{GetSpellIndex}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}}; \}}
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a09e536806fbae7944305fa96916c53f3}{SetSpellName}}(std::string name) \{ m\_Name = name; \}}
-\DoxyCodeLine{39     \textcolor{keyword}{const} std::string \mbox{\hyperlink{class_spell_a24ecd014ef0e5fd266e0a9b9a1172650}{GetSpellName}}() \{ \textcolor{keywordflow}{return} m\_Name; \}}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_ac784f9c42aea3ef50ff723782187eb85}{SetWillValue}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} value) \{ m\_WillValues[i] = value; \}}
-\DoxyCodeLine{42     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a0f8bc1c145d9a8fc0ce618a21c4ede18}{GetWillValue}}(\textcolor{keywordtype}{int} i) \{ \textcolor{keywordflow}{return} m\_WillValues[i]; \}}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a5c96bea1b814edaf389570e67cef6474}{SetSpellEffectType}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ m\_SpellEffectType = type; \}}
-\DoxyCodeLine{45     \textcolor{keyword}{const} \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{class_spell_af38ae8280de11ace20ed4282f53ee9e4}{GetSpellEffectType}}() \{ \textcolor{keywordflow}{return} m\_SpellEffectType; \}}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a7be7200d9a3b4ad2ebb64490d26870aa}{SetSpellEffectValue}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} value) \{ m\_SpellEffectValues[i] = value; \}}
-\DoxyCodeLine{48     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a3f056e13dcd395e221f582049b3f9403}{GetSpellEffectValue}}(\textcolor{keywordtype}{int} i) \{ \textcolor{keywordflow}{return} m\_SpellEffectValues[i]; \}}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_aa2818289c76b7b632fab11d06ec3cbf1}{SetCastTime}}(\textcolor{keywordtype}{int} time) \{ m\_OriginalCastTime = time; \}}
-\DoxyCodeLine{51     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a0ce9187c755a73741c61ccf4361af3e0}{GetCastTime}}() \{ \textcolor{keywordflow}{return} m\_OriginalCastTime; \}}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} type) \{ m\_ChannelEffectType = type; \}}
-\DoxyCodeLine{54     \textcolor{keyword}{const} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} \mbox{\hyperlink{class_spell_a903bc6db1861004ad86d4a586f3a6846}{GetChannelEffectType}}() \{ \textcolor{keywordflow}{return} m\_ChannelEffectType; \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a44f4a566f51aa115b0726918036c2f38}{SetChannelTime}}(\textcolor{keywordtype}{int} time) \{ m\_ChannelTime = time; \}}
-\DoxyCodeLine{57     \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a5d2629875ceb046ae9810b7e845d43c2}{GetChannelTime}}() \{ \textcolor{keywordflow}{return} m\_ChannelTime; \}}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59     \textcolor{keyword}{friend} ostream\& \mbox{\hyperlink{class_spell_ac1c82909ea74e7c808e2ef1b3f65e282}{operator<<}}(ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{class_spell}{Spell}}\& dt);}
-\DoxyCodeLine{60 \};}
-\DoxyCodeLine{61 }
+\DoxyCodeLine{21     \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}} m\_SpellTarget = \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7a857ccf501e3d5cb92473fa1eb4d9fee5}{SpellTargetEnum::Opponent}};}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_spell_resolve_effect}{SpellResolveEffect}} m\_SpellResolveEffect = 1;}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_spell_a4a64404cc3b8e26e8d1395f0903b18e2}{m\_Element}};}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_spell_afaa153297b1b249595217510b07afaba}{Spell}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad8ac13bd2021d6ddb7661aa9e9a2c775}{Element::Debug}}, \textcolor{keywordtype}{int} index = -\/1) :}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_spell_a4a64404cc3b8e26e8d1395f0903b18e2}{m\_Element}}(element),}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}}(index),}
+\DoxyCodeLine{30         m\_Name(\textcolor{stringliteral}{"{}New Spell"{}}),}
+\DoxyCodeLine{31         m\_WillValues\{ 0,0,0,0,0,0 \},}
+\DoxyCodeLine{32         m\_SpellEffectType(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}}),}
+\DoxyCodeLine{33         m\_SpellEffectValues\{ 0,0,0,0,0,0 \},}
+\DoxyCodeLine{34         m\_OriginalCastTime(1),}
+\DoxyCodeLine{35         m\_ChannelEffectType(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}}),}
+\DoxyCodeLine{36         m\_ChannelTime(0)}
+\DoxyCodeLine{37     \{\}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a660a44fc22977ab1afefc1323af30750}{GetSpellIndex}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_a039c69553483125e80cc4d5bd82ab9f0}{m\_Index}}; \}}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a09e536806fbae7944305fa96916c53f3}{SetSpellName}}(std::string name) \{ m\_Name = name; \}}
+\DoxyCodeLine{41     std::string \mbox{\hyperlink{class_spell_af4e8b9d92b8a8ff761090a3c7d1ae31d}{GetSpellName}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_Name; \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_ac784f9c42aea3ef50ff723782187eb85}{SetWillValue}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} value) \{ m\_WillValues[i] = value; \}}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a2277dde9e2db9f018bf3d76300df756b}{GetWillValue}}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_WillValues[i]; \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a5c96bea1b814edaf389570e67cef6474}{SetSpellEffectType}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ m\_SpellEffectType = type; \}}
+\DoxyCodeLine{47     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{class_spell_ad163317054af959cba323e2a74165ee7}{GetSpellEffectType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_SpellEffectType; \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a7be7200d9a3b4ad2ebb64490d26870aa}{SetSpellEffectValue}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} value) \{ m\_SpellEffectValues[i] = value; \}}
+\DoxyCodeLine{50     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_aed72457ed716a06c559c7e53cbe29afc}{GetSpellEffectValue}}(\textcolor{keywordtype}{int} i)\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_SpellEffectValues[i]; \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_aa2818289c76b7b632fab11d06ec3cbf1}{SetCastTime}}(\textcolor{keywordtype}{int} time) \{ m\_OriginalCastTime = time; \}}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a340f9854b3d24dc039573daf5ef00a2e}{GetCastTime}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_OriginalCastTime; \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} type) \{ m\_ChannelEffectType = type; \}}
+\DoxyCodeLine{56     \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} \mbox{\hyperlink{class_spell_acd77d80177d15f1cdecda1d91028d3f7}{GetChannelEffectType}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_ChannelEffectType; \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a44f4a566f51aa115b0726918036c2f38}{SetChannelTime}}(\textcolor{keywordtype}{int} time) \{ m\_ChannelTime = time; \}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_spell_a538723083c7c6301650acc9cf3492367}{GetChannelTime}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_ChannelTime; \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_a265f6ed21b75f45a21194d4e3e12713b}{SetSpellTarget}}(\mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}} target) \{ m\_SpellTarget = target; \}}
+\DoxyCodeLine{62     \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}} \mbox{\hyperlink{class_spell_a12939fe3fd0c3c38f3a22063c6f87cf0}{GetSpellTarget}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_SpellTarget; \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_ab18b6ae123177a0ebeff31d2830b48bd}{SetResolveEffectFlag}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}) \{ m\_SpellResolveEffect.\mbox{\hyperlink{class_spell_resolve_effect_a6fc5cbd1214c60727611ead773eb483e}{SetResolveFlags}}(\mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}}); \}}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_spell_resolve_effect}{SpellResolveEffect}} \mbox{\hyperlink{class_spell_a9595aa5718e015cfc4d71a08454a564e}{GetResolvesEffects}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_SpellResolveEffect; \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{class_spell_afa2e07931e0c28ef96b136d1f66141b1}{operator<<}}(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{class_spell}{Spell}}\& dt);}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
 
 \end{DoxyCode}

@@ -41,22 +41,26 @@
 \DoxyCodeLine{37     \textcolor{keyword}{public}:}
 \DoxyCodeLine{38         std::string \mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}};}
 \DoxyCodeLine{39         \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474f}{TextAlignment}} \mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{textAlignment}};}
-\DoxyCodeLine{40         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}};}
-\DoxyCodeLine{41         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}{lineSpacing}};}
-\DoxyCodeLine{42         glm::vec4 \mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44         \mbox{\hyperlink{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}{TextObject}}(\textcolor{keyword}{const} std::string\& objName);}
-\DoxyCodeLine{45         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a7389c1af07e6a6b564415ae325d1b684}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
-\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
-\DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a194cd1d32e522494b85c387eb0683a3d}{UnloadMesh}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{50         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}{SetRenderTime}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& renderTime);}
-\DoxyCodeLine{51         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}{SetFonts}}(\textcolor{keyword}{const} std::string\& fontPath);}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Render Text -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{54         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a38a20048c257e64a12a5fbcddd047d60}{RenderText}}(glm::vec3 positionOffset, \mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel, \textcolor{keywordtype}{int} start = -\/1, \textcolor{keywordtype}{int} end = -\/1);}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \};}
+\DoxyCodeLine{40         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_text_object_ae4d614d066ab2f185e572167d0834373}{isVCenterAlignment}} = \textcolor{keyword}{false};  \textcolor{comment}{// Vertical Center Alignment}}
+\DoxyCodeLine{41         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}};}
+\DoxyCodeLine{42         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}{lineSpacing}};}
+\DoxyCodeLine{43         glm::vec4 \mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \mbox{\hyperlink{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}{TextObject}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a7389c1af07e6a6b564415ae325d1b684}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{48         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a194cd1d32e522494b85c387eb0683a3d}{UnloadMesh}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}{SetRenderTime}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& renderTime);}
+\DoxyCodeLine{52         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}{SetFonts}}(\textcolor{keyword}{const} std::string\& fontPath);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{55         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_text_object_a3e53fde766a1c6c66cb690c21dc9eef7}{IsRenderComplete}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Render Text -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a38a20048c257e64a12a5fbcddd047d60}{RenderText}}(glm::vec3 positionOffset, \mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel, \textcolor{keywordtype}{int} start = -\/1, \textcolor{keywordtype}{int} end = -\/1);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \};}
 
 \end{DoxyCode}

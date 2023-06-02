@@ -1,0 +1,45 @@
+\hypertarget{_tutorial_select_scene_8h_source}{}\doxysection{Tutorial\+Select\+Scene.\+h}
+\label{_tutorial_select_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialSelectScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialSelectScene.h}}
+\mbox{\hyperlink{_tutorial_select_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_data_8h}{Game/GameData/TutorialData/TutorialData.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_select_scene}{TutorialSelectScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{14     \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} m\_NextState;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{float} m\_FadeTime;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{float} m\_FadeCurrentTime = 0.0f;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} m\_IsFadeOut = \textcolor{keyword}{false};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428c}{TutorialType}} m\_SelectedTutorial;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} FadeOut(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& fadeTime, \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} nextState)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         m\_NextState = nextState;}
+\DoxyCodeLine{24         m\_FadeTime = fadeTime;}
+\DoxyCodeLine{25         m\_IsFadeOut = \textcolor{keyword}{true};}
+\DoxyCodeLine{26         m\_FadeScreen-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{27         m\_FadeScreen-\/>\mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{SetBlockRaycast}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} FadeUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_a286252e5bb2b5445c6b6b3a12c3a0ac4}{OnSelect}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_a1bb0fe847e114959848f1ed41f442b53}{OnConfirm}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_a9ddc8ffeefe9258320d263fc7fa8afd7}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_a7897f0763b162b6cb39bd656d969f18f}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{37     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_aa8fffbb0d3970da2cdb82ef264a5fdce}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_select_scene_aba2fadcea39732fd4b6cb3cc264a39ee}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{39 \};}
+
+\end{DoxyCode}

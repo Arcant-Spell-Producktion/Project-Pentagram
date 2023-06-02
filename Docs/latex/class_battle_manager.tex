@@ -6,16 +6,18 @@
 
 
 
-Inheritance diagram for Battle\+Manager\+:\nopagebreak
+Inheritance diagram for Battle\+Manager\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=218pt]{class_battle_manager__inherit__graph}
+\includegraphics[width=350pt]{class_battle_manager__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Battle\+Manager\+:\nopagebreak
+Collaboration diagram for Battle\+Manager\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,21 +27,21 @@ Collaboration diagram for Battle\+Manager\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}{Set\+Battle\+State}} (\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}} state)
+void \mbox{\hyperlink{class_battle_manager_a34df05788499a677f7922287d3e32b2d}{Set\+Battle\+State}} (\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}} state) override
 \item 
-\mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ \mbox{\hyperlink{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}{Get\+Battle\+States}} ()
+\mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ \mbox{\hyperlink{class_battle_manager_a9ad23b5e35a0f94b03fe92fd152a8085}{Get\+Battle\+States}} () override
 \item 
-void \mbox{\hyperlink{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}{Init}} (\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$scene)
+void \mbox{\hyperlink{class_battle_manager_add3a7097fb7c9082849db34a3d73b13d}{Init}} (\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$scene, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} stage\+Element, \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{Battle\+Mode}} mode=\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{Battle\+Mode\+::\+Battle}}) override
 \item 
-void \mbox{\hyperlink{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}{Start\+Battle}} ()
+void \mbox{\hyperlink{class_battle_manager_a26f49cb15c8c8925a9db3ded4f3684ea}{Start\+Battle}} (\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{Battle\+Mode}} mode=\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{Battle\+Mode\+::\+Battle}}) override
 \item 
-void \mbox{\hyperlink{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}{Swap\+Caster}} ()
+void \mbox{\hyperlink{class_battle_manager_adb801c924bfe98bb877ab06c898d0974}{Swap\+Caster}} () override
 \item 
-void \mbox{\hyperlink{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}{End\+Battle}} ()
+void \mbox{\hyperlink{class_battle_manager_a655a8b6bfb9a7a8b06dd1512a3d5669d}{End\+Battle}} () override
 \item 
 void \mbox{\hyperlink{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}{Update\+Display\+Spell\+Detail}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} position, \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell=nullptr, bool is\+Main\+Data=false, glm\+::vec3 Icon\+Pos=\{0, 0, 0\})
 \item 
-\mbox{\hyperlink{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}{$\sim$\+Battle\+Manager}} ()
+void \mbox{\hyperlink{class_battle_manager_a2db841fba1ba5cb1a9412ae239e2afcb}{Free}} () override
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -49,51 +51,76 @@ void \mbox{\hyperlink{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}{Up
 \doxysubsection*{Additional Inherited Members}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}\label{class_battle_manager_a461f1bc6b2214e0cd30d19ee07ae5a7e}} 
-\index{BattleManager@{BattleManager}!````~BattleManager@{$\sim$BattleManager}}
-\index{````~BattleManager@{$\sim$BattleManager}!BattleManager@{BattleManager}}
-\doxysubsubsection{\texorpdfstring{$\sim$BattleManager()}{~BattleManager()}}
-{\footnotesize\ttfamily Battle\+Manager\+::$\sim$\+Battle\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}\label{class_battle_manager_a0e3ed1d06a7538d05030c479d7d71d5e}} 
+\mbox{\Hypertarget{class_battle_manager_a655a8b6bfb9a7a8b06dd1512a3d5669d}\label{class_battle_manager_a655a8b6bfb9a7a8b06dd1512a3d5669d}} 
 \index{BattleManager@{BattleManager}!EndBattle@{EndBattle}}
 \index{EndBattle@{EndBattle}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{EndBattle()}{EndBattle()}}
-{\footnotesize\ttfamily void Battle\+Manager\+::\+End\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+End\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}\label{class_battle_manager_a15b1838a52be84cc743b7285af8ced14}} 
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_a41ca58c24e84b7a67aaf4c9549a10f65}{IBattle\+Manager$<$ Battle\+State $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_a2db841fba1ba5cb1a9412ae239e2afcb}\label{class_battle_manager_a2db841fba1ba5cb1a9412ae239e2afcb}} 
+\index{BattleManager@{BattleManager}!Free@{Free}}
+\index{Free@{Free}!BattleManager@{BattleManager}}
+\doxysubsubsection{\texorpdfstring{Free()}{Free()}}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_singleton_a7e440f849b2b900be243779ff9df082c}{Singleton$<$ Battle\+Manager $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_a9ad23b5e35a0f94b03fe92fd152a8085}\label{class_battle_manager_a9ad23b5e35a0f94b03fe92fd152a8085}} 
 \index{BattleManager@{BattleManager}!GetBattleStates@{GetBattleStates}}
 \index{GetBattleStates@{GetBattleStates}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{GetBattleStates()}{GetBattleStates()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ Battle\+Manager\+::\+Get\+Battle\+States (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_battle_state}{Base\+Battle\+State}} $\ast$ Battle\+Manager\+::\+Get\+Battle\+States (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}\label{class_battle_manager_acbc7217037566bc83e971ba33c8bb814}} 
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_ab7488f4f851629762b68ea230c761de3}{IBattle\+Manager$<$ Battle\+State $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_add3a7097fb7c9082849db34a3d73b13d}\label{class_battle_manager_add3a7097fb7c9082849db34a3d73b13d}} 
 \index{BattleManager@{BattleManager}!Init@{Init}}
 \index{Init@{Init}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void Battle\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$}]{scene }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_game_object_manager}{IGame\+Object\+Manager}} $\ast$}]{scene,  }\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{stage\+Element,  }\item[{\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{Battle\+Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{Battle\+Mode\+::\+Battle}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}\label{class_battle_manager_ac78e043afcb40b1ae6d0d8bb66919e37}} 
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_adecf0b87cbdd44f61b6ea8bb51ae463f}{IBattle\+Manager$<$ Battle\+State $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_a34df05788499a677f7922287d3e32b2d}\label{class_battle_manager_a34df05788499a677f7922287d3e32b2d}} 
 \index{BattleManager@{BattleManager}!SetBattleState@{SetBattleState}}
 \index{SetBattleState@{SetBattleState}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{SetBattleState()}{SetBattleState()}}
-{\footnotesize\ttfamily void Battle\+Manager\+::\+Set\+Battle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_base_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}}}]{state }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Set\+Battle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}}}]{state }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}\label{class_battle_manager_a18d0e980502fe8139966d37f4571a60d}} 
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_a06c9f2c37aa316d6b9d608260d5eb03f}{IBattle\+Manager$<$ Battle\+State $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_a26f49cb15c8c8925a9db3ded4f3684ea}\label{class_battle_manager_a26f49cb15c8c8925a9db3ded4f3684ea}} 
 \index{BattleManager@{BattleManager}!StartBattle@{StartBattle}}
 \index{StartBattle@{StartBattle}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{StartBattle()}{StartBattle()}}
-{\footnotesize\ttfamily void Battle\+Manager\+::\+Start\+Battle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Start\+Battle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{Battle\+Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{Battle\+Mode\+::\+Battle}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}\label{class_battle_manager_af9cf5a82e73d46038d88682f431cafdb}} 
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_a575d67ce8db7c5e046fb33a3e4d536da}{IBattle\+Manager$<$ Battle\+State $>$}}.
+
+\mbox{\Hypertarget{class_battle_manager_adb801c924bfe98bb877ab06c898d0974}\label{class_battle_manager_adb801c924bfe98bb877ab06c898d0974}} 
 \index{BattleManager@{BattleManager}!SwapCaster@{SwapCaster}}
 \index{SwapCaster@{SwapCaster}!BattleManager@{BattleManager}}
 \doxysubsubsection{\texorpdfstring{SwapCaster()}{SwapCaster()}}
-{\footnotesize\ttfamily void Battle\+Manager\+::\+Swap\+Caster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Battle\+Manager\+::\+Swap\+Caster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_battle_manager_a35e8958f5b35efcd3ebb5ddddced72a8}{IBattle\+Manager$<$ Battle\+State $>$}}.
 
 \mbox{\Hypertarget{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}\label{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}} 
 \index{BattleManager@{BattleManager}!UpdateDisplaySpellDetail@{UpdateDisplaySpellDetail}}

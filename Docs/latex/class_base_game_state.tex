@@ -1,0 +1,92 @@
+\hypertarget{class_base_game_state}{}\doxysection{Base\+Game\+State\texorpdfstring{$<$}{<} STATE \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_base_game_state}\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+
+
+{\ttfamily \#include $<$Base\+Game\+State.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_game_state_af84892ab1409678dd89ace9dce92e945}{Base\+Game\+State}} ()
+\item 
+\mbox{\hyperlink{class_base_game_state_a2736f190ac05488c6bee6a35866ab76e}{Base\+Game\+State}} (const STATE id)
+\item 
+virtual void \mbox{\hyperlink{class_base_game_state_a60a6843f112e8bc912f20217d15bd7a5}{On\+Battle\+State\+In}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_base_game_state_a40d71b2ce5a3d9816d25ebabd80a16b9}{On\+Battle\+State\+Update}} (float dt)=0
+\item 
+virtual void \mbox{\hyperlink{class_base_game_state_af236785b6408e928d363ce96ff9188c9}{On\+Battle\+State\+Out}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const STATE \mbox{\hyperlink{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}{State\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_game_state_af84892ab1409678dd89ace9dce92e945}\label{class_base_game_state_af84892ab1409678dd89ace9dce92e945}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!BaseGameState@{BaseGameState}}
+\index{BaseGameState@{BaseGameState}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{BaseGameState()}{BaseGameState()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+\mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\mbox{\hyperlink{class_base_game_state}{\+::\+Base\+Game\+State}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_game_state_a2736f190ac05488c6bee6a35866ab76e}\label{class_base_game_state_a2736f190ac05488c6bee6a35866ab76e}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!BaseGameState@{BaseGameState}}
+\index{BaseGameState@{BaseGameState}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{BaseGameState()}{BaseGameState()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+\mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\mbox{\hyperlink{class_base_game_state}{\+::\+Base\+Game\+State}} (\begin{DoxyParamCaption}\item[{const STATE}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_game_state_a60a6843f112e8bc912f20217d15bd7a5}\label{class_base_game_state_a60a6843f112e8bc912f20217d15bd7a5}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!OnBattleStateIn@{OnBattleStateIn}}
+\index{OnBattleStateIn@{OnBattleStateIn}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{OnBattleStateIn()}{OnBattleStateIn()}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+virtual void \mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\+::\+On\+Battle\+State\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_cast_battle_state_a405d897d964c61ee9c26faa6f28aef09}{Cast\+Battle\+State}}, \mbox{\hyperlink{class_resolve_battle_state_a0d8822dfbf749d081cfc7c10614164a7}{Resolve\+Battle\+State}}, \mbox{\hyperlink{class_result_battle_state_af45066530d22e0dd44cc92e8ef21b8f6}{Result\+Battle\+State}}, \mbox{\hyperlink{class_setup_battle_state_ad2f0e952da1366773d9f444faa839712}{Setup\+Battle\+State}}, \mbox{\hyperlink{class_stand_by_battle_state_aff1435fffe2a70cc23918b1216d3e072}{Stand\+By\+Battle\+State}}, \mbox{\hyperlink{class_cast_test_state_adc9bc527d536c485815889ba11173e63}{Cast\+Test\+State}}, \mbox{\hyperlink{class_resolve_test_state_a911f50147f78e61b6eddcc5da2610010}{Resolve\+Test\+State}}, \mbox{\hyperlink{class_result_test_state_ae186142067ecc8ce38fe87e40223b242}{Result\+Test\+State}}, \mbox{\hyperlink{class_setup_test_state_a40c4db9a753ec5ae1d073dd53cb14853}{Setup\+Test\+State}}, \mbox{\hyperlink{class_stand_by_test_state_ad2a054013d1084a8542c73f3ce26786b}{Stand\+By\+Test\+State}}, \mbox{\hyperlink{class_cast_tutorial_state_a493ac2a530a23e88ebc84cc6fdfffa7a}{Cast\+Tutorial\+State}}, \mbox{\hyperlink{class_explain_tutorial_state_a35e826a37c02fe4161895c9e5ee3a1ad}{Explain\+Tutorial\+State}}, \mbox{\hyperlink{class_resolve_tutorial_state_a80f1bef009c2fb90b3c33faa56102afa}{Resolve\+Tutorial\+State}}, \mbox{\hyperlink{class_result_tutorial_state_a916f79f93d1d311b4df7da480cdbce6e}{Result\+Tutorial\+State}}, \mbox{\hyperlink{class_setup_tutorial_state_af4074ba24485e6a7013e057c28e537f6}{Setup\+Tutorial\+State}}, \mbox{\hyperlink{class_stand_by_tutorial_state_a8890ca200247d8cd4edd4ddfbb3b8630}{Stand\+By\+Tutorial\+State}}, and \mbox{\hyperlink{class_base_battle_state_ab39c4f14ec7fae9755488f16ac8116d7}{Base\+Battle\+State}}.
+
+\mbox{\Hypertarget{class_base_game_state_af236785b6408e928d363ce96ff9188c9}\label{class_base_game_state_af236785b6408e928d363ce96ff9188c9}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!OnBattleStateOut@{OnBattleStateOut}}
+\index{OnBattleStateOut@{OnBattleStateOut}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{OnBattleStateOut()}{OnBattleStateOut()}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+virtual void \mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\+::\+On\+Battle\+State\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_cast_battle_state_aadd33b81975c32524bf3609f1c044c8f}{Cast\+Battle\+State}}, \mbox{\hyperlink{class_resolve_battle_state_a94a740c7e509f69b0f1e7a0e72a6ecf4}{Resolve\+Battle\+State}}, \mbox{\hyperlink{class_result_battle_state_a2fa4f7f7df2b5c37521840c0e5209508}{Result\+Battle\+State}}, \mbox{\hyperlink{class_setup_battle_state_aef16f992c3bdce160275c7f59d449e7c}{Setup\+Battle\+State}}, \mbox{\hyperlink{class_stand_by_battle_state_a6fbd026c5fcb7431480b075022ee323b}{Stand\+By\+Battle\+State}}, \mbox{\hyperlink{class_cast_test_state_a9702df43ee10a109c98641ea6487e6bb}{Cast\+Test\+State}}, \mbox{\hyperlink{class_resolve_test_state_a3c22eca9301a4a40d1bb2f8dc895121f}{Resolve\+Test\+State}}, \mbox{\hyperlink{class_result_test_state_a470cb6bd06e69cc58a94c20ab1a90c20}{Result\+Test\+State}}, \mbox{\hyperlink{class_setup_test_state_a5f2cce28dc777f715439ec6194762f06}{Setup\+Test\+State}}, \mbox{\hyperlink{class_stand_by_test_state_a138d25999d57373beb72e58ae3cdd81e}{Stand\+By\+Test\+State}}, \mbox{\hyperlink{class_cast_tutorial_state_ad75e4910972d1b4d716958c934729bde}{Cast\+Tutorial\+State}}, \mbox{\hyperlink{class_explain_tutorial_state_ae097518a140edca2916cd7d84bb7ccc5}{Explain\+Tutorial\+State}}, \mbox{\hyperlink{class_resolve_tutorial_state_a33dc0b9d94bbe608d05da0ae36bae851}{Resolve\+Tutorial\+State}}, \mbox{\hyperlink{class_result_tutorial_state_af4bf91a98dbb259d864b51f9230c410d}{Result\+Tutorial\+State}}, \mbox{\hyperlink{class_setup_tutorial_state_a4ae3f4a6e08fc5c89fdc3ad7a58396f5}{Setup\+Tutorial\+State}}, \mbox{\hyperlink{class_stand_by_tutorial_state_a4e56040761264a34f0e0d9388a31d6c6}{Stand\+By\+Tutorial\+State}}, and \mbox{\hyperlink{class_base_battle_state_ab7eeafd9f331bf67c1768de5472b7a18}{Base\+Battle\+State}}.
+
+\mbox{\Hypertarget{class_base_game_state_a40d71b2ce5a3d9816d25ebabd80a16b9}\label{class_base_game_state_a40d71b2ce5a3d9816d25ebabd80a16b9}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!OnBattleStateUpdate@{OnBattleStateUpdate}}
+\index{OnBattleStateUpdate@{OnBattleStateUpdate}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{OnBattleStateUpdate()}{OnBattleStateUpdate()}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+virtual void \mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\+::\+On\+Battle\+State\+Update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_cast_battle_state_af12877e9be8919b714393c1c84457682}{Cast\+Battle\+State}}, \mbox{\hyperlink{class_resolve_battle_state_ac9c4181dac43c1e643fb9162283f1c3c}{Resolve\+Battle\+State}}, \mbox{\hyperlink{class_result_battle_state_a3d5a59072fa15c940f5d588560b84b4d}{Result\+Battle\+State}}, \mbox{\hyperlink{class_setup_battle_state_a918f0d90d1aa9436c17a3f53c93d102e}{Setup\+Battle\+State}}, \mbox{\hyperlink{class_stand_by_battle_state_a355872ffafffd181006f8b96bdf4c325}{Stand\+By\+Battle\+State}}, \mbox{\hyperlink{class_cast_test_state_a3852e2eca48a149dc057574163e355c1}{Cast\+Test\+State}}, \mbox{\hyperlink{class_resolve_test_state_a4a83ad317b3af9d68bb1f78e9f387615}{Resolve\+Test\+State}}, \mbox{\hyperlink{class_result_test_state_ac31fc2baad48f8fd395a1d81cf5580e4}{Result\+Test\+State}}, \mbox{\hyperlink{class_setup_test_state_a316b3ba26ebe608a1a2386200188a8ba}{Setup\+Test\+State}}, \mbox{\hyperlink{class_stand_by_test_state_a53b125e78e4140bab4e62ffad72db444}{Stand\+By\+Test\+State}}, \mbox{\hyperlink{class_cast_tutorial_state_afa1c925d2d33dcc7623c5fa67e6ec174}{Cast\+Tutorial\+State}}, \mbox{\hyperlink{class_explain_tutorial_state_ad2b4de81068534bf538d35afe2f7cf1b}{Explain\+Tutorial\+State}}, \mbox{\hyperlink{class_resolve_tutorial_state_a4b3a61282c4ef0727299c35903e46d22}{Resolve\+Tutorial\+State}}, \mbox{\hyperlink{class_result_tutorial_state_a3607c30efecc67a5855f40f0f9253c50}{Result\+Tutorial\+State}}, \mbox{\hyperlink{class_setup_tutorial_state_a01e5d43dfc1d037d9a6cf05c07477bfd}{Setup\+Tutorial\+State}}, \mbox{\hyperlink{class_stand_by_tutorial_state_a08944d3f48a13e20dd9b44824c067936}{Stand\+By\+Tutorial\+State}}, and \mbox{\hyperlink{class_base_battle_state_a2dec1d2bb8ff0ae758a907c722f9e898}{Base\+Battle\+State}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}\label{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}} 
+\index{BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}!StateID@{StateID}}
+\index{StateID@{StateID}!BaseGameState$<$ STATE $>$@{BaseGameState$<$ STATE $>$}}
+\doxysubsubsection{\texorpdfstring{StateID}{StateID}}
+{\footnotesize\ttfamily template$<$class STATE $>$ \\
+const STATE \mbox{\hyperlink{class_base_game_state}{Base\+Game\+State}}$<$ STATE $>$\+::\+State\+ID}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Game\+State/\mbox{\hyperlink{_base_game_state_8h}{Base\+Game\+State.\+h}}\end{DoxyCompactItemize}

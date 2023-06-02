@@ -1,0 +1,36 @@
+\hypertarget{_explain_tutorial_state_8h_source}{}\doxysection{Explain\+Tutorial\+State.\+h}
+\label{_explain_tutorial_state_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialStates/ExplainTutorialState.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialStates/ExplainTutorialState.h}}
+\mbox{\hyperlink{_explain_tutorial_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_battle_state_8h}{Game/BattleScene/BattleStates/BaseBattleState.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_box_8h}{Game/Objects/TextBox.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_event_8h}{Game/GameData/TutorialData/TutorialNodes/TutorialEvent.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_state_controller_8h}{Engine/GameStateController.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_explain_tutorial_state}{ExplainTutorialState}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_CurrentEvent;}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_tutorial_events}{TutorialEvents}} m\_TutorialStep;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_text_box}{TextBox}}* m\_Texts;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} m\_IsClickAble = \textcolor{keyword}{false};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} UpdateEvent();}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} OnTextClick();}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_explain_tutorial_state_a39c0f2966b0b221a3c9e14d44e96d2c4}{ExplainTutorialState}}() :\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}(\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}}::\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fa4c6f397e454d0e72907ecfe817d996d5}{ExplainState}}) }
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         m\_Texts = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{GameStateController::GetInstance}}().\mbox{\hyperlink{class_game_state_controller_a94541ad5e36598193f550164145a90c3}{currentScene}}-\/>\mbox{\hyperlink{class_i_game_object_manager_a5ba1cc17f6e2c63f476cdebf296a5a34}{CreateObject}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_text_box}{TextBox}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{24         m\_Texts-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{BattleManager::GetInstance}}().\mbox{\hyperlink{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}{Data}}.\mbox{\hyperlink{class_battle_scene_data_aabda677a9e3453aa5f5f136df0870b21}{Texts}} = m\_Texts;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_explain_tutorial_state_a35e826a37c02fe4161895c9e5ee3a1ad}{OnBattleStateIn}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_explain_tutorial_state_ad2b4de81068534bf538d35afe2f7cf1b}{OnBattleStateUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_explain_tutorial_state_ae097518a140edca2916cd7d84bb7ccc5}{OnBattleStateOut}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{30 \};}
+
+\end{DoxyCode}

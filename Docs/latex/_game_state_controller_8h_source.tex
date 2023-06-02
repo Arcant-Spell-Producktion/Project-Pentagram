@@ -4,29 +4,30 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_state_8h}{Engine/GameState.h}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_menu_scene_8h}{Engine/Scene/MenuScene.h}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_node_scene_8h}{Engine/Scene/NodeScene.h}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_load_scene_8h}{Engine/Scene/LoadScene.h}}"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_demo_scene_8h}{Engine/Scene/DemoScene.h}}"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_scene_8h}{Game/BattleScene/BattleScene.h}}"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_state_controller}{GameStateController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<GameStateController>}
-\DoxyCodeLine{13 \{}
-\DoxyCodeLine{14     \textcolor{keyword}{public}:}
-\DoxyCodeLine{15         \mbox{\hyperlink{class_game_scene}{GameScene}}* \mbox{\hyperlink{class_game_state_controller_a94541ad5e36598193f550164145a90c3}{currentScene}};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17         \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \mbox{\hyperlink{class_game_state_controller_a21f6b56ddea7ea592cbff3b96c7ade34}{currentState}};}
-\DoxyCodeLine{18         \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \mbox{\hyperlink{class_game_state_controller_ace7f11528753a07885d8f901257c863d}{nextState}};}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20         \mbox{\hyperlink{class_game_state_controller_a9a3b16878733c7e4b5ee82f553e1e448}{GameStateController}}();}
-\DoxyCodeLine{21         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_aa8a491b85d4d4d19f15db9fb3773e6c9}{InitGameScene}}(\mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} state);}
-\DoxyCodeLine{22         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_a65c18c9a7554d4b7f1cff93e2e81a981}{UpdateGameScene}}();}
-\DoxyCodeLine{23         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_a91f46719c2a4277dd973c7a7a567009d}{UpdateGameState}}();}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_ab5e9920c69881cbc28d34a5f5f0874f0}{Free}}();}
-\DoxyCodeLine{26 \};}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_state_8h}{Engine/GameState.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_demo_scene_8h}{Engine/Scene/DemoScene.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_load_scene_8h}{Engine/Scene/LoadScene.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_menu_scene_8h}{Engine/Scene/MenuScene.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_scene_8h}{Game/BattleScene/BattleScene.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_character_select_scene_8h}{Game/CharacterSelectScene/CharacterSelectScene.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_map_scene_8h}{Game/MapScene/MapScene.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_state_controller}{GameStateController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<GameStateController>}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \textcolor{keyword}{public}:}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_game_scene}{GameScene}}* \mbox{\hyperlink{class_game_state_controller_a94541ad5e36598193f550164145a90c3}{currentScene}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \mbox{\hyperlink{class_game_state_controller_a21f6b56ddea7ea592cbff3b96c7ade34}{currentState}};}
+\DoxyCodeLine{19         \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} \mbox{\hyperlink{class_game_state_controller_ace7f11528753a07885d8f901257c863d}{nextState}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \mbox{\hyperlink{class_game_state_controller_a9a3b16878733c7e4b5ee82f553e1e448}{GameStateController}}();}
+\DoxyCodeLine{22         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_aa8a491b85d4d4d19f15db9fb3773e6c9}{InitGameScene}}(\mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} state);}
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_a65c18c9a7554d4b7f1cff93e2e81a981}{UpdateGameScene}}();}
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_a91f46719c2a4277dd973c7a7a567009d}{UpdateGameState}}();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_state_controller_ab5e9920c69881cbc28d34a5f5f0874f0}{Free}}();}
+\DoxyCodeLine{27 \};}
 
 \end{DoxyCode}

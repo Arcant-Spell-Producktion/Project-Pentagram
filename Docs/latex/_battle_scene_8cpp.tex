@@ -3,10 +3,11 @@
 {\ttfamily \#include \char`\"{}Battle\+Scene.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Game/\+Battle\+Scene/\+Battle\+States/\+Battle\+State\+Model.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Runtime\+Game\+Data.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}Spell\+Caster/\+Player\+Controller.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Game/\+Battle\+Scene/\+Battle\+Manager.\+h\char`\"{}}\newline
-{\ttfamily \#include $<$Game/\+Objects/\+Stage\+Object.\+h$>$}\newline
-Include dependency graph for Battle\+Scene.\+cpp\+:\nopagebreak
+{\ttfamily \#include \char`\"{}Game/\+Objects/\+Stage\+Object.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Objects/\+Pause\+Menu\+Object.\+h\char`\"{}}\newline
+Include dependency graph for Battle\+Scene.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -19,6 +20,8 @@ Include dependency graph for Battle\+Scene.\+cpp\+:\nopagebreak
 float \mbox{\hyperlink{_battle_scene_8cpp_a48472da7121f349420c2bd12539927b8}{track\+\_\+t}} = 0.\+0f
 \item 
 \mbox{\hyperlink{class_battle_manager}{Battle\+Manager}} $\ast$ \mbox{\hyperlink{_battle_scene_8cpp_ac754b6f08f2e8bae7a94a8c9ec0012ec}{battle\+Manager}}
+\item 
+\mbox{\hyperlink{class_pause_menu_object}{Pause\+Menu\+Object}} $\ast$ \mbox{\hyperlink{_battle_scene_8cpp_a1f62930c255cc049665c395afae6ad1c}{pause\+Menu\+Object}}
 \end{DoxyCompactItemize}
 
 
@@ -28,6 +31,12 @@ float \mbox{\hyperlink{_battle_scene_8cpp_a48472da7121f349420c2bd12539927b8}{tra
 \index{battleManager@{battleManager}!BattleScene.cpp@{BattleScene.cpp}}
 \doxysubsubsection{\texorpdfstring{battleManager}{battleManager}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_battle_manager}{Battle\+Manager}}$\ast$ battle\+Manager}
+
+\mbox{\Hypertarget{_battle_scene_8cpp_a1f62930c255cc049665c395afae6ad1c}\label{_battle_scene_8cpp_a1f62930c255cc049665c395afae6ad1c}} 
+\index{BattleScene.cpp@{BattleScene.cpp}!pauseMenuObject@{pauseMenuObject}}
+\index{pauseMenuObject@{pauseMenuObject}!BattleScene.cpp@{BattleScene.cpp}}
+\doxysubsubsection{\texorpdfstring{pauseMenuObject}{pauseMenuObject}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_pause_menu_object}{Pause\+Menu\+Object}}$\ast$ pause\+Menu\+Object}
 
 \mbox{\Hypertarget{_battle_scene_8cpp_a48472da7121f349420c2bd12539927b8}\label{_battle_scene_8cpp_a48472da7121f349420c2bd12539927b8}} 
 \index{BattleScene.cpp@{BattleScene.cpp}!track\_t@{track\_t}}

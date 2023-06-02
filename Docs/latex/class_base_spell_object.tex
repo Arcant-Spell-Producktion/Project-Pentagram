@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Base\+Spell\+Object\+:\nopagebreak
+Inheritance diagram for Base\+Spell\+Object\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for Base\+Spell\+Object\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Base\+Spell\+Object\+:\nopagebreak
+Collaboration diagram for Base\+Spell\+Object\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -40,11 +42,13 @@ void \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}
 \item 
 void \mbox{\hyperlink{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}{Queue\+Move\+Event}} (glm\+::vec3 start\+Pos, glm\+::vec3 end\+Pos, float travel\+Time)
 \item 
-void \mbox{\hyperlink{class_base_spell_object_ac217a748f9dd7a5d11046c5a209cb84e}{Queue\+Wait\+Till\+Frame\+Event}} (bool do\+Next\+Col=false, bool wait\+Last\+Frame=true, int target\+Frame=-\/1)
+void \mbox{\hyperlink{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}{Queue\+Wait\+Till\+Frame\+Event}} (bool do\+Next\+Row=false, bool wait\+Last\+Frame=true, int target\+Frame=-\/1)
 \item 
 void \mbox{\hyperlink{class_base_spell_object_ab92048d7ec39799c65ab508679693158}{Queue\+Fade\+Out\+Event}} (float \mbox{\hyperlink{_demo_scene_8cpp_afea36502e9d227ff62c5fb2719a246f2}{t}})
 \item 
 void \mbox{\hyperlink{class_base_spell_object_a309981bafd1f2d43ae70a15bf71bee8f}{Queue\+Wait\+Event}} (float \mbox{\hyperlink{_demo_scene_8cpp_afea36502e9d227ff62c5fb2719a246f2}{t}})
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}{Queue\+Wait\+Trigger\+Event}} ()
 \item 
 void \mbox{\hyperlink{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}{Queue\+Hit\+Event}} ()
 \item 
@@ -55,7 +59,7 @@ void \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ \mbox{\hyperlink{class_base_spell_object_a498fe20d4548287ba8035c49d35ac847}{m\+\_\+\+Audio\+Controller\+Ptr}} = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()
+\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} \& \mbox{\hyperlink{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}{m\+\_\+\+Audio\+Controller\+Ptr}} = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()
 \item 
 int \mbox{\hyperlink{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}{m\+\_\+\+Spell\+Target}} = 0
 \item 
@@ -144,20 +148,26 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434
 \doxysubsubsection{\texorpdfstring{QueueWaitEvent()}{QueueWaitEvent()}}
 {\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Event (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-\mbox{\Hypertarget{class_base_spell_object_ac217a748f9dd7a5d11046c5a209cb84e}\label{class_base_spell_object_ac217a748f9dd7a5d11046c5a209cb84e}} 
+\mbox{\Hypertarget{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}\label{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}} 
 \index{BaseSpellObject@{BaseSpellObject}!QueueWaitTillFrameEvent@{QueueWaitTillFrameEvent}}
 \index{QueueWaitTillFrameEvent@{QueueWaitTillFrameEvent}!BaseSpellObject@{BaseSpellObject}}
 \doxysubsubsection{\texorpdfstring{QueueWaitTillFrameEvent()}{QueueWaitTillFrameEvent()}}
-{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Till\+Frame\+Event (\begin{DoxyParamCaption}\item[{bool}]{do\+Next\+Col = {\ttfamily false},  }\item[{bool}]{wait\+Last\+Frame = {\ttfamily true},  }\item[{int}]{target\+Frame = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Till\+Frame\+Event (\begin{DoxyParamCaption}\item[{bool}]{do\+Next\+Row = {\ttfamily false},  }\item[{bool}]{wait\+Last\+Frame = {\ttfamily true},  }\item[{int}]{target\+Frame = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}\label{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueWaitTriggerEvent@{QueueWaitTriggerEvent}}
+\index{QueueWaitTriggerEvent@{QueueWaitTriggerEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitTriggerEvent()}{QueueWaitTriggerEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Trigger\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_base_spell_object_a498fe20d4548287ba8035c49d35ac847}\label{class_base_spell_object_a498fe20d4548287ba8035c49d35ac847}} 
+\mbox{\Hypertarget{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}\label{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}} 
 \index{BaseSpellObject@{BaseSpellObject}!m\_AudioControllerPtr@{m\_AudioControllerPtr}}
 \index{m\_AudioControllerPtr@{m\_AudioControllerPtr}!BaseSpellObject@{BaseSpellObject}}
 \doxysubsubsection{\texorpdfstring{m\_AudioControllerPtr}{m\_AudioControllerPtr}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}$\ast$ Base\+Spell\+Object\+::m\+\_\+\+Audio\+Controller\+Ptr = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}\& Base\+Spell\+Object\+::m\+\_\+\+Audio\+Controller\+Ptr = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}\label{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}} 
 \index{BaseSpellObject@{BaseSpellObject}!m\_SpellTarget@{m\_SpellTarget}}

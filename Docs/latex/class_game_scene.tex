@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Game\+Scene\+:\nopagebreak
+Inheritance diagram for Game\+Scene\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for Game\+Scene\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Game\+Scene\+:\nopagebreak
+Collaboration diagram for Game\+Scene\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -59,15 +61,25 @@ virtual void \mbox{\hyperlink{class_game_scene_a06dd5348bf128fb65720731931e8060b
 \item 
 virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ \mbox{\hyperlink{class_game_scene_aaea2990b4daff20b185e1359a40bd870}{Find\+Object}} (const std\+::string \&obj\+Name) override
 \item 
+void \mbox{\hyperlink{class_game_scene_a36d4658c5e669b4895ffc74a69672b84}{Focus\+Object}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$focus\+Object)
+\item 
+void \mbox{\hyperlink{class_game_scene_a87692660b06777358de0b49b1942cae0}{Focus\+Object}} (const std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \&focus\+Objects)
+\item 
+void \mbox{\hyperlink{class_game_scene_aac6505e0b179fa4bf16c949f40c35472}{Un\+Focus\+Object}} ()
+\item 
 void \mbox{\hyperlink{class_game_scene_af9adaa92fd98610506491805317c5912}{Update\+Button\+Events}} ()
 \item 
 void \mbox{\hyperlink{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}{Update\+Scale\+Delta\+Time}} (float delta\+Time)
 \item 
 void \mbox{\hyperlink{class_game_scene_a84ac480d4f56888c9f35008c94977d20}{Update\+Delete\+Object}} ()
 \item 
+void \mbox{\hyperlink{class_game_scene_a9f11ca8e0cbc78c6cb51b12f1b296dc8}{Set\+Time\+Scale}} (const float \&\mbox{\hyperlink{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}{time\+Scale}})
+\item 
 \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ \mbox{\hyperlink{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}{Get\+Audio\+Controller}} () const
 \item 
 \mbox{\hyperlink{class_camera}{Camera}} $\ast$ \mbox{\hyperlink{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}{Get\+Camera}} ()
+\item 
+float \mbox{\hyperlink{class_game_scene_ae1a1515f7be21e12bdfa2beb7d1191cc}{Get\+Time\+Scale}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -89,7 +101,7 @@ std\+::vector$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyper
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_scene_a070f8589187d0602d73ad3cca75de568}{objects\+To\+Delete\+List}}
 \item 
-\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} $\ast$ \mbox{\hyperlink{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}{audio\+Controller}} = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()
+\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} \& \mbox{\hyperlink{class_game_scene_a2e6016acdb8337fe5f057e445f2c9aed}{audio\+Controller}} = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()
 \item 
 \mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}{camera}}
 \item 
@@ -239,6 +251,18 @@ Implements \mbox{\hyperlink{class_i_game_object_manager_a112e2701e257e5b0fcf83bd
 
 Implements \mbox{\hyperlink{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}{IGame\+Object\+Manager}}.
 
+\mbox{\Hypertarget{class_game_scene_a87692660b06777358de0b49b1942cae0}\label{class_game_scene_a87692660b06777358de0b49b1942cae0}} 
+\index{GameScene@{GameScene}!FocusObject@{FocusObject}}
+\index{FocusObject@{FocusObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{FocusObject()}{FocusObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Focus\+Object (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \&}]{focus\+Objects }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_a36d4658c5e669b4895ffc74a69672b84}\label{class_game_scene_a36d4658c5e669b4895ffc74a69672b84}} 
+\index{GameScene@{GameScene}!FocusObject@{FocusObject}}
+\index{FocusObject@{FocusObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{FocusObject()}{FocusObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Focus\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{focus\+Object }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}\label{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}} 
 \index{GameScene@{GameScene}!GameSceneDraw@{GameSceneDraw}}
 \index{GameSceneDraw@{GameSceneDraw}!GameScene@{GameScene}}
@@ -253,7 +277,7 @@ Implements \mbox{\hyperlink{class_i_game_object_manager_a67819acc87a28e98a6385a8
 
 
 
-Reimplemented in \mbox{\hyperlink{class_demo_scene_aa8098b4d2d7761efbb057d2e4cc2ae52}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_aeff9a7faba84faa05946621048be46f4}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a358b01aad403aab6691cd4298c69eacd}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a28aa5ac4f6c115ad58db03297c92d2b6}{Battle\+Scene}}.
+Reimplemented in \mbox{\hyperlink{class_demo_scene_aa8098b4d2d7761efbb057d2e4cc2ae52}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_aeff9a7faba84faa05946621048be46f4}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a358b01aad403aab6691cd4298c69eacd}{Node\+Scene}}, \mbox{\hyperlink{class_battle_scene_a28aa5ac4f6c115ad58db03297c92d2b6}{Battle\+Scene}}, \mbox{\hyperlink{class_character_select_scene_a69162962b9b8d699f13a6c7630ae47ea}{Character\+Select\+Scene}}, \mbox{\hyperlink{class_map_scene_abaf2066f6bb28db9c6032b2aa005c94b}{Map\+Scene}}, \mbox{\hyperlink{class_credit_cut_scene_a099551be479cfbe2d975f216e7a89baa}{Credit\+Cut\+Scene}}, \mbox{\hyperlink{class_final_cut_scene_a5356a861d7136bed5afcea227299515b}{Final\+Cut\+Scene}}, \mbox{\hyperlink{class_intro_cut_scene_add60ed83d239a2a454018648a883e273}{Intro\+Cut\+Scene}}, \mbox{\hyperlink{class_character_test_scene_a4431f37911b9153483c85981636a3f78}{Character\+Test\+Scene}}, \mbox{\hyperlink{class_tutorial_scene_ae125c80aa869ab58afc1098519bff1da}{Tutorial\+Scene}}, and \mbox{\hyperlink{class_tutorial_select_scene_aba2fadcea39732fd4b6cb3cc264a39ee}{Tutorial\+Select\+Scene}}.
 
 \mbox{\Hypertarget{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}\label{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}} 
 \index{GameScene@{GameScene}!GameSceneInit@{GameSceneInit}}
@@ -263,7 +287,7 @@ Reimplemented in \mbox{\hyperlink{class_demo_scene_aa8098b4d2d7761efbb057d2e4cc2
 
 
 
-Implemented in \mbox{\hyperlink{class_demo_scene_a38c962cd1c6695e7bdaf4c8be35f5436}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_ad19783fd7f34602b832fe649137a2bb2}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a0e413eef22992dc0c14c52d343fe115c}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a6eca5ba84b9dd359a733e6f16109be73}{Battle\+Scene}}.
+Implemented in \mbox{\hyperlink{class_demo_scene_a38c962cd1c6695e7bdaf4c8be35f5436}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_ad19783fd7f34602b832fe649137a2bb2}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a0e413eef22992dc0c14c52d343fe115c}{Node\+Scene}}, \mbox{\hyperlink{class_battle_scene_a6eca5ba84b9dd359a733e6f16109be73}{Battle\+Scene}}, \mbox{\hyperlink{class_character_select_scene_aeb24c466f2e319eddcdc3ac4ea27699e}{Character\+Select\+Scene}}, \mbox{\hyperlink{class_map_scene_a2f3716ba808fc87fa4272265bd0dd1eb}{Map\+Scene}}, \mbox{\hyperlink{class_credit_cut_scene_ac91ed9414bd47c128e2f6febe0ac9c3c}{Credit\+Cut\+Scene}}, \mbox{\hyperlink{class_final_cut_scene_ad50be7d08ea95a8ca5e1ab08c4833752}{Final\+Cut\+Scene}}, \mbox{\hyperlink{class_intro_cut_scene_a134c3baddcde65970b8106f9d8ffb1fe}{Intro\+Cut\+Scene}}, \mbox{\hyperlink{class_character_test_scene_a0a5d66aa0db70444747d011d1a2c667f}{Character\+Test\+Scene}}, \mbox{\hyperlink{class_tutorial_scene_a519956b52066a0a794affda4327166e2}{Tutorial\+Scene}}, and \mbox{\hyperlink{class_tutorial_select_scene_a7897f0763b162b6cb39bd656d969f18f}{Tutorial\+Select\+Scene}}.
 
 \mbox{\Hypertarget{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}\label{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}} 
 \index{GameScene@{GameScene}!GameSceneLoad@{GameSceneLoad}}
@@ -273,7 +297,7 @@ Implemented in \mbox{\hyperlink{class_demo_scene_a38c962cd1c6695e7bdaf4c8be35f54
 
 
 
-Implemented in \mbox{\hyperlink{class_demo_scene_a918d2abd3aad5c42e589afb02a95eb38}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a57732a91ed5e87b19c0086e44178752f}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a2e9ea199b862533eb9ce19bf8730ee84}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_af833170ab010c598fdeacf20f739c0fa}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_ae8b6966318a4c7bcf09807a6905ddbbe}{Battle\+Scene}}.
+Implemented in \mbox{\hyperlink{class_demo_scene_a918d2abd3aad5c42e589afb02a95eb38}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_a57732a91ed5e87b19c0086e44178752f}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a2e9ea199b862533eb9ce19bf8730ee84}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_af833170ab010c598fdeacf20f739c0fa}{Node\+Scene}}, \mbox{\hyperlink{class_battle_scene_ae8b6966318a4c7bcf09807a6905ddbbe}{Battle\+Scene}}, \mbox{\hyperlink{class_character_select_scene_add120207a1ad254a8fd7e9f88dde2760}{Character\+Select\+Scene}}, \mbox{\hyperlink{class_map_scene_a6d34a45e478c60404af4d3499571473f}{Map\+Scene}}, \mbox{\hyperlink{class_credit_cut_scene_ae3c3c3ef6bee2bb58be8634f91263b6e}{Credit\+Cut\+Scene}}, \mbox{\hyperlink{class_final_cut_scene_aef50549745b56f7a4b6b3018fe3685a0}{Final\+Cut\+Scene}}, \mbox{\hyperlink{class_intro_cut_scene_a1d770a0abad0ef8fb522a94822b10884}{Intro\+Cut\+Scene}}, \mbox{\hyperlink{class_character_test_scene_ae675dd98ca2059010965e9085d8fafd9}{Character\+Test\+Scene}}, \mbox{\hyperlink{class_tutorial_scene_a749a3fae93dbea1acd4146f8e3390550}{Tutorial\+Scene}}, and \mbox{\hyperlink{class_tutorial_select_scene_a9ddc8ffeefe9258320d263fc7fa8afd7}{Tutorial\+Select\+Scene}}.
 
 \mbox{\Hypertarget{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}\label{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}} 
 \index{GameScene@{GameScene}!GameSceneUnload@{GameSceneUnload}}
@@ -283,7 +307,7 @@ Implemented in \mbox{\hyperlink{class_demo_scene_a918d2abd3aad5c42e589afb02a95eb
 
 
 
-Reimplemented in \mbox{\hyperlink{class_battle_scene_ae8a6682bfa588f9ebe87c015559e5a0e}{Battle\+Scene}}.
+Reimplemented in \mbox{\hyperlink{class_battle_scene_ae8a6682bfa588f9ebe87c015559e5a0e}{Battle\+Scene}}, \mbox{\hyperlink{class_character_test_scene_a9c24ef1a652735391aaac328d3cea499}{Character\+Test\+Scene}}, and \mbox{\hyperlink{class_tutorial_scene_aeaa19972b244ce94018fd9e0b235c027}{Tutorial\+Scene}}.
 
 \mbox{\Hypertarget{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}\label{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}} 
 \index{GameScene@{GameScene}!GameSceneUpdate@{GameSceneUpdate}}
@@ -293,7 +317,7 @@ Reimplemented in \mbox{\hyperlink{class_battle_scene_ae8a6682bfa588f9ebe87c01555
 
 
 
-Reimplemented in \mbox{\hyperlink{class_demo_scene_a81a223958e8429e88c487ffbcf3cb659}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a9931a41c6ca91d61e5e92cd81225f6b5}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a1d9a3ba547704f54eaa8ee1baf7788a4}{Node\+Scene}}, and \mbox{\hyperlink{class_battle_scene_a40fae948549fe920bff7e543e132103f}{Battle\+Scene}}.
+Reimplemented in \mbox{\hyperlink{class_demo_scene_a81a223958e8429e88c487ffbcf3cb659}{Demo\+Scene}}, \mbox{\hyperlink{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}{Load\+Scene}}, \mbox{\hyperlink{class_menu_scene_a9931a41c6ca91d61e5e92cd81225f6b5}{Menu\+Scene}}, \mbox{\hyperlink{class_node_scene_a1d9a3ba547704f54eaa8ee1baf7788a4}{Node\+Scene}}, \mbox{\hyperlink{class_battle_scene_a40fae948549fe920bff7e543e132103f}{Battle\+Scene}}, \mbox{\hyperlink{class_character_select_scene_a78f69940874f6d9fec0850a90272fc1c}{Character\+Select\+Scene}}, \mbox{\hyperlink{class_map_scene_a5bced6c91f2ab3d78bdd61c5b7c39f4e}{Map\+Scene}}, \mbox{\hyperlink{class_credit_cut_scene_a683595a777b4b88fca753831e1dbc87e}{Credit\+Cut\+Scene}}, \mbox{\hyperlink{class_final_cut_scene_ab6590513206ee15772e135903549a70e}{Final\+Cut\+Scene}}, \mbox{\hyperlink{class_intro_cut_scene_a0141b094ed548e3db96990c20448753e}{Intro\+Cut\+Scene}}, \mbox{\hyperlink{class_character_test_scene_aa96916730065369adf181af62b86d348}{Character\+Test\+Scene}}, \mbox{\hyperlink{class_tutorial_scene_aeb76c28e4101e0fc5abb24b9bfe4b2f0}{Tutorial\+Scene}}, and \mbox{\hyperlink{class_tutorial_select_scene_aa8fffbb0d3970da2cdb82ef264a5fdce}{Tutorial\+Select\+Scene}}.
 
 \mbox{\Hypertarget{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}\label{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}} 
 \index{GameScene@{GameScene}!GetAudioController@{GetAudioController}}
@@ -306,6 +330,24 @@ Reimplemented in \mbox{\hyperlink{class_demo_scene_a81a223958e8429e88c487ffbcf3c
 \index{GetCamera@{GetCamera}!GameScene@{GameScene}}
 \doxysubsubsection{\texorpdfstring{GetCamera()}{GetCamera()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}} $\ast$ Game\+Scene\+::\+Get\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_ae1a1515f7be21e12bdfa2beb7d1191cc}\label{class_game_scene_ae1a1515f7be21e12bdfa2beb7d1191cc}} 
+\index{GameScene@{GameScene}!GetTimeScale@{GetTimeScale}}
+\index{GetTimeScale@{GetTimeScale}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{GetTimeScale()}{GetTimeScale()}}
+{\footnotesize\ttfamily float Game\+Scene\+::\+Get\+Time\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_game_scene_a9f11ca8e0cbc78c6cb51b12f1b296dc8}\label{class_game_scene_a9f11ca8e0cbc78c6cb51b12f1b296dc8}} 
+\index{GameScene@{GameScene}!SetTimeScale@{SetTimeScale}}
+\index{SetTimeScale@{SetTimeScale}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{SetTimeScale()}{SetTimeScale()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Set\+Time\+Scale (\begin{DoxyParamCaption}\item[{const float \&}]{time\+Scale }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_scene_aac6505e0b179fa4bf16c949f40c35472}\label{class_game_scene_aac6505e0b179fa4bf16c949f40c35472}} 
+\index{GameScene@{GameScene}!UnFocusObject@{UnFocusObject}}
+\index{UnFocusObject@{UnFocusObject}!GameScene@{GameScene}}
+\doxysubsubsection{\texorpdfstring{UnFocusObject()}{UnFocusObject()}}
+{\footnotesize\ttfamily void Game\+Scene\+::\+Un\+Focus\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_game_scene_af9adaa92fd98610506491805317c5912}\label{class_game_scene_af9adaa92fd98610506491805317c5912}} 
 \index{GameScene@{GameScene}!UpdateButtonEvents@{UpdateButtonEvents}}
@@ -328,11 +370,11 @@ Reimplemented in \mbox{\hyperlink{class_demo_scene_a81a223958e8429e88c487ffbcf3c
 
 
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}\label{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}} 
+\mbox{\Hypertarget{class_game_scene_a2e6016acdb8337fe5f057e445f2c9aed}\label{class_game_scene_a2e6016acdb8337fe5f057e445f2c9aed}} 
 \index{GameScene@{GameScene}!audioController@{audioController}}
 \index{audioController@{audioController}!GameScene@{GameScene}}
 \doxysubsubsection{\texorpdfstring{audioController}{audioController}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}$\ast$ Game\+Scene\+::audio\+Controller = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}\& Game\+Scene\+::audio\+Controller = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}\label{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}} 
 \index{GameScene@{GameScene}!buttonObjectsList@{buttonObjectsList}}

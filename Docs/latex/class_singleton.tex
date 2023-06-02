@@ -7,44 +7,54 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_singleton_ad6cbdb6116fdb704885d35f365d978e2}{Free}} ()
+\mbox{\hyperlink{class_singleton_adb1b554fec7ae6065fe0e09111f3581f}{Singleton}} ()=default
+\item 
+virtual \mbox{\hyperlink{class_singleton_a9349b42bad14a8e86c56229175acfba4}{$\sim$\+Singleton}} ()=default
+\item 
+virtual void \mbox{\hyperlink{class_singleton_a7e440f849b2b900be243779ff9df082c}{Free}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static T $\ast$ \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{Get\+Instance}} ()
+static T \& \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Get\+Instance}} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Static Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static T $\ast$ \mbox{\hyperlink{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}{instance}} = nullptr
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_singleton_adb1b554fec7ae6065fe0e09111f3581f}\label{class_singleton_adb1b554fec7ae6065fe0e09111f3581f}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Singleton@{Singleton}}
+\index{Singleton@{Singleton}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Singleton()}{Singleton()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\mbox{\hyperlink{class_singleton}{\+::\+Singleton}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_singleton_a9349b42bad14a8e86c56229175acfba4}\label{class_singleton_a9349b42bad14a8e86c56229175acfba4}} 
+\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!````~Singleton@{$\sim$Singleton}}
+\index{````~Singleton@{$\sim$Singleton}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Singleton()}{~Singleton()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+virtual \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_singleton}{Singleton}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_singleton_ad6cbdb6116fdb704885d35f365d978e2}\label{class_singleton_ad6cbdb6116fdb704885d35f365d978e2}} 
+\mbox{\Hypertarget{class_singleton_a7e440f849b2b900be243779ff9df082c}\label{class_singleton_a7e440f849b2b900be243779ff9df082c}} 
 \index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!Free@{Free}}
 \index{Free@{Free}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Free()}{Free()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-void \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+virtual void \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
-\mbox{\Hypertarget{class_singleton_a7b90075f8e4471743fd3596be874e5d1}\label{class_singleton_a7b90075f8e4471743fd3596be874e5d1}} 
+
+
+Reimplemented in \mbox{\hyperlink{class_arcant_engine_a52c010b8c7bff26c6ec13110d2385788}{Arcant\+Engine}}, \mbox{\hyperlink{class_audio_controller_a7cbaa4a48105e84a2f0363cfd266cc66}{Audio\+Controller}}, \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Audio\+Engine}}, \mbox{\hyperlink{class_engine_data_collector_aaffadaf0dccadfef8ef5a6ff09d0e728}{Engine\+Data\+Collector}}, \mbox{\hyperlink{class_game_state_controller_ab5e9920c69881cbc28d34a5f5f0874f0}{Game\+State\+Controller}}, \mbox{\hyperlink{class_cursor_manager_ab7e0acc55e1bdff23198a08d935ad969}{Cursor\+Manager}}, and \mbox{\hyperlink{class_battle_manager_a2db841fba1ba5cb1a9412ae239e2afcb}{Battle\+Manager}}.
+
+\mbox{\Hypertarget{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}\label{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}} 
 \index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!GetInstance@{GetInstance}}
 \index{GetInstance@{GetInstance}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-static T $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}\label{class_singleton_a3cc9f75a4350fdc67815ef4e639478f1}} 
-\index{Singleton$<$ T $>$@{Singleton$<$ T $>$}!instance@{instance}}
-\index{instance@{instance}!Singleton$<$ T $>$@{Singleton$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{instance}{instance}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-T $\ast$ \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::instance = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+static T \& \mbox{\hyperlink{class_singleton}{Singleton}}$<$ T $>$\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
 
 

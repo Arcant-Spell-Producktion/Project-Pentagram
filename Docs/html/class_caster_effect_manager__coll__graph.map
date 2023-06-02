@@ -1,4 +1,5 @@
 <map id="CasterEffectManager" name="CasterEffectManager">
-<area shape="rect" id="node1" title=" " alt="" coords="9,109,152,136"/>
-<area shape="rect" id="node2" href="$class_event.html" title=" " alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node1" title=" " alt="" coords="115,139,257,165"/>
+<area shape="rect" id="node2" href="$class_event.html" title=" " alt="" coords="5,13,180,39"/>
+<area shape="rect" id="node3" href="$class_event.html" title=" " alt="" coords="204,5,355,47"/>
 </map>

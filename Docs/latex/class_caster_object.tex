@@ -29,7 +29,13 @@ Collaboration diagram for Caster\+Object\+:\nopagebreak
 \item 
 void \mbox{\hyperlink{class_caster_object_ae2355f084666d867ed93df524da3b104}{On\+Update}} (const float \&dt) override
 \item 
-void \mbox{\hyperlink{class_caster_object_a4403956517c46dfe9cb662aafc1bd1c1}{Set\+Caster}} (\mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{Caster\+Object\+Type}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} pos)
+void \mbox{\hyperlink{class_caster_object_a5da1fef3efbdf55eea76f5fc97f8b808}{Set\+State}} (\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}} state)
+\item 
+void \mbox{\hyperlink{class_caster_object_a7070c5cf0b2335f16117d19334462ef6}{Set\+State}} (\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}} state, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}} next\+State)
+\item 
+void \mbox{\hyperlink{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}{Set\+Caster}} (\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
+\item 
+void \mbox{\hyperlink{class_caster_object_a6e7721c8d8ee93ffb0f1684cd0fbe537}{Set\+Caster}} (\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} pos)
 \item 
 void \mbox{\hyperlink{class_caster_object_afd01975261ceab711690762f53fcb6cd}{Play\+Channel\+Anim}} (int Channel\+Count=0)
 \item 
@@ -37,7 +43,15 @@ void \mbox{\hyperlink{class_caster_object_a48786fe448799c726d842f355a7daf55}{Pla
 \item 
 void \mbox{\hyperlink{class_caster_object_a13ae10414e6d3073950537e6108070ab}{Play\+Died\+Anim}} ()
 \item 
+void \mbox{\hyperlink{class_caster_object_af9b319a1aef024aa45c1aa338646bfb6}{Play\+Green\+Flash}} ()
+\item 
 void \mbox{\hyperlink{class_caster_object_a8eef76199b61b09596203d7697621cc2}{Play\+Red\+Flash}} ()
+\item 
+void \mbox{\hyperlink{class_caster_object_a56a6f516284325595814d7d356c9704b}{Play\+Effect}} (\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} effect)
+\item 
+void \mbox{\hyperlink{class_caster_object_af39ec8c3932899a04661b8115788ee61}{Stop\+Effect}} (\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} effect)
+\item 
+void \mbox{\hyperlink{class_caster_object_a5e2c1c44309a7fc046dab768d9b6f103}{Set\+Active}} (const bool \&active) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -80,17 +94,63 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434
 \doxysubsubsection{\texorpdfstring{PlayDiedAnim()}{PlayDiedAnim()}}
 {\footnotesize\ttfamily void Caster\+Object\+::\+Play\+Died\+Anim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_caster_object_a56a6f516284325595814d7d356c9704b}\label{class_caster_object_a56a6f516284325595814d7d356c9704b}} 
+\index{CasterObject@{CasterObject}!PlayEffect@{PlayEffect}}
+\index{PlayEffect@{PlayEffect}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{PlayEffect()}{PlayEffect()}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Play\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}}]{effect }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_object_af9b319a1aef024aa45c1aa338646bfb6}\label{class_caster_object_af9b319a1aef024aa45c1aa338646bfb6}} 
+\index{CasterObject@{CasterObject}!PlayGreenFlash@{PlayGreenFlash}}
+\index{PlayGreenFlash@{PlayGreenFlash}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{PlayGreenFlash()}{PlayGreenFlash()}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Play\+Green\+Flash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_caster_object_a8eef76199b61b09596203d7697621cc2}\label{class_caster_object_a8eef76199b61b09596203d7697621cc2}} 
 \index{CasterObject@{CasterObject}!PlayRedFlash@{PlayRedFlash}}
 \index{PlayRedFlash@{PlayRedFlash}!CasterObject@{CasterObject}}
 \doxysubsubsection{\texorpdfstring{PlayRedFlash()}{PlayRedFlash()}}
 {\footnotesize\ttfamily void Caster\+Object\+::\+Play\+Red\+Flash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_caster_object_a4403956517c46dfe9cb662aafc1bd1c1}\label{class_caster_object_a4403956517c46dfe9cb662aafc1bd1c1}} 
+\mbox{\Hypertarget{class_caster_object_a5e2c1c44309a7fc046dab768d9b6f103}\label{class_caster_object_a5e2c1c44309a7fc046dab768d9b6f103}} 
+\index{CasterObject@{CasterObject}!SetActive@{SetActive}}
+\index{SetActive@{SetActive}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{SetActive()}{SetActive()}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+Active (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}\label{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}} 
 \index{CasterObject@{CasterObject}!SetCaster@{SetCaster}}
 \index{SetCaster@{SetCaster}!CasterObject@{CasterObject}}
-\doxysubsubsection{\texorpdfstring{SetCaster()}{SetCaster()}}
-{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+Caster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{Caster\+Object\+Type}}}]{type,  }\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element,  }\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{pos }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{SetCaster()}{SetCaster()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+Caster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}}}]{type,  }\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_object_a6e7721c8d8ee93ffb0f1684cd0fbe537}\label{class_caster_object_a6e7721c8d8ee93ffb0f1684cd0fbe537}} 
+\index{CasterObject@{CasterObject}!SetCaster@{SetCaster}}
+\index{SetCaster@{SetCaster}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{SetCaster()}{SetCaster()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+Caster (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}}}]{type,  }\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element,  }\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_object_a5da1fef3efbdf55eea76f5fc97f8b808}\label{class_caster_object_a5da1fef3efbdf55eea76f5fc97f8b808}} 
+\index{CasterObject@{CasterObject}!SetState@{SetState}}
+\index{SetState@{SetState}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{SetState()}{SetState()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}}}]{state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_object_a7070c5cf0b2335f16117d19334462ef6}\label{class_caster_object_a7070c5cf0b2335f16117d19334462ef6}} 
+\index{CasterObject@{CasterObject}!SetState@{SetState}}
+\index{SetState@{SetState}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{SetState()}{SetState()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Set\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}}}]{state,  }\item[{\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}}}]{next\+State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_object_af39ec8c3932899a04661b8115788ee61}\label{class_caster_object_af39ec8c3932899a04661b8115788ee61}} 
+\index{CasterObject@{CasterObject}!StopEffect@{StopEffect}}
+\index{StopEffect@{StopEffect}!CasterObject@{CasterObject}}
+\doxysubsubsection{\texorpdfstring{StopEffect()}{StopEffect()}}
+{\footnotesize\ttfamily void Caster\+Object\+::\+Stop\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}}]{effect }\end{DoxyParamCaption})}
 
 
 

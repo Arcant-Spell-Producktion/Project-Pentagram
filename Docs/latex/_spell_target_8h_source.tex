@@ -1,0 +1,24 @@
+\hypertarget{_spell_target_8h_source}{}\doxysection{Spell\+Target.\+h}
+\label{_spell_target_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellTarget.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellTarget.h}}
+\mbox{\hyperlink{_spell_target_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{enum class} \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7a857ccf501e3d5cb92473fa1eb4d9fee5}{Opponent}} = 0,}
+\DoxyCodeLine{7     \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7aad6e7652b1bdfb38783486c2c3d5e806}{Self}} = 1,}
+\DoxyCodeLine{8 \};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_target_type}{SpellTargetType}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string enum\_string[];}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keyword}{static} \mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}} \mbox{\hyperlink{class_spell_target_type_a7bec6cde83883db2d3fdb14497690ce3}{GetEnum}}(std::string typeString);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_spell_target_type_aaaa3275cac087adbd3d24b87b4d90f2a}{GetString}}(\mbox{\hyperlink{_spell_target_8h_ac6accf1a6e9e4ea599586bb833dbd3c7}{SpellTargetEnum}} type) \{ \textcolor{keywordflow}{return} enum\_string[(int)type]; \}}
+\DoxyCodeLine{18 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,20 @@
+\hypertarget{_stand_by_battle_state_8h_source}{}\doxysection{Stand\+By\+Battle\+State.\+h}
+\label{_stand_by_battle_state_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/StandByBattleState.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleStates/StandByBattleState.h}}
+\mbox{\hyperlink{_stand_by_battle_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_battle_state_8h}{BaseBattleState.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_stand_by_battle_state}{StandByBattleState}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     \textcolor{keywordtype}{float} Timer = 0.0f;}
+\DoxyCodeLine{8     \textcolor{keywordtype}{float} MaxTime = 3.0f;}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_stand_by_battle_state_a16c3643ab45961cd98b63bb6fcfd5832}{StandByBattleState}}() :\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}(\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}}::\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1facd06c7182baef740e7605d12e8fda302}{StandbyState}}) \{\}}
+\DoxyCodeLine{11     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stand_by_battle_state_aff1435fffe2a70cc23918b1216d3e072}{OnBattleStateIn}}()\textcolor{keyword}{override};}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stand_by_battle_state_a355872ffafffd181006f8b96bdf4c325}{OnBattleStateUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stand_by_battle_state_a6fbd026c5fcb7431480b075022ee323b}{OnBattleStateOut}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{14 \};}
+
+\end{DoxyCode}

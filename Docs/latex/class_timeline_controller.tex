@@ -15,7 +15,8 @@ Inheritance diagram for Timeline\+Controller\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Timeline\+Controller\+:\nopagebreak
+Collaboration diagram for Timeline\+Controller\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,21 +28,38 @@ Collaboration diagram for Timeline\+Controller\+:\nopagebreak
 \item 
 \mbox{\hyperlink{class_timeline_controller_ac7ca2f9436ad58971c8a6f974bf0ecca}{Timeline\+Controller}} ()
 \item 
+void \mbox{\hyperlink{class_timeline_controller_a117b2a93e2a538b4ab527b98c4464ff9}{On\+Update}} (const float \&dt) override
+\item 
 void \mbox{\hyperlink{class_timeline_controller_a0d09ffe185806ce917999eebfcec6571}{Set\+Tracker\+Active}} (bool is\+Active)
 \item 
 void \mbox{\hyperlink{class_timeline_controller_a53c293198afac20a5389c31fbf7864c7}{Set\+Tracker\+Position\+By\+Index}} (int index)
 \item 
-void \mbox{\hyperlink{class_timeline_controller_a0779d25bce1ab1bf4451143625e74757}{Expand\+Tracks}} (int Track\+Index)
+void \mbox{\hyperlink{class_timeline_controller_accfc1132443484abfe86a8e2c3ad7ccc}{Set\+Pentragram\+Controller\+Reference}} (\mbox{\hyperlink{class_pentragram_controller}{Pentragram\+Controller}} $\ast$\+\_\+pentragram\+Controller\+Ref)
+\item 
+void \mbox{\hyperlink{class_timeline_controller_a5a21f0564fbb7ede463d902cc0ab34a1}{Set\+Current\+State}} (\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}} state)
+\item 
+void \mbox{\hyperlink{class_timeline_controller_a2ad769928c0f0c9f320f767c52ca1b5d}{Highlight\+Track}} (int index)
+\item 
+void \mbox{\hyperlink{class_timeline_controller_a9a05af6a21160f9ee23f74766bf4c89d}{Set\+Expand\+Timeline}} (int index, bool do\+Expand)
+\item 
+bool \mbox{\hyperlink{class_timeline_controller_aac28daa87644d5aaebc02ab3d717e8ef}{Is\+Timeline\+Expand}} () const
 \item 
 void \mbox{\hyperlink{class_timeline_controller_aba4197b9c8e12ed4fd884857a5e162b1}{Update\+Preview\+Icon}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell=nullptr)
 \item 
 void \mbox{\hyperlink{class_timeline_controller_a907b9bc77bfee90f4f482a2af25f81e2}{Add\+Icon\+To\+Track}} (int index, \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
+\item 
+void \mbox{\hyperlink{class_timeline_controller_a27f32729bb287422394fc517adfe05f3}{Remove\+Icon\+From\+Track}} (int index, \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
 \item 
 void \mbox{\hyperlink{class_timeline_controller_a5cfb28222575d35c10bffa4bbbcde850}{Clear\+Track}} (int index)
 \item 
 void \mbox{\hyperlink{class_timeline_controller_af91a6806e2ab66e59d976f5c8b607ab4}{Update\+All\+Tracks}} ()
 \item 
 void \mbox{\hyperlink{class_timeline_controller_a17360e8c3237793d50d24b2faeecfd37}{Clear\+All\+Track}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ bool $>$ \mbox{\hyperlink{class_timeline_controller_af311bae95b046d7a797e9ff717e380de}{On\+Timetrack\+Expand}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
@@ -74,11 +92,51 @@ void \mbox{\hyperlink{class_timeline_controller_a17360e8c3237793d50d24b2faeecfd3
 \doxysubsubsection{\texorpdfstring{ClearTrack()}{ClearTrack()}}
 {\footnotesize\ttfamily void Timeline\+Controller\+::\+Clear\+Track (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_timeline_controller_a0779d25bce1ab1bf4451143625e74757}\label{class_timeline_controller_a0779d25bce1ab1bf4451143625e74757}} 
-\index{TimelineController@{TimelineController}!ExpandTracks@{ExpandTracks}}
-\index{ExpandTracks@{ExpandTracks}!TimelineController@{TimelineController}}
-\doxysubsubsection{\texorpdfstring{ExpandTracks()}{ExpandTracks()}}
-{\footnotesize\ttfamily void Timeline\+Controller\+::\+Expand\+Tracks (\begin{DoxyParamCaption}\item[{int}]{Track\+Index }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_timeline_controller_a2ad769928c0f0c9f320f767c52ca1b5d}\label{class_timeline_controller_a2ad769928c0f0c9f320f767c52ca1b5d}} 
+\index{TimelineController@{TimelineController}!HighlightTrack@{HighlightTrack}}
+\index{HighlightTrack@{HighlightTrack}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{HighlightTrack()}{HighlightTrack()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+Highlight\+Track (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timeline_controller_aac28daa87644d5aaebc02ab3d717e8ef}\label{class_timeline_controller_aac28daa87644d5aaebc02ab3d717e8ef}} 
+\index{TimelineController@{TimelineController}!IsTimelineExpand@{IsTimelineExpand}}
+\index{IsTimelineExpand@{IsTimelineExpand}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{IsTimelineExpand()}{IsTimelineExpand()}}
+{\footnotesize\ttfamily bool Timeline\+Controller\+::\+Is\+Timeline\+Expand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_timeline_controller_a117b2a93e2a538b4ab527b98c4464ff9}\label{class_timeline_controller_a117b2a93e2a538b4ab527b98c4464ff9}} 
+\index{TimelineController@{TimelineController}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_timeline_controller_a27f32729bb287422394fc517adfe05f3}\label{class_timeline_controller_a27f32729bb287422394fc517adfe05f3}} 
+\index{TimelineController@{TimelineController}!RemoveIconFromTrack@{RemoveIconFromTrack}}
+\index{RemoveIconFromTrack@{RemoveIconFromTrack}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{RemoveIconFromTrack()}{RemoveIconFromTrack()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+Remove\+Icon\+From\+Track (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timeline_controller_a5a21f0564fbb7ede463d902cc0ab34a1}\label{class_timeline_controller_a5a21f0564fbb7ede463d902cc0ab34a1}} 
+\index{TimelineController@{TimelineController}!SetCurrentState@{SetCurrentState}}
+\index{SetCurrentState@{SetCurrentState}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{SetCurrentState()}{SetCurrentState()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+Set\+Current\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{Battle\+State}}}]{state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timeline_controller_a9a05af6a21160f9ee23f74766bf4c89d}\label{class_timeline_controller_a9a05af6a21160f9ee23f74766bf4c89d}} 
+\index{TimelineController@{TimelineController}!SetExpandTimeline@{SetExpandTimeline}}
+\index{SetExpandTimeline@{SetExpandTimeline}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{SetExpandTimeline()}{SetExpandTimeline()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+Set\+Expand\+Timeline (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{bool}]{do\+Expand }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timeline_controller_accfc1132443484abfe86a8e2c3ad7ccc}\label{class_timeline_controller_accfc1132443484abfe86a8e2c3ad7ccc}} 
+\index{TimelineController@{TimelineController}!SetPentragramControllerReference@{SetPentragramControllerReference}}
+\index{SetPentragramControllerReference@{SetPentragramControllerReference}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{SetPentragramControllerReference()}{SetPentragramControllerReference()}}
+{\footnotesize\ttfamily void Timeline\+Controller\+::\+Set\+Pentragram\+Controller\+Reference (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_pentragram_controller}{Pentragram\+Controller}} $\ast$}]{\+\_\+pentragram\+Controller\+Ref }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_timeline_controller_a0d09ffe185806ce917999eebfcec6571}\label{class_timeline_controller_a0d09ffe185806ce917999eebfcec6571}} 
 \index{TimelineController@{TimelineController}!SetTrackerActive@{SetTrackerActive}}
@@ -103,6 +161,15 @@ void \mbox{\hyperlink{class_timeline_controller_a17360e8c3237793d50d24b2faeecfd3
 \index{UpdatePreviewIcon@{UpdatePreviewIcon}!TimelineController@{TimelineController}}
 \doxysubsubsection{\texorpdfstring{UpdatePreviewIcon()}{UpdatePreviewIcon()}}
 {\footnotesize\ttfamily void Timeline\+Controller\+::\+Update\+Preview\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_timeline_controller_af311bae95b046d7a797e9ff717e380de}\label{class_timeline_controller_af311bae95b046d7a797e9ff717e380de}} 
+\index{TimelineController@{TimelineController}!OnTimetrackExpand@{OnTimetrackExpand}}
+\index{OnTimetrackExpand@{OnTimetrackExpand}!TimelineController@{TimelineController}}
+\doxysubsubsection{\texorpdfstring{OnTimetrackExpand}{OnTimetrackExpand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$bool$>$ Timeline\+Controller\+::\+On\+Timetrack\+Expand}
 
 
 

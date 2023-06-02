@@ -1,0 +1,40 @@
+\hypertarget{_option_menu_object_8h_source}{}\doxysection{Option\+Menu\+Object.\+h}
+\label{_option_menu_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/OptionMenuObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/OptionMenuObject.h}}
+\mbox{\hyperlink{_option_menu_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_8h}{Engine/GameObject.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_slider_8h}{Engine/Slider.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_engine_8h}{Engine/Audio/AudioEngine.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_controller_8h}{Engine/Audio/AudioController.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{enum} \mbox{\hyperlink{_option_menu_object_8h_a930cd371d87ebbf3b921dadc5ca2b4ab}{VolumeType}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \mbox{\hyperlink{_option_menu_object_8h_a930cd371d87ebbf3b921dadc5ca2b4abae5807df697b52e8b944bf598cabadb3a}{MASTER}}, \mbox{\hyperlink{_option_menu_object_8h_a930cd371d87ebbf3b921dadc5ca2b4abaa7ac4eb73bedc3784e80c83a116ccd5c}{BGM}}, \mbox{\hyperlink{_option_menu_object_8h_a930cd371d87ebbf3b921dadc5ca2b4abac7ac6cb026da1820b5d646df8628884c}{SFX}}}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_option_menu_object}{OptionMenuObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \textcolor{keyword}{private}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_u_i_object}{UIObject}}* bgMenu;}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_slider}{Slider}}* VolumeSlider[3];}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_text_object}{TextObject}}* VolumeText[3];}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_static_button}{StaticButton}}* closeButton;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \mbox{\hyperlink{class_text_object}{TextObject}}* windowSettingText;}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_static_button}{StaticButton}}* windowSettingButton;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{public}:}
+\DoxyCodeLine{31         \mbox{\hyperlink{class_option_menu_object_a93a43b2935a950f0dc2f6899677693fa}{OptionMenuObject}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_option_menu_object_ae62e34e39bc42fb03fbe34fc6a006bd8}{GetCloseButton}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 \};}
+
+\end{DoxyCode}

@@ -5,56 +5,87 @@
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 }
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include <functional>}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{enum class} \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{CasterObjectType}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a5859831e2b3db23528c710b1451e13fc}{Boss}} = 0,}
-\DoxyCodeLine{11     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70}{Minion}} = 1,}
-\DoxyCodeLine{12     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}{Player}} = 2}
-\DoxyCodeLine{13 \};}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{enum class} \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}}}
-\DoxyCodeLine{16 \{}
-\DoxyCodeLine{17     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{Idle}} = 0,}
-\DoxyCodeLine{18     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a4cd9f3996d60790cd11c04f842ebc43c}{Cast}},}
-\DoxyCodeLine{19     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0adcfafcb4323b102c7e204555d313ba0a}{Attack}},}
-\DoxyCodeLine{20     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a952f8d52fbca6da722e72d520acd6edd}{Die}}}
-\DoxyCodeLine{21 \};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_object}{CasterObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
-\DoxyCodeLine{24 \{}
-\DoxyCodeLine{25 \textcolor{keyword}{private}:}
-\DoxyCodeLine{26     std::function<void()> m\_atk\_callback = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} m\_State = \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{CasterObjectState::Idle}};}
-\DoxyCodeLine{29     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} m\_NextState = \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{CasterObjectState::Idle}};}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_effect_object_8h}{EffectObject/BaseEffectObject.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_type_8h}{Game/GameData/CasterData/CasterType.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_position_8h}{Game/GameData/CasterData/CasterPosition.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{enum class} \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{CasterObjectType}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a5859831e2b3db23528c710b1451e13fc}{Boss}} = 0,}
+\DoxyCodeLine{14     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70}{Minion}} = 1,}
+\DoxyCodeLine{15     \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}{Player}} = 2}
+\DoxyCodeLine{16 \};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{enum class} \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86ad3fa9ae9431d6cb1772f9d9df48cab19}{Idle}} = 0,}
+\DoxyCodeLine{21     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a4cd9f3996d60790cd11c04f842ebc43c}{Cast}},}
+\DoxyCodeLine{22     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0adcfafcb4323b102c7e204555d313ba0a}{Attack}},}
+\DoxyCodeLine{23     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a952f8d52fbca6da722e72d520acd6edd}{Die}}}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_object}{CasterObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     std::map<SpellEffectEnum, BaseEffectObject*> m\_Effects;}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{31     \textcolor{keywordtype}{int} m\_ChannelCounter = 0;}
-\DoxyCodeLine{32     \textcolor{keywordtype}{bool} m\_doLoop = \textcolor{keyword}{false};}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keywordtype}{float} m\_FlashTimer = 0.0f;}
+\DoxyCodeLine{31     std::function<void()> m\_atk\_callback = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} m\_State = \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{CasterObjectState::Idle}};}
+\DoxyCodeLine{34     \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} m\_NextState = \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{CasterObjectState::Idle}};}
 \DoxyCodeLine{35 }
-\DoxyCodeLine{36     \textcolor{keywordtype}{void} SetState(\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} state);}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38     \textcolor{keywordtype}{void} SetState(\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} state, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} nextState);}
-\DoxyCodeLine{39 \textcolor{keyword}{public}:}
-\DoxyCodeLine{40     \mbox{\hyperlink{class_caster_object_a91dcc66b4e8aff16dccb4ee1aa402ed8}{CasterObject}}();}
+\DoxyCodeLine{36     \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} m\_CasterType = \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020a636da1d35e805b00eae0fcd8333f9234}{CasterType::Player}};}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CasterElement = Element::Type::Earth;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} m\_ChannelCounter = 0;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} m\_doLoop = \textcolor{keyword}{false};}
 \DoxyCodeLine{41 }
-\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_ae2355f084666d867ed93df524da3b104}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a4403956517c46dfe9cb662aafc1bd1c1}{SetCaster}}(\mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{CasterObjectType}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} pos);}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_afd01975261ceab711690762f53fcb6cd}{PlayChannelAnim}}(\textcolor{keywordtype}{int} ChannelCount = 0);}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a48786fe448799c726d842f355a7daf55}{PlayAttackAnim}}(\textcolor{keywordtype}{bool} isChannelSpell,std::function<\textcolor{keywordtype}{void}()> callback);}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a13ae10414e6d3073950537e6108070ab}{PlayDiedAnim}}();}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a8eef76199b61b09596203d7697621cc2}{PlayRedFlash}}() \{ m\_FlashTimer = 0.8f; \}}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \};}
+\DoxyCodeLine{42     glm::vec4 originColor;}
+\DoxyCodeLine{43     \textcolor{keywordtype}{float} m\_FlashTimer = 0.0f;}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int} m\_FlashRate = 2;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} m\_IsStartFlash = \textcolor{keyword}{false};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     glm::vec4 m\_FlashColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);}
+\DoxyCodeLine{48 \textcolor{keyword}{public}:}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_caster_object_a91dcc66b4e8aff16dccb4ee1aa402ed8}{CasterObject}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_ae2355f084666d867ed93df524da3b104}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a5da1fef3efbdf55eea76f5fc97f8b808}{SetState}}(\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} state);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a5da1fef3efbdf55eea76f5fc97f8b808}{SetState}}(\mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} state, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{CasterObjectState}} nextState);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}{SetCaster}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}{SetCaster}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} pos);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_afd01975261ceab711690762f53fcb6cd}{PlayChannelAnim}}(\textcolor{keywordtype}{int} ChannelCount = 0);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a48786fe448799c726d842f355a7daf55}{PlayAttackAnim}}(\textcolor{keywordtype}{bool} isChannelSpell,std::function<\textcolor{keywordtype}{void}()> callback);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a13ae10414e6d3073950537e6108070ab}{PlayDiedAnim}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_af9b319a1aef024aa45c1aa338646bfb6}{PlayGreenFlash}}() \{}
+\DoxyCodeLine{67         m\_FlashColor = \{ 0.0f,0.6f,0.0f,1.0f \};}
+\DoxyCodeLine{68         m\_IsStartFlash = \textcolor{keyword}{true}; m\_FlashTimer = 0.8f;}
+\DoxyCodeLine{69         m\_FlashRate= 4;}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a8eef76199b61b09596203d7697621cc2}{PlayRedFlash}}()}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         m\_FlashColor = \{ 0.6f,0.0f,0.0f,1.0f \};}
+\DoxyCodeLine{75         m\_IsStartFlash = \textcolor{keyword}{true};}
+\DoxyCodeLine{76         m\_FlashTimer = 0.8f;}
+\DoxyCodeLine{77         m\_FlashRate = 2;}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a56a6f516284325595814d7d356c9704b}{PlayEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} effect);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_af39ec8c3932899a04661b8115788ee61}{StopEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} effect);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_object_a5e2c1c44309a7fc046dab768d9b6f103}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active) \textcolor{keyword}{override};}
+\DoxyCodeLine{85 \};}
 
 \end{DoxyCode}

@@ -7,29 +7,33 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{struct_caster_stat_a8bd5078e82ec3097fc8c748444ed5cde}{Caster\+Stat}} (int hp=1, int mana=1)
+\mbox{\hyperlink{struct_caster_stat_ae380b28438298cd320a495ab0f705645}{Caster\+Stat}} (int hp=1, std\+::array$<$ int, 6 $>$ mana\+Wheel=\{1, 1, 1, 1, 1, 1\})
 \item 
 \mbox{\hyperlink{struct_caster_stat_ab26f6348018f45d27817e2bb150e94b7}{Caster\+Stat}} (const \mbox{\hyperlink{struct_caster_stat}{Caster\+Stat}} \&stat)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{Current\+Health}}
+int \mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{Current\+Health}} = 0
 \item 
-int \mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{Max\+Health}}
+int \mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{Max\+Health}} = 0
 \item 
-int \mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{Current\+Mana}}
+int \mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{Current\+Mana}} = 0
 \item 
-int \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{Max\+Mana}}
+int \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{Max\+Mana}} = 0
+\item 
+int \mbox{\hyperlink{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}{Current\+Mana\+Wheel}} = 0
+\item 
+std\+::array$<$ int, 6 $>$ \mbox{\hyperlink{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}{Mana\+Wheel}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{struct_caster_stat_a8bd5078e82ec3097fc8c748444ed5cde}\label{struct_caster_stat_a8bd5078e82ec3097fc8c748444ed5cde}} 
+\mbox{\Hypertarget{struct_caster_stat_ae380b28438298cd320a495ab0f705645}\label{struct_caster_stat_ae380b28438298cd320a495ab0f705645}} 
 \index{CasterStat@{CasterStat}!CasterStat@{CasterStat}}
 \index{CasterStat@{CasterStat}!CasterStat@{CasterStat}}
 \doxysubsubsection{\texorpdfstring{CasterStat()}{CasterStat()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Caster\+Stat\+::\+Caster\+Stat (\begin{DoxyParamCaption}\item[{int}]{hp = {\ttfamily 1},  }\item[{int}]{mana = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily Caster\+Stat\+::\+Caster\+Stat (\begin{DoxyParamCaption}\item[{int}]{hp = {\ttfamily 1},  }\item[{std\+::array$<$ int, 6 $>$}]{mana\+Wheel = {\ttfamily \{1,1,1,1,1,1\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \mbox{\Hypertarget{struct_caster_stat_ab26f6348018f45d27817e2bb150e94b7}\label{struct_caster_stat_ab26f6348018f45d27817e2bb150e94b7}} 
 \index{CasterStat@{CasterStat}!CasterStat@{CasterStat}}
@@ -44,25 +48,37 @@ int \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{Max\+
 \index{CasterStat@{CasterStat}!CurrentHealth@{CurrentHealth}}
 \index{CurrentHealth@{CurrentHealth}!CasterStat@{CasterStat}}
 \doxysubsubsection{\texorpdfstring{CurrentHealth}{CurrentHealth}}
-{\footnotesize\ttfamily int Caster\+Stat\+::\+Current\+Health}
+{\footnotesize\ttfamily int Caster\+Stat\+::\+Current\+Health = 0}
 
 \mbox{\Hypertarget{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}\label{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}} 
 \index{CasterStat@{CasterStat}!CurrentMana@{CurrentMana}}
 \index{CurrentMana@{CurrentMana}!CasterStat@{CasterStat}}
 \doxysubsubsection{\texorpdfstring{CurrentMana}{CurrentMana}}
-{\footnotesize\ttfamily int Caster\+Stat\+::\+Current\+Mana}
+{\footnotesize\ttfamily int Caster\+Stat\+::\+Current\+Mana = 0}
+
+\mbox{\Hypertarget{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}\label{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}} 
+\index{CasterStat@{CasterStat}!CurrentManaWheel@{CurrentManaWheel}}
+\index{CurrentManaWheel@{CurrentManaWheel}!CasterStat@{CasterStat}}
+\doxysubsubsection{\texorpdfstring{CurrentManaWheel}{CurrentManaWheel}}
+{\footnotesize\ttfamily int Caster\+Stat\+::\+Current\+Mana\+Wheel = 0}
+
+\mbox{\Hypertarget{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}\label{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}} 
+\index{CasterStat@{CasterStat}!ManaWheel@{ManaWheel}}
+\index{ManaWheel@{ManaWheel}!CasterStat@{CasterStat}}
+\doxysubsubsection{\texorpdfstring{ManaWheel}{ManaWheel}}
+{\footnotesize\ttfamily std\+::array$<$int, 6$>$ Caster\+Stat\+::\+Mana\+Wheel}
 
 \mbox{\Hypertarget{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}\label{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}} 
 \index{CasterStat@{CasterStat}!MaxHealth@{MaxHealth}}
 \index{MaxHealth@{MaxHealth}!CasterStat@{CasterStat}}
 \doxysubsubsection{\texorpdfstring{MaxHealth}{MaxHealth}}
-{\footnotesize\ttfamily int Caster\+Stat\+::\+Max\+Health}
+{\footnotesize\ttfamily int Caster\+Stat\+::\+Max\+Health = 0}
 
 \mbox{\Hypertarget{struct_caster_stat_a181ae832999c50d0306653163599bd4f}\label{struct_caster_stat_a181ae832999c50d0306653163599bd4f}} 
 \index{CasterStat@{CasterStat}!MaxMana@{MaxMana}}
 \index{MaxMana@{MaxMana}!CasterStat@{CasterStat}}
 \doxysubsubsection{\texorpdfstring{MaxMana}{MaxMana}}
-{\footnotesize\ttfamily int Caster\+Stat\+::\+Max\+Mana}
+{\footnotesize\ttfamily int Caster\+Stat\+::\+Max\+Mana = 0}
 
 
 

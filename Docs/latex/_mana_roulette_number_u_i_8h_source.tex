@@ -1,0 +1,35 @@
+\hypertarget{_mana_roulette_number_u_i_8h_source}{}\doxysection{Mana\+Roulette\+Number\+UI.\+h}
+\label{_mana_roulette_number_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteNumberUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteNumberUI.h}}
+\mbox{\hyperlink{_mana_roulette_number_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_mana_roulette_number_u_i}{ManaRouletteNumberUI}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_mana_roulette_number_u_i_a7ec7adaf5bce6b4485be949dcda91c0e}{ManaRouletteNumberUI}}(\textcolor{keywordtype}{int} index):\mbox{\hyperlink{class_u_i_object}{UIObject}}(\textcolor{stringliteral}{"{}ManaRouletteNumberUI\_"{}} + index)}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10         this-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{stringliteral}{"{}Sprites/UI/Interactable/Button/ui\_interactable\_scroll\_button-\/number.png"{}});}
+\DoxyCodeLine{11         this-\/>\mbox{\hyperlink{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}{SetIsSlicing}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{12         this-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(1, 0);}
+\DoxyCodeLine{13         this-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ 80.0f,80.0f,1.0f \};}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mana_roulette_number_u_i_a97b381181931e93a8f77818ddfec4fb5}{SetNumberByValue}}(\textcolor{keywordtype}{int} n)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         this-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(1, n -\/ 1);}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mana_roulette_number_u_i_a1dd7a939a6466b9fe80572240c909123}{SetIsUsed}}(\textcolor{keywordtype}{bool} isUsed)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} (!isUsed)}
+\DoxyCodeLine{25             this-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \{ 1.0f, 1.0f, 1.0f, 1.0f \};}
+\DoxyCodeLine{26         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{27             this-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \{ .5f , .5f , .5f , 0.15f \};}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 \};}
+
+\end{DoxyCode}

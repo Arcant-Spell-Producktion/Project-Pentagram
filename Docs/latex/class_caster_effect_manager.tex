@@ -6,11 +6,12 @@
 
 
 
-Collaboration diagram for Caster\+Effect\+Manager\+:\nopagebreak
+Collaboration diagram for Caster\+Effect\+Manager\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=209pt]{class_caster_effect_manager__coll__graph}
+\includegraphics[width=350pt]{class_caster_effect_manager__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -24,10 +25,20 @@ void \mbox{\hyperlink{class_caster_effect_manager_a0d71dccbaef4b14f5b3be12957d12
 \item 
 void \mbox{\hyperlink{class_caster_effect_manager_af1bb34268963e5499bcc92736754342b}{Resolve\+Effect}} (\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} resolve\+Type, int argc=0,...)
 \item 
+void \mbox{\hyperlink{class_caster_effect_manager_acd70cec0f1a36b102f4c5202bbbb811e}{On\+Cast\+Phase\+End}} ()
+\item 
+void \mbox{\hyperlink{class_caster_effect_manager_a251caf2dad3ab76803ee5805d6a9e857}{On\+End\+Round}} ()
+\item 
 \mbox{\hyperlink{class_caster_effect_manager_ac7ac5c8e4ec94f32b111198a98105798}{$\sim$\+Caster\+Effect\+Manager}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_caster_effect_manager_a6752c14021200c2b23d80d3897fef608}{On\+Effect\+Apply}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_caster_effect_manager_a25053d29219b407bbf78335a9451ee40}{On\+Effect\+Resolve}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_caster_effect_manager_a4eb7c4c8049ca314c43d8080c39b096f}{On\+Effect\+Reset}}
 \item 
 \mbox{\hyperlink{class_event}{Event}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_effect_detail___t}{Effect\+Detail\+\_\+T}} $>$ \& $>$ \mbox{\hyperlink{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}{On\+Effect\+Update}}
 \end{DoxyCompactItemize}
@@ -55,6 +66,18 @@ void \mbox{\hyperlink{class_caster_effect_manager_af1bb34268963e5499bcc927367543
 \doxysubsubsection{\texorpdfstring{AppliedEffect()}{AppliedEffect()}}
 {\footnotesize\ttfamily void Caster\+Effect\+Manager\+::\+Applied\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}}]{type,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{class_caster_effect_manager_acd70cec0f1a36b102f4c5202bbbb811e}\label{class_caster_effect_manager_acd70cec0f1a36b102f4c5202bbbb811e}} 
+\index{CasterEffectManager@{CasterEffectManager}!OnCastPhaseEnd@{OnCastPhaseEnd}}
+\index{OnCastPhaseEnd@{OnCastPhaseEnd}!CasterEffectManager@{CasterEffectManager}}
+\doxysubsubsection{\texorpdfstring{OnCastPhaseEnd()}{OnCastPhaseEnd()}}
+{\footnotesize\ttfamily void Caster\+Effect\+Manager\+::\+On\+Cast\+Phase\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_effect_manager_a251caf2dad3ab76803ee5805d6a9e857}\label{class_caster_effect_manager_a251caf2dad3ab76803ee5805d6a9e857}} 
+\index{CasterEffectManager@{CasterEffectManager}!OnEndRound@{OnEndRound}}
+\index{OnEndRound@{OnEndRound}!CasterEffectManager@{CasterEffectManager}}
+\doxysubsubsection{\texorpdfstring{OnEndRound()}{OnEndRound()}}
+{\footnotesize\ttfamily void Caster\+Effect\+Manager\+::\+On\+End\+Round (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
 \mbox{\Hypertarget{class_caster_effect_manager_af1bb34268963e5499bcc92736754342b}\label{class_caster_effect_manager_af1bb34268963e5499bcc92736754342b}} 
 \index{CasterEffectManager@{CasterEffectManager}!ResolveEffect@{ResolveEffect}}
 \index{ResolveEffect@{ResolveEffect}!CasterEffectManager@{CasterEffectManager}}
@@ -70,6 +93,24 @@ void \mbox{\hyperlink{class_caster_effect_manager_af1bb34268963e5499bcc927367543
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_caster_effect_manager_a6752c14021200c2b23d80d3897fef608}\label{class_caster_effect_manager_a6752c14021200c2b23d80d3897fef608}} 
+\index{CasterEffectManager@{CasterEffectManager}!OnEffectApply@{OnEffectApply}}
+\index{OnEffectApply@{OnEffectApply}!CasterEffectManager@{CasterEffectManager}}
+\doxysubsubsection{\texorpdfstring{OnEffectApply}{OnEffectApply}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Caster\+Effect\+Manager\+::\+On\+Effect\+Apply}
+
+\mbox{\Hypertarget{class_caster_effect_manager_a4eb7c4c8049ca314c43d8080c39b096f}\label{class_caster_effect_manager_a4eb7c4c8049ca314c43d8080c39b096f}} 
+\index{CasterEffectManager@{CasterEffectManager}!OnEffectReset@{OnEffectReset}}
+\index{OnEffectReset@{OnEffectReset}!CasterEffectManager@{CasterEffectManager}}
+\doxysubsubsection{\texorpdfstring{OnEffectReset}{OnEffectReset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Caster\+Effect\+Manager\+::\+On\+Effect\+Reset}
+
+\mbox{\Hypertarget{class_caster_effect_manager_a25053d29219b407bbf78335a9451ee40}\label{class_caster_effect_manager_a25053d29219b407bbf78335a9451ee40}} 
+\index{CasterEffectManager@{CasterEffectManager}!OnEffectResolve@{OnEffectResolve}}
+\index{OnEffectResolve@{OnEffectResolve}!CasterEffectManager@{CasterEffectManager}}
+\doxysubsubsection{\texorpdfstring{OnEffectResolve}{OnEffectResolve}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Caster\+Effect\+Manager\+::\+On\+Effect\+Resolve}
+
 \mbox{\Hypertarget{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}\label{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}} 
 \index{CasterEffectManager@{CasterEffectManager}!OnEffectUpdate@{OnEffectUpdate}}
 \index{OnEffectUpdate@{OnEffectUpdate}!CasterEffectManager@{CasterEffectManager}}

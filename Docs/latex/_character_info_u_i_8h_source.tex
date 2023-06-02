@@ -1,0 +1,31 @@
+\hypertarget{_character_info_u_i_8h_source}{}\doxysection{Character\+Info\+UI.\+h}
+\label{_character_info_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterInfoUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterInfoUI.h}}
+\mbox{\hyperlink{_character_info_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_effect_info_u_i_8h}{Game/CharacterSelectScene/EffectInfoUI.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_info_8h}{Game/CharacterSelectScene/CasterInfo.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_character_info_u_i}{CharacterInfoUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \textcolor{keyword}{private}:}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_InfoBackground;}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_CasterInfo;}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_effect_info_u_i}{EffectInfoUI}}* m\_EffectInfoUI[2];}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keyword}{const} \textcolor{keywordtype}{float} offset = 50.0f;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{public}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_character_info_u_i_a61011168198165e8203921862b91e7cb}{CharacterInfoUI}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_info_u_i_a05c9fcc37c1459ab578cac2fd0324051}{UpdateSelectedCharacter}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}

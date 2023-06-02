@@ -4,8 +4,120 @@
 
 {\ttfamily \#include $<$Map\+Data.\+h$>$}
 
-
-
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Game\+Data/\+Map\+Data/\mbox{\hyperlink{_map_data_8h}{Map\+Data.\+h}}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_map_data_a15903f8fbc2321b0a136b90ba99d4728}{Map\+Data}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} start\+Element)
+\item 
+\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} \mbox{\hyperlink{class_map_data_a8b4ffabbb4b65919f13ddc0f851e5a0d}{Get\+Current\+Chapter}} ()
+\item 
+void \mbox{\hyperlink{class_map_data_abc223b44315e81402f1879e5f1d1737c}{Add\+Chapter}} (\mbox{\hyperlink{class_chapter_data}{Chapter\+Data}} $\ast$c)
+\item 
+bool \mbox{\hyperlink{class_map_data_a9a62285db355b80312cae762e090a38b}{Is\+Chapter\+Complete}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
+\item 
+bool \mbox{\hyperlink{class_map_data_a2ac0f0d99f9967a1785104d61ab14a73}{Can\+Visit\+Chapter}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
+\item 
+void \mbox{\hyperlink{class_map_data_a0b5c9a81a0e93b33e868ab94c85987e2}{Select\+Chapter}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
+\item 
+\mbox{\hyperlink{class_node_data}{Node\+Data}} $\ast$ \mbox{\hyperlink{class_map_data_a4f8f40d62a931c551daed56e84ee0f2b}{Get\+Next\+Node}} ()
+\item 
+bool \mbox{\hyperlink{class_map_data_a1188f088022dd289d28d60b73ba22345}{Complete\+Node}} ()
+\item 
+\mbox{\hyperlink{struct_map_save_data}{Map\+Save\+Data}} \mbox{\hyperlink{class_map_data_a6cf1b35b0b62670f8b2580d81ac31f5d}{Save\+Map\+Data}} ()
+\item 
+void \mbox{\hyperlink{class_map_data_a589c37b6921718f3349bcd34a474f662}{Load\+Map\+Data}} (\mbox{\hyperlink{struct_map_save_data}{Map\+Save\+Data}} data)
+\item 
+\mbox{\hyperlink{class_map_data_afc3e096cf252c30641055ea4eaaab410}{$\sim$\+Map\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_map_data_a3caf51d6a8ddd0074a3c0a6a87cea522}{Is\+At\+Map}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_data_a15903f8fbc2321b0a136b90ba99d4728}\label{class_map_data_a15903f8fbc2321b0a136b90ba99d4728}} 
+\index{MapData@{MapData}!MapData@{MapData}}
+\index{MapData@{MapData}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{MapData()}{MapData()}}
+{\footnotesize\ttfamily Map\+Data\+::\+Map\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{start\+Element }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_afc3e096cf252c30641055ea4eaaab410}\label{class_map_data_afc3e096cf252c30641055ea4eaaab410}} 
+\index{MapData@{MapData}!````~MapData@{$\sim$MapData}}
+\index{````~MapData@{$\sim$MapData}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{$\sim$MapData()}{~MapData()}}
+{\footnotesize\ttfamily Map\+Data\+::$\sim$\+Map\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_data_abc223b44315e81402f1879e5f1d1737c}\label{class_map_data_abc223b44315e81402f1879e5f1d1737c}} 
+\index{MapData@{MapData}!AddChapter@{AddChapter}}
+\index{AddChapter@{AddChapter}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{AddChapter()}{AddChapter()}}
+{\footnotesize\ttfamily void Map\+Data\+::\+Add\+Chapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_chapter_data}{Chapter\+Data}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a2ac0f0d99f9967a1785104d61ab14a73}\label{class_map_data_a2ac0f0d99f9967a1785104d61ab14a73}} 
+\index{MapData@{MapData}!CanVisitChapter@{CanVisitChapter}}
+\index{CanVisitChapter@{CanVisitChapter}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{CanVisitChapter()}{CanVisitChapter()}}
+{\footnotesize\ttfamily bool Map\+Data\+::\+Can\+Visit\+Chapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a1188f088022dd289d28d60b73ba22345}\label{class_map_data_a1188f088022dd289d28d60b73ba22345}} 
+\index{MapData@{MapData}!CompleteNode@{CompleteNode}}
+\index{CompleteNode@{CompleteNode}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{CompleteNode()}{CompleteNode()}}
+{\footnotesize\ttfamily bool Map\+Data\+::\+Complete\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a8b4ffabbb4b65919f13ddc0f851e5a0d}\label{class_map_data_a8b4ffabbb4b65919f13ddc0f851e5a0d}} 
+\index{MapData@{MapData}!GetCurrentChapter@{GetCurrentChapter}}
+\index{GetCurrentChapter@{GetCurrentChapter}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{GetCurrentChapter()}{GetCurrentChapter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} Map\+Data\+::\+Get\+Current\+Chapter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_map_data_a4f8f40d62a931c551daed56e84ee0f2b}\label{class_map_data_a4f8f40d62a931c551daed56e84ee0f2b}} 
+\index{MapData@{MapData}!GetNextNode@{GetNextNode}}
+\index{GetNextNode@{GetNextNode}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{GetNextNode()}{GetNextNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_node_data}{Node\+Data}} $\ast$ Map\+Data\+::\+Get\+Next\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a9a62285db355b80312cae762e090a38b}\label{class_map_data_a9a62285db355b80312cae762e090a38b}} 
+\index{MapData@{MapData}!IsChapterComplete@{IsChapterComplete}}
+\index{IsChapterComplete@{IsChapterComplete}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{IsChapterComplete()}{IsChapterComplete()}}
+{\footnotesize\ttfamily bool Map\+Data\+::\+Is\+Chapter\+Complete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a589c37b6921718f3349bcd34a474f662}\label{class_map_data_a589c37b6921718f3349bcd34a474f662}} 
+\index{MapData@{MapData}!LoadMapData@{LoadMapData}}
+\index{LoadMapData@{LoadMapData}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{LoadMapData()}{LoadMapData()}}
+{\footnotesize\ttfamily void Map\+Data\+::\+Load\+Map\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_map_save_data}{Map\+Save\+Data}}}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a6cf1b35b0b62670f8b2580d81ac31f5d}\label{class_map_data_a6cf1b35b0b62670f8b2580d81ac31f5d}} 
+\index{MapData@{MapData}!SaveMapData@{SaveMapData}}
+\index{SaveMapData@{SaveMapData}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{SaveMapData()}{SaveMapData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_map_save_data}{Map\+Save\+Data}} Map\+Data\+::\+Save\+Map\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_map_data_a0b5c9a81a0e93b33e868ab94c85987e2}\label{class_map_data_a0b5c9a81a0e93b33e868ab94c85987e2}} 
+\index{MapData@{MapData}!SelectChapter@{SelectChapter}}
+\index{SelectChapter@{SelectChapter}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{SelectChapter()}{SelectChapter()}}
+{\footnotesize\ttfamily void Map\+Data\+::\+Select\+Chapter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_map_data_a3caf51d6a8ddd0074a3c0a6a87cea522}\label{class_map_data_a3caf51d6a8ddd0074a3c0a6a87cea522}} 
+\index{MapData@{MapData}!IsAtMap@{IsAtMap}}
+\index{IsAtMap@{IsAtMap}!MapData@{MapData}}
+\doxysubsubsection{\texorpdfstring{IsAtMap}{IsAtMap}}
+{\footnotesize\ttfamily bool Map\+Data\+::\+Is\+At\+Map = false}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Game\+Data/\+Map\+Data/\mbox{\hyperlink{_map_data_8h}{Map\+Data.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Game\+Data/\+Map\+Data/\mbox{\hyperlink{_map_data_8cpp}{Map\+Data.\+cpp}}\end{DoxyCompactItemize}

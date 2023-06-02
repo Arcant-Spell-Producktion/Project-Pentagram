@@ -6,16 +6,18 @@
 
 
 
-Inheritance diagram for Spell\+Icon\+UI\+:\nopagebreak
+Inheritance diagram for Spell\+Icon\+UI\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=151pt]{class_spell_icon_u_i__inherit__graph}
+\includegraphics[width=185pt]{class_spell_icon_u_i__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Spell\+Icon\+UI\+:\nopagebreak
+Collaboration diagram for Spell\+Icon\+UI\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,17 +29,31 @@ Collaboration diagram for Spell\+Icon\+UI\+:\nopagebreak
 \item 
 \mbox{\hyperlink{class_spell_icon_u_i_a32b5ffc1b586c96814b6c4c2715f7cd5}{Spell\+Icon\+UI}} (std\+::string obj\+Name, float \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}=100.\+0f)
 \item 
-void \mbox{\hyperlink{class_spell_icon_u_i_a9b69871d444c7fa305bb18953c67531c}{Toggle\+Is\+Pentagram\+Icon}} (bool flag)
+void \mbox{\hyperlink{class_spell_icon_u_i_abe5e4bb9090d0dba9b007b1128d8626e}{Set\+Overlay\+Toggle}} (bool \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}})
+\item 
+void \mbox{\hyperlink{class_spell_icon_u_i_ac4316bb31b248da417eeb010e503eabb}{Set\+Darken}} (bool \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}})
+\item 
+void \mbox{\hyperlink{class_spell_icon_u_i_aa79e6cbb574c3e0501971d5e8470286d}{Set\+Transparency}} (bool \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}})
+\item 
+void \mbox{\hyperlink{class_spell_icon_u_i_a9b69871d444c7fa305bb18953c67531c}{Toggle\+Is\+Pentagram\+Icon}} (bool \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}})
 \item 
 void \mbox{\hyperlink{class_spell_icon_u_i_ac42612ef66992af3771384b8886cad28}{Set\+Icon}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell\+Detail, bool do\+Cast)
 \item 
 void \mbox{\hyperlink{class_spell_icon_u_i_aff271986d9c4e9f84d38be0e12373304}{Set\+Is\+Extra}} (bool is\+Extra)
 \item 
+void \mbox{\hyperlink{class_spell_icon_u_i_aa0548c4218e00768a778ce3efb647a65}{Set\+Is\+Hidden}} (bool is\+Hidden)
+\item 
 void \mbox{\hyperlink{class_spell_icon_u_i_ab8a6bafe4a116755ad5fc8a97bc238a9}{Set\+Is\+Preview}} (bool is\+Preview)
 \item 
 void \mbox{\hyperlink{class_spell_icon_u_i_a996787a4ac105f0edb776f338b72305f}{Set\+Position}} (glm\+::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}})
 \item 
+void \mbox{\hyperlink{class_spell_icon_u_i_aacd83f3c9854ba9a59084a829b8a5785}{Set\+Scale}} (glm\+::vec3 \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}})
+\item 
 void \mbox{\hyperlink{class_spell_icon_u_i_aa7f1482197434270144f5600c914700b}{Update\+Icon}} ()
+\item 
+void \mbox{\hyperlink{class_spell_icon_u_i_a85addba966d40b08f8a95e9a586c588a}{Set\+Active}} (const bool \&active) override
+\item 
+bool \mbox{\hyperlink{class_spell_icon_u_i_a267fa6b15a083f5293785a6a2adee438}{Is\+Being\+Hover}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +73,28 @@ void \mbox{\hyperlink{class_spell_icon_u_i_aa7f1482197434270144f5600c914700b}{Up
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_spell_icon_u_i_a267fa6b15a083f5293785a6a2adee438}\label{class_spell_icon_u_i_a267fa6b15a083f5293785a6a2adee438}} 
+\index{SpellIconUI@{SpellIconUI}!IsBeingHover@{IsBeingHover}}
+\index{IsBeingHover@{IsBeingHover}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{IsBeingHover()}{IsBeingHover()}}
+{\footnotesize\ttfamily bool Spell\+Icon\+UI\+::\+Is\+Being\+Hover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_spell_icon_u_i_a85addba966d40b08f8a95e9a586c588a}\label{class_spell_icon_u_i_a85addba966d40b08f8a95e9a586c588a}} 
+\index{SpellIconUI@{SpellIconUI}!SetActive@{SetActive}}
+\index{SetActive@{SetActive}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetActive()}{SetActive()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Active (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_spell_icon_u_i_ac4316bb31b248da417eeb010e503eabb}\label{class_spell_icon_u_i_ac4316bb31b248da417eeb010e503eabb}} 
+\index{SpellIconUI@{SpellIconUI}!SetDarken@{SetDarken}}
+\index{SetDarken@{SetDarken}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetDarken()}{SetDarken()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Darken (\begin{DoxyParamCaption}\item[{bool}]{flag }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_spell_icon_u_i_ac42612ef66992af3771384b8886cad28}\label{class_spell_icon_u_i_ac42612ef66992af3771384b8886cad28}} 
 \index{SpellIconUI@{SpellIconUI}!SetIcon@{SetIcon}}
 \index{SetIcon@{SetIcon}!SpellIconUI@{SpellIconUI}}
@@ -69,17 +107,41 @@ void \mbox{\hyperlink{class_spell_icon_u_i_aa7f1482197434270144f5600c914700b}{Up
 \doxysubsubsection{\texorpdfstring{SetIsExtra()}{SetIsExtra()}}
 {\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Is\+Extra (\begin{DoxyParamCaption}\item[{bool}]{is\+Extra }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_spell_icon_u_i_aa0548c4218e00768a778ce3efb647a65}\label{class_spell_icon_u_i_aa0548c4218e00768a778ce3efb647a65}} 
+\index{SpellIconUI@{SpellIconUI}!SetIsHidden@{SetIsHidden}}
+\index{SetIsHidden@{SetIsHidden}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetIsHidden()}{SetIsHidden()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Is\+Hidden (\begin{DoxyParamCaption}\item[{bool}]{is\+Hidden }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_spell_icon_u_i_ab8a6bafe4a116755ad5fc8a97bc238a9}\label{class_spell_icon_u_i_ab8a6bafe4a116755ad5fc8a97bc238a9}} 
 \index{SpellIconUI@{SpellIconUI}!SetIsPreview@{SetIsPreview}}
 \index{SetIsPreview@{SetIsPreview}!SpellIconUI@{SpellIconUI}}
 \doxysubsubsection{\texorpdfstring{SetIsPreview()}{SetIsPreview()}}
 {\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Is\+Preview (\begin{DoxyParamCaption}\item[{bool}]{is\+Preview }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_spell_icon_u_i_abe5e4bb9090d0dba9b007b1128d8626e}\label{class_spell_icon_u_i_abe5e4bb9090d0dba9b007b1128d8626e}} 
+\index{SpellIconUI@{SpellIconUI}!SetOverlayToggle@{SetOverlayToggle}}
+\index{SetOverlayToggle@{SetOverlayToggle}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetOverlayToggle()}{SetOverlayToggle()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Overlay\+Toggle (\begin{DoxyParamCaption}\item[{bool}]{flag }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_spell_icon_u_i_a996787a4ac105f0edb776f338b72305f}\label{class_spell_icon_u_i_a996787a4ac105f0edb776f338b72305f}} 
 \index{SpellIconUI@{SpellIconUI}!SetPosition@{SetPosition}}
 \index{SetPosition@{SetPosition}!SpellIconUI@{SpellIconUI}}
 \doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
 {\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{position }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_icon_u_i_aacd83f3c9854ba9a59084a829b8a5785}\label{class_spell_icon_u_i_aacd83f3c9854ba9a59084a829b8a5785}} 
+\index{SpellIconUI@{SpellIconUI}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{scale }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_icon_u_i_aa79e6cbb574c3e0501971d5e8470286d}\label{class_spell_icon_u_i_aa79e6cbb574c3e0501971d5e8470286d}} 
+\index{SpellIconUI@{SpellIconUI}!SetTransparency@{SetTransparency}}
+\index{SetTransparency@{SetTransparency}!SpellIconUI@{SpellIconUI}}
+\doxysubsubsection{\texorpdfstring{SetTransparency()}{SetTransparency()}}
+{\footnotesize\ttfamily void Spell\+Icon\+UI\+::\+Set\+Transparency (\begin{DoxyParamCaption}\item[{bool}]{flag }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_spell_icon_u_i_a9b69871d444c7fa305bb18953c67531c}\label{class_spell_icon_u_i_a9b69871d444c7fa305bb18953c67531c}} 
 \index{SpellIconUI@{SpellIconUI}!ToggleIsPentagramIcon@{ToggleIsPentagramIcon}}

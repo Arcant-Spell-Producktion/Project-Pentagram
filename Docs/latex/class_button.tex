@@ -6,7 +6,8 @@
 
 
 
-Inheritance diagram for Button\+:\nopagebreak
+Inheritance diagram for Button\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +16,8 @@ Inheritance diagram for Button\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Button\+:\nopagebreak
+Collaboration diagram for Button\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,13 +32,27 @@ Collaboration diagram for Button\+:\nopagebreak
 virtual void \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0}{Draw}} (\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm\+::mat4 parent\+Model=glm\+::mat4(1.\+0f)) override
 \item 
 virtual void \mbox{\hyperlink{class_button_a810da4ba98196db3114151d35f01b869}{Unload\+Mesh}} () override
+\item 
+virtual void \mbox{\hyperlink{class_button_a5e39128a8e8108f16edac3da71d5248f}{On\+Update}} (const float \&dt) override
+\item 
+void \mbox{\hyperlink{class_button_a0acc3b9d2945161e94d6199b96a09a7e}{Set\+Is\+Begin\+Hover}} (const bool \&active)
+\item 
+void \mbox{\hyperlink{class_button_ac1d766e7549d4302e8877058804b7d29}{Set\+Is\+Begin\+Un\+Hover}} (const bool \&active)
+\item 
+bool \mbox{\hyperlink{class_button_a8ae897265e3512675ed3869f0ccba9fc}{Is\+Begin\+Hover}} () const
+\item 
+bool \mbox{\hyperlink{class_button_ab33b3cf39e838a0e366f0edcdf9312e6}{Is\+Begin\+Un\+Hover}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 glm\+::vec4 \mbox{\hyperlink{class_button_a0fa8563890d059510c782a356d0f1494}{hover\+Color}}
 \item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_a45e641a9f31b6da70bb14a60397fc763}{on\+Begin\+Hover}}
+\item 
 \mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}{on\+Hover}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_ab5164fbcdcfc699fbe74031b01dcda1c}{un\+Begin\+Hover}}
 \item 
 \mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{class_button}{Button}} $\ast$ $>$ \mbox{\hyperlink{class_button_aba771a087190a2c0406c55817fd45dcd}{un\+Hover}}
 \item 
@@ -71,6 +87,44 @@ glm\+::vec4 \mbox{\hyperlink{class_button_a0fa8563890d059510c782a356d0f1494}{hov
 
 Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{UIObject}}.
 
+\mbox{\Hypertarget{class_button_a8ae897265e3512675ed3869f0ccba9fc}\label{class_button_a8ae897265e3512675ed3869f0ccba9fc}} 
+\index{Button@{Button}!IsBeginHover@{IsBeginHover}}
+\index{IsBeginHover@{IsBeginHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{IsBeginHover()}{IsBeginHover()}}
+{\footnotesize\ttfamily bool Button\+::\+Is\+Begin\+Hover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_button_ab33b3cf39e838a0e366f0edcdf9312e6}\label{class_button_ab33b3cf39e838a0e366f0edcdf9312e6}} 
+\index{Button@{Button}!IsBeginUnHover@{IsBeginUnHover}}
+\index{IsBeginUnHover@{IsBeginUnHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{IsBeginUnHover()}{IsBeginUnHover()}}
+{\footnotesize\ttfamily bool Button\+::\+Is\+Begin\+Un\+Hover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_button_a5e39128a8e8108f16edac3da71d5248f}\label{class_button_a5e39128a8e8108f16edac3da71d5248f}} 
+\index{Button@{Button}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Button\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_text_box_afc9736b74a579fa6b97c499e08089a79}{Text\+Box}}.
+
+\mbox{\Hypertarget{class_button_a0acc3b9d2945161e94d6199b96a09a7e}\label{class_button_a0acc3b9d2945161e94d6199b96a09a7e}} 
+\index{Button@{Button}!SetIsBeginHover@{SetIsBeginHover}}
+\index{SetIsBeginHover@{SetIsBeginHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{SetIsBeginHover()}{SetIsBeginHover()}}
+{\footnotesize\ttfamily void Button\+::\+Set\+Is\+Begin\+Hover (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_button_ac1d766e7549d4302e8877058804b7d29}\label{class_button_ac1d766e7549d4302e8877058804b7d29}} 
+\index{Button@{Button}!SetIsBeginUnHover@{SetIsBeginUnHover}}
+\index{SetIsBeginUnHover@{SetIsBeginUnHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{SetIsBeginUnHover()}{SetIsBeginUnHover()}}
+{\footnotesize\ttfamily void Button\+::\+Set\+Is\+Begin\+Un\+Hover (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_button_a810da4ba98196db3114151d35f01b869}\label{class_button_a810da4ba98196db3114151d35f01b869}} 
 \index{Button@{Button}!UnloadMesh@{UnloadMesh}}
 \index{UnloadMesh@{UnloadMesh}!Button@{Button}}
@@ -89,6 +143,12 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e948
 \index{hoverColor@{hoverColor}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{hoverColor}{hoverColor}}
 {\footnotesize\ttfamily glm\+::vec4 Button\+::hover\+Color}
+
+\mbox{\Hypertarget{class_button_a45e641a9f31b6da70bb14a60397fc763}\label{class_button_a45e641a9f31b6da70bb14a60397fc763}} 
+\index{Button@{Button}!onBeginHover@{onBeginHover}}
+\index{onBeginHover@{onBeginHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{onBeginHover}{onBeginHover}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::on\+Begin\+Hover}
 
 \mbox{\Hypertarget{class_button_a518661a5bc461f785c2be78070c81365}\label{class_button_a518661a5bc461f785c2be78070c81365}} 
 \index{Button@{Button}!onClick@{onClick}}
@@ -113,6 +173,12 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e948
 \index{textObject@{textObject}!Button@{Button}}
 \doxysubsubsection{\texorpdfstring{textObject}{textObject}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_text_object}{Text\+Object}} Button\+::text\+Object}
+
+\mbox{\Hypertarget{class_button_ab5164fbcdcfc699fbe74031b01dcda1c}\label{class_button_ab5164fbcdcfc699fbe74031b01dcda1c}} 
+\index{Button@{Button}!unBeginHover@{unBeginHover}}
+\index{unBeginHover@{unBeginHover}!Button@{Button}}
+\doxysubsubsection{\texorpdfstring{unBeginHover}{unBeginHover}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{class_button}{Button}}$\ast$$>$ Button\+::un\+Begin\+Hover}
 
 \mbox{\Hypertarget{class_button_aba771a087190a2c0406c55817fd45dcd}\label{class_button_aba771a087190a2c0406c55817fd45dcd}} 
 \index{Button@{Button}!unHover@{unHover}}

@@ -85,14 +85,14 @@ Collaboration diagram for WillCompareController:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_will_compare_controller__coll__graph.png" border="0" usemap="#a_will_compare_controller_coll__map" alt="Collaboration graph"/></div>
 <map name="a_will_compare_controller_coll__map" id="a_will_compare_controller_coll__map">
-<area shape="rect" title=" " alt="" coords="213,273,363,300"/>
+<area shape="rect" title=" " alt="" coords="182,273,333,300"/>
 <area shape="rect" href="class_game_object.html" title=" " alt="" coords="101,184,195,211"/>
 <area shape="rect" href="class_mesh.html" title=" " alt="" coords="78,95,133,121"/>
 <area shape="rect" href="class_v_a_o.html" title=" " alt="" coords="5,5,56,32"/>
 <area shape="rect" href="class_v_b_o.html" title=" " alt="" coords="80,5,131,32"/>
 <area shape="rect" href="class_e_b_o.html" title=" " alt="" coords="155,5,205,32"/>
 <area shape="rect" href="class_texture.html" title=" " alt="" coords="158,95,223,121"/>
-<area shape="rect" href="class_event.html" title=" " alt="" coords="285,184,387,211"/>
+<area shape="rect" href="class_event.html" title=" " alt="" coords="285,184,448,211"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -102,8 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad27f69b3a1468a3a077e64f1eb516f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06962877ee52a146bb25184ef225ae22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_will_compare_controller.html#a06962877ee52a146bb25184ef225ae22">OnUpdate</a> (const float &amp;dt) override</td></tr>
 <tr class="separator:a06962877ee52a146bb25184ef225ae22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7322d4554de09f423957a9567fba6263"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_will_compare_controller.html#a7322d4554de09f423957a9567fba6263">StartCompare</a> (<a class="el" href="_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889">CasterPosition</a> pos)</td></tr>
-<tr class="separator:a7322d4554de09f423957a9567fba6263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c7e94700c3698ed0c0e95fc6b45541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_will_compare_controller.html#aa4c7e94700c3698ed0c0e95fc6b45541">StartCompare</a> (<a class="el" href="_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889">CasterPosition</a> pos, int elementA, int elementB)</td></tr>
+<tr class="separator:aa4c7e94700c3698ed0c0e95fc6b45541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_game_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_game_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_game_object.html">GameObject</a></td></tr>
 <tr class="memitem:a045040a1e22579a2ae0177e1c1467c68 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a045040a1e22579a2ae0177e1c1467c68">GameObject</a> (const std::string &amp;objName)</td></tr>
 <tr class="separator:a045040a1e22579a2ae0177e1c1467c68 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +131,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab77deef319fd3643d19ee2494b0dd06c inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b99f20242fdd77abb2ece4d8f7be1b7 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a1b99f20242fdd77abb2ece4d8f7be1b7">GetBackRenderChildSize</a> () const</td></tr>
 <tr class="separator:a1b99f20242fdd77abb2ece4d8f7be1b7 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f42a4721b96f4991d2136fd3a6af2d1 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a8f42a4721b96f4991d2136fd3a6af2d1">GetFrontRenderChildList</a> () const</td></tr>
+<tr class="separator:a8f42a4721b96f4991d2136fd3a6af2d1 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cf0745b05b9a3966dab290ce24e7c3 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a67cf0745b05b9a3966dab290ce24e7c3">GetBackRenderChildList</a> () const</td></tr>
+<tr class="separator:a67cf0745b05b9a3966dab290ce24e7c3 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3741e6f513ffa2f242b706c432921221 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a3741e6f513ffa2f242b706c432921221">GetChildList</a> () const</td></tr>
 <tr class="separator:a3741e6f513ffa2f242b706c432921221 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a054d052a5328888dbc48530759ae5f2d inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a054d052a5328888dbc48530759ae5f2d">GetWorldPosition</a> () const</td></tr>
@@ -188,8 +192,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4b539a5172be198b7dfc152981fb50e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_will_compare_controller.html#a4b539a5172be198b7dfc152981fb50e3">OnCompareDone</a></td></tr>
-<tr class="separator:a4b539a5172be198b7dfc152981fb50e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde49a5a2c669a9062254ffa878ecabd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889">CasterPosition</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_will_compare_controller.html#adde49a5a2c669a9062254ffa878ecabd">OnCompareDone</a></td></tr>
+<tr class="separator:adde49a5a2c669a9062254ffa878ecabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_game_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_game_object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_game_object.html">GameObject</a></td></tr>
 <tr class="memitem:af542b33c8de269343e22c5629e6b66c0 inherit pub_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#af542b33c8de269343e22c5629e6b66c0">name</a></td></tr>
 <tr class="separator:af542b33c8de269343e22c5629e6b66c0 inherit pub_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,6 +215,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a6183362801e338fc99f5225f84a5b01f inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1875c0e1837f21bd59d175da127358b9 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a1875c0e1837f21bd59d175da127358b9">m_Texture</a></td></tr>
 <tr class="separator:a1875c0e1837f21bd59d175da127358b9 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddb45724e9a9b43c454a7c48b76818c inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9ddb45724e9a9b43c454a7c48b76818c">m_TexturePath</a></td></tr>
+<tr class="separator:a9ddb45724e9a9b43c454a7c48b76818c inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7779b2440466355f1e75d3b9280d6b5e inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a7779b2440466355f1e75d3b9280d6b5e">m_IsActive</a></td></tr>
 <tr class="separator:a7779b2440466355f1e75d3b9280d6b5e inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaabdef761508c2eba3cb1a6b6696d03 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#aeaabdef761508c2eba3cb1a6b6696d03">m_Tag</a></td></tr>
@@ -297,8 +303,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a7322d4554de09f423957a9567fba6263" name="a7322d4554de09f423957a9567fba6263"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7322d4554de09f423957a9567fba6263">&#9670;&nbsp;</a></span>StartCompare()</h2>
+<a id="aa4c7e94700c3698ed0c0e95fc6b45541" name="aa4c7e94700c3698ed0c0e95fc6b45541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c7e94700c3698ed0c0e95fc6b45541">&#9670;&nbsp;</a></span>StartCompare()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,8 +313,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void WillCompareController::StartCompare </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889">CasterPosition</a>&#160;</td>
-          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementB</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,14 +338,14 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4b539a5172be198b7dfc152981fb50e3" name="a4b539a5172be198b7dfc152981fb50e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b539a5172be198b7dfc152981fb50e3">&#9670;&nbsp;</a></span>OnCompareDone</h2>
+<a id="adde49a5a2c669a9062254ffa878ecabd" name="adde49a5a2c669a9062254ffa878ecabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde49a5a2c669a9062254ffa878ecabd">&#9670;&nbsp;</a></span>OnCompareDone</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_event.html">Event</a>&lt;bool&gt; WillCompareController::OnCompareDone</td>
+          <td class="memname"><a class="el" href="class_event.html">Event</a>&lt;<a class="el" href="_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889">CasterPosition</a>&gt; WillCompareController::OnCompareDone</td>
         </tr>
       </table>
 </div><div class="memdoc">

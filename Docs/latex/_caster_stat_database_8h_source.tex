@@ -1,0 +1,100 @@
+\hypertarget{_caster_stat_database_8h_source}{}\doxysection{Caster\+Stat\+Database.\+h}
+\label{_caster_stat_database_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterStatDatabase.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterStatDatabase.h}}
+\mbox{\hyperlink{_caster_stat_database_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_enemy_data_8h}{Game/GameData/CasterData/EnemyData.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_stat_list}{CasterStatList}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     std::vector<CasterStat> m\_Levels;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_MaxLvl = 0;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_caster_stat_list_a7667ed182f216cf516308c579985e5b0}{CasterStatList}}() \{\}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{struct_caster_stat}{CasterStat}} \mbox{\hyperlink{class_caster_stat_list_a3cf994013f481b441ec156b1cbc7597a}{GetStatByLv}}(\textcolor{keywordtype}{int} lvl)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         \textcolor{keywordtype}{int} \_lvl = lvl < 0 ? 0 : lvl < m\_MaxLvl ? lvl : m\_MaxLvl -\/ 1;}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} m\_Levels[\_lvl];}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_stat_list_ae83dbbec16610fb4d18ef49e75420668}{Add}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat) \{}
+\DoxyCodeLine{22         m\_MaxLvl++;}
+\DoxyCodeLine{23         m\_Levels.push\_back(stat);}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_stat_table}{CasterStatTable}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     std::map<CasterType, CasterStatList*> Lists;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_caster_stat_table_a54c41b0a45214a1837a950d8001f253b}{CasterStatTable}}() \{\}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_stat_table_a128462289592261cf2da7dc428f50f13}{Add}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type , \mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat) \{}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{keywordflow}{if} (!Lists.count(type))}
+\DoxyCodeLine{38         \{}
+\DoxyCodeLine{39             Lists.emplace(type, \textcolor{keyword}{new} \mbox{\hyperlink{class_caster_stat_list}{CasterStatList}}());}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         Lists[type]-\/>Add(stat);}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_caster_stat_list}{CasterStatList}}* \mbox{\hyperlink{class_caster_stat_table_af1b73b4a7aba1bc905bb8c7063fe2aa9}{GetCasterStatList}}(\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (Lists.count(type))}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             \textcolor{keywordflow}{return} Lists[type];}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_caster_stat_table_a96c8553bc91358efe437e2f38c837b9d}{\string~CasterStatTable}}()}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} list : Lists)}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             \textcolor{keyword}{delete}(list.second);}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         Lists.clear();}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_stat_database}{CasterStatDatabase}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<CasterStatDatabase>}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{69 \textcolor{keyword}{private}:}
+\DoxyCodeLine{70     std::map<Element::Type, CasterStatTable*> CasterStatTables;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} LoadCaster();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} LoadEnemyMoveset();}
+\DoxyCodeLine{75 \textcolor{keyword}{public}:}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_stat_database_aa6d00d0c920feb4cc0010b98abe9ce16}{LoadResource}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_stat_database_acd26e22b7acb2927358ba6a16f151adc}{Add}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \mbox{\hyperlink{struct_caster_stat}{CasterStat}} stat);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{struct_caster_stat}{CasterStat}} \mbox{\hyperlink{class_caster_stat_database_a411955dee25e72dcddc5c65224bcb49d}{GetStat}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \textcolor{keywordtype}{int} level)}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} CasterStatTables[element]-\/>GetCasterStatList(type)-\/>GetStatByLv(level);}
+\DoxyCodeLine{83     \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \mbox{\hyperlink{class_caster_stat_database_a5fb905bbb69aa69aceb292e4321fc041}{\string~CasterStatDatabase}}()}
+\DoxyCodeLine{86     \{}
+\DoxyCodeLine{87         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} table: CasterStatTables)}
+\DoxyCodeLine{88         \{}
+\DoxyCodeLine{89             \textcolor{keyword}{delete}(table.second);}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         CasterStatTables.clear();}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 \};}
+
+\end{DoxyCode}

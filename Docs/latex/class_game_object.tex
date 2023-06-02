@@ -6,11 +6,12 @@
 
 
 
-Inheritance diagram for Game\+Object\+:\nopagebreak
+Inheritance diagram for Game\+Object\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_game_object__inherit__graph}
+\includegraphics[height=550pt]{class_game_object__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -50,6 +51,10 @@ unsigned int \mbox{\hyperlink{class_game_object_abe5de540bde8e5838784ee8a79ce7e0
 unsigned int \mbox{\hyperlink{class_game_object_ab77deef319fd3643d19ee2494b0dd06c}{Get\+Front\+Render\+Child\+Size}} () const
 \item 
 unsigned int \mbox{\hyperlink{class_game_object_a1b99f20242fdd77abb2ece4d8f7be1b7}{Get\+Back\+Render\+Child\+Size}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_object_a8f42a4721b96f4991d2136fd3a6af2d1}{Get\+Front\+Render\+Child\+List}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_object_a67cf0745b05b9a3966dab290ce24e7c3}{Get\+Back\+Render\+Child\+List}} () const
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_game_object_a3741e6f513ffa2f242b706c432921221}{Get\+Child\+List}} () const
 \item 
@@ -126,6 +131,8 @@ glm\+::vec4 \mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d
 \mbox{\hyperlink{class_mesh}{Mesh}} \mbox{\hyperlink{class_game_object_a6183362801e338fc99f5225f84a5b01f}{m\+\_\+\+Mesh}}
 \item 
 \mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_game_object_a1875c0e1837f21bd59d175da127358b9}{m\+\_\+\+Texture}}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_a9ddb45724e9a9b43c454a7c48b76818c}{m\+\_\+\+Texture\+Path}}
 \item 
 bool \mbox{\hyperlink{class_game_object_a7779b2440466355f1e75d3b9280d6b5e}{m\+\_\+\+Is\+Active}}
 \item 
@@ -223,6 +230,12 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \doxysubsubsection{\texorpdfstring{GetAnimationRow()}{GetAnimationRow()}}
 {\footnotesize\ttfamily int Game\+Object\+::\+Get\+Animation\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_game_object_a67cf0745b05b9a3966dab290ce24e7c3}\label{class_game_object_a67cf0745b05b9a3966dab290ce24e7c3}} 
+\index{GameObject@{GameObject}!GetBackRenderChildList@{GetBackRenderChildList}}
+\index{GetBackRenderChildList@{GetBackRenderChildList}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GetBackRenderChildList()}{GetBackRenderChildList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ Game\+Object\+::\+Get\+Back\+Render\+Child\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \mbox{\Hypertarget{class_game_object_a1b99f20242fdd77abb2ece4d8f7be1b7}\label{class_game_object_a1b99f20242fdd77abb2ece4d8f7be1b7}} 
 \index{GameObject@{GameObject}!GetBackRenderChildSize@{GetBackRenderChildSize}}
 \index{GetBackRenderChildSize@{GetBackRenderChildSize}!GameObject@{GameObject}}
@@ -264,6 +277,12 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \index{GetCurrentAnimationRow@{GetCurrentAnimationRow}!GameObject@{GameObject}}
 \doxysubsubsection{\texorpdfstring{GetCurrentAnimationRow()}{GetCurrentAnimationRow()}}
 {\footnotesize\ttfamily int Game\+Object\+::\+Get\+Current\+Animation\+Row (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_game_object_a8f42a4721b96f4991d2136fd3a6af2d1}\label{class_game_object_a8f42a4721b96f4991d2136fd3a6af2d1}} 
+\index{GameObject@{GameObject}!GetFrontRenderChildList@{GetFrontRenderChildList}}
+\index{GetFrontRenderChildList@{GetFrontRenderChildList}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GetFrontRenderChildList()}{GetFrontRenderChildList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ Game\+Object\+::\+Get\+Front\+Render\+Child\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_game_object_ab77deef319fd3643d19ee2494b0dd06c}\label{class_game_object_ab77deef319fd3643d19ee2494b0dd06c}} 
 \index{GameObject@{GameObject}!GetFrontRenderChildSize@{GetFrontRenderChildSize}}
@@ -333,7 +352,7 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 
 
 
-Reimplemented in \mbox{\hyperlink{class_particle_system_a042a639b6446a5434f7648c873dcaa32}{Particle\+System}}, \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{Text\+Object}}, \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{Slider}}, \mbox{\hyperlink{class_caster_object_ae2355f084666d867ed93df524da3b104}{Caster\+Object}}, \mbox{\hyperlink{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}{Base\+Spell\+Object}}, and \mbox{\hyperlink{class_will_compare_controller_a06962877ee52a146bb25184ef225ae22}{Will\+Compare\+Controller}}.
+Reimplemented in \mbox{\hyperlink{class_button_a5e39128a8e8108f16edac3da71d5248f}{Button}}, \mbox{\hyperlink{class_particle_system_a042a639b6446a5434f7648c873dcaa32}{Particle\+System}}, \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{Text\+Object}}, \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{Slider}}, \mbox{\hyperlink{class_caster_detail_u_i_a78aa4f0a1cc3012dae6561f9b1e8e814}{Caster\+Detail\+UI}}, \mbox{\hyperlink{class_caster_effect_bar_u_i_a2d4828d09845e36570bf8fdfd011f8cb}{Caster\+Effect\+Bar\+UI}}, \mbox{\hyperlink{class_caster_object_ae2355f084666d867ed93df524da3b104}{Caster\+Object}}, \mbox{\hyperlink{class_base_effect_object_aaea6456e7d3e572f73af2f4dcc9f3bea}{Base\+Effect\+Object}}, \mbox{\hyperlink{class_pentagram_spell_selector_adbc8be2db0ab3ae984f01843eb905c81}{Pentagram\+Spell\+Selector}}, \mbox{\hyperlink{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}{Base\+Spell\+Object}}, \mbox{\hyperlink{class_timeline_controller_a117b2a93e2a538b4ab527b98c4464ff9}{Timeline\+Controller}}, \mbox{\hyperlink{class_timetrack_u_i_a8c17cb47e8cb89d443c379d68a4eb962}{Timetrack\+UI}}, \mbox{\hyperlink{class_will_compare_controller_a06962877ee52a146bb25184ef225ae22}{Will\+Compare\+Controller}}, \mbox{\hyperlink{class_will_compare_u_i_a9bb8ec91d803d3170abe931ff8229d17}{Will\+Compare\+UI}}, \mbox{\hyperlink{class_player_aid_u_i_a19692ae0e1b19b25c1578144eea06162}{Player\+Aid\+UI}}, \mbox{\hyperlink{class_shortcut_u_i_a1144711334aa432b07fecf41060103d9}{Shortcut\+UI}}, \mbox{\hyperlink{class_stage_object_a369fabb2278aea7388cbad65cee8203d}{Stage\+Object}}, \mbox{\hyperlink{class_text_box_afc9736b74a579fa6b97c499e08089a79}{Text\+Box}}, and \mbox{\hyperlink{class_slide_object_a40cbe316b1c1b554fe22362dcdf076c9}{Slide\+Object}}.
 
 \mbox{\Hypertarget{class_game_object_ae21ec32941e74e7a21c2a8707941a5f9}\label{class_game_object_ae21ec32941e74e7a21c2a8707941a5f9}} 
 \index{GameObject@{GameObject}!RemoveChild@{RemoveChild}}
@@ -349,7 +368,7 @@ Reimplemented in \mbox{\hyperlink{class_particle_system_a042a639b6446a5434f7648c
 
 
 
-Reimplemented in \mbox{\hyperlink{class_pentagram_field_button_ac1730515a4c0f509cafcf74a5461d1d7}{Pentagram\+Field\+Button}}.
+Reimplemented in \mbox{\hyperlink{class_caster_object_a5e2c1c44309a7fc046dab768d9b6f103}{Caster\+Object}}, \mbox{\hyperlink{class_pentagram_field_button_ac1730515a4c0f509cafcf74a5461d1d7}{Pentagram\+Field\+Button}}, \mbox{\hyperlink{class_spell_icon_u_i_a85addba966d40b08f8a95e9a586c588a}{Spell\+Icon\+UI}}, and \mbox{\hyperlink{class_pause_menu_object_a9e6074f09e954e8b74e17928385bb5f4}{Pause\+Menu\+Object}}.
 
 \mbox{\Hypertarget{class_game_object_a9dbdeefecb37d13ff6a663f6460bccee}\label{class_game_object_a9dbdeefecb37d13ff6a663f6460bccee}} 
 \index{GameObject@{GameObject}!SetAnimationPlayTime@{SetAnimationPlayTime}}
@@ -565,6 +584,12 @@ Reimplemented in \mbox{\hyperlink{class_particle_system_aaba93d11199b5f315450ce3
 \index{m\_Texture@{m\_Texture}!GameObject@{GameObject}}
 \doxysubsubsection{\texorpdfstring{m\_Texture}{m\_Texture}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}}$\ast$ Game\+Object\+::m\+\_\+\+Texture\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_object_a9ddb45724e9a9b43c454a7c48b76818c}\label{class_game_object_a9ddb45724e9a9b43c454a7c48b76818c}} 
+\index{GameObject@{GameObject}!m\_TexturePath@{m\_TexturePath}}
+\index{m\_TexturePath@{m\_TexturePath}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{m\_TexturePath}{m\_TexturePath}}
+{\footnotesize\ttfamily std\+::string Game\+Object\+::m\+\_\+\+Texture\+Path\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{class_game_object_af542b33c8de269343e22c5629e6b66c0}\label{class_game_object_af542b33c8de269343e22c5629e6b66c0}} 
 \index{GameObject@{GameObject}!name@{name}}

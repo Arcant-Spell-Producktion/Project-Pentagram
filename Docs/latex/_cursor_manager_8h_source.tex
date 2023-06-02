@@ -1,0 +1,38 @@
+\hypertarget{_cursor_manager_8h_source}{}\doxysection{Cursor\+Manager.\+h}
+\label{_cursor_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/CursorManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/CursorManager.h}}
+\mbox{\hyperlink{_cursor_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_state_controller_8h}{Engine/GameStateController.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_cursor_manager}{CursorManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<CursorManager>}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{private}:}
+\DoxyCodeLine{9         \mbox{\hyperlink{class_u_i_object}{UIObject}}* cursorObject;}
+\DoxyCodeLine{10         \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* trailParticle;}
+\DoxyCodeLine{11         \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* onClickParticle;}
+\DoxyCodeLine{12         \textcolor{keywordtype}{float} onClickDelayTime = 0.2f;}
+\DoxyCodeLine{13         \textcolor{keywordtype}{float} onClickCurrentTime = 0.0f;}
+\DoxyCodeLine{14         \textcolor{keywordtype}{bool} isOnClick = \textcolor{keyword}{false};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         \mbox{\hyperlink{class_window}{Window}}* windowRef = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{ArcantEngine::GetInstance}}().\mbox{\hyperlink{class_arcant_engine_ad62695f707b7d2827807e1e63da8c6ad}{GetWindow}}();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keywordtype}{void} InitParticle(\mbox{\hyperlink{class_particle_system}{ParticleSystem}}*\& particle, std::string objName);}
+\DoxyCodeLine{19         \textcolor{keywordtype}{void} UpdateCursorPosition();}
+\DoxyCodeLine{20         \textcolor{keywordtype}{void} UpdateTrailParticle(\textcolor{keywordtype}{float} dt);}
+\DoxyCodeLine{21         \textcolor{keywordtype}{void} UpdateOnClickParticle(\textcolor{keywordtype}{float} dt);}
+\DoxyCodeLine{22         \textcolor{keywordtype}{float} MapValue(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} orgMin, \textcolor{keywordtype}{float} orgMax, \textcolor{keywordtype}{float} newMin, \textcolor{keywordtype}{float} newMax);}
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} MapCursorPosition(\textcolor{keyword}{const} glm::vec2\& cursorPos);}
+\DoxyCodeLine{24     \textcolor{keyword}{public}:}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_cursor_manager_aad8169c5aae25df40f0c68f2234aeb92}{CursorManager}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cursor_manager_a2921649fb63423b253dc5be11741e9bf}{ChangeParticleElement}}(\textcolor{keywordtype}{int} elementIndex);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cursor_manager_a58d5d0af4e81a354be2d8c18ac4ada3c}{Update}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, \textcolor{keywordtype}{float} dt);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_cursor_manager_ab7e0acc55e1bdff23198a08d935ad969}{Free}}();}
+\DoxyCodeLine{32 \};}
+
+\end{DoxyCode}

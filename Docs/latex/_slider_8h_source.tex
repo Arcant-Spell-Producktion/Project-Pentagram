@@ -10,30 +10,34 @@
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_button_8h}{Engine/Button.h}}"{}}}
 \DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_slider}{Slider}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
-\DoxyCodeLine{10 \{}
-\DoxyCodeLine{11     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{12         \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_slider_ae20b7d7d727856aca7adaafffa5a580d}{m\_Button}};}
-\DoxyCodeLine{13         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}{m\_Value}};}
-\DoxyCodeLine{14         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_slider_ab77b6668137ceec794a38c34b88d1463}{m\_IsPress}};}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Slider Events -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{17         std::function<void(\mbox{\hyperlink{class_slider}{Slider}}*)> \mbox{\hyperlink{class_slider_a1159b22c3d632244645ed7087f918332}{onValueChanged}};}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_slider}{Slider}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_slider_a54b7451d7732840bf6ecb33edc3e8573}{m\_ForeGround}};}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_slider_ae20b7d7d727856aca7adaafffa5a580d}{m\_Button}};}
+\DoxyCodeLine{16         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}{m\_Value}};}
+\DoxyCodeLine{17         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_slider_ab77b6668137ceec794a38c34b88d1463}{m\_IsPress}};}
 \DoxyCodeLine{18 }
 \DoxyCodeLine{19     \textcolor{keyword}{public}:}
-\DoxyCodeLine{20         \mbox{\hyperlink{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}{Slider}}(\textcolor{keyword}{const} std::string\& objName);}
-\DoxyCodeLine{21         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a832b114df4ed78c138cfda77f372e614}{InitButton}}(\mbox{\hyperlink{class_button}{Button}}* button);}
+\DoxyCodeLine{20         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Slider Events -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{21         std::function<void(\mbox{\hyperlink{class_slider}{Slider}}*)> \mbox{\hyperlink{class_slider_a1159b22c3d632244645ed7087f918332}{onValueChanged}};}
 \DoxyCodeLine{22 }
-\DoxyCodeLine{23         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
-\DoxyCodeLine{24         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}{Slider}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a3ae5190c638b9cb18a982dab6effd0ac}{InitButton}}();}
 \DoxyCodeLine{25 }
-\DoxyCodeLine{26         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
-\DoxyCodeLine{27         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_slider_a7f485d983f32ba38436684dc1df47404}{GetValue}}();}
-\DoxyCodeLine{28         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}{IsButtonPressed}}();}
-\DoxyCodeLine{29         \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}{GetSliderButton}}();}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
-\DoxyCodeLine{32         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}{SetValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& value);}
-\DoxyCodeLine{33 \};}
+\DoxyCodeLine{26         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{27         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a66bbad99e19e62150a8e69bf0a1c0eba}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{30         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_slider_a7f485d983f32ba38436684dc1df47404}{GetValue}}();}
+\DoxyCodeLine{31         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}{IsButtonPressed}}();}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_slider_a717636885413c15e56a30ca54c2568fb}{GetForegroundUI}}();}
+\DoxyCodeLine{33         \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}{GetSliderButton}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{36         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}{SetValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& value);}
+\DoxyCodeLine{37 \};}
 
 \end{DoxyCode}

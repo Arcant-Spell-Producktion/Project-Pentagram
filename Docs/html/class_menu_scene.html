@@ -85,12 +85,12 @@ Collaboration diagram for MenuScene:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_menu_scene__coll__graph.png" border="0" usemap="#a_menu_scene_coll__map" alt="Collaboration graph"/></div>
 <map name="a_menu_scene_coll__map" id="a_menu_scene_coll__map">
-<area shape="rect" title=" " alt="" coords="166,171,257,197"/>
-<area shape="rect" href="class_game_scene.html" title=" " alt="" coords="164,95,259,121"/>
-<area shape="rect" href="class_i_game_object_manager.html" title=" " alt="" coords="5,5,153,32"/>
-<area shape="rect" href="class_audio_controller.html" title=" " alt="" coords="356,5,467,32"/>
-<area shape="rect" href="class_singleton.html" title=" " alt="" coords="353,95,541,121"/>
-<area shape="rect" href="class_camera.html" title=" " alt="" coords="178,5,245,32"/>
+<area shape="rect" title=" " alt="" coords="183,247,274,273"/>
+<area shape="rect" href="class_game_scene.html" title=" " alt="" coords="181,171,276,197"/>
+<area shape="rect" href="class_i_game_object_manager.html" title=" " alt="" coords="5,81,153,108"/>
+<area shape="rect" href="class_audio_controller.html" title=" " alt="" coords="177,81,288,108"/>
+<area shape="rect" href="class_singleton.html" title=" " alt="" coords="139,5,327,32"/>
+<area shape="rect" href="class_camera.html" title=" " alt="" coords="317,81,383,108"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -139,16 +139,26 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a06dd5348bf128fb65720731931e8060b inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaea2990b4daff20b185e1359a40bd870 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_game_object.html">GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aaea2990b4daff20b185e1359a40bd870">FindObject</a> (const std::string &amp;objName) override</td></tr>
 <tr class="separator:aaea2990b4daff20b185e1359a40bd870 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d4658c5e669b4895ffc74a69672b84 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a36d4658c5e669b4895ffc74a69672b84">FocusObject</a> (<a class="el" href="class_game_object.html">GameObject</a> *focusObject)</td></tr>
+<tr class="separator:a36d4658c5e669b4895ffc74a69672b84 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87692660b06777358de0b49b1942cae0 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a87692660b06777358de0b49b1942cae0">FocusObject</a> (const std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt; &amp;focusObjects)</td></tr>
+<tr class="separator:a87692660b06777358de0b49b1942cae0 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6505e0b179fa4bf16c949f40c35472 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#aac6505e0b179fa4bf16c949f40c35472">UnFocusObject</a> ()</td></tr>
+<tr class="separator:aac6505e0b179fa4bf16c949f40c35472 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9adaa92fd98610506491805317c5912 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#af9adaa92fd98610506491805317c5912">UpdateButtonEvents</a> ()</td></tr>
 <tr class="separator:af9adaa92fd98610506491805317c5912 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a839a1b3e066d211df917c8ac4000ff98 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a839a1b3e066d211df917c8ac4000ff98">UpdateScaleDeltaTime</a> (float deltaTime)</td></tr>
 <tr class="separator:a839a1b3e066d211df917c8ac4000ff98 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84ac480d4f56888c9f35008c94977d20 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a84ac480d4f56888c9f35008c94977d20">UpdateDeleteObject</a> ()</td></tr>
 <tr class="separator:a84ac480d4f56888c9f35008c94977d20 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f11ca8e0cbc78c6cb51b12f1b296dc8 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a9f11ca8e0cbc78c6cb51b12f1b296dc8">SetTimeScale</a> (const float &amp;<a class="el" href="class_game_scene.html#a7eabb7ce56099e2fdee071da2d0761f6">timeScale</a>)</td></tr>
+<tr class="separator:a9f11ca8e0cbc78c6cb51b12f1b296dc8 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14c310addf1b940efcb94edf3fdbad14 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_controller.html">AudioController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a14c310addf1b940efcb94edf3fdbad14">GetAudioController</a> () const</td></tr>
 <tr class="separator:a14c310addf1b940efcb94edf3fdbad14 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6f62e51f91ada7cd8615080bff64025 inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#ae6f62e51f91ada7cd8615080bff64025">GetCamera</a> ()</td></tr>
 <tr class="separator:ae6f62e51f91ada7cd8615080bff64025 inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a1515f7be21e12bdfa2beb7d1191cc inherit pub_methods_class_game_scene"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#ae1a1515f7be21e12bdfa2beb7d1191cc">GetTimeScale</a> () const</td></tr>
+<tr class="separator:ae1a1515f7be21e12bdfa2beb7d1191cc inherit pub_methods_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_game_object_manager"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_game_object_manager')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_game_object_manager.html">IGameObjectManager</a></td></tr>
 <tr class="memitem:a5ba1cc17f6e2c63f476cdebf296a5a34 inherit pub_methods_class_i_game_object_manager"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a5ba1cc17f6e2c63f476cdebf296a5a34 inherit pub_methods_class_i_game_object_manager"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_i_game_object_manager.html#a5ba1cc17f6e2c63f476cdebf296a5a34">CreateObject</a> (T *object)</td></tr>
@@ -198,8 +208,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab95ba095594c25d1ed9c901146e1e96a inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a070f8589187d0602d73ad3cca75de568 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a070f8589187d0602d73ad3cca75de568">objectsToDeleteList</a></td></tr>
 <tr class="separator:a070f8589187d0602d73ad3cca75de568 inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24cdacfbc9242ea286c6917f9e66e75c inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_controller.html">AudioController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a24cdacfbc9242ea286c6917f9e66e75c">audioController</a> = <a class="el" href="class_singleton.html#a7b90075f8e4471743fd3596be874e5d1">AudioController::GetInstance</a>()</td></tr>
-<tr class="separator:a24cdacfbc9242ea286c6917f9e66e75c inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e6016acdb8337fe5f057e445f2c9aed inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_controller.html">AudioController</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a2e6016acdb8337fe5f057e445f2c9aed">audioController</a> = <a class="el" href="class_singleton.html#a2c10bd8d12c9418ef9af7e569a1fa4e0">AudioController::GetInstance</a>()</td></tr>
+<tr class="separator:a2e6016acdb8337fe5f057e445f2c9aed inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afca219bdb7ec5cc8e31171bab019ac1b inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#afca219bdb7ec5cc8e31171bab019ac1b">camera</a></td></tr>
 <tr class="separator:afca219bdb7ec5cc8e31171bab019ac1b inherit pro_attribs_class_game_scene"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eabb7ce56099e2fdee071da2d0761f6 inherit pro_attribs_class_game_scene"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_scene.html#a7eabb7ce56099e2fdee071da2d0761f6">timeScale</a> = 1.0f</td></tr>

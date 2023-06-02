@@ -1,0 +1,76 @@
+\hypertarget{_compare_tutorial_node_8h_source}{}\doxysection{Compare\+Tutorial\+Node.\+h}
+\label{_compare_tutorial_node_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/CompareTutorialNode.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/CompareTutorialNode.h}}
+\mbox{\hyperlink{_compare_tutorial_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_event_8h}{TutorialEvent.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_node_8h}{TutorialNode.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_compare_tutorial_node}{CompareTutorialNode}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_tutorial_node}{TutorialNode}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_compare_tutorial_node_ac15b9617bbf51c7da9d10a127f0cebe9}{CompareTutorialNode}}() : \mbox{\hyperlink{class_tutorial_node}{TutorialNode}}(\mbox{\hyperlink{class_enemy_data}{EnemyData}}(\mbox{\hyperlink{class_caster_data}{CasterData}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}}(100, \{ 6,6,6,6,6,6 \}), \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad80dea20c30bcb9c4cdd86aad6e3e8bb}{Element::Water}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a0b17eacd83a76b42a5abef97bde51629}{CasterPosition::CasterB}}), \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020aa02579cb24530c540171013282ae7d70}{CasterType::Minion}}, \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}}()))}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         \mbox{\hyperlink{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}{TutorialSpells}}.push\_back(\{ 1,1,2,1,9 \});}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \mbox{\hyperlink{class_tutorial_node_ae948a387cc4656b2d23d232852ff258e}{PlayerMana}} = 3;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         \mbox{\hyperlink{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}{EnemyHP}} = 100;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \mbox{\hyperlink{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}{PlayerManaWheel}} = 1;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \mbox{\hyperlink{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}{m\_TutorialPlayerData}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_player_data}{PlayerData}}(\mbox{\hyperlink{class_caster_data}{CasterData}}(\mbox{\hyperlink{struct_caster_stat}{CasterStat}}(100, \{ 1,2,3,4,5,6 \}), \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5a36c53c491b69d39a006046e467cddecc}{Element::Fire}}, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a52abdadb6c058e40afa082e82d6d04bd}{CasterPosition::CasterA}}));}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}Tutorial topic: Spell clash\(\backslash\)n\(\backslash\)nObjective:\(\backslash\)nSurvive an attack from the enemy"{}});}
+\DoxyCodeLine{25         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ae23cdba1af6c1d459a7927db26c41992}{MainObjectEnum::PentagramTimeB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{26         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952af1061c95d5a8345181712389812cc6d4}{MainObjectEnum::PentagramCircleB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac6ad9e826483b26a85cd2783fd60b1ad}{MainObjectEnum::PentagramComplexB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a5c43ef66fdf98fdaa48b9fdb2894ccf3}{MainObjectEnum::PentagramWillB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a46a542896321f407051f24a3f7af4beb}{MainObjectEnum::PentagramEffectB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a6753f0ede6b2aacee3ed76768972fc14}{MainObjectEnum::PentagramScroll}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{31         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac798cfe2cf6bce39f1c8c5977aedce51}{MainObjectEnum::CastButton}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952abe014fdef02641452700f237b6d88012}{MainObjectEnum::PassButton}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{false} \});}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}If there is a spell from both sides \(\backslash\)nin the same Time Track.\(\backslash\)n\(\backslash\)nIt will decide which spell will be cast \(\backslash\)nby comparing the higher total WILL in that Time track."{}});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{37             \textcolor{stringliteral}{"{}The casted spell after a spell clash \(\backslash\)nwill suffer some damage reduction."{}}}
+\DoxyCodeLine{38         );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{41             \textcolor{stringliteral}{"{}you can delay your spell casting speed \(\backslash\)nto meet the enemy spell in the same track \(\backslash\)nto clash and cancel out the enemy spell."{}}}
+\DoxyCodeLine{42         );}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ae23cdba1af6c1d459a7927db26c41992}{MainObjectEnum::PentagramTimeB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ae23cdba1af6c1d459a7927db26c41992}{MainObjectEnum::PentagramTimeB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aae24ee2487879116dcab772c0ac4fe341}{TutorialEventType::Focus}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{47             \textcolor{stringliteral}{"{}Then increase the Will of your spell\(\backslash\)nto deny the enemy spell."{}}}
+\DoxyCodeLine{48         );}
+\DoxyCodeLine{49         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a5c43ef66fdf98fdaa48b9fdb2894ccf3}{MainObjectEnum::PentagramWillB}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a5c43ef66fdf98fdaa48b9fdb2894ccf3}{MainObjectEnum::PentagramWillB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aae24ee2487879116dcab772c0ac4fe341}{TutorialEventType::Focus}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{53             \textcolor{stringliteral}{"{}Now! let's cancel out an enemy spell by\(\backslash\)ndecreasing the cast time of your spell and\(\backslash\)n increasing the WILL of your spell."{}}}
+\DoxyCodeLine{54         );}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a6753f0ede6b2aacee3ed76768972fc14}{MainObjectEnum::PentagramScroll}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{59         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac798cfe2cf6bce39f1c8c5977aedce51}{MainObjectEnum::CastButton}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{60         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952abe014fdef02641452700f237b6d88012}{MainObjectEnum::PassButton}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{61         }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \mbox{\hyperlink{class_tutorial_node_aec71873c86b088398f10e980af13230a}{CompleteText}} = \textcolor{stringliteral}{"{}That is the basics of spell clash,\(\backslash\)n let's proceed to the next part of the tutorial."{}};}
+\DoxyCodeLine{64         \mbox{\hyperlink{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}{RetryText}} = \textcolor{stringliteral}{"{}Try to cancel the enemy spell \(\backslash\)nby adding the spell with \(\backslash\)nhigher WILL in the same Time track.\(\backslash\)n\(\backslash\)nPress R to restart"{}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \mbox{\hyperlink{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}{EnemyMana}} = 10;}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#pragma once}}
+
+\end{DoxyCode}

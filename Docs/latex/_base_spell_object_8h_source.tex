@@ -11,61 +11,61 @@
 \DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
 \DoxyCodeLine{8 \textcolor{preprocessor}{\#include <functional>}}
 \DoxyCodeLine{9 }
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}, \textcolor{keyword}{public} \mbox{\hyperlink{class_spell_controller}{SpellController}}}
-\DoxyCodeLine{12 \{}
-\DoxyCodeLine{13 \textcolor{keyword}{private}:}
-\DoxyCodeLine{14     \textcolor{keyword}{typedef} std::function<void(\textcolor{keywordtype}{float})> SpellUpdateFunc;}
-\DoxyCodeLine{15     SpellUpdateFunc  m\_CurrentUpdateFunc = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{16     std::queue<SpellUpdateFunc> m\_SpellUpdateQueue;}
-\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{18     \mbox{\hyperlink{class_audio_controller}{AudioController}}* \mbox{\hyperlink{class_base_spell_object_a498fe20d4548287ba8035c49d35ac847}{m\_AudioControllerPtr}} = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{AudioController::GetInstance}}();}
-\DoxyCodeLine{19     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}{m\_SpellTarget}} = 0; \textcolor{comment}{// 1 if A, -\/1 if B}}
-\DoxyCodeLine{20     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} = 0.0f;}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22     std::string \mbox{\hyperlink{class_base_spell_object_a59cfa36a992bbbb4e5f1fcd3bbea9af8}{m\_TexturePath}};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(SpellUpdateFunc func);}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}{QueueMoveEvent}}(glm::vec3 startPos, glm::vec3 endPos, \textcolor{keywordtype}{float} travelTime)}
-\DoxyCodeLine{31     \{}
-\DoxyCodeLine{32         glm::vec3 direction = endPos -\/ startPos;}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(}
-\DoxyCodeLine{35             [\textcolor{keyword}{this}, startPos, direction, travelTime](\textcolor{keywordtype}{float} dt)}
-\DoxyCodeLine{36             \{}
-\DoxyCodeLine{37                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} >= travelTime)}
-\DoxyCodeLine{38                 \{}
-\DoxyCodeLine{39                     \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
-\DoxyCodeLine{40                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{41                 \}}
-\DoxyCodeLine{42                 \textcolor{keywordtype}{float} progress = \mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} / travelTime;}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44                 this-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.x = startPos.x + direction.x * progress;}
-\DoxyCodeLine{45                 this-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.y = startPos.y + direction.y * progress;}
-\DoxyCodeLine{46             \}}
-\DoxyCodeLine{47         );}
-\DoxyCodeLine{48     \}}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_ac217a748f9dd7a5d11046c5a209cb84e}{QueueWaitTillFrameEvent}}(\textcolor{keywordtype}{bool} doNextCol = \textcolor{keyword}{false},\textcolor{keywordtype}{bool} waitLastFrame = \textcolor{keyword}{true}, \textcolor{keywordtype}{int} targetFrame = -\/1)}
-\DoxyCodeLine{51     \{}
-\DoxyCodeLine{52         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(}
-\DoxyCodeLine{53             [\textcolor{keyword}{this}, doNextCol, waitLastFrame , targetFrame](\textcolor{keywordtype}{float} dt)}
-\DoxyCodeLine{54             \{}
-\DoxyCodeLine{55                 \textcolor{keywordtype}{int} \_target = targetFrame;}
-\DoxyCodeLine{56                 \textcolor{keywordtype}{int} currentRow = this-\/>\mbox{\hyperlink{class_game_object_a2260d4938d872621ec4ed653e19d3737}{GetCurrentAnimationRow}}() -\/ 1;}
-\DoxyCodeLine{57                 \textcolor{keywordtype}{int} lastFrame = this-\/>\mbox{\hyperlink{class_game_object_adaf5b13bbe47087a34ac20f55626c83b}{GetAnimationColumn}}(currentRow);}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59                 \textcolor{keywordflow}{if} (waitLastFrame || \_target == -\/1) \_target = lastFrame;}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61                 \textcolor{keywordtype}{int} curFrame = this-\/>\mbox{\hyperlink{class_game_object_a9440271db6ffa1785c0fc196c866d3ad}{GetCurrentAnimationColumn}}();}
-\DoxyCodeLine{62                 \textcolor{keywordflow}{if} (curFrame == \_target)}
-\DoxyCodeLine{63                 \{}
-\DoxyCodeLine{64                     \textcolor{keywordflow}{if} (doNextCol) this-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(currentRow + 1, 0 , \textcolor{keyword}{true});}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}, \textcolor{keyword}{public} \mbox{\hyperlink{class_spell_controller}{SpellController}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \textcolor{keyword}{typedef} std::function<void(\textcolor{keywordtype}{float})> SpellUpdateFunc;}
+\DoxyCodeLine{14     SpellUpdateFunc  m\_CurrentUpdateFunc = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15     std::queue<SpellUpdateFunc> m\_SpellUpdateQueue;}
+\DoxyCodeLine{16 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_audio_controller}{AudioController}}\& \mbox{\hyperlink{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}{m\_AudioControllerPtr}} = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{AudioController::GetInstance}}();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}{m\_SpellTarget}} = 0; \textcolor{comment}{// 1 if A, -\/1 if B}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} = 0.0f;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     std::string \mbox{\hyperlink{class_base_spell_object_a59cfa36a992bbbb4e5f1fcd3bbea9af8}{m\_TexturePath}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(SpellUpdateFunc func);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}{QueueMoveEvent}}(glm::vec3 startPos, glm::vec3 endPos, \textcolor{keywordtype}{float} travelTime)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         glm::vec3 direction = endPos -\/ startPos;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(}
+\DoxyCodeLine{34             [\textcolor{keyword}{this}, startPos, direction, travelTime](\textcolor{keywordtype}{float} dt)}
+\DoxyCodeLine{35             \{}
+\DoxyCodeLine{36                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} >= travelTime)}
+\DoxyCodeLine{37                 \{}
+\DoxyCodeLine{38                     \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
+\DoxyCodeLine{39                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{40                 \}}
+\DoxyCodeLine{41                 \textcolor{keywordtype}{float} progress = \mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\_TotalTime}} / travelTime;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43                 this-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.x = startPos.x + direction.x * progress;}
+\DoxyCodeLine{44                 this-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.y = startPos.y + direction.y * progress;}
+\DoxyCodeLine{45             \}}
+\DoxyCodeLine{46         );}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}{QueueWaitTillFrameEvent}}(\textcolor{keywordtype}{bool} doNextRow = \textcolor{keyword}{false},\textcolor{keywordtype}{bool} waitLastFrame = \textcolor{keyword}{true}, \textcolor{keywordtype}{int} targetFrame = -\/1)}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}(}
+\DoxyCodeLine{52             [\textcolor{keyword}{this}, doNextRow, waitLastFrame , targetFrame](\textcolor{keywordtype}{float} dt)}
+\DoxyCodeLine{53             \{}
+\DoxyCodeLine{54                 \textcolor{keywordtype}{int} \_target = targetFrame;}
+\DoxyCodeLine{55                 \textcolor{keywordtype}{int} currentRow = this-\/>\mbox{\hyperlink{class_game_object_a2260d4938d872621ec4ed653e19d3737}{GetCurrentAnimationRow}}() -\/ 1;}
+\DoxyCodeLine{56                 \textcolor{keywordtype}{int} lastFrame = this-\/>\mbox{\hyperlink{class_game_object_adaf5b13bbe47087a34ac20f55626c83b}{GetAnimationColumn}}(currentRow);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58                 \textcolor{keywordflow}{if} (waitLastFrame || \_target == -\/1) \_target = lastFrame;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60                 \textcolor{keywordtype}{int} curFrame = this-\/>\mbox{\hyperlink{class_game_object_a9440271db6ffa1785c0fc196c866d3ad}{GetCurrentAnimationColumn}}();}
+\DoxyCodeLine{61                 \textcolor{keywordflow}{if} (curFrame == \_target)}
+\DoxyCodeLine{62                 \{}
+\DoxyCodeLine{63                     \textcolor{keywordflow}{if} (doNextRow) this-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(currentRow + 1, 0 , \textcolor{keyword}{true});}
+\DoxyCodeLine{64                     }
 \DoxyCodeLine{65                     \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
 \DoxyCodeLine{66                     \textcolor{keywordflow}{return};}
 \DoxyCodeLine{67                 \}}
@@ -96,32 +96,48 @@
 \DoxyCodeLine{92             \});}
 \DoxyCodeLine{93     \}}
 \DoxyCodeLine{94 }
-\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}{QueueHitEvent}}()}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}{QueueWaitTriggerEvent}}()}
 \DoxyCodeLine{96     \{}
 \DoxyCodeLine{97         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}([\textcolor{keyword}{this}](\textcolor{keywordtype}{float} dt)}
-\DoxyCodeLine{98             \{ }
-\DoxyCodeLine{99                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tSpell::Hit\(\backslash\)n"{}};}
-\DoxyCodeLine{100                 \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{SpellObjectState::Hit}};}
-\DoxyCodeLine{101                 \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
-\DoxyCodeLine{102             \});}
-\DoxyCodeLine{103     \}}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_ae8bda930f93ed1c1af096a1b943bb4b5}{QueueDoneEvent}}()}
-\DoxyCodeLine{106     \{}
-\DoxyCodeLine{107         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}([\textcolor{keyword}{this}](\textcolor{keywordtype}{float} dt)}
-\DoxyCodeLine{108             \{ }
-\DoxyCodeLine{109                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tSpell::Done\(\backslash\)n"{}};}
-\DoxyCodeLine{110                 \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{SpellObjectState::Done}};}
-\DoxyCodeLine{111                 \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
-\DoxyCodeLine{112             \});}
-\DoxyCodeLine{113     \}}
-\DoxyCodeLine{114 }
-\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{Initialize}}();}
-\DoxyCodeLine{116 \textcolor{keyword}{public}:}
-\DoxyCodeLine{117     \mbox{\hyperlink{class_base_spell_object_a34e7aca9c8aefe1e6976257af765a8a4}{BaseSpellObject}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target, std::string spellName, std::string spellTexturePath);}
-\DoxyCodeLine{118 }
-\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a65ba689563985f3bdc954f88c5d87a1f}{Activate}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{120    }
-\DoxyCodeLine{121 \};}
+\DoxyCodeLine{98             \{}
+\DoxyCodeLine{99                 \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_spell_controller_a9717c2c2f325bd89d00e444a9ddefe8e}{Trigger}} == \textcolor{keyword}{true})}
+\DoxyCodeLine{100                 \{}
+\DoxyCodeLine{101                     \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aa13367a8e2a3f3bf4f3409079e3fdf87}{SpellObjectState::Activate}};}
+\DoxyCodeLine{102                     \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
+\DoxyCodeLine{103                 \}}
+\DoxyCodeLine{104                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{105                 \{}
+\DoxyCodeLine{106                     \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106ad734db1478d7e28e126dd8f4c97ee873}{SpellObjectState::WaitTrigger}};}
+\DoxyCodeLine{107                 \}}
+\DoxyCodeLine{108             \});}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}{QueueHitEvent}}()}
+\DoxyCodeLine{112     \{}
+\DoxyCodeLine{113         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}([\textcolor{keyword}{this}](\textcolor{keywordtype}{float} dt)}
+\DoxyCodeLine{114             \{ }
+\DoxyCodeLine{115                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tSpell::Hit\(\backslash\)n"{}};}
+\DoxyCodeLine{116                 \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{SpellObjectState::Hit}};}
+\DoxyCodeLine{117                 \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
+\DoxyCodeLine{118             \});}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_ae8bda930f93ed1c1af096a1b943bb4b5}{QueueDoneEvent}}()}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123         \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{QueueUpdateFunction}}([\textcolor{keyword}{this}](\textcolor{keywordtype}{float} dt)}
+\DoxyCodeLine{124             \{ }
+\DoxyCodeLine{125                 std::cout << \textcolor{stringliteral}{"{}\(\backslash\)tSpell::Done\(\backslash\)n"{}};}
+\DoxyCodeLine{126                 \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{SpellObjectState::Done}};}
+\DoxyCodeLine{127                 \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}}();}
+\DoxyCodeLine{128             \});}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{Initialize}}();}
+\DoxyCodeLine{132 \textcolor{keyword}{public}:}
+\DoxyCodeLine{133     \mbox{\hyperlink{class_base_spell_object_a34e7aca9c8aefe1e6976257af765a8a4}{BaseSpellObject}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target, std::string spellName, std::string spellTexturePath);}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_spell_object_a65ba689563985f3bdc954f88c5d87a1f}{Activate}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{136    }
+\DoxyCodeLine{137 \};}
 
 \end{DoxyCode}

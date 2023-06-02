@@ -1,5 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_caster_data.html" title=" " alt="" coords="5,31,92,57"/>
-<area shape="rect" id="node2" href="$class_enemy_data.html" title=" " alt="" coords="140,5,231,32"/>
-<area shape="rect" id="node3" href="$class_player_data.html" title=" " alt="" coords="142,56,229,83"/>
+<area shape="rect" id="node1" href="$class_caster_controller.html" title=" " alt="" coords="5,31,120,57"/>
+<area shape="rect" id="node2" href="$class_enemy_controller.html" title=" " alt="" coords="168,5,287,32"/>
+<area shape="rect" id="node4" href="$class_player_controller.html" title=" " alt="" coords="170,56,285,83"/>
+<area shape="rect" id="node3" href="$class_boss_controller.html" title=" " alt="" coords="335,5,441,32"/>
 </map>

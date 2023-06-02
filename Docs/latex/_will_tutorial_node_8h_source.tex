@@ -1,0 +1,92 @@
+\hypertarget{_will_tutorial_node_8h_source}{}\doxysection{Will\+Tutorial\+Node.\+h}
+\label{_will_tutorial_node_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/WillTutorialNode.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/WillTutorialNode.h}}
+\mbox{\hyperlink{_will_tutorial_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_event_8h}{TutorialEvent.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_node_8h}{TutorialNode.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_will_tutorial_node}{WillTutorialNode}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_tutorial_node}{TutorialNode}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_will_tutorial_node_a939de53923ec0b390b2275f1bcf6a1d8}{WillTutorialNode}}() : \mbox{\hyperlink{class_tutorial_node}{TutorialNode}}(}
+\DoxyCodeLine{11         \mbox{\hyperlink{class_enemy_data}{EnemyData}}(}
+\DoxyCodeLine{12             \mbox{\hyperlink{class_caster_data}{CasterData}}(}
+\DoxyCodeLine{13                 \mbox{\hyperlink{struct_caster_stat}{CasterStat}}(}
+\DoxyCodeLine{14                     100,}
+\DoxyCodeLine{15                     \{ 6,6,6,6,6,6 \}),}
+\DoxyCodeLine{16                 \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ad80dea20c30bcb9c4cdd86aad6e3e8bb}{Element::Water}},}
+\DoxyCodeLine{17                 \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a0b17eacd83a76b42a5abef97bde51629}{CasterPosition::CasterB}}),}
+\DoxyCodeLine{18             \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020aa02579cb24530c540171013282ae7d70}{CasterType::Minion}},}
+\DoxyCodeLine{19             \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}}()))}
+\DoxyCodeLine{20     \{}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}{EnemyHP}} = 30;}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}{EnemyMana}} = 10;}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}{TutorialSpells}}.push\_back(\{ 1,1,6,1,9 \});}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \mbox{\hyperlink{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}{m\_TutorialPlayerData}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_player_data}{PlayerData}}(}
+\DoxyCodeLine{26             \mbox{\hyperlink{class_caster_data}{CasterData}}(}
+\DoxyCodeLine{27                 \mbox{\hyperlink{struct_caster_stat}{CasterStat}}(}
+\DoxyCodeLine{28                     100,}
+\DoxyCodeLine{29                     \{ 1,2,3,4,5,6 \}),}
+\DoxyCodeLine{30                 \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5a36c53c491b69d39a006046e467cddecc}{Element::Fire}},}
+\DoxyCodeLine{31                 \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a52abdadb6c058e40afa082e82d6d04bd}{CasterPosition::CasterA}}));}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \mbox{\hyperlink{class_tutorial_node_a27a680b49f650e680deb4ae84df183c7}{PlayerHP}} = 10;}
+\DoxyCodeLine{34         \mbox{\hyperlink{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}{PlayerManaWheel}} = 6;}
+\DoxyCodeLine{35         \mbox{\hyperlink{class_tutorial_node_a0ae84e8731e791817092a85abcfeb1c9}{PlayerStartSpell}} = \{1,2,1,1,0\};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{39             \textcolor{stringliteral}{"{}Tutorial topic: Will\(\backslash\)n\(\backslash\)nObjective:\(\backslash\)nReduce your opponent's  health to 0"{}}}
+\DoxyCodeLine{40         );}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ae23cdba1af6c1d459a7927db26c41992}{MainObjectEnum::PentagramTimeB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952af1061c95d5a8345181712389812cc6d4}{MainObjectEnum::PentagramCircleB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{44         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac6ad9e826483b26a85cd2783fd60b1ad}{MainObjectEnum::PentagramComplexB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{45         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a46a542896321f407051f24a3f7af4beb}{MainObjectEnum::PentagramEffectB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{46         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a6753f0ede6b2aacee3ed76768972fc14}{MainObjectEnum::PentagramScroll}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{47         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac798cfe2cf6bce39f1c8c5977aedce51}{MainObjectEnum::CastButton}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{48         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952abe014fdef02641452700f237b6d88012}{MainObjectEnum::PassButton}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{52             \textcolor{stringliteral}{"{}Both sides will gain mana at the start of the turn \(\backslash\)nby rolling this roulette.\(\backslash\)n\(\backslash\)nMana gain from roulette will be different \(\backslash\)ndepending on each witch you select."{}}}
+\DoxyCodeLine{53         );}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{56             \textcolor{stringliteral}{"{}You can spend mana to customize a spell \(\backslash\)nto attack the enemy by adjusting \(\backslash\)neach section of the spell circle.\(\backslash\)n\(\backslash\)nThe more mana spends more damage/effect \(\backslash\)nthe spell can inflict."{}}}
+\DoxyCodeLine{57         );}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(}
+\DoxyCodeLine{60             \textcolor{stringliteral}{"{}In this tutorial you will learn about WILL.\(\backslash\)n\(\backslash\)nAdding mana in this section \(\backslash\)nwill increase the damage of the spell."{}}}
+\DoxyCodeLine{61         );}
+\DoxyCodeLine{62         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ae23cdba1af6c1d459a7927db26c41992}{MainObjectEnum::PentagramTimeB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{63         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952af1061c95d5a8345181712389812cc6d4}{MainObjectEnum::PentagramCircleB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{64         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac6ad9e826483b26a85cd2783fd60b1ad}{MainObjectEnum::PentagramComplexB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{65         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a46a542896321f407051f24a3f7af4beb}{MainObjectEnum::PentagramEffectB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{false} \});}
+\DoxyCodeLine{66         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a5c43ef66fdf98fdaa48b9fdb2894ccf3}{MainObjectEnum::PentagramWillB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{67         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a5c43ef66fdf98fdaa48b9fdb2894ccf3}{MainObjectEnum::PentagramWillB}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aae24ee2487879116dcab772c0ac4fe341}{TutorialEventType::Focus}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}Try defeating this enemy with a single spell by \(\backslash\)nadding more WILL into this fireball.\(\backslash\)n\(\backslash\)n(Press ALT to inspect the spell info.)"{}});}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952abbb93ef26e3c101ff11cdd21cab08a94}{MainObjectEnum::Null}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aae24ee2487879116dcab772c0ac4fe341}{TutorialEventType::Focus}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}Now! let's try to defeat the enemy."{}});}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952a6753f0ede6b2aacee3ed76768972fc14}{MainObjectEnum::PentagramScroll}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{78         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952ac798cfe2cf6bce39f1c8c5977aedce51}{MainObjectEnum::CastButton}}, \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}},\textcolor{keyword}{true} \});}
+\DoxyCodeLine{79         \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}}.\mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\{ \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952abe014fdef02641452700f237b6d88012}{MainObjectEnum::PassButton}},\mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{TutorialEventType::Toggle}}, \textcolor{keyword}{true} \});}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \mbox{\hyperlink{class_tutorial_node_aec71873c86b088398f10e980af13230a}{CompleteText}} = \textcolor{stringliteral}{"{}That is the basics of WILL\(\backslash\)n\(\backslash\)nlet's proceed to the next part of the tutorial."{}};}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}{RetryText}} = \textcolor{stringliteral}{"{}It is too weak, try again with more WILL this time.\(\backslash\)n\(\backslash\)nPress R to restart"{}};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 \};}
+
+\end{DoxyCode}

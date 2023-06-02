@@ -1,0 +1,12 @@
+<map id="TutorialNode" name="TutorialNode">
+<area shape="rect" id="node1" title=" " alt="" coords="132,183,227,209"/>
+<area shape="rect" id="node3" href="$class_active_tutorial_node.html" title=" " alt="" coords="283,5,413,32"/>
+<area shape="rect" id="node4" href="$class_compare_tutorial_node.html" title=" " alt="" coords="275,56,421,83"/>
+<area shape="rect" id="node5" href="$class_counter_tutorial_node.html" title=" " alt="" coords="279,107,417,133"/>
+<area shape="rect" id="node6" href="$class_effect_tutorial_node.html" title=" " alt="" coords="285,157,411,184"/>
+<area shape="rect" id="node7" href="$class_time_tutorial_node.html" title=" " alt="" coords="287,208,409,235"/>
+<area shape="rect" id="node8" href="$class_trap_tutorial_node.html" title=" " alt="" coords="289,259,407,285"/>
+<area shape="rect" id="node9" href="$class_wait_tutorial_node.html" title=" " alt="" coords="287,309,409,336"/>
+<area shape="rect" id="node10" href="$class_will_tutorial_node.html" title=" " alt="" coords="290,360,406,387"/>
+<area shape="rect" id="node2" href="$class_node_data.html" title=" " alt="" coords="5,183,84,209"/>
+</map>

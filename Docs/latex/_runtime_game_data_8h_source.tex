@@ -4,27 +4,52 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_data_8h}{Game/GameData/CasterData/PlayerData.h}}"{}}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_map_data_8h}{Game/GameData/MapData/MapData.h}}"{}}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_runtime_game_data}{RuntimeGameData}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<RuntimeGameData>}
-\DoxyCodeLine{6 \{}
-\DoxyCodeLine{7 \textcolor{keyword}{public}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_player_data}{PlayerData}}* \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{9     \mbox{\hyperlink{class_map_data}{MapData}}* \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     \mbox{\hyperlink{class_runtime_game_data_a6a369a4f901f3d288232b322bca0c6a1}{RuntimeGameData}}(\mbox{\hyperlink{class_player_data}{PlayerData}}* player = \textcolor{keyword}{nullptr}, \mbox{\hyperlink{class_map_data}{MapData}}* map = \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{12     \{}
-\DoxyCodeLine{13         \textcolor{keywordflow}{if} (player) \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_player_data}{PlayerData}}(*player);}
-\DoxyCodeLine{14         \textcolor{keywordflow}{if} (map) \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_map_data}{MapData}}(*map);}
-\DoxyCodeLine{15     \}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_player_data}{PlayerData}}* \mbox{\hyperlink{class_runtime_game_data_ad583127bfe1b88e14861c667ea6268c2}{GetPlayerData}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}}; \}}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_runtime_game_data_aeffbc33af3dd9417ae2ca6c5ec408aa7}{\string~RuntimeGameData}}()}
-\DoxyCodeLine{20     \{}
-\DoxyCodeLine{21         \textcolor{keyword}{delete} \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}};}
-\DoxyCodeLine{22         \textcolor{keyword}{delete} \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}};}
-\DoxyCodeLine{23     \}}
-\DoxyCodeLine{24 \};}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_data_8h}{TutorialData/TutorialData.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_runtime_game_data}{RuntimeGameData}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<RuntimeGameData>}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_player_data}{PlayerData}}* \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_map_data}{MapData}}* \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_tutorial_data}{TutorialData}} \mbox{\hyperlink{class_runtime_game_data_a7fc2b83289cf5035d17033477de06d9b}{Tutorial}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_runtime_game_data_adbeb7aa57ff2af671a2eaf952ef81ef7}{RuntimeGameData}}()\{\};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runtime_game_data_ae0f23edfeac9732ee91c02ff90a6c8fc}{SetPlayer}}(\mbox{\hyperlink{class_player_data}{PlayerData}}* player)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{if} (player != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{19         \{}
+\DoxyCodeLine{20             \textcolor{keyword}{delete} \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}};}
+\DoxyCodeLine{21             \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{22         \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = player;}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runtime_game_data_a6076de2b48e4f23e767887a1e342029b}{DeleteSave}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runtime_game_data_a4c5734fb42b0449eeeb5bdf9961a40df}{SaveGameData}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_runtime_game_data_a1ece3af4fa7baef1f473e576aeab15c7}{LoadGameData}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_runtime_game_data_a77cdb3e30121cc40a058b243278f7ba6}{HaveSaveData}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_runtime_game_data_a9ef88dce23ff38371fe4a4d56f528fcb}{ClearGameData}}()}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \textcolor{keyword}{delete} \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}};}
+\DoxyCodeLine{38         \textcolor{keyword}{delete} \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \mbox{\hyperlink{class_runtime_game_data_a3edd956ab645843691362e3323e98401}{Player}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{41         \mbox{\hyperlink{class_runtime_game_data_aa82fafd0f971cb03993bcacfe09450e8}{Map}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_runtime_game_data_aeffbc33af3dd9417ae2ca6c5ec408aa7}{\string~RuntimeGameData}}()}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         \mbox{\hyperlink{class_runtime_game_data_a9ef88dce23ff38371fe4a4d56f528fcb}{ClearGameData}}();}
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
 
 \end{DoxyCode}

@@ -1,0 +1,43 @@
+\hypertarget{_player_aid_u_i_8h_source}{}\doxysection{Player\+Aid\+UI.\+h}
+\label{_player_aid_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/PlayerAidUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/PlayerAidUI.h}}
+\mbox{\hyperlink{_player_aid_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_effect_aid_u_i_8h}{Game/Objects/EffectAidUI.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_aid_u_i_8h}{Game/Objects/SpellAidUI.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_type_aid_u_i_8h}{Game/Objects/SpellTypeAidUI.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effect_type_8h}{Game/Spells/SpellEffectType.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_player_aid_u_i}{PlayerAidUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{private}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_effect_aid_u_i}{EffectAidUI}}* m\_EffectAidUI;}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_spell_aid_u_i}{SpellAidUI}}* m\_SpellAidUI;}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_spell_type_aid_u_i}{SpellTypeAidUI}}* m\_SpellTypeAidUI;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_PressF1;}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_static_button}{StaticButton}}* m\_BackButton;}
+\DoxyCodeLine{25         std::vector<StaticButton*> m\_PageButtons;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{28         \mbox{\hyperlink{class_player_aid_u_i_a69b616acc5ccd2b6ae13ae7ae3308c59}{PlayerAidUI}}();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_aid_u_i_a668a2289bb504dce13e9c1f7f522359f}{ToggleEvent}}(\textcolor{keywordtype}{float}\& timeScale);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_aid_u_i_a19692ae0e1b19b25c1578144eea06162}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \mbox{\hyperlink{class_effect_aid_u_i}{EffectAidUI}}* \mbox{\hyperlink{class_player_aid_u_i_a99ed2b6683e4d6b174c225279f9c894f}{GetEffectAidUI}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35         \mbox{\hyperlink{class_spell_aid_u_i}{SpellAidUI}}* \mbox{\hyperlink{class_player_aid_u_i_a1ddf4f492e1edd14502437e8cdf45b61}{GetSpellAidUI}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{36         \mbox{\hyperlink{class_static_button}{StaticButton}}* \mbox{\hyperlink{class_player_aid_u_i_aaf4a187cb74e3db8e4436212b289baba}{GetBackButton}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{37 \};}
+
+\end{DoxyCode}

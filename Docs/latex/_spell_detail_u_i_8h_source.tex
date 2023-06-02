@@ -10,18 +10,25 @@
 \DoxyCodeLine{6 \{}
 \DoxyCodeLine{7 \textcolor{keyword}{private}:}
 \DoxyCodeLine{8     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Box;}
-\DoxyCodeLine{9     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_Texts;}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* m\_CurrentDetails = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13     glm::vec3 m\_DefaultPosition;}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15     \textcolor{keywordtype}{void} SetText(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* details);}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{public}:}
-\DoxyCodeLine{18     \mbox{\hyperlink{class_spell_detail_u_i_a56bb70a79d3bbd0a9e0c966d7283f03a}{SpellDetailUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_detail_u_i_a6131bd91d8e273989316f040adef8895}{SetDetail}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* details = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} isDefault = \textcolor{keyword}{false});}
-\DoxyCodeLine{21 \};}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextSpellName;}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextSpellDmg;}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextSpellEff;}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextSpellCha;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* m\_CurrentDetails = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     glm::vec3 m\_DefaultPosition;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} SetText(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* details, \textcolor{keywordtype}{bool} isHideInfo);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} InitTextObjectComponent(\mbox{\hyperlink{class_text_object}{TextObject}}* textObject, \textcolor{keywordtype}{float} fontSize);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} InsertSpellDetailUI(\mbox{\hyperlink{class_text_object}{TextObject}}* textObject, \textcolor{keyword}{const} std::string \&newStr);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_spell_detail_u_i_a7c1ec4fa190750bdd2cf2ac64fc72a24}{SpellDetailUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}, \textcolor{keywordtype}{float} fontSize = 28);}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_spell_detail_u_i_a7c1ec4fa190750bdd2cf2ac64fc72a24}{SpellDetailUI}}(glm::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}, glm::vec3 \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, \textcolor{keywordtype}{float} fontSize = 28);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_detail_u_i_ae2b485e51c28925433cee3e7527229fa}{SetCasterPosition}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_detail_u_i_aaf277635708451d1f844d83408f94745}{SetDetail}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* details = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} isDefault = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} isHideInfo = \textcolor{keyword}{false});}
+\DoxyCodeLine{28 \};}
 
 \end{DoxyCode}

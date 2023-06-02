@@ -6,39 +6,59 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_timetrack_8h}{Game/BattleScene/SpellTimeline/SpellTimetrack.h}}"{}}}
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_timetrack_u_i}{TimetrackUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{8 \textcolor{keyword}{private}:}
-\DoxyCodeLine{9     \textcolor{keywordtype}{int} m\_TrackIndex;}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Box;}
-\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconParent;}
-\DoxyCodeLine{15     \mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* m\_TrackPtr;}
-\DoxyCodeLine{16     vector<SpellIconUI*> m\_Icons;}
-\DoxyCodeLine{17     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* m\_PreviewIcon;}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_button}{Button}}* m\_ExpandButton;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \textcolor{keywordtype}{bool} m\_IsExpanded = \textcolor{keyword}{false};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23     \textcolor{keywordtype}{void} SetExpandButtonScale(\textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}});}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25 \textcolor{keyword}{public}:}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27     \mbox{\hyperlink{class_timetrack_u_i_a3685a9b64773fc9d72891051e0fa9914}{TimetrackUI}}(\textcolor{keywordtype}{int} index,\mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* track, std::function<\textcolor{keywordtype}{void}()> \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}});}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a42ed51a4e331fd537c467a01de380f4c}{PreviewIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} doCast = \textcolor{keyword}{false} ,\textcolor{keywordtype}{bool} active = \textcolor{keyword}{false});}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_will_compare_u_i_8h}{Game/BattleScene/GameObject/WillCompareUI.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_timetrack_u_i}{TimetrackUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} m\_TrackIndex;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Box;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconParent;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* m\_TrackPtr;}
+\DoxyCodeLine{17     std::vector<SpellIconUI*> m\_Icons;}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* m\_PreviewIcon;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_button}{Button}}* m\_ExpandButton;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} m\_IsExpanded = \textcolor{keyword}{false};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_will_compare_u_i}{WillCompareUI}}* m\_WillCompareUI;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* m\_HoverSpellIcon;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} SetExpandHighlight(\textcolor{keywordtype}{bool} doHighLight);}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} SetExpandButtonScale(\textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}});}
 \DoxyCodeLine{30 }
-\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}{AddIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell);}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
 \DoxyCodeLine{32 }
-\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a3b96560b4618362662abdb819de41638}{ExpandTrack}}(\textcolor{keywordtype}{bool} isExpand);}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_timetrack_u_i_ab398da93ab6ab673f6d26fda74b1378b}{TimetrackUI}}(\textcolor{keywordtype}{int} index,\mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* track, std::function<\textcolor{keywordtype}{void}(\textcolor{keywordtype}{bool} doExpand)> \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}});}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a2b28e696e4d61a07e8177f8a229c851e}{UpdateTrack}}();}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a8c17cb47e8cb89d443c379d68a4eb962}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
 \DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}{ClearTrack}}();}
-\DoxyCodeLine{38 \};}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a42ed51a4e331fd537c467a01de380f4c}{PreviewIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} doCast = \textcolor{keyword}{false} ,\textcolor{keywordtype}{bool} active = \textcolor{keyword}{false});}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}{AddIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}{AddIcon}}(\mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* spellIcon);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a01779b5462b522d57600439622fcbfe1}{RemoveIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a3b96560b4618362662abdb819de41638}{ExpandTrack}}(\textcolor{keywordtype}{bool} isExpand);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a85ddd24b64cb235cf346579d5ee2528a}{RemoveAllIcon}}();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a2b28e696e4d61a07e8177f8a229c851e}{UpdateTrack}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}{ClearTrack}}();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a1cc2c285543dbdb1ff9a8cdada765a13}{SetIsExpand}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_timetrack_u_i_a773a4df84f67c91ad8bc203d281e128f}{HighlightTrack}}(\textcolor{keywordtype}{bool} doHighlight);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* \mbox{\hyperlink{class_timetrack_u_i_afdd238a0c9558f58f2ca1b43be4fc6ed}{GetHoverSpellIcon}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{56     \textcolor{keyword}{const} std::vector<SpellIconUI*>\& \mbox{\hyperlink{class_timetrack_u_i_ad6991c6a9eb53a77c8974e23c423a42b}{GetSpellDetailUIList}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \textcolor{keyword}{const} \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* \mbox{\hyperlink{class_timetrack_u_i_af7ba7305e35938e7c75f44efd55d91a7}{GetPreviewIcon}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{58 \};}
 
 \end{DoxyCode}

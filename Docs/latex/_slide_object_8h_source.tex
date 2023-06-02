@@ -1,0 +1,90 @@
+\hypertarget{_slide_object_8h_source}{}\doxysection{Slide\+Object.\+h}
+\label{_slide_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Slideshow/Slide/SlideObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Slideshow/Slide/SlideObject.h}}
+\mbox{\hyperlink{_slide_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{enum class} \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10}{SlideObjectState}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106a95b19f7739b0b7ea7d6b07586be54f36}{Init}} = 0,}
+\DoxyCodeLine{12     \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10ade3c731be5633838089a07179d301d7b}{Play}},}
+\DoxyCodeLine{13     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{Done}}}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_slide_object}{SlideObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \textcolor{keyword}{typedef} std::function<void(\textcolor{keywordtype}{float})> SlideUpdateFunc;}
+\DoxyCodeLine{20     SlideUpdateFunc  m\_CurrentUpdateFunc = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{21     std::queue<SlideUpdateFunc> m\_SlideUpdateQueue;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_PromptText = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_TextLayer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_ImageLayer = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{31     std::vector<TextObject*> \mbox{\hyperlink{class_slide_object_a8d715203e0a3dd9398b7702b4b650778}{m\_Texts}};}
+\DoxyCodeLine{32     std::vector<GameObject*> \mbox{\hyperlink{class_slide_object_ad9a8d307af1e726b409ade67201ae9d8}{m\_Images}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10}{SlideObjectState}} \mbox{\hyperlink{class_slide_object_a67022de0fb59f08a4195e41006a27f34}{m\_SlideState}} = \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10a95b19f7739b0b7ea7d6b07586be54f36}{SlideObjectState::Init}};}
+\DoxyCodeLine{35     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_slide_object_a4d877e9226826f983e5dc982a1bc6602}{m\_TotalTime}} = 0.0f;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_a40cbe316b1c1b554fe22362dcdf076c9}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_slide_object}{SlideObject}}* \mbox{\hyperlink{class_slide_object_a0798ef23fc4a13e004c573761f063b78}{Init}}() = 0;}
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_event}{Event<bool>}} \mbox{\hyperlink{class_slide_object_a0d507fa591598f4b8f6db5b6860853cb}{SlideDoneEvent}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_slide_object_ac6d4135622a0993d9389da0b7bd8d3ed}{AddTextObject}}(\mbox{\hyperlink{class_text_object}{TextObject}}* text);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_slide_object_a31513f05700d57298446d54367d311cc}{AddImageObject}}(\mbox{\hyperlink{class_game_object}{GameObject}}* image);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_aecb5a7194521d74d9e0eb361d62cbafc}{Play}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ada25448908255fb8d8bfe00c7916963d}{Next}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_a9bccde83c58920972c4f71a5a75dd1a9}{UpdateCamera}}(\textcolor{keywordtype}{float} camX = 0.0f, \textcolor{keywordtype}{float} camY = 0.0f, \textcolor{keywordtype}{float} zoom = 1.0f);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_a9b4554cf0521cf5a044e2770cd2b8db1}{SetFadeScreen}}(\textcolor{keywordtype}{float} alpha = 0.0f);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ab31ce6b85ebe5c22a41ce4c4210f41fb}{ShowImage}}(\textcolor{keywordtype}{int} index, \textcolor{keywordtype}{float} alpha = 1.0);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_a1bd40df63c73b3c21deab5c8bf24b586}{HideImage}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_acbf57b0afa98d6617088821323f38605}{ShowText}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_a1ac6e53bb39c8aac853df6c25f7d0ce9}{HideText}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_af81eb16d6fc9ff53fb3aa250e1e036db}{HideAll}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \mbox{\hyperlink{class_slide_object_a2dc988d9e6fe02614fbb696872731e51}{SlideObject}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_af3733ac751f0b05bf907d58b79821f20}{QueueUpdateFunction}}(SlideUpdateFunc func);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ad076db4722b40fe96b5b57dafa40aa6a}{QueueWaitClickEvent}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_aa783ad89481d3a8d6607b74c6ad0fc99}{QueueWaitEvent}}(\textcolor{keywordtype}{float} time = 1.0f);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ad91f751f250c91a7e91bfca3234ad622}{QueueTextEvent}}(std::vector<int> textIds);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ad7d66f0484ef30c8724c0d321deb6922}{QueueFadeFromBlackEvent}}(std::vector<int> imageIds, \textcolor{keywordtype}{float} time = 2.0f, glm::vec3 CC = \{0.0f,0.0f,0.0f\});}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_aa4c138426a35b9d0fe1709c8e3026702}{QueueFadeInEvent}}(std::vector<int> imageIds, \textcolor{keywordtype}{float} alpha = 1.0f, \textcolor{keywordtype}{float} time = 2.0f);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_ad2f360957dcb57a116e116b173794e45}{QueueFadeOutEvent}}(std::vector<int> imageIds, \textcolor{keywordtype}{float} alpha = 1.0f, \textcolor{keywordtype}{float} time = 2.0f);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_slide_object_aca35a3d8ce8219de5877eb48d8f95afc}{QueueFadeToBlackEvent}}(\textcolor{keywordtype}{float} time = 2.0f, glm::vec3 CC = \{ 0.0f,0.0f,0.0f \});}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+
+\end{DoxyCode}

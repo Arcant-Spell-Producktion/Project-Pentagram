@@ -8,25 +8,58 @@
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_timeline_8h}{Game/BattleScene/SpellTimeline/SpellTimeline.h}}"{}}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_will_compare_controller_8h}{Game/BattleScene/GameObject/WillCompareController.h}}"{}}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_controller_8h}{Game/BattleScene/GameObject/PentagramObject/PentagramController.h}}"{}}}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_battle_scene_data}{BattleSceneData}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10 \textcolor{keyword}{public}:}
-\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}} = 0;}
-\DoxyCodeLine{12     std::vector<CasterController*> \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \mbox{\hyperlink{class_spell_timeline}{SpellTimeline}} \mbox{\hyperlink{class_battle_scene_data_abd56efaa0d616e1ee142e1546abf07e7}{Timeline}};}
-\DoxyCodeLine{15     \mbox{\hyperlink{class_pentragram_controller}{PentragramController}}* \mbox{\hyperlink{class_battle_scene_data_ac83b2fa0894431f06f3a4c52d3a09889}{Pentagram}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_will_compare_controller}{WillCompareController}}* \mbox{\hyperlink{class_battle_scene_data_a7cae67d7c7844806daf62d40570fd57a}{WillCompare}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a08dae87d0328c5a5f796553ba6fda0e1}{AddCaster}}(\mbox{\hyperlink{class_caster_controller}{CasterController}}* controller) \{ \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}.push\_back(controller); \}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a7ccf9cb4cd055c72d4206f4ba4a3ff66}{GetCaster}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position);}
-\DoxyCodeLine{22     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a1ea0919be0dee7cb513cfb915a21a919}{GetCurrentCaster}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}[\mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}}]; \}}
-\DoxyCodeLine{23     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a6ce9fca7eec83f86b34b9f8b17f79a84}{GetNextCaster}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}[(\mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}} + 1) \% \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}.size()]; \}}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_abfd437601ebe74da41685ca4dc999346}{StandbyAllCaster}}();}
-\DoxyCodeLine{26 \};}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_stage_object_8h}{Game/Objects/StageObject.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_over_u_i_8h}{Game/Objects/GameOverUI.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shortcut_u_i_8h}{Game/Objects/ShortcutUI.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_box_8h}{Game/Objects/TextBox.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_battle_scene_data}{BattleSceneData}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}} = 0;}
+\DoxyCodeLine{16     std::vector<CasterController*> \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_stage_object}{StageObject}}* \mbox{\hyperlink{class_battle_scene_data_aaee4a2c9bd9d5a5e9965cf90d00ae802}{Stage}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_spell_timeline}{SpellTimeline}} \mbox{\hyperlink{class_battle_scene_data_abd56efaa0d616e1ee142e1546abf07e7}{Timeline}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_pentragram_controller}{PentragramController}}* \mbox{\hyperlink{class_battle_scene_data_ac83b2fa0894431f06f3a4c52d3a09889}{Pentagram}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_will_compare_controller}{WillCompareController}}* \mbox{\hyperlink{class_battle_scene_data_a7cae67d7c7844806daf62d40570fd57a}{WillCompare}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_game_over_u_i}{GameOverUI}}* \mbox{\hyperlink{class_game_over_u_i}{GameOverUI}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_text_box}{TextBox}}* \mbox{\hyperlink{class_battle_scene_data_aabda677a9e3453aa5f5f136df0870b21}{Texts}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_shortcut_u_i}{ShortcutUI}}* \mbox{\hyperlink{class_battle_scene_data_a996942d5918ab6dd060b59adac5f3b59}{Shortcut}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a08dae87d0328c5a5f796553ba6fda0e1}{AddCaster}}(\mbox{\hyperlink{class_caster_controller}{CasterController}}* controller) \{ \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}.push\_back(controller); \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a852e81100c5145100f42b888517c9f1c}{SetIsShowCasterDetail}}(\textcolor{keywordtype}{bool} active)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_caster_controller}{CasterController}}* caster : \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}})}
+\DoxyCodeLine{37         \{}
+\DoxyCodeLine{38             \textcolor{comment}{// If caster is enemy => Don't show CasterDetail}}
+\DoxyCodeLine{39             \textcolor{keywordflow}{if} (caster-\/>GetCasterManager()-\/>Data().Position() == \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a0b17eacd83a76b42a5abef97bde51629}{CasterPosition::CasterB}}) \{ \textcolor{keywordflow}{continue}; \}}
+\DoxyCodeLine{40             }
+\DoxyCodeLine{41             caster-\/>SetIsShowCasterDetail(active);}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_battle_scene_data_a0f9e9ef798778071dfdedf2d588e57c3}{IsShowCasterDetail}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}[0]-\/>IsShowCasterDetail(); \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a7ccf9cb4cd055c72d4206f4ba4a3ff66}{GetCaster}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position);}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a1ea0919be0dee7cb513cfb915a21a919}{GetCurrentCaster}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}[\mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}}]; \}}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_caster_controller}{CasterController}}* \mbox{\hyperlink{class_battle_scene_data_a6ce9fca7eec83f86b34b9f8b17f79a84}{GetNextCaster}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}[(\mbox{\hyperlink{class_battle_scene_data_a807fada92efa8c6401af292283f1c9a9}{CurrentCasterIndex}} + 1) \% \mbox{\hyperlink{class_battle_scene_data_ab4b90ff1c718923bfc2f55d8856f3f7c}{Casters}}.size()]; \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_adca222b1a4711087695504d1ae3f809e}{HideCasterUI}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_abfd437601ebe74da41685ca4dc999346}{StandbyAllCaster}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_battle_scene_data_ae071612633e5d5da4ce725661248293a}{IsAllCasterIdle}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a11f23ebac414c916c90d67650063274c}{StartRound}}();}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a9c44d16266ad7f5d5ce166ceb60d1d8c}{EndCastPhase}}();}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_scene_data_a16904ec062375c9bd3c421b4ab482ad2}{EndRound}}();}
+\DoxyCodeLine{59 \};}
 
 \end{DoxyCode}

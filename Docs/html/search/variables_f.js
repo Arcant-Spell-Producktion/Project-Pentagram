@@ -1,11 +1,20 @@
 var searchData=
 [
   ['parent_0',['parent',['../class_game_object.html#a4113a496ed45ca90756cfa0d8dfe6171',1,'GameObject']]],
-  ['pattern_1',['pattern',['../structtinyxml2_1_1_entity.html#ab330f5d665d29bfc811ecfa76315894b',1,'tinyxml2::Entity']]],
-  ['pentagram_2',['Pentagram',['../class_battle_scene_data.html#ac83b2fa0894431f06f3a4c52d3a09889',1,'BattleSceneData']]],
-  ['pentagramfieldbuttonpath_3',['PentagramFieldButtonPath',['../_pentagram_field_button_8cpp.html#a81cfafde6b1bf670f066ef32a5e8ad86',1,'PentagramFieldButton.cpp']]],
-  ['player_4',['Player',['../class_runtime_game_data.html#a3edd956ab645843691362e3323e98401',1,'RuntimeGameData']]],
-  ['position_5',['position',['../class_game_object.html#a16e2e8c2546d7bf920bbe2e288acb278',1,'GameObject::position()'],['../struct_particle_property.html#a4e3f43813d9737e4bcfaadcdcd30366c',1,'ParticleProperty::position()']]],
-  ['position_6',['Position',['../struct_vertex.html#abb3cfacd96b5955b0cec9359840ee49f',1,'Vertex']]],
-  ['positionvariation_7',['positionVariation',['../struct_particle_property.html#a6c5e34043e16e187c3677b6128cee0bb',1,'ParticleProperty']]]
+  ['parentspell_1',['ParentSpell',['../class_cast_spell_detail.html#af5d463cf6faa5595a3aa81e08a3d9ed6',1,'CastSpellDetail']]],
+  ['pattern_2',['pattern',['../structtinyxml2_1_1_entity.html#ab330f5d665d29bfc811ecfa76315894b',1,'tinyxml2::Entity']]],
+  ['pausemenuobj_3',['pauseMenuObj',['../_demo_scene_8cpp.html#a7e2915940bc6a613ed987b91191b583c',1,'DemoScene.cpp']]],
+  ['pausemenuobject_4',['pauseMenuObject',['../_battle_scene_8cpp.html#a1f62930c255cc049665c395afae6ad1c',1,'BattleScene.cpp']]],
+  ['pentagram_5',['Pentagram',['../class_battle_scene_data.html#ac83b2fa0894431f06f3a4c52d3a09889',1,'BattleSceneData']]],
+  ['pentagramcircletexture_6',['pentagramCircleTexture',['../_pentagram_circle_u_i_8cpp.html#af3cbfe322f091c147a6ad1b9b1692ca1',1,'PentagramCircleUI.cpp']]],
+  ['pentagramfieldbuttonpath_7',['PentagramFieldButtonPath',['../_pentagram_field_button_8cpp.html#a81cfafde6b1bf670f066ef32a5e8ad86',1,'PentagramFieldButton.cpp']]],
+  ['perifyeffectdetail_8',['PerifyEffectDetail',['../_effect_detail_u_i_8h.html#a249f3445eca49b7adefeb49a4c684824',1,'EffectDetailUI.h']]],
+  ['player_9',['Player',['../class_runtime_game_data.html#a3edd956ab645843691362e3323e98401',1,'RuntimeGameData']]],
+  ['playerhp_10',['PlayerHP',['../class_tutorial_node.html#a27a680b49f650e680deb4ae84df183c7',1,'TutorialNode']]],
+  ['playermana_11',['PlayerMana',['../class_tutorial_node.html#ae948a387cc4656b2d23d232852ff258e',1,'TutorialNode']]],
+  ['playermanawheel_12',['PlayerManaWheel',['../class_tutorial_node.html#a229727a07f46accb8208fbef62d76f4e',1,'TutorialNode']]],
+  ['playerstartspell_13',['PlayerStartSpell',['../class_tutorial_node.html#a0ae84e8731e791817092a85abcfeb1c9',1,'TutorialNode']]],
+  ['position_14',['Position',['../struct_vertex.html#abb3cfacd96b5955b0cec9359840ee49f',1,'Vertex']]],
+  ['position_15',['position',['../class_camera.html#a04b5db2c530d8630660e8cfb93a4b3b5',1,'Camera::position()'],['../class_game_object.html#a16e2e8c2546d7bf920bbe2e288acb278',1,'GameObject::position()'],['../struct_particle_property.html#a4e3f43813d9737e4bcfaadcdcd30366c',1,'ParticleProperty::position()']]],
+  ['positionvariation_16',['positionVariation',['../struct_particle_property.html#a6c5e34043e16e187c3677b6128cee0bb',1,'ParticleProperty']]]
 ];

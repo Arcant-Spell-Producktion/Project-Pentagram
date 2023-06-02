@@ -72,10 +72,10 @@ $(function() {
 <a href="_battle_state_model_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_setup_battle_state_8h.html">SetupBattleState.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_cast_battle_state_8h.html">CastBattleState.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_resolve_battle_state_8h.html">ResolveBattleState.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_result_battle_state_8h.html">ResultBattleState.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_stand_by_battle_state_8h.html">StandByBattleState.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_cast_battle_state_8h.html">CastBattleState.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_resolve_battle_state_8h.html">ResolveBattleState.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_result_battle_state_8h.html">ResultBattleState.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_battle_state_model.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_battle_state_model.html">BattleStateModel</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
@@ -84,24 +84,27 @@ $(function() {
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>         std::vector&lt;BaseBattleState*&gt; states =</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>         {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_setup_battle_state.html">SetupBattleState</a>(),</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_cast_battle_state.html">CastBattleState</a>(),</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_resolve_battle_state.html">ResolveBattleState</a>(),</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_result_battle_state.html">ResultBattleState</a>()</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>         };</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>         <span class="keywordflow">return</span> states;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>     }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_stand_by_battle_state.html">StandByBattleState</a>(),</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_cast_battle_state.html">CastBattleState</a>(),</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_resolve_battle_state.html">ResolveBattleState</a>(),</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>             <span class="keyword">new</span> <a class="code hl_class" href="class_result_battle_state.html">ResultBattleState</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>         };</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>         <span class="keywordflow">return</span> states;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>     }</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
 <div class="ttc" id="a_cast_battle_state_8h_html"><div class="ttname"><a href="_cast_battle_state_8h.html">CastBattleState.h</a></div></div>
 <div class="ttc" id="a_resolve_battle_state_8h_html"><div class="ttname"><a href="_resolve_battle_state_8h.html">ResolveBattleState.h</a></div></div>
 <div class="ttc" id="a_result_battle_state_8h_html"><div class="ttname"><a href="_result_battle_state_8h.html">ResultBattleState.h</a></div></div>
 <div class="ttc" id="a_setup_battle_state_8h_html"><div class="ttname"><a href="_setup_battle_state_8h.html">SetupBattleState.h</a></div></div>
+<div class="ttc" id="a_stand_by_battle_state_8h_html"><div class="ttname"><a href="_stand_by_battle_state_8h.html">StandByBattleState.h</a></div></div>
 <div class="ttc" id="aclass_battle_state_model_html"><div class="ttname"><a href="class_battle_state_model.html">BattleStateModel</a></div><div class="ttdef"><b>Definition:</b> BattleStateModel.h:9</div></div>
 <div class="ttc" id="aclass_battle_state_model_html_acc7c29b2f988cb66b2881633aff52b61"><div class="ttname"><a href="class_battle_state_model.html#acc7c29b2f988cb66b2881633aff52b61">BattleStateModel::GetBattleStates</a></div><div class="ttdeci">static std::vector&lt; BaseBattleState * &gt; GetBattleStates()</div><div class="ttdef"><b>Definition:</b> BattleStateModel.h:11</div></div>
-<div class="ttc" id="aclass_cast_battle_state_html"><div class="ttname"><a href="class_cast_battle_state.html">CastBattleState</a></div><div class="ttdef"><b>Definition:</b> CastBattleState.h:11</div></div>
+<div class="ttc" id="aclass_cast_battle_state_html"><div class="ttname"><a href="class_cast_battle_state.html">CastBattleState</a></div><div class="ttdef"><b>Definition:</b> CastBattleState.h:7</div></div>
 <div class="ttc" id="aclass_resolve_battle_state_html"><div class="ttname"><a href="class_resolve_battle_state.html">ResolveBattleState</a></div><div class="ttdef"><b>Definition:</b> ResolveBattleState.h:6</div></div>
 <div class="ttc" id="aclass_result_battle_state_html"><div class="ttname"><a href="class_result_battle_state.html">ResultBattleState</a></div><div class="ttdef"><b>Definition:</b> ResultBattleState.h:5</div></div>
 <div class="ttc" id="aclass_setup_battle_state_html"><div class="ttname"><a href="class_setup_battle_state.html">SetupBattleState</a></div><div class="ttdef"><b>Definition:</b> SetupBattleState.h:5</div></div>
+<div class="ttc" id="aclass_stand_by_battle_state_html"><div class="ttname"><a href="class_stand_by_battle_state.html">StandByBattleState</a></div><div class="ttdef"><b>Definition:</b> StandByBattleState.h:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

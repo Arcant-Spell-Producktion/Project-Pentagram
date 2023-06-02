@@ -21,29 +21,37 @@
 \DoxyCodeLine{17 \{}
 \DoxyCodeLine{18     \textcolor{keyword}{private}:}
 \DoxyCodeLine{19         \textcolor{comment}{// Loaded before GameStart}}
-\DoxyCodeLine{20         irrklang::ISoundEngine* m\_AudioEngine;}
-\DoxyCodeLine{21         std::map<std::string, AudioSource*> m\_BGMSourceList;}
-\DoxyCodeLine{22         std::map<std::string, AudioSource*> m\_SFXSourceList;}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24         \textcolor{keywordtype}{float} m\_MasterVolume = 1.0f;}
-\DoxyCodeLine{25         \textcolor{keywordtype}{float} m\_BGMVolume = 1.0f;}
-\DoxyCodeLine{26         \textcolor{keywordtype}{float} m\_SFXVolume = 1.0f;}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28         \textcolor{keywordtype}{void} InitSoundEngine();}
-\DoxyCodeLine{29         \textcolor{keywordtype}{void} LoadFile(\textcolor{keyword}{const} std::string\& filePath, std::map<std::string, AudioSource*>\& listContainer);}
-\DoxyCodeLine{30             }
-\DoxyCodeLine{31     \textcolor{keyword}{public}:}
-\DoxyCodeLine{32         \mbox{\hyperlink{class_audio_engine_ae2f13eeba683cd73f5ab4dd5b5e1a670}{AudioEngine}}();}
-\DoxyCodeLine{33         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}{LoadResource}}();}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35         \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{AudioSource}}* \mbox{\hyperlink{class_audio_engine_a38ecc2fc17d5f06aea6a1ac122480e8f}{findSFXAudioSource}}(\textcolor{keyword}{const} std::string\& filePath);}
-\DoxyCodeLine{36         \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{AudioSource}}* \mbox{\hyperlink{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}{findBGMAudioSource}}(\textcolor{keyword}{const} std::string\& filePath);}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38         irrklang::ISoundEngine* \mbox{\hyperlink{class_audio_engine_a3d6a915f8f0bce4f37af8d5de1a71bd4}{GetEngine}}();}
-\DoxyCodeLine{39         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_engine_a2494df368b022ea147c8905e5a3b3c8a}{GetMasterVolume}}();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Free Memory -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
-\DoxyCodeLine{42         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Free}}();}
-\DoxyCodeLine{43 \};}
+\DoxyCodeLine{20         irrklang::ISoundEngine* m\_BGMEngine;}
+\DoxyCodeLine{21         irrklang::ISoundEngine* m\_SFXEngine;}
+\DoxyCodeLine{22         std::map<std::string, AudioSource*> m\_BGMSourceList;}
+\DoxyCodeLine{23         std::map<std::string, AudioSource*> m\_SFXSourceList;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordtype}{float} m\_MasterVolume = 1.0f;}
+\DoxyCodeLine{26         \textcolor{keywordtype}{float} m\_BGMVolume = 1.0f;}
+\DoxyCodeLine{27         \textcolor{keywordtype}{float} m\_SFXVolume = 1.0f;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} InitSoundEngine();}
+\DoxyCodeLine{30         \textcolor{keywordtype}{void} LoadFile(irrklang::ISoundEngine* \mbox{\hyperlink{main_8cpp_a43958455130dbdf74e673617c1ea07d9}{engine}}, \textcolor{keyword}{const} std::string\& filePath, std::map<std::string, AudioSource*>\& listContainer);}
+\DoxyCodeLine{31             }
+\DoxyCodeLine{32     \textcolor{keyword}{public}:}
+\DoxyCodeLine{33         \mbox{\hyperlink{class_audio_engine_ae2f13eeba683cd73f5ab4dd5b5e1a670}{AudioEngine}}();}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_a61bcef04d2a6331e5aa66700bf13cf4d}{LoadResource}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{AudioSource}}* \mbox{\hyperlink{class_audio_engine_a38ecc2fc17d5f06aea6a1ac122480e8f}{findSFXAudioSource}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{37         \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{AudioSource}}* \mbox{\hyperlink{class_audio_engine_ad3674480adc9a830836b9e09baeb3049}{findBGMAudioSource}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_aaf7b8631a23a20a9532ac0dea77900d1}{SetMasterVolume}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume);}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_ad655c1bd330b5796c1fd4b224294f777}{SetBGMVolume}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume);}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_a53685d8ad7edaaf38b647923e9d6e27c}{SetSFXVolume}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& volume);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         irrklang::ISoundEngine* \mbox{\hyperlink{class_audio_engine_a380fa123710e41d1706f103441f3fd95}{GetBGMEngine}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{44         irrklang::ISoundEngine* \mbox{\hyperlink{class_audio_engine_a15b9b4d2198ccd46da603af1531ddf6f}{GetSFXEngine}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{45         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_engine_a46ba6f469b73491428f0b38527bc57a0}{GetMasterVolume}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_engine_add0ec44e7656be4f27d6cd0100fc4fee}{GetBGMVolume}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_audio_engine_a91478b8eb5b8d95f047f9d095a65df8d}{GetSFXVolume}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Free Memory -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{50         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_engine_a17fa543bbbe019a0c3c1d9271e8b993a}{Free}}();}
+\DoxyCodeLine{51 \};}
 
 \end{DoxyCode}

@@ -4,25 +4,29 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_effect_bar_u_i_8h}{Game/BattleScene/GameObject/CasterEffectBarUI.h}}"{}}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_detail_u_i}{CasterDetailUI}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
-\DoxyCodeLine{5 \{}
-\DoxyCodeLine{6 \textcolor{keyword}{private}:}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Health;}
-\DoxyCodeLine{9     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Mana;}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_HealthText;}
-\DoxyCodeLine{12     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_ManaText;}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \mbox{\hyperlink{class_caster_effect_bar_u_i}{CasterEffectBarUI}}* m\_EffectBar;}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16 \textcolor{keyword}{public}:}
-\DoxyCodeLine{17     \mbox{\hyperlink{class_caster_detail_u_i_abb83e215055ddb2446fb8a4fb2576abb}{CasterDetailUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_ae97f3a23e09e9820c57e651368d4c447}{SetHealthText}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{_demo_scene_8cpp_a63a965a2c7576560e534fc531aacfc51}{cur}}, \textcolor{keywordtype}{int} max);}
-\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_ab602483e708e5422d8c3951d0fa351a7}{SetManaText}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{_demo_scene_8cpp_a63a965a2c7576560e534fc531aacfc51}{cur}}, \textcolor{keywordtype}{int} max);}
-\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_a196b592b2faa424933699091aaea9e67}{SetEffectBar}}(std::vector<EffectDetail\_T> effects);}
-\DoxyCodeLine{22 \};}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_effect_detail_u_i_8h}{Game/BattleScene/GameObject/EffectDetailUI.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_detail_u_i}{CasterDetailUI}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Health;}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Mana;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_HealthText;}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_ManaText;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{class_caster_effect_bar_u_i}{CasterEffectBarUI}}* m\_EffectBar;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_effect_detail_u_i}{EffectDetailUI}}* m\_EffectDetailUI;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_caster_detail_u_i_abb83e215055ddb2446fb8a4fb2576abb}{CasterDetailUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_a78aa4f0a1cc3012dae6561f9b1e8e814}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_ae97f3a23e09e9820c57e651368d4c447}{SetHealthText}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{_demo_scene_8cpp_a63a965a2c7576560e534fc531aacfc51}{cur}}, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_ab602483e708e5422d8c3951d0fa351a7}{SetManaText}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{_demo_scene_8cpp_a63a965a2c7576560e534fc531aacfc51}{cur}}, \textcolor{keywordtype}{int} max);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_detail_u_i_a196b592b2faa424933699091aaea9e67}{SetEffectBar}}(std::vector<EffectDetail\_T> effects);}
+\DoxyCodeLine{26 \};}
 
 \end{DoxyCode}

@@ -19,59 +19,73 @@
 \DoxyCodeLine{15         \textcolor{keywordtype}{void} UpdateButtonOnClick();}
 \DoxyCodeLine{16         \textcolor{keywordtype}{void} UpdateButtonOnHover();}
 \DoxyCodeLine{17         \textcolor{keywordtype}{void} UpdateButtonOnPress();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \textcolor{keyword}{protected}:}
-\DoxyCodeLine{20         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Rendering Component List -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{21         std::vector<GameObject*> \mbox{\hyperlink{class_game_scene_ab084ec7c43902547f8b763128c2d4ab0}{objectsList}};}
-\DoxyCodeLine{22         std::vector<UIObject*> \mbox{\hyperlink{class_game_scene_a024096d4399d541a7d5b222ff55eabc7}{uiObjectsList}};}
-\DoxyCodeLine{23         std::vector<Button*> \mbox{\hyperlink{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}{buttonObjectsList}};}
+\DoxyCodeLine{18         \textcolor{keywordtype}{void} FocusObject(\mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{_load_scene_8cpp_a405c26c4ba3b0da822bfb3006a114106}{obj}}, \textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& isFocus);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         std::map<GameObject*, glm::vec4> prevObjectColor;}
+\DoxyCodeLine{21         \textcolor{keywordtype}{bool} m\_IsFocus = \textcolor{keyword}{false};}
+\DoxyCodeLine{22         \textcolor{keywordtype}{bool} m\_IsSFXPause = \textcolor{keyword}{false};}
+\DoxyCodeLine{23         \textcolor{keyword}{const} glm::vec4 UnFocusColor = glm::vec4(0.25f, 0.25f, 0.25f, 1.0f);}
 \DoxyCodeLine{24 }
-\DoxyCodeLine{25         std::vector<GameObject*> \mbox{\hyperlink{class_game_scene_a070f8589187d0602d73ad3cca75de568}{objectsToDeleteList}};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Utilities -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{28         \mbox{\hyperlink{class_audio_controller}{AudioController}}* \mbox{\hyperlink{class_game_scene_a24cdacfbc9242ea286c6917f9e66e75c}{audioController}} = \mbox{\hyperlink{class_singleton_a7b90075f8e4471743fd3596be874e5d1}{AudioController::GetInstance}}();}
-\DoxyCodeLine{29         \mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}{camera}};}
-\DoxyCodeLine{30         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}{timeScale}} = 1.0f;}
-\DoxyCodeLine{31         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_scene_a5d87bc5e71cdac82989c8cb686d6b767}{scaledDeltaTime}};}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a36bac64867a2f44cd740d673995f79b0}{AddGameObjectToList}}(\mbox{\hyperlink{class_game_object}{GameObject}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
-\DoxyCodeLine{34         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}{AddUIObjectToList}}(\mbox{\hyperlink{class_u_i_object}{UIObject}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
-\DoxyCodeLine{35         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}{AddButtonToList}}(\mbox{\hyperlink{class_button}{Button}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \textcolor{keyword}{public}:}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_scene_add5bc48c372aaa7f526c02558a8adf00}{\string~GameScene}}();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ GameState Loop -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}{GameSceneLoad}}() = 0;}
-\DoxyCodeLine{43         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}{GameSceneInit}}() = 0;}
-\DoxyCodeLine{44         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt);}
-\DoxyCodeLine{45         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}{GameSceneDraw}}();}
-\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}{GameSceneUnload}}();}
-\DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}{GameSceneFree}}();}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Creating Object -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}{CreateGameObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& animRow = 1, \textcolor{keyword}{const} std::vector<int>\& animCol = \{ 1 \}) \textcolor{keyword}{override};}
-\DoxyCodeLine{52         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{CreateParticle}}(\mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) \textcolor{keyword}{override};}
-\DoxyCodeLine{53         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{CreateParticle}}(\textcolor{keyword}{const} std::string\& objName, \mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) \textcolor{keyword}{override};}
-\DoxyCodeLine{54         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_game_scene_aa0b35732d6a2b50f74999985dda19982}{CreateUIObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
-\DoxyCodeLine{55         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_text_object}{TextObject}}* \mbox{\hyperlink{class_game_scene_aa9334cf40b72433b5e1d71302916abde}{CreateTextObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
-\DoxyCodeLine{56         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}{CreateButton}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
-\DoxyCodeLine{57         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_slider}{Slider}}* \mbox{\hyperlink{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}{CreateSlider}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Modify Object -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{60         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}{DeleteObjectByName}}(\textcolor{keyword}{const} std::string\& objName) \textcolor{keyword}{override};}
-\DoxyCodeLine{61         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a06dd5348bf128fb65720731931e8060b}{DeleteObjectByPointer}}(\mbox{\hyperlink{class_game_object}{GameObject}}* objPtr) \textcolor{keyword}{override};}
-\DoxyCodeLine{62         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_scene_aaea2990b4daff20b185e1359a40bd870}{FindObject}}(\textcolor{keyword}{const} std::string\& objName) \textcolor{keyword}{override};}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_af9adaa92fd98610506491805317c5912}{UpdateButtonEvents}}();}
-\DoxyCodeLine{65         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}{UpdateScaleDeltaTime}}(\textcolor{keywordtype}{float} deltaTime);}
-\DoxyCodeLine{66         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a84ac480d4f56888c9f35008c94977d20}{UpdateDeleteObject}}();}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{69         \mbox{\hyperlink{class_audio_controller}{AudioController}}* \mbox{\hyperlink{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}{GetAudioController}}() \textcolor{keyword}{const};}
-\DoxyCodeLine{70         \mbox{\hyperlink{class_camera}{Camera}}* \mbox{\hyperlink{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}{GetCamera}}();}
-\DoxyCodeLine{71 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{27         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Rendering Component List -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{28         std::vector<GameObject*> \mbox{\hyperlink{class_game_scene_ab084ec7c43902547f8b763128c2d4ab0}{objectsList}};}
+\DoxyCodeLine{29         std::vector<UIObject*> \mbox{\hyperlink{class_game_scene_a024096d4399d541a7d5b222ff55eabc7}{uiObjectsList}};}
+\DoxyCodeLine{30         std::vector<Button*> \mbox{\hyperlink{class_game_scene_ab95ba095594c25d1ed9c901146e1e96a}{buttonObjectsList}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         std::vector<GameObject*> \mbox{\hyperlink{class_game_scene_a070f8589187d0602d73ad3cca75de568}{objectsToDeleteList}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Utilities -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{35         \mbox{\hyperlink{class_audio_controller}{AudioController}}\& \mbox{\hyperlink{class_game_scene_a2e6016acdb8337fe5f057e445f2c9aed}{audioController}} = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{AudioController::GetInstance}}();}
+\DoxyCodeLine{36         \mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{class_game_scene_afca219bdb7ec5cc8e31171bab019ac1b}{camera}};}
+\DoxyCodeLine{37         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}{timeScale}} = 1.0f;}
+\DoxyCodeLine{38         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_scene_a5d87bc5e71cdac82989c8cb686d6b767}{scaledDeltaTime}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a36bac64867a2f44cd740d673995f79b0}{AddGameObjectToList}}(\mbox{\hyperlink{class_game_object}{GameObject}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
+\DoxyCodeLine{41         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}{AddUIObjectToList}}(\mbox{\hyperlink{class_u_i_object}{UIObject}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}{AddButtonToList}}(\mbox{\hyperlink{class_button}{Button}}* \textcolor{keywordtype}{object}) \textcolor{keyword}{override};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{public}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_scene_add5bc48c372aaa7f526c02558a8adf00}{\string~GameScene}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ GameState Loop -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{49         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a2c79c3457ee88481a7a0fc7e0b64c693}{GameSceneLoad}}() = 0;}
+\DoxyCodeLine{50         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_ab445cceec146f7ec13f368b0f01dea35}{GameSceneInit}}() = 0;}
+\DoxyCodeLine{51         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3a3af4f8ea2719aa63bfcc31a140e50a}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt);}
+\DoxyCodeLine{52         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a27464e8cef1f8b60570be89ff4bcd5fd}{GameSceneDraw}}();}
+\DoxyCodeLine{53         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_afa381ab19d894b7e13beaa1853b518fd}{GameSceneUnload}}();}
+\DoxyCodeLine{54         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a3f9b1e3bc0a351f71d089c7427a65b7b}{GameSceneFree}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Creating Object -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}{CreateGameObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& animRow = 1, \textcolor{keyword}{const} std::vector<int>\& animCol = \{ 1 \}) \textcolor{keyword}{override};}
+\DoxyCodeLine{59         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{CreateParticle}}(\mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) \textcolor{keyword}{override};}
+\DoxyCodeLine{60         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{CreateParticle}}(\textcolor{keyword}{const} std::string\& objName, \mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty) \textcolor{keyword}{override};}
+\DoxyCodeLine{61         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{class_game_scene_aa0b35732d6a2b50f74999985dda19982}{CreateUIObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{62         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_text_object}{TextObject}}* \mbox{\hyperlink{class_game_scene_aa9334cf40b72433b5e1d71302916abde}{CreateTextObject}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{63         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_button}{Button}}* \mbox{\hyperlink{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}{CreateButton}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{64         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_slider}{Slider}}* \mbox{\hyperlink{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}{CreateSlider}}(\textcolor{keyword}{const} std::string\& objName = \textcolor{stringliteral}{"{}"{}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Modify Object -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{67         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}{DeleteObjectByName}}(\textcolor{keyword}{const} std::string\& objName) \textcolor{keyword}{override};}
+\DoxyCodeLine{68         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a06dd5348bf128fb65720731931e8060b}{DeleteObjectByPointer}}(\mbox{\hyperlink{class_game_object}{GameObject}}* objPtr) \textcolor{keyword}{override};}
+\DoxyCodeLine{69         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_scene_aaea2990b4daff20b185e1359a40bd870}{FindObject}}(\textcolor{keyword}{const} std::string\& objName) \textcolor{keyword}{override};}
+\DoxyCodeLine{70         \textcolor{keywordtype}{void} FocusObject(\mbox{\hyperlink{class_game_object}{GameObject}}* focusObject);}
+\DoxyCodeLine{71         \textcolor{keywordtype}{void} FocusObject(\textcolor{keyword}{const} std::vector<GameObject*> \&focusObjects);}
+\DoxyCodeLine{72         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_aac6505e0b179fa4bf16c949f40c35472}{UnFocusObject}}();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_af9adaa92fd98610506491805317c5912}{UpdateButtonEvents}}();}
+\DoxyCodeLine{75         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a839a1b3e066d211df917c8ac4000ff98}{UpdateScaleDeltaTime}}(\textcolor{keywordtype}{float} deltaTime);}
+\DoxyCodeLine{76         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a84ac480d4f56888c9f35008c94977d20}{UpdateDeleteObject}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{79         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_scene_a9f11ca8e0cbc78c6cb51b12f1b296dc8}{SetTimeScale}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& \mbox{\hyperlink{class_game_scene_a7eabb7ce56099e2fdee071da2d0761f6}{timeScale}});}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_audio_controller}{AudioController}}* \mbox{\hyperlink{class_game_scene_a14c310addf1b940efcb94edf3fdbad14}{GetAudioController}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83         \mbox{\hyperlink{class_camera}{Camera}}* \mbox{\hyperlink{class_game_scene_ae6f62e51f91ada7cd8615080bff64025}{GetCamera}}();}
+\DoxyCodeLine{84         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_scene_ae1a1515f7be21e12bdfa2beb7d1191cc}{GetTimeScale}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{85 \};}
 
 \end{DoxyCode}

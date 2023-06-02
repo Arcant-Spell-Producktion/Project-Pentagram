@@ -65,7 +65,6 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="class_singleton-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Singleton&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
@@ -75,22 +74,21 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6cbdb6116fdb704885d35f365d978e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#ad6cbdb6116fdb704885d35f365d978e2">Free</a> ()</td></tr>
-<tr class="separator:ad6cbdb6116fdb704885d35f365d978e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1b554fec7ae6065fe0e09111f3581f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#adb1b554fec7ae6065fe0e09111f3581f">Singleton</a> ()=default</td></tr>
+<tr class="separator:adb1b554fec7ae6065fe0e09111f3581f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9349b42bad14a8e86c56229175acfba4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a9349b42bad14a8e86c56229175acfba4">~Singleton</a> ()=default</td></tr>
+<tr class="separator:a9349b42bad14a8e86c56229175acfba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e440f849b2b900be243779ff9df082c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a7e440f849b2b900be243779ff9df082c">Free</a> ()</td></tr>
+<tr class="separator:a7e440f849b2b900be243779ff9df082c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7b90075f8e4471743fd3596be874e5d1"><td class="memItemLeft" align="right" valign="top">static T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a7b90075f8e4471743fd3596be874e5d1">GetInstance</a> ()</td></tr>
-<tr class="separator:a7b90075f8e4471743fd3596be874e5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a3cc9f75a4350fdc67815ef4e639478f1"><td class="memItemLeft" align="right" valign="top">static T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a3cc9f75a4350fdc67815ef4e639478f1">instance</a> = nullptr</td></tr>
-<tr class="separator:a3cc9f75a4350fdc67815ef4e639478f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c10bd8d12c9418ef9af7e569a1fa4e0"><td class="memItemLeft" align="right" valign="top">static T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_singleton.html#a2c10bd8d12c9418ef9af7e569a1fa4e0">GetInstance</a> ()</td></tr>
+<tr class="separator:a2c10bd8d12c9418ef9af7e569a1fa4e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad6cbdb6116fdb704885d35f365d978e2" name="ad6cbdb6116fdb704885d35f365d978e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6cbdb6116fdb704885d35f365d978e2">&#9670;&nbsp;</a></span>Free()</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adb1b554fec7ae6065fe0e09111f3581f" name="adb1b554fec7ae6065fe0e09111f3581f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb1b554fec7ae6065fe0e09111f3581f">&#9670;&nbsp;</a></span>Singleton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,7 +99,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::Free </td>
+          <td class="memname"><a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;<a class="el" href="class_singleton.html">::Singleton</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -109,15 +107,15 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7b90075f8e4471743fd3596be874e5d1" name="a7b90075f8e4471743fd3596be874e5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b90075f8e4471743fd3596be874e5d1">&#9670;&nbsp;</a></span>GetInstance()</h2>
+<a id="a9349b42bad14a8e86c56229175acfba4" name="a9349b42bad14a8e86c56229175acfba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9349b42bad14a8e86c56229175acfba4">&#9670;&nbsp;</a></span>~Singleton()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -128,7 +126,64 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static T * <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::GetInstance </td>
+          <td class="memname">virtual <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::~<a class="el" href="class_singleton.html">Singleton</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7e440f849b2b900be243779ff9df082c" name="a7e440f849b2b900be243779ff9df082c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e440f849b2b900be243779ff9df082c">&#9670;&nbsp;</a></span>Free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::Free </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_arcant_engine.html#a52c010b8c7bff26c6ec13110d2385788">ArcantEngine</a>, <a class="el" href="class_audio_controller.html#a7cbaa4a48105e84a2f0363cfd266cc66">AudioController</a>, <a class="el" href="class_audio_engine.html#a17fa543bbbe019a0c3c1d9271e8b993a">AudioEngine</a>, <a class="el" href="class_engine_data_collector.html#aaffadaf0dccadfef8ef5a6ff09d0e728">EngineDataCollector</a>, <a class="el" href="class_game_state_controller.html#ab5e9920c69881cbc28d34a5f5f0874f0">GameStateController</a>, <a class="el" href="class_cursor_manager.html#ab7e0acc55e1bdff23198a08d935ad969">CursorManager</a>, and <a class="el" href="class_battle_manager.html#a2db841fba1ba5cb1a9412ae239e2afcb">BattleManager</a>.</p>
+
+</div>
+</div>
+<a id="a2c10bd8d12c9418ef9af7e569a1fa4e0" name="a2c10bd8d12c9418ef9af7e569a1fa4e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c10bd8d12c9418ef9af7e569a1fa4e0">&#9670;&nbsp;</a></span>GetInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T &amp; <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::GetInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -137,31 +192,6 @@ template&lt;class T &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3cc9f75a4350fdc67815ef4e639478f1" name="a3cc9f75a4350fdc67815ef4e639478f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cc9f75a4350fdc67815ef4e639478f1">&#9670;&nbsp;</a></span>instance</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T * <a class="el" href="class_singleton.html">Singleton</a>&lt; T &gt;::instance = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

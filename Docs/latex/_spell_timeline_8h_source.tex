@@ -9,22 +9,22 @@
 \DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_timeline}{SpellTimeline}} }
 \DoxyCodeLine{6 \{}
 \DoxyCodeLine{7 \textcolor{keyword}{private}:}
-\DoxyCodeLine{8     array<SpellTimetrack, 11> m\_Timeline;}
+\DoxyCodeLine{8     std::array<SpellTimetrack, 11> m\_Timeline;}
 \DoxyCodeLine{9 }
 \DoxyCodeLine{10 \textcolor{keyword}{public}:}
 \DoxyCodeLine{11     \mbox{\hyperlink{class_timeline_controller}{TimelineController}}* \mbox{\hyperlink{class_spell_timeline_a4526a523296551672452618d9fc1436a}{UI}};}
 \DoxyCodeLine{12 }
 \DoxyCodeLine{13     \mbox{\hyperlink{class_spell_timetrack}{SpellTimetrack}}* \mbox{\hyperlink{class_spell_timeline_ab240d60289dc9d3c19ee3856bf7402cf}{GetTimetrack}}(\textcolor{keywordtype}{int} track\_index) \{ \textcolor{keywordflow}{return} \&m\_Timeline[track\_index]; \}}
 \DoxyCodeLine{14     }
-\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timeline_a5e1a66982cd427c550dc3438b7f327c9}{AddSpellToTimeline}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell,\textcolor{keywordtype}{bool} doCompare = \textcolor{keyword}{true})}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timeline_a5ce8e42e982f398c15ecff102635da7b}{AddSpellToTimeline}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell)}
 \DoxyCodeLine{16     \{}
 \DoxyCodeLine{17         \textcolor{keywordtype}{int} array\_index = spell-\/>\mbox{\hyperlink{class_cast_spell_detail_a43d535f5f45db1cb2d4628cdbee69ded}{SelectedTime}} <= 10 ? (spell-\/>\mbox{\hyperlink{class_cast_spell_detail_a43d535f5f45db1cb2d4628cdbee69ded}{SelectedTime}} -\/ 1) : (11 -\/ 1);}
-\DoxyCodeLine{18         m\_Timeline[array\_index].push\_back(spell, doCompare);}
+\DoxyCodeLine{18         m\_Timeline[array\_index].PushSpell(spell);}
 \DoxyCodeLine{19 }
 \DoxyCodeLine{20         std::cout << \textcolor{stringliteral}{"{}ADD ICON 1\(\backslash\)n"{}};}
 \DoxyCodeLine{21         \mbox{\hyperlink{class_spell_timeline_a4526a523296551672452618d9fc1436a}{UI}}-\/>\mbox{\hyperlink{class_timeline_controller_a907b9bc77bfee90f4f482a2af25f81e2}{AddIconToTrack}}(array\_index, spell);}
 \DoxyCodeLine{22 }
-\DoxyCodeLine{23         cout << \textcolor{stringliteral}{"{}Add Spell to Timetrack index: "{}} << array\_index << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{23         std::cout << \textcolor{stringliteral}{"{}Add Spell to Timetrack index: "{}} << array\_index << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{24     \}}
 \DoxyCodeLine{25 }
 \DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_timeline_a15e19bb9d9d885aa4114a70a4cec0234}{UpdateTimeline}}()}
@@ -40,7 +40,7 @@
 \DoxyCodeLine{36         \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* csd: spellList)}
 \DoxyCodeLine{37         \{}
 \DoxyCodeLine{38             csd-\/>SelectedTime -\/= 10;}
-\DoxyCodeLine{39             \mbox{\hyperlink{class_spell_timeline_a5e1a66982cd427c550dc3438b7f327c9}{AddSpellToTimeline}}(csd);}
+\DoxyCodeLine{39             \mbox{\hyperlink{class_spell_timeline_a5ce8e42e982f398c15ecff102635da7b}{AddSpellToTimeline}}(csd);}
 \DoxyCodeLine{40         \}}
 \DoxyCodeLine{41     \}}
 \DoxyCodeLine{42 }

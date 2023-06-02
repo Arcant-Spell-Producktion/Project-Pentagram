@@ -64,6 +64,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_base_spell_effect-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">BaseSpellEffect Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
@@ -76,11 +77,23 @@ Inheritance diagram for BaseSpellEffect:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_base_spell_effect__inherit__graph.png" border="0" usemap="#a_base_spell_effect_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_base_spell_effect_inherit__map" id="a_base_spell_effect_inherit__map">
-<area shape="rect" title=" " alt="" coords="215,5,330,32"/>
-<area shape="rect" href="class_burn_spell_effect.html" title=" " alt="" coords="5,80,116,107"/>
-<area shape="rect" href="class_freeze_spell_effect.html" title=" " alt="" coords="140,80,264,107"/>
-<area shape="rect" href="class_mark_spell_effect.html" title=" " alt="" coords="288,80,401,107"/>
-<area shape="rect" href="class_overflow_spell_effect.html" title=" " alt="" coords="425,80,557,107"/>
+<area shape="rect" title=" " alt="" coords="5,157,120,184"/>
+<area shape="rect" href="class_boost_spell_effect.html" title=" " alt="" coords="175,5,293,32"/>
+<area shape="rect" href="class_burn_spell_effect.html" title=" " alt="" coords="179,56,289,83"/>
+<area shape="rect" href="class_fortify_spell_effect.html" title=" " alt="" coords="174,107,294,133"/>
+<area shape="rect" href="class_freeze_spell_effect.html" title=" " alt="" coords="172,157,296,184"/>
+<area shape="rect" href="class_mark_spell_effect.html" title=" " alt="" coords="177,208,291,235"/>
+<area shape="rect" href="class_overflow_spell_effect.html" title=" " alt="" coords="168,259,300,285"/>
+<area shape="rect" href="class_petrify_spell_effect.html" title=" " alt="" coords="173,309,295,336"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for BaseSpellEffect:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_base_spell_effect__coll__graph.png" border="0" usemap="#a_base_spell_effect_coll__map" alt="Collaboration graph"/></div>
+<map name="a_base_spell_effect_coll__map" id="a_base_spell_effect_coll__map">
+<area shape="rect" title=" " alt="" coords="35,124,150,151"/>
+<area shape="rect" href="class_event.html" title=" " alt="" coords="5,5,180,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -98,10 +111,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a116e21b4faeee4fb2e0586cf297a7c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a737a648b34c363884080c80f7cf630c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a737a648b34c363884080c80f7cf630c6">AppliedEffect</a> (int value, int stack=1)</td></tr>
 <tr class="separator:a737a648b34c363884080c80f7cf630c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8b00a0715a7e93e83fd1ae6cd8516c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a7b8b00a0715a7e93e83fd1ae6cd8516c">OnCastPhaseEnd</a> ()</td></tr>
+<tr class="separator:a7b8b00a0715a7e93e83fd1ae6cd8516c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529b4bdd90852a74468c483e0771e2fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a529b4bdd90852a74468c483e0771e2fb">OnEndRound</a> ()</td></tr>
 <tr class="separator:a529b4bdd90852a74468c483e0771e2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab99f0fc19909f55b0ba14c0971fa28f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#aab99f0fc19909f55b0ba14c0971fa28f">ResetEffect</a> ()</td></tr>
 <tr class="separator:aab99f0fc19909f55b0ba14c0971fa28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a9b97e3384d516681451a9e1bc979e926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a9b97e3384d516681451a9e1bc979e926">OnEffectApply</a></td></tr>
+<tr class="separator:a9b97e3384d516681451a9e1bc979e926"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3e9b8ae14d0f3c9b983c2f8e18a385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afc3e9b8ae14d0f3c9b983c2f8e18a385">OnEffectResolve</a></td></tr>
+<tr class="separator:afc3e9b8ae14d0f3c9b983c2f8e18a385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9129b44f981595ff329bd5ff21574a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#ab9129b44f981595ff329bd5ff21574a0">OnEffectReset</a></td></tr>
+<tr class="separator:ab9129b44f981595ff329bd5ff21574a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -113,6 +137,12 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af98fd4a58e5b8e134e0af015a077eb4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2560a3f2ecb2538d1e98cb2fb0912993"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a2560a3f2ecb2538d1e98cb2fb0912993">m_EffectStack</a> = 0</td></tr>
 <tr class="separator:a2560a3f2ecb2538d1e98cb2fb0912993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd497fdf88c2389afc9bdd578ef2a887"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afd497fdf88c2389afc9bdd578ef2a887">m_EffectStackLimit</a> = 99</td></tr>
+<tr class="separator:afd497fdf88c2389afc9bdd578ef2a887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f652324336e64a0ef8f6d2a9485a51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a00f652324336e64a0ef8f6d2a9485a51">m_IsEffectResetAtStackLimit</a> = false</td></tr>
+<tr class="separator:a00f652324336e64a0ef8f6d2a9485a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cfb978f4a0fd5d1b1261b8852d9f903"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a8cfb978f4a0fd5d1b1261b8852d9f903">m_IsEffectApplyWillCompareWin</a> = false</td></tr>
+<tr class="separator:a8cfb978f4a0fd5d1b1261b8852d9f903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25106903844e0f479fad8325f3efdad3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a25106903844e0f479fad8325f3efdad3">m_IsEffectApplyByChance</a> = false</td></tr>
 <tr class="separator:a25106903844e0f479fad8325f3efdad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06c29e3be0ead70bdaec6492ac1314e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a06c29e3be0ead70bdaec6492ac1314e1">m_IsEffectStack</a> = false</td></tr>
@@ -121,6 +151,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ab0c0988ad7af7ccc6b38d07881acaf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaadf86834c5918f73f471af9b40c5f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afaadf86834c5918f73f471af9b40c5f5">m_IsEffectStackDecreaseOnEndRound</a> = false</td></tr>
 <tr class="separator:afaadf86834c5918f73f471af9b40c5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93e9952647d38352b59e95bbb70df6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#ae93e9952647d38352b59e95bbb70df6c">m_IsEffectResetOnEndOfCastPhase</a> = false</td></tr>
+<tr class="separator:ae93e9952647d38352b59e95bbb70df6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="add5e94347e0e3df31f571053caa93bd3" name="add5e94347e0e3df31f571053caa93bd3"></a>
@@ -271,6 +303,31 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7b8b00a0715a7e93e83fd1ae6cd8516c" name="a7b8b00a0715a7e93e83fd1ae6cd8516c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b8b00a0715a7e93e83fd1ae6cd8516c">&#9670;&nbsp;</a></span>OnCastPhaseEnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BaseSpellEffect::OnCastPhaseEnd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a529b4bdd90852a74468c483e0771e2fb" name="a529b4bdd90852a74468c483e0771e2fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a529b4bdd90852a74468c483e0771e2fb">&#9670;&nbsp;</a></span>OnEndRound()</h2>
 
@@ -345,7 +402,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_burn_spell_effect.html#ab387f119eeac5aa967fbb3c6f0659493">BurnSpellEffect</a>, <a class="el" href="class_mark_spell_effect.html#ae6b23a97606d4aa39c46caa5be685a21">MarkSpellEffect</a>, <a class="el" href="class_overflow_spell_effect.html#a30028bb1a3fa19afe8d9556f4103ca2a">OverflowSpellEffect</a>, and <a class="el" href="class_freeze_spell_effect.html#a1448ea27768609fea6cb04dfd2bdbc73">FreezeSpellEffect</a>.</p>
+<p>Implemented in <a class="el" href="class_burn_spell_effect.html#ab387f119eeac5aa967fbb3c6f0659493">BurnSpellEffect</a>, <a class="el" href="class_mark_spell_effect.html#ae6b23a97606d4aa39c46caa5be685a21">MarkSpellEffect</a>, <a class="el" href="class_overflow_spell_effect.html#a30028bb1a3fa19afe8d9556f4103ca2a">OverflowSpellEffect</a>, <a class="el" href="class_freeze_spell_effect.html#a1448ea27768609fea6cb04dfd2bdbc73">FreezeSpellEffect</a>, <a class="el" href="class_fortify_spell_effect.html#a56eed52232be246ee3688e3ffeeaca6e">FortifySpellEffect</a>, <a class="el" href="class_petrify_spell_effect.html#a2328ce98c08c010f33233b7eb2f10189">PetrifySpellEffect</a>, and <a class="el" href="class_boost_spell_effect.html#acaff4810364efffe320fe6db03bdb994">BoostSpellEffect</a>.</p>
 
 </div>
 </div>
@@ -361,6 +418,28 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int BaseSpellEffect::m_EffectStack = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afd497fdf88c2389afc9bdd578ef2a887" name="afd497fdf88c2389afc9bdd578ef2a887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd497fdf88c2389afc9bdd578ef2a887">&#9670;&nbsp;</a></span>m_EffectStackLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BaseSpellEffect::m_EffectStackLimit = 99</td>
         </tr>
       </table>
   </td>
@@ -460,6 +539,72 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8cfb978f4a0fd5d1b1261b8852d9f903" name="a8cfb978f4a0fd5d1b1261b8852d9f903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cfb978f4a0fd5d1b1261b8852d9f903">&#9670;&nbsp;</a></span>m_IsEffectApplyWillCompareWin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BaseSpellEffect::m_IsEffectApplyWillCompareWin = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00f652324336e64a0ef8f6d2a9485a51" name="a00f652324336e64a0ef8f6d2a9485a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00f652324336e64a0ef8f6d2a9485a51">&#9670;&nbsp;</a></span>m_IsEffectResetAtStackLimit</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BaseSpellEffect::m_IsEffectResetAtStackLimit = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae93e9952647d38352b59e95bbb70df6c" name="ae93e9952647d38352b59e95bbb70df6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93e9952647d38352b59e95bbb70df6c">&#9670;&nbsp;</a></span>m_IsEffectResetOnEndOfCastPhase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BaseSpellEffect::m_IsEffectResetOnEndOfCastPhase = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a06c29e3be0ead70bdaec6492ac1314e1" name="a06c29e3be0ead70bdaec6492ac1314e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06c29e3be0ead70bdaec6492ac1314e1">&#9670;&nbsp;</a></span>m_IsEffectStack</h2>
 
@@ -522,6 +667,48 @@ Protected Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9b97e3384d516681451a9e1bc979e926" name="a9b97e3384d516681451a9e1bc979e926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b97e3384d516681451a9e1bc979e926">&#9670;&nbsp;</a></span>OnEffectApply</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event.html">Event</a>&lt;<a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a>&gt; BaseSpellEffect::OnEffectApply</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9129b44f981595ff329bd5ff21574a0" name="ab9129b44f981595ff329bd5ff21574a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9129b44f981595ff329bd5ff21574a0">&#9670;&nbsp;</a></span>OnEffectReset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event.html">Event</a>&lt;<a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a>&gt; BaseSpellEffect::OnEffectReset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc3e9b8ae14d0f3c9b983c2f8e18a385" name="afc3e9b8ae14d0f3c9b983c2f8e18a385"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3e9b8ae14d0f3c9b983c2f8e18a385">&#9670;&nbsp;</a></span>OnEffectResolve</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_event.html">Event</a>&lt;<a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a>&gt; BaseSpellEffect::OnEffectResolve</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>

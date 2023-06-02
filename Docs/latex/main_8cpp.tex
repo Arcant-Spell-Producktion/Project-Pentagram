@@ -6,8 +6,12 @@
 {\ttfamily \#include \char`\"{}Engine/\+Game\+State\+Controller.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Engine/\+Collector/\+Engine\+Data\+Collector.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Runtime\+Game\+Data.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Caster\+Data/\+Caster\+Stat\+Database.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Caster\+Data/\+Caster\+Moveset\+Database.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Game/\+Spells/\+Spell\+Database.\+h\char`\"{}}\newline
-Include dependency graph for main.\+cpp\+:\nopagebreak
+{\ttfamily \#include \char`\"{}Game/\+Objects/\+Cursor\+Manager.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,6 +35,12 @@ int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \mbox{\hyperlink{class_runtime_game_data}{Runtime\+Game\+Data}} $\ast$ \mbox{\hyperlink{main_8cpp_a1ec9966eca27a5c3c81f28fa51e00f66}{current\+Game}} = nullptr
 \item 
 \mbox{\hyperlink{class_spell_database}{Spell\+Database}} $\ast$ \mbox{\hyperlink{main_8cpp_afc47fb7b6724445fedbcf7bde161d307}{spell\+Database}} = nullptr
+\item 
+\mbox{\hyperlink{class_caster_stat_database}{Caster\+Stat\+Database}} $\ast$ \mbox{\hyperlink{main_8cpp_aabfa096475e5c2a306d4e8305a757c8d}{caster\+Database}} = nullptr
+\item 
+\mbox{\hyperlink{class_caster_move_set_database}{Caster\+Move\+Set\+Database}} $\ast$ \mbox{\hyperlink{main_8cpp_a3e630af19acc4b0cece49e73341c2543}{move\+Database}} = nullptr
+\item 
+\mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{main_8cpp_aac676081062ecd847e15930ec8bf1714}{main\+Camera}}
 \end{DoxyCompactItemize}
 
 
@@ -44,6 +54,12 @@ int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_aabfa096475e5c2a306d4e8305a757c8d}\label{main_8cpp_aabfa096475e5c2a306d4e8305a757c8d}} 
+\index{main.cpp@{main.cpp}!casterDatabase@{casterDatabase}}
+\index{casterDatabase@{casterDatabase}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{casterDatabase}{casterDatabase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_stat_database}{Caster\+Stat\+Database}}$\ast$ caster\+Database = nullptr}
+
 \mbox{\Hypertarget{main_8cpp_a1ec9966eca27a5c3c81f28fa51e00f66}\label{main_8cpp_a1ec9966eca27a5c3c81f28fa51e00f66}} 
 \index{main.cpp@{main.cpp}!currentGame@{currentGame}}
 \index{currentGame@{currentGame}!main.cpp@{main.cpp}}
@@ -67,6 +83,18 @@ int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \index{gameStateController@{gameStateController}!main.cpp@{main.cpp}}
 \doxysubsubsection{\texorpdfstring{gameStateController}{gameStateController}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_game_state_controller}{Game\+State\+Controller}}$\ast$ game\+State\+Controller = nullptr}
+
+\mbox{\Hypertarget{main_8cpp_aac676081062ecd847e15930ec8bf1714}\label{main_8cpp_aac676081062ecd847e15930ec8bf1714}} 
+\index{main.cpp@{main.cpp}!mainCamera@{mainCamera}}
+\index{mainCamera@{mainCamera}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mainCamera}{mainCamera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}} main\+Camera}
+
+\mbox{\Hypertarget{main_8cpp_a3e630af19acc4b0cece49e73341c2543}\label{main_8cpp_a3e630af19acc4b0cece49e73341c2543}} 
+\index{main.cpp@{main.cpp}!moveDatabase@{moveDatabase}}
+\index{moveDatabase@{moveDatabase}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{moveDatabase}{moveDatabase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_move_set_database}{Caster\+Move\+Set\+Database}}$\ast$ move\+Database = nullptr}
 
 \mbox{\Hypertarget{main_8cpp_afc47fb7b6724445fedbcf7bde161d307}\label{main_8cpp_afc47fb7b6724445fedbcf7bde161d307}} 
 \index{main.cpp@{main.cpp}!spellDatabase@{spellDatabase}}

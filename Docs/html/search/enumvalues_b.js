@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['needs_5fentity_5fprocessing_0',['NEEDS_ENTITY_PROCESSING',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54a4f1e01a55f8efe4ca72c32d454060237',1,'tinyxml2::StrPair']]],
-  ['needs_5fnewline_5fnormalization_1',['NEEDS_NEWLINE_NORMALIZATION',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54a8f2045d56e70745d718672c0da91d0e0',1,'tinyxml2::StrPair']]],
-  ['needs_5fwhitespace_5fcollapsing_2',['NEEDS_WHITESPACE_COLLAPSING',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54a13996e9d4ed18fd2d6af59bbab291b63',1,'tinyxml2::StrPair']]],
-  ['none_3',['None',['../_base_spell_effect_8h.html#a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754',1,'None():&#160;BaseSpellEffect.h'],['../_channel_effect_type_8h.html#a8bd8a1e3661adf5728984df1686de167a6adf97f83acf6453d4a6a4b1070f3754',1,'None():&#160;ChannelEffectType.h'],['../_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5ba6adf97f83acf6453d4a6a4b1070f3754',1,'None():&#160;SpellEffectType.h']]],
-  ['none_4',['NONE',['../_caster_position_8h.html#a990c422b0026a1c7dda5d5fb706ce889ab50339a10e1de285ac99d4c3990b8693',1,'CasterPosition.h']]],
-  ['nulltype_5',['NULLTYPE',['../class_element.html#a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10',1,'Element']]]
+  ['mark_0',['Mark',['../_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5bab82a9a13f4651e9abcbde90cd24ce2cb',1,'SpellEffectType.h']]],
+  ['master_1',['MASTER',['../_option_menu_object_8h.html#a930cd371d87ebbf3b921dadc5ca2b4abae5807df697b52e8b944bf598cabadb3a',1,'OptionMenuObject.h']]],
+  ['mid_2',['MID',['../_text_object_8h.html#aa56f1a82069b5feeadbb4591cb3e474fa18e48bbdf6d326bd88d3ebb99ad7515d',1,'TextObject.h']]],
+  ['minion_3',['Minion',['../_caster_object_8h.html#aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70',1,'Minion():&#160;CasterObject.h'],['../_caster_type_8h.html#a1476be1c0ab3eacfea1cf67fc7512020aa02579cb24530c540171013282ae7d70',1,'Minion():&#160;CasterType.h']]]
 ];

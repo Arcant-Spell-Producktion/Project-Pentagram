@@ -6,26 +6,39 @@
 
 
 
-Inheritance diagram for Cast\+Battle\+State\+:\nopagebreak
+Inheritance diagram for Cast\+Battle\+State\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=168pt]{class_cast_battle_state__inherit__graph}
+\includegraphics[width=235pt]{class_cast_battle_state__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Cast\+Battle\+State\+:\nopagebreak
+Collaboration diagram for Cast\+Battle\+State\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=168pt]{class_cast_battle_state__coll__graph}
+\includegraphics[width=235pt]{class_cast_battle_state__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6}{Cast\+Update\+State}} \{ \mbox{\hyperlink{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6a86a59ad7ba2334ad7505f303d3f2ab6e}{Casting}}
+, \mbox{\hyperlink{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6ae85208d90f613d020070f66e871a6571}{Casted}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_cast_battle_state_a7b7e1bfdacf783413e1df1dbbf4034cc}{Cast\+Battle\+State}} ()
+\item 
+void \mbox{\hyperlink{class_cast_battle_state_abd4b1de6aeef43900bb509061493be60}{Enemy\+Cast\+Update}} (float dt)
+\item 
+void \mbox{\hyperlink{class_cast_battle_state_a110461f323529a4fbdb1f98022ab39f0}{Player\+Cast\+Update}} (float dt)
 \item 
 virtual void \mbox{\hyperlink{class_cast_battle_state_a405d897d964c61ee9c26faa6f28aef09}{On\+Battle\+State\+In}} () override
 \item 
@@ -34,6 +47,25 @@ virtual void \mbox{\hyperlink{class_cast_battle_state_af12877e9be8919b714393c1c8
 virtual void \mbox{\hyperlink{class_cast_battle_state_aadd33b81975c32524bf3609f1c044c8f}{On\+Battle\+State\+Out}} () override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6}\label{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6}} 
+\index{CastBattleState@{CastBattleState}!CastUpdateState@{CastUpdateState}}
+\index{CastUpdateState@{CastUpdateState}!CastBattleState@{CastBattleState}}
+\doxysubsubsection{\texorpdfstring{CastUpdateState}{CastUpdateState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6}{Cast\+Battle\+State\+::\+Cast\+Update\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Casting@{Casting}!CastBattleState@{CastBattleState}}\index{CastBattleState@{CastBattleState}!Casting@{Casting}}}\mbox{\Hypertarget{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6a86a59ad7ba2334ad7505f303d3f2ab6e}\label{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6a86a59ad7ba2334ad7505f303d3f2ab6e}} 
+Casting&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Casted@{Casted}!CastBattleState@{CastBattleState}}\index{CastBattleState@{CastBattleState}!Casted@{Casted}}}\mbox{\Hypertarget{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6ae85208d90f613d020070f66e871a6571}\label{class_cast_battle_state_a4dd24a0b46832bcf36abcab4b661eae6ae85208d90f613d020070f66e871a6571}} 
+Casted&\\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -46,6 +78,12 @@ virtual void \mbox{\hyperlink{class_cast_battle_state_aadd33b81975c32524bf3609f1
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_cast_battle_state_abd4b1de6aeef43900bb509061493be60}\label{class_cast_battle_state_abd4b1de6aeef43900bb509061493be60}} 
+\index{CastBattleState@{CastBattleState}!EnemyCastUpdate@{EnemyCastUpdate}}
+\index{EnemyCastUpdate@{EnemyCastUpdate}!CastBattleState@{CastBattleState}}
+\doxysubsubsection{\texorpdfstring{EnemyCastUpdate()}{EnemyCastUpdate()}}
+{\footnotesize\ttfamily void Cast\+Battle\+State\+::\+Enemy\+Cast\+Update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_cast_battle_state_a405d897d964c61ee9c26faa6f28aef09}\label{class_cast_battle_state_a405d897d964c61ee9c26faa6f28aef09}} 
 \index{CastBattleState@{CastBattleState}!OnBattleStateIn@{OnBattleStateIn}}
 \index{OnBattleStateIn@{OnBattleStateIn}!CastBattleState@{CastBattleState}}
@@ -54,7 +92,7 @@ virtual void \mbox{\hyperlink{class_cast_battle_state_aadd33b81975c32524bf3609f1
 
 
 
-Implements \mbox{\hyperlink{class_base_battle_state_a7c4e94db56af26dc0f644cbe3d653923}{Base\+Battle\+State}}.
+Implements \mbox{\hyperlink{class_base_battle_state_ab39c4f14ec7fae9755488f16ac8116d7}{Base\+Battle\+State}}.
 
 \mbox{\Hypertarget{class_cast_battle_state_aadd33b81975c32524bf3609f1c044c8f}\label{class_cast_battle_state_aadd33b81975c32524bf3609f1c044c8f}} 
 \index{CastBattleState@{CastBattleState}!OnBattleStateOut@{OnBattleStateOut}}
@@ -64,7 +102,7 @@ Implements \mbox{\hyperlink{class_base_battle_state_a7c4e94db56af26dc0f644cbe3d6
 
 
 
-Implements \mbox{\hyperlink{class_base_battle_state_ad230393342663063f60426720bc5c47e}{Base\+Battle\+State}}.
+Implements \mbox{\hyperlink{class_base_battle_state_ab7eeafd9f331bf67c1768de5472b7a18}{Base\+Battle\+State}}.
 
 \mbox{\Hypertarget{class_cast_battle_state_af12877e9be8919b714393c1c84457682}\label{class_cast_battle_state_af12877e9be8919b714393c1c84457682}} 
 \index{CastBattleState@{CastBattleState}!OnBattleStateUpdate@{OnBattleStateUpdate}}
@@ -74,7 +112,13 @@ Implements \mbox{\hyperlink{class_base_battle_state_ad230393342663063f60426720bc
 
 
 
-Implements \mbox{\hyperlink{class_base_battle_state_a0a1fd66f63e0cb1efb8f83d2e0c4c335}{Base\+Battle\+State}}.
+Implements \mbox{\hyperlink{class_base_battle_state_a2dec1d2bb8ff0ae758a907c722f9e898}{Base\+Battle\+State}}.
+
+\mbox{\Hypertarget{class_cast_battle_state_a110461f323529a4fbdb1f98022ab39f0}\label{class_cast_battle_state_a110461f323529a4fbdb1f98022ab39f0}} 
+\index{CastBattleState@{CastBattleState}!PlayerCastUpdate@{PlayerCastUpdate}}
+\index{PlayerCastUpdate@{PlayerCastUpdate}!CastBattleState@{CastBattleState}}
+\doxysubsubsection{\texorpdfstring{PlayerCastUpdate()}{PlayerCastUpdate()}}
+{\footnotesize\ttfamily void Cast\+Battle\+State\+::\+Player\+Cast\+Update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
 
 
 

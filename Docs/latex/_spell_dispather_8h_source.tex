@@ -11,14 +11,15 @@
 \DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_dispatcher}{SpellDispatcher}}}
 \DoxyCodeLine{8 \{}
 \DoxyCodeLine{9 \textcolor{keyword}{private}:}
-\DoxyCodeLine{10     std::map<CastSpellDetail* ,BaseSpellObject*> m\_Spells;}
+\DoxyCodeLine{10     std::map<CastSpellDetail*, BaseSpellObject*> m\_Spells;}
 \DoxyCodeLine{11 }
 \DoxyCodeLine{12     \mbox{\hyperlink{class_game_scene}{GameScene}}* m\_ObjectManager;}
 \DoxyCodeLine{13 \textcolor{keyword}{public}:}
 \DoxyCodeLine{14     \mbox{\hyperlink{class_spell_controller}{SpellController}}* \mbox{\hyperlink{class_spell_dispatcher_a4ea46b15135f8fce7b0fe06302cb5263}{SpawnSpell}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* detail, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target);}
-\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_dispatcher_a64fd007d29086aef8bd7df39097bc343}{DestroySpell}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* detail);}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_spell_dispatcher_a7e2623b217e6206e9c791a1afa849cc3}{SpellDispatcher}}();}
-\DoxyCodeLine{18 \};}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_spell_controller}{SpellController}}* \mbox{\hyperlink{class_spell_dispatcher_ad3f28217d9ec5843bb8b8d6c3178f39f}{GetControllerBySpell}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* detail) \{ \textcolor{keywordflow}{return} m\_Spells[detail]; \}}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_dispatcher_a64fd007d29086aef8bd7df39097bc343}{DestroySpell}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* detail);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_spell_dispatcher_a7e2623b217e6206e9c791a1afa849cc3}{SpellDispatcher}}();}
+\DoxyCodeLine{19 \};}
 
 \end{DoxyCode}

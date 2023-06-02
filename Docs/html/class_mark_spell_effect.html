@@ -84,8 +84,9 @@ Collaboration diagram for MarkSpellEffect:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_mark_spell_effect__coll__graph.png" border="0" usemap="#a_mark_spell_effect_coll__map" alt="Collaboration graph"/></div>
 <map name="a_mark_spell_effect_coll__map" id="a_mark_spell_effect_coll__map">
-<area shape="rect" title=" " alt="" coords="6,80,119,107"/>
-<area shape="rect" href="class_base_spell_effect.html" title=" " alt="" coords="5,5,120,32"/>
+<area shape="rect" title=" " alt="" coords="36,200,149,227"/>
+<area shape="rect" href="class_base_spell_effect.html" title=" " alt="" coords="35,124,150,151"/>
+<area shape="rect" href="class_event.html" title=" " alt="" coords="5,5,180,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -108,6 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a116e21b4faeee4fb2e0586cf297a7c77 inherit pub_methods_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a737a648b34c363884080c80f7cf630c6 inherit pub_methods_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a737a648b34c363884080c80f7cf630c6">AppliedEffect</a> (int value, int stack=1)</td></tr>
 <tr class="separator:a737a648b34c363884080c80f7cf630c6 inherit pub_methods_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b8b00a0715a7e93e83fd1ae6cd8516c inherit pub_methods_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a7b8b00a0715a7e93e83fd1ae6cd8516c">OnCastPhaseEnd</a> ()</td></tr>
+<tr class="separator:a7b8b00a0715a7e93e83fd1ae6cd8516c inherit pub_methods_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a529b4bdd90852a74468c483e0771e2fb inherit pub_methods_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a529b4bdd90852a74468c483e0771e2fb">OnEndRound</a> ()</td></tr>
 <tr class="separator:a529b4bdd90852a74468c483e0771e2fb inherit pub_methods_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab99f0fc19909f55b0ba14c0971fa28f inherit pub_methods_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#aab99f0fc19909f55b0ba14c0971fa28f">ResetEffect</a> ()</td></tr>
@@ -115,6 +118,13 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_base_spell_effect"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_base_spell_effect')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_base_spell_effect.html">BaseSpellEffect</a></td></tr>
+<tr class="memitem:a9b97e3384d516681451a9e1bc979e926 inherit pub_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a9b97e3384d516681451a9e1bc979e926">OnEffectApply</a></td></tr>
+<tr class="separator:a9b97e3384d516681451a9e1bc979e926 inherit pub_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3e9b8ae14d0f3c9b983c2f8e18a385 inherit pub_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afc3e9b8ae14d0f3c9b983c2f8e18a385">OnEffectResolve</a></td></tr>
+<tr class="separator:afc3e9b8ae14d0f3c9b983c2f8e18a385 inherit pub_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9129b44f981595ff329bd5ff21574a0 inherit pub_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_event.html">Event</a>&lt; <a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#ab9129b44f981595ff329bd5ff21574a0">OnEffectReset</a></td></tr>
+<tr class="separator:ab9129b44f981595ff329bd5ff21574a0 inherit pub_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_base_spell_effect"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_base_spell_effect')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_base_spell_effect.html">BaseSpellEffect</a></td></tr>
 <tr class="memitem:a6f00b84223cdc9152bd9633b0f68dabf inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_spell_effect_type_8h.html#a01e748e9e33ac1f38a9b0a0b87453f5b">SpellEffectEnum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a6f00b84223cdc9152bd9633b0f68dabf">m_EffectType</a></td></tr>
 <tr class="separator:a6f00b84223cdc9152bd9633b0f68dabf inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,6 +134,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af98fd4a58e5b8e134e0af015a077eb4e inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2560a3f2ecb2538d1e98cb2fb0912993 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a2560a3f2ecb2538d1e98cb2fb0912993">m_EffectStack</a> = 0</td></tr>
 <tr class="separator:a2560a3f2ecb2538d1e98cb2fb0912993 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd497fdf88c2389afc9bdd578ef2a887 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afd497fdf88c2389afc9bdd578ef2a887">m_EffectStackLimit</a> = 99</td></tr>
+<tr class="separator:afd497fdf88c2389afc9bdd578ef2a887 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00f652324336e64a0ef8f6d2a9485a51 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a00f652324336e64a0ef8f6d2a9485a51">m_IsEffectResetAtStackLimit</a> = false</td></tr>
+<tr class="separator:a00f652324336e64a0ef8f6d2a9485a51 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cfb978f4a0fd5d1b1261b8852d9f903 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a8cfb978f4a0fd5d1b1261b8852d9f903">m_IsEffectApplyWillCompareWin</a> = false</td></tr>
+<tr class="separator:a8cfb978f4a0fd5d1b1261b8852d9f903 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25106903844e0f479fad8325f3efdad3 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a25106903844e0f479fad8325f3efdad3">m_IsEffectApplyByChance</a> = false</td></tr>
 <tr class="separator:a25106903844e0f479fad8325f3efdad3 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06c29e3be0ead70bdaec6492ac1314e1 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#a06c29e3be0ead70bdaec6492ac1314e1">m_IsEffectStack</a> = false</td></tr>
@@ -132,6 +148,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:ab0c0988ad7af7ccc6b38d07881acaf77 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaadf86834c5918f73f471af9b40c5f5 inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#afaadf86834c5918f73f471af9b40c5f5">m_IsEffectStackDecreaseOnEndRound</a> = false</td></tr>
 <tr class="separator:afaadf86834c5918f73f471af9b40c5f5 inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae93e9952647d38352b59e95bbb70df6c inherit pro_attribs_class_base_spell_effect"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_base_spell_effect.html#ae93e9952647d38352b59e95bbb70df6c">m_IsEffectResetOnEndOfCastPhase</a> = false</td></tr>
+<tr class="separator:ae93e9952647d38352b59e95bbb70df6c inherit pro_attribs_class_base_spell_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a37e0452b3d8e0b924ca2a17fa2cffb37" name="a37e0452b3d8e0b924ca2a17fa2cffb37"></a>

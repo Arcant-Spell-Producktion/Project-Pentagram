@@ -1,6 +1,6 @@
 <map id="PentagramFieldButton" name="PentagramFieldButton">
-<area shape="rect" id="node1" title=" " alt="" coords="183,563,334,589"/>
-<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="229,487,289,513"/>
+<area shape="rect" id="node1" title=" " alt="" coords="183,592,334,619"/>
+<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="229,516,289,543"/>
 <area shape="rect" id="node3" href="$class_u_i_object.html" title=" " alt="" coords="159,263,231,289"/>
 <area shape="rect" id="node11" href="$class_text_object.html" title=" " alt="" coords="216,339,301,365"/>
 <area shape="rect" id="node4" href="$class_game_object.html" title=" " alt="" coords="67,185,162,212"/>

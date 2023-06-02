@@ -1,18 +1,24 @@
 <map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/SpellCaster/CasterManager.h" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/BattleScene/SpellCaster/CasterManager.h">
-<area shape="rect" id="node1" title=" " alt="" coords="298,5,471,76"/>
-<area shape="rect" id="node2" href="$_singleton_8h.html" title=" " alt="" coords="5,213,140,240"/>
-<area shape="rect" id="node3" href="$_caster_data_8h.html" title=" " alt="" coords="470,124,662,165"/>
-<area shape="rect" id="node8" href="$_spell_database_8h.html" title=" " alt="" coords="103,131,299,158"/>
-<area shape="rect" id="node15" href="$_cast_spell_detail_8h.html" title=" " alt="" coords="323,131,446,158"/>
-<area shape="rect" id="node16" href="$_pentagram_data_8h.html" title=" " alt="" coords="686,131,809,158"/>
-<area shape="rect" id="node4" href="$_element_8h.html" title=" " alt="" coords="486,363,646,389"/>
-<area shape="rect" id="node6" href="$_caster_position_8h.html" title=" " alt="" coords="409,213,528,240"/>
-<area shape="rect" id="node7" href="$_caster_stat_8h.html" title=" " alt="" coords="604,213,699,240"/>
-<area shape="rect" id="node5" title=" " alt="" coords="276,437,331,464"/>
-<area shape="rect" id="node9" title=" " alt="" coords="171,213,217,240"/>
-<area shape="rect" id="node10" href="$_spell_book_8h.html" title=" " alt="" coords="241,213,333,240"/>
-<area shape="rect" id="node11" href="$_spell_8h.html" title=" " alt="" coords="256,288,319,315"/>
-<area shape="rect" id="node12" title=" " alt="" coords="243,363,315,389"/>
-<area shape="rect" id="node13" href="$_spell_effect_type_8h.html" title=" " alt="" coords="339,363,462,389"/>
-<area shape="rect" id="node14" href="$_channel_effect_type_8h.html" title=" " alt="" coords="27,363,169,389"/>
+<area shape="rect" id="node1" title=" " alt="" coords="452,5,625,76"/>
+<area shape="rect" id="node2" href="$_singleton_8h.html" title=" " alt="" coords="118,213,253,240"/>
+<area shape="rect" id="node4" href="$_caster_data_8h.html" title=" " alt="" coords="625,124,817,165"/>
+<area shape="rect" id="node11" href="$_spell_database_8h.html" title=" " alt="" coords="254,131,450,158"/>
+<area shape="rect" id="node21" href="$_cast_spell_detail_8h.html" title=" " alt="" coords="477,131,600,158"/>
+<area shape="rect" id="node22" href="$_pentagram_data_8h.html" title=" " alt="" coords="841,131,964,158"/>
+<area shape="rect" id="node3" title=" " alt="" coords="156,288,215,315"/>
+<area shape="rect" id="node5" href="$_element_8h.html" title=" " alt="" coords="752,363,912,389"/>
+<area shape="rect" id="node7" href="$_caster_position_8h.html" title=" " alt="" coords="567,213,686,240"/>
+<area shape="rect" id="node8" href="$_caster_stat_8h.html" title=" " alt="" coords="762,213,857,240"/>
+<area shape="rect" id="node10" href="$_caster_type_8h.html" title=" " alt="" coords="881,213,980,240"/>
+<area shape="rect" id="node6" title=" " alt="" coords="309,437,363,464"/>
+<area shape="rect" id="node9" title=" " alt="" coords="784,288,835,315"/>
+<area shape="rect" id="node12" title=" " alt="" coords="329,213,375,240"/>
+<area shape="rect" id="node13" href="$_spell_book_8h.html" title=" " alt="" coords="451,213,543,240"/>
+<area shape="rect" id="node15" title=" " alt="" coords="5,363,77,389"/>
+<area shape="rect" id="node14" href="$_spell_8h.html" title=" " alt="" coords="382,288,445,315"/>
+<area shape="rect" id="node16" href="$_spell_effect_type_8h.html" title=" " alt="" coords="275,363,397,389"/>
+<area shape="rect" id="node17" href="$_channel_effect_type_8h.html" title=" " alt="" coords="421,363,563,389"/>
+<area shape="rect" id="node18" href="$_spell_target_8h.html" title=" " alt="" coords="101,363,200,389"/>
+<area shape="rect" id="node19" href="$_spell_resolve_effect_8h.html" title=" " alt="" coords="587,363,727,389"/>
+<area shape="rect" id="node20" title=" " alt="" coords="630,437,685,464"/>
 </map>

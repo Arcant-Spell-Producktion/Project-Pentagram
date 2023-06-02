@@ -13,51 +13,62 @@
 \DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_circle_u_i_8h}{PentagramCircleUI.h}}"{}}}
 \DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_field_button_manager_u_i_8h}{PentagramFieldButtonManagerUI.h}}"{}}}
 \DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_scroll_button_manager_u_i_8h}{PentagramScrollButtonManagerUI.h}}"{}}}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentragram_controller}{PentragramController}}}
-\DoxyCodeLine{14 \{}
-\DoxyCodeLine{15 \textcolor{keyword}{private}:}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_spell_selector_8h}{PentagramSpellSelector.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_object_enum_8h}{Game/BattleScene/GameObject/MainObjectEnum.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentragram_controller}{PentragramController}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
 \DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_caster_controller}{CasterController}}* m\_currentCaster = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{20     \mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} m\_currentData = \{1,1,1,1,0\};}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_event}{Event<PentagramField>}} OnPentagramFieldChange;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_event}{Event<PentagramEvent>}} OnPentagramValueChange;}
 \DoxyCodeLine{21 }
-\DoxyCodeLine{22     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} m\_currentField = \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64aa76d4ef5f3f6a672bbfab2865563e530}{PentagramField::Time}};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24     \mbox{\hyperlink{class_pentagram_circle_u_i}{PentagramCircleUI}}* m\_PentragramCircle;}
-\DoxyCodeLine{25     \mbox{\hyperlink{class_pentagram_field_button_u_i}{PentagramFieldButtonUI}}* m\_PentragramFieldButtons;}
-\DoxyCodeLine{26     \mbox{\hyperlink{class_pentagram_scroll_button_manager_u_i}{PentagramScrollButtonManagerUI}}* m\_PentagramScrollButton;}
+\DoxyCodeLine{22     \mbox{\hyperlink{struct_pentagram_event}{PentagramEvent}} m\_LastestEvent = \{\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64aa76d4ef5f3f6a672bbfab2865563e530}{PentagramField::Time}},0\};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_caster_controller}{CasterController}}* m\_currentCaster = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} m\_currentData = \{1,1,1,1,0\};}
 \DoxyCodeLine{27 }
-\DoxyCodeLine{28     \mbox{\hyperlink{class_scroll_button}{ScrollButton}}* m\_CastButton;}
-\DoxyCodeLine{29     \mbox{\hyperlink{class_scroll_button}{ScrollButton}}* m\_PassButton;}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Scroll\_2;}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* m\_SpellIcon;}
+\DoxyCodeLine{28     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} m\_currentField = \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64aa76d4ef5f3f6a672bbfab2865563e530}{PentagramField::Time}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_pentagram_circle_u_i}{PentagramCircleUI}}* m\_PentragramCircle;}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_pentagram_field_button_u_i}{PentagramFieldButtonUI}}* m\_PentragramFieldButtons;}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_pentagram_scroll_button_manager_u_i}{PentagramScrollButtonManagerUI}}* m\_PentagramScrollButton;}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_pentagram_spell_selector}{PentagramSpellSelector}}* m\_PentagramSpellSelector;}
 \DoxyCodeLine{34 }
-\DoxyCodeLine{35     \textcolor{keywordtype}{int}\& FieldData(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37     \mbox{\hyperlink{class_event}{Event<PentagramField>}} OnPentagramFieldChange;}
-\DoxyCodeLine{38     \mbox{\hyperlink{class_event}{Event<PentagramEvent>}} OnPentagramValueChange;}
-\DoxyCodeLine{39 \textcolor{keyword}{public}:}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41     \mbox{\hyperlink{class_event}{Event<PentagramData\_T\&>}} \mbox{\hyperlink{class_pentragram_controller_a85cfa9e50cdbd63fff25b29ada5f734c}{OnPentagramDataChange}};}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \mbox{\hyperlink{class_pentragram_controller_af3ac1af4d89984f9a5c9ab9082951057}{PentragramController}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_aea647a70ad016fef666fb96d4f12073a}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_ac7c8b235147e9379da7bb5bbf4f9957b}{SetPentagramField}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} selectedField);}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_ab991d29f45578b17abc3e022f4bbc182}{SetPentagramValue}}(\textcolor{keywordtype}{int} value);}
-\DoxyCodeLine{50     }
-\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_aee03de95fb831d5a76a2537163a18222}{SetCastButtonActive}}(\textcolor{keywordtype}{bool} isActive) \{ m\_CastButton-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(isActive); \}}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a720e1962a034136ed86b52b8d55d38d1}{SetPentagramOwner}}(\mbox{\hyperlink{class_caster_controller}{CasterController}}* caster);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a538ed8aad5c010ceb5ef407c0d852fe5}{ResetPentagram}}();}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57 \};}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_scroll_button}{ScrollButton}}* m\_CastButton;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_scroll_button}{ScrollButton}}* m\_PassButton;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Scroll\_2;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* m\_SpellIcon;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{int}\& FieldData(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} TogglePentagramField(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field, \textcolor{keywordtype}{bool} isActive);}
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{class_event}{Event<PentagramData\_T\&>}} \mbox{\hyperlink{class_pentragram_controller_a85cfa9e50cdbd63fff25b29ada5f734c}{OnPentagramDataChange}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_pentragram_controller_af3ac1af4d89984f9a5c9ab9082951057}{PentragramController}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a8a55fd2e21877c490c5d7164dc6232e4}{SetPentagramData}}(\mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} data);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_aea647a70ad016fef666fb96d4f12073a}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_ac7c8b235147e9379da7bb5bbf4f9957b}{SetPentagramField}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} selectedField);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_ab991d29f45578b17abc3e022f4bbc182}{SetPentagramValue}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{57     }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_aee03de95fb831d5a76a2537163a18222}{SetCastButtonActive}}(\textcolor{keywordtype}{bool} isActive) \{ m\_CastButton-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(isActive); \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a720e1962a034136ed86b52b8d55d38d1}{SetPentagramOwner}}(\mbox{\hyperlink{class_caster_controller}{CasterController}}* caster);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a9d594873ceac63f98e1c5e826ba0020f}{SetPentagramActive}}(\mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952}{MainObjectEnum}} \mbox{\hyperlink{_load_scene_8cpp_a405c26c4ba3b0da822bfb3006a114106}{obj}},\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& isActive);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a538ed8aad5c010ceb5ef407c0d852fe5}{ResetPentagram}}();}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentragram_controller_a2148a55f6946caf8bcf9f32f65e691a8}{ResetPentagramButtonField}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_pentragram_controller_a44000313a1593e0de6e534bbec76ed1e}{GetPentagramObject}}(\mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952}{MainObjectEnum}} \mbox{\hyperlink{_load_scene_8cpp_a405c26c4ba3b0da822bfb3006a114106}{obj}}) \textcolor{keyword}{const};}
+\DoxyCodeLine{68 \};}
 
 \end{DoxyCode}

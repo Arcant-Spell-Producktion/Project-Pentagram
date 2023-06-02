@@ -1,0 +1,4 @@
+<map id="BoostSpellEffect" name="BoostSpellEffect">
+<area shape="rect" id="node1" title=" " alt="" coords="5,80,124,107"/>
+<area shape="rect" id="node2" href="$class_base_spell_effect.html" title=" " alt="" coords="7,5,122,32"/>
+</map>

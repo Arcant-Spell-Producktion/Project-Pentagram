@@ -41,41 +41,93 @@
 \DoxyCodeLine{37 \textcolor{keyword}{public}:}
 \DoxyCodeLine{38     \mbox{\hyperlink{class_overflow_spell_effect_ab3d3f95446eaabc4ba296a6f3978405b}{OverflowSpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba129e8109f319870e328cc7a1d5b5cae3}{Overflow}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e}{OnStartTurn}})}
 \DoxyCodeLine{39     \{}
-\DoxyCodeLine{40         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{41     \}}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_overflow_spell_effect_a30028bb1a3fa19afe8d9556f4103ca2a}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
-\DoxyCodeLine{44 \};}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46 \textcolor{keyword}{class }\mbox{\hyperlink{class_freeze_spell_effect}{FreezeSpellEffect}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}}
-\DoxyCodeLine{47 \{}
-\DoxyCodeLine{48 \textcolor{keyword}{private}:}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \textcolor{keyword}{public}:}
-\DoxyCodeLine{51     \mbox{\hyperlink{class_freeze_spell_effect_a2944e1b2679d4ffe430a43e775c83a2a}{FreezeSpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba65467087a19145f43129bba42781aea0}{Freeze}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e}{OnStartTurn}})}
-\DoxyCodeLine{52     \{}
-\DoxyCodeLine{53         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{54         \mbox{\hyperlink{class_base_spell_effect_ab0c0988ad7af7ccc6b38d07881acaf77}{m\_IsEffectActiveOnce}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{55     \}}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_freeze_spell_effect_a1448ea27768609fea6cb04dfd2bdbc73}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
-\DoxyCodeLine{58 \};}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_effects}{SpellEffects}}}
-\DoxyCodeLine{61 \{}
-\DoxyCodeLine{62 \textcolor{keyword}{public}:}
-\DoxyCodeLine{63     \textcolor{keyword}{static} std::vector<BaseSpellEffect*> \mbox{\hyperlink{class_spell_effects_ab907d3764afeb1d0109f059656d5502a}{GetSpellEffects}}()}
-\DoxyCodeLine{64     \{}
-\DoxyCodeLine{65         std::vector<BaseSpellEffect*> effects =}
-\DoxyCodeLine{66         \{}
-\DoxyCodeLine{67             \textcolor{keyword}{new} \mbox{\hyperlink{class_burn_spell_effect}{BurnSpellEffect}}(),}
-\DoxyCodeLine{68             \textcolor{keyword}{new} \mbox{\hyperlink{class_mark_spell_effect}{MarkSpellEffect}}(),}
-\DoxyCodeLine{69             \textcolor{keyword}{new} \mbox{\hyperlink{class_overflow_spell_effect}{OverflowSpellEffect}}(),}
-\DoxyCodeLine{70             \textcolor{keyword}{new} \mbox{\hyperlink{class_freeze_spell_effect}{FreezeSpellEffect}}()}
-\DoxyCodeLine{71         \};}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{73         \textcolor{keywordflow}{return} effects;}
-\DoxyCodeLine{74     \}}
-\DoxyCodeLine{75 \};}
+\DoxyCodeLine{40         \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\_EffectStackLimit}} = 5;}
+\DoxyCodeLine{41         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_overflow_spell_effect_a30028bb1a3fa19afe8d9556f4103ca2a}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{class }\mbox{\hyperlink{class_freeze_spell_effect}{FreezeSpellEffect}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49 \textcolor{keyword}{private}:}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{public}:}
+\DoxyCodeLine{52     \mbox{\hyperlink{class_freeze_spell_effect_a2944e1b2679d4ffe430a43e775c83a2a}{FreezeSpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba65467087a19145f43129bba42781aea0}{Freeze}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e}{OnStartTurn}})}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\_EffectStackLimit}} = 3;}
+\DoxyCodeLine{55         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{56         \mbox{\hyperlink{class_base_spell_effect_ae93e9952647d38352b59e95bbb70df6c}{m\_IsEffectResetOnEndOfCastPhase}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_freeze_spell_effect_a1448ea27768609fea6cb04dfd2bdbc73}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{class }\mbox{\hyperlink{class_fortify_spell_effect}{FortifySpellEffect}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{public}:}
+\DoxyCodeLine{66     \mbox{\hyperlink{class_fortify_spell_effect_accde66bdb169a4fc22e5569e7d20cd63}{FortifySpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5bab8441a65978274609ede312e824cc141}{Fortify}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a1a3a4953feb3a5abe69ab4e8e63b2c12}{OnDamageCalculation}})}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\_EffectStackLimit}} = 3;}
+\DoxyCodeLine{69         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fortify_spell_effect_a56eed52232be246ee3688e3ffeeaca6e}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{class }\mbox{\hyperlink{class_petrify_spell_effect}{PetrifySpellEffect}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77 \textcolor{keyword}{private}:}
+\DoxyCodeLine{78 \textcolor{keyword}{public}:}
+\DoxyCodeLine{79     \mbox{\hyperlink{class_petrify_spell_effect_ab380f15caadc318ffb2bf0f8121737b8}{PetrifySpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba087986d5f93f77c68fd51d858b6a6ab6}{Petrify}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e}{OnStartTurn}})}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\_EffectStackLimit}} = 3;}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{83         \mbox{\hyperlink{class_base_spell_effect_ab0c0988ad7af7ccc6b38d07881acaf77}{m\_IsEffectActiveOnce}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{84         \mbox{\hyperlink{class_base_spell_effect_ae93e9952647d38352b59e95bbb70df6c}{m\_IsEffectResetOnEndOfCastPhase}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_petrify_spell_effect_a2328ce98c08c010f33233b7eb2f10189}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
+\DoxyCodeLine{88     }
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{class }\mbox{\hyperlink{class_boost_spell_effect}{BoostSpellEffect}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93 \textcolor{keyword}{private}:}
+\DoxyCodeLine{94     \textcolor{keywordtype}{int} m\_WillBuff = 1;}
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} m\_TimeBuff = 1;}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} m\_DmgBuff = 10;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{public}:}
+\DoxyCodeLine{99     \mbox{\hyperlink{class_boost_spell_effect_a96a9d901dbb2c8d103cb543aee783f0c}{BoostSpellEffect}}() :\mbox{\hyperlink{class_base_spell_effect}{BaseSpellEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}::\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba43c0b4ec5edcd9385319524f5ddee79e}{Boost}}, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}}::\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54ae7d73479d93299d4b8fa277232ccb34e}{OnStartTurn}})}
+\DoxyCodeLine{100     \{}
+\DoxyCodeLine{101         \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\_EffectStackLimit}} = 8;}
+\DoxyCodeLine{102         \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\_IsEffectStack}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{103         \mbox{\hyperlink{class_base_spell_effect_a00f652324336e64a0ef8f6d2a9485a51}{m\_IsEffectResetAtStackLimit}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_boost_spell_effect_acaff4810364efffe320fe6db03bdb994}{ResolveEffect}}(std::va\_list args) \textcolor{keyword}{override};}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_effects}{SpellEffects}}}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111 \textcolor{keyword}{public}:}
+\DoxyCodeLine{112     \textcolor{keyword}{static} std::vector<BaseSpellEffect*> \mbox{\hyperlink{class_spell_effects_ab907d3764afeb1d0109f059656d5502a}{GetSpellEffects}}()}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114         std::vector<BaseSpellEffect*> effects =}
+\DoxyCodeLine{115         \{}
+\DoxyCodeLine{116             \textcolor{keyword}{new} \mbox{\hyperlink{class_burn_spell_effect}{BurnSpellEffect}}(),}
+\DoxyCodeLine{117             \textcolor{keyword}{new} \mbox{\hyperlink{class_mark_spell_effect}{MarkSpellEffect}}(),}
+\DoxyCodeLine{118             \textcolor{keyword}{new} \mbox{\hyperlink{class_overflow_spell_effect}{OverflowSpellEffect}}(),}
+\DoxyCodeLine{119             \textcolor{keyword}{new} \mbox{\hyperlink{class_freeze_spell_effect}{FreezeSpellEffect}}(),}
+\DoxyCodeLine{120             \textcolor{keyword}{new} \mbox{\hyperlink{class_fortify_spell_effect}{FortifySpellEffect}}(),}
+\DoxyCodeLine{121             \textcolor{keyword}{new} \mbox{\hyperlink{class_petrify_spell_effect}{PetrifySpellEffect}}(),}
+\DoxyCodeLine{122             \textcolor{keyword}{new} \mbox{\hyperlink{class_boost_spell_effect}{BoostSpellEffect}}(),}
+\DoxyCodeLine{123         \};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{keywordflow}{return} effects;}
+\DoxyCodeLine{126     \}}
+\DoxyCodeLine{127 \};}
 
 \end{DoxyCode}

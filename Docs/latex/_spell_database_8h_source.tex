@@ -6,28 +6,29 @@
 \DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_book_8h}{SpellBook.h}}"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_database}{SpellDatabase}}:\textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<SpellDatabase>}
-\DoxyCodeLine{7 \{}
-\DoxyCodeLine{8     \textcolor{keywordtype}{void} AddSpellBook(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \textcolor{keywordtype}{string} filename);}
-\DoxyCodeLine{9 \textcolor{keyword}{public}:}
-\DoxyCodeLine{10     map<Element::Type, SpellBook*> \mbox{\hyperlink{class_spell_database_af782d408ebd514e0425e455f893fbf61}{SpellBooks}};}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_database_ac7aa987f95b2ae88ba881e1a7fa769fe}{LoadResource}}();}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \mbox{\hyperlink{class_spell_book}{SpellBook}}* \mbox{\hyperlink{class_spell_database_a39fd0c07b0e7051e22a1f3588eca8dc6}{GetBookByElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element)}
-\DoxyCodeLine{15     \{}
-\DoxyCodeLine{16      \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_database_af782d408ebd514e0425e455f893fbf61}{SpellBooks}}.find(element)-\/>second;}
-\DoxyCodeLine{17     \}}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19     \mbox{\hyperlink{class_spell_database_afa0273b924a799f23bcd67e534662966}{\string~SpellDatabase}}()}
-\DoxyCodeLine{20     \{}
-\DoxyCodeLine{21         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} spellbookPair : \mbox{\hyperlink{class_spell_database_af782d408ebd514e0425e455f893fbf61}{SpellBooks}})}
-\DoxyCodeLine{22         \{}
-\DoxyCodeLine{23             \textcolor{keyword}{delete} spellbookPair.second;}
-\DoxyCodeLine{24         \}}
-\DoxyCodeLine{25         \mbox{\hyperlink{class_spell_database_af782d408ebd514e0425e455f893fbf61}{SpellBooks}}.clear();}
-\DoxyCodeLine{26     \}}
-\DoxyCodeLine{27 \};}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_database}{SpellDatabase}}:\textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<SpellDatabase>}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{void} AddSpellBook(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, std::string filename);}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     std::map<Element::Type, SpellBook*> \mbox{\hyperlink{class_spell_database_ad9bb7eacf628e7aa224371f150a4074a}{SpellBooks}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_database_ac7aa987f95b2ae88ba881e1a7fa769fe}{LoadResource}}();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{class_spell_book}{SpellBook}}* \mbox{\hyperlink{class_spell_database_a39fd0c07b0e7051e22a1f3588eca8dc6}{GetBookByElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17      \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_database_ad9bb7eacf628e7aa224371f150a4074a}{SpellBooks}}.find(element)-\/>second;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_spell_database_afa0273b924a799f23bcd67e534662966}{\string~SpellDatabase}}()}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} spellbookPair : \mbox{\hyperlink{class_spell_database_ad9bb7eacf628e7aa224371f150a4074a}{SpellBooks}})}
+\DoxyCodeLine{23         \{}
+\DoxyCodeLine{24             \textcolor{keyword}{delete} spellbookPair.second;}
+\DoxyCodeLine{25         \}}
+\DoxyCodeLine{26         \mbox{\hyperlink{class_spell_database_ad9bb7eacf628e7aa224371f150a4074a}{SpellBooks}}.clear();}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28 \};}
 
 \end{DoxyCode}

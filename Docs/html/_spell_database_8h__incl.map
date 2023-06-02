@@ -1,12 +1,16 @@
 <map id="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellDatabase.h" name="E:/Project&#45;Pentagram/Project&#45;Pentagram/Game/Spells/SpellDatabase.h">
-<area shape="rect" id="node1" title=" " alt="" coords="147,5,320,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="95,109,142,136"/>
-<area shape="rect" id="node3" href="$_singleton_8h.html" title=" " alt="" coords="166,109,301,136"/>
-<area shape="rect" id="node4" href="$_spell_book_8h.html" title=" " alt="" coords="325,109,417,136"/>
-<area shape="rect" id="node5" href="$_spell_8h.html" title=" " alt="" coords="259,184,322,211"/>
-<area shape="rect" id="node10" href="$_element_8h.html" title=" " alt="" coords="464,259,624,285"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,259,77,285"/>
-<area shape="rect" id="node7" title=" " alt="" coords="263,333,318,360"/>
-<area shape="rect" id="node8" href="$_spell_effect_type_8h.html" title=" " alt="" coords="152,259,275,285"/>
-<area shape="rect" id="node9" href="$_channel_effect_type_8h.html" title=" " alt="" coords="299,259,440,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="109,5,282,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,109,52,136"/>
+<area shape="rect" id="node3" href="$_singleton_8h.html" title=" " alt="" coords="76,109,211,136"/>
+<area shape="rect" id="node5" href="$_spell_book_8h.html" title=" " alt="" coords="465,109,557,136"/>
+<area shape="rect" id="node7" title=" " alt="" coords="35,259,107,285"/>
+<area shape="rect" id="node4" title=" " alt="" coords="114,184,173,211"/>
+<area shape="rect" id="node6" href="$_spell_8h.html" title=" " alt="" coords="480,184,543,211"/>
+<area shape="rect" id="node14" href="$_element_8h.html" title=" " alt="" coords="782,259,942,285"/>
+<area shape="rect" id="node8" title=" " alt="" coords="571,333,625,360"/>
+<area shape="rect" id="node9" href="$_spell_effect_type_8h.html" title=" " alt="" coords="635,259,758,285"/>
+<area shape="rect" id="node10" href="$_channel_effect_type_8h.html" title=" " alt="" coords="297,259,438,285"/>
+<area shape="rect" id="node11" href="$_spell_target_8h.html" title=" " alt="" coords="462,259,561,285"/>
+<area shape="rect" id="node12" href="$_spell_resolve_effect_8h.html" title=" " alt="" coords="132,259,272,285"/>
+<area shape="rect" id="node13" title=" " alt="" coords="175,333,229,360"/>
 </map>

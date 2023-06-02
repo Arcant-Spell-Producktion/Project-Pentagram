@@ -3,13 +3,59 @@
 \mbox{\hyperlink{_map_data_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_enemy_data_8h}{Game/GameData/CasterData/EnemyData.h}}"{}}}
-\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_map_data}{MapData}}}
-\DoxyCodeLine{5 \{}
-\DoxyCodeLine{6 \textcolor{keyword}{private}:}
-\DoxyCodeLine{7     \textcolor{keywordtype}{int} m\_MapPos;}
-\DoxyCodeLine{8     std::vector<EnemyData> m\_EnemyList;}
-\DoxyCodeLine{9 \};}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_chapter_data_8h}{ChapterData.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <bitset>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_map_save_data}{MapSaveData}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_map_save_data_acbc5676f401dd51dc578b06083afd3bd}{isAtMap}};}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_map_save_data_ae2aa2a53145b183094d3761495f88e58}{completeChapter}};}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_map_save_data_a8ba5ae45d1acb675a074555428ccfd0f}{currentChapterElement}};}
+\DoxyCodeLine{13     std::array<int, 5> \mbox{\hyperlink{struct_map_save_data_a4dd73eb7a4d87678132ba94813274ab0}{nodeIndex}};}
+\DoxyCodeLine{14     std::array<bool,5> \mbox{\hyperlink{struct_map_save_data_ae17f5c52f0d426c1c79e9e3c288a14ef}{canVisit}};}
+\DoxyCodeLine{15 \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_map_data}{MapData}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} m\_CompleteChapterCount = 0;}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_StartElement;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CurrentChapter;}
+\DoxyCodeLine{23     std::map<Element::Type,ChapterData*> m\_Chapters;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_node_data}{NodeData}}* m\_CurrentNode = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_map_data_a3caf51d6a8ddd0074a3c0a6a87cea522}{IsAtMap}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_map_data_a15903f8fbc2321b0a136b90ba99d4728}{MapData}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} startElement);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_map_data_a8b4ffabbb4b65919f13ddc0f851e5a0d}{GetCurrentChapter}}() \{}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} m\_CurrentChapter;}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_data_abc223b44315e81402f1879e5f1d1737c}{AddChapter}}(\mbox{\hyperlink{class_chapter_data}{ChapterData}}* c);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_map_data_a9a62285db355b80312cae762e090a38b}{IsChapterComplete}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_map_data_a2ac0f0d99f9967a1785104d61ab14a73}{CanVisitChapter}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_data_a0b5c9a81a0e93b33e868ab94c85987e2}{SelectChapter}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_node_data}{NodeData}}* \mbox{\hyperlink{class_map_data_a4f8f40d62a931c551daed56e84ee0f2b}{GetNextNode}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_map_data_a1188f088022dd289d28d60b73ba22345}{CompleteNode}}();}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{struct_map_save_data}{MapSaveData}} \mbox{\hyperlink{class_map_data_a6cf1b35b0b62670f8b2580d81ac31f5d}{SaveMapData}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_data_a589c37b6921718f3349bcd34a474f662}{LoadMapData}}(\mbox{\hyperlink{struct_map_save_data}{MapSaveData}} data);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \mbox{\hyperlink{class_map_data_afc3e096cf252c30641055ea4eaaab410}{\string~MapData}}();}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
 
 \end{DoxyCode}

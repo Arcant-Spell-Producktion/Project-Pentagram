@@ -10,12 +10,17 @@
 \DoxyCodeLine{6 \{}
 \DoxyCodeLine{7 \textcolor{keyword}{private}:}
 \DoxyCodeLine{8     std::map<SpellEffectEnum,CasterEffectIconUI*> m\_EffectIcons;}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10     \textcolor{keywordtype}{int} m\_Direction;}
-\DoxyCodeLine{11 \textcolor{keyword}{public}:}
-\DoxyCodeLine{12     \mbox{\hyperlink{class_caster_effect_bar_u_i_ada9f4482a13d5b1fb2c468bd66a0860e}{CasterEffectBarUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_bar_u_i_a815b3f4c5eda209c9ebb0fe51d1ec549}{UpdateEffectIcons}}(std::vector<EffectDetail\_T> effects);}
-\DoxyCodeLine{15 \};}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_caster_effect_icon_u_i}{CasterEffectIconUI}}* m\_HoverEffectIcon;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_Direction;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_caster_effect_bar_u_i_ada9f4482a13d5b1fb2c468bd66a0860e}{CasterEffectBarUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_bar_u_i_a2d4828d09845e36570bf8fdfd011f8cb}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_bar_u_i_a815b3f4c5eda209c9ebb0fe51d1ec549}{UpdateEffectIcons}}(std::vector<EffectDetail\_T> effects);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_caster_effect_icon_u_i}{CasterEffectIconUI}}* \mbox{\hyperlink{class_caster_effect_bar_u_i_aa9f89123c37a919b23b8ebdf26579ea0}{GetHoverEffectIcon}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{20 \};}
 
 \end{DoxyCode}

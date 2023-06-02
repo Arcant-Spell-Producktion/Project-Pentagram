@@ -6,11 +6,12 @@
 
 
 
-Inheritance diagram for UIObject\+:\nopagebreak
+Inheritance diagram for UIObject\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_u_i_object__inherit__graph}
+\includegraphics[height=550pt]{class_u_i_object__inherit__graph}
 \end{center}
 \end{figure}
 
@@ -45,6 +46,8 @@ float \mbox{\hyperlink{class_u_i_object_aa4942d79cf8d317da5d79e4c457bad50}{Get\+
 \item 
 \mbox{\hyperlink{class_texture}{Texture}} $\ast$ \mbox{\hyperlink{class_u_i_object_aabffc7bf8dceaad115c091f97be17fad}{Get\+End\+Gradient\+Texture}} () const
 \item 
+bool \mbox{\hyperlink{class_u_i_object_a4d4343c20d5c8442e0239039a084e342}{Is\+Block\+Raycast}} () const
+\item 
 void \mbox{\hyperlink{class_u_i_object_a64c7a805c0ca49059b8b63c61f4f0653}{Set\+Is\+Slicing}} (const bool \&active)
 \item 
 void \mbox{\hyperlink{class_u_i_object_af3d2eddd9f108cc74c2172294bcbe6bc}{Set\+Slicing\+Border\+Size}} (const float \&slicing\+Border\+Size)
@@ -60,6 +63,12 @@ void \mbox{\hyperlink{class_u_i_object_abe36c18e54816b35229f7e47122ca3ae}{Set\+G
 void \mbox{\hyperlink{class_u_i_object_a76a81f8fcd6c01d5e79eab3a667155cf}{Set\+Start\+Gradient\+Texture}} (const std\+::string \&file\+Path)
 \item 
 void \mbox{\hyperlink{class_u_i_object_a1664731da2d6547e2b4dcae951203069}{Set\+End\+Gradient\+Texture}} (const std\+::string \&file\+Path)
+\item 
+void \mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{Set\+Block\+Raycast}} (const bool \&active)
+\item 
+void \mbox{\hyperlink{class_u_i_object_a5743dd744f65b9fc2d83c25156b3f3b0}{Set\+Is\+Clip}} (const bool \&active)
+\item 
+void \mbox{\hyperlink{class_u_i_object_aab040d0d66cf274ae4b4a1589604a899}{Set\+Clip\+Percentage}} (const float \&percent)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -77,6 +86,12 @@ float \mbox{\hyperlink{class_u_i_object_a195b4dbc4a6de52bb52bb8fd366cf542}{m\+\_
 bool \mbox{\hyperlink{class_u_i_object_a874ea279098ee85f269c299450f9b91f}{m\+\_\+\+Is\+Gradient}} = false
 \item 
 float \mbox{\hyperlink{class_u_i_object_a52cd5b2e82d1cfd3c43c0d22b25f865f}{m\+\_\+\+Gradient\+Value}} = 0.\+0f
+\item 
+bool \mbox{\hyperlink{class_u_i_object_a18735dbef298c01543870c2e8f1a0b7c}{m\+\_\+\+Block\+Raycast}} = false
+\item 
+bool \mbox{\hyperlink{class_u_i_object_ac60d1d8a3d72376929d299548aa93254}{m\+\_\+\+Is\+Clip}} = false
+\item 
+float \mbox{\hyperlink{class_u_i_object_a0142fc7f3a62f0057de267d0bb073aab}{m\+\_\+\+Clip\+Percentage}} = 0.\+0f
 \item 
 \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28e}{Slicing\+Type}} \mbox{\hyperlink{class_u_i_object_a9d2de117583f3db710c3f533b1f8639a}{m\+\_\+\+Slicing\+Type}} = \mbox{\hyperlink{_u_i_object_8h_a7aa27fa00f541ec5c8fecf0712fae28ea61ab5155430461b48d7d41ee0778d0a3}{Slicing\+Type\+::\+STRETCH}}
 \end{DoxyCompactItemize}
@@ -143,6 +158,12 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \doxysubsubsection{\texorpdfstring{GetStartGradientTexture()}{GetStartGradientTexture()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}} $\ast$ UIObject\+::\+Get\+Start\+Gradient\+Texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_u_i_object_a4d4343c20d5c8442e0239039a084e342}\label{class_u_i_object_a4d4343c20d5c8442e0239039a084e342}} 
+\index{UIObject@{UIObject}!IsBlockRaycast@{IsBlockRaycast}}
+\index{IsBlockRaycast@{IsBlockRaycast}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{IsBlockRaycast()}{IsBlockRaycast()}}
+{\footnotesize\ttfamily bool UIObject\+::\+Is\+Block\+Raycast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
 \mbox{\Hypertarget{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}\label{class_u_i_object_a4ba36d9e0e9be1e16cca606ee7215f4a}} 
 \index{UIObject@{UIObject}!IsGradient@{IsGradient}}
 \index{IsGradient@{IsGradient}!UIObject@{UIObject}}
@@ -155,6 +176,18 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \doxysubsubsection{\texorpdfstring{IsSlicing()}{IsSlicing()}}
 {\footnotesize\ttfamily bool UIObject\+::\+Is\+Slicing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+\mbox{\Hypertarget{class_u_i_object_af3699fb791de67aad329211902ad71e1}\label{class_u_i_object_af3699fb791de67aad329211902ad71e1}} 
+\index{UIObject@{UIObject}!SetBlockRaycast@{SetBlockRaycast}}
+\index{SetBlockRaycast@{SetBlockRaycast}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetBlockRaycast()}{SetBlockRaycast()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Block\+Raycast (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_aab040d0d66cf274ae4b4a1589604a899}\label{class_u_i_object_aab040d0d66cf274ae4b4a1589604a899}} 
+\index{UIObject@{UIObject}!SetClipPercentage@{SetClipPercentage}}
+\index{SetClipPercentage@{SetClipPercentage}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetClipPercentage()}{SetClipPercentage()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Clip\+Percentage (\begin{DoxyParamCaption}\item[{const float \&}]{percent }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_u_i_object_a1664731da2d6547e2b4dcae951203069}\label{class_u_i_object_a1664731da2d6547e2b4dcae951203069}} 
 \index{UIObject@{UIObject}!SetEndGradientTexture@{SetEndGradientTexture}}
 \index{SetEndGradientTexture@{SetEndGradientTexture}!UIObject@{UIObject}}
@@ -166,6 +199,12 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \index{SetGradientValue@{SetGradientValue}!UIObject@{UIObject}}
 \doxysubsubsection{\texorpdfstring{SetGradientValue()}{SetGradientValue()}}
 {\footnotesize\ttfamily void UIObject\+::\+Set\+Gradient\+Value (\begin{DoxyParamCaption}\item[{const float \&}]{gradiant\+Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_u_i_object_a5743dd744f65b9fc2d83c25156b3f3b0}\label{class_u_i_object_a5743dd744f65b9fc2d83c25156b3f3b0}} 
+\index{UIObject@{UIObject}!SetIsClip@{SetIsClip}}
+\index{SetIsClip@{SetIsClip}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{SetIsClip()}{SetIsClip()}}
+{\footnotesize\ttfamily void UIObject\+::\+Set\+Is\+Clip (\begin{DoxyParamCaption}\item[{const bool \&}]{active }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}\label{class_u_i_object_a683d5e56301e94b8588d4b791cb3692e}} 
 \index{UIObject@{UIObject}!SetIsGradient@{SetIsGradient}}
@@ -206,6 +245,18 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 
 
 \doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_i_object_a18735dbef298c01543870c2e8f1a0b7c}\label{class_u_i_object_a18735dbef298c01543870c2e8f1a0b7c}} 
+\index{UIObject@{UIObject}!m\_BlockRaycast@{m\_BlockRaycast}}
+\index{m\_BlockRaycast@{m\_BlockRaycast}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_BlockRaycast}{m\_BlockRaycast}}
+{\footnotesize\ttfamily bool UIObject\+::m\+\_\+\+Block\+Raycast = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_a0142fc7f3a62f0057de267d0bb073aab}\label{class_u_i_object_a0142fc7f3a62f0057de267d0bb073aab}} 
+\index{UIObject@{UIObject}!m\_ClipPercentage@{m\_ClipPercentage}}
+\index{m\_ClipPercentage@{m\_ClipPercentage}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_ClipPercentage}{m\_ClipPercentage}}
+{\footnotesize\ttfamily float UIObject\+::m\+\_\+\+Clip\+Percentage = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
 \mbox{\Hypertarget{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}\label{class_u_i_object_a541a5caf3e4d3da2166c558bcc0a6413}} 
 \index{UIObject@{UIObject}!m\_EndGradientTexture@{m\_EndGradientTexture}}
 \index{m\_EndGradientTexture@{m\_EndGradientTexture}!UIObject@{UIObject}}
@@ -217,6 +268,12 @@ Reimplemented in \mbox{\hyperlink{class_button_a5177361e2f4a8294557386153e51c9f0
 \index{m\_GradientValue@{m\_GradientValue}!UIObject@{UIObject}}
 \doxysubsubsection{\texorpdfstring{m\_GradientValue}{m\_GradientValue}}
 {\footnotesize\ttfamily float UIObject\+::m\+\_\+\+Gradient\+Value = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_u_i_object_ac60d1d8a3d72376929d299548aa93254}\label{class_u_i_object_ac60d1d8a3d72376929d299548aa93254}} 
+\index{UIObject@{UIObject}!m\_IsClip@{m\_IsClip}}
+\index{m\_IsClip@{m\_IsClip}!UIObject@{UIObject}}
+\doxysubsubsection{\texorpdfstring{m\_IsClip}{m\_IsClip}}
+{\footnotesize\ttfamily bool UIObject\+::m\+\_\+\+Is\+Clip = false\hspace{0.3cm}{\ttfamily [protected]}}
 
 \mbox{\Hypertarget{class_u_i_object_a874ea279098ee85f269c299450f9b91f}\label{class_u_i_object_a874ea279098ee85f269c299450f9b91f}} 
 \index{UIObject@{UIObject}!m\_IsGradient@{m\_IsGradient}}

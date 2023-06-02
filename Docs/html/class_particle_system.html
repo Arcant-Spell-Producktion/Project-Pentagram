@@ -107,6 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad76c977ec244b5f0c529ca570a0dd101"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08d23981923c20a3c0882862f203327d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_system.html#a08d23981923c20a3c0882862f203327d">UnloadMesh</a> () override</td></tr>
 <tr class="separator:a08d23981923c20a3c0882862f203327d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7cf0dd4dc72470b255e7da9beef8da4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_system.html#ae7cf0dd4dc72470b255e7da9beef8da4">StopGenerate</a> ()</td></tr>
+<tr class="separator:ae7cf0dd4dc72470b255e7da9beef8da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49b5f37c4e8103cbf02016760aaf691f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_system.html#a49b5f37c4e8103cbf02016760aaf691f">StartGenerate</a> ()</td></tr>
+<tr class="separator:a49b5f37c4e8103cbf02016760aaf691f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea28693659dbc020c63a605b94b7e519"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_system.html#aea28693659dbc020c63a605b94b7e519">SetSpawnTime</a> (const float &amp;spawnTime)</td></tr>
 <tr class="separator:aea28693659dbc020c63a605b94b7e519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ec1631f0478ca8dd7a91026e96317ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_system.html#a6ec1631f0478ca8dd7a91026e96317ad">SetIsFixRotation</a> (const bool &amp;active)</td></tr>
@@ -146,6 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab77deef319fd3643d19ee2494b0dd06c inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b99f20242fdd77abb2ece4d8f7be1b7 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a1b99f20242fdd77abb2ece4d8f7be1b7">GetBackRenderChildSize</a> () const</td></tr>
 <tr class="separator:a1b99f20242fdd77abb2ece4d8f7be1b7 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f42a4721b96f4991d2136fd3a6af2d1 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a8f42a4721b96f4991d2136fd3a6af2d1">GetFrontRenderChildList</a> () const</td></tr>
+<tr class="separator:a8f42a4721b96f4991d2136fd3a6af2d1 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67cf0745b05b9a3966dab290ce24e7c3 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a67cf0745b05b9a3966dab290ce24e7c3">GetBackRenderChildList</a> () const</td></tr>
+<tr class="separator:a67cf0745b05b9a3966dab290ce24e7c3 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3741e6f513ffa2f242b706c432921221 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_game_object.html">GameObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a3741e6f513ffa2f242b706c432921221">GetChildList</a> () const</td></tr>
 <tr class="separator:a3741e6f513ffa2f242b706c432921221 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a054d052a5328888dbc48530759ae5f2d inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a054d052a5328888dbc48530759ae5f2d">GetWorldPosition</a> () const</td></tr>
@@ -228,6 +236,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a6183362801e338fc99f5225f84a5b01f inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1875c0e1837f21bd59d175da127358b9 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a1875c0e1837f21bd59d175da127358b9">m_Texture</a></td></tr>
 <tr class="separator:a1875c0e1837f21bd59d175da127358b9 inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddb45724e9a9b43c454a7c48b76818c inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9ddb45724e9a9b43c454a7c48b76818c">m_TexturePath</a></td></tr>
+<tr class="separator:a9ddb45724e9a9b43c454a7c48b76818c inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7779b2440466355f1e75d3b9280d6b5e inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a7779b2440466355f1e75d3b9280d6b5e">m_IsActive</a></td></tr>
 <tr class="separator:a7779b2440466355f1e75d3b9280d6b5e inherit pro_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeaabdef761508c2eba3cb1a6b6696d03 inherit pro_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#aeaabdef761508c2eba3cb1a6b6696d03">m_Tag</a></td></tr>
@@ -437,6 +447,56 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49b5f37c4e8103cbf02016760aaf691f" name="a49b5f37c4e8103cbf02016760aaf691f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49b5f37c4e8103cbf02016760aaf691f">&#9670;&nbsp;</a></span>StartGenerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleSystem::StartGenerate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7cf0dd4dc72470b255e7da9beef8da4" name="ae7cf0dd4dc72470b255e7da9beef8da4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7cf0dd4dc72470b255e7da9beef8da4">&#9670;&nbsp;</a></span>StopGenerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleSystem::StopGenerate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

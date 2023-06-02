@@ -7,130 +7,136 @@
 \DoxyCodeLine{3 \textcolor{preprocessor}{\#include <set>}}
 \DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <functional>}}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{16 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_action}{Action}}}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19 \textcolor{keyword}{public}:}
-\DoxyCodeLine{20     \textcolor{comment}{/*}}
-\DoxyCodeLine{21 \textcolor{comment}{}}
-\DoxyCodeLine{22 \textcolor{comment}{    @brief std::function that holds the wrapped function.}}
-\DoxyCodeLine{23 \textcolor{comment}{    */}}
-\DoxyCodeLine{24     std::function<void(T)> \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}};}
-\DoxyCodeLine{29     \mbox{\hyperlink{class_action_ab8664f73991e2d8455b86c0d94ff1f95}{Action}}() : \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(nullptr) \{\}}
-\DoxyCodeLine{35     \mbox{\hyperlink{class_action_a1d96e854ad62df9a5c64be1b6f159d83}{Action}}(std::function<\textcolor{keywordtype}{void}(T)> \_fn) : \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(\_fn) \{\}}
-\DoxyCodeLine{48     \textcolor{keyword}{template} <\textcolor{keyword}{typename} L>}
-\DoxyCodeLine{49     \mbox{\hyperlink{class_action_a7d40de49539a705b725f196c48a53716}{Action}}(L\&\& lambda)}
-\DoxyCodeLine{50     \{}
-\DoxyCodeLine{51         \textcolor{comment}{// Assign the lambda to the std::function}}
-\DoxyCodeLine{52         \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}} = lambda;}
-\DoxyCodeLine{53     \}}
-\DoxyCodeLine{59     std::string \mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}()\textcolor{keyword}{ const}}
-\DoxyCodeLine{60 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{61         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}.target\_type().name();}
-\DoxyCodeLine{62     \}}
-\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_action_afffec9fdc3592f96886dd1d2fcc63ea2}{operator()}}(T arg)}
-\DoxyCodeLine{69     \{}
-\DoxyCodeLine{70         \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(arg);}
-\DoxyCodeLine{71     \}}
-\DoxyCodeLine{78     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_action_a2241b1ca963e0f36e86b317e80d8bd03}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& other)\textcolor{keyword}{ const}}
-\DoxyCodeLine{79 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{80         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() == other.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}();}
-\DoxyCodeLine{81     \}}
-\DoxyCodeLine{82 \};}
-\DoxyCodeLine{83 }
-\DoxyCodeLine{89 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{90 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_action_cmp}{ActionCmp}}}
-\DoxyCodeLine{91 \{}
-\DoxyCodeLine{92     \textcolor{comment}{/*}}
-\DoxyCodeLine{93 \textcolor{comment}{    @brief Compare the function names of the Action objects using the '<' operator.}}
-\DoxyCodeLine{94 \textcolor{comment}{    @param lhs The left-\/hand side Action object.}}
-\DoxyCodeLine{95 \textcolor{comment}{    @param rhs The right-\/hand side Action object.}}
-\DoxyCodeLine{96 \textcolor{comment}{    @return True if the function name of the left-\/hand side Action object is less than the function name of the right-\/hand side Action object, false otherwise.}}
-\DoxyCodeLine{97 \textcolor{comment}{    */}}
-\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_action_cmp_a0ac686e0302c074b15ce732ed5d8847f}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& rhs)\textcolor{keyword}{ const}}
-\DoxyCodeLine{99 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{100         \textcolor{comment}{// Compare the function names of the Action objects using the '<' operator}}
-\DoxyCodeLine{101         \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() < rhs.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}();}
-\DoxyCodeLine{102     \}}
-\DoxyCodeLine{103 \};}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{113 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{114 \textcolor{keyword}{class }\mbox{\hyperlink{class_event}{Event}}}
-\DoxyCodeLine{115 \{}
-\DoxyCodeLine{116 \textcolor{keyword}{private}:}
-\DoxyCodeLine{117     \textcolor{comment}{/*}}
-\DoxyCodeLine{118 \textcolor{comment}{}}
-\DoxyCodeLine{119 \textcolor{comment}{    @brief std::set to store the Action objects.}}
-\DoxyCodeLine{120 \textcolor{comment}{    */}}
-\DoxyCodeLine{121     std::set<Action<T>, \mbox{\hyperlink{struct_action_cmp}{ActionCmp<T>}}> m\_Listeners;}
-\DoxyCodeLine{126     \textcolor{keywordtype}{void} LogListeners()\textcolor{keyword}{ const}}
-\DoxyCodeLine{127 \textcolor{keyword}{    }\{}
-\DoxyCodeLine{128         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& action : m\_Listeners)}
-\DoxyCodeLine{129         \{}
-\DoxyCodeLine{130             std::cout << \textcolor{stringliteral}{"{}Function pointer: "{}} << action.GetFuncValue() << std::endl;}
-\DoxyCodeLine{131         \}}
-\DoxyCodeLine{132     \}}
-\DoxyCodeLine{133 \textcolor{keyword}{public}:}
-\DoxyCodeLine{139     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(\mbox{\hyperlink{class_action}{Action<T>}} callfn)}
-\DoxyCodeLine{140     \{}
-\DoxyCodeLine{141         \textcolor{comment}{// Check if the Action is already present in the set}}
-\DoxyCodeLine{142         \textcolor{keywordflow}{if} (m\_Listeners.count(callfn) > 0)}
-\DoxyCodeLine{143         \{}
-\DoxyCodeLine{144             \textcolor{comment}{// Log a warning message}}
-\DoxyCodeLine{145             std::cerr << \textcolor{stringliteral}{"{}Warning: Action object pointed to "{}} << callfn.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() << \textcolor{stringliteral}{"{} already present in Event"{}} << std::endl;}
-\DoxyCodeLine{146             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{147         \}}
-\DoxyCodeLine{148 }
-\DoxyCodeLine{149         m\_Listeners.insert(callfn);}
-\DoxyCodeLine{150         \textcolor{comment}{// LogListeners();}}
-\DoxyCodeLine{151     \}}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{158     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae2c94bd24a7d990f4a940cadfee93d76}{RemoveListener}}(\mbox{\hyperlink{class_action}{Action<T>}} callfn)}
-\DoxyCodeLine{159     \{}
-\DoxyCodeLine{160         \textcolor{comment}{// Check if the Action is present in the set}}
-\DoxyCodeLine{161         \textcolor{keywordflow}{if} (m\_Listeners.count(callfn) == 0)}
-\DoxyCodeLine{162         \{}
-\DoxyCodeLine{163             \textcolor{comment}{// Log a warning message}}
-\DoxyCodeLine{164             std::cerr << \textcolor{stringliteral}{"{}Warning: Action object not present in Event"{}} << std::endl;}
-\DoxyCodeLine{165             \textcolor{keywordflow}{return};}
-\DoxyCodeLine{166         \}}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168         m\_Listeners.erase(callfn);}
-\DoxyCodeLine{169     \}}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{174     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}{RemoveAllListeners}}()}
-\DoxyCodeLine{175     \{}
-\DoxyCodeLine{176         m\_Listeners.clear();}
-\DoxyCodeLine{177     \}}
-\DoxyCodeLine{178 }
-\DoxyCodeLine{184     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a3110f94a968bfcd542bb3445d0872be6}{operator=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
-\DoxyCodeLine{185     \{}
-\DoxyCodeLine{186         \mbox{\hyperlink{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}{RemoveAllListeners}}();}
-\DoxyCodeLine{187         \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(callfn);}
-\DoxyCodeLine{188     \}}
-\DoxyCodeLine{189 }
-\DoxyCodeLine{195     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ababff58751efad1437562c06ea7b7b53}{operator+=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
-\DoxyCodeLine{196     \{}
-\DoxyCodeLine{197         \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(callfn);}
-\DoxyCodeLine{198     \}}
-\DoxyCodeLine{199 }
-\DoxyCodeLine{205     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_aebc6bf29c78362be175a8979f31eb4f2}{operator-\/=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
-\DoxyCodeLine{206     \{}
-\DoxyCodeLine{207         \mbox{\hyperlink{class_event_ae2c94bd24a7d990f4a940cadfee93d76}{RemoveListener}}(callfn);}
-\DoxyCodeLine{208     \}}
-\DoxyCodeLine{209 }
-\DoxyCodeLine{215     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(T arg)}
-\DoxyCodeLine{216     \{}
-\DoxyCodeLine{217         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} func : m\_Listeners)}
-\DoxyCodeLine{218         \{}
-\DoxyCodeLine{219             func(arg);}
-\DoxyCodeLine{220         \}}
-\DoxyCodeLine{221     \}}
-\DoxyCodeLine{227     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae732671454ec655279ed9e1f919b9089}{operator()}}(T arg)}
-\DoxyCodeLine{228     \{}
-\DoxyCodeLine{229         \mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(arg);}
-\DoxyCodeLine{230     \}}
-\DoxyCodeLine{231 \};}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_action}{Action}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keyword}{static} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{ActionId}};}
+\DoxyCodeLine{22     \textcolor{comment}{/*}}
+\DoxyCodeLine{23 \textcolor{comment}{}}
+\DoxyCodeLine{24 \textcolor{comment}{    @brief std::function that holds the wrapped function.}}
+\DoxyCodeLine{25 \textcolor{comment}{    */}}
+\DoxyCodeLine{26     std::function<void(T)> \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}};}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_action_ab8664f73991e2d8455b86c0d94ff1f95}{Action}}() : \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(nullptr) \{ \mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{ActionId}}++; \}}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_action_a1d96e854ad62df9a5c64be1b6f159d83}{Action}}(std::function<\textcolor{keywordtype}{void}(T)> \_fn) : \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(\_fn) \{ \mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{ActionId}}++; \}}
+\DoxyCodeLine{50     \textcolor{keyword}{template} <\textcolor{keyword}{typename} L>}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_action_a7d40de49539a705b725f196c48a53716}{Action}}(L\&\& lambda)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{comment}{// Assign the lambda to the std::function}}
+\DoxyCodeLine{54         \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}} = lambda;}
+\DoxyCodeLine{55         \mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{ActionId}}++;}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{62     std::string \mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{63 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} std::to\_string(\mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{ActionId}}) + \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}.target\_type().name();}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_action_afffec9fdc3592f96886dd1d2fcc63ea2}{operator()}}(T arg)}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73         \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}(arg);}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{81     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_action_a2241b1ca963e0f36e86b317e80d8bd03}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& other)\textcolor{keyword}{ const}}
+\DoxyCodeLine{82 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() == other.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}();}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{88 \textcolor{keywordtype}{int} \mbox{\hyperlink{class_action}{Action<T>::ActionId}} = 0;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{96 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_action_cmp}{ActionCmp}}}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \textcolor{comment}{/*}}
+\DoxyCodeLine{99 \textcolor{comment}{    @brief Compare the function names of the Action objects using the '<' operator.}}
+\DoxyCodeLine{100 \textcolor{comment}{    @param lhs The left-\/hand side Action object.}}
+\DoxyCodeLine{101 \textcolor{comment}{    @param rhs The right-\/hand side Action object.}}
+\DoxyCodeLine{102 \textcolor{comment}{    @return True if the function name of the left-\/hand side Action object is less than the function name of the right-\/hand side Action object, false otherwise.}}
+\DoxyCodeLine{103 \textcolor{comment}{    */}}
+\DoxyCodeLine{104     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_action_cmp_a0ac686e0302c074b15ce732ed5d8847f}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_action}{Action<T>}}\& rhs)\textcolor{keyword}{ const}}
+\DoxyCodeLine{105 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{106         \textcolor{comment}{// Compare the function names of the Action objects using the '<' operator}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() < rhs.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}();}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109 \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{119 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{120 \textcolor{keyword}{class }\mbox{\hyperlink{class_event}{Event}}}
+\DoxyCodeLine{121 \{}
+\DoxyCodeLine{122 \textcolor{keyword}{private}:}
+\DoxyCodeLine{123     \textcolor{comment}{/*}}
+\DoxyCodeLine{124 \textcolor{comment}{}}
+\DoxyCodeLine{125 \textcolor{comment}{    @brief std::set to store the Action objects.}}
+\DoxyCodeLine{126 \textcolor{comment}{    */}}
+\DoxyCodeLine{127     std::set<Action<T>, \mbox{\hyperlink{struct_action_cmp}{ActionCmp<T>}}> m\_Listeners;}
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} LogListeners()\textcolor{keyword}{ const}}
+\DoxyCodeLine{133 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{134         \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& action : m\_Listeners)}
+\DoxyCodeLine{135         \{}
+\DoxyCodeLine{136             std::cout << \textcolor{stringliteral}{"{}Function pointer: "{}} << action.GetFuncValue() << std::endl;}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138     \}}
+\DoxyCodeLine{139 \textcolor{keyword}{public}:}
+\DoxyCodeLine{145     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(\mbox{\hyperlink{class_action}{Action<T>}} callfn)}
+\DoxyCodeLine{146     \{}
+\DoxyCodeLine{147         \textcolor{comment}{// Check if the Action is already present in the set}}
+\DoxyCodeLine{148         \textcolor{keywordflow}{if} (m\_Listeners.count(callfn) > 0)}
+\DoxyCodeLine{149         \{}
+\DoxyCodeLine{150             \textcolor{comment}{// Log a warning message}}
+\DoxyCodeLine{151             std::cerr << \textcolor{stringliteral}{"{}Warning: Action object pointed to "{}} << callfn.\mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{GetFuncValue}}() << \textcolor{stringliteral}{"{} already present in Event"{}} << std::endl;}
+\DoxyCodeLine{152             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{153         \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         m\_Listeners.insert(callfn);}
+\DoxyCodeLine{156         \textcolor{comment}{// LogListeners();}}
+\DoxyCodeLine{157     \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae2c94bd24a7d990f4a940cadfee93d76}{RemoveListener}}(\mbox{\hyperlink{class_action}{Action<T>}} callfn)}
+\DoxyCodeLine{165     \{}
+\DoxyCodeLine{166         \textcolor{comment}{// Check if the Action is present in the set}}
+\DoxyCodeLine{167         \textcolor{keywordflow}{if} (m\_Listeners.count(callfn) == 0)}
+\DoxyCodeLine{168         \{}
+\DoxyCodeLine{169             \textcolor{comment}{// Log a warning message}}
+\DoxyCodeLine{170             std::cerr << \textcolor{stringliteral}{"{}Warning: Action object not present in Event"{}} << std::endl;}
+\DoxyCodeLine{171             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{172         \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174         m\_Listeners.erase(callfn);}
+\DoxyCodeLine{175     \}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{180     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}{RemoveAllListeners}}()}
+\DoxyCodeLine{181     \{}
+\DoxyCodeLine{182         m\_Listeners.clear();}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{190     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a3110f94a968bfcd542bb3445d0872be6}{operator=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
+\DoxyCodeLine{191     \{}
+\DoxyCodeLine{192         \mbox{\hyperlink{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}{RemoveAllListeners}}();}
+\DoxyCodeLine{193         \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(callfn);}
+\DoxyCodeLine{194     \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{201     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ababff58751efad1437562c06ea7b7b53}{operator+=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
+\DoxyCodeLine{202     \{}
+\DoxyCodeLine{203         \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}(callfn);}
+\DoxyCodeLine{204     \}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{211     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_aebc6bf29c78362be175a8979f31eb4f2}{operator-\/=}}(\mbox{\hyperlink{class_action}{Action<T>}} \textcolor{keyword}{const}\& callfn)}
+\DoxyCodeLine{212     \{}
+\DoxyCodeLine{213         \mbox{\hyperlink{class_event_ae2c94bd24a7d990f4a940cadfee93d76}{RemoveListener}}(callfn);}
+\DoxyCodeLine{214     \}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{221     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(T arg)}
+\DoxyCodeLine{222     \{}
+\DoxyCodeLine{223         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} func : m\_Listeners)}
+\DoxyCodeLine{224         \{}
+\DoxyCodeLine{225             func(arg);}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{233     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_event_ae732671454ec655279ed9e1f919b9089}{operator()}}(T arg)}
+\DoxyCodeLine{234     \{}
+\DoxyCodeLine{235         \mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(arg);}
+\DoxyCodeLine{236     \}}
+\DoxyCodeLine{237 \};}
 
 \end{DoxyCode}

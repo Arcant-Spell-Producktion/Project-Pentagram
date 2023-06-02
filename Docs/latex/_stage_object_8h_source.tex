@@ -9,14 +9,26 @@
 \DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_stage_object}{StageObject}} :\textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
 \DoxyCodeLine{6 \{}
 \DoxyCodeLine{7 \textcolor{keyword}{private}:}
-\DoxyCodeLine{8     \mbox{\hyperlink{class_game_scene}{GameScene}}* m\_ObjectManager;}
+\DoxyCodeLine{8 }
 \DoxyCodeLine{9     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_Element;}
 \DoxyCodeLine{10 }
-\DoxyCodeLine{11     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_Background;}
-\DoxyCodeLine{12     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_Floor;}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{public}:}
-\DoxyCodeLine{15     \mbox{\hyperlink{class_stage_object_a91c85b169c30d2b6be49ce53ad0cc4a3}{StageObject}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
-\DoxyCodeLine{16 \};}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_FadeScreen;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_Background;}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_Floor;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} m\_FadeIn = \textcolor{keyword}{false};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{float} m\_FadeSpeed = 0.5f;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{float} m\_FadeTimer = 0.0f;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_stage_object_a91c85b169c30d2b6be49ce53ad0cc4a3}{StageObject}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stage_object_a934ab3665f84f1c721902cc80fef64a2}{SetElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stage_object_a4da70a106af59f03b6118ff8b620b795}{FadeToBlack}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_stage_object_a369fabb2278aea7388cbad65cee8203d}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{28 \};}
 
 \end{DoxyCode}

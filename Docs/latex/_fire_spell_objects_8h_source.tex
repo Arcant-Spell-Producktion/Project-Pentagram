@@ -40,8 +40,8 @@
 \DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{class_fire_spell3}{FireSpell3}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
 \DoxyCodeLine{37 \{}
 \DoxyCodeLine{38 \textcolor{keyword}{private}:}
-\DoxyCodeLine{39     \textcolor{keywordtype}{float} lifeTime = 1.5f;}
-\DoxyCodeLine{40     \textcolor{keywordtype}{float} spawnTime = 0.2f;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{float} lifeTime = 0.5f;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{float} spawnTime = 0.075f;}
 \DoxyCodeLine{41     \textcolor{keywordtype}{int} amount = 20;}
 \DoxyCodeLine{42 }
 \DoxyCodeLine{43     \textcolor{keywordtype}{void} Initialize();}
@@ -80,7 +80,7 @@
 \DoxyCodeLine{76     std::vector<GameObject*> m\_objectList;}
 \DoxyCodeLine{77 }
 \DoxyCodeLine{78     \textcolor{keywordtype}{float} m\_localTimer = 0.0f;}
-\DoxyCodeLine{79     \textcolor{keyword}{const} \textcolor{keywordtype}{int} m\_SpawnCount = 10;}
+\DoxyCodeLine{79     \textcolor{keyword}{const} \textcolor{keywordtype}{int} m\_SpawnCount = 5;}
 \DoxyCodeLine{80     \textcolor{keywordtype}{int} m\_SnapCount = 10;}
 \DoxyCodeLine{81     \textcolor{keywordtype}{int} m\_DoneCount = 0;}
 \DoxyCodeLine{82     \textcolor{keywordtype}{void} Initialize();}
@@ -147,23 +147,24 @@
 \DoxyCodeLine{143 \textcolor{keyword}{class }\mbox{\hyperlink{class_fire_spell9}{FireSpell9}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
 \DoxyCodeLine{144 \{}
 \DoxyCodeLine{145 \textcolor{keyword}{private}:}
-\DoxyCodeLine{146     \textcolor{keywordtype}{void} Initialize();}
-\DoxyCodeLine{147 \textcolor{keyword}{public}:}
-\DoxyCodeLine{148     \mbox{\hyperlink{class_fire_spell9_a7a67243de1f0865db3adc43ecfc17084}{FireSpell9}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
-\DoxyCodeLine{149         target,}
-\DoxyCodeLine{150         \textcolor{stringliteral}{"{}Hell\_Object"{}},}
-\DoxyCodeLine{151         \textcolor{stringliteral}{"{}Sprites/Spell/Fire/spell\_fire\_9.png"{}})}
-\DoxyCodeLine{152     \{}
-\DoxyCodeLine{153         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Hell\(\backslash\)n"{}};}
-\DoxyCodeLine{154         Initialize();}
-\DoxyCodeLine{155         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
-\DoxyCodeLine{156     \};}
-\DoxyCodeLine{157 \};}
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159 \textcolor{keyword}{class }\mbox{\hyperlink{class_fire_spell_object}{FireSpellObject}}}
-\DoxyCodeLine{160 \{}
-\DoxyCodeLine{161 \textcolor{keyword}{public}:}
-\DoxyCodeLine{162     \textcolor{keyword}{static} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}* \mbox{\hyperlink{class_fire_spell_object_a5f1aead9bd588dd848088efd0e4ab3db}{CreateSpellObject}}(\textcolor{keywordtype}{int} index, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target);}
-\DoxyCodeLine{163 \};}
+\DoxyCodeLine{146     \textcolor{keywordtype}{float} m\_localTimer = 0.0f;}
+\DoxyCodeLine{147     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{148 \textcolor{keyword}{public}:}
+\DoxyCodeLine{149     \mbox{\hyperlink{class_fire_spell9_a7a67243de1f0865db3adc43ecfc17084}{FireSpell9}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{150         target,}
+\DoxyCodeLine{151         \textcolor{stringliteral}{"{}Hell\_Object"{}},}
+\DoxyCodeLine{152         \textcolor{stringliteral}{"{}Sprites/Spell/Fire/spell\_fire\_9.png"{}})}
+\DoxyCodeLine{153     \{}
+\DoxyCodeLine{154         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Hell\(\backslash\)n"{}};}
+\DoxyCodeLine{155         Initialize();}
+\DoxyCodeLine{156         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{157     \};}
+\DoxyCodeLine{158 \};}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{keyword}{class }\mbox{\hyperlink{class_fire_spell_object}{FireSpellObject}}}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162 \textcolor{keyword}{public}:}
+\DoxyCodeLine{163     \textcolor{keyword}{static} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}* \mbox{\hyperlink{class_fire_spell_object_a5f1aead9bd588dd848088efd0e4ab3db}{CreateSpellObject}}(\textcolor{keywordtype}{int} index, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target);}
+\DoxyCodeLine{164 \};}
 
 \end{DoxyCode}

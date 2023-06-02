@@ -10,20 +10,24 @@
 \DoxyCodeLine{6     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106a95b19f7739b0b7ea7d6b07586be54f36}{Init}} = 0,}
 \DoxyCodeLine{7     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106ae7d31fc0602fb2ede144d18cdffd816b}{Ready}},}
 \DoxyCodeLine{8     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aa13367a8e2a3f3bf4f3409079e3fdf87}{Activate}},}
-\DoxyCodeLine{9     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{Hit}},}
-\DoxyCodeLine{10     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{Done}}}
-\DoxyCodeLine{11 \};}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_controller}{SpellController}}}
-\DoxyCodeLine{14 \{ }
-\DoxyCodeLine{15 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{16    \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106}{SpellObjectState}} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106a95b19f7739b0b7ea7d6b07586be54f36}{SpellObjectState::Init}};}
-\DoxyCodeLine{17 \textcolor{keyword}{public}:}
-\DoxyCodeLine{18     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106}{SpellObjectState}} \mbox{\hyperlink{class_spell_controller_aaef3745d4d5dba73c3feb8fc84f1b60e}{GetSpellState}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}}; \}}
-\DoxyCodeLine{19     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_a4289c5c077e4d0d01b9fc6d8a0238c30}{IsSpellHit}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} == \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{SpellObjectState::Hit}}; \}}
-\DoxyCodeLine{20     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_a8b85cb402da6e3d7984db9ee2d0d01df}{IsSpellDone}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} == \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{SpellObjectState::Done}}; \}}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_controller_a77bc79a78e631e32629e84a5ef22afd4}{Activate}}() = 0;}
-\DoxyCodeLine{23 \};}
+\DoxyCodeLine{9     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106ad734db1478d7e28e126dd8f4c97ee873}{WaitTrigger}},}
+\DoxyCodeLine{10     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{Hit}},}
+\DoxyCodeLine{11     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{Done}}}
+\DoxyCodeLine{12 \};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_controller}{SpellController}}}
+\DoxyCodeLine{15 \{ }
+\DoxyCodeLine{16 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17    \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106}{SpellObjectState}} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} = \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106a95b19f7739b0b7ea7d6b07586be54f36}{SpellObjectState::Init}};}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_a9717c2c2f325bd89d00e444a9ddefe8e}{Trigger}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106}{SpellObjectState}} \mbox{\hyperlink{class_spell_controller_aaef3745d4d5dba73c3feb8fc84f1b60e}{GetSpellState}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}}; \}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_ac096a88f1bc14930feb1e815b744ccfc}{IsSpellWaitTrigger}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} == \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106ad734db1478d7e28e126dd8f4c97ee873}{SpellObjectState::WaitTrigger}}; \}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_a4289c5c077e4d0d01b9fc6d8a0238c30}{IsSpellHit}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} == \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d}{SpellObjectState::Hit}}; \}}
+\DoxyCodeLine{24      \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_controller_a8b85cb402da6e3d7984db9ee2d0d01df}{IsSpellDone}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_spell_controller_a9020f40e0ff2f4f46318e526f695c0af}{m\_SpellState}} == \mbox{\hyperlink{_spell_controller_8h_a802addd415e8554c86a6d7b9cca31106af92965e2c8a7afb3c1b9a5c09a263636}{SpellObjectState::Done}}; \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_controller_a77bc79a78e631e32629e84a5ef22afd4}{Activate}}() = 0;}
+\DoxyCodeLine{27 \};}
 
 \end{DoxyCode}

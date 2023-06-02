@@ -1,0 +1,50 @@
+\hypertarget{_character_select_scene_8h_source}{}\doxysection{Character\+Select\+Scene.\+h}
+\label{_character_select_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterSelectScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterSelectScene.h}}
+\mbox{\hyperlink{_character_select_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_character_info_u_i_8h}{Game/CharacterSelectScene/CharacterInfoUI.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_character_select_scene}{CharacterSelectScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{14     \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} m\_NextState;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{float} m\_FadeTime;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{float} m\_FadeCurrentTime = 0.0f;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} m\_IsFadeOut = \textcolor{keyword}{false};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_SelectedElement = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5a36c53c491b69d39a006046e467cddecc}{Element::Fire}};}
+\DoxyCodeLine{20     std::vector<UIObject*> m\_Characters;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_character_info_u_i}{CharacterInfoUI}}* m\_CharacterInfoUI;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} FadeOut(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& fadeTime, \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} nextState)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         m\_NextState = nextState;}
+\DoxyCodeLine{27         m\_FadeTime = fadeTime;}
+\DoxyCodeLine{28         m\_IsFadeOut = \textcolor{keyword}{true};}
+\DoxyCodeLine{29         m\_FadeScreen-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{30         m\_FadeScreen-\/>\mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{SetBlockRaycast}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} FadeUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_aed14f4b1b4e24518133840df8c1df7fa}{OnSelect}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_ae878451f186f85f5436bc0ce804dab87}{OnTest}}();}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_a279499dabec6651a3fa430e53dcc592d}{OnConfirm}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_add120207a1ad254a8fd7e9f88dde2760}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_aeb24c466f2e319eddcdc3ac4ea27699e}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_a78f69940874f6d9fec0850a90272fc1c}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{43     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_scene_a69162962b9b8d699f13a6c7630ae47ea}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{44 \};}
+
+\end{DoxyCode}

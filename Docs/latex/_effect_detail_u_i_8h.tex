@@ -1,0 +1,145 @@
+\hypertarget{_effect_detail_u_i_8h}{}\doxysection{E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Effect\+Detail\+UI.h File Reference}
+\label{_effect_detail_u_i_8h}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/EffectDetailUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/EffectDetailUI.h}}
+{\ttfamily \#include \char`\"{}Engine/\+IGame\+Object\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Game/\+Battle\+Scene/\+Spell\+Caster/\+Cast\+Spell\+Detail.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Game/\+Battle\+Scene/\+Game\+Object/\+Caster\+Effect\+Icon\+UI.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Utilities/\+Color.\+h\char`\"{}}\newline
+Include dependency graph for Effect\+Detail\+UI.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_effect_detail_u_i_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_effect_detail_u_i_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_effect_detail_u_i}{Effect\+Detail\+UI}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_ab278497a570ac8069aaf25ffd70e28b0}{Burn\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_a91cae6cbeb529687969274216a3a61b5}{Mark\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_a643f50d67552856e28e1aa26c53df9b4}{Freeze\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_a457ed67bd9dcadbf326b2c0c7a8e77e7}{Overflow\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_a95d38c732be0cc5da6580ddd3c889eaf}{Fortify\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_a249f3445eca49b7adefeb49a4c684824}{Perify\+Effect\+Detail}}
+\item 
+const std\+::string \mbox{\hyperlink{_effect_detail_u_i_8h_af20e54065d19104f58d076de29762860}{Boost\+Effect\+Detail}} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_af20e54065d19104f58d076de29762860}\label{_effect_detail_u_i_8h_af20e54065d19104f58d076de29762860}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!BoostEffectDetail@{BoostEffectDetail}}
+\index{BoostEffectDetail@{BoostEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{BoostEffectDetail}{BoostEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Boost\+Effect\+Detail\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{ R\textcolor{stringliteral}{"{}(2+ Stack: TimeTrack mod. cost -\/1)"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{  R}\textcolor{stringliteral}{"{}(5+ Stack: Will mod. cost -\/1)"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{  R}\textcolor{stringliteral}{"{}(8+ Stack: All spell atk. +10 next turn}}
+\DoxyCodeLine{\textcolor{stringliteral}{(lose all stack after))"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_ab278497a570ac8069aaf25ffd70e28b0}\label{_effect_detail_u_i_8h_ab278497a570ac8069aaf25ffd70e28b0}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!BurnEffectDetail@{BurnEffectDetail}}
+\index{BurnEffectDetail@{BurnEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{BurnEffectDetail}{BurnEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Burn\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(Burning will deal 10}}
+\DoxyCodeLine{\textcolor{stringliteral}{damage x number of stack}}
+\DoxyCodeLine{\textcolor{stringliteral}{at the start of the turn)"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_a95d38c732be0cc5da6580ddd3c889eaf}\label{_effect_detail_u_i_8h_a95d38c732be0cc5da6580ddd3c889eaf}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!FortifyEffectDetail@{FortifyEffectDetail}}
+\index{FortifyEffectDetail@{FortifyEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{FortifyEffectDetail}{FortifyEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Fortify\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(Consume 1 stack to reduce}}
+\DoxyCodeLine{\textcolor{stringliteral}{incoming damage to 0)"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_a643f50d67552856e28e1aa26c53df9b4}\label{_effect_detail_u_i_8h_a643f50d67552856e28e1aa26c53df9b4}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!FreezeEffectDetail@{FreezeEffectDetail}}
+\index{FreezeEffectDetail@{FreezeEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{FreezeEffectDetail}{FreezeEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Freeze\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(Freeze increase}}
+\DoxyCodeLine{\textcolor{stringliteral}{mana used to modify the}}
+\DoxyCodeLine{\textcolor{stringliteral}{cast time by 1)"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_a91cae6cbeb529687969274216a3a61b5}\label{_effect_detail_u_i_8h_a91cae6cbeb529687969274216a3a61b5}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!MarkEffectDetail@{MarkEffectDetail}}
+\index{MarkEffectDetail@{MarkEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{MarkEffectDetail}{MarkEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Mark\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(Marking cause }}
+\DoxyCodeLine{\textcolor{stringliteral}{the next attack damage}}
+\DoxyCodeLine{\textcolor{stringliteral}{receive to x2)"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_a457ed67bd9dcadbf326b2c0c7a8e77e7}\label{_effect_detail_u_i_8h_a457ed67bd9dcadbf326b2c0c7a8e77e7}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!OverflowEffectDetail@{OverflowEffectDetail}}
+\index{OverflowEffectDetail@{OverflowEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{OverflowEffectDetail}{OverflowEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Overflow\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(Permanently}}
+\DoxyCodeLine{\textcolor{stringliteral}{increase 1 max mana}}
+\DoxyCodeLine{\textcolor{stringliteral}{during combat)"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_effect_detail_u_i_8h_a249f3445eca49b7adefeb49a4c684824}\label{_effect_detail_u_i_8h_a249f3445eca49b7adefeb49a4c684824}} 
+\index{EffectDetailUI.h@{EffectDetailUI.h}!PerifyEffectDetail@{PerifyEffectDetail}}
+\index{PerifyEffectDetail@{PerifyEffectDetail}!EffectDetailUI.h@{EffectDetailUI.h}}
+\doxysubsubsection{\texorpdfstring{PerifyEffectDetail}{PerifyEffectDetail}}
+{\footnotesize\ttfamily const std\+::string Perify\+Effect\+Detail}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{R\textcolor{stringliteral}{"{}(-\/1 total will per stack}}
+\DoxyCodeLine{\textcolor{stringliteral}{(max 3))"{}}}
+
+\end{DoxyCode}

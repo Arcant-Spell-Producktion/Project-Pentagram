@@ -25,27 +25,45 @@ Collaboration diagram for Timetrack\+UI\+:\nopagebreak
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_timetrack_u_i_a3685a9b64773fc9d72891051e0fa9914}{Timetrack\+UI}} (int index, \mbox{\hyperlink{class_spell_timetrack}{Spell\+Timetrack}} $\ast$track, std\+::function$<$ void()$>$ \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}})
+\mbox{\hyperlink{class_timetrack_u_i_ab398da93ab6ab673f6d26fda74b1378b}{Timetrack\+UI}} (int index, \mbox{\hyperlink{class_spell_timetrack}{Spell\+Timetrack}} $\ast$track, std\+::function$<$ void(bool do\+Expand)$>$ \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}})
+\item 
+void \mbox{\hyperlink{class_timetrack_u_i_a8c17cb47e8cb89d443c379d68a4eb962}{On\+Update}} (const float \&dt) override
 \item 
 void \mbox{\hyperlink{class_timetrack_u_i_a42ed51a4e331fd537c467a01de380f4c}{Preview\+Icon}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell=nullptr, bool do\+Cast=false, bool active=false)
 \item 
 void \mbox{\hyperlink{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}{Add\+Icon}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
 \item 
+void \mbox{\hyperlink{class_timetrack_u_i_a3b4edade0e27ef6514b82221c53558e9}{Add\+Icon}} (\mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$spell\+Icon)
+\item 
+void \mbox{\hyperlink{class_timetrack_u_i_a01779b5462b522d57600439622fcbfe1}{Remove\+Icon}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
+\item 
 void \mbox{\hyperlink{class_timetrack_u_i_a3b96560b4618362662abdb819de41638}{Expand\+Track}} (bool is\+Expand)
+\item 
+void \mbox{\hyperlink{class_timetrack_u_i_a85ddd24b64cb235cf346579d5ee2528a}{Remove\+All\+Icon}} ()
 \item 
 void \mbox{\hyperlink{class_timetrack_u_i_a2b28e696e4d61a07e8177f8a229c851e}{Update\+Track}} ()
 \item 
 void \mbox{\hyperlink{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}{Clear\+Track}} ()
+\item 
+void \mbox{\hyperlink{class_timetrack_u_i_a1cc2c285543dbdb1ff9a8cdada765a13}{Set\+Is\+Expand}} (bool \mbox{\hyperlink{_pentagram_circle_u_i_8cpp_a4fd89930cfa1006f152d636b9a0c7ab9}{expand}})
+\item 
+void \mbox{\hyperlink{class_timetrack_u_i_a773a4df84f67c91ad8bc203d281e128f}{Highlight\+Track}} (bool do\+Highlight)
+\item 
+\mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ \mbox{\hyperlink{class_timetrack_u_i_afdd238a0c9558f58f2ca1b43be4fc6ed}{Get\+Hover\+Spell\+Icon}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ $>$ \& \mbox{\hyperlink{class_timetrack_u_i_ad6991c6a9eb53a77c8974e23c423a42b}{Get\+Spell\+Detail\+UIList}} () const
+\item 
+const \mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ \mbox{\hyperlink{class_timetrack_u_i_af7ba7305e35938e7c75f44efd55d91a7}{Get\+Preview\+Icon}} () const
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_timetrack_u_i_a3685a9b64773fc9d72891051e0fa9914}\label{class_timetrack_u_i_a3685a9b64773fc9d72891051e0fa9914}} 
+\mbox{\Hypertarget{class_timetrack_u_i_ab398da93ab6ab673f6d26fda74b1378b}\label{class_timetrack_u_i_ab398da93ab6ab673f6d26fda74b1378b}} 
 \index{TimetrackUI@{TimetrackUI}!TimetrackUI@{TimetrackUI}}
 \index{TimetrackUI@{TimetrackUI}!TimetrackUI@{TimetrackUI}}
 \doxysubsubsection{\texorpdfstring{TimetrackUI()}{TimetrackUI()}}
-{\footnotesize\ttfamily Timetrack\+UI\+::\+Timetrack\+UI (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{class_spell_timetrack}{Spell\+Timetrack}} $\ast$}]{track,  }\item[{std\+::function$<$ void()$>$}]{expand }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Timetrack\+UI\+::\+Timetrack\+UI (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{\mbox{\hyperlink{class_spell_timetrack}{Spell\+Timetrack}} $\ast$}]{track,  }\item[{std\+::function$<$ void(bool do\+Expand)$>$}]{expand }\end{DoxyParamCaption})}
 
 
 
@@ -53,8 +71,14 @@ void \mbox{\hyperlink{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}{Cle
 \mbox{\Hypertarget{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}\label{class_timetrack_u_i_ad0cd1d841476f21afcd203ddbe0c9129}} 
 \index{TimetrackUI@{TimetrackUI}!AddIcon@{AddIcon}}
 \index{AddIcon@{AddIcon}!TimetrackUI@{TimetrackUI}}
-\doxysubsubsection{\texorpdfstring{AddIcon()}{AddIcon()}}
+\doxysubsubsection{\texorpdfstring{AddIcon()}{AddIcon()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Timetrack\+UI\+::\+Add\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a3b4edade0e27ef6514b82221c53558e9}\label{class_timetrack_u_i_a3b4edade0e27ef6514b82221c53558e9}} 
+\index{TimetrackUI@{TimetrackUI}!AddIcon@{AddIcon}}
+\index{AddIcon@{AddIcon}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{AddIcon()}{AddIcon()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+Add\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$}]{spell\+Icon }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}\label{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}} 
 \index{TimetrackUI@{TimetrackUI}!ClearTrack@{ClearTrack}}
@@ -68,11 +92,63 @@ void \mbox{\hyperlink{class_timetrack_u_i_a58db70eadfafa0c546dc57a9a33024a2}{Cle
 \doxysubsubsection{\texorpdfstring{ExpandTrack()}{ExpandTrack()}}
 {\footnotesize\ttfamily void Timetrack\+UI\+::\+Expand\+Track (\begin{DoxyParamCaption}\item[{bool}]{is\+Expand }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{class_timetrack_u_i_afdd238a0c9558f58f2ca1b43be4fc6ed}\label{class_timetrack_u_i_afdd238a0c9558f58f2ca1b43be4fc6ed}} 
+\index{TimetrackUI@{TimetrackUI}!GetHoverSpellIcon@{GetHoverSpellIcon}}
+\index{GetHoverSpellIcon@{GetHoverSpellIcon}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{GetHoverSpellIcon()}{GetHoverSpellIcon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ Timetrack\+UI\+::\+Get\+Hover\+Spell\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_timetrack_u_i_af7ba7305e35938e7c75f44efd55d91a7}\label{class_timetrack_u_i_af7ba7305e35938e7c75f44efd55d91a7}} 
+\index{TimetrackUI@{TimetrackUI}!GetPreviewIcon@{GetPreviewIcon}}
+\index{GetPreviewIcon@{GetPreviewIcon}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{GetPreviewIcon()}{GetPreviewIcon()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ Timetrack\+UI\+::\+Get\+Preview\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_timetrack_u_i_ad6991c6a9eb53a77c8974e23c423a42b}\label{class_timetrack_u_i_ad6991c6a9eb53a77c8974e23c423a42b}} 
+\index{TimetrackUI@{TimetrackUI}!GetSpellDetailUIList@{GetSpellDetailUIList}}
+\index{GetSpellDetailUIList@{GetSpellDetailUIList}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{GetSpellDetailUIList()}{GetSpellDetailUIList()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{class_spell_icon_u_i}{Spell\+Icon\+UI}} $\ast$ $>$ \& Timetrack\+UI\+::\+Get\+Spell\+Detail\+UIList (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a773a4df84f67c91ad8bc203d281e128f}\label{class_timetrack_u_i_a773a4df84f67c91ad8bc203d281e128f}} 
+\index{TimetrackUI@{TimetrackUI}!HighlightTrack@{HighlightTrack}}
+\index{HighlightTrack@{HighlightTrack}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{HighlightTrack()}{HighlightTrack()}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+Highlight\+Track (\begin{DoxyParamCaption}\item[{bool}]{do\+Highlight }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a8c17cb47e8cb89d443c379d68a4eb962}\label{class_timetrack_u_i_a8c17cb47e8cb89d443c379d68a4eb962}} 
+\index{TimetrackUI@{TimetrackUI}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
 \mbox{\Hypertarget{class_timetrack_u_i_a42ed51a4e331fd537c467a01de380f4c}\label{class_timetrack_u_i_a42ed51a4e331fd537c467a01de380f4c}} 
 \index{TimetrackUI@{TimetrackUI}!PreviewIcon@{PreviewIcon}}
 \index{PreviewIcon@{PreviewIcon}!TimetrackUI@{TimetrackUI}}
 \doxysubsubsection{\texorpdfstring{PreviewIcon()}{PreviewIcon()}}
 {\footnotesize\ttfamily void Timetrack\+UI\+::\+Preview\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell = {\ttfamily nullptr},  }\item[{bool}]{do\+Cast = {\ttfamily false},  }\item[{bool}]{active = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a85ddd24b64cb235cf346579d5ee2528a}\label{class_timetrack_u_i_a85ddd24b64cb235cf346579d5ee2528a}} 
+\index{TimetrackUI@{TimetrackUI}!RemoveAllIcon@{RemoveAllIcon}}
+\index{RemoveAllIcon@{RemoveAllIcon}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{RemoveAllIcon()}{RemoveAllIcon()}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+Remove\+All\+Icon (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a01779b5462b522d57600439622fcbfe1}\label{class_timetrack_u_i_a01779b5462b522d57600439622fcbfe1}} 
+\index{TimetrackUI@{TimetrackUI}!RemoveIcon@{RemoveIcon}}
+\index{RemoveIcon@{RemoveIcon}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{RemoveIcon()}{RemoveIcon()}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+Remove\+Icon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_timetrack_u_i_a1cc2c285543dbdb1ff9a8cdada765a13}\label{class_timetrack_u_i_a1cc2c285543dbdb1ff9a8cdada765a13}} 
+\index{TimetrackUI@{TimetrackUI}!SetIsExpand@{SetIsExpand}}
+\index{SetIsExpand@{SetIsExpand}!TimetrackUI@{TimetrackUI}}
+\doxysubsubsection{\texorpdfstring{SetIsExpand()}{SetIsExpand()}}
+{\footnotesize\ttfamily void Timetrack\+UI\+::\+Set\+Is\+Expand (\begin{DoxyParamCaption}\item[{bool}]{expand }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_timetrack_u_i_a2b28e696e4d61a07e8177f8a229c851e}\label{class_timetrack_u_i_a2b28e696e4d61a07e8177f8a229c851e}} 
 \index{TimetrackUI@{TimetrackUI}!UpdateTrack@{UpdateTrack}}

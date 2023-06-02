@@ -69,20 +69,31 @@ $(function() {
   <div class="headertitle"><div class="title">ScrollButton.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_objects_2_scroll_button_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_i_game_object_manager_8h.html">Engine/IGameObjectManager.h</a>&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno"><a class="line" href="class_scroll_button.html">    2</a></span><span class="keyword">class </span><a class="code hl_class" href="class_scroll_button.html">ScrollButton</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_button.html">Button</a></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>{</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keyword">const</span> glm::vec3 DefaultScale = { 240.0f, 160.0f, 1.0f };</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keyword">const</span> glm::vec3 ExpandScale = { 260.0f, 160.0f, 1.0f };;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_function" href="class_scroll_button.html#a4cf0505bf6142aed25f48064acfb61b5">ScrollButton</a>(std::string text);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
+<a href="_objects_2_scroll_button_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="_i_game_object_manager_8h.html">Engine/IGameObjectManager.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_scroll_button.html">    3</a></span><span class="keyword">class </span><a class="code hl_class" href="class_scroll_button.html">ScrollButton</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_button.html">Button</a></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    glm::vec3 DefaultScale = { 240.0f, 160.0f, 1.0f };</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    glm::vec3 ExpandScale = { 260.0f, 160.0f, 1.0f };</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keywordtype">bool</span> m_isExpand = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">bool</span> m_isToggle = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_function" href="class_scroll_button.html#ad9ecfb69642ad6e647be8f3d7b2985de">ScrollButton</a>(std::string text, <span class="keyword">const</span> glm::vec3&amp; _DefaultScale = { 240.0f, 160.0f, 1.0f }, <span class="keyword">const</span> glm::vec3&amp; _ExpandScale = { 260.0f, 160.0f, 1.0f });</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_button.html#aaa1d8a4e324bec7117cbf7c12b879562">SetToggleButton</a>(<span class="keywordtype">bool</span> isToggle);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_button.html#aaa35f1b6e97894739fef954385c2d97a">SetExpand</a>(<span class="keywordtype">bool</span> isExpand);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_scroll_button.html#accbec3fd66ea6d0f880eb59be4b0754c">SetButtonScale</a>(<span class="keyword">const</span> glm::vec3&amp; defaultScale, <span class="keyword">const</span> glm::vec3&amp; expandSca);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
 <div class="ttc" id="a_i_game_object_manager_8h_html"><div class="ttname"><a href="_i_game_object_manager_8h.html">IGameObjectManager.h</a></div></div>
 <div class="ttc" id="aclass_button_html"><div class="ttname"><a href="class_button.html">Button</a></div><div class="ttdef"><b>Definition:</b> Button.h:10</div></div>
-<div class="ttc" id="aclass_scroll_button_html"><div class="ttname"><a href="class_scroll_button.html">ScrollButton</a></div><div class="ttdef"><b>Definition:</b> ScrollButton.h:3</div></div>
-<div class="ttc" id="aclass_scroll_button_html_a4cf0505bf6142aed25f48064acfb61b5"><div class="ttname"><a href="class_scroll_button.html#a4cf0505bf6142aed25f48064acfb61b5">ScrollButton::ScrollButton</a></div><div class="ttdeci">ScrollButton(std::string text)</div><div class="ttdef"><b>Definition:</b> ScrollButton.cpp:3</div></div>
+<div class="ttc" id="aclass_scroll_button_html"><div class="ttname"><a href="class_scroll_button.html">ScrollButton</a></div><div class="ttdef"><b>Definition:</b> ScrollButton.h:4</div></div>
+<div class="ttc" id="aclass_scroll_button_html_aaa1d8a4e324bec7117cbf7c12b879562"><div class="ttname"><a href="class_scroll_button.html#aaa1d8a4e324bec7117cbf7c12b879562">ScrollButton::SetToggleButton</a></div><div class="ttdeci">void SetToggleButton(bool isToggle)</div><div class="ttdef"><b>Definition:</b> ScrollButton.cpp:40</div></div>
+<div class="ttc" id="aclass_scroll_button_html_aaa35f1b6e97894739fef954385c2d97a"><div class="ttname"><a href="class_scroll_button.html#aaa35f1b6e97894739fef954385c2d97a">ScrollButton::SetExpand</a></div><div class="ttdeci">void SetExpand(bool isExpand)</div><div class="ttdef"><b>Definition:</b> ScrollButton.cpp:45</div></div>
+<div class="ttc" id="aclass_scroll_button_html_accbec3fd66ea6d0f880eb59be4b0754c"><div class="ttname"><a href="class_scroll_button.html#accbec3fd66ea6d0f880eb59be4b0754c">ScrollButton::SetButtonScale</a></div><div class="ttdeci">void SetButtonScale(const glm::vec3 &amp;defaultScale, const glm::vec3 &amp;expandSca)</div><div class="ttdef"><b>Definition:</b> ScrollButton.cpp:51</div></div>
+<div class="ttc" id="aclass_scroll_button_html_ad9ecfb69642ad6e647be8f3d7b2985de"><div class="ttname"><a href="class_scroll_button.html#ad9ecfb69642ad6e647be8f3d7b2985de">ScrollButton::ScrollButton</a></div><div class="ttdeci">ScrollButton(std::string text, const glm::vec3 &amp;_DefaultScale={ 240.0f, 160.0f, 1.0f }, const glm::vec3 &amp;_ExpandScale={ 260.0f, 160.0f, 1.0f })</div><div class="ttdef"><b>Definition:</b> ScrollButton.cpp:3</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

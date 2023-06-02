@@ -15,7 +15,8 @@ Inheritance diagram for Slider\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Slider\+:\nopagebreak
+Collaboration diagram for Slider\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +28,7 @@ Collaboration diagram for Slider\+:\nopagebreak
 \item 
 \mbox{\hyperlink{class_slider_a3869b29f11ef20213a75fe743ed0b7ce}{Slider}} (const std\+::string \&obj\+Name)
 \item 
-void \mbox{\hyperlink{class_slider_a832b114df4ed78c138cfda77f372e614}{Init\+Button}} (\mbox{\hyperlink{class_button}{Button}} $\ast$button)
+void \mbox{\hyperlink{class_slider_a3ae5190c638b9cb18a982dab6effd0ac}{Init\+Button}} ()
 \item 
 virtual void \mbox{\hyperlink{class_slider_a813d756ca29fa1f4d38d2b9d44b343bb}{On\+Update}} (const float \&dt) override
 \item 
@@ -37,22 +38,28 @@ float \mbox{\hyperlink{class_slider_a7f485d983f32ba38436684dc1df47404}{Get\+Valu
 \item 
 bool \mbox{\hyperlink{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}{Is\+Button\+Pressed}} ()
 \item 
+\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ \mbox{\hyperlink{class_slider_a717636885413c15e56a30ca54c2568fb}{Get\+Foreground\+UI}} ()
+\item 
 \mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}{Get\+Slider\+Button}} ()
 \item 
 void \mbox{\hyperlink{class_slider_a9886fd8c9ef623ac0620511f5014c1a0}{Set\+Value}} (const float \&value)
 \end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(\mbox{\hyperlink{class_slider}{Slider}} $\ast$)$>$ \mbox{\hyperlink{class_slider_a1159b22c3d632244645ed7087f918332}{on\+Value\+Changed}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ \mbox{\hyperlink{class_slider_a54b7451d7732840bf6ecb33edc3e8573}{m\+\_\+\+Fore\+Ground}}
 \item 
 \mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_slider_ae20b7d7d727856aca7adaafffa5a580d}{m\+\_\+\+Button}}
 \item 
 float \mbox{\hyperlink{class_slider_af2412c3232cf85e8b358d5a7b1c2e8b7}{m\+\_\+\+Value}}
 \item 
 bool \mbox{\hyperlink{class_slider_ab77b6668137ceec794a38c34b88d1463}{m\+\_\+\+Is\+Press}}
-\item 
-std\+::function$<$ void(\mbox{\hyperlink{class_slider}{Slider}} $\ast$)$>$ \mbox{\hyperlink{class_slider_a1159b22c3d632244645ed7087f918332}{on\+Value\+Changed}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -75,6 +82,12 @@ std\+::function$<$ void(\mbox{\hyperlink{class_slider}{Slider}} $\ast$)$>$ \mbox
 
 Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a999b4f}{UIObject}}.
 
+\mbox{\Hypertarget{class_slider_a717636885413c15e56a30ca54c2568fb}\label{class_slider_a717636885413c15e56a30ca54c2568fb}} 
+\index{Slider@{Slider}!GetForegroundUI@{GetForegroundUI}}
+\index{GetForegroundUI@{GetForegroundUI}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{GetForegroundUI()}{GetForegroundUI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ Slider\+::\+Get\+Foreground\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}\label{class_slider_a53bf59bd2172ffc50d9d6ddf95695fae}} 
 \index{Slider@{Slider}!GetSliderButton@{GetSliderButton}}
 \index{GetSliderButton@{GetSliderButton}!Slider@{Slider}}
@@ -87,11 +100,11 @@ Reimplemented from \mbox{\hyperlink{class_u_i_object_ada6bae89342d82efdb5f1bc96a
 \doxysubsubsection{\texorpdfstring{GetValue()}{GetValue()}}
 {\footnotesize\ttfamily float Slider\+::\+Get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_slider_a832b114df4ed78c138cfda77f372e614}\label{class_slider_a832b114df4ed78c138cfda77f372e614}} 
+\mbox{\Hypertarget{class_slider_a3ae5190c638b9cb18a982dab6effd0ac}\label{class_slider_a3ae5190c638b9cb18a982dab6effd0ac}} 
 \index{Slider@{Slider}!InitButton@{InitButton}}
 \index{InitButton@{InitButton}!Slider@{Slider}}
 \doxysubsubsection{\texorpdfstring{InitButton()}{InitButton()}}
-{\footnotesize\ttfamily void Slider\+::\+Init\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_button}{Button}} $\ast$}]{button }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Slider\+::\+Init\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}\label{class_slider_ab7dd4293bbb5133b372d9f7d1df1893a}} 
 \index{Slider@{Slider}!IsButtonPressed@{IsButtonPressed}}
@@ -124,6 +137,12 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434
 \doxysubsubsection{\texorpdfstring{m\_Button}{m\_Button}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_button}{Button}}$\ast$ Slider\+::m\+\_\+\+Button\hspace{0.3cm}{\ttfamily [protected]}}
 
+\mbox{\Hypertarget{class_slider_a54b7451d7732840bf6ecb33edc3e8573}\label{class_slider_a54b7451d7732840bf6ecb33edc3e8573}} 
+\index{Slider@{Slider}!m\_ForeGround@{m\_ForeGround}}
+\index{m\_ForeGround@{m\_ForeGround}!Slider@{Slider}}
+\doxysubsubsection{\texorpdfstring{m\_ForeGround}{m\_ForeGround}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i_object}{UIObject}}$\ast$ Slider\+::m\+\_\+\+Fore\+Ground\hspace{0.3cm}{\ttfamily [protected]}}
+
 \mbox{\Hypertarget{class_slider_ab77b6668137ceec794a38c34b88d1463}\label{class_slider_ab77b6668137ceec794a38c34b88d1463}} 
 \index{Slider@{Slider}!m\_IsPress@{m\_IsPress}}
 \index{m\_IsPress@{m\_IsPress}!Slider@{Slider}}
@@ -140,7 +159,7 @@ Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434
 \index{Slider@{Slider}!onValueChanged@{onValueChanged}}
 \index{onValueChanged@{onValueChanged}!Slider@{Slider}}
 \doxysubsubsection{\texorpdfstring{onValueChanged}{onValueChanged}}
-{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{class_slider}{Slider}}$\ast$)$>$ Slider\+::on\+Value\+Changed\hspace{0.3cm}{\ttfamily [protected]}}
+{\footnotesize\ttfamily std\+::function$<$void(\mbox{\hyperlink{class_slider}{Slider}}$\ast$)$>$ Slider\+::on\+Value\+Changed}
 
 
 

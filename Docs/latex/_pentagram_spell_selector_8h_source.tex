@@ -1,0 +1,62 @@
+\hypertarget{_pentagram_spell_selector_8h_source}{}\doxysection{Pentagram\+Spell\+Selector.\+h}
+\label{_pentagram_spell_selector_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramSpellSelector.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramSpellSelector.h}}
+\mbox{\hyperlink{_pentagram_spell_selector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_data_8h}{Game/BattleScene/SpellCaster/PentagramData.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_clickable_spell_icon_u_i}{ClickableSpellIconUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_event}{Event<int>}} \mbox{\hyperlink{class_clickable_spell_icon_u_i_ae9d89a85f841c76c4ae9ed30c8aba303}{OnSpellClick}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_clickable_spell_icon_u_i_adfebeb256277f19c0aa555bc8cf9ff2b}{ClickableSpellIconUI}}(\textcolor{keyword}{const} std::string\& objName)}
+\DoxyCodeLine{14         : \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}(objName , 75.0f)}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         this-\/>\mbox{\hyperlink{class_button_a518661a5bc461f785c2be78070c81365}{onClick}} = [\textcolor{keyword}{this}](\mbox{\hyperlink{class_button}{Button}}* button)}
+\DoxyCodeLine{17         \{}
+\DoxyCodeLine{18             \mbox{\hyperlink{class_clickable_spell_icon_u_i_ae9d89a85f841c76c4ae9ed30c8aba303}{OnSpellClick}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(this-\/>\mbox{\hyperlink{class_spell_icon_u_i_af0d5118140e1cd89232f89f2ad1f440f}{SpellDetail}}-\/>\mbox{\hyperlink{class_cast_spell_detail_a21e42e7a0361da89d29a5cd92012de1b}{GetIndex}}());}
+\DoxyCodeLine{19         \};}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21 \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_spell_selector}{PentagramSpellSelector}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{private}:}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CurrentElement = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ab355ab6bb45ad3e7759b90d2c3d0fa92}{Element::Earth}};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} m\_IsHighlightColumn = \textcolor{keyword}{true};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} m\_Circle = 1;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} m\_Complex = 1;}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int} m\_Will = 1;}
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} m\_Effect = 1;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     std::array<std::array<ClickableSpellIconUI*,3>,3> m\_SpellIcons;}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_spell_detail_u_i}{SpellDetailUI}}* m\_SpellDetailUI;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_ParticleSystem;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} UpdateIconDetail();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} ClickIcon(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     }
+\DoxyCodeLine{43 \textcolor{keyword}{public}:}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_spell_selector_adbc8be2db0ab3ae984f01843eb905c81}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{class_event}{Event<PentagramData\_T>}} \mbox{\hyperlink{class_pentagram_spell_selector_a90eb995d7d025c890cf2b066acf7a2d6}{OnSpellClick}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_pentagram_spell_selector_a4b138eb19099e62d007b525efe0907b4}{PentagramSpellSelector}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_spell_selector_af92824ae4cad6220726a63fc1374a6ba}{SetElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_spell_selector_a17534c846a685da227a9896d5d217b37}{UpdateSpellIcons}}(\mbox{\hyperlink{struct_pentagram_event}{PentagramEvent}} e);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_spell_selector_ad4871d3d5e379f91c6d4e91493caaad0}{Reset}}();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \};}
+
+\end{DoxyCode}

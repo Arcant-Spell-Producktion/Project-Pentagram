@@ -1,0 +1,49 @@
+\hypertarget{_map_scene_8h_source}{}\doxysection{Map\+Scene.\+h}
+\label{_map_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/MapScene/MapScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/MapScene/MapScene.h}}
+\mbox{\hyperlink{_map_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_map_scene}{MapScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_LevelUpText = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15     \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} m\_NextState;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{float} m\_FadeTime;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{float} m\_FadeCurrentTime = 0.0f;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} m\_IsFadeOut = \textcolor{keyword}{false};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{float} m\_MoveTime = 1.0f;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} m\_CurrentMoveTime = 0.0f;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_game_object}{GameObject}}* m\_Character;}
+\DoxyCodeLine{23     glm::vec3 m\_StartPoint;}
+\DoxyCodeLine{24     glm::vec3 m\_Destination;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool} m\_MoveCharacter = \textcolor{keyword}{false};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} FadeOut(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& fadeTime, \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} nextState)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         m\_NextState = nextState;}
+\DoxyCodeLine{30         m\_FadeTime = fadeTime;}
+\DoxyCodeLine{31         m\_IsFadeOut = \textcolor{keyword}{true};}
+\DoxyCodeLine{32         m\_FadeScreen-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{33         m\_FadeScreen-\/>\mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{SetBlockRaycast}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} FadeUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{public}:}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_scene_a6d34a45e478c60404af4d3499571473f}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_scene_a2f3716ba808fc87fa4272265bd0dd1eb}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_scene_a5bced6c91f2ab3d78bdd61c5b7c39f4e}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{42     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_map_scene_abaf2066f6bb28db9c6032b2aa005c94b}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{43 \};}
+
+\end{DoxyCode}

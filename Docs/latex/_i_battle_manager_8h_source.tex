@@ -1,0 +1,34 @@
+\hypertarget{_i_battle_manager_8h_source}{}\doxysection{IBattle\+Manager.\+h}
+\label{_i_battle_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/IBattleManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/IBattleManager.h}}
+\mbox{\hyperlink{_i_battle_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_battle_state_8h}{Game/BattleScene/BattleStates/BaseBattleState.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{keyword}{enum class} \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{BattleMode}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{Battle}},}
+\DoxyCodeLine{7     \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa0cbc6611f5540bd0809a388dc95a615b}{Test}},}
+\DoxyCodeLine{8     \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa368fe771261fcb18f7988833c9294a20}{Tutorial}}}
+\DoxyCodeLine{9 \};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{template} <\textcolor{keyword}{class} STATE>}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_battle_manager}{IBattleManager}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_i_battle_manager_a8fbfb229965dd8619f318a85ee46823a}{\string~IBattleManager}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a06c9f2c37aa316d6b9d608260d5eb03f}{SetBattleState}}(STATE state) = 0;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_base_game_state}{BaseGameState<STATE>}}* \mbox{\hyperlink{class_i_battle_manager_ab7488f4f851629762b68ea230c761de3}{GetBattleStates}}() = 0;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}  \mbox{\hyperlink{class_i_battle_manager_adecf0b87cbdd44f61b6ea8bb51ae463f}{Init}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} stageElement,\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{BattleMode}} mode = \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{BattleMode::Battle}}) = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a575d67ce8db7c5e046fb33a3e4d536da}{StartBattle}}(\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{BattleMode}} mode) = 0;}
+\DoxyCodeLine{26     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a35e8958f5b35efcd3ebb5ddddced72a8}{SwapCaster}}() = 0;}
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a41ca58c24e84b7a67aaf4c9549a10f65}{EndBattle}}() = 0;}
+\DoxyCodeLine{28 \};}
+
+\end{DoxyCode}

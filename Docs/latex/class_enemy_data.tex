@@ -15,26 +15,92 @@ Inheritance diagram for Enemy\+Data\+:\nopagebreak
 \end{figure}
 
 
-Collaboration diagram for Enemy\+Data\+:\nopagebreak
+Collaboration diagram for Enemy\+Data\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=148pt]{class_enemy_data__coll__graph}
+\includegraphics[width=149pt]{class_enemy_data__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_enemy_data_a2083a76b72e04f118eac88b894f57153}{Enemy\+Data}} (\mbox{\hyperlink{class_caster_data}{Caster\+Data}} data)
+\mbox{\hyperlink{class_enemy_data_a4431211d5f6de63c91799a7cbc74ef00}{Enemy\+Data}} (\mbox{\hyperlink{class_caster_data}{Caster\+Data}} data, \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} type, \mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} moves)
+\item 
+\mbox{\hyperlink{class_enemy_data_a04473562944e699be1f1215ad51f3fe1}{Enemy\+Data}} (const \mbox{\hyperlink{class_enemy_data}{Enemy\+Data}} \&enemy\+Data)
+\item 
+void \mbox{\hyperlink{class_enemy_data_a8b0131b712dd9d85c1db7ef704c0fe00}{Set\+Move}} (\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} moves)
+\item 
+void \mbox{\hyperlink{class_enemy_data_aebbe4b59cfef6358bf1fa77e9431aa74}{Set\+Move}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element, \mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} moves)
+\item 
+\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} \mbox{\hyperlink{class_enemy_data_a5bcc52c159cdc03b05f65c5463fdbfb0}{Enemy\+Type}} ()
+\item 
+\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} \mbox{\hyperlink{class_enemy_data_ad950d1b557c53dddc9f3075a46158e76}{Enemy\+Moves}} ()
+\item 
+\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} \mbox{\hyperlink{class_enemy_data_adc8524b3d28fc5979282ba163bdafe60}{Enemy\+Moves}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} \mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\+\_\+\+Type}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_enemy_data_a2083a76b72e04f118eac88b894f57153}\label{class_enemy_data_a2083a76b72e04f118eac88b894f57153}} 
+\mbox{\Hypertarget{class_enemy_data_a4431211d5f6de63c91799a7cbc74ef00}\label{class_enemy_data_a4431211d5f6de63c91799a7cbc74ef00}} 
 \index{EnemyData@{EnemyData}!EnemyData@{EnemyData}}
 \index{EnemyData@{EnemyData}!EnemyData@{EnemyData}}
-\doxysubsubsection{\texorpdfstring{EnemyData()}{EnemyData()}}
-{\footnotesize\ttfamily Enemy\+Data\+::\+Enemy\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_data}{Caster\+Data}}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\doxysubsubsection{\texorpdfstring{EnemyData()}{EnemyData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Enemy\+Data\+::\+Enemy\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_data}{Caster\+Data}}}]{data,  }\item[{\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}}}]{type,  }\item[{\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}}}]{moves }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_enemy_data_a04473562944e699be1f1215ad51f3fe1}\label{class_enemy_data_a04473562944e699be1f1215ad51f3fe1}} 
+\index{EnemyData@{EnemyData}!EnemyData@{EnemyData}}
+\index{EnemyData@{EnemyData}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{EnemyData()}{EnemyData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Enemy\+Data\+::\+Enemy\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_enemy_data}{Enemy\+Data}} \&}]{enemy\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_data_ad950d1b557c53dddc9f3075a46158e76}\label{class_enemy_data_ad950d1b557c53dddc9f3075a46158e76}} 
+\index{EnemyData@{EnemyData}!EnemyMoves@{EnemyMoves}}
+\index{EnemyMoves@{EnemyMoves}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{EnemyMoves()}{EnemyMoves()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} Enemy\+Data\+::\+Enemy\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_enemy_data_adc8524b3d28fc5979282ba163bdafe60}\label{class_enemy_data_adc8524b3d28fc5979282ba163bdafe60}} 
+\index{EnemyData@{EnemyData}!EnemyMoves@{EnemyMoves}}
+\index{EnemyMoves@{EnemyMoves}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{EnemyMoves()}{EnemyMoves()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}} Enemy\+Data\+::\+Enemy\+Moves (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_enemy_data_a5bcc52c159cdc03b05f65c5463fdbfb0}\label{class_enemy_data_a5bcc52c159cdc03b05f65c5463fdbfb0}} 
+\index{EnemyData@{EnemyData}!EnemyType@{EnemyType}}
+\index{EnemyType@{EnemyType}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{EnemyType()}{EnemyType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} Enemy\+Data\+::\+Enemy\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_enemy_data_a8b0131b712dd9d85c1db7ef704c0fe00}\label{class_enemy_data_a8b0131b712dd9d85c1db7ef704c0fe00}} 
+\index{EnemyData@{EnemyData}!SetMove@{SetMove}}
+\index{SetMove@{SetMove}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{SetMove()}{SetMove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Enemy\+Data\+::\+Set\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}}}]{moves }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_enemy_data_aebbe4b59cfef6358bf1fa77e9431aa74}\label{class_enemy_data_aebbe4b59cfef6358bf1fa77e9431aa74}} 
+\index{EnemyData@{EnemyData}!SetMove@{SetMove}}
+\index{SetMove@{SetMove}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{SetMove()}{SetMove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Enemy\+Data\+::\+Set\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element,  }\item[{\mbox{\hyperlink{class_caster_move_set}{Caster\+Move\+Set}}}]{moves }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}\label{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}} 
+\index{EnemyData@{EnemyData}!m\_Type@{m\_Type}}
+\index{m\_Type@{m\_Type}!EnemyData@{EnemyData}}
+\doxysubsubsection{\texorpdfstring{m\_Type}{m\_Type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{Caster\+Type}} Enemy\+Data\+::m\+\_\+\+Type\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 

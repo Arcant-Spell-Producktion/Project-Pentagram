@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_camera_adc602c67095d9d969e0922d50318da61}{Camera}} (const glm\+::vec3 \&position=glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f))
+\mbox{\hyperlink{class_camera_adc602c67095d9d969e0922d50318da61}{Camera}} (const glm\+::vec3 \&\mbox{\hyperlink{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}{position}}=glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f))
 \item 
 \mbox{\hyperlink{class_camera_ad1897942d0ccf91052386388a497349f}{$\sim$\+Camera}} ()
 \item 
@@ -17,8 +17,6 @@ void \mbox{\hyperlink{class_camera_a0d2a51ba69fc3cfb5dfe16db8747d169}{Input}} (c
 \item 
 void \mbox{\hyperlink{class_camera_a3fcda38ad46f82c9f52e5d48518a1bcf}{Shake}} (const float \&shake\+Time, const int \&shake\+Frequency, glm\+::vec2 variation)
 \item 
-void \mbox{\hyperlink{class_camera_a4a9cda45afb87cd524efc66dd88547b5}{Set\+Position}} (const glm\+::vec3 \&position)
-\item 
 void \mbox{\hyperlink{class_camera_aa44011058e6849c6f617a0d68915d98c}{Reset\+Position}} ()
 \item 
 void \mbox{\hyperlink{class_camera_aaf9896fe952581b3fcd0a675e4807de3}{Set\+Zoom}} (const float \&zoom)
@@ -27,8 +25,6 @@ glm\+::mat4 \mbox{\hyperlink{class_camera_affa333055635aed96518c4c66be9a70c}{Get
 \item 
 glm\+::mat4 \mbox{\hyperlink{class_camera_a1e2d0c2b7a8806ad0cc038896bb0b49c}{Get\+Projection\+Matrix}} (const bool \&is\+Zoom)
 \item 
-glm\+::vec3 \mbox{\hyperlink{class_camera_af01f8cd3c75ea3b9e578cfe0a95c9955}{Get\+Position}} () const
-\item 
 float \mbox{\hyperlink{class_camera_aa2a9507d39c721a7b7064b62f7757dbe}{Get\+Zoom}} () const
 \item 
 bool \mbox{\hyperlink{class_camera_a790fd1b133c5b110f0d6e94ae86cc032}{Is\+Shake}} () const
@@ -36,6 +32,11 @@ bool \mbox{\hyperlink{class_camera_a790fd1b133c5b110f0d6e94ae86cc032}{Is\+Shake}
 int \mbox{\hyperlink{class_camera_a2d4fd92e315fb77821ff6ddade1b6ef2}{Get\+Shake\+Frequency}} () const
 \item 
 int \mbox{\hyperlink{class_camera_a17397ee950bab9e5ef1ea39fa61d757f}{Get\+Shake\+Frequency\+Count}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}{position}}
 \end{DoxyCompactItemize}
 
 
@@ -55,12 +56,6 @@ int \mbox{\hyperlink{class_camera_a17397ee950bab9e5ef1ea39fa61d757f}{Get\+Shake\
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_camera_af01f8cd3c75ea3b9e578cfe0a95c9955}\label{class_camera_af01f8cd3c75ea3b9e578cfe0a95c9955}} 
-\index{Camera@{Camera}!GetPosition@{GetPosition}}
-\index{GetPosition@{GetPosition}!Camera@{Camera}}
-\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
-{\footnotesize\ttfamily glm\+::vec3 Camera\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
 \mbox{\Hypertarget{class_camera_a1e2d0c2b7a8806ad0cc038896bb0b49c}\label{class_camera_a1e2d0c2b7a8806ad0cc038896bb0b49c}} 
 \index{Camera@{Camera}!GetProjectionMatrix@{GetProjectionMatrix}}
 \index{GetProjectionMatrix@{GetProjectionMatrix}!Camera@{Camera}}
@@ -115,12 +110,6 @@ int \mbox{\hyperlink{class_camera_a17397ee950bab9e5ef1ea39fa61d757f}{Get\+Shake\
 \doxysubsubsection{\texorpdfstring{ResetPosition()}{ResetPosition()}}
 {\footnotesize\ttfamily void Camera\+::\+Reset\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_camera_a4a9cda45afb87cd524efc66dd88547b5}\label{class_camera_a4a9cda45afb87cd524efc66dd88547b5}} 
-\index{Camera@{Camera}!SetPosition@{SetPosition}}
-\index{SetPosition@{SetPosition}!Camera@{Camera}}
-\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
-{\footnotesize\ttfamily void Camera\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{position }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{class_camera_aaf9896fe952581b3fcd0a675e4807de3}\label{class_camera_aaf9896fe952581b3fcd0a675e4807de3}} 
 \index{Camera@{Camera}!SetZoom@{SetZoom}}
 \index{SetZoom@{SetZoom}!Camera@{Camera}}
@@ -132,6 +121,15 @@ int \mbox{\hyperlink{class_camera_a17397ee950bab9e5ef1ea39fa61d757f}{Get\+Shake\
 \index{Shake@{Shake}!Camera@{Camera}}
 \doxysubsubsection{\texorpdfstring{Shake()}{Shake()}}
 {\footnotesize\ttfamily void Camera\+::\+Shake (\begin{DoxyParamCaption}\item[{const float \&}]{shake\+Time,  }\item[{const int \&}]{shake\+Frequency,  }\item[{glm\+::vec2}]{variation }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}\label{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}} 
+\index{Camera@{Camera}!position@{position}}
+\index{position@{position}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Camera\+::position}
 
 
 
