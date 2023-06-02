@@ -159,7 +159,7 @@ void TextObject::RenderText(glm::vec3 positionOffset, Camera& camera, glm::mat4 
 
 		if (isVCenterAlignment)
 		{
-			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, (BASE_FONT_SIZE * m_FontScale * allLine) / 2.0f, 0.0f));
+			textModel *= glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, (lineSpace * allLine) / 2.0f, 0.0f));
 		}
 
 		textModel *= glm::rotate(glm::mat4(1.0f), glm::radians(rotation), glm::vec3(0.0f, 0.0f, 1.0f));

@@ -120,7 +120,7 @@ void MenuScene::GameSceneInit()
 		creditButton->position = { 770.0f, -410.0f, 0.0f };
 		creditButton->onClick.AddListener([this](Button* button)
 			{
-				// TO DO: Go to Credit Scene
+                SceneManager::LoadScene(GameState::GS_CREDIT_SCENE);
 			});
 
 		// Option Menu

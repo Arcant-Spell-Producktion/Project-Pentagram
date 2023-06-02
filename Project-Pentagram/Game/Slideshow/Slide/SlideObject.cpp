@@ -139,7 +139,6 @@ void SlideObject::QueueTextEvent(std::vector<int> textIds)
             for (int id : textIds)
             {
                 ShowText(id);
-                m_Texts[id]->SetRenderTime(0.005f);
             };
 
             Next();
@@ -224,6 +223,7 @@ void SlideObject::QueueFadeToBlackEvent(float time, glm::vec3 CC)
 int SlideObject::AddTextObject(TextObject* text)
 {
     text->SetActive(false);
+    text->SetRenderTime(0.005f);
 
     int index = m_Texts.size();
     m_TextLayer->SetChildRenderBack(text);

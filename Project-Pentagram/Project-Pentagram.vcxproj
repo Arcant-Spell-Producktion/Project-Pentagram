@@ -115,7 +115,9 @@
     <ClInclude Include="Game\Objects\StageObject.h" />
     <ClInclude Include="Game\Objects\StaticButton.h" />
     <ClInclude Include="Game\Objects\TextBox.h" />
-    <ClInclude Include="Game\Slideshow\Slide\EndingCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Scene\CreditCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Slide\CreditSlide.h" />
+    <ClInclude Include="Game\Slideshow\Slide\FinalSlide.h" />
     <ClInclude Include="Game\Slideshow\Scene\IntroCutScene.h" />
     <ClInclude Include="Game\Slideshow\Slide\SlideObject.h" />
     <ClInclude Include="Game\Spells\ChannelEffectType.h" />
@@ -140,7 +142,7 @@
     <ClInclude Include="Game\TutorialScene\TutorialStates\TutorialStateModel.h" />
     <ClInclude Include="Game\Slideshow\Scene\FinalCutScene.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="Game\Slideshow\Slide\OpeningCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Slide\IntroSlide.h" />
     <ClInclude Include="Utilities\ArcantAssert.h" />
     <ClInclude Include="Engine\Audio\AudioEngine.h" />
     <ClInclude Include="Game\BattleScene\BattleManager.h" />
@@ -309,7 +311,9 @@
     <ClCompile Include="Game\Objects\StageObject.cpp" />
     <ClCompile Include="Game\Objects\StaticButton.cpp" />
     <ClCompile Include="Game\Objects\TextBox.cpp" />
-    <ClCompile Include="Game\Slideshow\Slide\EndingCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\CreditCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\CreditSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\FinalSlide.cpp" />
     <ClCompile Include="Game\Slideshow\Scene\IntroCutScene.cpp" />
     <ClCompile Include="Game\Slideshow\Slide\SlideObject.cpp" />
     <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
@@ -335,7 +339,7 @@
     <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
     <ClCompile Include="Game\Slideshow\Scene\FinalCutScene.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Game\Slideshow\Slide\OpeningCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\IntroSlide.cpp" />
     <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
   </ItemGroup>
   <ItemGroup>

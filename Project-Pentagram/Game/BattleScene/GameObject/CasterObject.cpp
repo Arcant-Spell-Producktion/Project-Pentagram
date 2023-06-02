@@ -199,4 +199,16 @@ void CasterObject::StopEffect(SpellEffectEnum effect)
     m_Effects[effect]->Stop();
 }
 
+void CasterObject::SetActive(const bool& active)
+{
+    GameObject::SetActive(active);
+
+    for (int i = static_cast<int>(SpellEffectEnum::Mark); i <= static_cast<int>(SpellEffectEnum::Boost); i++)
+    {
+        SpellEffectEnum eff = static_cast<SpellEffectEnum>(i);
+        BaseEffectObject* effObj = new BaseEffectObject(eff);
+        m_Effects[eff]->SetActive(false);
+    }
+}
+
 
