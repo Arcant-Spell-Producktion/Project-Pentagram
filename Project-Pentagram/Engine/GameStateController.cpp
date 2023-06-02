@@ -1,5 +1,6 @@
 ﻿#include "GameStateController.h"
 
+#include "Game/Slideshow/Scene/CreditCutScene.h"
 #include "Game/Slideshow/Scene/FinalCutScene.h"
 #include "Game/Slideshow/Scene/IntroCutScene.h"
 #include "Game/TestScene/CharacterTestScene.h"
@@ -59,6 +60,9 @@ void GameStateController::UpdateGameScene()
             break;
         case GameState::GS_FINAL_SCENE:
             currentScene = new FinalCutScene();
+            break;
+        case GameState::GS_CREDIT_SCENE:
+            currentScene = new CreditCutScene();
             break;
         default: ;
     }

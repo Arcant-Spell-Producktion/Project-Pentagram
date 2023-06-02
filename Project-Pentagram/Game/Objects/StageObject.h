@@ -20,6 +20,8 @@ private:
 public:
     StageObject(Element::Type element);
 
+    void SetElement(Element::Type element);
+
     void FadeToBlack();
 
     void OnUpdate(const float& dt) override;

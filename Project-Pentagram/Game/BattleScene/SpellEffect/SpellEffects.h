@@ -51,6 +51,7 @@ private:
 public:
     FreezeSpellEffect() :BaseSpellEffect(SpellEffectEnum::Freeze, EffectResolveType::OnStartTurn)
     {
+        m_EffectStackLimit = 3;
         m_IsEffectStack = true;
         m_IsEffectResetOnEndOfCastPhase = true;
     }
@@ -64,8 +65,8 @@ class FortifySpellEffect :public BaseSpellEffect
 public:
     FortifySpellEffect() :BaseSpellEffect(SpellEffectEnum::Fortify, EffectResolveType::OnDamageCalculation)
     {
+        m_EffectStackLimit = 3;
         m_IsEffectStack = true;
-        m_EffectStackLimit = 10;
     }
 
     virtual void ResolveEffect(std::va_list args) override;
@@ -77,6 +78,7 @@ private:
 public:
     PetrifySpellEffect() :BaseSpellEffect(SpellEffectEnum::Petrify, EffectResolveType::OnStartTurn)
     {
+        m_EffectStackLimit = 3;
         m_IsEffectStack = true;
         m_IsEffectActiveOnce = true;
         m_IsEffectResetOnEndOfCastPhase = true;
@@ -97,8 +99,8 @@ public:
     BoostSpellEffect() :BaseSpellEffect(SpellEffectEnum::Boost, EffectResolveType::OnStartTurn)
     {
         m_EffectStackLimit = 8;
-        m_IsEffectResetAtStackLimit = true;
         m_IsEffectStack = true;
+        m_IsEffectResetAtStackLimit = true;
     }
 
     virtual void ResolveEffect(std::va_list args) override;

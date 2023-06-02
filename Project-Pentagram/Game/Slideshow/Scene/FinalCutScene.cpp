@@ -1,7 +1,7 @@
 ﻿#include "FinalCutScene.h"
 
 #include "Game/GameData/RuntimeGameData.h"
-#include "Game/Slideshow/Slide/EndingCutScene.h"
+#include "Game/Slideshow/Slide/FinalSlide.h"
 
 
 void FinalCutScene::FadeUpdate(const float& dt)
@@ -30,8 +30,8 @@ void FinalCutScene::GameSceneInit()
     m_FadeScreen->color = { 0.0f, 0.0f, 0.0f, 0.0f };
     m_FadeScreen->SetActive(false);
 
-    m_Slide = CreateObject((new EndingCutScene())->Init());
-    m_Slide->SlideDoneEvent.AddListener([this](bool isDone) { FadeOut(1.0f,GameState::GS_MENU_SCENE); });
+    m_Slide = CreateObject((new FinalSlide())->Init());
+    m_Slide->SlideDoneEvent.AddListener([this](bool isDone) { FadeOut(1.0f,GameState::GS_CREDIT_SCENE); });
     m_Slide->Play();
 
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();

@@ -81,4 +81,5 @@ public:
 
     void StopEffect(SpellEffectEnum effect);
 
+    void SetActive(const bool& active) override;
 };

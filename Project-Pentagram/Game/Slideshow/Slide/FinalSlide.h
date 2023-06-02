@@ -2,7 +2,7 @@
 
 #include "SlideObject.h"
 
-class EndingCutScene :public SlideObject
+class FinalSlide :public SlideObject
 {
 public:
     SlideObject* Init() override;

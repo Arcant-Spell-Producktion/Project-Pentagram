@@ -1,8 +1,8 @@
-﻿#include "EndingCutScene.h"
+﻿#include "FinalSlide.h"
 
 #include "Game/GameData/RuntimeGameData.h"
 
-SlideObject* EndingCutScene::Init()
+SlideObject* FinalSlide::Init()
 {
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
     bool IsChapterComplete[4] = { false,false,false,false };

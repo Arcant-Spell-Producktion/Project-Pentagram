@@ -20,6 +20,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
             if (!this->doCast)
             {
                 CastSpellDetail* newSpell = new CastSpellDetail(*this);
+                newSpell->bonusDamage = this->bonusDamage;
                 newSpell->SelectedTime += newSpell->GetSpellDetail()->GetChannelTime();
                 newSpell->doCast = true;
                 newSpell->Channel = CastSpellDetail::End;
@@ -39,6 +40,7 @@ void CastSpellDetail::OnCast(int* ChannelCount)
                 for (int i = startTime + 1; i <= endTime; i++)
                 {
                     CastSpellDetail* newSpell = new CastSpellDetail(*this);
+                    newSpell->bonusDamage = this->bonusDamage;
                     newSpell->SelectedTime = i;
                     newSpell->doCast = false;
                     newSpell->ParentSpell = this;

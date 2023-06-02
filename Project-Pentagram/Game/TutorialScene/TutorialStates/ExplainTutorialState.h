@@ -13,6 +13,8 @@ private:
 
     TextBox* m_Texts;
 
+    bool m_IsClickAble = false;
+
     void UpdateEvent();
     void OnTextClick();
 public:

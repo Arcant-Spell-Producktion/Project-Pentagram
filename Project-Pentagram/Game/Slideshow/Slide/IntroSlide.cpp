@@ -1,6 +1,6 @@
-﻿#include "OpeningCutScene.h"
+﻿#include "IntroSlide.h"
 
-SlideObject* OpeningCutScene::Init()
+SlideObject* IntroSlide::Init()
 {
     std::vector <GameObject*> Fog;
     std::vector <int> _Fog;
