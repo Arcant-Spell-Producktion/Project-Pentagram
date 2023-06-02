@@ -35,3 +35,8 @@ void EffectInfoUI::SetEffectInfo(const std::string& info)
 {
 	m_EffectInfo->text = info;
 }
+
+TextObject* EffectInfoUI::GetEffectInfoText() const
+{
+	return m_EffectInfo;
+}

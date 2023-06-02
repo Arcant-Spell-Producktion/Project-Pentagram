@@ -82,6 +82,8 @@ void CharacterInfoUI::UpdateSelectedCharacter(Element::Type element)
 			m_EffectInfoUI[0]->SetEffectIconIndex({ 0, 6 });
 			m_EffectInfoUI[0]->SetEffectInfo(WindEffectInfo[0]);
 
+			m_EffectInfoUI[0]->GetEffectInfoText()->fontSize = 22.0f;
+
 			m_CasterInfo->text = WindCharacterInfo + "\n\n" + "Effect of wind spell:";
 			break;
 	}

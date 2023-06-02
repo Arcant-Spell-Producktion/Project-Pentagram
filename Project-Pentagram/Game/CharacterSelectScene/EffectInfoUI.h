@@ -16,4 +16,6 @@ class EffectInfoUI : public UIObject
 		void SetEffectIconTexture(const std::string& filePath);
 		void SetEffectIconIndex(const glm::ivec2& index);
 		void SetEffectInfo(const std::string& info);
+
+		TextObject* GetEffectInfoText() const;
 };
