@@ -19,6 +19,7 @@ enum VolumeType
 class OptionMenuObject : public UIObject
 {
 	private:
+		UIObject* blackBGMenu;
 		UIObject* bgMenu;
 		Slider* VolumeSlider[3];
 		TextObject* VolumeText[3];

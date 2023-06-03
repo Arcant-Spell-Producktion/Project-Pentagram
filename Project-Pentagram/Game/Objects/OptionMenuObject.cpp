@@ -4,6 +4,12 @@ OptionMenuObject::OptionMenuObject() : UIObject("Sound Setting")
 {
 	this->color = { 0.0f, 0.0f, 0.0f, 0.0f };
 
+	blackBGMenu = new UIObject("BlackBackgroundMenu");
+	blackBGMenu->scale = { 1920.0f, 1080.0f, 1.0f };
+	blackBGMenu->color = { 0.0f, 0.0f, 0.0f, 0.75f };
+	blackBGMenu->SetBlockRaycast(true);
+	SetChildRenderBack(blackBGMenu);
+
 	bgMenu = new UIObject("BackgroundMenu");
 	bgMenu->SetTexture("Sprites/UI/Game/ui_game_pause-panel.png");
 	bgMenu->scale = { 1100.0f, 500.0f, 1.0f };
