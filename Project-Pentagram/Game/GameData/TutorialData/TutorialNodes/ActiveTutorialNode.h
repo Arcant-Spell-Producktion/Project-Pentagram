@@ -61,7 +61,7 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Let's try Casting a single Lasting spell \nto defend against an enemy spell"
+            "Let's try Casting a single Lasting spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddStep("");
@@ -73,7 +73,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
         CompleteText = "And that is how the \nchanneling spell Lasting works. \n\nLet's proceed to the next part of the tutorial.";
-        RetryText = "Try Casting an unbreakable shield (Circle 3 Complexity 2)\nIt ignores all of the damage during Activation.\n\nPress R to restart";
+        RetryText = "Try Casting an unbreakable shield (CIRCLE 3 COMPLEXITY 2).\nIt ignores all of the damage during Activation.\n\nPress R to restart";
 
 
     }

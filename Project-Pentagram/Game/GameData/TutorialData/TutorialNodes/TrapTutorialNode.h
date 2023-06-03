@@ -74,8 +74,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        CompleteText = "And that is how the channeling spell trap works. \n\nLet's proceed to the next part of the tutorial.";
-        RetryText = "Try Casting Earth Prison (Circle 2 Complexity 3).\n\nIt can Cancel out all of the spells in that Time Track.\n\nPress R to restart";
+        CompleteText = "And that is how the channeling spell Trap works. \n\nLet's proceed to the next part of the tutorial.";
+        RetryText = "Try Casting Earth Prison (CIRCLE 2 COMPLEXITY 3).\n\nIt can Cancel out all of the spells in that Time Track.\n\nPress R to restart";
 
 
     }

@@ -38,7 +38,7 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "you can delay your spell Casting speed \nto meet the enemy spell in the same track \nto clash and Cancel out the enemy spell."
+            "You can delay your spell Casting speed \nto meet the enemy spell in the same track \nto clash and Cancel out the enemy spell."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
@@ -50,7 +50,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now! let's Cancel out an enemy spell by\ndecreasing the Cast Time of your spell and\n increasing the WILL of your spell."
+            "Now! let's Cancel out an enemy spell by\ndecreasing the CAST TIME of your spell and\n increasing the WILL of your spell."
         );
 
         m_TutorialEvents.AddStep("");

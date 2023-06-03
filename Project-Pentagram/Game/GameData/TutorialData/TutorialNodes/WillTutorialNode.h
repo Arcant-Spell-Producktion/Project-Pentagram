@@ -38,7 +38,7 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Tutorial topic: Will\n\nObjective:\nReduce your opponent's  health to 0"
+            "Tutorial topic: WILL\n\nObjective:\nReduce your opponent's health to 0"
         );
 
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, false });
@@ -55,7 +55,7 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the Pentagram.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
+            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the Pentagram.\n\nThe more mana spends more damage/EFFECT \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(

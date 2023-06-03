@@ -18,8 +18,6 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
-        m_TutorialGoal = TutorialGoal::Survive;
-
         EnemyHP = 100;
         EnemyMana = 20;
         TutorialSpells.push_back({ 1,3,6,1,7 });
@@ -60,7 +58,7 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "Let's try casting a single Counter spell \nto defend against an enemy spell."
+            "Let's try Casting a single Counter spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddStep("");
@@ -72,7 +70,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
         CompleteText = "And that how the channeling spell Counter work.\n\nLet's proceed to the next part of the tutorial.";
-        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can Cancel a spell that targets you \nin the Time Track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
+        RetryText = "Try using Reflect Shield (CIRCLE 3 COMPLEXITY 1) \n\nIt can Cancel a spell that targets you \nin the Time Track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
 
 
     }

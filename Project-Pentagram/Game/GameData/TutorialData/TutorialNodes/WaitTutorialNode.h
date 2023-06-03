@@ -59,14 +59,14 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "To change the type of the spell player can adjust\nthe circle and complexity in the Pentagram, \n\nor use the spell selector on the right."
+            "To change the type of the spell player can adjust\nthe CIRCLE and COMPLEXITY in the Pentagram, \n\nor use the spell selector on the right."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramCircleB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Each adjustment of this section of the Pentragram\ncost 2 mana per modification.\nSame for the spell selector the further\nyou select away from the first spell  \n\n(Press ALT to toggle spell info)"
+            "Each adjustment of this section of the Pentragram\ncost 2 mana per modification.\nSame for the spell selector the further\nyou select away from the first spell. \n\n(Press ALT to toggle spell info)"
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramComplexB,TutorialEventType::Focus, true });
 
@@ -80,7 +80,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
-        RetryText = "Try casting a meteor (Circle 3 complexity 1).\nIt has the same Cast Time as an enemy spell. \n\nPress R to restart";
+        RetryText = "Try casting a meteor (CIRCLE 3 COMPLEXITY 1).\nIt has the same CAST TIME as an enemy spell. \n\nPress R to restart";
         CompleteText = "And that is how the channeling spell Delayed works. \n\nLet's proceed to the next part of the tutorial.";
 
 

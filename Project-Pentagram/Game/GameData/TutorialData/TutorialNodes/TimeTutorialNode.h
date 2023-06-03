@@ -58,10 +58,10 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "Each spell has its own Cast Time \nand it will determine the spot on the Timeline."
+            "Each spell has its own CAST TIME \nand it will determine the spot on the Timeline."
         );
 
-        m_TutorialEvents.AddStep("You can add mana to the spell to hasten it\n\n(delaying the spell don't take mana)");
+        m_TutorialEvents.AddStep("You can add mana to the spell to hasten it.\n\n(delaying the spell don't take mana)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
 
@@ -75,7 +75,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        CompleteText = "And thats the basic of how timeline work.\n\nLet's proceed to the next part of the tutorial.";
+        CompleteText = "And thats the basic of how Timeline work.\n\nLet's proceed to the next part of the tutorial.";
         RetryText = "You need to be faster \ntry adjusting the spell to the left.\n\nPress R to restart";
 
 
