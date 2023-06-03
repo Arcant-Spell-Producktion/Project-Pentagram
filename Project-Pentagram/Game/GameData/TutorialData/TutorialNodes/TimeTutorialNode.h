@@ -18,6 +18,8 @@ public:
             CasterType::Minion, 
             CasterMoveSet()))
     {
+        m_TutorialGoal = TutorialGoal::Kill;
+
         TutorialSpells.push_back({ 1,1,6,1,0 });
 
         m_TutorialPlayerData = new PlayerData(

@@ -18,6 +18,8 @@ public:
             CasterType::Minion,
             CasterMoveSet()))
     {
+        m_TutorialGoal = TutorialGoal::Kill;
+
         EnemyHP = 60;
         EnemyMana = 4;
         TutorialSpells.push_back({ 2,1,1,1,7 });

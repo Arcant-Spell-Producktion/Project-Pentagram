@@ -11,7 +11,14 @@ void ResultTutorialState::OnBattleStateIn()
     RuntimeGameData& gameData = RuntimeGameData::GetInstance();
     TutorialNode* currentNode = gameData.Tutorial.GetTutorialNode();
     PlayerController* player = dynamic_cast<PlayerController*>(battleManager.Data.GetCaster(CasterPosition::CasterA));
+
+    TutorialGoal goal = currentNode->GetTutorialGoal();
     bool isPlayerAlive = player->IsAlive();
+    bool isEnemyAlive = battleManager.Data.GetCaster(CasterPosition::CasterB)->IsAlive();
+
+    bool isSurvied = (goal == TutorialGoal::Survive) && isPlayerAlive;
+    bool isKill = (goal == TutorialGoal::Kill) && !isEnemyAlive;
+    bool isTutorialComplete = isSurvied || isKill;
 
     if (!isPlayerAlive)
     {
@@ -20,11 +27,11 @@ void ResultTutorialState::OnBattleStateIn()
 
     battleManager.Data.Pentagram->SetActive(false);
     battleManager.Data.Texts->SetActive(true);
-    battleManager.Data.Texts->textObject.text = isPlayerAlive? currentNode->CompleteText : currentNode->RetryText;
+    battleManager.Data.Texts->textObject.text = isTutorialComplete ? currentNode->CompleteText : currentNode->RetryText;
 
-    battleManager.Data.Texts->onClick = [this, isPlayerAlive, currentNode](Button* button)
+    battleManager.Data.Texts->onClick = [this, isTutorialComplete, currentNode](Button* button)
     {
-        if (!isPlayerAlive)
+        if (!isTutorialComplete)
         {
             SceneManager::LoadScene(GameState::GS_RESTART);
             return;

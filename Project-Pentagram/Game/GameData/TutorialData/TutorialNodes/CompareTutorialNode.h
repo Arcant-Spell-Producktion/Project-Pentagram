@@ -9,6 +9,8 @@ private:
 public:
     CompareTutorialNode() : TutorialNode(EnemyData(CasterData(CasterStat(100, { 6,6,6,6,6,6 }), Element::Water, CasterPosition::CasterB), CasterType::Minion, CasterMoveSet()))
     {
+        m_TutorialGoal = TutorialGoal::Survive;
+
         TutorialSpells.push_back({ 1,1,2,1,9 });
 
         PlayerMana = 3;
@@ -18,8 +20,6 @@ public:
         PlayerManaWheel = 1;
 
         m_TutorialPlayerData = new PlayerData(CasterData(CasterStat(100, { 1,2,3,4,5,6 }), Element::Fire, CasterPosition::CasterA));
-
-
 
         m_TutorialEvents.AddStep("Tutorial topic: Spell clash\n\nObjective:\nSurvive an attack from the enemy");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB, TutorialEventType::Toggle,false });
