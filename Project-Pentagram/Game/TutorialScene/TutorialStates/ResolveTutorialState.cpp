@@ -18,27 +18,27 @@ void ResolveTutorialState::Step()
 
 void ResolveTutorialState::ResolveTrack()
 {
-    BattleManager& m_BattleManager = BattleManager::GetInstance();
+    BattleManager& _battleManager = BattleManager::GetInstance();
 
     std::cout << "Resovel Track: " << m_TrackResolveIndex << "\n";
 
-    m_CurrentTrack = m_BattleManager.Data.Timeline.GetTimetrack(m_TrackResolveIndex);
-    m_BattleManager.Data.Timeline.UI->SetTrackerPositionByIndex(m_TrackResolveIndex);
+    m_CurrentTrack = _battleManager.Data.Timeline.GetTimetrack(m_TrackResolveIndex);
+    _battleManager.Data.Timeline.UI->SetTrackerPositionByIndex(m_TrackResolveIndex);
     std::cout << "\tGet Track: " << m_TrackResolveIndex << "\n";
-    m_BattleManager.Data.Timeline.UI->HighlightTrack(m_TrackResolveIndex);
+    _battleManager.Data.Timeline.UI->HighlightTrack(m_TrackResolveIndex);
     m_CurrentTrack->UpdateTimetrack();
     m_ResolveTrack = m_CurrentTrack->GetSpellResolveList();
     std::cout << "\tTrack Size: " << m_ResolveTrack.size() << "\n";
 
-    int elementA = static_cast<int>(m_BattleManager.Data.GetCaster(CasterPosition::CasterA)->GetCasterManager()->Data().Element());
-    int elementB = static_cast<int>(m_BattleManager.Data.GetCaster(CasterPosition::CasterB)->GetCasterManager()->Data().Element());
+    int elementA = static_cast<int>(_battleManager.Data.GetCaster(CasterPosition::CasterA)->GetCasterManager()->Data().Element());
+    int elementB = static_cast<int>(_battleManager.Data.GetCaster(CasterPosition::CasterB)->GetCasterManager()->Data().Element());
 
     auto position = m_CurrentTrack->GetWillCompareResult();
     if (position >= CasterPosition::TIED)
     {
         if (m_CurrentTrack->DoWillCompare())
         {
-            m_BattleManager.Data.WillCompare->StartCompare(position, elementA, elementB);
+            _battleManager.Data.WillCompare->StartCompare(position, elementA, elementB);
             m_State = ResolveState::PlayCompare;
         }
         else
@@ -58,12 +58,12 @@ void ResolveTutorialState::ResolveTrack()
 
 void ResolveTutorialState::ResolveSpell(int spell_index)
 {
-    BattleManager& m_BattleManager = BattleManager::GetInstance();
+    BattleManager& _battleManager = BattleManager::GetInstance();
 
     if (m_ResolveTrack.size() == 0)
     {
         Step();
-        m_BattleManager.Data.Timeline.UpdateTimeline();
+        _battleManager.Data.Timeline.UpdateTimeline();
         return;
     }
 
@@ -81,7 +81,7 @@ void ResolveTutorialState::ResolveSpell(int spell_index)
 
         CasterPosition targetPosition = m_CurrentSpellDetail->GetTarget();
 
-        auto caster = m_BattleManager.Data.GetCaster(casterPosition)->GetCasterObject();
+        auto caster = _battleManager.Data.GetCaster(casterPosition)->GetCasterObject();
 
         if (m_CurrentSpellDetail->doCast)
         {
@@ -139,7 +139,7 @@ void ResolveTutorialState::ResolveSpell(int spell_index)
         Step();
     }
 
-    m_BattleManager.Data.Timeline.UpdateTimeline();
+    _battleManager.Data.Timeline.UpdateTimeline();
 
 }
 
@@ -152,16 +152,16 @@ void ResolveTutorialState::ResolveDamageCalculation()
 
 void ResolveTutorialState::OnBattleStateIn()
 {
-    BattleManager& m_BattleManager = BattleManager::GetInstance();
+    BattleManager& _battleManager = BattleManager::GetInstance();
     m_State = ResolveState::ResolveTrack;
     m_TrackResolveIndex = 0;
     m_SpellResolveIndex = 0;
     m_Timer = 0.0f;
 
-    m_BattleManager.Data.Timeline.UI->SetTrackerActive(true);
-    m_BattleManager.Data.Timeline.UI->SetTrackerPositionByIndex(0);
+    _battleManager.Data.Timeline.UI->SetTrackerActive(true);
+    _battleManager.Data.Timeline.UI->SetTrackerPositionByIndex(0);
 
-    m_BattleManager.Data.WillCompare->OnCompareDone.AddListener
+    _battleManager.Data.WillCompare->OnCompareDone.AddListener
     (
         [this](CasterPosition pos)
         {
@@ -180,7 +180,7 @@ void ResolveTutorialState::OnBattleStateIn()
 
 void ResolveTutorialState::OnBattleStateUpdate(float dt)
 {
-    BattleManager& m_BattleManager = BattleManager::GetInstance();
+    BattleManager& _battleManager = BattleManager::GetInstance();
 
     switch (m_State)
     {
@@ -239,18 +239,18 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
 
     if (m_TrackResolveIndex == 10)
     {
-        m_BattleManager.SetBattleState(BattleState::ResultState);
+        _battleManager.SetBattleState(BattleState::ResultState);
     }
 }
 
 void ResolveTutorialState::OnBattleStateOut()
 {
-    BattleManager& m_BattleManager = BattleManager::GetInstance();
+    BattleManager& _battleManager = BattleManager::GetInstance();
 
-    m_BattleManager.Data.StartRound();
+    _battleManager.Data.StartRound();
 
-    m_BattleManager.Data.Timeline.UI->SetTrackerActive(false);
-    m_BattleManager.Data.Timeline.CompleteTimeline();
+    _battleManager.Data.Timeline.UI->SetTrackerActive(false);
+    _battleManager.Data.Timeline.CompleteTimeline();
 
-    m_BattleManager.Data.WillCompare->OnCompareDone.RemoveAllListeners();
+    _battleManager.Data.WillCompare->OnCompareDone.RemoveAllListeners();
 }
