@@ -31,26 +31,26 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::CastButton, TutorialEventType::Toggle,false });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton, TutorialEventType::Toggle,false });
 
-        m_TutorialEvents.AddStep("If there is a spell from both sides \nin the same Time Track.\n\nIt will decide which spell will be cast \nby comparing the higher total WILL in that Time track.");
+        m_TutorialEvents.AddStep("If there is a spell from both sides \nin the same Time Track.\n\nIt will Engaged in a Spell Clash to decide\nwhich spell will Activate by comparing the\nhigher total WILL in that Time Track.");
 
         m_TutorialEvents.AddStep(
-            "The casted spell after a spell clash \nwill suffer some damage reduction."
+            "The Casted spell after a Spell Clash \nwill suffer some damage reduction."
         );
 
         m_TutorialEvents.AddStep(
-            "you can delay your spell casting speed \nto meet the enemy spell in the same track \nto clash and cancel out the enemy spell."
+            "you can delay your spell Casting speed \nto meet the enemy spell in the same track \nto clash and Cancel out the enemy spell."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Then increase the Will of your spell\nto deny the enemy spell."
+            "Then increase the WILL of your spell\nto Cancel the enemy spell."
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB, TutorialEventType::Toggle,true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramWillB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now! let's cancel out an enemy spell by\ndecreasing the cast time of your spell and\n increasing the WILL of your spell."
+            "Now! let's Cancel out an enemy spell by\ndecreasing the Cast Time of your spell and\n increasing the WILL of your spell."
         );
 
         m_TutorialEvents.AddStep("");
@@ -60,8 +60,8 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton, TutorialEventType::Toggle,true });
         
 
-        CompleteText = "That is the basics of spell clash,\n let's proceed to the next part of the tutorial.";
-        RetryText = "Try to cancel the enemy spell \nby adding the spell with \nhigher WILL in the same Time track.\n\nPress R to restart";
+        CompleteText = "That is the basics of Spell Clash,\n let's proceed to the next part of the tutorial.";
+        RetryText = "Try to Cancel the enemy spell \nby adding the spell with \nhigher WILL in the same Time Track.\n\nPress R to restart";
 
 
         EnemyMana = 10;

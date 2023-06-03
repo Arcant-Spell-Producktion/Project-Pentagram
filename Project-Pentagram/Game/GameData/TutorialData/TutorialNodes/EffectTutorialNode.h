@@ -45,20 +45,20 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, false });
 
         m_TutorialEvents.AddStep(
-            "In this game, you can spend mana \nto customize a spell to attack the enemy \nby adjusting each section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
+            "In this game, you can spend mana \nto customize a spell to attack the enemy \nby adjusting each section of the Pentagram.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(
-            "In this tutorial, you will learn about Effect.\n\nEach spell have its own effect.\nAdding mana to it will \nempower that effect. "
+            "In this tutorial, you will learn about Effect.\n\nEach spell have unique effect.\nAdding mana to it will empower that effect. "
         );
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Toggle, true });
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramEffectB,TutorialEventType::Focus, true });
 
 
-        m_TutorialEvents.AddStep("There are many effects in the game.\n\nEx: Burning: \nUnit with burning will take 10 damage per stack \nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
+        m_TutorialEvents.AddStep("There are many effects in the game.\n\nEx: Burning: \nUnit with Burning take 10 damage per stack\nat the start of the turn.\n(Stack decrease by 1 after taking damage)");
         m_TutorialEvents.AddEvent({ MainObjectEnum::Null,TutorialEventType::Focus, true });
 
-        m_TutorialEvents.AddStep("Try to use a single flame pillar \nto kill the enemy by \nthe start of the next round.\n\n(Press ALT to inspect the information of the spell.)");
+        m_TutorialEvents.AddStep("Try to Cast a single flame pillar \nto kill the enemy by the start of the next turn.\n\n(Press ALT to inspect the information of the spell.)");
 
         m_TutorialEvents.AddStep("");
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramScroll, TutorialEventType::Toggle,true });

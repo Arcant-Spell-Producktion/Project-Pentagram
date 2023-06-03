@@ -43,20 +43,20 @@ public:
 
         //add focus on timeline here
         m_TutorialEvents.AddStep(
-            "The enemy spells is added to the TIMELINE.\n\nEach column in the timeline is TIME TRACK."
+            "The enemy spells is added to the TIMELINE.\n\nEach column in the Timeline is TIME TRACK."
         );
         //m_TutorialEvents.AddEvent({ MainObjectEnum::Timeline,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "You can cast maximum of 5 spells in each time track.\n\nThe timeline will help you \nkeep track of the spell cast that round."
+            "You can Cast a maximum of 5 spells\nin each Time Track.\n\nThe Timeline will help you \nkeep track of the spell Cast that turn."
         );
 
         m_TutorialEvents.AddStep(
-            "The spell will start casting \nfrom the left-most TIME TRACK  to the right."
+            "The spell will start Casting \nfrom the left-most Time Track to the right."
         );
 
         m_TutorialEvents.AddStep(
-            "Each spell has its own cast time \nand will determine the spot on the timeline."
+            "Each spell has its own Cast Time \nand it will determine the spot on the Timeline."
         );
 
         m_TutorialEvents.AddStep("You can add mana to the spell to hasten it\n\n(delaying the spell don't take mana)");
@@ -64,7 +64,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PentagramTimeB,TutorialEventType::Focus, true });
 
         m_TutorialEvents.AddStep(
-            "Now! let's try casting a single spell \nthat's faster that the enemy spell.");
+            "Now! let's try Casting a single spell \nthat's faster that the enemy spell.");
 
         m_TutorialEvents.AddStep("");
 

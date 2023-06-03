@@ -53,7 +53,7 @@ public:
         );
 
         m_TutorialEvents.AddStep(
-            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the spell circle.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
+            "You can spend mana to customize a spell \nto attack the enemy by adjusting \neach section of the Pentagram.\n\nThe more mana spends more damage/effect \nthe spell can inflict."
         );
 
         m_TutorialEvents.AddStep(

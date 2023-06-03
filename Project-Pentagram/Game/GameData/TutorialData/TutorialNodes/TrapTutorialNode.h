@@ -52,16 +52,16 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about \nchanneling spells again.\n\nChanneling is a type of spell that may take \nmore than one turn to cast or have a lasting effect \nin that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell that may take \nmore than one turn to Cast or have a lasting effect \nin that turn once Cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling.\n\nThis one is Trap. \nThe trap type will do nothing until the enemy casts a spell \nduring it's activation."
+            "There are multiple types of channeling.\n\nThis one is Trap. \nThe trap type will do nothing until\nthe opponent spell Activate during it's Activation."
         );
 
 
         m_TutorialEvents.AddStep(
-            "Let's try casting a single trap spell \nto defend against an enemy spell."
+            "Let's try Casting a single Trap spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddStep("");
@@ -73,7 +73,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
         CompleteText = "And that is how the channeling spell trap works. \n\nLet's proceed to the next part of the tutorial.";
-        RetryText = "Try casting Earth Prison (Circle 2 Complexity 3).\n\nIt can cancel out all of the spells in that time track.\n\nPress R to restart";
+        RetryText = "Try Casting Earth Prison (Circle 2 Complexity 3).\n\nIt can Cancel out all of the spells in that Time Track.\n\nPress R to restart";
 
 
     }

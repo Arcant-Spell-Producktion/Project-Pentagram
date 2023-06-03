@@ -49,16 +49,16 @@ public:
 
 
         m_TutorialEvents.AddStep(
-            "In this tutorial we are going to talk about \nchanneling spells again.\n\nChanneling is a type of spell that may take \nmore than one turn to cast or have a lasting effect \nin that turn once cast."
+            "In this tutorial we are going to talk about \nchanneling spells.\n\nChanneling is a type of spell that may take \nmore than one turn to Cast or have a lasting effect \nin that turn once Cast."
         );
 
         m_TutorialEvents.AddStep(
-            "There are multiple types of channeling.\n\nThis one is Counter.\nCounter type when cast will do nothing \nuntil the enemy casts a spell that \ntargets you during activation."
+            "There are multiple types of channeling.\n\nThis one is Counter.\nCounter type when cast will do nothing \nuntil the Opponent Spell that targeted the another Unit\nActivate during it's Activation."
         );
 
 
         m_TutorialEvents.AddStep(
-            "Let's try casting a single counter spell \nto defend against an enemy spell."
+            "Let's try casting a single Counter spell \nto defend against an enemy spell."
         );
 
         m_TutorialEvents.AddStep("");
@@ -70,7 +70,7 @@ public:
         m_TutorialEvents.AddEvent({ MainObjectEnum::PassButton,TutorialEventType::Toggle, true });
 
         CompleteText = "And that how the channeling spell Counter work.\n\nLet's proceed to the next part of the tutorial.";
-        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can cancel a spell that targets you \nin the time track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
+        RetryText = "Try using Reflect Shield (Circle 3 Complexity 1) \n\nIt can Cancel a spell that targets you \nin the Time Track and reflect the damage \nto the enemy instead.\n\nPress R to restart";
 
 
     }
