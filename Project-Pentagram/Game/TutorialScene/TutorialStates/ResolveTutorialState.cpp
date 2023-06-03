@@ -18,7 +18,7 @@ void ResolveTutorialState::Step()
 
 void ResolveTutorialState::ResolveTrack()
 {
-    BattleManager m_BattleManager = BattleManager::GetInstance();
+    BattleManager& m_BattleManager = BattleManager::GetInstance();
 
     std::cout << "Resovel Track: " << m_TrackResolveIndex << "\n";
 
@@ -58,7 +58,7 @@ void ResolveTutorialState::ResolveTrack()
 
 void ResolveTutorialState::ResolveSpell(int spell_index)
 {
-    BattleManager m_BattleManager = BattleManager::GetInstance();
+    BattleManager& m_BattleManager = BattleManager::GetInstance();
 
     if (m_ResolveTrack.size() == 0)
     {
@@ -152,7 +152,7 @@ void ResolveTutorialState::ResolveDamageCalculation()
 
 void ResolveTutorialState::OnBattleStateIn()
 {
-    BattleManager m_BattleManager = BattleManager::GetInstance();
+    BattleManager& m_BattleManager = BattleManager::GetInstance();
     m_State = ResolveState::ResolveTrack;
     m_TrackResolveIndex = 0;
     m_SpellResolveIndex = 0;
@@ -180,7 +180,7 @@ void ResolveTutorialState::OnBattleStateIn()
 
 void ResolveTutorialState::OnBattleStateUpdate(float dt)
 {
-    BattleManager m_BattleManager = BattleManager::GetInstance();
+    BattleManager& m_BattleManager = BattleManager::GetInstance();
 
     switch (m_State)
     {
@@ -236,20 +236,16 @@ void ResolveTutorialState::OnBattleStateUpdate(float dt)
         break;
     }
 
-    //if(battle end)
-    //{}
-    //else
 
     if (m_TrackResolveIndex == 10)
     {
         m_BattleManager.SetBattleState(BattleState::ResultState);
     }
-    //m_BattleManager.SwapCaster();
 }
 
 void ResolveTutorialState::OnBattleStateOut()
 {
-    BattleManager m_BattleManager = BattleManager::GetInstance();
+    BattleManager& m_BattleManager = BattleManager::GetInstance();
 
     m_BattleManager.Data.StartRound();
 
