@@ -199,7 +199,7 @@ void WindSpell5::Initialize()
     windProp.sizeVariation = 5.0f;
     windProp.rotation = m_SpellTarget == -1 ? -135.0f : -45.0f;
     windProp.rotationVariation = 0.0f;
-    windProp.velocity = { -500.0f * m_SpellTarget, -550.0f };
+    windProp.velocity = { -500.0f * m_SpellTarget * 2.0f, -550.0f * 2.0f };
     windProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
@@ -382,7 +382,7 @@ void WindSpell9::Initialize()
     particleProp.colorEnd = { 1.0f, 1.0f, 1.0f, 1.0f };
     particleProp.rotation = 15.0f;
     particleProp.rotationVariation = 0.0f;
-    particleProp.velocity = { -600.0f * m_SpellTarget, -650.0f };
+    particleProp.velocity = { -600.0f * m_SpellTarget * 2.0f, -650.0f * 2.0f };
     particleProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     particleProp.lifeTime = 1.5f;
 
