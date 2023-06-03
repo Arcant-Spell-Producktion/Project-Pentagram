@@ -1,7 +1,8 @@
 ﻿#include "WaterSpellObjects.h"
 #include "Engine/IGameObjectManager.h"
-#include "Engine/GameStateController.h"
 #include <vector>
+
+#include "Engine/GameStateController.h"
 
 BaseSpellObject* WaterSpellObject::CreateSpellObject(int index, CasterPosition target)
 {
@@ -397,7 +398,7 @@ void WaterSpell9::Initialize()
 
     int col = this->GetAnimationColumn(0) - 1;
 
-    GameObject* _bubbleObj = scene->CreateGameObject("bubble");
+    GameObject* _bubbleObj = new GameObject("bubble");
     _bubbleObj->SetTexture("Sprites/Spell/Water/spell_water_9-2.png");
     _bubbleObj->scale = { 320.0f, 320.0f, 1.0f };
     _bubbleObj->position = { CASTER_POSITION_X * m_SpellTarget, -160.0f, 0.0f };

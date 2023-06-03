@@ -203,7 +203,8 @@ void WindSpell5::Initialize()
     windProp.velocityVariation = { 100.0f * m_SpellTarget, 50.0f };
     windProp.lifeTime = 1.5f;
 
-    m_LeafParticle = GameStateController::GetInstance().currentScene->CreateParticle(windProp);
+    m_LeafParticle = new ParticleSystem("leafParticle");
+    m_LeafParticle->baseParticle = windProp;
     m_LeafParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind5_particle.png");
     m_LeafParticle->SetIsAnimationObject(true);
     m_LeafParticle->SetIsFixRotation(true);
@@ -386,7 +387,8 @@ void WindSpell9::Initialize()
     particleProp.lifeTime = 1.5f;
 
     particleProp.sizeBegin = particleProp.sizeEnd = 150.0f;
-    m_WindParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
+    m_WindParticle = new ParticleSystem("WindParticle");
+    m_WindParticle->baseParticle = particleProp;
     if (m_SpellTarget == -1)
     {
         m_WindParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind9_particle.png");
@@ -403,7 +405,8 @@ void WindSpell9::Initialize()
     particleProp.rotation = m_SpellTarget == -1 ? -135.0f : -45.0f;
     particleProp.sizeBegin = particleProp.sizeEnd = 90.0f;
     //m_LeafParticle.sizeVariation = 5.0f;
-    m_LeafParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
+    m_LeafParticle = new ParticleSystem("LeafParticle");
+    m_LeafParticle->baseParticle = particleProp;
     m_LeafParticle->SetTexture("Sprites/Spell/Wind/spell_sprite_wind5_particle.png");
     m_LeafParticle->SetIsAnimationObject(true);
     m_LeafParticle->SetIsFixRotation(true);
@@ -412,7 +415,8 @@ void WindSpell9::Initialize()
 
     particleProp.rotation = m_SpellTarget == 1 ? -135.0f : -45.0f;
     particleProp.sizeBegin = particleProp.sizeEnd = 250.0f;
-    m_FireParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
+    m_FireParticle = new ParticleSystem("FireParticle");
+    m_FireParticle->baseParticle = particleProp;
     m_FireParticle->SetTexture("Sprites/Spell/Fire/spell_fire_3.png");
     m_FireParticle->SetIsAnimationObject(true);
     m_FireParticle->SetIsFixRotation(true);
@@ -420,7 +424,8 @@ void WindSpell9::Initialize()
     m_FireParticle->SetSpawnTime(99);
 
     particleProp.sizeBegin = particleProp.sizeEnd = 75.0f;
-    m_WaterParticle = GameStateController::GetInstance().currentScene->CreateParticle(particleProp);
+    m_WaterParticle = new ParticleSystem("WaterParticle");
+    m_WaterParticle->baseParticle = particleProp;
     m_WaterParticle->SetTexture("Sprites/Spell/Water/spell_water_8-1.png");
     m_WaterParticle->SetIsAnimationObject(true);
     m_WaterParticle->SetIsFixRotation(true);
