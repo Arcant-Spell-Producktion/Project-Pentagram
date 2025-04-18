@@ -1,0 +1,120 @@
+\hypertarget{_game_object_8h_source}{}\doxysection{Game\+Object.\+h}
+\label{_game_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/GameObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/GameObject.h}}
+\mbox{\hyperlink{_game_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arcant_engine_8h}{ArcantEngine.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_tag_8h}{GameObjectTag.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_8h}{Renderer/Mesh.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Renderer/Texture.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shader_8h}{Renderer/Shader.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_engine_data_collector_8h}{Collector/EngineDataCollector.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Rendering -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_mesh}{Mesh}} \mbox{\hyperlink{class_game_object_a6183362801e338fc99f5225f84a5b01f}{m\_Mesh}};}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_game_object_a1875c0e1837f21bd59d175da127358b9}{m\_Texture}};}
+\DoxyCodeLine{22         std::string \mbox{\hyperlink{class_game_object_a9ddb45724e9a9b43c454a7c48b76818c}{m\_TexturePath}};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a7779b2440466355f1e75d3b9280d6b5e}{m\_IsActive}};}
+\DoxyCodeLine{24         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_aeaabdef761508c2eba3cb1a6b6696d03}{m\_Tag}};}
+\DoxyCodeLine{25         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a7899bbd2ee804260c42d892785dfbdbf}{m\_IsZoomObject}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Animation -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{28         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a36c9fb1b4809862d72d2eaf8931e627f}{m\_IsAnimationPlaying}};}
+\DoxyCodeLine{29         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a1174f7525c02ea3d1c1b324d118eba45}{m\_IsAnimationObject}};}
+\DoxyCodeLine{30         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a40f77ddafaf8640b7aebcf76fad1c6ed}{m\_IsSpriteSheet}};}
+\DoxyCodeLine{31         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_adb4f1de40091ddb84adbd4b40360e561}{m\_IsAnimationLoop}};}
+\DoxyCodeLine{32         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_ae306ef381f8171c88f1e6e178db7b2c3}{m\_DoChangeToNextFrame}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a47e36a99be92ec66bf614d0184ec486a}{m\_AnimationRow}};}
+\DoxyCodeLine{35         std::vector<int> \mbox{\hyperlink{class_game_object_ac84c9ff3c9a08e1b8d6b6544898db904}{m\_AnimationColumn}};}
+\DoxyCodeLine{36         }
+\DoxyCodeLine{37         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a3173126160eca421c82403310269d68d}{m\_MaxAnimationColumn}};}
+\DoxyCodeLine{38         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_acfc9584afd71b6156f1cbabde36aabab}{m\_CurrentAnimationRow}} = 1, \mbox{\hyperlink{class_game_object_a6637a309423ab34ab82dadf5ae47b804}{m\_CurrentAnimationColumn}} = 1;}
+\DoxyCodeLine{39         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a6c4c4c98de478b57eb9039bdef7b32f9}{m\_NextFrameRow}} = 1, \mbox{\hyperlink{class_game_object_a2a3954706ff689f8e0da04e054421792}{m\_NextFrameColumn}} = 1;}
+\DoxyCodeLine{40         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_afd0b86ef463d693e385b2bcf35220800}{m\_AnimationPlayTime}} = 0.1f;}
+\DoxyCodeLine{41         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a1847f0980405a688cd2d1721a8e8be7b}{m\_CurrentPlayTime}} = 0.0f;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Child -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{44         std::vector<GameObject*> \mbox{\hyperlink{class_game_object_a7cc6491a07916f09942a7f13b44570f5}{m\_FrontRenderedChildList}};}
+\DoxyCodeLine{45         std::vector<GameObject*> \mbox{\hyperlink{class_game_object_adcd2ebe3e95ed8399712c8709517efc8}{m\_BackRenderedChildList}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{public}:}
+\DoxyCodeLine{48         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ General -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{49         std::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}};}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_object_a4113a496ed45ca90756cfa0d8dfe6171}{parent}};}
+\DoxyCodeLine{51         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Transform -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{52         glm::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}};}
+\DoxyCodeLine{53         glm::vec3 \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}};}
+\DoxyCodeLine{54         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_ac55f6ebdf4cfbab508680ad7290fb26c}{rotation}};}
+\DoxyCodeLine{55         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Color -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{56         glm::vec4 \mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \mbox{\hyperlink{class_game_object_a045040a1e22579a2ae0177e1c1467c68}{GameObject}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{59         \mbox{\hyperlink{class_game_object_a045040a1e22579a2ae0177e1c1467c68}{GameObject}}(\textcolor{keyword}{const} std::string\& objName, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& animRow, \textcolor{keyword}{const} std::vector<int>\& animCol);}
+\DoxyCodeLine{60         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object_ab82dfdb656f9051c0587e6593b2dda97}{\string~GameObject}}();}
+\DoxyCodeLine{61         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{62         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a9e9c5e4b492511d6152ee4d69bd460c2}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f));}
+\DoxyCodeLine{63         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a85cf860dbe784c2cceb54e94800835c5}{UnloadMesh}}();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{67         \textcolor{comment}{// Rendering}}
+\DoxyCodeLine{68         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a6fcbab1b9b56559e34f51f896b7d8448}{GetTag}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a9ba5344daef13d4146bcf5fe82689f5e}{IsActive}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{70         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_game_object_aeb0f61f713aec21be43e1c3f31dd21a1}{GetTexture}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{71         \mbox{\hyperlink{class_game_object}{GameObject}}* \mbox{\hyperlink{class_game_object_a558fbca8366a07da3cc0c0470709bfdd}{FindChildObject}}(\textcolor{keyword}{const} std::string\& childObjectName);}
+\DoxyCodeLine{72         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_abe5de540bde8e5838784ee8a79ce7e0d}{GetChildSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{73         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_ab77deef319fd3643d19ee2494b0dd06c}{GetFrontRenderChildSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a1b99f20242fdd77abb2ece4d8f7be1b7}{GetBackRenderChildSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{75         std::vector<GameObject*> \mbox{\hyperlink{class_game_object_a8f42a4721b96f4991d2136fd3a6af2d1}{GetFrontRenderChildList}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{76         std::vector<GameObject*> \mbox{\hyperlink{class_game_object_a67cf0745b05b9a3966dab290ce24e7c3}{GetBackRenderChildList}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77         std::vector<GameObject*> \mbox{\hyperlink{class_game_object_a3741e6f513ffa2f242b706c432921221}{GetChildList}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{78         glm::vec3 \mbox{\hyperlink{class_game_object_a054d052a5328888dbc48530759ae5f2d}{GetWorldPosition}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{79         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_aba9734486de9f150d4a522c6b2ebafeb}{IsZoomObject}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80         \textcolor{comment}{// Animation}}
+\DoxyCodeLine{81         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a2260d4938d872621ec4ed653e19d3737}{GetCurrentAnimationRow}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{82         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a9440271db6ffa1785c0fc196c866d3ad}{GetCurrentAnimationColumn}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{83         glm::ivec2 \mbox{\hyperlink{class_game_object_a7b927594917363fa8c75e6e9ef22d3a5}{GetCurrentAnimationIndex}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{84         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a374dcaff5105c111002e84ca4646d0b2}{GetAnimationRow}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{85         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_adaf5b13bbe47087a34ac20f55626c83b}{GetAnimationColumn}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& row) \textcolor{keyword}{const};}
+\DoxyCodeLine{86         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a9f196e0443807a626ead2519557d74d7}{GetAnimationPlayTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{87         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_ae85ca170fc197b75524a1aecb40caa05}{GetCurrentAnimationPlayTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{88         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a0c396a261150422abbfbbf845926a2ab}{IsAnimationObject}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{89         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a78f11c551dd05937a220848b693dec60}{IsAnimationPlaying}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{90         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a34b7817faac98f6326efd2a97940373b}{IsSpriteSheet}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{91         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_ac1ae7670934ae840fd9aba5a1bc4046c}{IsAnimationLoop}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{94         \textcolor{comment}{// Rendering}}
+\DoxyCodeLine{95         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{96         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(\mbox{\hyperlink{class_game_object}{GameObject}}* gameObj);}
+\DoxyCodeLine{97         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a1e17b9f070d2a64244e7dc26ba847f29}{SetChildRenderBack}}(\mbox{\hyperlink{class_game_object}{GameObject}}* gameObj);}
+\DoxyCodeLine{98         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_ae21ec32941e74e7a21c2a8707941a5f9}{RemoveChild}}(\mbox{\hyperlink{class_game_object}{GameObject}}* gameObj);}
+\DoxyCodeLine{99         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a68fc212909c3a29175616c3b22d4f3dc}{SetIsZoomObject}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{100         \textcolor{comment}{// Animation}}
+\DoxyCodeLine{101         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a34a0f3608f49738755aeb063e86c4f76}{SetIsAnimationObject}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{102         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a41dc3409a9d9e37b74d447b866e97e83}{SetIsAnimationLoop}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{103         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& row, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& column, \textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& doChangeNextFrame = \textcolor{keyword}{false});}
+\DoxyCodeLine{104         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a936275139174861a798c40c96d1db641}{SetSpriteByValue}}(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& row, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& column, \textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& doChangeNextFrame = \textcolor{keyword}{false});}
+\DoxyCodeLine{105         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a9dbdeefecb37d13ff6a663f6460bccee}{SetAnimationPlayTime}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& animationPlayTime);}
+\DoxyCodeLine{106         \textcolor{comment}{// Texture}}
+\DoxyCodeLine{107         \textcolor{comment}{// override in ParticleSystem.h}}
+\DoxyCodeLine{108         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{109         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\mbox{\hyperlink{class_texture}{Texture}}* texture);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Animation Update -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{113         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a2bd7a7fe711c058af065e68b9bc89ba7}{UpdateAnimation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& deltaTime);}
+\DoxyCodeLine{114 \};}
+
+\end{DoxyCode}

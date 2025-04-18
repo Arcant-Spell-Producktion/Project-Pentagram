@@ -1,0 +1,90 @@
+\hypertarget{_caster_object_8h}{}\doxysection{E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Caster\+Object.h File Reference}
+\label{_caster_object_8h}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/CasterObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/CasterObject.h}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include \char`\"{}Effect\+Object/\+Base\+Effect\+Object.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Engine/\+IGame\+Object\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Spells/\+Element.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Caster\+Data/\+Caster\+Type.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game/\+Game\+Data/\+Caster\+Data/\+Caster\+Position.\+h\char`\"{}}\newline
+Include dependency graph for Caster\+Object.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_caster_object_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_caster_object_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_caster_object}{Caster\+Object}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{Caster\+Object\+Type}} \{ \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a5859831e2b3db23528c710b1451e13fc}{Boss}} = 0
+, \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70}{Minion}} = 1
+, \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}{Player}} = 2
+ \}
+\item 
+enum class \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}} \{ \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}{Idle}} = 0
+, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a4cd9f3996d60790cd11c04f842ebc43c}{Cast}}
+, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0adcfafcb4323b102c7e204555d313ba0a}{Attack}}
+, \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a952f8d52fbca6da722e72d520acd6edd}{Die}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}\label{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}} 
+\index{CasterObject.h@{CasterObject.h}!CasterObjectState@{CasterObjectState}}
+\index{CasterObjectState@{CasterObjectState}!CasterObject.h@{CasterObject.h}}
+\doxysubsubsection{\texorpdfstring{CasterObjectState}{CasterObjectState}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_caster_object_8h_a8028b1277ae553936c43425755ee46a0}{Caster\+Object\+State}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Idle@{Idle}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Idle@{Idle}}}\mbox{\Hypertarget{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}\label{_caster_object_8h_a8028b1277ae553936c43425755ee46a0ae599161956d626eda4cb0a5ffb85271c}} 
+Idle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cast@{Cast}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Cast@{Cast}}}\mbox{\Hypertarget{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a4cd9f3996d60790cd11c04f842ebc43c}\label{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a4cd9f3996d60790cd11c04f842ebc43c}} 
+Cast&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Attack@{Attack}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Attack@{Attack}}}\mbox{\Hypertarget{_caster_object_8h_a8028b1277ae553936c43425755ee46a0adcfafcb4323b102c7e204555d313ba0a}\label{_caster_object_8h_a8028b1277ae553936c43425755ee46a0adcfafcb4323b102c7e204555d313ba0a}} 
+Attack&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Die@{Die}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Die@{Die}}}\mbox{\Hypertarget{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a952f8d52fbca6da722e72d520acd6edd}\label{_caster_object_8h_a8028b1277ae553936c43425755ee46a0a952f8d52fbca6da722e72d520acd6edd}} 
+Die&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}\label{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}} 
+\index{CasterObject.h@{CasterObject.h}!CasterObjectType@{CasterObjectType}}
+\index{CasterObjectType@{CasterObjectType}!CasterObject.h@{CasterObject.h}}
+\doxysubsubsection{\texorpdfstring{CasterObjectType}{CasterObjectType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898}{Caster\+Object\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Boss@{Boss}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Boss@{Boss}}}\mbox{\Hypertarget{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a5859831e2b3db23528c710b1451e13fc}\label{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a5859831e2b3db23528c710b1451e13fc}} 
+Boss&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Minion@{Minion}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Minion@{Minion}}}\mbox{\Hypertarget{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70}\label{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898aa02579cb24530c540171013282ae7d70}} 
+Minion&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Player@{Player}!CasterObject.h@{CasterObject.h}}\index{CasterObject.h@{CasterObject.h}!Player@{Player}}}\mbox{\Hypertarget{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}\label{_caster_object_8h_aad2461b7225d0ceb56599144a0ff9898a636da1d35e805b00eae0fcd8333f9234}} 
+Player&\\
+\hline
+
+\end{DoxyEnumFields}

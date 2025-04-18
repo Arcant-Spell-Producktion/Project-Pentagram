@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['hasbom_0',['HasBOM',['../classtinyxml2_1_1_x_m_l_document.html#a33fc5d159db873a179fa26338adb05bd',1,'tinyxml2::XMLDocument']]],
+  ['haveenoughmana_1',['HaveEnoughMana',['../class_caster_manager.html#a4c87948a1bb24a25d03a2262210abfd9',1,'CasterManager']]],
+  ['havesavedata_2',['HaveSaveData',['../class_runtime_game_data.html#a77cdb3e30121cc40a058b243278f7ba6',1,'RuntimeGameData']]],
+  ['head_3',['Head',['../class_cast_spell_detail.html#a1dbd4023ada45663fa70ce2a7a8ad096a5cadef16b6d3b26cca76ce622ac60b79',1,'CastSpellDetail']]],
+  ['header_4',['Header',['../class_game_over_u_i.html#ac85c00a6a67e3b15e1ae259f2a9d3757',1,'GameOverUI']]],
+  ['heal_5',['Heal',['../class_caster_controller.html#a9e1e38e13f5b00419c2b29e522073a4c',1,'CasterController']]],
+  ['hideall_6',['HideAll',['../class_slide_object.html#af81eb16d6fc9ff53fb3aa250e1e036db',1,'SlideObject']]],
+  ['hidecasterui_7',['HideCasterUI',['../class_battle_scene_data.html#adca222b1a4711087695504d1ae3f809e',1,'BattleSceneData']]],
+  ['hideimage_8',['HideImage',['../class_slide_object.html#a1bd40df63c73b3c21deab5c8bf24b586',1,'SlideObject']]],
+  ['hidetext_9',['HideText',['../class_slide_object.html#a1ac6e53bb39c8aac853df6c25f7d0ce9',1,'SlideObject']]],
+  ['highlighttrack_10',['HighlightTrack',['../class_timeline_controller.html#a2ad769928c0f0c9f320f767c52ca1b5d',1,'TimelineController::HighlightTrack()'],['../class_timetrack_u_i.html#a773a4df84f67c91ad8bc203d281e128f',1,'TimetrackUI::HighlightTrack()']]],
+  ['hit_11',['Hit',['../_spell_controller_8h.html#a802addd415e8554c86a6d7b9cca31106aebfe5e1791db03c4cd6ab95801e0977d',1,'SpellController.h']]],
+  ['hover_12',['Hover',['../class_pentagram_field_button.html#a9bdcb5b721d050a319b4bb1377123910aeee0168be69b854c20621fc6f01cc3fc',1,'PentagramFieldButton::Hover()'],['../class_pentagram_scroll_button.html#a4bd0c5af0f6e2d20bedb6bcb0b69371daeee0168be69b854c20621fc6f01cc3fc',1,'PentagramScrollButton::Hover()']]],
+  ['hovercolor_13',['hoverColor',['../class_button.html#a0fa8563890d059510c782a356d0f1494',1,'Button']]],
+  ['hovertext_14',['hoverText',['../struct_shortcut_button.html#a3d5db923a8a33c8503bbdde8b2e810e5',1,'ShortcutButton']]],
+  ['hp_15',['hp',['../struct_player_save_data.html#a5cdcf5ac1c67b38c7e7dc8963de4db65',1,'PlayerSaveData']]]
+];

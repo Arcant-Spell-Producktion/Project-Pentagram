@@ -1,0 +1,65 @@
+\hypertarget{_effect_detail_u_i_8h_source}{}\doxysection{Effect\+Detail\+UI.\+h}
+\label{_effect_detail_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/EffectDetailUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/EffectDetailUI.h}}
+\mbox{\hyperlink{_effect_detail_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_cast_spell_detail_8h}{Game/BattleScene/SpellCaster/CastSpellDetail.h}}>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_effect_icon_u_i_8h}{Game/BattleScene/GameObject/CasterEffectIconUI.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_ab278497a570ac8069aaf25ffd70e28b0}{BurnEffectDetail}} =}
+\DoxyCodeLine{10 R\textcolor{stringliteral}{"{}(Burning will deal 10}}
+\DoxyCodeLine{11 \textcolor{stringliteral}{damage x number of stack}}
+\DoxyCodeLine{12 \textcolor{stringliteral}{at the start of the turn)"{};}}
+\DoxyCodeLine{13 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_a91cae6cbeb529687969274216a3a61b5}{MarkEffectDetail}} =}
+\DoxyCodeLine{14 R\textcolor{stringliteral}{"{}(Marking cause }}
+\DoxyCodeLine{15 \textcolor{stringliteral}{the next attack damage}}
+\DoxyCodeLine{16 \textcolor{stringliteral}{receive to x2)"{};}}
+\DoxyCodeLine{17 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_a643f50d67552856e28e1aa26c53df9b4}{FreezeEffectDetail}} =}
+\DoxyCodeLine{18 R\textcolor{stringliteral}{"{}(Freeze increase}}
+\DoxyCodeLine{19 \textcolor{stringliteral}{mana used to modify the}}
+\DoxyCodeLine{20 \textcolor{stringliteral}{cast time by 1)"{};}}
+\DoxyCodeLine{21 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_a457ed67bd9dcadbf326b2c0c7a8e77e7}{OverflowEffectDetail}} =}
+\DoxyCodeLine{22 R\textcolor{stringliteral}{"{}(Permanently}}
+\DoxyCodeLine{23 \textcolor{stringliteral}{increase 1 max mana}}
+\DoxyCodeLine{24 \textcolor{stringliteral}{during combat)"{};}}
+\DoxyCodeLine{25 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_a95d38c732be0cc5da6580ddd3c889eaf}{FortifyEffectDetail}} =}
+\DoxyCodeLine{26 R\textcolor{stringliteral}{"{}(Consume 1 stack to reduce}}
+\DoxyCodeLine{27 \textcolor{stringliteral}{incoming damage to 0)"{};}}
+\DoxyCodeLine{28 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_a249f3445eca49b7adefeb49a4c684824}{PerifyEffectDetail}} =}
+\DoxyCodeLine{29 R\textcolor{stringliteral}{"{}(-\/1 total will per stack}}
+\DoxyCodeLine{30 \textcolor{stringliteral}{(max 3))"{};}}
+\DoxyCodeLine{31 \textcolor{stringliteral}{}\textcolor{keyword}{const} std::string \mbox{\hyperlink{_effect_detail_u_i_8h_af20e54065d19104f58d076de29762860}{BoostEffectDetail}}[3] =}
+\DoxyCodeLine{32 \{ R\textcolor{stringliteral}{"{}(2+ Stack: TimeTrack mod. cost -\/1)"{},}}
+\DoxyCodeLine{33 \textcolor{stringliteral}{  R}\textcolor{stringliteral}{"{}(5+ Stack: Will mod. cost -\/1)"{},}}
+\DoxyCodeLine{34 \textcolor{stringliteral}{  R}\textcolor{stringliteral}{"{}(8+ Stack: All spell atk. +10 next turn}}
+\DoxyCodeLine{35 \textcolor{stringliteral}{(lose all stack after))"{}}}
+\DoxyCodeLine{36 \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{37 \textcolor{stringliteral}{}}
+\DoxyCodeLine{38 \textcolor{stringliteral}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_effect_detail_u_i}{EffectDetailUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keyword}{private}:}
+\DoxyCodeLine{41         \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Box;}
+\DoxyCodeLine{42         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextEffectName;}
+\DoxyCodeLine{43         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextEffectDetail;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{comment}{// Used with Boost}}
+\DoxyCodeLine{46         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_TextEffectDetailUtility;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \mbox{\hyperlink{class_caster_effect_icon_u_i}{CasterEffectIconUI}}* m\_CurrentDetails = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         glm::vec3 m\_DefaultPosition;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordtype}{void} SetText(\mbox{\hyperlink{class_caster_effect_icon_u_i}{CasterEffectIconUI}}* details);}
+\DoxyCodeLine{53         \textcolor{keywordtype}{void} InitTextObjectComponent(\mbox{\hyperlink{class_text_object}{TextObject}}* textObject, \textcolor{keywordtype}{float} fontSize);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keyword}{public}:}
+\DoxyCodeLine{56         \mbox{\hyperlink{class_effect_detail_u_i_a1e74e65f48fcd43878811a14cfde2e54}{EffectDetailUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}, glm::vec3 \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, \textcolor{keywordtype}{float} fontSize = 28);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_effect_detail_u_i_adcdcad5170637fb92e16506d3e0ac7cd}{SetDetail}}(\mbox{\hyperlink{class_caster_effect_icon_u_i}{CasterEffectIconUI}}* details = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} isDefault = \textcolor{keyword}{false});}
+\DoxyCodeLine{59 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,41 @@
+\hypertarget{_caster_stat_8h_source}{}\doxysection{Caster\+Stat.\+h}
+\label{_caster_stat_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterStat.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/CasterStat.h}}
+\mbox{\hyperlink{_caster_stat_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <array>};}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_caster_stat}{CasterStat}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{CurrentHealth}} = 0;}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{MaxHealth}} = 0;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{CurrentMana}} = 0;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{MaxMana}} = 0;}
+\DoxyCodeLine{11     }
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}{CurrentManaWheel}} = 0;}
+\DoxyCodeLine{13     std::array<int, 6> \mbox{\hyperlink{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}{ManaWheel}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{struct_caster_stat_ae380b28438298cd320a495ab0f705645}{CasterStat}}(\textcolor{keywordtype}{int} hp = 1, std::array<int, 6> manaWheel = \{1,1,1,1,1,1\})}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         \mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{CurrentHealth}} = \mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{MaxHealth}} = hp;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{MaxMana}} = 0;}
+\DoxyCodeLine{20         \mbox{\hyperlink{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}{ManaWheel}} = manaWheel;}
+\DoxyCodeLine{21         \mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{CurrentMana}} = manaWheel[\mbox{\hyperlink{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}{CurrentManaWheel}}];}
+\DoxyCodeLine{22     \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{struct_caster_stat_ab26f6348018f45d27817e2bb150e94b7}{CasterStat}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_caster_stat}{CasterStat}} \&stat)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{CurrentHealth}} = stat.\mbox{\hyperlink{struct_caster_stat_a88efe79d8663cd57b331bb8072b4a162}{CurrentHealth}};}
+\DoxyCodeLine{27         \mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{MaxHealth}} = stat.\mbox{\hyperlink{struct_caster_stat_a363a92b51aea0f66be11d1c1bf74a862}{MaxHealth}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{CurrentMana}} = stat.\mbox{\hyperlink{struct_caster_stat_ae09e8f9a4f2f3a29b14f00595ebe71b5}{CurrentMana}};}
+\DoxyCodeLine{30         \mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{MaxMana}} = stat.\mbox{\hyperlink{struct_caster_stat_a181ae832999c50d0306653163599bd4f}{MaxMana}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \mbox{\hyperlink{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}{CurrentManaWheel}} = stat.\mbox{\hyperlink{struct_caster_stat_a3310376c1bf727842e67e0c9a24cc664}{CurrentManaWheel}};}
+\DoxyCodeLine{33         \mbox{\hyperlink{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}{ManaWheel}} = stat.\mbox{\hyperlink{struct_caster_stat_a89c8b8781addb60f756c2f5988a73412}{ManaWheel}};}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+\hypertarget{_enemy_controller_8h_source}{}\doxysection{Enemy\+Controller.\+h}
+\label{_enemy_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/EnemyController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/EnemyController.h}}
+\mbox{\hyperlink{_enemy_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_controller_8h}{CasterController.h}}"{}}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_enemy_data_8h}{Game/GameData/CasterData/EnemyData.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_enemy_controller}{EnemyController}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_caster_controller}{CasterController}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} \mbox{\hyperlink{class_enemy_controller_abcb4db5628430f4fb82e66e396e890ad}{m\_MoveSet}};}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_enemy_controller_a2655846d2722bd89c451dd01dafd043e}{EnemyController}}(\mbox{\hyperlink{class_enemy_data}{EnemyData}} caster) : \mbox{\hyperlink{class_caster_controller}{CasterController}}(caster), \mbox{\hyperlink{class_enemy_controller_abcb4db5628430f4fb82e66e396e890ad}{m\_MoveSet}}(caster.EnemyMoves())}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11         std::cout << \textcolor{stringliteral}{"{}DEBUG ENEMY ELEMENT: "{}} << (int)caster.\mbox{\hyperlink{class_caster_data_aa23edd97f71c6e869064f458b4d3bf80}{Element}}() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13         this-\/>\mbox{\hyperlink{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}{m\_CasterObject}}-\/>\mbox{\hyperlink{class_caster_object_a3c95c1de1c314c6bf4f2252a715143c7}{SetCaster}}(caster.\mbox{\hyperlink{class_enemy_data_a5bcc52c159cdc03b05f65c5463fdbfb0}{EnemyType}}(), caster.\mbox{\hyperlink{class_caster_data_aa23edd97f71c6e869064f458b4d3bf80}{Element}}(),\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a0b17eacd83a76b42a5abef97bde51629}{CasterPosition::CasterB}});}
+\DoxyCodeLine{14     \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_enemy_controller_a64ea10097e0c963266e30b2aff088e85}{CastEnemySpell}}();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_enemy_controller_a64ea10097e0c963266e30b2aff088e85}{CastEnemySpell}}(\mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} pentagram);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \};}
+
+\end{DoxyCode}

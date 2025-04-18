@@ -1,0 +1,37 @@
+\hypertarget{_pentagram_circle_u_i_8h_source}{}\doxysection{Pentagram\+Circle\+UI.\+h}
+\label{_pentagram_circle_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramCircleUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramCircleUI.h}}
+\mbox{\hyperlink{_pentagram_circle_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_data_8h}{Game/BattleScene/SpellCaster/PentagramData.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PENTAGRAM\_CIRCLE\_OFFSET\_Y 50.0f}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_circle_u_i}{PentagramCircleUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     std::vector<UIObject*> m\_PentragramObj;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} m\_ComplexValue = 1;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} m\_CircleValue = 1;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} SetComplex(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} SetCircle(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_pentagram_circle_u_i_a8f7385d7a1bfd778aee083918f913bce}{PentagramCircleUI}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_circle_u_i_a405e6c428a2a6c817e23940ccaab10fb}{SetElement}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_circle_u_i_a9a54714a34af3f61c0b898c3093d0e45}{SetPentagramUI}}(\textcolor{keywordtype}{int} circle, \textcolor{keywordtype}{int} complex);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_circle_u_i_a55d3ca1e057f9d6bc7806a7b086b3953}{UpdateCircleUI}}(\mbox{\hyperlink{struct_pentagram_event}{PentagramEvent}} e);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_pentagram_circle_u_i_a3a09e380bc09b3f789b0c8bab1be613c}{GetComplexValue}}();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_pentagram_circle_u_i_a23e5fe1f121a3e2c045965d5936a32bd}{GetCircleValue}}();}
+\DoxyCodeLine{31 \};}
+
+\end{DoxyCode}

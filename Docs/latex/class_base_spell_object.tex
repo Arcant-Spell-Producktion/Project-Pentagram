@@ -1,0 +1,195 @@
+\hypertarget{class_base_spell_object}{}\doxysection{Base\+Spell\+Object Class Reference}
+\label{class_base_spell_object}\index{BaseSpellObject@{BaseSpellObject}}
+
+
+{\ttfamily \#include $<$Base\+Spell\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Base\+Spell\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_base_spell_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Spell\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_base_spell_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_spell_object_a34e7aca9c8aefe1e6976257af765a8a4}{Base\+Spell\+Object}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} target, std\+::string spell\+Name, std\+::string spell\+Texture\+Path)
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a65ba689563985f3bdc954f88c5d87a1f}{Activate}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}{Next}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}{On\+Update}} (const float \&dt) override
+\item 
+void \mbox{\hyperlink{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}{Queue\+Update\+Function}} (Spell\+Update\+Func func)
+\item 
+void \mbox{\hyperlink{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}{Queue\+Move\+Event}} (glm\+::vec3 start\+Pos, glm\+::vec3 end\+Pos, float travel\+Time)
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}{Queue\+Wait\+Till\+Frame\+Event}} (bool do\+Next\+Row=false, bool wait\+Last\+Frame=true, int target\+Frame=-\/1)
+\item 
+void \mbox{\hyperlink{class_base_spell_object_ab92048d7ec39799c65ab508679693158}{Queue\+Fade\+Out\+Event}} (float \mbox{\hyperlink{_demo_scene_8cpp_afea36502e9d227ff62c5fb2719a246f2}{t}})
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a309981bafd1f2d43ae70a15bf71bee8f}{Queue\+Wait\+Event}} (float \mbox{\hyperlink{_demo_scene_8cpp_afea36502e9d227ff62c5fb2719a246f2}{t}})
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}{Queue\+Wait\+Trigger\+Event}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}{Queue\+Hit\+Event}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_object_ae8bda930f93ed1c1af096a1b943bb4b5}{Queue\+Done\+Event}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{Initialize}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_audio_controller}{Audio\+Controller}} \& \mbox{\hyperlink{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}{m\+\_\+\+Audio\+Controller\+Ptr}} = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()
+\item 
+int \mbox{\hyperlink{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}{m\+\_\+\+Spell\+Target}} = 0
+\item 
+float \mbox{\hyperlink{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}{m\+\_\+\+Total\+Time}} = 0.\+0f
+\item 
+std\+::string \mbox{\hyperlink{class_base_spell_object_a59cfa36a992bbbb4e5f1fcd3bbea9af8}{m\+\_\+\+Texture\+Path}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_spell_object_a34e7aca9c8aefe1e6976257af765a8a4}\label{class_base_spell_object_a34e7aca9c8aefe1e6976257af765a8a4}} 
+\index{BaseSpellObject@{BaseSpellObject}!BaseSpellObject@{BaseSpellObject}}
+\index{BaseSpellObject@{BaseSpellObject}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{BaseSpellObject()}{BaseSpellObject()}}
+{\footnotesize\ttfamily Base\+Spell\+Object\+::\+Base\+Spell\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{target,  }\item[{std\+::string}]{spell\+Name,  }\item[{std\+::string}]{spell\+Texture\+Path }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_spell_object_a65ba689563985f3bdc954f88c5d87a1f}\label{class_base_spell_object_a65ba689563985f3bdc954f88c5d87a1f}} 
+\index{BaseSpellObject@{BaseSpellObject}!Activate@{Activate}}
+\index{Activate@{Activate}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{Activate()}{Activate()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Activate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_spell_controller_a77bc79a78e631e32629e84a5ef22afd4}{Spell\+Controller}}.
+
+\mbox{\Hypertarget{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}\label{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}} 
+\index{BaseSpellObject@{BaseSpellObject}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}\label{class_base_spell_object_a0fba43dfe3d800617dbae16739fa7a40}} 
+\index{BaseSpellObject@{BaseSpellObject}!Next@{Next}}
+\index{Next@{Next}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{Next()}{Next()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}\label{class_base_spell_object_a64e910d2c64c2a19319e067f7fa5b6e0}} 
+\index{BaseSpellObject@{BaseSpellObject}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_base_spell_object_ae8bda930f93ed1c1af096a1b943bb4b5}\label{class_base_spell_object_ae8bda930f93ed1c1af096a1b943bb4b5}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueDoneEvent@{QueueDoneEvent}}
+\index{QueueDoneEvent@{QueueDoneEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueDoneEvent()}{QueueDoneEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Done\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_ab92048d7ec39799c65ab508679693158}\label{class_base_spell_object_ab92048d7ec39799c65ab508679693158}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueFadeOutEvent@{QueueFadeOutEvent}}
+\index{QueueFadeOutEvent@{QueueFadeOutEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueFadeOutEvent()}{QueueFadeOutEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Fade\+Out\+Event (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}\label{class_base_spell_object_a72ae71689ec2496e3c30a01856b65b82}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueHitEvent@{QueueHitEvent}}
+\index{QueueHitEvent@{QueueHitEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueHitEvent()}{QueueHitEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Hit\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}\label{class_base_spell_object_afca9ab82ffc419b2c6264d6ba599098c}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueMoveEvent@{QueueMoveEvent}}
+\index{QueueMoveEvent@{QueueMoveEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueMoveEvent()}{QueueMoveEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Move\+Event (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{start\+Pos,  }\item[{glm\+::vec3}]{end\+Pos,  }\item[{float}]{travel\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}\label{class_base_spell_object_ac672146fc05c74e804aeadc56070936a}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueUpdateFunction@{QueueUpdateFunction}}
+\index{QueueUpdateFunction@{QueueUpdateFunction}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueUpdateFunction()}{QueueUpdateFunction()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Update\+Function (\begin{DoxyParamCaption}\item[{Spell\+Update\+Func}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a309981bafd1f2d43ae70a15bf71bee8f}\label{class_base_spell_object_a309981bafd1f2d43ae70a15bf71bee8f}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueWaitEvent@{QueueWaitEvent}}
+\index{QueueWaitEvent@{QueueWaitEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitEvent()}{QueueWaitEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Event (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}\label{class_base_spell_object_a23bc9e5673bcc0d40dfabe965be68a5c}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueWaitTillFrameEvent@{QueueWaitTillFrameEvent}}
+\index{QueueWaitTillFrameEvent@{QueueWaitTillFrameEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitTillFrameEvent()}{QueueWaitTillFrameEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Till\+Frame\+Event (\begin{DoxyParamCaption}\item[{bool}]{do\+Next\+Row = {\ttfamily false},  }\item[{bool}]{wait\+Last\+Frame = {\ttfamily true},  }\item[{int}]{target\+Frame = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}\label{class_base_spell_object_a7498dfbe9d60fb7260c6bc6637e364bd}} 
+\index{BaseSpellObject@{BaseSpellObject}!QueueWaitTriggerEvent@{QueueWaitTriggerEvent}}
+\index{QueueWaitTriggerEvent@{QueueWaitTriggerEvent}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitTriggerEvent()}{QueueWaitTriggerEvent()}}
+{\footnotesize\ttfamily void Base\+Spell\+Object\+::\+Queue\+Wait\+Trigger\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}\label{class_base_spell_object_a58eb26a326658bd4be09502224b46ce5}} 
+\index{BaseSpellObject@{BaseSpellObject}!m\_AudioControllerPtr@{m\_AudioControllerPtr}}
+\index{m\_AudioControllerPtr@{m\_AudioControllerPtr}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{m\_AudioControllerPtr}{m\_AudioControllerPtr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio_controller}{Audio\+Controller}}\& Base\+Spell\+Object\+::m\+\_\+\+Audio\+Controller\+Ptr = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{Audio\+Controller\+::\+Get\+Instance}}()\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}\label{class_base_spell_object_a76b139eb91f8f67d19fc2d248edda254}} 
+\index{BaseSpellObject@{BaseSpellObject}!m\_SpellTarget@{m\_SpellTarget}}
+\index{m\_SpellTarget@{m\_SpellTarget}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{m\_SpellTarget}{m\_SpellTarget}}
+{\footnotesize\ttfamily int Base\+Spell\+Object\+::m\+\_\+\+Spell\+Target = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_a59cfa36a992bbbb4e5f1fcd3bbea9af8}\label{class_base_spell_object_a59cfa36a992bbbb4e5f1fcd3bbea9af8}} 
+\index{BaseSpellObject@{BaseSpellObject}!m\_TexturePath@{m\_TexturePath}}
+\index{m\_TexturePath@{m\_TexturePath}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{m\_TexturePath}{m\_TexturePath}}
+{\footnotesize\ttfamily std\+::string Base\+Spell\+Object\+::m\+\_\+\+Texture\+Path\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}\label{class_base_spell_object_abe857a26e51a453dbd687c9f2fa9fccf}} 
+\index{BaseSpellObject@{BaseSpellObject}!m\_TotalTime@{m\_TotalTime}}
+\index{m\_TotalTime@{m\_TotalTime}!BaseSpellObject@{BaseSpellObject}}
+\doxysubsubsection{\texorpdfstring{m\_TotalTime}{m\_TotalTime}}
+{\footnotesize\ttfamily float Base\+Spell\+Object\+::m\+\_\+\+Total\+Time = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Spell\+Object/\mbox{\hyperlink{_base_spell_object_8h}{Base\+Spell\+Object.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Spell\+Object/\mbox{\hyperlink{_base_spell_object_8cpp}{Base\+Spell\+Object.\+cpp}}\end{DoxyCompactItemize}

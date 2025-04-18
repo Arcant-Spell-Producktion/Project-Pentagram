@@ -1,0 +1,33 @@
+\hypertarget{_engine_data_collector_8h_source}{}\doxysection{Engine\+Data\+Collector.\+h}
+\label{_engine_data_collector_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/EngineDataCollector.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/EngineDataCollector.h}}
+\mbox{\hyperlink{_engine_data_collector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shader_collector_8h}{Engine/Collector/ShaderCollector.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_font_collector_8h}{Engine/Collector/FontCollector.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_collector_8h}{Engine/Collector/TextureCollector.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_audio_engine_8h}{Engine/Audio/AudioEngine.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_engine_data_collector}{EngineDataCollector}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<EngineDataCollector>}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{keyword}{private}:}
+\DoxyCodeLine{13         \mbox{\hyperlink{class_shader_collector}{ShaderCollector}} m\_ShaderCollector;}
+\DoxyCodeLine{14         \mbox{\hyperlink{class_font_collector}{FontCollector}} m\_FontCollector;}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_texture_collector}{TextureCollector}} m\_TextureCollector;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_engine_data_collector_a1d19151f2644b28fff4a5276a24f26a2}{LoadResource}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \textcolor{comment}{// Getter}}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_shader_collector}{ShaderCollector}}* \mbox{\hyperlink{class_engine_data_collector_a055dfbe866de6b259744eed1edd1973f}{GetShaderCollector}}();}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_font_collector}{FontCollector}}* \mbox{\hyperlink{class_engine_data_collector_ac3efd1510a417b51aa73f6cf6d5f774d}{GetFontCollector}}();}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_texture_collector}{TextureCollector}}* \mbox{\hyperlink{class_engine_data_collector_a595ef9c15029c05950f6885d2c4c8ae2}{GetTextureCollector}}();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{comment}{// Free Memory}}
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_engine_data_collector_aaffadaf0dccadfef8ef5a6ff09d0e728}{Free}}();}
+\DoxyCodeLine{27 \};}
+
+\end{DoxyCode}

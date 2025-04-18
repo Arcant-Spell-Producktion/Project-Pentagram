@@ -1,0 +1,47 @@
+\hypertarget{_spell_effect_type_8h_source}{}\doxysection{Spell\+Effect\+Type.\+h}
+\label{_spell_effect_type_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellEffectType.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellEffectType.h}}
+\mbox{\hyperlink{_spell_effect_type_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{enum class} \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54a6adf97f83acf6453d4a6a4b1070f3754}{None}} = -\/1,}
+\DoxyCodeLine{7     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5bab82a9a13f4651e9abcbde90cd24ce2cb}{Mark}} = 1,}
+\DoxyCodeLine{8     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba11635778f116ce6922f6068638a39028}{Burn}} = 2,}
+\DoxyCodeLine{9     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba129e8109f319870e328cc7a1d5b5cae3}{Overflow}} = 3,}
+\DoxyCodeLine{10     \mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86a89ac6c10b21edd94533d2a24c16c0e1f}{Freeze}} = 4,}
+\DoxyCodeLine{11     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5bab8441a65978274609ede312e824cc141}{Fortify}} = 5,}
+\DoxyCodeLine{12     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba087986d5f93f77c68fd51d858b6a6ab6}{Petrify}} = 6,}
+\DoxyCodeLine{13     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba43c0b4ec5edcd9385319524f5ddee79e}{Boost}} = 7,}
+\DoxyCodeLine{14     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba3e8cbccf86ba312b3763f8784adb1696}{BoostTime}},}
+\DoxyCodeLine{15     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba79f569383ac9964907edeb6b7c7d984f}{BoostWill}},}
+\DoxyCodeLine{16     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5ba542a7bc62c14d63e2268f74d7523de70}{BoostDmg}},}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_effect_detail___t}{EffectDetail\_T}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{struct_effect_detail___t_ae4ba4a3e5a8b59f05f0675613123735c}{EffectType}};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_effect_detail___t_aa1243d2b01c955632f81ffe5fcffe82a}{Stack}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{struct_effect_detail___t_a742161b71cc493e399431daa41b4053b}{EffectDetail\_T}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type, \textcolor{keywordtype}{int} n) :\mbox{\hyperlink{struct_effect_detail___t_ae4ba4a3e5a8b59f05f0675613123735c}{EffectType}}(type), \mbox{\hyperlink{struct_effect_detail___t_aa1243d2b01c955632f81ffe5fcffe82a}{Stack}}(n) \{\};}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_effect_type}{SpellEffectType}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string enum\_string[];}
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \textcolor{keyword}{static} \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} \mbox{\hyperlink{class_spell_effect_type_a5d3bb4066cafcb7182ab689e0c1127eb}{GetEnum}}(std::string typeString);}
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_spell_effect_type_a6d960a9591e1a2e0839de948fa41265d}{GetString}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ \textcolor{keywordflow}{return} enum\_string[(int)type]; \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_effect_type_af596c63edc294a44f9f2d73cf8c76717}{IsEffectApplyByChance}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_effect_type_afe18bf3d67f672619d343346939d6428}{IsEffectTargetEnemy}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_effect_type_a114b8719a33f9d42811c8058dd9d5a36}{IsEffectApplyWillCompareWin}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type);}
+\DoxyCodeLine{41 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,177 @@
+\hypertarget{class_tutorial_node}{}\doxysection{Tutorial\+Node Class Reference}
+\label{class_tutorial_node}\index{TutorialNode@{TutorialNode}}
+
+
+{\ttfamily \#include $<$Tutorial\+Node.\+h$>$}
+
+
+
+Inheritance diagram for Tutorial\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_tutorial_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tutorial\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_tutorial_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tutorial_node_adbf9da231fe83e075b6f2379b21d20f0}{Tutorial\+Node}} (\mbox{\hyperlink{class_enemy_data}{Enemy\+Data}} enemy)
+\item 
+\mbox{\hyperlink{class_tutorial_events}{Tutorial\+Events}} \mbox{\hyperlink{class_tutorial_node_a5dd8b095dc4a49f6ccd8a296c5f500ed}{Get\+Tutorial\+Events}} () const
+\item 
+\mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{Tutorial\+Goal}} \mbox{\hyperlink{class_tutorial_node_a0f3808f7dc51814f3edca4c2c55e158c}{Get\+Tutorial\+Goal}} ()
+\item 
+\mbox{\hyperlink{class_caster_data}{Caster\+Data}} $\ast$ \mbox{\hyperlink{class_tutorial_node_a1f1228bc85f04ab8ab426d4d229b7e66}{Get\+Player\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} \mbox{\hyperlink{class_tutorial_node_a0ae84e8731e791817092a85abcfeb1c9}{Player\+Start\+Spell}} = \{1,1,1,1,0\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} $>$ \mbox{\hyperlink{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}{Tutorial\+Spells}}
+\item 
+std\+::string \mbox{\hyperlink{class_tutorial_node_aec71873c86b088398f10e980af13230a}{Complete\+Text}} = \char`\"{}Goodjob!\char`\"{}
+\item 
+std\+::string \mbox{\hyperlink{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}{Retry\+Text}} = \char`\"{}Try Again!\char`\"{}
+\item 
+int \mbox{\hyperlink{class_tutorial_node_a27a680b49f650e680deb4ae84df183c7}{Player\+HP}} = 10
+\item 
+int \mbox{\hyperlink{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}{Enemy\+HP}} = 10
+\item 
+int \mbox{\hyperlink{class_tutorial_node_ae948a387cc4656b2d23d232852ff258e}{Player\+Mana}} = 2
+\item 
+int \mbox{\hyperlink{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}{Player\+Mana\+Wheel}} = 1
+\item 
+int \mbox{\hyperlink{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}{Enemy\+Mana}} = 3
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tutorial_events}{Tutorial\+Events}} \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\+\_\+\+Tutorial\+Events}}
+\item 
+\mbox{\hyperlink{class_caster_data}{Caster\+Data}} $\ast$ \mbox{\hyperlink{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}{m\+\_\+\+Tutorial\+Player\+Data}} = nullptr
+\item 
+\mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{Tutorial\+Goal}} \mbox{\hyperlink{class_tutorial_node_a3c9b947b383c0101bfe8a774c605c679}{m\+\_\+\+Tutorial\+Goal}} = \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62a292ed5e525d66c64f13a3bf54a17c06a}{Tutorial\+Goal\+::\+Kill}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tutorial_node_adbf9da231fe83e075b6f2379b21d20f0}\label{class_tutorial_node_adbf9da231fe83e075b6f2379b21d20f0}} 
+\index{TutorialNode@{TutorialNode}!TutorialNode@{TutorialNode}}
+\index{TutorialNode@{TutorialNode}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{TutorialNode()}{TutorialNode()}}
+{\footnotesize\ttfamily Tutorial\+Node\+::\+Tutorial\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_enemy_data}{Enemy\+Data}}}]{enemy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tutorial_node_a1f1228bc85f04ab8ab426d4d229b7e66}\label{class_tutorial_node_a1f1228bc85f04ab8ab426d4d229b7e66}} 
+\index{TutorialNode@{TutorialNode}!GetPlayerData@{GetPlayerData}}
+\index{GetPlayerData@{GetPlayerData}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{GetPlayerData()}{GetPlayerData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_data}{Caster\+Data}} $\ast$ Tutorial\+Node\+::\+Get\+Player\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_tutorial_node_a5dd8b095dc4a49f6ccd8a296c5f500ed}\label{class_tutorial_node_a5dd8b095dc4a49f6ccd8a296c5f500ed}} 
+\index{TutorialNode@{TutorialNode}!GetTutorialEvents@{GetTutorialEvents}}
+\index{GetTutorialEvents@{GetTutorialEvents}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{GetTutorialEvents()}{GetTutorialEvents()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tutorial_events}{Tutorial\+Events}} Tutorial\+Node\+::\+Get\+Tutorial\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_tutorial_node_a0f3808f7dc51814f3edca4c2c55e158c}\label{class_tutorial_node_a0f3808f7dc51814f3edca4c2c55e158c}} 
+\index{TutorialNode@{TutorialNode}!GetTutorialGoal@{GetTutorialGoal}}
+\index{GetTutorialGoal@{GetTutorialGoal}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{GetTutorialGoal()}{GetTutorialGoal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{Tutorial\+Goal}} Tutorial\+Node\+::\+Get\+Tutorial\+Goal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_tutorial_node_aec71873c86b088398f10e980af13230a}\label{class_tutorial_node_aec71873c86b088398f10e980af13230a}} 
+\index{TutorialNode@{TutorialNode}!CompleteText@{CompleteText}}
+\index{CompleteText@{CompleteText}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{CompleteText}{CompleteText}}
+{\footnotesize\ttfamily std\+::string Tutorial\+Node\+::\+Complete\+Text = \char`\"{}Goodjob!\char`\"{}}
+
+\mbox{\Hypertarget{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}\label{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}} 
+\index{TutorialNode@{TutorialNode}!EnemyHP@{EnemyHP}}
+\index{EnemyHP@{EnemyHP}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{EnemyHP}{EnemyHP}}
+{\footnotesize\ttfamily int Tutorial\+Node\+::\+Enemy\+HP = 10}
+
+\mbox{\Hypertarget{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}\label{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}} 
+\index{TutorialNode@{TutorialNode}!EnemyMana@{EnemyMana}}
+\index{EnemyMana@{EnemyMana}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{EnemyMana}{EnemyMana}}
+{\footnotesize\ttfamily int Tutorial\+Node\+::\+Enemy\+Mana = 3}
+
+\mbox{\Hypertarget{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}\label{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}} 
+\index{TutorialNode@{TutorialNode}!m\_TutorialEvents@{m\_TutorialEvents}}
+\index{m\_TutorialEvents@{m\_TutorialEvents}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{m\_TutorialEvents}{m\_TutorialEvents}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tutorial_events}{Tutorial\+Events}} Tutorial\+Node\+::m\+\_\+\+Tutorial\+Events\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_tutorial_node_a3c9b947b383c0101bfe8a774c605c679}\label{class_tutorial_node_a3c9b947b383c0101bfe8a774c605c679}} 
+\index{TutorialNode@{TutorialNode}!m\_TutorialGoal@{m\_TutorialGoal}}
+\index{m\_TutorialGoal@{m\_TutorialGoal}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{m\_TutorialGoal}{m\_TutorialGoal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{Tutorial\+Goal}} Tutorial\+Node\+::m\+\_\+\+Tutorial\+Goal = \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62a292ed5e525d66c64f13a3bf54a17c06a}{Tutorial\+Goal\+::\+Kill}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}\label{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}} 
+\index{TutorialNode@{TutorialNode}!m\_TutorialPlayerData@{m\_TutorialPlayerData}}
+\index{m\_TutorialPlayerData@{m\_TutorialPlayerData}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{m\_TutorialPlayerData}{m\_TutorialPlayerData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_data}{Caster\+Data}}$\ast$ Tutorial\+Node\+::m\+\_\+\+Tutorial\+Player\+Data = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_tutorial_node_a27a680b49f650e680deb4ae84df183c7}\label{class_tutorial_node_a27a680b49f650e680deb4ae84df183c7}} 
+\index{TutorialNode@{TutorialNode}!PlayerHP@{PlayerHP}}
+\index{PlayerHP@{PlayerHP}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{PlayerHP}{PlayerHP}}
+{\footnotesize\ttfamily int Tutorial\+Node\+::\+Player\+HP = 10}
+
+\mbox{\Hypertarget{class_tutorial_node_ae948a387cc4656b2d23d232852ff258e}\label{class_tutorial_node_ae948a387cc4656b2d23d232852ff258e}} 
+\index{TutorialNode@{TutorialNode}!PlayerMana@{PlayerMana}}
+\index{PlayerMana@{PlayerMana}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{PlayerMana}{PlayerMana}}
+{\footnotesize\ttfamily int Tutorial\+Node\+::\+Player\+Mana = 2}
+
+\mbox{\Hypertarget{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}\label{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}} 
+\index{TutorialNode@{TutorialNode}!PlayerManaWheel@{PlayerManaWheel}}
+\index{PlayerManaWheel@{PlayerManaWheel}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{PlayerManaWheel}{PlayerManaWheel}}
+{\footnotesize\ttfamily int Tutorial\+Node\+::\+Player\+Mana\+Wheel = 1}
+
+\mbox{\Hypertarget{class_tutorial_node_a0ae84e8731e791817092a85abcfeb1c9}\label{class_tutorial_node_a0ae84e8731e791817092a85abcfeb1c9}} 
+\index{TutorialNode@{TutorialNode}!PlayerStartSpell@{PlayerStartSpell}}
+\index{PlayerStartSpell@{PlayerStartSpell}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{PlayerStartSpell}{PlayerStartSpell}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} Tutorial\+Node\+::\+Player\+Start\+Spell = \{1,1,1,1,0\}}
+
+\mbox{\Hypertarget{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}\label{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}} 
+\index{TutorialNode@{TutorialNode}!RetryText@{RetryText}}
+\index{RetryText@{RetryText}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{RetryText}{RetryText}}
+{\footnotesize\ttfamily std\+::string Tutorial\+Node\+::\+Retry\+Text = \char`\"{}Try Again!\char`\"{}}
+
+\mbox{\Hypertarget{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}\label{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}} 
+\index{TutorialNode@{TutorialNode}!TutorialSpells@{TutorialSpells}}
+\index{TutorialSpells@{TutorialSpells}!TutorialNode@{TutorialNode}}
+\doxysubsubsection{\texorpdfstring{TutorialSpells}{TutorialSpells}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}}$>$ Tutorial\+Node\+::\+Tutorial\+Spells}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Game\+Data/\+Tutorial\+Data/\+Tutorial\+Nodes/\mbox{\hyperlink{_tutorial_node_8h}{Tutorial\+Node.\+h}}\end{DoxyCompactItemize}

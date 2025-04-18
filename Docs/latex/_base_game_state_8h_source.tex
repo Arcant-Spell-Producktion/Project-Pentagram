@@ -1,0 +1,19 @@
+\hypertarget{_base_game_state_8h_source}{}\doxysection{Base\+Game\+State.\+h}
+\label{_base_game_state_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameState/BaseGameState.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameState/BaseGameState.h}}
+\mbox{\hyperlink{_base_game_state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{keyword}{template} <\textcolor{keyword}{class} STATE>}
+\DoxyCodeLine{3 \textcolor{keyword}{class }\mbox{\hyperlink{class_base_game_state}{BaseGameState}}}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5 \textcolor{keyword}{public}:}
+\DoxyCodeLine{6     \textcolor{keyword}{const} STATE \mbox{\hyperlink{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}{StateID}};}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8     \mbox{\hyperlink{class_base_game_state_af84892ab1409678dd89ace9dce92e945}{BaseGameState}}() :\mbox{\hyperlink{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}{StateID}}(static\_cast<STATE>(0)) \{\}}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_base_game_state_a2736f190ac05488c6bee6a35866ab76e}{BaseGameState}}(\textcolor{keyword}{const} STATE \textcolor{keywordtype}{id}) :\mbox{\hyperlink{class_base_game_state_ae49693d5a62f5a1106471de7ab626a06}{StateID}}(id) \{\}}
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_game_state_a60a6843f112e8bc912f20217d15bd7a5}{OnBattleStateIn}}() = 0;}
+\DoxyCodeLine{11     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_game_state_a40d71b2ce5a3d9816d25ebabd80a16b9}{OnBattleStateUpdate}}(\textcolor{keywordtype}{float} dt) = 0;}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_game_state_af236785b6408e928d363ce96ff9188c9}{OnBattleStateOut}}() = 0;}
+\DoxyCodeLine{13 \};}
+
+\end{DoxyCode}

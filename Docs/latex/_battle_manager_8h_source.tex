@@ -1,0 +1,38 @@
+\hypertarget{_battle_manager_8h_source}{}\doxysection{Battle\+Manager.\+h}
+\label{_battle_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/BattleManager.h}}
+\mbox{\hyperlink{_battle_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_scene_data_8h}{Game/BattleScene/BattleSceneData.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_battle_manager_8h}{Game/BattleScene/IBattleManager.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_battle_state_model_8h}{Game/BattleScene/BattleStates/BattleStateModel.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_battle_manager}{BattleManager}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<BattleManager>, \textcolor{keyword}{virtual} \textcolor{keyword}{public} \mbox{\hyperlink{class_i_battle_manager}{IBattleManager}}<BattleState>}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{private}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} m\_CurrentState = \mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1fa9862d3754d14f29bc85df59aef75f363}{BattleState::SetupState}};}
+\DoxyCodeLine{14     std::map<BattleState, BaseBattleState*> m\_BattleStates;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_battle_scene_data}{BattleSceneData}} \mbox{\hyperlink{class_battle_manager_ad862f70c83bb0182ade857401bf485a9}{Data}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_a34df05788499a677f7922287d3e32b2d}{SetBattleState}}(\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1f}{BattleState}} state) \textcolor{keyword}{override};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}* \mbox{\hyperlink{class_battle_manager_a9ad23b5e35a0f94b03fe92fd152a8085}{GetBattleStates}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} m\_BattleStates[m\_CurrentState]; \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_add3a7097fb7c9082849db34a3d73b13d}{Init}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} stageElement, \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{BattleMode}} mode = \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{BattleMode::Battle}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_aab6fd162a16e985978f504cffce3ae8e}{StartBattle}}(\mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ff}{BattleMode}} mode = \mbox{\hyperlink{_i_battle_manager_8h_a3e016e4520921aca19420daedffa01ffa747d99f92ee9c080ba26108ac5d26488}{BattleMode::Battle}}) \textcolor{keyword}{override};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_adb801c924bfe98bb877ab06c898d0974}{SwapCaster}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_a655a8b6bfb9a7a8b06dd1512a3d5669d}{EndBattle}}()\textcolor{keyword}{ override }\{ \mbox{\hyperlink{class_battle_manager_a34df05788499a677f7922287d3e32b2d}{SetBattleState}}(\mbox{\hyperlink{_battle_state_8h_a17557ce1a5334619a8e02831bf82ba1faa30d91ee72312c9a1525616a0f1f815a}{BattleState::ResultState}}); \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_ac4331f8f1f87d790aa32a235256f3c54}{UpdateDisplaySpellDetail}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} position,\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spell = \textcolor{keyword}{nullptr}, \textcolor{keywordtype}{bool} isMainData = \textcolor{keyword}{false}, glm::vec3 IconPos = \{0,0,0\});}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_battle_manager_a2db841fba1ba5cb1a9412ae239e2afcb}{Free}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{32 \};}
+
+\end{DoxyCode}

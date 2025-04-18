@@ -1,0 +1,100 @@
+\hypertarget{_caster_effect_manager_8h_source}{}\doxysection{Caster\+Effect\+Manager.\+h}
+\label{_caster_effect_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterEffectManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterEffectManager.h}}
+\mbox{\hyperlink{_caster_effect_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effects_8h}{Game/BattleScene/SpellEffect/SpellEffects.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_effect_manager}{CasterEffectManager}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     std::map<SpellEffectEnum,BaseSpellEffect*> m\_Effects;}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_event}{Event<SpellEffectEnum>}} \mbox{\hyperlink{class_caster_effect_manager_a6752c14021200c2b23d80d3897fef608}{OnEffectApply}};}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_event}{Event<SpellEffectEnum>}} \mbox{\hyperlink{class_caster_effect_manager_a25053d29219b407bbf78335a9451ee40}{OnEffectResolve}};}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_event}{Event<SpellEffectEnum>}} \mbox{\hyperlink{class_caster_effect_manager_a4eb7c4c8049ca314c43d8080c39b096f}{OnEffectReset}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_event}{Event<std::vector<EffectDetail\_T>}}\&> \mbox{\hyperlink{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}{OnEffectUpdate}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_caster_effect_manager_a1b949dba8132647b953bdffaa075d1a7}{CasterEffectManager}}()}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effect: \mbox{\hyperlink{class_spell_effects_ab907d3764afeb1d0109f059656d5502a}{SpellEffects::GetSpellEffects}}())}
+\DoxyCodeLine{19         \{}
+\DoxyCodeLine{20             effect-\/>OnEffectApply = [\textcolor{keyword}{this}](\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ \mbox{\hyperlink{class_caster_effect_manager_a6752c14021200c2b23d80d3897fef608}{OnEffectApply}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(type); \};}
+\DoxyCodeLine{21             effect-\/>OnEffectResolve = [\textcolor{keyword}{this}](\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ \mbox{\hyperlink{class_caster_effect_manager_a25053d29219b407bbf78335a9451ee40}{OnEffectResolve}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(type); \};}
+\DoxyCodeLine{22             effect-\/>OnEffectReset = [\textcolor{keyword}{this}](\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type) \{ \mbox{\hyperlink{class_caster_effect_manager_a4eb7c4c8049ca314c43d8080c39b096f}{OnEffectReset}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(type); \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24             m\_Effects.emplace(effect-\/>GetEffectType(),effect);}
+\DoxyCodeLine{25         \}}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}()}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         std::vector<EffectDetail\_T> effects;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effPair: m\_Effects)}
+\DoxyCodeLine{33             effects.push\_back(\{ effPair.first ,effPair.second-\/>GetStackCount() \});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \mbox{\hyperlink{class_caster_effect_manager_a253549e3848b46cf92acda6a64b3c531}{OnEffectUpdate}}.\mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}}(effects);}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_a0d71dccbaef4b14f5b3be12957d12ba1}{AppliedEffect}}(\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{SpellEffectEnum}} type, \textcolor{keywordtype}{int} value)}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         m\_Effects[type]-\/>AppliedEffect(value);}
+\DoxyCodeLine{41         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_af1bb34268963e5499bcc92736754342b}{ResolveEffect}}(\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{EffectResolveType}} resolveType, \textcolor{keywordtype}{int} argc = 0, ...)}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         std::va\_list args;}
+\DoxyCodeLine{47         va\_start(args, argc);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{50         \{}
+\DoxyCodeLine{51             \textcolor{keyword}{auto} effect = effectPair.second;}
+\DoxyCodeLine{52             \textcolor{keywordflow}{if} (effect-\/>GetResolveType() == resolveType)}
+\DoxyCodeLine{53             \{}
+\DoxyCodeLine{54                 std::va\_list temp;}
+\DoxyCodeLine{55                 va\_copy(temp, args);}
+\DoxyCodeLine{56                 effect-\/>ResolveEffect(temp);}
+\DoxyCodeLine{57                 va\_end(temp);}
+\DoxyCodeLine{58             \}}
+\DoxyCodeLine{59             }
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         va\_end(args);}
+\DoxyCodeLine{63         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_acd70cec0f1a36b102f4c5202bbbb811e}{OnCastPhaseEnd}}()}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{69         \{}
+\DoxyCodeLine{70             \textcolor{keyword}{auto} effect = effectPair.second;}
+\DoxyCodeLine{71             effect-\/>OnCastPhaseEnd();}
+\DoxyCodeLine{72         \}}
+\DoxyCodeLine{73         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_effect_manager_a251caf2dad3ab76803ee5805d6a9e857}{OnEndRound}}()}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             \textcolor{keyword}{auto} effect = effectPair.second;}
+\DoxyCodeLine{81             effect-\/>OnEndRound();}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         \mbox{\hyperlink{class_caster_effect_manager_a85439c0e3e254684d1fc6314b7cf6922}{UpdateSpellEvent}}();}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \mbox{\hyperlink{class_caster_effect_manager_ac7ac5c8e4ec94f32b111198a98105798}{\string~CasterEffectManager}}()}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} effectPair : m\_Effects)}
+\DoxyCodeLine{89         \{}
+\DoxyCodeLine{90             \textcolor{keyword}{delete} effectPair.second;}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92         m\_Effects.clear();}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 \};}
+
+\end{DoxyCode}

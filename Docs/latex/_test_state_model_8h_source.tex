@@ -1,0 +1,36 @@
+\hypertarget{_test_state_model_8h_source}{}\doxysection{Test\+State\+Model.\+h}
+\label{_test_state_model_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TestScene/TestStates/TestStateModel.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TestScene/TestStates/TestStateModel.h}}
+\mbox{\hyperlink{_test_state_model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_setup_test_state_8h}{SetupTestState.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_stand_by_test_state_8h}{StandByTestState.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cast_test_state_8h}{CastTestState.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resolve_test_state_8h}{ResolveTestState.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_result_test_state_8h}{ResultTestState.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_test_state_model}{TestStateModel}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12      \textcolor{keyword}{static} std::vector<BaseBattleState*> \mbox{\hyperlink{class_test_state_model_acd04f3cc33c7bc72c5bf0952226ded5b}{GetTestStates}}()}
+\DoxyCodeLine{13      \{}
+\DoxyCodeLine{14          std::vector<BaseBattleState*> states =}
+\DoxyCodeLine{15          \{}
+\DoxyCodeLine{16              \textcolor{keyword}{new} \mbox{\hyperlink{class_setup_test_state}{SetupTestState}}(),}
+\DoxyCodeLine{17              \textcolor{keyword}{new} \mbox{\hyperlink{class_stand_by_test_state}{StandByTestState}}(),}
+\DoxyCodeLine{18              \textcolor{keyword}{new} \mbox{\hyperlink{class_cast_test_state}{CastTestState}}(),}
+\DoxyCodeLine{19              \textcolor{keyword}{new} \mbox{\hyperlink{class_resolve_test_state}{ResolveTestState}}(),}
+\DoxyCodeLine{20              \textcolor{keyword}{new} \mbox{\hyperlink{class_result_test_state}{ResultTestState}}(),}
+\DoxyCodeLine{21          \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23          \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}* state : states)}
+\DoxyCodeLine{24          \{}
+\DoxyCodeLine{25              std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t !!!!! STATE TO ADD "{}} << \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(state-\/>StateID) << std::endl;}
+\DoxyCodeLine{26          \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28          \textcolor{keywordflow}{return} states;}
+\DoxyCodeLine{29      \}}
+\DoxyCodeLine{30 \};}
+
+\end{DoxyCode}

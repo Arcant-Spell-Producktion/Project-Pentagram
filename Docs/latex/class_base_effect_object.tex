@@ -1,0 +1,108 @@
+\hypertarget{class_base_effect_object}{}\doxysection{Base\+Effect\+Object Class Reference}
+\label{class_base_effect_object}\index{BaseEffectObject@{BaseEffectObject}}
+
+
+{\ttfamily \#include $<$Base\+Effect\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Base\+Effect\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{class_base_effect_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Effect\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{class_base_effect_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_effect_object_a61c9b91a87663a9b03a21a53b3ccbb0a}{Base\+Effect\+Object}} (\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} effect)
+\item 
+void \mbox{\hyperlink{class_base_effect_object_ae3fa19b1dfab577c18f260b0f4e6ce07}{Play}} ()
+\item 
+void \mbox{\hyperlink{class_base_effect_object_a6d49ac7888ae4121fa84381f6b25bcf7}{Stop}} ()
+\item 
+void \mbox{\hyperlink{class_base_effect_object_aaea6456e7d3e572f73af2f4dcc9f3bea}{On\+Update}} (const float \&dt) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_base_effect_object_a7bcc9262fc1b9db4a5b5d00cdb3f0a19}{is\+Playing}} = false
+\item 
+\mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86}{Effect\+Object\+Play\+Mode}} \mbox{\hyperlink{class_base_effect_object_a1beaae8b3d5c4314140fabf6773c0e5f}{m\+\_\+\+Play\+Mode}}
+\item 
+\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} \mbox{\hyperlink{class_base_effect_object_a7f3a2fdc77ebda8c7c31f41bd51ed77c}{m\+\_\+\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_effect_object_a61c9b91a87663a9b03a21a53b3ccbb0a}\label{class_base_effect_object_a61c9b91a87663a9b03a21a53b3ccbb0a}} 
+\index{BaseEffectObject@{BaseEffectObject}!BaseEffectObject@{BaseEffectObject}}
+\index{BaseEffectObject@{BaseEffectObject}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{BaseEffectObject()}{BaseEffectObject()}}
+{\footnotesize\ttfamily Base\+Effect\+Object\+::\+Base\+Effect\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}}]{effect }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_effect_object_aaea6456e7d3e572f73af2f4dcc9f3bea}\label{class_base_effect_object_aaea6456e7d3e572f73af2f4dcc9f3bea}} 
+\index{BaseEffectObject@{BaseEffectObject}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Base\+Effect\+Object\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_base_effect_object_ae3fa19b1dfab577c18f260b0f4e6ce07}\label{class_base_effect_object_ae3fa19b1dfab577c18f260b0f4e6ce07}} 
+\index{BaseEffectObject@{BaseEffectObject}!Play@{Play}}
+\index{Play@{Play}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Base\+Effect\+Object\+::\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_base_effect_object_a6d49ac7888ae4121fa84381f6b25bcf7}\label{class_base_effect_object_a6d49ac7888ae4121fa84381f6b25bcf7}} 
+\index{BaseEffectObject@{BaseEffectObject}!Stop@{Stop}}
+\index{Stop@{Stop}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void Base\+Effect\+Object\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_effect_object_a7bcc9262fc1b9db4a5b5d00cdb3f0a19}\label{class_base_effect_object_a7bcc9262fc1b9db4a5b5d00cdb3f0a19}} 
+\index{BaseEffectObject@{BaseEffectObject}!isPlaying@{isPlaying}}
+\index{isPlaying@{isPlaying}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{isPlaying}{isPlaying}}
+{\footnotesize\ttfamily bool Base\+Effect\+Object\+::is\+Playing = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_effect_object_a1beaae8b3d5c4314140fabf6773c0e5f}\label{class_base_effect_object_a1beaae8b3d5c4314140fabf6773c0e5f}} 
+\index{BaseEffectObject@{BaseEffectObject}!m\_PlayMode@{m\_PlayMode}}
+\index{m\_PlayMode@{m\_PlayMode}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{m\_PlayMode}{m\_PlayMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86}{Effect\+Object\+Play\+Mode}} Base\+Effect\+Object\+::m\+\_\+\+Play\+Mode\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_effect_object_a7f3a2fdc77ebda8c7c31f41bd51ed77c}\label{class_base_effect_object_a7f3a2fdc77ebda8c7c31f41bd51ed77c}} 
+\index{BaseEffectObject@{BaseEffectObject}!m\_Type@{m\_Type}}
+\index{m\_Type@{m\_Type}!BaseEffectObject@{BaseEffectObject}}
+\doxysubsubsection{\texorpdfstring{m\_Type}{m\_Type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} Base\+Effect\+Object\+::m\+\_\+\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Effect\+Object/\mbox{\hyperlink{_base_effect_object_8h}{Base\+Effect\+Object.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Game\+Object/\+Effect\+Object/\mbox{\hyperlink{_base_effect_object_8cpp}{Base\+Effect\+Object.\+cpp}}\end{DoxyCompactItemize}

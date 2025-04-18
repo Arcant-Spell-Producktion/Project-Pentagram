@@ -1,0 +1,8 @@
+<map id="PentagramScrollButton" name="PentagramScrollButton">
+<area shape="rect" id="node1" title=" " alt="" coords="131,229,287,256"/>
+<area shape="rect" id="node5" href="$class_pentagram_scroll_arrow_button.html" title=" " alt="" coords="5,304,195,331"/>
+<area shape="rect" id="node6" href="$class_pentagram_scroll_number_button.html" title=" " alt="" coords="219,304,421,331"/>
+<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="179,155,239,181"/>
+<area shape="rect" id="node3" href="$class_u_i_object.html" title=" " alt="" coords="173,80,245,107"/>
+<area shape="rect" id="node4" href="$class_game_object.html" title=" " alt="" coords="162,5,257,32"/>
+</map>

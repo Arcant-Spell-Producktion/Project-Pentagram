@@ -1,0 +1,100 @@
+\hypertarget{_caster_manager_8h_source}{}\doxysection{Caster\+Manager.\+h}
+\label{_caster_manager_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterManager.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterManager.h}}
+\mbox{\hyperlink{_caster_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_data_8h}{Game/GameData/CasterData/CasterData.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_database_8h}{Game/Spells/SpellDatabase.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cast_spell_detail_8h}{CastSpellDetail.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_data_8h}{PentagramData.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_manager}{CasterManager}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_caster_data}{CasterData}} \mbox{\hyperlink{class_caster_manager_a6d7d679100d93cd056d51dfb2af2b64c}{m\_CurrentData}};}
+\DoxyCodeLine{13     \mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} \mbox{\hyperlink{class_caster_manager_aace6a0ede0a7f417caca691fbe953ae7}{m\_PentagramData}};}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_spell_book}{SpellBook}}* \mbox{\hyperlink{class_caster_manager_a04d618c0528ee4671ff0f14dd81e7b96}{m\_CurrentBook}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* \mbox{\hyperlink{class_caster_manager_a1ef1f8b4e03719e55716ba0b27faef62}{m\_CurrentSpell}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     std::array<bool, 6> \mbox{\hyperlink{class_caster_manager_aad746f3be33fe9d3eda9f37fc3fd7900}{m\_ManaWheelTracker}} = \{ \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false}, \textcolor{keyword}{false} \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a9c9f47e4c37bd09d62d0528338828d3b}{m\_WillDebuff}} = 0;}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_ab1e5f02e95ec81b9ca64e5509d9c6810}{m\_TimeDebuff}} = 0;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a60267e390e1d659c7b19a22027824a92}{m\_WillBuff}} = 0;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_af2db44911dc183ee0637f60f2f684e0b}{m\_TimeBuff}} = 0;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_aebacbab805cec288db0174c4df60d79e}{m\_DmgBuff}} = 0;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_acae5e93a8ff5d016871eed1727d70c0f}{GetTimeCost}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_caster_manager_a16285ba202b305d4352c9985257aa34a}{CasterManager}}(\mbox{\hyperlink{class_caster_data}{CasterData}} caster);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_caster_data}{CasterData}}\& \mbox{\hyperlink{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}{Data}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_manager_a6d7d679100d93cd056d51dfb2af2b64c}{m\_CurrentData}}; \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{struct_caster_stat}{CasterStat}} \mbox{\hyperlink{class_caster_manager_a10cbf9a8a47dcf216922ef0df9cfac12}{GetPreviewStat}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} \mbox{\hyperlink{class_caster_manager_a439075f0f84155fccda06c475da6a8a3}{GetPentagramData}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_manager_aace6a0ede0a7f417caca691fbe953ae7}{m\_PentagramData}}; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* \mbox{\hyperlink{class_caster_manager_a2d57fb1f46bb2f1646a475ff7879bee4}{GetSpellDetail}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_ac0105e8b46e179a399468320e05bcec6}{SetCasterElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_a15cafa67c2627423c280f140c58db17e}{SetPentagramData}}(\mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} pentagram);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a7499fc648bfcffdba0a5997493038217}{GetSpellCost}}();}
+\DoxyCodeLine{44     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a358ce1691678697705b995a927d67532}{GetFieldCost}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_aaede8111add867d63a17ad0d0b62899c}{GetFieldValue}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_af23b40f3084a800b66725bb6ae6ffb6e}{UpdateCurrentSpell}}(\textcolor{keywordtype}{bool} isElementChange = \textcolor{keyword}{false});}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_afeb55f8f90b10a1997dc57a7218259ef}{CommitSpell}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_a4c87948a1bb24a25d03a2262210abfd9}{HaveEnoughMana}}();}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_aad79c85db5ab4451fa940aca1caf6bd4}{IsTrackFull}}();}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_a5aa520f371fdbe5ed79e9065aa000c41}{CanCastSpell}}();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_manager_a42e9be93f11dcc6852690dc91e9961ba}{IsManaWheelAllUsed}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a85089cffacd0a0eadf762e74d5b812b6}{RandomManaWheelIndex}}();}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_ad5bd529fb30fc916f65301fe55754b8b}{GetManaWheelValue}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a2fd87c2a95d3e5c1f1c892ff6a235f89}{ResetManaWheelTracker}}();}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a5d1e11dc55830278f5da71274cd9bbb2}{AddWheelToMana}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{int} \textcolor{keyword}{const} \mbox{\hyperlink{class_caster_manager_abd7ae402488769fe89510f3261f1a472}{GetHealth}}();}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a37221f6699fba3fef3a3c01f0a4f08ed}{SetHealth}}(\textcolor{keywordtype}{int} health);}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_ab6e398cad66319cae2f3651f1af15a2b}{ChangeHealth}}(\textcolor{keywordtype}{int} health);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a92317b4826bf3fec380d0416bd23f8dd}{GetMana}}();}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a37e7ecb552da32a84a243df1eedcbd3b}{GetRemainMana}}();}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a851ac3782e61fc5ea00475f6fca429cf}{SetMana}}(\textcolor{keywordtype}{int} mana);}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_aefb3508805baf8ed937666a076305e5d}{ChangeMana}}(\textcolor{keywordtype}{int} mana);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_manager_a3e571afcd46d1a6a1db2227c88fc2adb}{GetMaxMana}}();}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a2b8a7f214a8f67a9df5ea4a382b5ebf5}{ChangeMaxMana}}(\textcolor{keywordtype}{int} mana);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a1d0fcb7ff83b8364d7e11e31c46a3836}{ResetMana}}();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a11931f1f9ed5e732e30ca018e217bca1}{SetWillBuff}}(\textcolor{keywordtype}{int} buff);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a5b840f90af0f6886db5424b3656ef00a}{SetTimeBuff}}(\textcolor{keywordtype}{int} buff);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_aae7e44bbd3b41f9dabf8a669ca42a1a5}{SetDmgBuff}}(\textcolor{keywordtype}{int} buff);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a6fda0bec026eb857d3c3b696de12b466}{ResetBuff}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a89f7397c8a9b7a70670f2b3a331c920f}{SetWillDebuff}}(\textcolor{keywordtype}{int} debuff);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a10f77d3a16e182772c7cb20610e99490}{SetTimeDebuff}}(\textcolor{keywordtype}{int} debuff);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_manager_a12a326ab7a8c216fea137e26862b22fc}{ResetDebuff}}();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89   \textcolor{comment}{/*  \string~CasterManager()}}
+\DoxyCodeLine{90 \textcolor{comment}{    \{}}
+\DoxyCodeLine{91 \textcolor{comment}{        delete m\_CurrentSpell;}}
+\DoxyCodeLine{92 \textcolor{comment}{    \}*/}}
+\DoxyCodeLine{93 \};}
+\DoxyCodeLine{94 }
+
+\end{DoxyCode}

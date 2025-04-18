@@ -1,0 +1,77 @@
+\hypertarget{_spell_icon_u_i_8h_source}{}\doxysection{Spell\+Icon\+UI.\+h}
+\label{_spell_icon_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/SpellIconUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/SpellIconUI.h}}
+\mbox{\hyperlink{_spell_icon_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_cast_spell_detail_8h}{Game/BattleScene/SpellCaster/CastSpellDetail.h}}>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_spell_detail_u_i_8h}{Game/BattleScene/GameObject/SpellDetailUI.h}}>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_button}{Button}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* m\_ObjectManager;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconObject;}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconHidden;}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconOverlay;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_IconBorder;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CurrentElement = \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element::NULLTYPE}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} m\_IconSize = 100.0f;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{float} m\_BorderSize = 114.0f;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} m\_BorderIndex = 0;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{int} m\_OverlayIndex = 0;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} m\_isPentagramIcon = \textcolor{keyword}{false};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} m\_toggleOverlay = \textcolor{keyword}{true};}
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} m\_isPreview = \textcolor{keyword}{false};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} m\_IsBeingHover = \textcolor{keyword}{false};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} m\_CurrentSpellIndex = -\/1;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} HoldDetailBox();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} ReleaseDetailBox();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{public}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* \mbox{\hyperlink{class_spell_icon_u_i_af0d5118140e1cd89232f89f2ad1f440f}{SpellDetail}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_spell_icon_u_i_a32b5ffc1b586c96814b6c4c2715f7cd5}{SpellIconUI}}(std::string objName,\textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = 100.0f);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_abe5e4bb9090d0dba9b007b1128d8626e}{SetOverlayToggle}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_ac4316bb31b248da417eeb010e503eabb}{SetDarken}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_aa79e6cbb574c3e0501971d5e8470286d}{SetTransparency}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_a9b69871d444c7fa305bb18953c67531c}{ToggleIsPentagramIcon}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{_demo_scene_8cpp_a8b3ab54ed3e81c69863d65e4e6c424a0}{flag}});}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_ac42612ef66992af3771384b8886cad28}{SetIcon}}(\mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spellDetail , \textcolor{keywordtype}{bool} doCast);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_aff271986d9c4e9f84d38be0e12373304}{SetIsExtra}}(\textcolor{keywordtype}{bool} isExtra);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_aa0548c4218e00768a778ce3efb647a65}{SetIsHidden}}(\textcolor{keywordtype}{bool} isHidden);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_ab8a6bafe4a116755ad5fc8a97bc238a9}{SetIsPreview}}(\textcolor{keywordtype}{bool} isPreview);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_a996787a4ac105f0edb776f338b72305f}{SetPosition}}(glm::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_aacd83f3c9854ba9a59084a829b8a5785}{SetScale}}(glm::vec3 \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}});}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_aa7f1482197434270144f5600c914700b}{UpdateIcon}}();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_icon_u_i_a85addba966d40b08f8a95e9a586c588a}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active) \textcolor{keyword}{override};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_icon_u_i_a267fa6b15a083f5293785a6a2adee438}{IsBeingHover}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{71 \};}
+
+\end{DoxyCode}

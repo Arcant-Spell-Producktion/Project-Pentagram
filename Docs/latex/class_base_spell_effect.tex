@@ -1,0 +1,245 @@
+\hypertarget{class_base_spell_effect}{}\doxysection{Base\+Spell\+Effect Class Reference}
+\label{class_base_spell_effect}\index{BaseSpellEffect@{BaseSpellEffect}}
+
+
+{\ttfamily \#include $<$Base\+Spell\+Effect.\+h$>$}
+
+
+
+Inheritance diagram for Base\+Spell\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{class_base_spell_effect__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Base\+Spell\+Effect\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_base_spell_effect__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_base_spell_effect_add5e94347e0e3df31f571053caa93bd3}{Base\+Spell\+Effect}} (\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} effect\+Type, \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} resolve\+Type)
+\item 
+\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} \mbox{\hyperlink{class_base_spell_effect_a29ee5c0030740c265b31e2f6410abb0e}{Get\+Effect\+Type}} ()
+\item 
+\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} \mbox{\hyperlink{class_base_spell_effect_af0958dd7282a746f87aaf2ba15d3f95e}{Get\+Resolve\+Type}} ()
+\item 
+int \mbox{\hyperlink{class_base_spell_effect_a2eccfb5a00ca7f13ea4d26925a2cdfb1}{Get\+Stack\+Count}} ()
+\item 
+virtual void \mbox{\hyperlink{class_base_spell_effect_a116e21b4faeee4fb2e0586cf297a7c77}{Resolve\+Effect}} (std\+::va\+\_\+list args)=0
+\item 
+virtual void \mbox{\hyperlink{class_base_spell_effect_a737a648b34c363884080c80f7cf630c6}{Applied\+Effect}} (int value, int stack=1)
+\item 
+void \mbox{\hyperlink{class_base_spell_effect_a7b8b00a0715a7e93e83fd1ae6cd8516c}{On\+Cast\+Phase\+End}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_effect_a529b4bdd90852a74468c483e0771e2fb}{On\+End\+Round}} ()
+\item 
+void \mbox{\hyperlink{class_base_spell_effect_aab99f0fc19909f55b0ba14c0971fa28f}{Reset\+Effect}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_base_spell_effect_a9b97e3384d516681451a9e1bc979e926}{On\+Effect\+Apply}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_base_spell_effect_afc3e9b8ae14d0f3c9b983c2f8e18a385}{On\+Effect\+Resolve}}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} $>$ \mbox{\hyperlink{class_base_spell_effect_ab9129b44f981595ff329bd5ff21574a0}{On\+Effect\+Reset}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} \mbox{\hyperlink{class_base_spell_effect_a6f00b84223cdc9152bd9633b0f68dabf}{m\+\_\+\+Effect\+Type}}
+\item 
+\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} \mbox{\hyperlink{class_base_spell_effect_a6e647e3008605ad6b2b02de51485d0a9}{m\+\_\+\+Resolve\+Type}}
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_af98fd4a58e5b8e134e0af015a077eb4e}{m\+\_\+\+Is\+Effect\+Active}} = false
+\item 
+int \mbox{\hyperlink{class_base_spell_effect_a2560a3f2ecb2538d1e98cb2fb0912993}{m\+\_\+\+Effect\+Stack}} = 0
+\item 
+int \mbox{\hyperlink{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}{m\+\_\+\+Effect\+Stack\+Limit}} = 99
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_a00f652324336e64a0ef8f6d2a9485a51}{m\+\_\+\+Is\+Effect\+Reset\+At\+Stack\+Limit}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_a8cfb978f4a0fd5d1b1261b8852d9f903}{m\+\_\+\+Is\+Effect\+Apply\+Will\+Compare\+Win}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_a25106903844e0f479fad8325f3efdad3}{m\+\_\+\+Is\+Effect\+Apply\+By\+Chance}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}{m\+\_\+\+Is\+Effect\+Stack}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_ab0c0988ad7af7ccc6b38d07881acaf77}{m\+\_\+\+Is\+Effect\+Active\+Once}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_afaadf86834c5918f73f471af9b40c5f5}{m\+\_\+\+Is\+Effect\+Stack\+Decrease\+On\+End\+Round}} = false
+\item 
+bool \mbox{\hyperlink{class_base_spell_effect_ae93e9952647d38352b59e95bbb70df6c}{m\+\_\+\+Is\+Effect\+Reset\+On\+End\+Of\+Cast\+Phase}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_base_spell_effect_add5e94347e0e3df31f571053caa93bd3}\label{class_base_spell_effect_add5e94347e0e3df31f571053caa93bd3}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!BaseSpellEffect@{BaseSpellEffect}}
+\index{BaseSpellEffect@{BaseSpellEffect}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{BaseSpellEffect()}{BaseSpellEffect()}}
+{\footnotesize\ttfamily Base\+Spell\+Effect\+::\+Base\+Spell\+Effect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}}]{effect\+Type,  }\item[{\mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}}}]{resolve\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_base_spell_effect_a737a648b34c363884080c80f7cf630c6}\label{class_base_spell_effect_a737a648b34c363884080c80f7cf630c6}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!AppliedEffect@{AppliedEffect}}
+\index{AppliedEffect@{AppliedEffect}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{AppliedEffect()}{AppliedEffect()}}
+{\footnotesize\ttfamily virtual void Base\+Spell\+Effect\+::\+Applied\+Effect (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{stack = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a29ee5c0030740c265b31e2f6410abb0e}\label{class_base_spell_effect_a29ee5c0030740c265b31e2f6410abb0e}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!GetEffectType@{GetEffectType}}
+\index{GetEffectType@{GetEffectType}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{GetEffectType()}{GetEffectType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} Base\+Spell\+Effect\+::\+Get\+Effect\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_af0958dd7282a746f87aaf2ba15d3f95e}\label{class_base_spell_effect_af0958dd7282a746f87aaf2ba15d3f95e}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!GetResolveType@{GetResolveType}}
+\index{GetResolveType@{GetResolveType}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{GetResolveType()}{GetResolveType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} Base\+Spell\+Effect\+::\+Get\+Resolve\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a2eccfb5a00ca7f13ea4d26925a2cdfb1}\label{class_base_spell_effect_a2eccfb5a00ca7f13ea4d26925a2cdfb1}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!GetStackCount@{GetStackCount}}
+\index{GetStackCount@{GetStackCount}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{GetStackCount()}{GetStackCount()}}
+{\footnotesize\ttfamily int Base\+Spell\+Effect\+::\+Get\+Stack\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a7b8b00a0715a7e93e83fd1ae6cd8516c}\label{class_base_spell_effect_a7b8b00a0715a7e93e83fd1ae6cd8516c}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!OnCastPhaseEnd@{OnCastPhaseEnd}}
+\index{OnCastPhaseEnd@{OnCastPhaseEnd}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{OnCastPhaseEnd()}{OnCastPhaseEnd()}}
+{\footnotesize\ttfamily void Base\+Spell\+Effect\+::\+On\+Cast\+Phase\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a529b4bdd90852a74468c483e0771e2fb}\label{class_base_spell_effect_a529b4bdd90852a74468c483e0771e2fb}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!OnEndRound@{OnEndRound}}
+\index{OnEndRound@{OnEndRound}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{OnEndRound()}{OnEndRound()}}
+{\footnotesize\ttfamily void Base\+Spell\+Effect\+::\+On\+End\+Round (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_aab99f0fc19909f55b0ba14c0971fa28f}\label{class_base_spell_effect_aab99f0fc19909f55b0ba14c0971fa28f}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!ResetEffect@{ResetEffect}}
+\index{ResetEffect@{ResetEffect}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{ResetEffect()}{ResetEffect()}}
+{\footnotesize\ttfamily void Base\+Spell\+Effect\+::\+Reset\+Effect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a116e21b4faeee4fb2e0586cf297a7c77}\label{class_base_spell_effect_a116e21b4faeee4fb2e0586cf297a7c77}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!ResolveEffect@{ResolveEffect}}
+\index{ResolveEffect@{ResolveEffect}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{ResolveEffect()}{ResolveEffect()}}
+{\footnotesize\ttfamily virtual void Base\+Spell\+Effect\+::\+Resolve\+Effect (\begin{DoxyParamCaption}\item[{std\+::va\+\_\+list}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_burn_spell_effect_ab387f119eeac5aa967fbb3c6f0659493}{Burn\+Spell\+Effect}}, \mbox{\hyperlink{class_mark_spell_effect_ae6b23a97606d4aa39c46caa5be685a21}{Mark\+Spell\+Effect}}, \mbox{\hyperlink{class_overflow_spell_effect_a30028bb1a3fa19afe8d9556f4103ca2a}{Overflow\+Spell\+Effect}}, \mbox{\hyperlink{class_freeze_spell_effect_a1448ea27768609fea6cb04dfd2bdbc73}{Freeze\+Spell\+Effect}}, \mbox{\hyperlink{class_fortify_spell_effect_a56eed52232be246ee3688e3ffeeaca6e}{Fortify\+Spell\+Effect}}, \mbox{\hyperlink{class_petrify_spell_effect_a2328ce98c08c010f33233b7eb2f10189}{Petrify\+Spell\+Effect}}, and \mbox{\hyperlink{class_boost_spell_effect_acaff4810364efffe320fe6db03bdb994}{Boost\+Spell\+Effect}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_base_spell_effect_a2560a3f2ecb2538d1e98cb2fb0912993}\label{class_base_spell_effect_a2560a3f2ecb2538d1e98cb2fb0912993}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_EffectStack@{m\_EffectStack}}
+\index{m\_EffectStack@{m\_EffectStack}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_EffectStack}{m\_EffectStack}}
+{\footnotesize\ttfamily int Base\+Spell\+Effect\+::m\+\_\+\+Effect\+Stack = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}\label{class_base_spell_effect_afd497fdf88c2389afc9bdd578ef2a887}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_EffectStackLimit@{m\_EffectStackLimit}}
+\index{m\_EffectStackLimit@{m\_EffectStackLimit}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_EffectStackLimit}{m\_EffectStackLimit}}
+{\footnotesize\ttfamily int Base\+Spell\+Effect\+::m\+\_\+\+Effect\+Stack\+Limit = 99\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a6f00b84223cdc9152bd9633b0f68dabf}\label{class_base_spell_effect_a6f00b84223cdc9152bd9633b0f68dabf}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_EffectType@{m\_EffectType}}
+\index{m\_EffectType@{m\_EffectType}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_EffectType}{m\_EffectType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}} Base\+Spell\+Effect\+::m\+\_\+\+Effect\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_af98fd4a58e5b8e134e0af015a077eb4e}\label{class_base_spell_effect_af98fd4a58e5b8e134e0af015a077eb4e}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectActive@{m\_IsEffectActive}}
+\index{m\_IsEffectActive@{m\_IsEffectActive}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectActive}{m\_IsEffectActive}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Active = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_ab0c0988ad7af7ccc6b38d07881acaf77}\label{class_base_spell_effect_ab0c0988ad7af7ccc6b38d07881acaf77}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectActiveOnce@{m\_IsEffectActiveOnce}}
+\index{m\_IsEffectActiveOnce@{m\_IsEffectActiveOnce}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectActiveOnce}{m\_IsEffectActiveOnce}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Active\+Once = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a25106903844e0f479fad8325f3efdad3}\label{class_base_spell_effect_a25106903844e0f479fad8325f3efdad3}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectApplyByChance@{m\_IsEffectApplyByChance}}
+\index{m\_IsEffectApplyByChance@{m\_IsEffectApplyByChance}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectApplyByChance}{m\_IsEffectApplyByChance}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Apply\+By\+Chance = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a8cfb978f4a0fd5d1b1261b8852d9f903}\label{class_base_spell_effect_a8cfb978f4a0fd5d1b1261b8852d9f903}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectApplyWillCompareWin@{m\_IsEffectApplyWillCompareWin}}
+\index{m\_IsEffectApplyWillCompareWin@{m\_IsEffectApplyWillCompareWin}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectApplyWillCompareWin}{m\_IsEffectApplyWillCompareWin}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Apply\+Will\+Compare\+Win = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a00f652324336e64a0ef8f6d2a9485a51}\label{class_base_spell_effect_a00f652324336e64a0ef8f6d2a9485a51}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectResetAtStackLimit@{m\_IsEffectResetAtStackLimit}}
+\index{m\_IsEffectResetAtStackLimit@{m\_IsEffectResetAtStackLimit}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectResetAtStackLimit}{m\_IsEffectResetAtStackLimit}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Reset\+At\+Stack\+Limit = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_ae93e9952647d38352b59e95bbb70df6c}\label{class_base_spell_effect_ae93e9952647d38352b59e95bbb70df6c}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectResetOnEndOfCastPhase@{m\_IsEffectResetOnEndOfCastPhase}}
+\index{m\_IsEffectResetOnEndOfCastPhase@{m\_IsEffectResetOnEndOfCastPhase}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectResetOnEndOfCastPhase}{m\_IsEffectResetOnEndOfCastPhase}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Reset\+On\+End\+Of\+Cast\+Phase = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}\label{class_base_spell_effect_a06c29e3be0ead70bdaec6492ac1314e1}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectStack@{m\_IsEffectStack}}
+\index{m\_IsEffectStack@{m\_IsEffectStack}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectStack}{m\_IsEffectStack}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Stack = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_afaadf86834c5918f73f471af9b40c5f5}\label{class_base_spell_effect_afaadf86834c5918f73f471af9b40c5f5}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_IsEffectStackDecreaseOnEndRound@{m\_IsEffectStackDecreaseOnEndRound}}
+\index{m\_IsEffectStackDecreaseOnEndRound@{m\_IsEffectStackDecreaseOnEndRound}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_IsEffectStackDecreaseOnEndRound}{m\_IsEffectStackDecreaseOnEndRound}}
+{\footnotesize\ttfamily bool Base\+Spell\+Effect\+::m\+\_\+\+Is\+Effect\+Stack\+Decrease\+On\+End\+Round = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a6e647e3008605ad6b2b02de51485d0a9}\label{class_base_spell_effect_a6e647e3008605ad6b2b02de51485d0a9}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!m\_ResolveType@{m\_ResolveType}}
+\index{m\_ResolveType@{m\_ResolveType}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{m\_ResolveType}{m\_ResolveType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_base_spell_effect_8h_a1d45b5c01458f3da4baec0e0d6c03a54}{Effect\+Resolve\+Type}} Base\+Spell\+Effect\+::m\+\_\+\+Resolve\+Type\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_base_spell_effect_a9b97e3384d516681451a9e1bc979e926}\label{class_base_spell_effect_a9b97e3384d516681451a9e1bc979e926}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!OnEffectApply@{OnEffectApply}}
+\index{OnEffectApply@{OnEffectApply}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{OnEffectApply}{OnEffectApply}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Base\+Spell\+Effect\+::\+On\+Effect\+Apply}
+
+\mbox{\Hypertarget{class_base_spell_effect_ab9129b44f981595ff329bd5ff21574a0}\label{class_base_spell_effect_ab9129b44f981595ff329bd5ff21574a0}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!OnEffectReset@{OnEffectReset}}
+\index{OnEffectReset@{OnEffectReset}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{OnEffectReset}{OnEffectReset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Base\+Spell\+Effect\+::\+On\+Effect\+Reset}
+
+\mbox{\Hypertarget{class_base_spell_effect_afc3e9b8ae14d0f3c9b983c2f8e18a385}\label{class_base_spell_effect_afc3e9b8ae14d0f3c9b983c2f8e18a385}} 
+\index{BaseSpellEffect@{BaseSpellEffect}!OnEffectResolve@{OnEffectResolve}}
+\index{OnEffectResolve@{OnEffectResolve}!BaseSpellEffect@{BaseSpellEffect}}
+\doxysubsubsection{\texorpdfstring{OnEffectResolve}{OnEffectResolve}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$\mbox{\hyperlink{_spell_effect_type_8h_a01e748e9e33ac1f38a9b0a0b87453f5b}{Spell\+Effect\+Enum}}$>$ Base\+Spell\+Effect\+::\+On\+Effect\+Resolve}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Effect/\+Effects/\mbox{\hyperlink{_base_spell_effect_8h}{Base\+Spell\+Effect.\+h}}\end{DoxyCompactItemize}

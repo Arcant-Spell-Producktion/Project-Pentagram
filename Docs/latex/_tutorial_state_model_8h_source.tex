@@ -1,0 +1,37 @@
+\hypertarget{_tutorial_state_model_8h_source}{}\doxysection{Tutorial\+State\+Model.\+h}
+\label{_tutorial_state_model_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialStates/TutorialStateModel.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/TutorialScene/TutorialStates/TutorialStateModel.h}}
+\mbox{\hyperlink{_tutorial_state_model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_setup_tutorial_state_8h}{SetupTutorialState.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_explain_tutorial_state_8h}{ExplainTutorialState.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_stand_by_tutorial_state_8h}{StandByTutorialState.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_cast_tutorial_state_8h}{CastTutorialState.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_resolve_tutorial_state_8h}{ResolveTutorialState.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_result_tutorial_state_8h}{ResultTutorialState.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_state_model}{TutorialStateModel}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12      \textcolor{keyword}{static} std::vector<BaseBattleState*> \mbox{\hyperlink{class_tutorial_state_model_ae784da235344727d8301c818bfbea8a6}{GetTutorialStates}}()}
+\DoxyCodeLine{13      \{}
+\DoxyCodeLine{14          std::vector<BaseBattleState*> states =}
+\DoxyCodeLine{15          \{}
+\DoxyCodeLine{16              \textcolor{keyword}{new} \mbox{\hyperlink{class_setup_tutorial_state}{SetupTutorialState}}(),}
+\DoxyCodeLine{17              \textcolor{keyword}{new} \mbox{\hyperlink{class_explain_tutorial_state}{ExplainTutorialState}}(),}
+\DoxyCodeLine{18              \textcolor{keyword}{new} \mbox{\hyperlink{class_stand_by_tutorial_state}{StandByTutorialState}}(),}
+\DoxyCodeLine{19              \textcolor{keyword}{new} \mbox{\hyperlink{class_cast_tutorial_state}{CastTutorialState}}(),}
+\DoxyCodeLine{20              \textcolor{keyword}{new} \mbox{\hyperlink{class_resolve_tutorial_state}{ResolveTutorialState}}(),}
+\DoxyCodeLine{21              \textcolor{keyword}{new} \mbox{\hyperlink{class_result_tutorial_state}{ResultTutorialState}}()}
+\DoxyCodeLine{22          \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24          \textcolor{keywordflow}{for} (\mbox{\hyperlink{class_base_battle_state}{BaseBattleState}}* state : states)}
+\DoxyCodeLine{25          \{}
+\DoxyCodeLine{26              std::cout << \textcolor{stringliteral}{"{}\(\backslash\)t\(\backslash\)t !!!!! STATE TO ADD "{}} << \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(state-\/>StateID) << std::endl;}
+\DoxyCodeLine{27          \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29          \textcolor{keywordflow}{return} states;}
+\DoxyCodeLine{30      \}}
+\DoxyCodeLine{31 \};}
+
+\end{DoxyCode}

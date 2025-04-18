@@ -1,0 +1,106 @@
+\hypertarget{class_spell_timetrack}{}\doxysection{Spell\+Timetrack Class Reference}
+\label{class_spell_timetrack}\index{SpellTimetrack@{SpellTimetrack}}
+
+
+{\ttfamily \#include $<$Spell\+Timetrack.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ $>$ \mbox{\hyperlink{class_spell_timetrack_a03d2110dd56b09bff18578a44411305b}{Get\+Spell\+List}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ $>$ \mbox{\hyperlink{class_spell_timetrack_a761d682d3e2809a147dc8bbad4d32440}{Get\+Spell\+Resolve\+List}} ()
+\item 
+int \mbox{\hyperlink{class_spell_timetrack_a1c919aeb82cb00acce822375a8c4b2e7}{Get\+Caster\+Will}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} caster)
+\item 
+bool \mbox{\hyperlink{class_spell_timetrack_ad9498a1a9fb83d10f11ecbf806e4e873}{Is\+Track\+Full}} (\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} caster)
+\item 
+void \mbox{\hyperlink{class_spell_timetrack_a26c92845800bb68c6231a64d9b3e25da}{Push\+Spell}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
+\item 
+\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ \mbox{\hyperlink{class_spell_timetrack_a4d2f75aa0a921571aaae65979dd4f22e}{Remove\+Spell}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$spell)
+\item 
+\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ \mbox{\hyperlink{class_spell_timetrack_adae77097163542c2c7588533e34105f3}{Remove\+Child\+Spell}} (\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$parent\+Spell)
+\item 
+\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} \mbox{\hyperlink{class_spell_timetrack_abaf74ab7d59368b87a28e7fe95f41eaf}{Get\+Will\+Compare\+Result}} ()
+\item 
+bool \mbox{\hyperlink{class_spell_timetrack_acba2ad90f7086f1c1b441885e84c3b0c}{Do\+Will\+Compare}} ()
+\item 
+void \mbox{\hyperlink{class_spell_timetrack_a6255dd9a74764f079628d502d713d9dc}{Update\+Timetrack}} ()
+\item 
+void \mbox{\hyperlink{class_spell_timetrack_a1772a5800f0f85221ba094db5860d08f}{clear}} (bool do\+Delete=true)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_spell_timetrack_a1772a5800f0f85221ba094db5860d08f}\label{class_spell_timetrack_a1772a5800f0f85221ba094db5860d08f}} 
+\index{SpellTimetrack@{SpellTimetrack}!clear@{clear}}
+\index{clear@{clear}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Spell\+Timetrack\+::clear (\begin{DoxyParamCaption}\item[{bool}]{do\+Delete = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_acba2ad90f7086f1c1b441885e84c3b0c}\label{class_spell_timetrack_acba2ad90f7086f1c1b441885e84c3b0c}} 
+\index{SpellTimetrack@{SpellTimetrack}!DoWillCompare@{DoWillCompare}}
+\index{DoWillCompare@{DoWillCompare}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{DoWillCompare()}{DoWillCompare()}}
+{\footnotesize\ttfamily bool Spell\+Timetrack\+::\+Do\+Will\+Compare (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_a1c919aeb82cb00acce822375a8c4b2e7}\label{class_spell_timetrack_a1c919aeb82cb00acce822375a8c4b2e7}} 
+\index{SpellTimetrack@{SpellTimetrack}!GetCasterWill@{GetCasterWill}}
+\index{GetCasterWill@{GetCasterWill}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{GetCasterWill()}{GetCasterWill()}}
+{\footnotesize\ttfamily int Spell\+Timetrack\+::\+Get\+Caster\+Will (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{caster }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_spell_timetrack_a03d2110dd56b09bff18578a44411305b}\label{class_spell_timetrack_a03d2110dd56b09bff18578a44411305b}} 
+\index{SpellTimetrack@{SpellTimetrack}!GetSpellList@{GetSpellList}}
+\index{GetSpellList@{GetSpellList}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{GetSpellList()}{GetSpellList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ $>$ Spell\+Timetrack\+::\+Get\+Spell\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_spell_timetrack_a761d682d3e2809a147dc8bbad4d32440}\label{class_spell_timetrack_a761d682d3e2809a147dc8bbad4d32440}} 
+\index{SpellTimetrack@{SpellTimetrack}!GetSpellResolveList@{GetSpellResolveList}}
+\index{GetSpellResolveList@{GetSpellResolveList}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{GetSpellResolveList()}{GetSpellResolveList()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ $>$ Spell\+Timetrack\+::\+Get\+Spell\+Resolve\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_abaf74ab7d59368b87a28e7fe95f41eaf}\label{class_spell_timetrack_abaf74ab7d59368b87a28e7fe95f41eaf}} 
+\index{SpellTimetrack@{SpellTimetrack}!GetWillCompareResult@{GetWillCompareResult}}
+\index{GetWillCompareResult@{GetWillCompareResult}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{GetWillCompareResult()}{GetWillCompareResult()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}} Spell\+Timetrack\+::\+Get\+Will\+Compare\+Result (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_ad9498a1a9fb83d10f11ecbf806e4e873}\label{class_spell_timetrack_ad9498a1a9fb83d10f11ecbf806e4e873}} 
+\index{SpellTimetrack@{SpellTimetrack}!IsTrackFull@{IsTrackFull}}
+\index{IsTrackFull@{IsTrackFull}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{IsTrackFull()}{IsTrackFull()}}
+{\footnotesize\ttfamily bool Spell\+Timetrack\+::\+Is\+Track\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{Caster\+Position}}}]{caster }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_spell_timetrack_a26c92845800bb68c6231a64d9b3e25da}\label{class_spell_timetrack_a26c92845800bb68c6231a64d9b3e25da}} 
+\index{SpellTimetrack@{SpellTimetrack}!PushSpell@{PushSpell}}
+\index{PushSpell@{PushSpell}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{PushSpell()}{PushSpell()}}
+{\footnotesize\ttfamily void Spell\+Timetrack\+::\+Push\+Spell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_adae77097163542c2c7588533e34105f3}\label{class_spell_timetrack_adae77097163542c2c7588533e34105f3}} 
+\index{SpellTimetrack@{SpellTimetrack}!RemoveChildSpell@{RemoveChildSpell}}
+\index{RemoveChildSpell@{RemoveChildSpell}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{RemoveChildSpell()}{RemoveChildSpell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ Spell\+Timetrack\+::\+Remove\+Child\+Spell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{parent\+Spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_a4d2f75aa0a921571aaae65979dd4f22e}\label{class_spell_timetrack_a4d2f75aa0a921571aaae65979dd4f22e}} 
+\index{SpellTimetrack@{SpellTimetrack}!RemoveSpell@{RemoveSpell}}
+\index{RemoveSpell@{RemoveSpell}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{RemoveSpell()}{RemoveSpell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ Spell\+Timetrack\+::\+Remove\+Spell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$}]{spell }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_spell_timetrack_a6255dd9a74764f079628d502d713d9dc}\label{class_spell_timetrack_a6255dd9a74764f079628d502d713d9dc}} 
+\index{SpellTimetrack@{SpellTimetrack}!UpdateTimetrack@{UpdateTimetrack}}
+\index{UpdateTimetrack@{UpdateTimetrack}!SpellTimetrack@{SpellTimetrack}}
+\doxysubsubsection{\texorpdfstring{UpdateTimetrack()}{UpdateTimetrack()}}
+{\footnotesize\ttfamily void Spell\+Timetrack\+::\+Update\+Timetrack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Timeline/\mbox{\hyperlink{_spell_timetrack_8h}{Spell\+Timetrack.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Timeline/\mbox{\hyperlink{_spell_timetrack_8cpp}{Spell\+Timetrack.\+cpp}}\end{DoxyCompactItemize}

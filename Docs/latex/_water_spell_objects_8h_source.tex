@@ -1,0 +1,175 @@
+\hypertarget{_water_spell_objects_8h_source}{}\doxysection{Water\+Spell\+Objects.\+h}
+\label{_water_spell_objects_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/SpellObject/Water/WaterSpellObjects.h}}
+\mbox{\hyperlink{_water_spell_objects_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{_base_spell_object_8h}{Game/BattleScene/GameObject/SpellObject/BaseSpellObject.h}}>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell1}{WaterSpell1}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_water_spell1_af4ab7e7ea00255d884a38d9871d18ee0}{WaterSpell1}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{10         target,}
+\DoxyCodeLine{11         \textcolor{stringliteral}{"{}Fireball\_Object"{}},}
+\DoxyCodeLine{12         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_1.png"{}})}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         std::cout << \textcolor{stringliteral}{"{}Spell:: Create WaterBall\(\backslash\)n"{}};}
+\DoxyCodeLine{15         Initialize();}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{17     \};}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell2}{WaterSpell2}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_water_spell2_aff2b42fe2cf06d41756fb7e274de98d6}{WaterSpell2}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{26         target,}
+\DoxyCodeLine{27         \textcolor{stringliteral}{"{}Firearrow\_Object"{}},}
+\DoxyCodeLine{28         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_2.png"{}})}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Barrage\(\backslash\)n"{}};}
+\DoxyCodeLine{31         Initialize();}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{33     \};}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell3}{WaterSpell3}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37 \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{39 \textcolor{keyword}{public}:}
+\DoxyCodeLine{40     \mbox{\hyperlink{class_water_spell3_a3872e4e0e1fad62e139f1cf9cd2d9e13}{WaterSpell3}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{41         target,}
+\DoxyCodeLine{42         \textcolor{stringliteral}{"{}Firewall\_Object"{}},}
+\DoxyCodeLine{43         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_3.png"{}})}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Dew\(\backslash\)n"{}};}
+\DoxyCodeLine{46         Initialize();}
+\DoxyCodeLine{47         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{48     \};}
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell4}{WaterSpell4}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53 \textcolor{keyword}{private}:}
+\DoxyCodeLine{54     \textcolor{keywordtype}{float} x\_Positions[3] = \{ 250.0f, 0.0f, -\/250.0f \};}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} x\_index = 0;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} canMove = \textcolor{keyword}{true};}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{58 \textcolor{keyword}{public}:}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_water_spell4_a017401558aa29713f9c3d9f0a4fea23a}{WaterSpell4}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{60         target,}
+\DoxyCodeLine{61         \textcolor{stringliteral}{"{}Firewall\_Object"{}},}
+\DoxyCodeLine{62         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_4.png"{}})}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Rebound\(\backslash\)n"{}};}
+\DoxyCodeLine{65         Initialize();}
+\DoxyCodeLine{66         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{67     \};}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell5}{WaterSpell5}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72 \textcolor{keyword}{private}:}
+\DoxyCodeLine{73     std::vector<GameObject*> m\_objectList;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{float} m\_localTimer = 0.0f;}
+\DoxyCodeLine{76     \textcolor{keyword}{const} \textcolor{keywordtype}{int} m\_SpawnCount = 10;}
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} m\_SnapCount = 10;}
+\DoxyCodeLine{78     \textcolor{keywordtype}{int} m\_DoneCount = 0;}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{80 \textcolor{keyword}{public}:}
+\DoxyCodeLine{81     \mbox{\hyperlink{class_water_spell5_a063dfd41d7eeb394d27ceff46a5b359e}{WaterSpell5}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{82         target,}
+\DoxyCodeLine{83         \textcolor{stringliteral}{"{}Firesnap\_Object"{}},}
+\DoxyCodeLine{84         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_5.png"{}})}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Calm\(\backslash\)n"{}};}
+\DoxyCodeLine{87         Initialize();}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{89     \};}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell6}{WaterSpell6}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94 \textcolor{keyword}{private}:}
+\DoxyCodeLine{95     std::vector<GameObject*> m\_Section;}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{97 \textcolor{keyword}{public}:}
+\DoxyCodeLine{98     \mbox{\hyperlink{class_water_spell6_a0c925423a82a40332b76f3a08692331a}{WaterSpell6}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{99         target,}
+\DoxyCodeLine{100         \textcolor{stringliteral}{"{}Waterbeam\_object"{}},}
+\DoxyCodeLine{101         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_6.png"{}})}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Beam\(\backslash\)n"{}};}
+\DoxyCodeLine{104         Initialize();}
+\DoxyCodeLine{105         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{106     \};}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell7}{WaterSpell7}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111 \textcolor{keyword}{private}:}
+\DoxyCodeLine{112     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{113 \textcolor{keyword}{public}:}
+\DoxyCodeLine{114     \mbox{\hyperlink{class_water_spell7_a25f5265486fa0aa4d1d883e3ce12a67b}{WaterSpell7}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{115         target,}
+\DoxyCodeLine{116         \textcolor{stringliteral}{"{}FireMeteor\_Object"{}},}
+\DoxyCodeLine{117         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_7.png"{}})}
+\DoxyCodeLine{118     \{}
+\DoxyCodeLine{119         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Meteor\(\backslash\)n"{}};}
+\DoxyCodeLine{120         Initialize();}
+\DoxyCodeLine{121         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{122     \};}
+\DoxyCodeLine{123 \};}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell8}{WaterSpell8}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{126 \{}
+\DoxyCodeLine{127 \textcolor{keyword}{private}:}
+\DoxyCodeLine{128     \textcolor{keywordtype}{float} lifeTime = 3.0f;}
+\DoxyCodeLine{129     \textcolor{keywordtype}{float} spawnTime = 0.2f;}
+\DoxyCodeLine{130     \textcolor{keywordtype}{int} amount = 20;}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_WindParticle = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{133     \mbox{\hyperlink{class_particle_system}{ParticleSystem}}* m\_HailParticle = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{136 \textcolor{keyword}{public}:}
+\DoxyCodeLine{137     \mbox{\hyperlink{class_water_spell8_aeb79f649a7f2c8644e52269a228c857b}{WaterSpell8}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{138         target,}
+\DoxyCodeLine{139         \textcolor{stringliteral}{"{}FireDragon\_Object"{}},}
+\DoxyCodeLine{140         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_8-\/1.png"{}})}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Dragon\(\backslash\)n"{}};}
+\DoxyCodeLine{143         Initialize();}
+\DoxyCodeLine{144         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{145     \};}
+\DoxyCodeLine{146 \};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell9}{WaterSpell9}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}}
+\DoxyCodeLine{149 \{}
+\DoxyCodeLine{150 \textcolor{keyword}{private}:}
+\DoxyCodeLine{151     \textcolor{keywordtype}{void} Initialize();}
+\DoxyCodeLine{152 \textcolor{keyword}{public}:}
+\DoxyCodeLine{153     \mbox{\hyperlink{class_water_spell9_a32443960e14abd3db78252904047fc2a}{WaterSpell9}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target) :\mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}(}
+\DoxyCodeLine{154         target,}
+\DoxyCodeLine{155         \textcolor{stringliteral}{"{}Hell\_Object"{}},}
+\DoxyCodeLine{156         \textcolor{stringliteral}{"{}Sprites/Spell/Water/spell\_water\_9-\/1.png"{}})}
+\DoxyCodeLine{157     \{}
+\DoxyCodeLine{158         std::cout << \textcolor{stringliteral}{"{}Spell:: Create Hell\(\backslash\)n"{}};}
+\DoxyCodeLine{159         Initialize();}
+\DoxyCodeLine{160         \mbox{\hyperlink{class_base_spell_object_af0ebf141b29e7f5d413ee76b244964d9}{BaseSpellObject::Initialize}}();}
+\DoxyCodeLine{161     \};}
+\DoxyCodeLine{162 \};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{keyword}{class }\mbox{\hyperlink{class_water_spell_object}{WaterSpellObject}}}
+\DoxyCodeLine{166 \{}
+\DoxyCodeLine{167 \textcolor{keyword}{public}:}
+\DoxyCodeLine{168     \textcolor{keyword}{static} \mbox{\hyperlink{class_base_spell_object}{BaseSpellObject}}* \mbox{\hyperlink{class_water_spell_object_ae1683019e1a24b077c16427c405769e2}{CreateSpellObject}}(\textcolor{keywordtype}{int} index, \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889}{CasterPosition}} target);}
+\DoxyCodeLine{169 \};}
+
+\end{DoxyCode}

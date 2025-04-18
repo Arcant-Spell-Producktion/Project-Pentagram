@@ -1,0 +1,31 @@
+\hypertarget{_character_select_u_i_8h_source}{}\doxysection{Character\+Select\+UI.\+h}
+\label{_character_select_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterSelectUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/CharacterSelectUI.h}}
+\mbox{\hyperlink{_character_select_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_object_8h}{Game/BattleScene/GameObject/CasterObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_character_select_u_i}{CharacterSelectUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_scroll_button}{ScrollButton}}* m\_SelectButton = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_caster_object}{CasterObject}}* m\_Caster = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CurrentElement;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_event}{Event<Element::Type>}} \mbox{\hyperlink{class_character_select_u_i_a8c8535f19ab44192ebf1c603720febea}{OnCharacterSelect}};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_character_select_u_i_ab131d0361f292dd3ede85a2038a7479f}{CharacterSelectUI}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_u_i_a21e22091c958df3fd30723f173a768b6}{Select}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_u_i_a65ef0cf73b89cb389386c102d1c78c3e}{Deselect}}();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_u_i_aec39985f31549c0b98f66e475b671f03}{Confirm}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_character_select_u_i_a132a05f98076e9e3a894a1a4470d6f70}{ChangeForm}}();}
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}

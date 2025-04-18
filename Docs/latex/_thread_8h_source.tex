@@ -1,0 +1,62 @@
+\hypertarget{_thread_8h_source}{}\doxysection{Thread.\+h}
+\label{_thread_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Thread.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Thread.h}}
+\mbox{\hyperlink{_thread_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <glfw/glfw3.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arcant_engine_8h}{Engine/ArcantEngine.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_thread}{Thread}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keyword}{private}:}
+\DoxyCodeLine{11         std::thread m\_Thread;}
+\DoxyCodeLine{12         \textcolor{keywordtype}{bool} m\_IsThreadJoin = \textcolor{keyword}{false};}
+\DoxyCodeLine{13         \textcolor{keywordtype}{bool} m\_IsWindowReady = \textcolor{keyword}{false};}
+\DoxyCodeLine{14         GLFWwindow* m\_ThreadWindow = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17         \textcolor{keyword}{template}<\textcolor{keyword}{class }Function, \textcolor{keyword}{class }...Args>}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_thread_a396b50b4001d062ece2ea0d1abc2132f}{Thread}}(Function\&\& f, Args\&\&... args)}
+\DoxyCodeLine{19             : m\_Thread(f, args...)}
+\DoxyCodeLine{20         \{}
+\DoxyCodeLine{21             glfwWindowHint(GLFW\_VISIBLE, GLFW\_FALSE);}
+\DoxyCodeLine{22             m\_ThreadWindow = glfwCreateWindow(640, 480, \textcolor{stringliteral}{"{}"{}}, NULL, \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{ArcantEngine::GetInstance}}().GetWindow()-\/>GetWindowPointer());}
+\DoxyCodeLine{23         \}}
+\DoxyCodeLine{24         \mbox{\hyperlink{class_thread_a95c703fb8f2f27cb64f475a8c940864a}{Thread}}() }
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             glfwWindowHint(GLFW\_VISIBLE, GLFW\_FALSE);}
+\DoxyCodeLine{27             m\_ThreadWindow = glfwCreateWindow(640, 480, \textcolor{stringliteral}{"{}"{}}, NULL, \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{ArcantEngine::GetInstance}}().GetWindow()-\/>GetWindowPointer());}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29         \mbox{\hyperlink{class_thread_a37d9edd3a1a776cbc27dedff949c9726}{\string~Thread}}()}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             \textcolor{keywordflow}{if} (m\_IsThreadJoin == \textcolor{keyword}{false})}
+\DoxyCodeLine{32             \{}
+\DoxyCodeLine{33                 m\_Thread.detach();}
+\DoxyCodeLine{34             \}}
+\DoxyCodeLine{35             glfwDestroyWindow(m\_ThreadWindow);}
+\DoxyCodeLine{36         \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_thread_a8e59447e6fbebfe1476850ad2816deb9}{Join}}()}
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             m\_IsThreadJoin = \textcolor{keyword}{true};}
+\DoxyCodeLine{41             m\_Thread.join();}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_thread_a75fb39c5262681872a44830c60e91f22}{MakeContext}}()}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45             glfwMakeContextCurrent(m\_ThreadWindow);}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{comment}{// Setter}}
+\DoxyCodeLine{49         \textcolor{keyword}{template}<\textcolor{keyword}{class }Function, \textcolor{keyword}{class }...Args>}
+\DoxyCodeLine{50         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_thread_ac92250000bb140e1a9a708f41850f187}{SetFunction}}(Function\&\& f, Args\&\&... args)}
+\DoxyCodeLine{51         \{}
+\DoxyCodeLine{52             m\_Thread = std::thread(std::forward<Function>(f), std::forward<Args>(args)...);}
+\DoxyCodeLine{53         \}}
+\DoxyCodeLine{54         \textcolor{comment}{// Getter}}
+\DoxyCodeLine{55         GLFWwindow* \mbox{\hyperlink{class_thread_a73d32b64969703b39cb160d868a07e40}{GetThreadWindow}}() \{ \textcolor{keywordflow}{return} m\_ThreadWindow; \}}
+\DoxyCodeLine{56 \};}
+
+\end{DoxyCode}

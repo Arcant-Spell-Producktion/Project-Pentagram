@@ -1,0 +1,98 @@
+\hypertarget{class_audio_controller}{}\doxysection{Audio\+Controller Class Reference}
+\label{class_audio_controller}\index{AudioController@{AudioController}}
+
+
+{\ttfamily \#include $<$Audio\+Controller.\+h$>$}
+
+
+
+Inheritance diagram for Audio\+Controller\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{class_audio_controller__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Audio\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{class_audio_controller__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_audio_controller_a1d805db4b15f2649f66399931f393f39}{Play\+SFX}} (const std\+::string \&file\+Path, const float \&volume)
+\item 
+void \mbox{\hyperlink{class_audio_controller_a4c3284c76a8f1a7c918e6061cad6a948}{Play\+SFXLoop}} (const std\+::string \&file\+Path, const float \&volume)
+\item 
+void \mbox{\hyperlink{class_audio_controller_a152e65291b53cb03706016feff07bf89}{Stop\+SFXLoop}} (const std\+::string \&file\+Path)
+\item 
+\mbox{\hyperlink{class_b_g_m_controller}{BGMController}} $\ast$ \mbox{\hyperlink{class_audio_controller_a25322d1ef3ddaf1c4667ba6e9852acf6}{Create\+BGM}} (const std\+::vector$<$ std\+::string $>$ \&filepath\+List, const std\+::vector$<$ float $>$ \&volume\+List)
+\item 
+void \mbox{\hyperlink{class_audio_controller_a892991428236341f1bb02a4b8c1714b8}{On\+Update\+Volume}} ()
+\item 
+void \mbox{\hyperlink{class_audio_controller_a968e2b33fb42df31c49fa382594f0c11}{On\+Update}} (const float \&dt)
+\item 
+void \mbox{\hyperlink{class_audio_controller_a7cbaa4a48105e84a2f0363cfd266cc66}{Free}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_controller_a25322d1ef3ddaf1c4667ba6e9852acf6}\label{class_audio_controller_a25322d1ef3ddaf1c4667ba6e9852acf6}} 
+\index{AudioController@{AudioController}!CreateBGM@{CreateBGM}}
+\index{CreateBGM@{CreateBGM}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{CreateBGM()}{CreateBGM()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_b_g_m_controller}{BGMController}} $\ast$ Audio\+Controller\+::\+Create\+BGM (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{filepath\+List,  }\item[{const std\+::vector$<$ float $>$ \&}]{volume\+List }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_controller_a7cbaa4a48105e84a2f0363cfd266cc66}\label{class_audio_controller_a7cbaa4a48105e84a2f0363cfd266cc66}} 
+\index{AudioController@{AudioController}!Free@{Free}}
+\index{Free@{Free}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{Free()}{Free()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+Free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_singleton_a7e440f849b2b900be243779ff9df082c}{Singleton$<$ Audio\+Controller $>$}}.
+
+\mbox{\Hypertarget{class_audio_controller_a968e2b33fb42df31c49fa382594f0c11}\label{class_audio_controller_a968e2b33fb42df31c49fa382594f0c11}} 
+\index{AudioController@{AudioController}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_controller_a892991428236341f1bb02a4b8c1714b8}\label{class_audio_controller_a892991428236341f1bb02a4b8c1714b8}} 
+\index{AudioController@{AudioController}!OnUpdateVolume@{OnUpdateVolume}}
+\index{OnUpdateVolume@{OnUpdateVolume}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{OnUpdateVolume()}{OnUpdateVolume()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+On\+Update\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_controller_a1d805db4b15f2649f66399931f393f39}\label{class_audio_controller_a1d805db4b15f2649f66399931f393f39}} 
+\index{AudioController@{AudioController}!PlaySFX@{PlaySFX}}
+\index{PlaySFX@{PlaySFX}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{PlaySFX()}{PlaySFX()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+Play\+SFX (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path,  }\item[{const float \&}]{volume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_controller_a4c3284c76a8f1a7c918e6061cad6a948}\label{class_audio_controller_a4c3284c76a8f1a7c918e6061cad6a948}} 
+\index{AudioController@{AudioController}!PlaySFXLoop@{PlaySFXLoop}}
+\index{PlaySFXLoop@{PlaySFXLoop}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{PlaySFXLoop()}{PlaySFXLoop()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+Play\+SFXLoop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path,  }\item[{const float \&}]{volume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_audio_controller_a152e65291b53cb03706016feff07bf89}\label{class_audio_controller_a152e65291b53cb03706016feff07bf89}} 
+\index{AudioController@{AudioController}!StopSFXLoop@{StopSFXLoop}}
+\index{StopSFXLoop@{StopSFXLoop}!AudioController@{AudioController}}
+\doxysubsubsection{\texorpdfstring{StopSFXLoop()}{StopSFXLoop()}}
+{\footnotesize\ttfamily void Audio\+Controller\+::\+Stop\+SFXLoop (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Audio/\mbox{\hyperlink{_audio_controller_8h}{Audio\+Controller.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Audio/\mbox{\hyperlink{_audio_controller_8cpp}{Audio\+Controller.\+cpp}}\end{DoxyCompactItemize}

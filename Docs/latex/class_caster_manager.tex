@@ -1,0 +1,424 @@
+\hypertarget{class_caster_manager}{}\doxysection{Caster\+Manager Class Reference}
+\label{class_caster_manager}\index{CasterManager@{CasterManager}}
+
+
+{\ttfamily \#include $<$Caster\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Caster\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_caster_manager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_caster_manager_a16285ba202b305d4352c9985257aa34a}{Caster\+Manager}} (\mbox{\hyperlink{class_caster_data}{Caster\+Data}} caster)
+\item 
+\mbox{\hyperlink{class_caster_data}{Caster\+Data}} \& \mbox{\hyperlink{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}{Data}} ()
+\item 
+\mbox{\hyperlink{struct_caster_stat}{Caster\+Stat}} \mbox{\hyperlink{class_caster_manager_a10cbf9a8a47dcf216922ef0df9cfac12}{Get\+Preview\+Stat}} ()
+\item 
+\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} \mbox{\hyperlink{class_caster_manager_a439075f0f84155fccda06c475da6a8a3}{Get\+Pentagram\+Data}} ()
+\item 
+\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ \mbox{\hyperlink{class_caster_manager_a2d57fb1f46bb2f1646a475ff7879bee4}{Get\+Spell\+Detail}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_ac0105e8b46e179a399468320e05bcec6}{Set\+Caster\+Element}} (\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}} element=\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element\+::\+NULLTYPE}})
+\item 
+bool \mbox{\hyperlink{class_caster_manager_a15cafa67c2627423c280f140c58db17e}{Set\+Pentagram\+Data}} (\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} pentagram)
+\item 
+int \mbox{\hyperlink{class_caster_manager_a7499fc648bfcffdba0a5997493038217}{Get\+Spell\+Cost}} ()
+\item 
+int \mbox{\hyperlink{class_caster_manager_a358ce1691678697705b995a927d67532}{Get\+Field\+Cost}} (\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}} field)
+\item 
+int \mbox{\hyperlink{class_caster_manager_aaede8111add867d63a17ad0d0b62899c}{Get\+Field\+Value}} (\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}} field)
+\item 
+bool \mbox{\hyperlink{class_caster_manager_af23b40f3084a800b66725bb6ae6ffb6e}{Update\+Current\+Spell}} (bool is\+Element\+Change=false)
+\item 
+void \mbox{\hyperlink{class_caster_manager_afeb55f8f90b10a1997dc57a7218259ef}{Commit\+Spell}} ()
+\item 
+bool \mbox{\hyperlink{class_caster_manager_a4c87948a1bb24a25d03a2262210abfd9}{Have\+Enough\+Mana}} ()
+\item 
+bool \mbox{\hyperlink{class_caster_manager_aad79c85db5ab4451fa940aca1caf6bd4}{Is\+Track\+Full}} ()
+\item 
+bool \mbox{\hyperlink{class_caster_manager_a5aa520f371fdbe5ed79e9065aa000c41}{Can\+Cast\+Spell}} ()
+\item 
+bool \mbox{\hyperlink{class_caster_manager_a42e9be93f11dcc6852690dc91e9961ba}{Is\+Mana\+Wheel\+All\+Used}} ()
+\item 
+int \mbox{\hyperlink{class_caster_manager_a85089cffacd0a0eadf762e74d5b812b6}{Random\+Mana\+Wheel\+Index}} ()
+\item 
+int \mbox{\hyperlink{class_caster_manager_ad5bd529fb30fc916f65301fe55754b8b}{Get\+Mana\+Wheel\+Value}} (int index)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a2fd87c2a95d3e5c1f1c892ff6a235f89}{Reset\+Mana\+Wheel\+Tracker}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a5d1e11dc55830278f5da71274cd9bbb2}{Add\+Wheel\+To\+Mana}} (int index)
+\item 
+int const \mbox{\hyperlink{class_caster_manager_abd7ae402488769fe89510f3261f1a472}{Get\+Health}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a37221f6699fba3fef3a3c01f0a4f08ed}{Set\+Health}} (int health)
+\item 
+void \mbox{\hyperlink{class_caster_manager_ab6e398cad66319cae2f3651f1af15a2b}{Change\+Health}} (int health)
+\item 
+int \mbox{\hyperlink{class_caster_manager_a92317b4826bf3fec380d0416bd23f8dd}{Get\+Mana}} ()
+\item 
+int \mbox{\hyperlink{class_caster_manager_a37e7ecb552da32a84a243df1eedcbd3b}{Get\+Remain\+Mana}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a851ac3782e61fc5ea00475f6fca429cf}{Set\+Mana}} (int mana)
+\item 
+void \mbox{\hyperlink{class_caster_manager_aefb3508805baf8ed937666a076305e5d}{Change\+Mana}} (int mana)
+\item 
+int \mbox{\hyperlink{class_caster_manager_a3e571afcd46d1a6a1db2227c88fc2adb}{Get\+Max\+Mana}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a2b8a7f214a8f67a9df5ea4a382b5ebf5}{Change\+Max\+Mana}} (int mana)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a1d0fcb7ff83b8364d7e11e31c46a3836}{Reset\+Mana}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a11931f1f9ed5e732e30ca018e217bca1}{Set\+Will\+Buff}} (int buff)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a5b840f90af0f6886db5424b3656ef00a}{Set\+Time\+Buff}} (int buff)
+\item 
+void \mbox{\hyperlink{class_caster_manager_aae7e44bbd3b41f9dabf8a669ca42a1a5}{Set\+Dmg\+Buff}} (int buff)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a6fda0bec026eb857d3c3b696de12b466}{Reset\+Buff}} ()
+\item 
+void \mbox{\hyperlink{class_caster_manager_a89f7397c8a9b7a70670f2b3a331c920f}{Set\+Will\+Debuff}} (int debuff)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a10f77d3a16e182772c7cb20610e99490}{Set\+Time\+Debuff}} (int debuff)
+\item 
+void \mbox{\hyperlink{class_caster_manager_a12a326ab7a8c216fea137e26862b22fc}{Reset\+Debuff}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_caster_manager_acae5e93a8ff5d016871eed1727d70c0f}{Get\+Time\+Cost}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_caster_data}{Caster\+Data}} \mbox{\hyperlink{class_caster_manager_a6d7d679100d93cd056d51dfb2af2b64c}{m\+\_\+\+Current\+Data}}
+\item 
+\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} \mbox{\hyperlink{class_caster_manager_aace6a0ede0a7f417caca691fbe953ae7}{m\+\_\+\+Pentagram\+Data}}
+\item 
+\mbox{\hyperlink{class_spell_book}{Spell\+Book}} $\ast$ \mbox{\hyperlink{class_caster_manager_a04d618c0528ee4671ff0f14dd81e7b96}{m\+\_\+\+Current\+Book}} = nullptr
+\item 
+\mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ \mbox{\hyperlink{class_caster_manager_a1ef1f8b4e03719e55716ba0b27faef62}{m\+\_\+\+Current\+Spell}} = nullptr
+\item 
+std\+::array$<$ bool, 6 $>$ \mbox{\hyperlink{class_caster_manager_aad746f3be33fe9d3eda9f37fc3fd7900}{m\+\_\+\+Mana\+Wheel\+Tracker}} = \{ false, false, false, false, false, false \}
+\item 
+int \mbox{\hyperlink{class_caster_manager_a9c9f47e4c37bd09d62d0528338828d3b}{m\+\_\+\+Will\+Debuff}} = 0
+\item 
+int \mbox{\hyperlink{class_caster_manager_ab1e5f02e95ec81b9ca64e5509d9c6810}{m\+\_\+\+Time\+Debuff}} = 0
+\item 
+int \mbox{\hyperlink{class_caster_manager_a60267e390e1d659c7b19a22027824a92}{m\+\_\+\+Will\+Buff}} = 0
+\item 
+int \mbox{\hyperlink{class_caster_manager_af2db44911dc183ee0637f60f2f684e0b}{m\+\_\+\+Time\+Buff}} = 0
+\item 
+int \mbox{\hyperlink{class_caster_manager_aebacbab805cec288db0174c4df60d79e}{m\+\_\+\+Dmg\+Buff}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_caster_manager_a16285ba202b305d4352c9985257aa34a}\label{class_caster_manager_a16285ba202b305d4352c9985257aa34a}} 
+\index{CasterManager@{CasterManager}!CasterManager@{CasterManager}}
+\index{CasterManager@{CasterManager}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{CasterManager()}{CasterManager()}}
+{\footnotesize\ttfamily Caster\+Manager\+::\+Caster\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_caster_data}{Caster\+Data}}}]{caster }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_caster_manager_a5d1e11dc55830278f5da71274cd9bbb2}\label{class_caster_manager_a5d1e11dc55830278f5da71274cd9bbb2}} 
+\index{CasterManager@{CasterManager}!AddWheelToMana@{AddWheelToMana}}
+\index{AddWheelToMana@{AddWheelToMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{AddWheelToMana()}{AddWheelToMana()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Add\+Wheel\+To\+Mana (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a5aa520f371fdbe5ed79e9065aa000c41}\label{class_caster_manager_a5aa520f371fdbe5ed79e9065aa000c41}} 
+\index{CasterManager@{CasterManager}!CanCastSpell@{CanCastSpell}}
+\index{CanCastSpell@{CanCastSpell}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{CanCastSpell()}{CanCastSpell()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Can\+Cast\+Spell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_ab6e398cad66319cae2f3651f1af15a2b}\label{class_caster_manager_ab6e398cad66319cae2f3651f1af15a2b}} 
+\index{CasterManager@{CasterManager}!ChangeHealth@{ChangeHealth}}
+\index{ChangeHealth@{ChangeHealth}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ChangeHealth()}{ChangeHealth()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Change\+Health (\begin{DoxyParamCaption}\item[{int}]{health }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_aefb3508805baf8ed937666a076305e5d}\label{class_caster_manager_aefb3508805baf8ed937666a076305e5d}} 
+\index{CasterManager@{CasterManager}!ChangeMana@{ChangeMana}}
+\index{ChangeMana@{ChangeMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ChangeMana()}{ChangeMana()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Change\+Mana (\begin{DoxyParamCaption}\item[{int}]{mana }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a2b8a7f214a8f67a9df5ea4a382b5ebf5}\label{class_caster_manager_a2b8a7f214a8f67a9df5ea4a382b5ebf5}} 
+\index{CasterManager@{CasterManager}!ChangeMaxMana@{ChangeMaxMana}}
+\index{ChangeMaxMana@{ChangeMaxMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ChangeMaxMana()}{ChangeMaxMana()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Change\+Max\+Mana (\begin{DoxyParamCaption}\item[{int}]{mana }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_afeb55f8f90b10a1997dc57a7218259ef}\label{class_caster_manager_afeb55f8f90b10a1997dc57a7218259ef}} 
+\index{CasterManager@{CasterManager}!CommitSpell@{CommitSpell}}
+\index{CommitSpell@{CommitSpell}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{CommitSpell()}{CommitSpell()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Commit\+Spell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}\label{class_caster_manager_a35a7e5813b71d218725829ba47a5b29c}} 
+\index{CasterManager@{CasterManager}!Data@{Data}}
+\index{Data@{Data}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_data}{Caster\+Data}} \& Caster\+Manager\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_manager_a358ce1691678697705b995a927d67532}\label{class_caster_manager_a358ce1691678697705b995a927d67532}} 
+\index{CasterManager@{CasterManager}!GetFieldCost@{GetFieldCost}}
+\index{GetFieldCost@{GetFieldCost}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetFieldCost()}{GetFieldCost()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Field\+Cost (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}}}]{field }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_aaede8111add867d63a17ad0d0b62899c}\label{class_caster_manager_aaede8111add867d63a17ad0d0b62899c}} 
+\index{CasterManager@{CasterManager}!GetFieldValue@{GetFieldValue}}
+\index{GetFieldValue@{GetFieldValue}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetFieldValue()}{GetFieldValue()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Field\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{Pentagram\+Field}}}]{field }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_abd7ae402488769fe89510f3261f1a472}\label{class_caster_manager_abd7ae402488769fe89510f3261f1a472}} 
+\index{CasterManager@{CasterManager}!GetHealth@{GetHealth}}
+\index{GetHealth@{GetHealth}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetHealth()}{GetHealth()}}
+{\footnotesize\ttfamily int const Caster\+Manager\+::\+Get\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a92317b4826bf3fec380d0416bd23f8dd}\label{class_caster_manager_a92317b4826bf3fec380d0416bd23f8dd}} 
+\index{CasterManager@{CasterManager}!GetMana@{GetMana}}
+\index{GetMana@{GetMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetMana()}{GetMana()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_ad5bd529fb30fc916f65301fe55754b8b}\label{class_caster_manager_ad5bd529fb30fc916f65301fe55754b8b}} 
+\index{CasterManager@{CasterManager}!GetManaWheelValue@{GetManaWheelValue}}
+\index{GetManaWheelValue@{GetManaWheelValue}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetManaWheelValue()}{GetManaWheelValue()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Mana\+Wheel\+Value (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a3e571afcd46d1a6a1db2227c88fc2adb}\label{class_caster_manager_a3e571afcd46d1a6a1db2227c88fc2adb}} 
+\index{CasterManager@{CasterManager}!GetMaxMana@{GetMaxMana}}
+\index{GetMaxMana@{GetMaxMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetMaxMana()}{GetMaxMana()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Max\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a439075f0f84155fccda06c475da6a8a3}\label{class_caster_manager_a439075f0f84155fccda06c475da6a8a3}} 
+\index{CasterManager@{CasterManager}!GetPentagramData@{GetPentagramData}}
+\index{GetPentagramData@{GetPentagramData}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetPentagramData()}{GetPentagramData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} Caster\+Manager\+::\+Get\+Pentagram\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_caster_manager_a10cbf9a8a47dcf216922ef0df9cfac12}\label{class_caster_manager_a10cbf9a8a47dcf216922ef0df9cfac12}} 
+\index{CasterManager@{CasterManager}!GetPreviewStat@{GetPreviewStat}}
+\index{GetPreviewStat@{GetPreviewStat}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetPreviewStat()}{GetPreviewStat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_caster_stat}{Caster\+Stat}} Caster\+Manager\+::\+Get\+Preview\+Stat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a37e7ecb552da32a84a243df1eedcbd3b}\label{class_caster_manager_a37e7ecb552da32a84a243df1eedcbd3b}} 
+\index{CasterManager@{CasterManager}!GetRemainMana@{GetRemainMana}}
+\index{GetRemainMana@{GetRemainMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetRemainMana()}{GetRemainMana()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Remain\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a7499fc648bfcffdba0a5997493038217}\label{class_caster_manager_a7499fc648bfcffdba0a5997493038217}} 
+\index{CasterManager@{CasterManager}!GetSpellCost@{GetSpellCost}}
+\index{GetSpellCost@{GetSpellCost}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetSpellCost()}{GetSpellCost()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Spell\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a2d57fb1f46bb2f1646a475ff7879bee4}\label{class_caster_manager_a2d57fb1f46bb2f1646a475ff7879bee4}} 
+\index{CasterManager@{CasterManager}!GetSpellDetail@{GetSpellDetail}}
+\index{GetSpellDetail@{GetSpellDetail}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetSpellDetail()}{GetSpellDetail()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}} $\ast$ Caster\+Manager\+::\+Get\+Spell\+Detail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_acae5e93a8ff5d016871eed1727d70c0f}\label{class_caster_manager_acae5e93a8ff5d016871eed1727d70c0f}} 
+\index{CasterManager@{CasterManager}!GetTimeCost@{GetTimeCost}}
+\index{GetTimeCost@{GetTimeCost}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{GetTimeCost()}{GetTimeCost()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Get\+Time\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_a4c87948a1bb24a25d03a2262210abfd9}\label{class_caster_manager_a4c87948a1bb24a25d03a2262210abfd9}} 
+\index{CasterManager@{CasterManager}!HaveEnoughMana@{HaveEnoughMana}}
+\index{HaveEnoughMana@{HaveEnoughMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{HaveEnoughMana()}{HaveEnoughMana()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Have\+Enough\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a42e9be93f11dcc6852690dc91e9961ba}\label{class_caster_manager_a42e9be93f11dcc6852690dc91e9961ba}} 
+\index{CasterManager@{CasterManager}!IsManaWheelAllUsed@{IsManaWheelAllUsed}}
+\index{IsManaWheelAllUsed@{IsManaWheelAllUsed}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{IsManaWheelAllUsed()}{IsManaWheelAllUsed()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Is\+Mana\+Wheel\+All\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_aad79c85db5ab4451fa940aca1caf6bd4}\label{class_caster_manager_aad79c85db5ab4451fa940aca1caf6bd4}} 
+\index{CasterManager@{CasterManager}!IsTrackFull@{IsTrackFull}}
+\index{IsTrackFull@{IsTrackFull}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{IsTrackFull()}{IsTrackFull()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Is\+Track\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a85089cffacd0a0eadf762e74d5b812b6}\label{class_caster_manager_a85089cffacd0a0eadf762e74d5b812b6}} 
+\index{CasterManager@{CasterManager}!RandomManaWheelIndex@{RandomManaWheelIndex}}
+\index{RandomManaWheelIndex@{RandomManaWheelIndex}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{RandomManaWheelIndex()}{RandomManaWheelIndex()}}
+{\footnotesize\ttfamily int Caster\+Manager\+::\+Random\+Mana\+Wheel\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a6fda0bec026eb857d3c3b696de12b466}\label{class_caster_manager_a6fda0bec026eb857d3c3b696de12b466}} 
+\index{CasterManager@{CasterManager}!ResetBuff@{ResetBuff}}
+\index{ResetBuff@{ResetBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ResetBuff()}{ResetBuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Reset\+Buff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a12a326ab7a8c216fea137e26862b22fc}\label{class_caster_manager_a12a326ab7a8c216fea137e26862b22fc}} 
+\index{CasterManager@{CasterManager}!ResetDebuff@{ResetDebuff}}
+\index{ResetDebuff@{ResetDebuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ResetDebuff()}{ResetDebuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Reset\+Debuff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a1d0fcb7ff83b8364d7e11e31c46a3836}\label{class_caster_manager_a1d0fcb7ff83b8364d7e11e31c46a3836}} 
+\index{CasterManager@{CasterManager}!ResetMana@{ResetMana}}
+\index{ResetMana@{ResetMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ResetMana()}{ResetMana()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Reset\+Mana (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a2fd87c2a95d3e5c1f1c892ff6a235f89}\label{class_caster_manager_a2fd87c2a95d3e5c1f1c892ff6a235f89}} 
+\index{CasterManager@{CasterManager}!ResetManaWheelTracker@{ResetManaWheelTracker}}
+\index{ResetManaWheelTracker@{ResetManaWheelTracker}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{ResetManaWheelTracker()}{ResetManaWheelTracker()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Reset\+Mana\+Wheel\+Tracker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_ac0105e8b46e179a399468320e05bcec6}\label{class_caster_manager_ac0105e8b46e179a399468320e05bcec6}} 
+\index{CasterManager@{CasterManager}!SetCasterElement@{SetCasterElement}}
+\index{SetCasterElement@{SetCasterElement}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetCasterElement()}{SetCasterElement()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Caster\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element\+::\+Type}}}]{element = {\ttfamily \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5ae9bd7d6295450844327d641269a20c10}{Element\+::\+NULLTYPE}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_aae7e44bbd3b41f9dabf8a669ca42a1a5}\label{class_caster_manager_aae7e44bbd3b41f9dabf8a669ca42a1a5}} 
+\index{CasterManager@{CasterManager}!SetDmgBuff@{SetDmgBuff}}
+\index{SetDmgBuff@{SetDmgBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetDmgBuff()}{SetDmgBuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Dmg\+Buff (\begin{DoxyParamCaption}\item[{int}]{buff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a37221f6699fba3fef3a3c01f0a4f08ed}\label{class_caster_manager_a37221f6699fba3fef3a3c01f0a4f08ed}} 
+\index{CasterManager@{CasterManager}!SetHealth@{SetHealth}}
+\index{SetHealth@{SetHealth}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetHealth()}{SetHealth()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Health (\begin{DoxyParamCaption}\item[{int}]{health }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a851ac3782e61fc5ea00475f6fca429cf}\label{class_caster_manager_a851ac3782e61fc5ea00475f6fca429cf}} 
+\index{CasterManager@{CasterManager}!SetMana@{SetMana}}
+\index{SetMana@{SetMana}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetMana()}{SetMana()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Mana (\begin{DoxyParamCaption}\item[{int}]{mana }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a15cafa67c2627423c280f140c58db17e}\label{class_caster_manager_a15cafa67c2627423c280f140c58db17e}} 
+\index{CasterManager@{CasterManager}!SetPentagramData@{SetPentagramData}}
+\index{SetPentagramData@{SetPentagramData}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetPentagramData()}{SetPentagramData()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Set\+Pentagram\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}}}]{pentagram }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a5b840f90af0f6886db5424b3656ef00a}\label{class_caster_manager_a5b840f90af0f6886db5424b3656ef00a}} 
+\index{CasterManager@{CasterManager}!SetTimeBuff@{SetTimeBuff}}
+\index{SetTimeBuff@{SetTimeBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetTimeBuff()}{SetTimeBuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Time\+Buff (\begin{DoxyParamCaption}\item[{int}]{buff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a10f77d3a16e182772c7cb20610e99490}\label{class_caster_manager_a10f77d3a16e182772c7cb20610e99490}} 
+\index{CasterManager@{CasterManager}!SetTimeDebuff@{SetTimeDebuff}}
+\index{SetTimeDebuff@{SetTimeDebuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetTimeDebuff()}{SetTimeDebuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Time\+Debuff (\begin{DoxyParamCaption}\item[{int}]{debuff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a11931f1f9ed5e732e30ca018e217bca1}\label{class_caster_manager_a11931f1f9ed5e732e30ca018e217bca1}} 
+\index{CasterManager@{CasterManager}!SetWillBuff@{SetWillBuff}}
+\index{SetWillBuff@{SetWillBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetWillBuff()}{SetWillBuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Will\+Buff (\begin{DoxyParamCaption}\item[{int}]{buff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_a89f7397c8a9b7a70670f2b3a331c920f}\label{class_caster_manager_a89f7397c8a9b7a70670f2b3a331c920f}} 
+\index{CasterManager@{CasterManager}!SetWillDebuff@{SetWillDebuff}}
+\index{SetWillDebuff@{SetWillDebuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{SetWillDebuff()}{SetWillDebuff()}}
+{\footnotesize\ttfamily void Caster\+Manager\+::\+Set\+Will\+Debuff (\begin{DoxyParamCaption}\item[{int}]{debuff }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_caster_manager_af23b40f3084a800b66725bb6ae6ffb6e}\label{class_caster_manager_af23b40f3084a800b66725bb6ae6ffb6e}} 
+\index{CasterManager@{CasterManager}!UpdateCurrentSpell@{UpdateCurrentSpell}}
+\index{UpdateCurrentSpell@{UpdateCurrentSpell}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{UpdateCurrentSpell()}{UpdateCurrentSpell()}}
+{\footnotesize\ttfamily bool Caster\+Manager\+::\+Update\+Current\+Spell (\begin{DoxyParamCaption}\item[{bool}]{is\+Element\+Change = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_caster_manager_a04d618c0528ee4671ff0f14dd81e7b96}\label{class_caster_manager_a04d618c0528ee4671ff0f14dd81e7b96}} 
+\index{CasterManager@{CasterManager}!m\_CurrentBook@{m\_CurrentBook}}
+\index{m\_CurrentBook@{m\_CurrentBook}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_CurrentBook}{m\_CurrentBook}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_spell_book}{Spell\+Book}}$\ast$ Caster\+Manager\+::m\+\_\+\+Current\+Book = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_a6d7d679100d93cd056d51dfb2af2b64c}\label{class_caster_manager_a6d7d679100d93cd056d51dfb2af2b64c}} 
+\index{CasterManager@{CasterManager}!m\_CurrentData@{m\_CurrentData}}
+\index{m\_CurrentData@{m\_CurrentData}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_CurrentData}{m\_CurrentData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_caster_data}{Caster\+Data}} Caster\+Manager\+::m\+\_\+\+Current\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_a1ef1f8b4e03719e55716ba0b27faef62}\label{class_caster_manager_a1ef1f8b4e03719e55716ba0b27faef62}} 
+\index{CasterManager@{CasterManager}!m\_CurrentSpell@{m\_CurrentSpell}}
+\index{m\_CurrentSpell@{m\_CurrentSpell}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_CurrentSpell}{m\_CurrentSpell}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cast_spell_detail}{Cast\+Spell\+Detail}}$\ast$ Caster\+Manager\+::m\+\_\+\+Current\+Spell = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_aebacbab805cec288db0174c4df60d79e}\label{class_caster_manager_aebacbab805cec288db0174c4df60d79e}} 
+\index{CasterManager@{CasterManager}!m\_DmgBuff@{m\_DmgBuff}}
+\index{m\_DmgBuff@{m\_DmgBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_DmgBuff}{m\_DmgBuff}}
+{\footnotesize\ttfamily int Caster\+Manager\+::m\+\_\+\+Dmg\+Buff = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_aad746f3be33fe9d3eda9f37fc3fd7900}\label{class_caster_manager_aad746f3be33fe9d3eda9f37fc3fd7900}} 
+\index{CasterManager@{CasterManager}!m\_ManaWheelTracker@{m\_ManaWheelTracker}}
+\index{m\_ManaWheelTracker@{m\_ManaWheelTracker}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_ManaWheelTracker}{m\_ManaWheelTracker}}
+{\footnotesize\ttfamily std\+::array$<$bool, 6$>$ Caster\+Manager\+::m\+\_\+\+Mana\+Wheel\+Tracker = \{ false, false, false, false, false, false \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_aace6a0ede0a7f417caca691fbe953ae7}\label{class_caster_manager_aace6a0ede0a7f417caca691fbe953ae7}} 
+\index{CasterManager@{CasterManager}!m\_PentagramData@{m\_PentagramData}}
+\index{m\_PentagramData@{m\_PentagramData}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_PentagramData}{m\_PentagramData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_pentagram_data___t}{Pentagram\+Data\+\_\+T}} Caster\+Manager\+::m\+\_\+\+Pentagram\+Data\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_af2db44911dc183ee0637f60f2f684e0b}\label{class_caster_manager_af2db44911dc183ee0637f60f2f684e0b}} 
+\index{CasterManager@{CasterManager}!m\_TimeBuff@{m\_TimeBuff}}
+\index{m\_TimeBuff@{m\_TimeBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_TimeBuff}{m\_TimeBuff}}
+{\footnotesize\ttfamily int Caster\+Manager\+::m\+\_\+\+Time\+Buff = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_ab1e5f02e95ec81b9ca64e5509d9c6810}\label{class_caster_manager_ab1e5f02e95ec81b9ca64e5509d9c6810}} 
+\index{CasterManager@{CasterManager}!m\_TimeDebuff@{m\_TimeDebuff}}
+\index{m\_TimeDebuff@{m\_TimeDebuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_TimeDebuff}{m\_TimeDebuff}}
+{\footnotesize\ttfamily int Caster\+Manager\+::m\+\_\+\+Time\+Debuff = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_a60267e390e1d659c7b19a22027824a92}\label{class_caster_manager_a60267e390e1d659c7b19a22027824a92}} 
+\index{CasterManager@{CasterManager}!m\_WillBuff@{m\_WillBuff}}
+\index{m\_WillBuff@{m\_WillBuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_WillBuff}{m\_WillBuff}}
+{\footnotesize\ttfamily int Caster\+Manager\+::m\+\_\+\+Will\+Buff = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_caster_manager_a9c9f47e4c37bd09d62d0528338828d3b}\label{class_caster_manager_a9c9f47e4c37bd09d62d0528338828d3b}} 
+\index{CasterManager@{CasterManager}!m\_WillDebuff@{m\_WillDebuff}}
+\index{m\_WillDebuff@{m\_WillDebuff}!CasterManager@{CasterManager}}
+\doxysubsubsection{\texorpdfstring{m\_WillDebuff}{m\_WillDebuff}}
+{\footnotesize\ttfamily int Caster\+Manager\+::m\+\_\+\+Will\+Debuff = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Caster/\mbox{\hyperlink{_caster_manager_8h}{Caster\+Manager.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Battle\+Scene/\+Spell\+Caster/\mbox{\hyperlink{_caster_manager_8cpp}{Caster\+Manager.\+cpp}}\end{DoxyCompactItemize}

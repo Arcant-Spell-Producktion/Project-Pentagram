@@ -1,0 +1,226 @@
+\hypertarget{classtinyxml2_1_1_x_m_l_util}{}\doxysection{tinyxml2\+::XMLUtil Class Reference}
+\label{classtinyxml2_1_1_x_m_l_util}\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+
+
+{\ttfamily \#include $<$tinyxml2.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ac9946290e942fbf226a6520bb6a4988f}{Skip\+White\+Space}} (const char $\ast$p, int $\ast$cur\+Line\+Num\+Ptr)
+\item 
+static char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_aeac9e3b7ab41cc4551467a4b81de28d7}{Skip\+White\+Space}} (char $\ast$const p, int $\ast$cur\+Line\+Num\+Ptr)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a357ec3af8fc433d19023a815f45e8e33}{Is\+White\+Space}} (char p)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_abe106a69ac4d942a4381a4d9dfd0e0bd}{Is\+Name\+Start\+Char}} (unsigned char ch)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a04b17341538fa11752f24b4301d19485}{Is\+Name\+Char}} (unsigned char ch)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a28c5a73c3d557ae0090191ef31d2f59a}{Is\+Prefix\+Hex}} (const char $\ast$p)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_acfcd287cacfd2533e1bc9ea4dfb56602}{String\+Equal}} (const char $\ast$p, const char $\ast$q, int n\+Char=INT\+\_\+\+MAX)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a9780b5926e30fe6222e10f0e6cf5a04a}{Is\+UTF8\+Continuation}} (const char p)
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ae9bcb2bc3cd6475fdc644c8c17790555}{Read\+BOM}} (const char $\ast$p, bool $\ast$has\+BOM)
+\item 
+static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a5a96e5144a8d693dc4bcd783d9964648}{Get\+Character\+Ref}} (const char $\ast$p, char $\ast$value, int $\ast$length)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a31c00d5c5dfb38382de1dfcaf4be3595}{Convert\+UTF32\+To\+UTF8}} (unsigned long input, char $\ast$output, int $\ast$length)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a3cd6c703d49b9d51bdf0f4ff6aa021c7}{To\+Str}} (int v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ac00c2e52c1c36dab3ff41d86a9bf60f9}{To\+Str}} (unsigned v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_adba0718527ae9e80f663a71ea325cb11}{To\+Str}} (bool v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a8957ad44fee5fa02ba52d73aad4d0a31}{To\+Str}} (float v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a1cd141e50980fcddd6bf9af5de4b1db7}{To\+Str}} (double v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a26a8cb5b833ad587b3af39469c8111de}{To\+Str}} (int64\+\_\+t v, char $\ast$buffer, int buffer\+Size)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a51fe7464aeb97c83be0cbc071c72404e}{To\+Str}} (uint64\+\_\+t v, char $\ast$buffer, int buffer\+Size)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ad4df4023d11ee3fca9689c49b9707323}{To\+Int}} (const char $\ast$str, int $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a210c8637d5eb4ce3d4625294af0efc2f}{To\+Unsigned}} (const char $\ast$str, unsigned $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ae5b03e0a1ca5d42052a7ac540f7aa12a}{To\+Bool}} (const char $\ast$str, bool $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_a399e71edb5f29d61ea81d91ee0332bb9}{To\+Float}} (const char $\ast$str, float $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ad8f75ac140fb19c1c6e164a957c4cd53}{To\+Double}} (const char $\ast$str, double $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_afe2ea09257431cd2b4b6d440552e4195}{To\+Int64}} (const char $\ast$str, int64\+\_\+t $\ast$value)
+\item 
+static bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_ae1a49d5df42fbd5dbb36c2261f7e8aaf}{To\+Unsigned64}} (const char $\ast$str, uint64\+\_\+t $\ast$value)
+\item 
+static void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_util_af98a6a80dbeec4679366c1aba4c5b747}{Set\+Bool\+Serialization}} (const char $\ast$write\+True, const char $\ast$write\+False)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a31c00d5c5dfb38382de1dfcaf4be3595}\label{classtinyxml2_1_1_x_m_l_util_a31c00d5c5dfb38382de1dfcaf4be3595}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ConvertUTF32ToUTF8@{ConvertUTF32ToUTF8}}
+\index{ConvertUTF32ToUTF8@{ConvertUTF32ToUTF8}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ConvertUTF32ToUTF8()}{ConvertUTF32ToUTF8()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+Convert\+UTF32\+To\+UTF8 (\begin{DoxyParamCaption}\item[{unsigned long}]{input,  }\item[{char $\ast$}]{output,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a5a96e5144a8d693dc4bcd783d9964648}\label{classtinyxml2_1_1_x_m_l_util_a5a96e5144a8d693dc4bcd783d9964648}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!GetCharacterRef@{GetCharacterRef}}
+\index{GetCharacterRef@{GetCharacterRef}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{GetCharacterRef()}{GetCharacterRef()}}
+{\footnotesize\ttfamily const char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Get\+Character\+Ref (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{char $\ast$}]{value,  }\item[{int $\ast$}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a04b17341538fa11752f24b4301d19485}\label{classtinyxml2_1_1_x_m_l_util_a04b17341538fa11752f24b4301d19485}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsNameChar@{IsNameChar}}
+\index{IsNameChar@{IsNameChar}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsNameChar()}{IsNameChar()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Name\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_abe106a69ac4d942a4381a4d9dfd0e0bd}\label{classtinyxml2_1_1_x_m_l_util_abe106a69ac4d942a4381a4d9dfd0e0bd}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsNameStartChar@{IsNameStartChar}}
+\index{IsNameStartChar@{IsNameStartChar}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsNameStartChar()}{IsNameStartChar()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Name\+Start\+Char (\begin{DoxyParamCaption}\item[{unsigned char}]{ch }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a28c5a73c3d557ae0090191ef31d2f59a}\label{classtinyxml2_1_1_x_m_l_util_a28c5a73c3d557ae0090191ef31d2f59a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsPrefixHex@{IsPrefixHex}}
+\index{IsPrefixHex@{IsPrefixHex}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsPrefixHex()}{IsPrefixHex()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+Prefix\+Hex (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a9780b5926e30fe6222e10f0e6cf5a04a}\label{classtinyxml2_1_1_x_m_l_util_a9780b5926e30fe6222e10f0e6cf5a04a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsUTF8Continuation@{IsUTF8Continuation}}
+\index{IsUTF8Continuation@{IsUTF8Continuation}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsUTF8Continuation()}{IsUTF8Continuation()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+UTF8\+Continuation (\begin{DoxyParamCaption}\item[{const char}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a357ec3af8fc433d19023a815f45e8e33}\label{classtinyxml2_1_1_x_m_l_util_a357ec3af8fc433d19023a815f45e8e33}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!IsWhiteSpace@{IsWhiteSpace}}
+\index{IsWhiteSpace@{IsWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{IsWhiteSpace()}{IsWhiteSpace()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+Is\+White\+Space (\begin{DoxyParamCaption}\item[{char}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ae9bcb2bc3cd6475fdc644c8c17790555}\label{classtinyxml2_1_1_x_m_l_util_ae9bcb2bc3cd6475fdc644c8c17790555}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ReadBOM@{ReadBOM}}
+\index{ReadBOM@{ReadBOM}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ReadBOM()}{ReadBOM()}}
+{\footnotesize\ttfamily const char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Read\+BOM (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{bool $\ast$}]{has\+BOM }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_af98a6a80dbeec4679366c1aba4c5b747}\label{classtinyxml2_1_1_x_m_l_util_af98a6a80dbeec4679366c1aba4c5b747}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SetBoolSerialization@{SetBoolSerialization}}
+\index{SetBoolSerialization@{SetBoolSerialization}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SetBoolSerialization()}{SetBoolSerialization()}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+Set\+Bool\+Serialization (\begin{DoxyParamCaption}\item[{const char $\ast$}]{write\+True,  }\item[{const char $\ast$}]{write\+False }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_aeac9e3b7ab41cc4551467a4b81de28d7}\label{classtinyxml2_1_1_x_m_l_util_aeac9e3b7ab41cc4551467a4b81de28d7}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SkipWhiteSpace@{SkipWhiteSpace}}
+\index{SkipWhiteSpace@{SkipWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SkipWhiteSpace()}{SkipWhiteSpace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Skip\+White\+Space (\begin{DoxyParamCaption}\item[{char $\ast$const}]{p,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ac9946290e942fbf226a6520bb6a4988f}\label{classtinyxml2_1_1_x_m_l_util_ac9946290e942fbf226a6520bb6a4988f}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!SkipWhiteSpace@{SkipWhiteSpace}}
+\index{SkipWhiteSpace@{SkipWhiteSpace}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{SkipWhiteSpace()}{SkipWhiteSpace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static const char $\ast$ tinyxml2\+::\+XMLUtil\+::\+Skip\+White\+Space (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{int $\ast$}]{cur\+Line\+Num\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_acfcd287cacfd2533e1bc9ea4dfb56602}\label{classtinyxml2_1_1_x_m_l_util_acfcd287cacfd2533e1bc9ea4dfb56602}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!StringEqual@{StringEqual}}
+\index{StringEqual@{StringEqual}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{StringEqual()}{StringEqual()}}
+{\footnotesize\ttfamily static bool tinyxml2\+::\+XMLUtil\+::\+String\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p,  }\item[{const char $\ast$}]{q,  }\item[{int}]{n\+Char = {\ttfamily INT\+\_\+MAX} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ae5b03e0a1ca5d42052a7ac540f7aa12a}\label{classtinyxml2_1_1_x_m_l_util_ae5b03e0a1ca5d42052a7ac540f7aa12a}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToBool@{ToBool}}
+\index{ToBool@{ToBool}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToBool()}{ToBool()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Bool (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{bool $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ad8f75ac140fb19c1c6e164a957c4cd53}\label{classtinyxml2_1_1_x_m_l_util_ad8f75ac140fb19c1c6e164a957c4cd53}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToDouble@{ToDouble}}
+\index{ToDouble@{ToDouble}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToDouble()}{ToDouble()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Double (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{double $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a399e71edb5f29d61ea81d91ee0332bb9}\label{classtinyxml2_1_1_x_m_l_util_a399e71edb5f29d61ea81d91ee0332bb9}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToFloat@{ToFloat}}
+\index{ToFloat@{ToFloat}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToFloat()}{ToFloat()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Float (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{float $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ad4df4023d11ee3fca9689c49b9707323}\label{classtinyxml2_1_1_x_m_l_util_ad4df4023d11ee3fca9689c49b9707323}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToInt@{ToInt}}
+\index{ToInt@{ToInt}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToInt()}{ToInt()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Int (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_afe2ea09257431cd2b4b6d440552e4195}\label{classtinyxml2_1_1_x_m_l_util_afe2ea09257431cd2b4b6d440552e4195}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToInt64@{ToInt64}}
+\index{ToInt64@{ToInt64}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToInt64()}{ToInt64()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Int64 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int64\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_adba0718527ae9e80f663a71ea325cb11}\label{classtinyxml2_1_1_x_m_l_util_adba0718527ae9e80f663a71ea325cb11}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{bool}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a1cd141e50980fcddd6bf9af5de4b1db7}\label{classtinyxml2_1_1_x_m_l_util_a1cd141e50980fcddd6bf9af5de4b1db7}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{double}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a8957ad44fee5fa02ba52d73aad4d0a31}\label{classtinyxml2_1_1_x_m_l_util_a8957ad44fee5fa02ba52d73aad4d0a31}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{float}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a3cd6c703d49b9d51bdf0f4ff6aa021c7}\label{classtinyxml2_1_1_x_m_l_util_a3cd6c703d49b9d51bdf0f4ff6aa021c7}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a26a8cb5b833ad587b3af39469c8111de}\label{classtinyxml2_1_1_x_m_l_util_a26a8cb5b833ad587b3af39469c8111de}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a51fe7464aeb97c83be0cbc071c72404e}\label{classtinyxml2_1_1_x_m_l_util_a51fe7464aeb97c83be0cbc071c72404e}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ac00c2e52c1c36dab3ff41d86a9bf60f9}\label{classtinyxml2_1_1_x_m_l_util_ac00c2e52c1c36dab3ff41d86a9bf60f9}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToStr@{ToStr}}
+\index{ToStr@{ToStr}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToStr()}{ToStr()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void tinyxml2\+::\+XMLUtil\+::\+To\+Str (\begin{DoxyParamCaption}\item[{unsigned}]{v,  }\item[{char $\ast$}]{buffer,  }\item[{int}]{buffer\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_a210c8637d5eb4ce3d4625294af0efc2f}\label{classtinyxml2_1_1_x_m_l_util_a210c8637d5eb4ce3d4625294af0efc2f}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToUnsigned@{ToUnsigned}}
+\index{ToUnsigned@{ToUnsigned}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToUnsigned()}{ToUnsigned()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Unsigned (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{unsigned $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classtinyxml2_1_1_x_m_l_util_ae1a49d5df42fbd5dbb36c2261f7e8aaf}\label{classtinyxml2_1_1_x_m_l_util_ae1a49d5df42fbd5dbb36c2261f7e8aaf}} 
+\index{tinyxml2::XMLUtil@{tinyxml2::XMLUtil}!ToUnsigned64@{ToUnsigned64}}
+\index{ToUnsigned64@{ToUnsigned64}!tinyxml2::XMLUtil@{tinyxml2::XMLUtil}}
+\doxysubsubsection{\texorpdfstring{ToUnsigned64()}{ToUnsigned64()}}
+{\footnotesize\ttfamily bool tinyxml2\+::\+XMLUtil\+::\+To\+Unsigned64 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{uint64\+\_\+t $\ast$}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Utilities/\+Tiny\+Xml/\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Utilities/\+Tiny\+Xml/\mbox{\hyperlink{tinyxml2_8cpp}{tinyxml2.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,277 @@
+\hypertarget{class_slide_object}{}\doxysection{Slide\+Object Class Reference}
+\label{class_slide_object}\index{SlideObject@{SlideObject}}
+
+
+{\ttfamily \#include $<$Slide\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Slide\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{class_slide_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Slide\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_slide_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_slide_object_ac6d4135622a0993d9389da0b7bd8d3ed}{Add\+Text\+Object}} (\mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$text)
+\item 
+int \mbox{\hyperlink{class_slide_object_a31513f05700d57298446d54367d311cc}{Add\+Image\+Object}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$image)
+\item 
+void \mbox{\hyperlink{class_slide_object_aecb5a7194521d74d9e0eb361d62cbafc}{Play}} ()
+\item 
+void \mbox{\hyperlink{class_slide_object_ada25448908255fb8d8bfe00c7916963d}{Next}} ()
+\item 
+void \mbox{\hyperlink{class_slide_object_a9bccde83c58920972c4f71a5a75dd1a9}{Update\+Camera}} (float camX=0.\+0f, float camY=0.\+0f, float zoom=1.\+0f)
+\item 
+void \mbox{\hyperlink{class_slide_object_a9b4554cf0521cf5a044e2770cd2b8db1}{Set\+Fade\+Screen}} (float alpha=0.\+0f)
+\item 
+void \mbox{\hyperlink{class_slide_object_ab31ce6b85ebe5c22a41ce4c4210f41fb}{Show\+Image}} (int index, float alpha=1.\+0)
+\item 
+void \mbox{\hyperlink{class_slide_object_a1bd40df63c73b3c21deab5c8bf24b586}{Hide\+Image}} (int index)
+\item 
+void \mbox{\hyperlink{class_slide_object_acbf57b0afa98d6617088821323f38605}{Show\+Text}} (int index)
+\item 
+void \mbox{\hyperlink{class_slide_object_a1ac6e53bb39c8aac853df6c25f7d0ce9}{Hide\+Text}} (int index)
+\item 
+void \mbox{\hyperlink{class_slide_object_af81eb16d6fc9ff53fb3aa250e1e036db}{Hide\+All}} ()
+\item 
+\mbox{\hyperlink{class_slide_object_a2dc988d9e6fe02614fbb696872731e51}{Slide\+Object}} ()
+\item 
+void \mbox{\hyperlink{class_slide_object_af3733ac751f0b05bf907d58b79821f20}{Queue\+Update\+Function}} (Slide\+Update\+Func func)
+\item 
+void \mbox{\hyperlink{class_slide_object_ad076db4722b40fe96b5b57dafa40aa6a}{Queue\+Wait\+Click\+Event}} ()
+\item 
+void \mbox{\hyperlink{class_slide_object_aa783ad89481d3a8d6607b74c6ad0fc99}{Queue\+Wait\+Event}} (float time=1.\+0f)
+\item 
+void \mbox{\hyperlink{class_slide_object_ad91f751f250c91a7e91bfca3234ad622}{Queue\+Text\+Event}} (std\+::vector$<$ int $>$ text\+Ids)
+\item 
+void \mbox{\hyperlink{class_slide_object_ad7d66f0484ef30c8724c0d321deb6922}{Queue\+Fade\+From\+Black\+Event}} (std\+::vector$<$ int $>$ image\+Ids, float time=2.\+0f, glm\+::vec3 CC=\{0.\+0f, 0.\+0f, 0.\+0f\})
+\item 
+void \mbox{\hyperlink{class_slide_object_aa4c138426a35b9d0fe1709c8e3026702}{Queue\+Fade\+In\+Event}} (std\+::vector$<$ int $>$ image\+Ids, float alpha=1.\+0f, float time=2.\+0f)
+\item 
+void \mbox{\hyperlink{class_slide_object_ad2f360957dcb57a116e116b173794e45}{Queue\+Fade\+Out\+Event}} (std\+::vector$<$ int $>$ image\+Ids, float alpha=1.\+0f, float time=2.\+0f)
+\item 
+void \mbox{\hyperlink{class_slide_object_aca35a3d8ce8219de5877eb48d8f95afc}{Queue\+Fade\+To\+Black\+Event}} (float time=2.\+0f, glm\+::vec3 CC=\{ 0.\+0f, 0.\+0f, 0.\+0f \})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_event}{Event}}$<$ bool $>$ \mbox{\hyperlink{class_slide_object_a0d507fa591598f4b8f6db5b6860853cb}{Slide\+Done\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_slide_object_a40cbe316b1c1b554fe22362dcdf076c9}{On\+Update}} (const float \&dt) override
+\item 
+virtual \mbox{\hyperlink{class_slide_object}{Slide\+Object}} $\ast$ \mbox{\hyperlink{class_slide_object_a0798ef23fc4a13e004c573761f063b78}{Init}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_slide_object_a8d715203e0a3dd9398b7702b4b650778}{m\+\_\+\+Texts}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ \mbox{\hyperlink{class_slide_object_ad9a8d307af1e726b409ade67201ae9d8}{m\+\_\+\+Images}}
+\item 
+\mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10}{Slide\+Object\+State}} \mbox{\hyperlink{class_slide_object_a67022de0fb59f08a4195e41006a27f34}{m\+\_\+\+Slide\+State}} = \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10a95b19f7739b0b7ea7d6b07586be54f36}{Slide\+Object\+State\+::\+Init}}
+\item 
+float \mbox{\hyperlink{class_slide_object_a4d877e9226826f983e5dc982a1bc6602}{m\+\_\+\+Total\+Time}} = 0.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_slide_object_a2dc988d9e6fe02614fbb696872731e51}\label{class_slide_object_a2dc988d9e6fe02614fbb696872731e51}} 
+\index{SlideObject@{SlideObject}!SlideObject@{SlideObject}}
+\index{SlideObject@{SlideObject}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{SlideObject()}{SlideObject()}}
+{\footnotesize\ttfamily Slide\+Object\+::\+Slide\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_slide_object_a31513f05700d57298446d54367d311cc}\label{class_slide_object_a31513f05700d57298446d54367d311cc}} 
+\index{SlideObject@{SlideObject}!AddImageObject@{AddImageObject}}
+\index{AddImageObject@{AddImageObject}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{AddImageObject()}{AddImageObject()}}
+{\footnotesize\ttfamily int Slide\+Object\+::\+Add\+Image\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{image }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ac6d4135622a0993d9389da0b7bd8d3ed}\label{class_slide_object_ac6d4135622a0993d9389da0b7bd8d3ed}} 
+\index{SlideObject@{SlideObject}!AddTextObject@{AddTextObject}}
+\index{AddTextObject@{AddTextObject}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{AddTextObject()}{AddTextObject()}}
+{\footnotesize\ttfamily int Slide\+Object\+::\+Add\+Text\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$}]{text }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_af81eb16d6fc9ff53fb3aa250e1e036db}\label{class_slide_object_af81eb16d6fc9ff53fb3aa250e1e036db}} 
+\index{SlideObject@{SlideObject}!HideAll@{HideAll}}
+\index{HideAll@{HideAll}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{HideAll()}{HideAll()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Hide\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a1bd40df63c73b3c21deab5c8bf24b586}\label{class_slide_object_a1bd40df63c73b3c21deab5c8bf24b586}} 
+\index{SlideObject@{SlideObject}!HideImage@{HideImage}}
+\index{HideImage@{HideImage}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{HideImage()}{HideImage()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Hide\+Image (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a1ac6e53bb39c8aac853df6c25f7d0ce9}\label{class_slide_object_a1ac6e53bb39c8aac853df6c25f7d0ce9}} 
+\index{SlideObject@{SlideObject}!HideText@{HideText}}
+\index{HideText@{HideText}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{HideText()}{HideText()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Hide\+Text (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a0798ef23fc4a13e004c573761f063b78}\label{class_slide_object_a0798ef23fc4a13e004c573761f063b78}} 
+\index{SlideObject@{SlideObject}!Init@{Init}}
+\index{Init@{Init}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_slide_object}{Slide\+Object}} $\ast$ Slide\+Object\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_credit_slide_a7660d499654f1ab45569bb65a53e248d}{Credit\+Slide}}, \mbox{\hyperlink{class_final_slide_a0a7a7838e3da6da2cb729c0cd68e5b25}{Final\+Slide}}, and \mbox{\hyperlink{class_intro_slide_a69001561fa5b2161d0d5d281175b81d3}{Intro\+Slide}}.
+
+\mbox{\Hypertarget{class_slide_object_ada25448908255fb8d8bfe00c7916963d}\label{class_slide_object_ada25448908255fb8d8bfe00c7916963d}} 
+\index{SlideObject@{SlideObject}!Next@{Next}}
+\index{Next@{Next}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{Next()}{Next()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a40cbe316b1c1b554fe22362dcdf076c9}\label{class_slide_object_a40cbe316b1c1b554fe22362dcdf076c9}} 
+\index{SlideObject@{SlideObject}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float \&}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_a50d1387fe8616258dfc077434bc8e5d8}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_slide_object_aecb5a7194521d74d9e0eb361d62cbafc}\label{class_slide_object_aecb5a7194521d74d9e0eb361d62cbafc}} 
+\index{SlideObject@{SlideObject}!Play@{Play}}
+\index{Play@{Play}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ad7d66f0484ef30c8724c0d321deb6922}\label{class_slide_object_ad7d66f0484ef30c8724c0d321deb6922}} 
+\index{SlideObject@{SlideObject}!QueueFadeFromBlackEvent@{QueueFadeFromBlackEvent}}
+\index{QueueFadeFromBlackEvent@{QueueFadeFromBlackEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueFadeFromBlackEvent()}{QueueFadeFromBlackEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Fade\+From\+Black\+Event (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{image\+Ids,  }\item[{float}]{time = {\ttfamily 2.0f},  }\item[{glm\+::vec3}]{CC = {\ttfamily \{0.0f,0.0f,0.0f\}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_aa4c138426a35b9d0fe1709c8e3026702}\label{class_slide_object_aa4c138426a35b9d0fe1709c8e3026702}} 
+\index{SlideObject@{SlideObject}!QueueFadeInEvent@{QueueFadeInEvent}}
+\index{QueueFadeInEvent@{QueueFadeInEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueFadeInEvent()}{QueueFadeInEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Fade\+In\+Event (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{image\+Ids,  }\item[{float}]{alpha = {\ttfamily 1.0f},  }\item[{float}]{time = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ad2f360957dcb57a116e116b173794e45}\label{class_slide_object_ad2f360957dcb57a116e116b173794e45}} 
+\index{SlideObject@{SlideObject}!QueueFadeOutEvent@{QueueFadeOutEvent}}
+\index{QueueFadeOutEvent@{QueueFadeOutEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueFadeOutEvent()}{QueueFadeOutEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Fade\+Out\+Event (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{image\+Ids,  }\item[{float}]{alpha = {\ttfamily 1.0f},  }\item[{float}]{time = {\ttfamily 2.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_aca35a3d8ce8219de5877eb48d8f95afc}\label{class_slide_object_aca35a3d8ce8219de5877eb48d8f95afc}} 
+\index{SlideObject@{SlideObject}!QueueFadeToBlackEvent@{QueueFadeToBlackEvent}}
+\index{QueueFadeToBlackEvent@{QueueFadeToBlackEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueFadeToBlackEvent()}{QueueFadeToBlackEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Fade\+To\+Black\+Event (\begin{DoxyParamCaption}\item[{float}]{time = {\ttfamily 2.0f},  }\item[{glm\+::vec3}]{CC = {\ttfamily \{~0.0f,0.0f,0.0f~\}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ad91f751f250c91a7e91bfca3234ad622}\label{class_slide_object_ad91f751f250c91a7e91bfca3234ad622}} 
+\index{SlideObject@{SlideObject}!QueueTextEvent@{QueueTextEvent}}
+\index{QueueTextEvent@{QueueTextEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueTextEvent()}{QueueTextEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Text\+Event (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$}]{text\+Ids }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_af3733ac751f0b05bf907d58b79821f20}\label{class_slide_object_af3733ac751f0b05bf907d58b79821f20}} 
+\index{SlideObject@{SlideObject}!QueueUpdateFunction@{QueueUpdateFunction}}
+\index{QueueUpdateFunction@{QueueUpdateFunction}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueUpdateFunction()}{QueueUpdateFunction()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Update\+Function (\begin{DoxyParamCaption}\item[{Slide\+Update\+Func}]{func }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ad076db4722b40fe96b5b57dafa40aa6a}\label{class_slide_object_ad076db4722b40fe96b5b57dafa40aa6a}} 
+\index{SlideObject@{SlideObject}!QueueWaitClickEvent@{QueueWaitClickEvent}}
+\index{QueueWaitClickEvent@{QueueWaitClickEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitClickEvent()}{QueueWaitClickEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Wait\+Click\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_aa783ad89481d3a8d6607b74c6ad0fc99}\label{class_slide_object_aa783ad89481d3a8d6607b74c6ad0fc99}} 
+\index{SlideObject@{SlideObject}!QueueWaitEvent@{QueueWaitEvent}}
+\index{QueueWaitEvent@{QueueWaitEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{QueueWaitEvent()}{QueueWaitEvent()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Queue\+Wait\+Event (\begin{DoxyParamCaption}\item[{float}]{time = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a9b4554cf0521cf5a044e2770cd2b8db1}\label{class_slide_object_a9b4554cf0521cf5a044e2770cd2b8db1}} 
+\index{SlideObject@{SlideObject}!SetFadeScreen@{SetFadeScreen}}
+\index{SetFadeScreen@{SetFadeScreen}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{SetFadeScreen()}{SetFadeScreen()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Set\+Fade\+Screen (\begin{DoxyParamCaption}\item[{float}]{alpha = {\ttfamily 0.0f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_ab31ce6b85ebe5c22a41ce4c4210f41fb}\label{class_slide_object_ab31ce6b85ebe5c22a41ce4c4210f41fb}} 
+\index{SlideObject@{SlideObject}!ShowImage@{ShowImage}}
+\index{ShowImage@{ShowImage}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{ShowImage()}{ShowImage()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Show\+Image (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{float}]{alpha = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_acbf57b0afa98d6617088821323f38605}\label{class_slide_object_acbf57b0afa98d6617088821323f38605}} 
+\index{SlideObject@{SlideObject}!ShowText@{ShowText}}
+\index{ShowText@{ShowText}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{ShowText()}{ShowText()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Show\+Text (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_slide_object_a9bccde83c58920972c4f71a5a75dd1a9}\label{class_slide_object_a9bccde83c58920972c4f71a5a75dd1a9}} 
+\index{SlideObject@{SlideObject}!UpdateCamera@{UpdateCamera}}
+\index{UpdateCamera@{UpdateCamera}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{UpdateCamera()}{UpdateCamera()}}
+{\footnotesize\ttfamily void Slide\+Object\+::\+Update\+Camera (\begin{DoxyParamCaption}\item[{float}]{camX = {\ttfamily 0.0f},  }\item[{float}]{camY = {\ttfamily 0.0f},  }\item[{float}]{zoom = {\ttfamily 1.0f} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_slide_object_ad9a8d307af1e726b409ade67201ae9d8}\label{class_slide_object_ad9a8d307af1e726b409ade67201ae9d8}} 
+\index{SlideObject@{SlideObject}!m\_Images@{m\_Images}}
+\index{m\_Images@{m\_Images}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{m\_Images}{m\_Images}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$\ast$$>$ Slide\+Object\+::m\+\_\+\+Images\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slide_object_a67022de0fb59f08a4195e41006a27f34}\label{class_slide_object_a67022de0fb59f08a4195e41006a27f34}} 
+\index{SlideObject@{SlideObject}!m\_SlideState@{m\_SlideState}}
+\index{m\_SlideState@{m\_SlideState}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{m\_SlideState}{m\_SlideState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10}{Slide\+Object\+State}} Slide\+Object\+::m\+\_\+\+Slide\+State = \mbox{\hyperlink{_slide_object_8h_a67e0e96d6c25698a3a2a392ddd896b10a95b19f7739b0b7ea7d6b07586be54f36}{Slide\+Object\+State\+::\+Init}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slide_object_a8d715203e0a3dd9398b7702b4b650778}\label{class_slide_object_a8d715203e0a3dd9398b7702b4b650778}} 
+\index{SlideObject@{SlideObject}!m\_Texts@{m\_Texts}}
+\index{m\_Texts@{m\_Texts}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{m\_Texts}{m\_Texts}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_text_object}{Text\+Object}}$\ast$$>$ Slide\+Object\+::m\+\_\+\+Texts\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slide_object_a4d877e9226826f983e5dc982a1bc6602}\label{class_slide_object_a4d877e9226826f983e5dc982a1bc6602}} 
+\index{SlideObject@{SlideObject}!m\_TotalTime@{m\_TotalTime}}
+\index{m\_TotalTime@{m\_TotalTime}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{m\_TotalTime}{m\_TotalTime}}
+{\footnotesize\ttfamily float Slide\+Object\+::m\+\_\+\+Total\+Time = 0.\+0f\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_slide_object_a0d507fa591598f4b8f6db5b6860853cb}\label{class_slide_object_a0d507fa591598f4b8f6db5b6860853cb}} 
+\index{SlideObject@{SlideObject}!SlideDoneEvent@{SlideDoneEvent}}
+\index{SlideDoneEvent@{SlideDoneEvent}!SlideObject@{SlideObject}}
+\doxysubsubsection{\texorpdfstring{SlideDoneEvent}{SlideDoneEvent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_event}{Event}}$<$bool$>$ Slide\+Object\+::\+Slide\+Done\+Event}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Slideshow/\+Slide/\mbox{\hyperlink{_slide_object_8h}{Slide\+Object.\+h}}\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Game/\+Slideshow/\+Slide/\mbox{\hyperlink{_slide_object_8cpp}{Slide\+Object.\+cpp}}\end{DoxyCompactItemize}

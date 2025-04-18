@@ -1,0 +1,56 @@
+\hypertarget{_camera_8h_source}{}\doxysection{Camera.\+h}
+\label{_camera_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Camera.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arcant_engine_8h}{ArcantEngine.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_camera}{Camera}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{private}:}
+\DoxyCodeLine{12         glm::vec3 m\_Direction;}
+\DoxyCodeLine{13         glm::vec3 m\_Up;}
+\DoxyCodeLine{14         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Camera Zoom Properties -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{15         \textcolor{keywordtype}{float} m\_Zoom = 1.0f;}
+\DoxyCodeLine{16         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Camera Shake Properties -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{17         \textcolor{keywordtype}{float} m\_IsShake = \textcolor{keyword}{false};}
+\DoxyCodeLine{18         \textcolor{keywordtype}{float} m\_ShakeTime;}
+\DoxyCodeLine{19         \textcolor{keywordtype}{float} m\_ShakeCurrentTime = 0.0f;}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} m\_ShakeTimeFrequency;}
+\DoxyCodeLine{21         \textcolor{keywordtype}{int} m\_ShakeFrequency;}
+\DoxyCodeLine{22         \textcolor{keywordtype}{int} m\_ShakeFrequencyCount = 0;}
+\DoxyCodeLine{23         glm::vec2 m\_ShakeVariation;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} UpdateShake(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{public}:}
+\DoxyCodeLine{28         glm::vec3 \mbox{\hyperlink{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}{position}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \mbox{\hyperlink{class_camera_adc602c67095d9d969e0922d50318da61}{Camera}}(\textcolor{keyword}{const} glm::vec3\& \mbox{\hyperlink{class_camera_a04b5db2c530d8630660e8cfb93a4b3b5}{position}} = glm::vec3(0.0f, 0.0f, 0.0f));}
+\DoxyCodeLine{31         \mbox{\hyperlink{class_camera_ad1897942d0ccf91052386388a497349f}{\string~Camera}}() \{\}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_aa3445d4cc0d32c633a266f77ec1f249d}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_a0d2a51ba69fc3cfb5dfe16db8747d169}{Input}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& deltaTime);}
+\DoxyCodeLine{36         \textcolor{comment}{// In [shakeTime] (seconds) camera will shake [shakeFrequency] times}}
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_a3fcda38ad46f82c9f52e5d48518a1bcf}{Shake}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& shakeTime, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& shakeFrequency, glm::vec2 variation);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{40         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_aa44011058e6849c6f617a0d68915d98c}{ResetPosition}}();}
+\DoxyCodeLine{41         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_camera_aaf9896fe952581b3fcd0a675e4807de3}{SetZoom}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& zoom);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{44         glm::mat4 \mbox{\hyperlink{class_camera_affa333055635aed96518c4c66be9a70c}{GetViewMatrix}}();}
+\DoxyCodeLine{45         glm::mat4 \mbox{\hyperlink{class_camera_a1e2d0c2b7a8806ad0cc038896bb0b49c}{GetProjectionMatrix}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& isZoom);}
+\DoxyCodeLine{46         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_camera_aa2a9507d39c721a7b7064b62f7757dbe}{GetZoom}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{47         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_camera_a790fd1b133c5b110f0d6e94ae86cc032}{IsShake}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{48         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_camera_a2d4fd92e315fb77821ff6ddade1b6ef2}{GetShakeFrequency}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{49         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_camera_a17397ee950bab9e5ef1ea39fa61d757f}{GetShakeFrequencyCount}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{50 \};}
+
+\end{DoxyCode}

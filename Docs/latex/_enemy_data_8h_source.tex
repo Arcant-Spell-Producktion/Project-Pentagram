@@ -1,0 +1,47 @@
+\hypertarget{_enemy_data_8h_source}{}\doxysection{Enemy\+Data.\+h}
+\label{_enemy_data_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/EnemyData.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/EnemyData.h}}
+\mbox{\hyperlink{_enemy_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_data_8h}{CasterData.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_moveset_8h}{CasterMoveSet.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_enemy_data}{EnemyData}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_caster_data}{CasterData}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     std::map<Element::Type, CasterMoveSet> m\_ElementMoveSet;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} m\_Moves;}
+\DoxyCodeLine{11 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} \mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\_Type}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_enemy_data_a4431211d5f6de63c91799a7cbc74ef00}{EnemyData}}(\mbox{\hyperlink{class_caster_data}{CasterData}} data,\mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} type, \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} moves) :}
+\DoxyCodeLine{16         \mbox{\hyperlink{class_caster_data}{CasterData}}(data),\mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\_Type}}(type),m\_Moves(moves)}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_caster_data_a8497dd97f454b2165ef1940eca2d54fd}{m\_Position}} = \mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a0b17eacd83a76b42a5abef97bde51629}{CasterPosition::CasterB}};}
+\DoxyCodeLine{19     \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_enemy_data_a04473562944e699be1f1215ad51f3fe1}{EnemyData}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_enemy_data}{EnemyData}}\& enemyData) :}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_caster_data}{CasterData}}(enemyData),}
+\DoxyCodeLine{23         \mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\_Type}}(enemyData.\mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\_Type}}),}
+\DoxyCodeLine{24         m\_Moves(enemyData.m\_Moves)}
+\DoxyCodeLine{25     \{\}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_enemy_data_a8b0131b712dd9d85c1db7ef704c0fe00}{SetMove}}(\mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} moves) \{ m\_Moves = moves; \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_enemy_data_aebbe4b59cfef6358bf1fa77e9431aa74}{SetMove}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element ,\mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} moves)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         m\_ElementMoveSet[element] = moves;}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{_caster_type_8h_a1476be1c0ab3eacfea1cf67fc7512020}{CasterType}} \mbox{\hyperlink{class_enemy_data_a5bcc52c159cdc03b05f65c5463fdbfb0}{EnemyType}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_enemy_data_a5510ce8813f2d7fea75a505d5dca84b6}{m\_Type}}; \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} \mbox{\hyperlink{class_enemy_data_ad950d1b557c53dddc9f3075a46158e76}{EnemyMoves}}() \{ \textcolor{keywordflow}{return} m\_Moves; \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_caster_move_set}{CasterMoveSet}} \mbox{\hyperlink{class_enemy_data_adc8524b3d28fc5979282ba163bdafe60}{EnemyMoves}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element) \{ \textcolor{keywordflow}{return} m\_ElementMoveSet[element]; \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+
+\end{DoxyCode}

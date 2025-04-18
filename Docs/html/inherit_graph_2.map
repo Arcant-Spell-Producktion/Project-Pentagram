@@ -1,0 +1,20 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_base_game_state.html" title=" " alt="" coords="5,385,212,412"/>
+<area shape="rect" id="node2" href="$class_base_battle_state.html" title=" " alt="" coords="260,385,377,412"/>
+<area shape="rect" id="node3" href="$class_cast_battle_state.html" title=" " alt="" coords="441,5,555,32"/>
+<area shape="rect" id="node4" href="$class_cast_test_state.html" title=" " alt="" coords="445,56,551,83"/>
+<area shape="rect" id="node5" href="$class_cast_tutorial_state.html" title=" " alt="" coords="437,107,559,133"/>
+<area shape="rect" id="node6" href="$class_explain_tutorial_state.html" title=" " alt="" coords="429,157,567,184"/>
+<area shape="rect" id="node7" href="$class_resolve_battle_state.html" title=" " alt="" coords="432,208,564,235"/>
+<area shape="rect" id="node8" href="$class_resolve_test_state.html" title=" " alt="" coords="437,259,559,285"/>
+<area shape="rect" id="node9" href="$class_resolve_tutorial_state.html" title=" " alt="" coords="428,309,568,336"/>
+<area shape="rect" id="node10" href="$class_result_battle_state.html" title=" " alt="" coords="436,360,560,387"/>
+<area shape="rect" id="node11" href="$class_result_test_state.html" title=" " alt="" coords="441,411,555,437"/>
+<area shape="rect" id="node12" href="$class_result_tutorial_state.html" title=" " alt="" coords="432,461,564,488"/>
+<area shape="rect" id="node13" href="$class_setup_battle_state.html" title=" " alt="" coords="437,512,559,539"/>
+<area shape="rect" id="node14" href="$class_setup_test_state.html" title=" " alt="" coords="442,563,554,589"/>
+<area shape="rect" id="node15" href="$class_setup_tutorial_state.html" title=" " alt="" coords="433,613,563,640"/>
+<area shape="rect" id="node16" href="$class_stand_by_battle_state.html" title=" " alt="" coords="429,664,567,691"/>
+<area shape="rect" id="node17" href="$class_stand_by_test_state.html" title=" " alt="" coords="434,715,562,741"/>
+<area shape="rect" id="node18" href="$class_stand_by_tutorial_state.html" title=" " alt="" coords="425,765,571,792"/>
+</map>

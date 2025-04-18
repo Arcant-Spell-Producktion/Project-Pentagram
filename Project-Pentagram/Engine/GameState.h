@@ -1,0 +1,27 @@
+﻿#pragma once
+
+enum class GameState
+{
+	// List of all Scene
+	GS_LOAD_SCENE,
+	GS_MENU_SCENE,
+    GS_TUTORIAL_SELECT_SCENE,
+    GS_CHARACTER_SCENE,
+
+    GS_TEST_SCENE,
+
+    GS_INTRO_SCENE,
+
+	GS_MAP_SCENE,
+	GS_BATTLE_SCENE,
+
+    GS_FINAL_SCENE,
+    GS_CREDIT_SCENE,
+
+    GS_TUTORIAL_SCENE,
+	GS_DEMO_SCENE,
+
+	GS_RESTART,
+	GS_QUIT,
+	GS_NONE
+};

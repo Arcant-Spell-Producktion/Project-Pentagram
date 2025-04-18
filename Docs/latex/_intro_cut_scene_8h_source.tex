@@ -1,0 +1,43 @@
+\hypertarget{_intro_cut_scene_8h_source}{}\doxysection{Intro\+Cut\+Scene.\+h}
+\label{_intro_cut_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Slideshow/Scene/IntroCutScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Slideshow/Scene/IntroCutScene.h}}
+\mbox{\hyperlink{_intro_cut_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_option_menu_object_8h}{Game/Objects/OptionMenuObject.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_confirm_u_i_8h}{Game/Objects/ConfirmUI.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_slide_object_8h}{Game/Slideshow/Slide/SlideObject.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_intro_cut_scene}{IntroCutScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15     \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} m\_NextState;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{float} m\_FadeTime;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{float} m\_FadeCurrentTime = 0.0f;}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} m\_IsFadeOut = \textcolor{keyword}{false};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_slide_object}{SlideObject}} * m\_IntroSlide = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} FadeOut(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& fadeTime, \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} nextState)}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         m\_NextState = nextState;}
+\DoxyCodeLine{24         m\_FadeTime = fadeTime;}
+\DoxyCodeLine{25         m\_IsFadeOut = \textcolor{keyword}{true};}
+\DoxyCodeLine{26         m\_FadeScreen-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{27         m\_FadeScreen-\/>\mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{SetBlockRaycast}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} FadeUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{public}:}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_intro_cut_scene_a1d770a0abad0ef8fb522a94822b10884}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_intro_cut_scene_a134c3baddcde65970b8106f9d8ffb1fe}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_intro_cut_scene_a0141b094ed548e3db96990c20448753e}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_intro_cut_scene_add60ed83d239a2a454018648a883e273}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+
+\end{DoxyCode}

@@ -1,0 +1,24 @@
+\hypertarget{_node_data_8h_source}{}\doxysection{Node\+Data.\+h}
+\label{_node_data_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/MapData/NodeData.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/MapData/NodeData.h}}
+\mbox{\hyperlink{_node_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_enemy_data_8h}{Game/GameData/CasterData/EnemyData.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_node_data}{NodeData}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{7     \mbox{\hyperlink{class_enemy_data}{EnemyData}} \mbox{\hyperlink{class_node_data_a61e9d40e0edcfd2008c87d512f15b6a4}{m\_Enemy}};}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_node_data_aca4103636c9811b5d4f3bd9ba8013913}{m\_IsCompleted}};}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_node_data_ae1199ddd1c3c55e6ffa8f8ead09f9f7b}{NodeData}}(\mbox{\hyperlink{class_enemy_data}{EnemyData}} enemy);}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_enemy_data}{EnemyData}} \mbox{\hyperlink{class_node_data_aed84eedb9dfd0498c5ee68d4524edfb1}{GetEnemyData}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_node_data_a61e9d40e0edcfd2008c87d512f15b6a4}{m\_Enemy}}; \}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_node_data_a972a2bf6d34cab7ae041893a09483bd1}{SetEnemyData}}(\mbox{\hyperlink{class_enemy_data}{EnemyData}} enemy) \{ \mbox{\hyperlink{class_node_data_a61e9d40e0edcfd2008c87d512f15b6a4}{m\_Enemy}} = enemy; \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_node_data_ad4740cecbf47275d181b9857be6ad86b}{CompleteNode}}();}
+\DoxyCodeLine{18 \};}
+
+\end{DoxyCode}

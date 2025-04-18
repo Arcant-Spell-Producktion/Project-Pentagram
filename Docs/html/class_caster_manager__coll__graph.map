@@ -1,0 +1,8 @@
+<map id="CasterManager" name="CasterManager">
+<area shape="rect" id="node1" title=" " alt="" coords="196,187,307,213"/>
+<area shape="rect" id="node2" href="$class_caster_data.html" title=" " alt="" coords="5,96,92,123"/>
+<area shape="rect" id="node3" href="$struct_caster_stat.html" title=" " alt="" coords="7,5,91,32"/>
+<area shape="rect" id="node4" href="$struct_pentagram_data___t.html" title=" " alt="" coords="116,96,243,123"/>
+<area shape="rect" id="node5" href="$class_spell_book.html" title=" " alt="" coords="283,96,364,123"/>
+<area shape="rect" id="node6" href="$class_cast_spell_detail.html" title=" " alt="" coords="393,96,504,123"/>
+</map>

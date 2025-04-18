@@ -1,0 +1,8 @@
+<map id="StaticButton" name="StaticButton">
+<area shape="rect" id="node1" title=" " alt="" coords="67,229,162,256"/>
+<area shape="rect" id="node5" href="$struct_arrow_button.html" title=" " alt="" coords="5,304,99,331"/>
+<area shape="rect" id="node6" href="$struct_shortcut_button.html" title=" " alt="" coords="123,304,232,331"/>
+<area shape="rect" id="node2" href="$class_button.html" title=" " alt="" coords="85,155,145,181"/>
+<area shape="rect" id="node3" href="$class_u_i_object.html" title=" " alt="" coords="79,80,151,107"/>
+<area shape="rect" id="node4" href="$class_game_object.html" title=" " alt="" coords="67,5,162,32"/>
+</map>

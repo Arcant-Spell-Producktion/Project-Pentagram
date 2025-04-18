@@ -1,0 +1,22 @@
+\hypertarget{_arcant_assert_8h_source}{}\doxysection{Arcant\+Assert.\+h}
+\label{_arcant_assert_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/ArcantAssert.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/ArcantAssert.h}}
+\mbox{\hyperlink{_arcant_assert_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef NDEBUG}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#   define ArcantAssert(condition, message) \(\backslash\)}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{    do \{ \(\backslash\)}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{        if (! (condition)) \{ \(\backslash\)}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{            std::cerr << "{}Assertion `"{}} \#condition "{}` failed in "{} << \_\_FILE\_\_ \(\backslash\)}
+\DoxyCodeLine{10                       << "{} line "{} << \_\_LINE\_\_ << "{}: "{} << message << std::endl; \(\backslash\)}
+\DoxyCodeLine{11             std::terminate(); \(\backslash\)}
+\DoxyCodeLine{12         \} \(\backslash\)}
+\DoxyCodeLine{13     \} while (false)}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#   define ArcantAssert(condition, message) do \{ \} while (false)}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

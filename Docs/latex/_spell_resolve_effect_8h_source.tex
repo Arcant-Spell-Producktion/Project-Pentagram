@@ -1,0 +1,55 @@
+\hypertarget{_spell_resolve_effect_8h_source}{}\doxysection{Spell\+Resolve\+Effect.\+h}
+\label{_spell_resolve_effect_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellResolveEffect.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellResolveEffect.h}}
+\mbox{\hyperlink{_spell_resolve_effect_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <bitset>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_resolve_effect}{SpellResolveEffect}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     std::bitset<6> m\_flags;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_spell_resolve_effect_a5369e898818d2bbc09bac85f3a556eba}{SpellResolveEffect}}(\textcolor{keywordtype}{int} value = 1)}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         m\_flags = value;}
+\DoxyCodeLine{13     \}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_resolve_effect_a6fc5cbd1214c60727611ead773eb483e}{SetResolveFlags}} (\textcolor{keywordtype}{int} value)}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         m\_flags = value;}
+\DoxyCodeLine{18     \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_ac3bec81faddd2f0d378b98ff51767226}{DoDamage}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{21 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{22         \textcolor{keywordflow}{return} m\_flags[0];}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_a9feb2600926111e6f3a01a6877fb8435}{DoCancelDamage}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{26 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} m\_flags[1];}
+\DoxyCodeLine{28     \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_ad6d44bf6719ecff819677c50adbcbae5}{DoReflectDamage}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{31 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} m\_flags[2];}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_a1818715737bb7ed31e9f2c9ed0fb4738}{DoCancelSpell}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{36 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return} m\_flags[3] || \mbox{\hyperlink{class_spell_resolve_effect_aa70196e8fcd6d242c3c0b5724aed4741}{DoDelaySpell}}() || \mbox{\hyperlink{class_spell_resolve_effect_ae67d77c77734d7fd4d270965c9d27e65}{DoCancelTrack}}();}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_aa70196e8fcd6d242c3c0b5724aed4741}{DoDelaySpell}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{41 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} m\_flags[4];}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_spell_resolve_effect_ae67d77c77734d7fd4d270965c9d27e65}{DoCancelTrack}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{46 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} m\_flags[5];}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 \};}
+
+\end{DoxyCode}

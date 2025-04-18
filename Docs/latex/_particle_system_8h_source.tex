@@ -1,0 +1,84 @@
+\hypertarget{_particle_system_8h_source}{}\doxysection{Particle\+System.\+h}
+\label{_particle_system_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/ParticleSystem.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/ParticleSystem.h}}
+\mbox{\hyperlink{_particle_system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define GLM\_ENABLE\_EXPERIMENTAL}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define RANDOM\_FLOAT(Min, Max) ((((float)rand() / (float)(RAND\_MAX)) * (Max -\/ Min)) + Min)}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define ROTATION\_SPD 100.0f}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <glm/gtx/compatibility.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arcant_engine_8h}{ArcantEngine.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_particle_property}{ParticleProperty}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     glm::vec2 \mbox{\hyperlink{struct_particle_property_a4e3f43813d9737e4bcfaadcdcd30366c}{position}} = glm::vec2(0.0f, 0.0f);}
+\DoxyCodeLine{20     glm::vec2 \mbox{\hyperlink{struct_particle_property_a6c5e34043e16e187c3677b6128cee0bb}{positionVariation}} = glm::vec2(0.0f, 0.0f);}
+\DoxyCodeLine{21     glm::vec2 \mbox{\hyperlink{struct_particle_property_a749836b8fc153e09709c5e54fafa565d}{velocity}} = glm::vec2(0.0f, 0.0f), \mbox{\hyperlink{struct_particle_property_a8534b8a2bf96c549b71709176af8f20f}{velocityVariation}} = glm::vec2(0.0f, 0.0f);}
+\DoxyCodeLine{22     glm::vec4 \mbox{\hyperlink{struct_particle_property_a6d0b42cce4dd55a3d9f65852164432c8}{colorBegin}} = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f), \mbox{\hyperlink{struct_particle_property_aa08e383fec0c62c3f485b745cc956f57}{colorEnd}} = glm::vec4(1.0f, 1.0f, 1.0f, 0.0f);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_particle_property_a44b3ebb57ca41ce5131709a49cfada1d}{sizeBegin}} = 1.0f, \mbox{\hyperlink{struct_particle_property_aab9bfc23e6199701e1709e53e989cfb8}{sizeEnd}} = 1.0f, \mbox{\hyperlink{struct_particle_property_a9c5f9981e84bcb52c953d534d5162b3a}{sizeVariation}} = 0.0f;}
+\DoxyCodeLine{24     \textcolor{comment}{// Rotation (Degree)}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_particle_property_abb0af83e73a2047da9be09c8583caceb}{rotation}} = 0.0f, \mbox{\hyperlink{struct_particle_property_a75cb4610d709de411b7de424c2d40aec}{rotationVariation}} = (\mbox{\hyperlink{_particle_system_8h_ac5935b075cb490b82db545ded40c5cf7}{RANDOM\_FLOAT}}(-\/1.0, 1.0f) * 180.0f);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_particle_property_a1a05f89c7960b57a46e9c12bc9e27a40}{lifeTime}} = 1.0f;}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{class_particle_system}{ParticleSystem}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{keyword}{private}:}
+\DoxyCodeLine{32         \textcolor{keyword}{struct }Particle}
+\DoxyCodeLine{33         \{}
+\DoxyCodeLine{34             glm::vec2 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}};}
+\DoxyCodeLine{35             glm::vec2 velocity;}
+\DoxyCodeLine{36             glm::vec4 colorBegin, colorEnd;}
+\DoxyCodeLine{37             \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_ac55f6ebdf4cfbab508680ad7290fb26c}{rotation}} = 0.0f;}
+\DoxyCodeLine{38             \textcolor{keywordtype}{float} sizeBegin, sizeEnd;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40             \textcolor{keywordtype}{float} lifeTime = 1.0f;}
+\DoxyCodeLine{41             \textcolor{keywordtype}{float} lifeRemaining = 0.0f;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43             \textcolor{keywordtype}{int} curAnimCol = 1;}
+\DoxyCodeLine{44             \textcolor{keywordtype}{int} curAnimRow = 1;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46             \textcolor{keywordtype}{float} animPlayTime = 0.0f;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48             \textcolor{keywordtype}{bool} active = \textcolor{keyword}{false};}
+\DoxyCodeLine{49         \};}
+\DoxyCodeLine{50         Particle m\_ParticlePool[1000];}
+\DoxyCodeLine{51         \textcolor{keywordtype}{float} m\_CurrentSpawnTime = 0.0f;}
+\DoxyCodeLine{52         \textcolor{keywordtype}{float} spawnTime;}
+\DoxyCodeLine{53         \textcolor{keywordtype}{bool} m\_IsFixRotation = \textcolor{keyword}{false};}
+\DoxyCodeLine{54         \textcolor{keywordtype}{bool} m\_IsGenerate = \textcolor{keyword}{true};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{public}:}
+\DoxyCodeLine{57         GLuint \mbox{\hyperlink{class_particle_system_a2a110b6234c325b45778941ddab27b13}{m\_PoolIndex}} = 999;}
+\DoxyCodeLine{58         \mbox{\hyperlink{struct_particle_property}{ParticleProperty}} \mbox{\hyperlink{class_particle_system_a51d5d8fdd964a4c92452a3e98a0dc5cb}{baseParticle}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \mbox{\hyperlink{class_particle_system_a97ee7ae0af12500dda7a3e2ca4252b69}{ParticleSystem}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_a042a639b6446a5434f7648c873dcaa32}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{63         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_ad76c977ec244b5f0c529ca570a0dd101}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}} \&camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{64         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_a08d23981923c20a3c0882862f203327d}{UnloadMesh}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{65         }
+\DoxyCodeLine{66         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_ae7cf0dd4dc72470b255e7da9beef8da4}{StopGenerate}}() \{ m\_IsGenerate = \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{67         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_a49b5f37c4e8103cbf02016760aaf691f}{StartGenerate}}() \{ m\_IsGenerate = \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_aea28693659dbc020c63a605b94b7e519}{SetSpawnTime}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& spawnTime);}
+\DoxyCodeLine{70         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_a6ec1631f0478ca8dd7a91026e96317ad}{SetIsFixRotation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active);}
+\DoxyCodeLine{71         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_particle_system_a0d8afff3e981b117a6f890534c46de11}{GetSpawnTime}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{72         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_particle_system_a764a113d687c18fa86e92a90ebb80427}{IsFixRotation}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_ae74088a202118108d72b80e92d600317}{Emit}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_particle_property}{ParticleProperty}}\& particleProperty);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Animation Update -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ }}
+\DoxyCodeLine{77         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_particle_system_aaba93d11199b5f315450ce333ea5702d}{UpdateAnimation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& deltaTime) \textcolor{keyword}{override};}
+\DoxyCodeLine{78 \};}
+
+\end{DoxyCode}

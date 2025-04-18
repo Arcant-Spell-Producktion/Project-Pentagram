@@ -1,0 +1,175 @@
+\hypertarget{class_event}{}\doxysection{Event\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_event}\index{Event$<$ T $>$@{Event$<$ T $>$}}
+
+
+\mbox{\hyperlink{class_event}{Event}} class template.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{Add\+Listener}} (\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ callfn)
+\begin{DoxyCompactList}\small\item\em Add an \mbox{\hyperlink{class_action}{Action}} to the set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_ae2c94bd24a7d990f4a940cadfee93d76}{Remove\+Listener}} (\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ callfn)
+\begin{DoxyCompactList}\small\item\em Remove a specific \mbox{\hyperlink{class_action}{Action}} from the set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}{Remove\+All\+Listeners}} ()
+\begin{DoxyCompactList}\small\item\em Remove all \mbox{\hyperlink{class_action}{Action}} objects from the set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_a3110f94a968bfcd542bb3445d0872be6}{operator=}} (\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&callfn)
+\begin{DoxyCompactList}\small\item\em Set the \mbox{\hyperlink{class_event}{Event}} to a single \mbox{\hyperlink{class_action}{Action}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_ababff58751efad1437562c06ea7b7b53}{operator+=}} (\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&callfn)
+\begin{DoxyCompactList}\small\item\em Add an \mbox{\hyperlink{class_action}{Action}} to the \mbox{\hyperlink{class_event}{Event}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_aebc6bf29c78362be175a8979f31eb4f2}{operator-\/=}} (\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&callfn)
+\begin{DoxyCompactList}\small\item\em Remove an \mbox{\hyperlink{class_action}{Action}} from the \mbox{\hyperlink{class_event}{Event}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_a36ffa7832f8c67dbfdda74a39b693b36}{Invoke}} (T arg)
+\begin{DoxyCompactList}\small\item\em Invoke all stored Actions with the given argument. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_event_ae732671454ec655279ed9e1f919b9089}{operator()}} (T arg)
+\begin{DoxyCompactList}\small\item\em Invoke all stored Actions with the given argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Event$<$ T $>$}
+\mbox{\hyperlink{class_event}{Event}} class template. 
+
+Container for \mbox{\hyperlink{class_action}{Action}} objects.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the argument that the \mbox{\hyperlink{class_action}{Action}} objects\textquotesingle{} wrapped functions take. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}\label{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!AddListener@{AddListener}}
+\index{AddListener@{AddListener}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddListener()}{AddListener()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::\+Add\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_action}{Action}}$<$ T $>$}]{callfn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add an \mbox{\hyperlink{class_action}{Action}} to the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callfn} & The \mbox{\hyperlink{class_action}{Action}} object to add to the set. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_a36ffa7832f8c67dbfdda74a39b693b36}\label{class_event_a36ffa7832f8c67dbfdda74a39b693b36}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!Invoke@{Invoke}}
+\index{Invoke@{Invoke}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Invoke()}{Invoke()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::\+Invoke (\begin{DoxyParamCaption}\item[{T}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Invoke all stored Actions with the given argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The argument to pass to the wrapped functions of the stored \mbox{\hyperlink{class_action}{Action}} objects. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_ae732671454ec655279ed9e1f919b9089}\label{class_event_ae732671454ec655279ed9e1f919b9089}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{T}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Invoke all stored Actions with the given argument. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The argument to pass to the wrapped functions of the stored \mbox{\hyperlink{class_action}{Action}} objects. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_ababff58751efad1437562c06ea7b7b53}\label{class_event_ababff58751efad1437562c06ea7b7b53}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&}]{callfn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add an \mbox{\hyperlink{class_action}{Action}} to the \mbox{\hyperlink{class_event}{Event}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callfn} & The \mbox{\hyperlink{class_action}{Action}} object to add to the \mbox{\hyperlink{class_event}{Event}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_aebc6bf29c78362be175a8979f31eb4f2}\label{class_event_aebc6bf29c78362be175a8979f31eb4f2}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&}]{callfn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove an \mbox{\hyperlink{class_action}{Action}} from the \mbox{\hyperlink{class_event}{Event}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callfn} & The \mbox{\hyperlink{class_action}{Action}} object to remove from the \mbox{\hyperlink{class_event}{Event}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_a3110f94a968bfcd542bb3445d0872be6}\label{class_event_a3110f94a968bfcd542bb3445d0872be6}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_action}{Action}}$<$ T $>$ const \&}]{callfn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the \mbox{\hyperlink{class_event}{Event}} to a single \mbox{\hyperlink{class_action}{Action}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callfn} & The \mbox{\hyperlink{class_action}{Action}} object to set the \mbox{\hyperlink{class_event}{Event}} to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}\label{class_event_a4bdfc08c69c48c9714d7a6b6975fc1bd}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!RemoveAllListeners@{RemoveAllListeners}}
+\index{RemoveAllListeners@{RemoveAllListeners}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveAllListeners()}{RemoveAllListeners()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::\+Remove\+All\+Listeners (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove all \mbox{\hyperlink{class_action}{Action}} objects from the set. 
+
+\mbox{\Hypertarget{class_event_ae2c94bd24a7d990f4a940cadfee93d76}\label{class_event_ae2c94bd24a7d990f4a940cadfee93d76}} 
+\index{Event$<$ T $>$@{Event$<$ T $>$}!RemoveListener@{RemoveListener}}
+\index{RemoveListener@{RemoveListener}!Event$<$ T $>$@{Event$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveListener()}{RemoveListener()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_event}{Event}}$<$ T $>$\+::\+Remove\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_action}{Action}}$<$ T $>$}]{callfn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a specific \mbox{\hyperlink{class_action}{Action}} from the set. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callfn} & The \mbox{\hyperlink{class_action}{Action}} object to remove from the set. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_event_8h}{Event.\+h}}\end{DoxyCompactItemize}

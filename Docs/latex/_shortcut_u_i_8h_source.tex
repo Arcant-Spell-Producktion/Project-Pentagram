@@ -1,0 +1,63 @@
+\hypertarget{_shortcut_u_i_8h_source}{}\doxysection{Shortcut\+UI.\+h}
+\label{_shortcut_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/ShortcutUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/ShortcutUI.h}}
+\mbox{\hyperlink{_shortcut_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_button_8h}{Engine/Button.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_static_button}{StaticButton}}}
+\DoxyCodeLine{9         \{}
+\DoxyCodeLine{10             \mbox{\hyperlink{class_u_i_object}{UIObject}}* \mbox{\hyperlink{struct_shortcut_button_a20b5c11786c79c1aece5b65528c7b008}{image}};}
+\DoxyCodeLine{11             \mbox{\hyperlink{class_text_object}{TextObject}}* \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13             \mbox{\hyperlink{struct_shortcut_button_a69dc2524d88ce86d692d8381d44211da}{ShortcutButton}}(\textcolor{keyword}{const} std::string\& imagePath, \textcolor{keyword}{const} std::string\& hoverMessage) }
+\DoxyCodeLine{14                 : \mbox{\hyperlink{class_static_button}{StaticButton}}(\textcolor{stringliteral}{"{}"{}}, \{ 80.0f, 40.0f, 1.0f \})}
+\DoxyCodeLine{15             \{}
+\DoxyCodeLine{16                 this-\/>\mbox{\hyperlink{class_u_i_object_a344c2ef71f5c8a797f08b94378f67199}{SetSlicingBorderMultiplier}}(0.1f);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18                 image = \textcolor{keyword}{new} \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}ShortcutButton\_Image"{}});}
+\DoxyCodeLine{19                 \mbox{\hyperlink{struct_shortcut_button_a20b5c11786c79c1aece5b65528c7b008}{image}}-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ 50.0f, 25.0f, 1.0f \};}
+\DoxyCodeLine{20                 \mbox{\hyperlink{struct_shortcut_button_a20b5c11786c79c1aece5b65528c7b008}{image}}-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(imagePath);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_text_object}{TextObject}}(\textcolor{stringliteral}{"{}ShortcutButton\_HoverText"{}});}
+\DoxyCodeLine{23                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.y -\/= 50.0f;}
+\DoxyCodeLine{24                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}} = hoverMessage;}
+\DoxyCodeLine{25                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}} = 32.0f;}
+\DoxyCodeLine{26                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \mbox{\hyperlink{_color_8h_ab75759c1d915a41fe66b37a310634658}{AC\_WHITE}};}
+\DoxyCodeLine{27                 \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}} = \mbox{\hyperlink{_color_8h_a805f4d466eb126be3328f10bf1158155}{AC\_BLACK}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(image);}
+\DoxyCodeLine{30                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(hoverText);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32                 this-\/>\mbox{\hyperlink{class_button_a35d9a5584bf88a8a0e4e50a8fcd101fb}{onHover}}.\mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}([\textcolor{keyword}{this}](\mbox{\hyperlink{class_button}{Button}}* button) \{}
+\DoxyCodeLine{33                     \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{34                     \});}
+\DoxyCodeLine{35                 this-\/>\mbox{\hyperlink{class_button_aba771a087190a2c0406c55817fd45dcd}{unHover}}.\mbox{\hyperlink{class_event_ae8ba40cf04e4bec24aa0d58112de4a1f}{AddListener}}([\textcolor{keyword}{this}](\mbox{\hyperlink{class_button}{Button}}* button) \{}
+\DoxyCodeLine{36                     \mbox{\hyperlink{struct_shortcut_button_a3d5db923a8a33c8503bbdde8b2e810e5}{hoverText}}-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{37                     \});}
+\DoxyCodeLine{38             \}}
+\DoxyCodeLine{39         \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{class }\mbox{\hyperlink{class_shortcut_u_i}{ShortcutUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \textcolor{keyword}{private}:}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* m\_InfoButton;}
+\DoxyCodeLine{46         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* m\_HelpButton;}
+\DoxyCodeLine{47         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* m\_PauseButton;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{public}:}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_shortcut_u_i_aa92f1268fdd8a70f4f160018610ee099}{ShortcutUI}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_shortcut_u_i_a1144711334aa432b07fecf41060103d9}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* \mbox{\hyperlink{class_shortcut_u_i_a06e3807d19e78d22a456433a7316213c}{GetPauseButton}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{55         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* \mbox{\hyperlink{class_shortcut_u_i_aaefdc80e48c6ea93acebbda98bdc774f}{GetInfoButton}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{56         \mbox{\hyperlink{struct_shortcut_button}{ShortcutButton}}* \mbox{\hyperlink{class_shortcut_u_i_a155bdfeb32e846c9a02c2abb15b07b9d}{GetHelpButton}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 \};}
+
+\end{DoxyCode}

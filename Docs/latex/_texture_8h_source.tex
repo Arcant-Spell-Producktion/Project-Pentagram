@@ -1,0 +1,52 @@
+\hypertarget{_texture_8h_source}{}\doxysection{Texture.\+h}
+\label{_texture_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/Texture.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/Texture.h}}
+\mbox{\hyperlink{_texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <glad/glad.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stb__image_8h}{Engine/stb/stb\_image.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     \textcolor{keyword}{private}:}
+\DoxyCodeLine{17         GLuint ID;}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{19         \textcolor{keywordtype}{int} m\_ImageRow;}
+\DoxyCodeLine{20         std::vector<int> m\_ImageColumn;}
+\DoxyCodeLine{21         \textcolor{keywordtype}{int} m\_MaxImageColumn;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         GLuint m\_Width;}
+\DoxyCodeLine{24         GLuint m\_Height;}
+\DoxyCodeLine{25     \textcolor{keyword}{public}:}
+\DoxyCodeLine{26         \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}();}
+\DoxyCodeLine{27         \mbox{\hyperlink{class_texture_a6c275e3f186675ff6ed73ccf970e552f}{Texture}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* src);}
+\DoxyCodeLine{28         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a9c09c739c9fad4f615967eab1907c644}{SetTexture}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* path);}
+\DoxyCodeLine{29         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_ae9d3c4645f3ae7c18356cfafd7a5f15a}{ReadMeta}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{30         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{31         \textcolor{comment}{//  SetTexture for Font only}}
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a219a61880c960bc20b91c541d2b8eafa}{SetFontTexture}}(\textcolor{keyword}{const} GLuint\& width, \textcolor{keyword}{const} GLuint\& height, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* data);}
+\DoxyCodeLine{33         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a26320d6eb03018bfbd13908941d7d18d}{Activate}}(GLenum TextureSlot);}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_ad08d4f76a21cc46f55b05e35b06a0f74}{Bind}}();}
+\DoxyCodeLine{36         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a33fc12d5a64480dc06dba802f77b7482}{UnBind}}();}
+\DoxyCodeLine{37         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_a653216bcd1509432e28502d9fc7826ce}{Delete}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{40         glm::vec2 \mbox{\hyperlink{class_texture_a0a73afe0526a184bb108e3bd075bd308}{GetImageSize}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{41         GLuint \mbox{\hyperlink{class_texture_a3840586c64841936e7c2d2db5febe83e}{GetImageWidth}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42         GLuint \mbox{\hyperlink{class_texture_a81019d78a5e173478ad0e2b00447b289}{GetImageHeight}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{43         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_texture_a6724e69ea95347ec2b92012539417cfe}{GetImageRow}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{44         std::vector<int> \mbox{\hyperlink{class_texture_a870e08f06d79f3b0462f2c6a4782af04}{GetImageColumn}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{45         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_texture_ad1ff646c8f6eec85b23dd7fb21ef29bd}{GetMaxImageColumn}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 \};}
+
+\end{DoxyCode}

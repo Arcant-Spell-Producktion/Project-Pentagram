@@ -1,0 +1,33 @@
+\hypertarget{_player_data_8h_source}{}\doxysection{Player\+Data.\+h}
+\label{_player_data_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/PlayerData.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/CasterData/PlayerData.h}}
+\mbox{\hyperlink{_player_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_data_8h}{CasterData.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_player_save_data}{PlayerSaveData}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_player_save_data_a8fbf13798989444e88c0bf66f1378253}{element\_index}};}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_player_save_data_a044886941bf948331bcaecdd97507e79}{level}};}
+\DoxyCodeLine{8     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_player_save_data_a5cdcf5ac1c67b38c7e7dc8963de4db65}{hp}};}
+\DoxyCodeLine{9 \};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_player_data}{PlayerData}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_caster_data}{CasterData}}  }
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} m\_Level = 0;}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_player_data_a81981cd44af3c281c3a24ec4349d1f3d}{PlayerData}}(\mbox{\hyperlink{class_caster_data}{CasterData}} data,\textcolor{keywordtype}{int} level = 0) :}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_caster_data}{CasterData}}(data)}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_player_data_a1d0e633c031db9eac131d6c0504e4990}{SetPlayerLevel}}(level);}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_data_a4cb66b4d6c9a564356e5e2729c31825e}{LevelUp}}();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_data_a1d0e633c031db9eac131d6c0504e4990}{SetPlayerLevel}}(\textcolor{keywordtype}{int} level);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_player_save_data}{PlayerSaveData}} \mbox{\hyperlink{class_player_data_a10801a73d69b35361413a37df9331df5}{SavePlayerData}}();}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+
+\end{DoxyCode}

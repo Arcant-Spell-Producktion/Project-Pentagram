@@ -1,0 +1,39 @@
+\hypertarget{_singleton_8h_source}{}\doxysection{Singleton.\+h}
+\label{_singleton_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Singleton.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Utilities/Singleton.h}}
+\mbox{\hyperlink{_singleton_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_singleton}{Singleton}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{public}:}
+\DoxyCodeLine{9         \mbox{\hyperlink{class_singleton_adb1b554fec7ae6065fe0e09111f3581f}{Singleton}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{10         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_singleton_a9349b42bad14a8e86c56229175acfba4}{\string~Singleton}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12         \textcolor{keyword}{static} T\& \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{GetInstance}}()}
+\DoxyCodeLine{13         \{}
+\DoxyCodeLine{14             \textcolor{keyword}{static} T instance;}
+\DoxyCodeLine{15             \textcolor{keywordflow}{return} instance;}
+\DoxyCodeLine{16         \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_singleton_a7e440f849b2b900be243779ff9df082c}{Free}}()}
+\DoxyCodeLine{19         \{}
+\DoxyCodeLine{20             ReinitializeInstance();}
+\DoxyCodeLine{21         \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{private}:}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keyword}{static} \textcolor{keywordtype}{void} ReinitializeInstance()}
+\DoxyCodeLine{26         \{}
+\DoxyCodeLine{27             \textcolor{keyword}{static} std::mutex mutex;}
+\DoxyCodeLine{28             std::lock\_guard<std::mutex> lock(mutex);}
+\DoxyCodeLine{29             \textcolor{keyword}{static} T\& instance = \mbox{\hyperlink{class_singleton_a2c10bd8d12c9418ef9af7e569a1fa4e0}{GetInstance}}();}
+\DoxyCodeLine{30             instance.\string~T(); \textcolor{comment}{// Call the destructor}}
+\DoxyCodeLine{31             \textcolor{keyword}{new} (\&instance) T(); \textcolor{comment}{// Reinitialize the instance}}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,51 @@
+\hypertarget{_pause_menu_object_8h_source}{}\doxysection{Pause\+Menu\+Object.\+h}
+\label{_pause_menu_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/PauseMenuObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/PauseMenuObject.h}}
+\mbox{\hyperlink{_pause_menu_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_button_8h}{Engine/Button.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_option_menu_object_8h}{Game/Objects/OptionMenuObject.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_confirm_u_i_8h}{Game/Objects/ConfirmUI.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_pause_menu_object}{PauseMenuObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{private}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{class_u_i_object}{UIObject}}* canvas;}
+\DoxyCodeLine{15         \textcolor{keyword}{struct }MenuUI : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             \mbox{\hyperlink{class_u_i_object}{UIObject}}* MenuBG;}
+\DoxyCodeLine{18             \mbox{\hyperlink{class_static_button}{StaticButton}}* ResumeButton;}
+\DoxyCodeLine{19             \mbox{\hyperlink{class_static_button}{StaticButton}}* OptionButton;}
+\DoxyCodeLine{20             \mbox{\hyperlink{class_static_button}{StaticButton}}* ExitToMenuButton;}
+\DoxyCodeLine{21             \mbox{\hyperlink{class_static_button}{StaticButton}}* ExitGameButton;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23             MenuUI() : \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}MenuUI"{}}) \{\}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \} *m\_MenuUI;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \mbox{\hyperlink{class_option_menu_object}{OptionMenuObject}}* m\_OptionMenuObject;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         \mbox{\hyperlink{class_confirm_u_i}{ConfirmUI}} *m\_ConfirmUI;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \mbox{\hyperlink{class_game_scene}{GameScene}}* currentGameScene;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} InitMenuUI();}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} InitConfirmUI();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{public}:}
+\DoxyCodeLine{37         \mbox{\hyperlink{class_pause_menu_object_af73cca265bca314c655b773ad788add7}{PauseMenuObject}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pause_menu_object_aa1bcc1b6d5ebaa5ba596fb4ace2713e2}{ToggleEvent}}(\textcolor{keywordtype}{float}\& timeScale);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pause_menu_object_a9e6074f09e954e8b74e17928385bb5f4}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active) \textcolor{keyword}{override};}
+\DoxyCodeLine{42         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pause_menu_object_ab775085a1cc33676a8d46ba97bcdc56b}{SetCurrentGameScene}}(\mbox{\hyperlink{class_game_scene}{GameScene}}* gameScene);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \mbox{\hyperlink{class_game_scene}{GameScene}}* \mbox{\hyperlink{class_pause_menu_object_a5fa45106621d00ed18cd60628d1d309c}{GetCurrentGameScene}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{45 \};}
+
+\end{DoxyCode}

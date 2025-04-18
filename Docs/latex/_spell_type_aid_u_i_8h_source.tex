@@ -1,0 +1,141 @@
+\hypertarget{_spell_type_aid_u_i_8h_source}{}\doxysection{Spell\+Type\+Aid\+UI.\+h}
+\label{_spell_type_aid_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/SpellTypeAidUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/SpellTypeAidUI.h}}
+\mbox{\hyperlink{_spell_type_aid_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arrow_button_8h}{Game/Objects/ArrowButton.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effect_type_8h}{Game/Spells/SpellEffectType.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{const} std::string \mbox{\hyperlink{_spell_type_aid_u_i_8h_a9fcdeb41bc9b12e0207544ab9637696d}{SpellTypeDescription}}[5] =}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 R\textcolor{stringliteral}{"{}(Basic Spell:}}
+\DoxyCodeLine{17 \textcolor{stringliteral}{-\/ Engage in Spell Crashing.}}
+\DoxyCodeLine{18 \textcolor{stringliteral}{-\/ Activate upon winning Spell Crashing.)"{},
+
+R"{}(Delayed Spell:}}
+\DoxyCodeLine{19 \textcolor{stringliteral}{-\/ Do not Engage in Spell Crashing.}}
+\DoxyCodeLine{20 \textcolor{stringliteral}{-\/ Upon Activate, Cast the Spell)"{},
+
+R"{}(Lasting spell:}}
+\DoxyCodeLine{21 \textcolor{stringliteral}{-\/ Do not Engage in Spell Crashing.}}
+\DoxyCodeLine{22 \textcolor{stringliteral}{-\/ Once Activated, the Spell stay in effect}}
+\DoxyCodeLine{23 \textcolor{stringliteral}{  for the entire duration.)"{},
+
+R"{}(Trap spell:}}
+\DoxyCodeLine{24 \textcolor{stringliteral}{-\/ Do not Engage in Spell Crashing.}}
+\DoxyCodeLine{25 \textcolor{stringliteral}{-\/ Activate upon Any Opponent Spell}}
+\DoxyCodeLine{26 \textcolor{stringliteral}{  Activate.}}
+\DoxyCodeLine{27 \textcolor{stringliteral}{-\/ Only Activate once.)"{},
+
+R"{}(Counter spell:}}
+\DoxyCodeLine{28 \textcolor{stringliteral}{-\/ Do not Engage in Spell Crashing.}}
+\DoxyCodeLine{29 \textcolor{stringliteral}{-\/ Activate upon Opponent Spell that}}
+\DoxyCodeLine{30 \textcolor{stringliteral}{  targeted the Another Unit Activate.}}
+\DoxyCodeLine{31 \textcolor{stringliteral}{-\/ Only Activate once.)"{}}}
+\DoxyCodeLine{32 \textcolor{stringliteral}{}}
+\DoxyCodeLine{33 \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{34 \textcolor{stringliteral}{}}
+\DoxyCodeLine{35 \textcolor{stringliteral}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_spell_type_aid_u_i}{SpellTypeAidUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keyword}{private}:}
+\DoxyCodeLine{38         \textcolor{keyword}{struct }SpellTypeObject : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             \mbox{\hyperlink{class_u_i_object}{UIObject}}* spell;}
+\DoxyCodeLine{41             \mbox{\hyperlink{class_u_i_object}{UIObject}}* channelType;}
+\DoxyCodeLine{42             \mbox{\hyperlink{class_u_i_object}{UIObject}}* border;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             \mbox{\hyperlink{class_text_object}{TextObject}}* description;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46             SpellTypeObject(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167}{ChannelEffectEnum}} channelEffect) : \mbox{\hyperlink{class_u_i_object}{UIObject}}(\textcolor{stringliteral}{"{}SpellTypeAidObject"{}})}
+\DoxyCodeLine{47             \{}
+\DoxyCodeLine{48                 \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = 160.0f;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50                 this-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.0f;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52                 spell = \textcolor{keyword}{new} \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}SpellTypeObject\_Spell"{}});}
+\DoxyCodeLine{53                 spell-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{stringliteral}{"{}Sprites/UI/Game/ui\_game\_spell-\/icon\_variation.png"{}});}
+\DoxyCodeLine{54                 spell-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 4);}
+\DoxyCodeLine{55                 spell-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, 1.0f \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57                 channelType = \textcolor{keyword}{new} \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}SpellTypeObject\_Channel"{}});}
+\DoxyCodeLine{58                 channelType-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{stringliteral}{"{}Sprites/UI/Game/ui\_game\_spell-\/icon\_variation.png"{}});}
+\DoxyCodeLine{59                 channelType-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}, 1.0f \};}
+\DoxyCodeLine{60                 channelType-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.6f;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62                 border = \textcolor{keyword}{new} \mbox{\hyperlink{class_u_i_object_a47dddd5f54d73e88bb5dbec0e4048d34}{UIObject}}(\textcolor{stringliteral}{"{}SpellTypeObject\_Border"{}});}
+\DoxyCodeLine{63                 border-\/>\mbox{\hyperlink{class_game_object_a31f15ac8fd1fe77105d101fe513950c8}{SetTexture}}(\textcolor{stringliteral}{"{}Sprites/UI/Game/ui\_game\_spell-\/icon\_border.png"{}});}
+\DoxyCodeLine{64                 border-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} = \{ \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} * 114.0f / 100.0f, \mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}} * 114.0f / 100.0f, 1.0f \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66                 \textcolor{keywordflow}{switch} (channelEffect)}
+\DoxyCodeLine{67                 \{}
+\DoxyCodeLine{68                     \textcolor{keywordflow}{case} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a6adf97f83acf6453d4a6a4b1070f3754}{ChannelEffectEnum::None}}:}
+\DoxyCodeLine{69                         border-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 0);}
+\DoxyCodeLine{70                         channelType-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.0f;}
+\DoxyCodeLine{71                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73                     \textcolor{keywordflow}{case} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a0f68101772bd5397ef8eb1b632798652}{ChannelEffectEnum::Wait}}:}
+\DoxyCodeLine{74                         border-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 2);}
+\DoxyCodeLine{75                         channelType-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.0f;}
+\DoxyCodeLine{76                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78                     \textcolor{keywordflow}{case} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a4d3d769b812b6faa6b76e1a8abaece2d}{ChannelEffectEnum::Active}}:}
+\DoxyCodeLine{79                         border-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 1);}
+\DoxyCodeLine{80                         channelType-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 2);}
+\DoxyCodeLine{81                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83                     \textcolor{keywordflow}{case} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a8b9038a4896d530d239f4af3bbb30357}{ChannelEffectEnum::Trap}}:}
+\DoxyCodeLine{84                         border-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 1);}
+\DoxyCodeLine{85                         channelType-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 5);}
+\DoxyCodeLine{86                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88                     \textcolor{keywordflow}{case} \mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a64d129224a5377b63e9727479ec987d9}{ChannelEffectEnum::Counter}}:}
+\DoxyCodeLine{89                         border-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 1);}
+\DoxyCodeLine{90                         channelType-\/>\mbox{\hyperlink{class_game_object_a570259a8b61797aa4e7d269e2875ece0}{SetSpriteByIndex}}(0, 6);}
+\DoxyCodeLine{91                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{92                 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94                 spell-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(channelType);}
+\DoxyCodeLine{95                 spell-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(border);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97                 description = \textcolor{keyword}{new} \mbox{\hyperlink{class_text_object}{TextObject}}(\textcolor{stringliteral}{"{}SpellTypeObject\_Description"{}});}
+\DoxyCodeLine{98                 description-\/>\mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}} = \mbox{\hyperlink{_spell_type_aid_u_i_8h_a9fcdeb41bc9b12e0207544ab9637696d}{SpellTypeDescription}}[(int)channelEffect];}
+\DoxyCodeLine{99                 description-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \mbox{\hyperlink{_color_8h_ab75759c1d915a41fe66b37a310634658}{AC\_WHITE}};}
+\DoxyCodeLine{100                 description-\/>\mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}} = \mbox{\hyperlink{_color_8h_a805f4d466eb126be3328f10bf1158155}{AC\_BLACK}};}
+\DoxyCodeLine{101                 description-\/>\mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{textAlignment}} = \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa684d325a7303f52e64011467ff5c5758}{TextAlignment::LEFT}};}
+\DoxyCodeLine{102                 description-\/>\mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}} = 24.0f;}
+\DoxyCodeLine{103                 description-\/>\mbox{\hyperlink{class_text_object_ae4d614d066ab2f185e572167d0834373}{isVCenterAlignment}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{104                 description-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.x += spell-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}.x / 2.0f + 30.0f;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(spell);}
+\DoxyCodeLine{107                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(description);}
+\DoxyCodeLine{108             \}}
+\DoxyCodeLine{109         \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         SpellTypeObject* m\_SpellTypeList[5];}
+\DoxyCodeLine{112         glm::vec3 m\_SpellTypePositionList[5] = \{}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114             glm::vec3(-\/650.0f, 250.0f, 0.0f),}
+\DoxyCodeLine{115             glm::vec3( 100.0f, 250.0f, 0.0f),}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117             glm::vec3(-\/650.0f,-\/150.0f, 0.0f),}
+\DoxyCodeLine{118             glm::vec3( 100.0f, 0.0f, 0.0f),}
+\DoxyCodeLine{119             glm::vec3(100.0f, -\/250.0f, 0.0f),}
+\DoxyCodeLine{120         \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_Header;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keyword}{public}:}
+\DoxyCodeLine{125         \mbox{\hyperlink{class_spell_type_aid_u_i_a861b70a5396a4ccc592154fd1b00c774}{SpellTypeAidUI}}();}
+\DoxyCodeLine{126 \};}
+\DoxyCodeLine{127 }
+
+\end{DoxyCode}

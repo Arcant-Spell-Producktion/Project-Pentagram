@@ -1,0 +1,44 @@
+\hypertarget{_menu_scene_8h_source}{}\doxysection{Menu\+Scene.\+h}
+\label{_menu_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Scene/MenuScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Scene/MenuScene.h}}
+\mbox{\hyperlink{_menu_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_option_menu_object_8h}{Game/Objects/OptionMenuObject.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_confirm_u_i_8h}{Game/Objects/ConfirmUI.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu_scene}{MenuScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{private}:}
+\DoxyCodeLine{14         \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_FadeScreen = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{15         \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} m\_NextState;}
+\DoxyCodeLine{16         \textcolor{keywordtype}{float} m\_FadeTime;}
+\DoxyCodeLine{17         \textcolor{keywordtype}{float} m\_FadeCurrentTime = 0.0f;}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} m\_IsFadeOut = \textcolor{keyword}{false};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \mbox{\hyperlink{class_confirm_u_i}{ConfirmUI}}* confirmUI;}
+\DoxyCodeLine{21         \mbox{\hyperlink{class_option_menu_object}{OptionMenuObject}}* optionMenuObject;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} FadeOut(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& fadeTime, \mbox{\hyperlink{_game_state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}} nextState) }
+\DoxyCodeLine{24         \{}
+\DoxyCodeLine{25             m\_NextState = nextState;}
+\DoxyCodeLine{26             m\_FadeTime = fadeTime;}
+\DoxyCodeLine{27             m\_IsFadeOut = \textcolor{keyword}{true};}
+\DoxyCodeLine{28             m\_FadeScreen-\/>\mbox{\hyperlink{class_game_object_a552defebe5ef5c0e79be4058160a67ef}{SetActive}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{29             m\_FadeScreen-\/>\mbox{\hyperlink{class_u_i_object_af3699fb791de67aad329211902ad71e1}{SetBlockRaycast}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{30         \}}
+\DoxyCodeLine{31         \textcolor{keywordtype}{void} FadeUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{public}:}
+\DoxyCodeLine{34         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_scene_a2e9ea199b862533eb9ce19bf8730ee84}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{35         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_scene_ad19783fd7f34602b832fe649137a2bb2}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{36         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_scene_a9931a41c6ca91d61e5e92cd81225f6b5}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{37         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_scene_aeff9a7faba84faa05946621048be46f4}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{38 \};}
+
+\end{DoxyCode}

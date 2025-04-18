@@ -1,0 +1,37 @@
+\hypertarget{_load_scene_8h_source}{}\doxysection{Load\+Scene.\+h}
+\label{_load_scene_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Scene/LoadScene.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Scene/LoadScene.h}}
+\mbox{\hyperlink{_load_scene_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <future>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_scene_8h}{Engine/GameScene.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_scene_manager_8h}{Engine/SceneManager.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Engine/Input.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_engine_data_collector_8h}{Engine/Collector/EngineDataCollector.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_thread_8h}{Utilities/Thread.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_load_scene}{LoadScene}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_scene}{GameScene}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_thread}{Thread}} \mbox{\hyperlink{class_load_scene_a8e86984cdd2ad6bace9a6a9e16d630a9}{m\_LoadUtilityThread}};}
+\DoxyCodeLine{20         \mbox{\hyperlink{class_thread}{Thread}} \mbox{\hyperlink{class_load_scene_a3bda76410642c309303e89cbb3ab0990}{m\_TextureThread}};}
+\DoxyCodeLine{21         std::atomic<int> \mbox{\hyperlink{class_load_scene_a9c41d63cfcf0e883d680125a88775ef9}{m\_IsLoadDone}} = 0;}
+\DoxyCodeLine{22         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_load_scene_a45be938e7f22d2bc0fc8792039fe4e1d}{temp}} = 0;}
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_adee3972f2fb710aa6187bdb75185e253}{GameSceneLoadUtilityResource}}(\mbox{\hyperlink{class_engine_data_collector}{EngineDataCollector}}\& \mbox{\hyperlink{main_8cpp_a5f835cb597ad6df1b0b952ea9eb01982}{engineDataCollector}});}
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_a72af028f375ab95d64dfdaaef575f3a2}{GameSceneLoadTextureResource}}(\mbox{\hyperlink{class_engine_data_collector}{EngineDataCollector}}\& \mbox{\hyperlink{main_8cpp_a5f835cb597ad6df1b0b952ea9eb01982}{engineDataCollector}}, \textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_a57732a91ed5e87b19c0086e44178752f}{GameSceneLoad}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{28         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_a79651cd95dabab97a19a18dddee7b4b9}{GameSceneInit}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{29         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_aa05d64fafe96458ed2bf5188b5808c61}{GameSceneUpdate}}(\textcolor{keywordtype}{float} dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{30         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_load_scene_a35be33607c364d1b5cf4ad0d4433eaa3}{GameSceneFree}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{31 \};}
+
+\end{DoxyCode}

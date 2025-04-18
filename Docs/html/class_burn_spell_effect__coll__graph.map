@@ -1,0 +1,5 @@
+<map id="BurnSpellEffect" name="BurnSpellEffect">
+<area shape="rect" id="node1" title=" " alt="" coords="37,200,148,227"/>
+<area shape="rect" id="node2" href="$class_base_spell_effect.html" title=" " alt="" coords="35,124,150,151"/>
+<area shape="rect" id="node3" href="$class_event.html" title=" " alt="" coords="5,5,180,32"/>
+</map>

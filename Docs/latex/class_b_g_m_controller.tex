@@ -1,0 +1,84 @@
+\hypertarget{class_b_g_m_controller}{}\doxysection{BGMController Class Reference}
+\label{class_b_g_m_controller}\index{BGMController@{BGMController}}
+
+
+{\ttfamily \#include $<$Audio\+Controller.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_g_m_controller_a16f361b67f2e5da8ddccd4372422dc70}{BGMController}} (const std\+::vector$<$ \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ $>$ \&BGMAudio\+List, const std\+::vector$<$ float $>$ \&volume\+List, const std\+::vector$<$ std\+::string $>$ \&filepath\+List)
+\item 
+\mbox{\hyperlink{class_b_g_m_controller_a1034e881fe18ddf7ddbf42024a4878d2}{$\sim$\+BGMController}} ()
+\item 
+void \mbox{\hyperlink{class_b_g_m_controller_a86d727d4b226907b6ef80d5407c4a38a}{Play}} ()
+\item 
+void \mbox{\hyperlink{class_b_g_m_controller_aad6ff8b216889eb172145d3c4a0802e5}{Change\+Volume}} (const float \&volume)
+\item 
+void \mbox{\hyperlink{class_b_g_m_controller_a8a0e178c6299828727d3530c673e2813}{On\+Update\+Volume}} ()
+\item 
+bool \mbox{\hyperlink{class_b_g_m_controller_a3e430a9208229784881dcb44ae838259}{Is\+Start\+Play}} () const
+\item 
+\mbox{\hyperlink{class_b_g_m_audio}{BGMAudio}} $\ast$ \mbox{\hyperlink{class_b_g_m_controller_a6e29bc92cfea2eb1f699b3523659c2ca}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_b_g_m_controller_ab2e4a94a08c39a5afa87e7010af216cb}{Get\+Filepath\+List}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_g_m_controller_a16f361b67f2e5da8ddccd4372422dc70}\label{class_b_g_m_controller_a16f361b67f2e5da8ddccd4372422dc70}} 
+\index{BGMController@{BGMController}!BGMController@{BGMController}}
+\index{BGMController@{BGMController}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{BGMController()}{BGMController()}}
+{\footnotesize\ttfamily BGMController\+::\+BGMController (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{_audio_engine_8h_a26f46a3d0affeb68de19220f77102c5c}{Audio\+Source}} $\ast$ $>$ \&}]{BGMAudio\+List,  }\item[{const std\+::vector$<$ float $>$ \&}]{volume\+List,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{filepath\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_a1034e881fe18ddf7ddbf42024a4878d2}\label{class_b_g_m_controller_a1034e881fe18ddf7ddbf42024a4878d2}} 
+\index{BGMController@{BGMController}!````~BGMController@{$\sim$BGMController}}
+\index{````~BGMController@{$\sim$BGMController}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{$\sim$BGMController()}{~BGMController()}}
+{\footnotesize\ttfamily BGMController\+::$\sim$\+BGMController (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_g_m_controller_aad6ff8b216889eb172145d3c4a0802e5}\label{class_b_g_m_controller_aad6ff8b216889eb172145d3c4a0802e5}} 
+\index{BGMController@{BGMController}!ChangeVolume@{ChangeVolume}}
+\index{ChangeVolume@{ChangeVolume}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{ChangeVolume()}{ChangeVolume()}}
+{\footnotesize\ttfamily void BGMController\+::\+Change\+Volume (\begin{DoxyParamCaption}\item[{const float \&}]{volume }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_ab2e4a94a08c39a5afa87e7010af216cb}\label{class_b_g_m_controller_ab2e4a94a08c39a5afa87e7010af216cb}} 
+\index{BGMController@{BGMController}!GetFilepathList@{GetFilepathList}}
+\index{GetFilepathList@{GetFilepathList}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{GetFilepathList()}{GetFilepathList()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ BGMController\+::\+Get\+Filepath\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_a3e430a9208229784881dcb44ae838259}\label{class_b_g_m_controller_a3e430a9208229784881dcb44ae838259}} 
+\index{BGMController@{BGMController}!IsStartPlay@{IsStartPlay}}
+\index{IsStartPlay@{IsStartPlay}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{IsStartPlay()}{IsStartPlay()}}
+{\footnotesize\ttfamily bool BGMController\+::\+Is\+Start\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_a8a0e178c6299828727d3530c673e2813}\label{class_b_g_m_controller_a8a0e178c6299828727d3530c673e2813}} 
+\index{BGMController@{BGMController}!OnUpdateVolume@{OnUpdateVolume}}
+\index{OnUpdateVolume@{OnUpdateVolume}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{OnUpdateVolume()}{OnUpdateVolume()}}
+{\footnotesize\ttfamily void BGMController\+::\+On\+Update\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_a6e29bc92cfea2eb1f699b3523659c2ca}\label{class_b_g_m_controller_a6e29bc92cfea2eb1f699b3523659c2ca}} 
+\index{BGMController@{BGMController}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_b_g_m_audio}{BGMAudio}} $\ast$ BGMController\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_b_g_m_controller_a86d727d4b226907b6ef80d5407c4a38a}\label{class_b_g_m_controller_a86d727d4b226907b6ef80d5407c4a38a}} 
+\index{BGMController@{BGMController}!Play@{Play}}
+\index{Play@{Play}!BGMController@{BGMController}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void BGMController\+::\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\+Audio/\mbox{\hyperlink{_audio_controller_8h}{Audio\+Controller.\+h}}\end{DoxyCompactItemize}

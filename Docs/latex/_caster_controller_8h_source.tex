@@ -1,0 +1,97 @@
+\hypertarget{_caster_controller_8h_source}{}\doxysection{Caster\+Controller.\+h}
+\label{_caster_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/SpellCaster/CasterController.h}}
+\mbox{\hyperlink{_caster_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_manager_8h}{CasterManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_object_8h}{Game/BattleScene/GameObject/CasterObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_u_i_controller_8h}{Game/BattleScene/SpellCaster/CasterUIController.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_caster_effect_manager_8h}{Game/BattleScene/SpellCaster/CasterEffectManager.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum class} \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{CasterState}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86ad3fa9ae9431d6cb1772f9d9df48cab19}{Idle}},}
+\DoxyCodeLine{10     \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaaf5a6a925d4084ae58bd71a8a95a84ba7}{Spin}},}
+\DoxyCodeLine{11     \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaa0f5830c168fdb5396f4c2eff1fc48aeb}{EndTurn}},}
+\DoxyCodeLine{12     \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaaa0d0628f6b4e4d78d2ffef4d4d1c4b15}{Passed}}}
+\DoxyCodeLine{13 \};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_caster_controller}{CasterController}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_event}{Event<CasterStat>}} OnStatUpdate;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_ad715d2417e206cd56cad07816ec4dab2}{m\_IsAlive}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_a9a1259b1559b3a05ab5a877b6128cc0f}{m\_IsReflective}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_caster_controller_a226a2ed3b11c2917bcf15094dbc4a4ce}{m\_IsImmune}} = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_caster_manager}{CasterManager}} \mbox{\hyperlink{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}{m\_CasterManager}};}
+\DoxyCodeLine{26     \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{CasterState}} \mbox{\hyperlink{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}{m\_CasterState}} = \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaae599161956d626eda4cb0a5ffb85271c}{CasterState::Idle}};}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_caster_effect_manager}{CasterEffectManager}} \mbox{\hyperlink{class_caster_controller_a40c0021399f215ffc8b67f9d4b21a7f6}{m\_EffectManager}};}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_caster_u_i_controller}{CasterUIController}} \mbox{\hyperlink{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}{m\_CasterUI}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_caster_object}{CasterObject}}* \mbox{\hyperlink{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}{m\_CasterObject}};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_caster_controller_a1b1a67766801f66de6a825c5bb2cf497}{CasterController}}(\mbox{\hyperlink{class_caster_data}{CasterData}} caster);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a7c329b43dff5848037fcc05da797c4ea}{UpdateCasterUI}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_caster_object}{CasterObject}}* \mbox{\hyperlink{class_caster_controller_abe07ed487e5f4c10df07ee329507e53b}{GetCasterObject}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_controller_af2b8ea34bd2119da6f54375b618c327a}{m\_CasterObject}}; \}}
+\DoxyCodeLine{39    }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_caster_manager}{CasterManager}}* \mbox{\hyperlink{class_caster_controller_a75c852a113077413714fed81ae57866d}{GetCasterManager}}() \{ \textcolor{keywordflow}{return} \&\mbox{\hyperlink{class_caster_controller_a010442d2259e8bdd37de5aba0a963ebc}{m\_CasterManager}}; \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_caster_u_i_controller}{CasterUIController}}* \mbox{\hyperlink{class_caster_controller_ab5b4de19d63b6f848debac597085b986}{GetCasterUI}}() \{ \textcolor{keywordflow}{return} \&\mbox{\hyperlink{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}{m\_CasterUI}}; \}\textcolor{comment}{//Todo:: obsure this}}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{44     \mbox{\hyperlink{class_caster_effect_manager}{CasterEffectManager}}* \mbox{\hyperlink{class_caster_controller_a1d92f39ab26b73f4a2e6812d4a174b21}{GetEffectManager}}() \{ \textcolor{keywordflow}{return} \&\mbox{\hyperlink{class_caster_controller_a40c0021399f215ffc8b67f9d4b21a7f6}{m\_EffectManager}}; \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{CasterState}} \mbox{\hyperlink{class_caster_controller_ae3df255efe8c22bebd248cb5de48a6a7}{GetState}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}{m\_CasterState}}; \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_a5230179a0e640682b1b0d7901b466742}{IsImmune}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_controller_a226a2ed3b11c2917bcf15094dbc4a4ce}{m\_IsImmune}} > 0; \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a1d56d8ece3caec76a516fdf1aee6ad46}{SetImmune}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool} isImmune) \{ \mbox{\hyperlink{class_caster_controller_a226a2ed3b11c2917bcf15094dbc4a4ce}{m\_IsImmune}} += isImmune? 1 : -\/1; \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_ab60d4013c3fb214c23091f7752eb5ed9}{SetState}}(\mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42eca}{CasterState}} state) \{ \mbox{\hyperlink{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}{m\_CasterState}} = state; \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_ae6f48f4ad00f748e665d01e45a16a800}{SetIsShowCasterDetail}}(\textcolor{keywordtype}{bool} active) \{ \mbox{\hyperlink{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}{m\_CasterUI}}.\mbox{\hyperlink{class_caster_u_i_controller_af929631da26bad1898dd49710393935d}{SetIsShowDetail}}(active); \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_abe46ed78cd1d78ae2d1b615a66516c4b}{IsShowCasterDetail}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_caster_controller_a8b30701d586ae7bafa1f2e708f526d6c}{m\_CasterUI}}.\mbox{\hyperlink{class_caster_u_i_controller_a9f45f6352f3c01eea77e3803efc19c6a}{IsShowDetail}}(); \}}
+\DoxyCodeLine{57     }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a88a26971dc9598cd9e3dea456c68c7b2}{SpinManaWheel}}(\textcolor{keywordtype}{int} forceValue = -\/1);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a9d4ef13d78c6b6fce0737be3dd87d630}{CasterDied}}();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_aa01d8d445c0f35d6a5f9526acf59eadb}{StartRound}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a042d0e50ca8b694d33511dd5d6e449f6}{StartTurn}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_ace9f9b5ad0a291c500960df7b0c0f9b6}{EndCastPhase}}();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a251a67a855b95810bf77978d94409c8c}{EndRound}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_ad104d62f566a55fc3295719cdc8d0863}{SetHp}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_ad798d0293335ff092ce67797a242b64d}{SetMana}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_a9e1e38e13f5b00419c2b29e522073a4c}{Heal}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_aeac560eac9389ce42e90a4a21b1899f7}{TakeDamage}}(\textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_caster_controller_abe77ebe4031b4693a3cda26e6dd15401}{IsAlive}}();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* \mbox{\hyperlink{class_caster_controller_a90bff2f6dfa090cadf3aee8ea0c9e419}{CastSpell}}();}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_caster_controller_ac9fd69c19266f30108fcc64ffbafce9e}{EndTurn}}(\textcolor{keywordtype}{bool} isPassed = \textcolor{keyword}{false})}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \mbox{\hyperlink{class_caster_controller_ac119e1510306327eaaa2528c3dd6b381}{m\_CasterState}} = isPassed ? \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaaa0d0628f6b4e4d78d2ffef4d4d1c4b15}{CasterState::Passed}} : \mbox{\hyperlink{_caster_controller_8h_a97ac859542ce11c8790f938040d42ecaa0f5830c168fdb5396f4c2eff1fc48aeb}{CasterState::EndTurn}};}
+\DoxyCodeLine{85     \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \mbox{\hyperlink{class_caster_controller_acd34ea4ac7ebab8d1adae2362dacf19e}{\string~CasterController}}()}
+\DoxyCodeLine{88     \{}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 \};}
+
+\end{DoxyCode}

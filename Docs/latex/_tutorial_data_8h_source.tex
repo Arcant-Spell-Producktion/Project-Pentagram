@@ -1,0 +1,43 @@
+\hypertarget{_tutorial_data_8h_source}{}\doxysection{Tutorial\+Data.\+h}
+\label{_tutorial_data_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialData.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialData.h}}
+\mbox{\hyperlink{_tutorial_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_node_8h}{TutorialNodes/TutorialNode.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{enum class} \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428c}{TutorialType}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca4613498f088728f4d60e933525cbbfb7}{WillTutorial}} = 0,}
+\DoxyCodeLine{12     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca7021e32470080233ad0db80c12d3f9d6}{EffectTutorial}},}
+\DoxyCodeLine{13     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca7ea3a16eeb666655beb3128ff9b0cf62}{TimelineTutorial}},}
+\DoxyCodeLine{14     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca16a70722900b5faea73afb17258b7de7}{WillCompareTutorial}},}
+\DoxyCodeLine{15     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca16b6fd320bcb54eea9e0dd0bc5d54cda}{WaitTutorial}},}
+\DoxyCodeLine{16     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428caf660dfc020264c476b444f02eb4f2656}{ActiveTutorial}},}
+\DoxyCodeLine{17     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca7fe8c2316854991176866b5f9d3ede7e}{TrapTutorial}},}
+\DoxyCodeLine{18     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428cab6ff07808ee8ef61a23e268dc48cc7ad}{CounterTutorial}},}
+\DoxyCodeLine{19 \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_data}{TutorialData}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \textcolor{keyword}{const} std::string  \mbox{\hyperlink{class_tutorial_data_ad71740c285545b25312b63573e1f826e}{m\_TutorialNames}}[];}
+\DoxyCodeLine{25     std::map<TutorialType, TutorialNode* > \mbox{\hyperlink{class_tutorial_data_a42dfbe22ff8af662f91a88976f0cef33}{m\_TutorialNodes}};}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_tutorial_data_a999a95b8e750c5c2da72125ea9230f53}{GetTutorialName}}(\mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428c}{TutorialType}} type)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_tutorial_data_ad71740c285545b25312b63573e1f826e}{m\_TutorialNames}}[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(type)];}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428c}{TutorialType}} \mbox{\hyperlink{class_tutorial_data_a66719a8dde45811e3400b1a5f58bd03b}{SelectedTutorial}} = \mbox{\hyperlink{_tutorial_data_8h_a3112a5ad8f553784d4c8032b879d428ca7ea3a16eeb666655beb3128ff9b0cf62}{TutorialType::TimelineTutorial}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_tutorial_data_a76b136a4538db3ed06dd50ebeba9476e}{TutorialData}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_tutorial_node}{TutorialNode}}* \mbox{\hyperlink{class_tutorial_data_a80676983248f82e832ac2cc72b016473}{GetTutorialNode}}();}
+\DoxyCodeLine{37 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,195 @@
+\hypertarget{class_i_game_object_manager}{}\doxysection{IGame\+Object\+Manager Class Reference}
+\label{class_i_game_object_manager}\index{IGameObjectManager@{IGameObjectManager}}
+
+
+{\ttfamily \#include $<$IGame\+Object\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for IGame\+Object\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_i_game_object_manager__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a5ba1cc17f6e2c63f476cdebf296a5a34}{Create\+Object}} (T $\ast$object)
+\item 
+virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_ae54aa9fc26e729881a8980ca2a9f9205}{Create\+Game\+Object}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{}, const int \&anim\+Row=1, const std\+::vector$<$ int $>$ \&anim\+Col=\{ 1 \})=0
+\item 
+virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a285483be059150b116cf73b05d15d6ca}{Create\+Particle}} (\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&particle\+Property)=0
+\item 
+virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_ac27fb29500632fa77a7172f8b5983914}{Create\+Particle}} (const std\+::string \&obj\+Name, \mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&particle\+Property)=0
+\item 
+virtual \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a74265a3604541beb73d7f46283660791}{Create\+UIObject}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{})=0
+\item 
+virtual \mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a16cc4e27442ac7434fa98e642948bc91}{Create\+Text\+Object}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{})=0
+\item 
+virtual \mbox{\hyperlink{class_button}{Button}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_abc48e5733d2330b8fef124c22d28102f}{Create\+Button}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{})=0
+\item 
+virtual \mbox{\hyperlink{class_slider}{Slider}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a78acb1e687707254799732528eadd4e3}{Create\+Slider}} (const std\+::string \&obj\+Name=\char`\"{}\char`\"{})=0
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_manager_ae54c37297d068028c34178ca362bf763}{Delete\+Object\+By\+Name}} (const std\+::string \&obj\+Name)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_manager_a112e2701e257e5b0fcf83bd94d72636d}{Delete\+Object\+By\+Pointer}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$obj\+Ptr)=0
+\item 
+virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ \mbox{\hyperlink{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}{Find\+Object}} (const std\+::string \&obj\+Name)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}{Add\+Game\+Object\+To\+List}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$object)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}{Add\+UIObject\+To\+List}} (\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$object)=0
+\item 
+virtual void \mbox{\hyperlink{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}{Add\+Button\+To\+List}} (\mbox{\hyperlink{class_button}{Button}} $\ast$object)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}\label{class_i_game_object_manager_abdf0ed833b630888fcaa823f09b91ce8}} 
+\index{IGameObjectManager@{IGameObjectManager}!AddButtonToList@{AddButtonToList}}
+\index{AddButtonToList@{AddButtonToList}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{AddButtonToList()}{AddButtonToList()}}
+{\footnotesize\ttfamily virtual void IGame\+Object\+Manager\+::\+Add\+Button\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_button}{Button}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a14b6d34d1c6e96e0bc880979c31e7509}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}\label{class_i_game_object_manager_a0634ffb32c7bba628bacce43e7362997}} 
+\index{IGameObjectManager@{IGameObjectManager}!AddGameObjectToList@{AddGameObjectToList}}
+\index{AddGameObjectToList@{AddGameObjectToList}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{AddGameObjectToList()}{AddGameObjectToList()}}
+{\footnotesize\ttfamily virtual void IGame\+Object\+Manager\+::\+Add\+Game\+Object\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a36bac64867a2f44cd740d673995f79b0}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}\label{class_i_game_object_manager_abbcd2d4146b97fbaa19d899eedb90ee8}} 
+\index{IGameObjectManager@{IGameObjectManager}!AddUIObjectToList@{AddUIObjectToList}}
+\index{AddUIObjectToList@{AddUIObjectToList}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{AddUIObjectToList()}{AddUIObjectToList()}}
+{\footnotesize\ttfamily virtual void IGame\+Object\+Manager\+::\+Add\+UIObject\+To\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a3dab2aadfcea9350c7908554ae23fefe}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_abc48e5733d2330b8fef124c22d28102f}\label{class_i_game_object_manager_abc48e5733d2330b8fef124c22d28102f}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateButton@{CreateButton}}
+\index{CreateButton@{CreateButton}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateButton()}{CreateButton()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_button}{Button}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a31edfa803c18908e7e5da0c56e377ce4}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_ae54aa9fc26e729881a8980ca2a9f9205}\label{class_i_game_object_manager_ae54aa9fc26e729881a8980ca2a9f9205}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateGameObject@{CreateGameObject}}
+\index{CreateGameObject@{CreateGameObject}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateGameObject()}{CreateGameObject()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Game\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const int \&}]{anim\+Row = {\ttfamily 1},  }\item[{const std\+::vector$<$ int $>$ \&}]{anim\+Col = {\ttfamily \{~1~\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a3bc2c8039019bf68b0afcbb194c823a4}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a5ba1cc17f6e2c63f476cdebf296a5a34}\label{class_i_game_object_manager_a5ba1cc17f6e2c63f476cdebf296a5a34}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateObject@{CreateObject}}
+\index{CreateObject@{CreateObject}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateObject()}{CreateObject()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T $\ast$ IGame\+Object\+Manager\+::\+Create\+Object (\begin{DoxyParamCaption}\item[{T $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_game_object_manager_ac27fb29500632fa77a7172f8b5983914}\label{class_i_game_object_manager_ac27fb29500632fa77a7172f8b5983914}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateParticle@{CreateParticle}}
+\index{CreateParticle@{CreateParticle}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateParticle()}{CreateParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Particle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name,  }\item[{\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&}]{particle\+Property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_aa6651a7c068734a80fb8717f2ab96a16}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a285483be059150b116cf73b05d15d6ca}\label{class_i_game_object_manager_a285483be059150b116cf73b05d15d6ca}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateParticle@{CreateParticle}}
+\index{CreateParticle@{CreateParticle}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateParticle()}{CreateParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_particle_system}{Particle\+System}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Particle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_particle_property}{Particle\+Property}} \&}]{particle\+Property }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_af850db51d7ca6adfc3f928af6df0f32f}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a78acb1e687707254799732528eadd4e3}\label{class_i_game_object_manager_a78acb1e687707254799732528eadd4e3}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateSlider@{CreateSlider}}
+\index{CreateSlider@{CreateSlider}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateSlider()}{CreateSlider()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_slider}{Slider}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Slider (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a14bc1d2a7fe933ec7503c5718b73aa9e}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a16cc4e27442ac7434fa98e642948bc91}\label{class_i_game_object_manager_a16cc4e27442ac7434fa98e642948bc91}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateTextObject@{CreateTextObject}}
+\index{CreateTextObject@{CreateTextObject}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateTextObject()}{CreateTextObject()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_text_object}{Text\+Object}} $\ast$ IGame\+Object\+Manager\+::\+Create\+Text\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_aa9334cf40b72433b5e1d71302916abde}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a74265a3604541beb73d7f46283660791}\label{class_i_game_object_manager_a74265a3604541beb73d7f46283660791}} 
+\index{IGameObjectManager@{IGameObjectManager}!CreateUIObject@{CreateUIObject}}
+\index{CreateUIObject@{CreateUIObject}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{CreateUIObject()}{CreateUIObject()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_u_i_object}{UIObject}} $\ast$ IGame\+Object\+Manager\+::\+Create\+UIObject (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_aa0b35732d6a2b50f74999985dda19982}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_ae54c37297d068028c34178ca362bf763}\label{class_i_game_object_manager_ae54c37297d068028c34178ca362bf763}} 
+\index{IGameObjectManager@{IGameObjectManager}!DeleteObjectByName@{DeleteObjectByName}}
+\index{DeleteObjectByName@{DeleteObjectByName}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{DeleteObjectByName()}{DeleteObjectByName()}}
+{\footnotesize\ttfamily virtual void IGame\+Object\+Manager\+::\+Delete\+Object\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a9b08588cf9adfd148eef6ff2a0c542e6}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a112e2701e257e5b0fcf83bd94d72636d}\label{class_i_game_object_manager_a112e2701e257e5b0fcf83bd94d72636d}} 
+\index{IGameObjectManager@{IGameObjectManager}!DeleteObjectByPointer@{DeleteObjectByPointer}}
+\index{DeleteObjectByPointer@{DeleteObjectByPointer}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{DeleteObjectByPointer()}{DeleteObjectByPointer()}}
+{\footnotesize\ttfamily virtual void IGame\+Object\+Manager\+::\+Delete\+Object\+By\+Pointer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$}]{obj\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_a06dd5348bf128fb65720731931e8060b}{Game\+Scene}}.
+
+\mbox{\Hypertarget{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}\label{class_i_game_object_manager_a67819acc87a28e98a6385a87be61a7b0}} 
+\index{IGameObjectManager@{IGameObjectManager}!FindObject@{FindObject}}
+\index{FindObject@{FindObject}!IGameObjectManager@{IGameObjectManager}}
+\doxysubsubsection{\texorpdfstring{FindObject()}{FindObject()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ IGame\+Object\+Manager\+::\+Find\+Object (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{obj\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_game_scene_aaea2990b4daff20b185e1359a40bd870}{Game\+Scene}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_i_game_object_manager_8h}{IGame\+Object\+Manager.\+h}}\end{DoxyCompactItemize}

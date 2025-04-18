@@ -1,0 +1,23 @@
+\hypertarget{_spell_book_8h_source}{}\doxysection{Spell\+Book.\+h}
+\label{_spell_book_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellBook.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Spells/SpellBook.h}}
+\mbox{\hyperlink{_spell_book_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_8h}{Spell.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Element.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_spell_book}{SpellBook}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_Element;}
+\DoxyCodeLine{9     std::string m\_Bookname;}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_spell}{Spell}} m\_Spells[9];}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_Count = 0;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_spell_book_a2f1f12d5fa728247b84df1e65d4d5579}{SpellBook}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element,std::string filename);}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_book_a1ec7baf95a8444d25c71ddaf1ca4782d}{AddNewSpell}}(\mbox{\hyperlink{class_spell}{Spell}} newSpell) \{ m\_Spells[m\_Count++] = newSpell; \}}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_spell}{Spell}}* \mbox{\hyperlink{class_spell_book_ab21ceec501faa474256444195f2cbc65}{GetSpellByIndex}}(\textcolor{keywordtype}{int} index) \{ \textcolor{keywordflow}{return} \&m\_Spells[index]; \}}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_spell_book_af86cef11a49d14fb87c3191f38dd434f}{PrintBookDetail}}();}
+\DoxyCodeLine{17 \};}
+
+\end{DoxyCode}

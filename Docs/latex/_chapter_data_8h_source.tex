@@ -1,0 +1,49 @@
+\hypertarget{_chapter_data_8h_source}{}\doxysection{Chapter\+Data.\+h}
+\label{_chapter_data_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/MapData/ChapterData.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/MapData/ChapterData.h}}
+\mbox{\hyperlink{_chapter_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_node_data_8h}{NodeData.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_chapter_data}{ChapterData}}}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6 \textcolor{keyword}{private}:}
+\DoxyCodeLine{7     \textcolor{keywordtype}{int} m\_NodeCount = 0;}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_Element;}
+\DoxyCodeLine{9     std::vector<NodeData*> m\_Nodes;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} m\_CurrentNode = 0;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} ClearNode();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} AddNode(\mbox{\hyperlink{class_node_data}{NodeData}}* node);}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_chapter_data_a9b6f22e99f875435a0073f8a170aa719}{IsCompleted}};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_chapter_data_a8d3a18ff87f302195fe243d67cdbccc5}{CanVisit}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_chapter_data_a405eee3380b7b7715e3965c1e71c1f14}{ChapterData}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} startElement);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} \mbox{\hyperlink{class_chapter_data_ae2ed40ace5641822f1f1b678b61a8d22}{Element}}() \{ \textcolor{keywordflow}{return} m\_Element; \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_chapter_data_a91d65b680fad3f539f7591b5607d1701}{GetCurrentNode}} () \{ \textcolor{keywordflow}{return} m\_CurrentNode; \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chapter_data_a166a59468652baaeb8b88ce71745f4c0}{SetCurrentNode}}(\textcolor{keywordtype}{int} node)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         m\_CurrentNode = node;}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_chapter_data_a9b6f22e99f875435a0073f8a170aa719}{IsCompleted}} = m\_NodeCount == m\_CurrentNode;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{class_node_data}{NodeData}}* \mbox{\hyperlink{class_chapter_data_a50968987f7142a5f9fc19598eebbf616}{GetNextNode}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{//true if chapter is complete}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_chapter_data_a77cb87343abe51bb918f157d0814ee40}{CompleteNode}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chapter_data_a5c66038259a4180df4bea0f44b3eb9a8}{CompleteChapter}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chapter_data_ac74c144f77cbd1b962bc97bfb1c2950c}{UpdateChapter}}(\textcolor{keywordtype}{int} level);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_chapter_data_ac92b69081fdf0c41783ffbc6b9475f12}{\string~ChapterData}}();}
+\DoxyCodeLine{43 \};}
+
+\end{DoxyCode}

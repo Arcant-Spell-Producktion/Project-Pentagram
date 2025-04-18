@@ -1,0 +1,9 @@
+<map id="TutorialNode" name="TutorialNode">
+<area shape="rect" id="node1" title=" " alt="" coords="189,349,284,376"/>
+<area shape="rect" id="node2" href="$class_node_data.html" title=" " alt="" coords="112,260,191,287"/>
+<area shape="rect" id="node3" href="$class_enemy_data.html" title=" " alt="" coords="109,171,199,197"/>
+<area shape="rect" id="node4" href="$class_caster_data.html" title=" " alt="" coords="5,95,92,121"/>
+<area shape="rect" id="node5" href="$struct_caster_stat.html" title=" " alt="" coords="7,5,91,32"/>
+<area shape="rect" id="node6" href="$class_tutorial_events.html" title=" " alt="" coords="215,260,317,287"/>
+<area shape="rect" id="node7" href="$struct_pentagram_data___t.html" title=" " alt="" coords="341,260,468,287"/>
+</map>

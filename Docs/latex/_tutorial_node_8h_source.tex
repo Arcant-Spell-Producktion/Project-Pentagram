@@ -1,0 +1,68 @@
+\hypertarget{_tutorial_node_8h_source}{}\doxysection{Tutorial\+Node.\+h}
+\label{_tutorial_node_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/TutorialNode.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/TutorialNode.h}}
+\mbox{\hyperlink{_tutorial_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_node_data_8h}{Game/GameData/MapData/NodeData.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_player_data_8h}{Game/GameData/CasterData/PlayerData.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tutorial_event_8h}{TutorialEvent.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_object_enum_8h}{Game/BattleScene/GameObject/MainObjectEnum.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{enum class} \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{TutorialGoal}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62a292ed5e525d66c64f13a3bf54a17c06a}{Kill}},}
+\DoxyCodeLine{14     \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62a0f96337be1814a9d00be881426036e01}{Survive}},}
+\DoxyCodeLine{15 \};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_node}{TutorialNode}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_node_data}{NodeData}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_tutorial_events}{TutorialEvents}} \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{class_caster_data}{CasterData}}* \mbox{\hyperlink{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}{m\_TutorialPlayerData}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{TutorialGoal}} \mbox{\hyperlink{class_tutorial_node_a3c9b947b383c0101bfe8a774c605c679}{m\_TutorialGoal}} = \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62a292ed5e525d66c64f13a3bf54a17c06a}{TutorialGoal::Kill}};}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{struct_pentagram_data___t}{PentagramData\_T}} \mbox{\hyperlink{class_tutorial_node_a0ae84e8731e791817092a85abcfeb1c9}{PlayerStartSpell}} = \{1,1,1,1,0\};}
+\DoxyCodeLine{29     std::vector<PentagramData\_T> \mbox{\hyperlink{class_tutorial_node_ab12ebaf4274bf144ba00e8bb9fe61275}{TutorialSpells}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     std::string \mbox{\hyperlink{class_tutorial_node_aec71873c86b088398f10e980af13230a}{CompleteText}} = \textcolor{stringliteral}{"{}Goodjob!"{}};}
+\DoxyCodeLine{32     std::string \mbox{\hyperlink{class_tutorial_node_ae3fee44a202c6b816e1851be36544d44}{RetryText}} = \textcolor{stringliteral}{"{}Try Again!"{}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_node_a27a680b49f650e680deb4ae84df183c7}{PlayerHP}} = 10;}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_node_a12ece00cc7ac0b3d03c01c00f76457dd}{EnemyHP}} = 10;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_node_ae948a387cc4656b2d23d232852ff258e}{PlayerMana}} = 2;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_node_a229727a07f46accb8208fbef62d76f4e}{PlayerManaWheel}} = 1;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_node_aef501fdbd926ec4050f601d2a6ffe8cc}{EnemyMana}} = 3;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_tutorial_node_adbf9da231fe83e075b6f2379b21d20f0}{TutorialNode}}(\mbox{\hyperlink{class_enemy_data}{EnemyData}} enemy) : \mbox{\hyperlink{class_node_data}{NodeData}}(enemy)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_tutorial_events}{TutorialEvents}} \mbox{\hyperlink{class_tutorial_node_a5dd8b095dc4a49f6ccd8a296c5f500ed}{GetTutorialEvents}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{49 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_tutorial_node_afd4d7775189f8f41867f227655f8868c}{m\_TutorialEvents}};}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \mbox{\hyperlink{_tutorial_node_8h_a1913c87e30a2a9dc76d29ab3ef9ced62}{TutorialGoal}} \mbox{\hyperlink{class_tutorial_node_a0f3808f7dc51814f3edca4c2c55e158c}{GetTutorialGoal}}()}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_tutorial_node_a3c9b947b383c0101bfe8a774c605c679}{m\_TutorialGoal}};}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \mbox{\hyperlink{class_caster_data}{CasterData}}* \mbox{\hyperlink{class_tutorial_node_a1f1228bc85f04ab8ab426d4d229b7e66}{GetPlayerData}}()}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_tutorial_node_ad68c271a3ad7b189938423b19c846720}{m\_TutorialPlayerData}};}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 \};}
+
+\end{DoxyCode}

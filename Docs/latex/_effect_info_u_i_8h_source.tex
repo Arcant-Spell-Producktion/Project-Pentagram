@@ -1,0 +1,27 @@
+\hypertarget{_effect_info_u_i_8h_source}{}\doxysection{Effect\+Info\+UI.\+h}
+\label{_effect_info_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/EffectInfoUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/CharacterSelectScene/EffectInfoUI.h}}
+\mbox{\hyperlink{_effect_info_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_effect_info_u_i}{EffectInfoUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{private}:}
+\DoxyCodeLine{10         \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_EffectIcon;}
+\DoxyCodeLine{11         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_EffectInfo;}
+\DoxyCodeLine{12     \textcolor{keyword}{public}:}
+\DoxyCodeLine{13         \mbox{\hyperlink{class_effect_info_u_i_afd28f13612912afc9ef3db64b8e78c13}{EffectInfoUI}}();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_effect_info_u_i_a2191d767d7b0c69aabc2c36db869e0c0}{SetFitWithBorder}}(\textcolor{keyword}{const} glm::vec3 borderScale);}
+\DoxyCodeLine{16         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_effect_info_u_i_a5ec7c1c9dac76f80a3ca3853ea78cd75}{SetEffectIconTexture}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{17         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_effect_info_u_i_a2636bf691f9330b6d6ea07c642d356ef}{SetEffectIconIndex}}(\textcolor{keyword}{const} glm::ivec2\& index);}
+\DoxyCodeLine{18         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_effect_info_u_i_a3ca23e84f9d049fbae309abb48cfc8ba}{SetEffectInfo}}(\textcolor{keyword}{const} std::string\& info);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \mbox{\hyperlink{class_text_object}{TextObject}}* \mbox{\hyperlink{class_effect_info_u_i_ad345e4b3e30556d5ccef3ba99addcca0}{GetEffectInfoText}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{21 \};}
+
+\end{DoxyCode}

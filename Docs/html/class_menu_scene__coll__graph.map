@@ -1,0 +1,8 @@
+<map id="MenuScene" name="MenuScene">
+<area shape="rect" id="node1" title=" " alt="" coords="183,247,274,273"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="181,171,276,197"/>
+<area shape="rect" id="node3" href="$class_i_game_object_manager.html" title=" " alt="" coords="5,81,153,108"/>
+<area shape="rect" id="node4" href="$class_audio_controller.html" title=" " alt="" coords="177,81,288,108"/>
+<area shape="rect" id="node5" href="$class_singleton.html" title=" " alt="" coords="139,5,327,32"/>
+<area shape="rect" id="node6" href="$class_camera.html" title=" " alt="" coords="317,81,383,108"/>
+</map>

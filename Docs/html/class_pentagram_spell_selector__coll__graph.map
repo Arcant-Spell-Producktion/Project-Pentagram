@@ -1,0 +1,11 @@
+<map id="PentagramSpellSelector" name="PentagramSpellSelector">
+<area shape="rect" id="node1" title=" " alt="" coords="189,352,352,379"/>
+<area shape="rect" id="node2" href="$class_u_i_object.html" title=" " alt="" coords="159,263,231,289"/>
+<area shape="rect" id="node3" href="$class_game_object.html" title=" " alt="" coords="67,185,162,212"/>
+<area shape="rect" id="node4" href="$class_mesh.html" title=" " alt="" coords="78,95,133,121"/>
+<area shape="rect" id="node5" href="$class_v_a_o.html" title=" " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node6" href="$class_v_b_o.html" title=" " alt="" coords="80,5,131,32"/>
+<area shape="rect" id="node7" href="$class_e_b_o.html" title=" " alt="" coords="155,5,205,32"/>
+<area shape="rect" id="node8" href="$class_texture.html" title=" " alt="" coords="201,95,266,121"/>
+<area shape="rect" id="node9" href="$class_event.html" title=" " alt="" coords="255,263,438,289"/>
+</map>

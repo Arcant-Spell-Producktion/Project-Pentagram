@@ -1,0 +1,100 @@
+\hypertarget{_spell_aid_u_i_8h_source}{}\doxysection{Spell\+Aid\+UI.\+h}
+\label{_spell_aid_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/SpellAidUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/Objects/SpellAidUI.h}}
+\mbox{\hyperlink{_spell_aid_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_text_object_8h}{Engine/Renderer/TextObject.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_objects_2_scroll_button_8h}{Game/Objects/ScrollButton.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_static_button_8h}{Game/Objects/StaticButton.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arrow_button_8h}{Game/Objects/ArrowButton.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_effect_type_8h}{Game/Spells/SpellEffectType.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_spell_icon_u_i_8h}{Game/BattleScene/GameObject/SpellIconUI.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_color_8h}{Utilities/Color.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{const} std::string \mbox{\hyperlink{_spell_aid_u_i_8h_a1554a6ffd9f007afb97e7e14d2392128}{SpellDescription}}[4] =}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 R\textcolor{stringliteral}{"{}(Unbreakable shield: Ignore all damage during}}
+\DoxyCodeLine{18 \textcolor{stringliteral}{spell activation.)"{},
+
+R"{}(Earth prison: Upon Activation, cancel all the}}
+\DoxyCodeLine{19 \textcolor{stringliteral}{enemy spells in the TimeTrack.)"{},
+
+R"{}(Reflect shield: Upon Activation, cancel the}}
+\DoxyCodeLine{20 \textcolor{stringliteral}{spell that activate it, and reflect the damage.)"{},
+
+R"{}(Fairy trick: Upon Activation, decrease the}}
+\DoxyCodeLine{21 \textcolor{stringliteral}{enemy spell's Cast Time by one.)"{}}}
+\DoxyCodeLine{22 \textcolor{stringliteral}{}}
+\DoxyCodeLine{23 \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{24 \textcolor{stringliteral}{}}
+\DoxyCodeLine{25 \textcolor{stringliteral}{}\textcolor{keyword}{class }\mbox{\hyperlink{class_spell_aid_u_i}{SpellAidUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{private}:}
+\DoxyCodeLine{28         \textcolor{keyword}{struct }SpellObject : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{29         \{}
+\DoxyCodeLine{30             \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}* SpellIcon;}
+\DoxyCodeLine{31             \mbox{\hyperlink{class_text_object}{TextObject}}* SpellDetail;}
+\DoxyCodeLine{32             \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}* spellDetail;}
+\DoxyCodeLine{33             \mbox{\hyperlink{class_spell}{Spell}}* spell;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35             SpellObject(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element, \textcolor{keywordtype}{int} spellIndex, \textcolor{keywordtype}{int} spellOrder) : \mbox{\hyperlink{class_u_i_object}{UIObject}}(\textcolor{stringliteral}{"{}Spell\_Aid\_Object\_"{}})}
+\DoxyCodeLine{36             \{}
+\DoxyCodeLine{37                 this-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}}.a = 0.0f;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39                 spell = \textcolor{keyword}{new} \mbox{\hyperlink{class_spell}{Spell}}(element, spellIndex);}
+\DoxyCodeLine{40                 \textcolor{keywordflow}{switch} (spellOrder)}
+\DoxyCodeLine{41                 \{}
+\DoxyCodeLine{42                     \textcolor{keywordflow}{case} 0: spell-\/>\mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a4d3d769b812b6faa6b76e1a8abaece2d}{ChannelEffectEnum::Active}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{43                     \textcolor{keywordflow}{case} 1: spell-\/>\mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a8b9038a4896d530d239f4af3bbb30357}{ChannelEffectEnum::Trap}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{44                     \textcolor{keywordflow}{case} 2: spell-\/>\mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a64d129224a5377b63e9727479ec987d9}{ChannelEffectEnum::Counter}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{45                     \textcolor{keywordflow}{case} 3: spell-\/>\mbox{\hyperlink{class_spell_a85f58a2e551fbd3fcb095ae92269a9c4}{SetChannelEffectType}}(\mbox{\hyperlink{_channel_effect_type_8h_a8bd8a1e3661adf5728984df1686de167a8b9038a4896d530d239f4af3bbb30357}{ChannelEffectEnum::Trap}}); \textcolor{keywordflow}{break};}
+\DoxyCodeLine{46                 \}}
+\DoxyCodeLine{47                 spellDetail = \textcolor{keyword}{new} \mbox{\hyperlink{class_cast_spell_detail}{CastSpellDetail}}(\mbox{\hyperlink{_caster_position_8h_a990c422b0026a1c7dda5d5fb706ce889a52abdadb6c058e40afa082e82d6d04bd}{CasterPosition::CasterA}}, spell, 0, 0);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49                 SpellIcon = \textcolor{keyword}{new} \mbox{\hyperlink{class_spell_icon_u_i}{SpellIconUI}}(\textcolor{stringliteral}{"{}Spell\_Icon"{}} + \mbox{\hyperlink{class_element_aa9968c2cc6e7b6da88b84f6a6b8956b8}{Element::GetString}}(element) + std::to\_string(spellIndex));}
+\DoxyCodeLine{50                 SpellIcon-\/>\mbox{\hyperlink{class_spell_icon_u_i_ac42612ef66992af3771384b8886cad28}{SetIcon}}(spellDetail, \textcolor{keyword}{true});}
+\DoxyCodeLine{51                 SpellIcon-\/>\mbox{\hyperlink{class_spell_icon_u_i_aa79e6cbb574c3e0501971d5e8470286d}{SetTransparency}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{52                 SpellIcon-\/>\mbox{\hyperlink{class_spell_icon_u_i_abe5e4bb9090d0dba9b007b1128d8626e}{SetOverlayToggle}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{53                 SpellIcon-\/>\mbox{\hyperlink{class_spell_icon_u_i_aacd83f3c9854ba9a59084a829b8a5785}{SetScale}}(\{ 170.0f, 170.0f, 1.0f \});}
+\DoxyCodeLine{54                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(SpellIcon);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56                 SpellDetail = \textcolor{keyword}{new} \mbox{\hyperlink{class_text_object}{TextObject}}(\textcolor{stringliteral}{"{}Effect\_Detail"{}});}
+\DoxyCodeLine{57                 SpellDetail-\/>\mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}.x += SpellIcon-\/>\mbox{\hyperlink{class_game_object_a5205edf429098d4b7bf0c442d72592d1}{scale}}.x / 2.0f + 30.0f;}
+\DoxyCodeLine{58                 SpellDetail-\/>\mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}} = \mbox{\hyperlink{_spell_aid_u_i_8h_a1554a6ffd9f007afb97e7e14d2392128}{SpellDescription}}[spellOrder];}
+\DoxyCodeLine{59                 SpellDetail-\/>\mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{textAlignment}} = \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa684d325a7303f52e64011467ff5c5758}{TextAlignment::LEFT}};}
+\DoxyCodeLine{60                 SpellDetail-\/>\mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}} = 24.0f;}
+\DoxyCodeLine{61                 SpellDetail-\/>\mbox{\hyperlink{class_game_object_afdcffec222f2e10ba9cc7c1b65f3148d}{color}} = \mbox{\hyperlink{_color_8h_ab75759c1d915a41fe66b37a310634658}{AC\_WHITE}};}
+\DoxyCodeLine{62                 SpellDetail-\/>\mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}} = \mbox{\hyperlink{_color_8h_a805f4d466eb126be3328f10bf1158155}{AC\_BLACK}};}
+\DoxyCodeLine{63                 SpellDetail-\/>\mbox{\hyperlink{class_text_object_ae4d614d066ab2f185e572167d0834373}{isVCenterAlignment}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{64                 this-\/>\mbox{\hyperlink{class_game_object_a26d048f70defacd4b0c0fc3147aaa4a2}{SetChildRenderFront}}(SpellDetail);}
+\DoxyCodeLine{65             \}}
+\DoxyCodeLine{66             \string~SpellObject()}
+\DoxyCodeLine{67             \{}
+\DoxyCodeLine{68                 \textcolor{keyword}{delete} spellDetail;}
+\DoxyCodeLine{69                 \textcolor{keyword}{delete} spell;}
+\DoxyCodeLine{70             \}}
+\DoxyCodeLine{71         \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         SpellObject* m\_SpellList[5];}
+\DoxyCodeLine{74         glm::vec3 m\_SpellPositionList[5] = \{}
+\DoxyCodeLine{75             \textcolor{comment}{// Earth Spell}}
+\DoxyCodeLine{76             glm::vec3(-\/750.0f, 200.0f, 0.0f),}
+\DoxyCodeLine{77             glm::vec3(125.0f, 200.0f, 0.0f),}
+\DoxyCodeLine{78             glm::vec3(-\/750.0f, -\/50.0f, 0.0f),}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80             \textcolor{comment}{// Wind Spell}}
+\DoxyCodeLine{81             glm::vec3(125.0f, -\/50.0f, 0.0f),}
+\DoxyCodeLine{82         \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \mbox{\hyperlink{class_text_object}{TextObject}}* m\_Header;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{public}:}
+\DoxyCodeLine{87         \mbox{\hyperlink{class_spell_aid_u_i_a30f94fd49a47720b17a04330cc0785a3}{SpellAidUI}}();}
+\DoxyCodeLine{88 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,57 @@
+\hypertarget{_pentagram_field_button_8h_source}{}\doxysection{Pentagram\+Field\+Button.\+h}
+\label{_pentagram_field_button_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramFieldButton.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/GameObject/PentagramObject/PentagramFieldButton.h}}
+\mbox{\hyperlink{_pentagram_field_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_pentagram_data_8h}{Game/BattleScene/SpellCaster/PentagramData.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_rune_object_8h}{Game/BattleScene/GameObject/RuneObject.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_element_8h}{Game/Spells/Element.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_pentagram_field_button}{PentagramFieldButton}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_button}{Button}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}: }
+\DoxyCodeLine{10     \textcolor{keyword}{enum class} \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{ButtonState}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         \mbox{\hyperlink{_base_effect_object_8h_a992883b98a8a65391a40f207ef65ee86ad3fa9ae9431d6cb1772f9d9df48cab19}{Idle}} = 2,}
+\DoxyCodeLine{13         Hover,}
+\DoxyCodeLine{14         Down}
+\DoxyCodeLine{15     \};}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} m\_SelectedField;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} m\_CurrentElement;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{ButtonState}} m\_buttonState;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_text_object}{TextObject}}* m\_HoverText;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_u_i_object}{UIObject}}* ButtonCover;}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_u_i_object}{UIObject}}* FieldSignature;}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_u_i_object}{UIObject}}* ElementSignature;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     std::vector<RuneObject*> m\_RuneList;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \mbox{\hyperlink{class_rune_object}{RuneObject}}* ComplexRune;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} m\_ActiveRune = 0;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{35 \textcolor{keyword}{public}:}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_af6f2c2c51dd7bdd7d8b574f7658c96fc}{SetElement}}(\mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_ac1730515a4c0f509cafcf74a5461d1d7}{SetActive}}(\textcolor{keyword}{const} \textcolor{keywordtype}{bool}\& active) \textcolor{keyword}{override};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_a2ca4fcf626422f80f56065f4f5c31a57}{SetToggle}}(\textcolor{keywordtype}{bool} isToggle);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_a8d7dbc80c1b5e0301bfa6bb2f5424480}{SetRuneActive}}(\textcolor{keywordtype}{int} amount);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_pentagram_field_button_a09ce19833bde0c70d9f1b960882ea35f}{SetRuneColor}}(glm::vec4 runeColor);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} \mbox{\hyperlink{class_pentagram_field_button_a59d8017b19615591bf59779e7ec5e3d2}{GetButtonField}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_SelectedField; \}}
+\DoxyCodeLine{48     \mbox{\hyperlink{class_pentagram_field_button_a9bdcb5b721d050a319b4bb1377123910}{ButtonState}} \mbox{\hyperlink{class_pentagram_field_button_aeed16152833547e82bb673207ba5065d}{GetButtonState}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_buttonState; \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_pentagram_field_button_a8d3112e05961288836b907c55d46a797}{PentagramFieldButton}}(\mbox{\hyperlink{_pentagram_data_8h_a157d2b96ab446fb146e483b2109e0a64}{PentagramField}} field, \mbox{\hyperlink{class_element_a009a3be4c3a037a72e292b2464c9cbc5}{Element::Type}} element);}
+\DoxyCodeLine{51 \};}
+
+\end{DoxyCode}

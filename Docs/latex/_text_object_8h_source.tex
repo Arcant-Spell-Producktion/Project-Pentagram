@@ -1,0 +1,66 @@
+\hypertarget{_text_object_8h_source}{}\doxysection{Text\+Object.\+h}
+\label{_text_object_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/TextObject.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Renderer/TextObject.h}}
+\mbox{\hyperlink{_text_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_arcant_engine_8h}{Engine/ArcantEngine.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Engine/Camera.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_object_8h}{Engine/UIObject.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_engine_data_collector_8h}{Engine/Collector/EngineDataCollector.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shader_8h}{Shader.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_8h}{Mesh.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{enum class} \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474f}{TextAlignment}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa684d325a7303f52e64011467ff5c5758}{LEFT}} = 0,}
+\DoxyCodeLine{15     \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa18e48bbdf6d326bd88d3ebb99ad7515d}{MID}},}
+\DoxyCodeLine{16     \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474fa21507b40c80068eda19865706fdc2403}{RIGHT}}}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_text_object}{TextObject}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     \textcolor{keyword}{private}:}
+\DoxyCodeLine{22         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Font -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{23         std::string m\_Fonts;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Glyph Components -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{26         std::vector<float> m\_TextSumX;}
+\DoxyCodeLine{27         \textcolor{keywordtype}{float} m\_TextMaxY;}
+\DoxyCodeLine{28         \textcolor{keywordtype}{float} m\_FontScale;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Text Rendering Animation -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{31         \textcolor{keywordtype}{int} m\_CurrentTextIndex;}
+\DoxyCodeLine{32         \textcolor{keywordtype}{float} m\_CurrentTime;}
+\DoxyCodeLine{33         \textcolor{keywordtype}{float} m\_RenderTime;}
+\DoxyCodeLine{34         \textcolor{keywordtype}{bool} m\_SlowRender;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         \textcolor{keywordtype}{void} CalculateGlyphText(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& endIndex);}
+\DoxyCodeLine{37     \textcolor{keyword}{public}:}
+\DoxyCodeLine{38         std::string \mbox{\hyperlink{class_text_object_a89e65c86a7c0bd9dfbcf759e49c7660e}{text}};}
+\DoxyCodeLine{39         \mbox{\hyperlink{_text_object_8h_aa56f1a82069b5feeadbb4591cb3e474f}{TextAlignment}} \mbox{\hyperlink{class_text_object_aaa22c1ad89a041b1c8ba2a4e661e1e91}{textAlignment}};}
+\DoxyCodeLine{40         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_text_object_ae4d614d066ab2f185e572167d0834373}{isVCenterAlignment}} = \textcolor{keyword}{false};  \textcolor{comment}{// Vertical Center Alignment}}
+\DoxyCodeLine{41         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a3edfc0e3fc69e7045852b8e02acf070a}{fontSize}};}
+\DoxyCodeLine{42         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_text_object_a5e6c399d90ad62481ec918aa63b3760a}{lineSpacing}};}
+\DoxyCodeLine{43         glm::vec4 \mbox{\hyperlink{class_text_object_a1359552ff4d7a534393d872b5069059c}{outlineColor}};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \mbox{\hyperlink{class_text_object_aee19c79c3e01e42d40e91fca4c7820ee}{TextObject}}(\textcolor{keyword}{const} std::string\& objName);}
+\DoxyCodeLine{46         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a7389c1af07e6a6b564415ae325d1b684}{Draw}}(\mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel = glm::mat4(1.0f)) \textcolor{keyword}{override};}
+\DoxyCodeLine{47         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a73256f1dce810398312501c6b2fdd19c}{OnUpdate}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{48         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a194cd1d32e522494b85c387eb0683a3d}{UnloadMesh}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Setter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_ac40fce6dad8fdc521dd50ae82f75f1e9}{SetRenderTime}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& renderTime);}
+\DoxyCodeLine{52         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a2c232c4d238f4fd765193934bbfa0a3f}{SetFonts}}(\textcolor{keyword}{const} std::string\& fontPath);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Getter -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{55         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_text_object_a3e53fde766a1c6c66cb690c21dc9eef7}{IsRenderComplete}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Render Text -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{58         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_text_object_a38a20048c257e64a12a5fbcddd047d60}{RenderText}}(glm::vec3 positionOffset, \mbox{\hyperlink{class_camera}{Camera}}\& camera, glm::mat4 parentModel, \textcolor{keywordtype}{int} start = -\/1, \textcolor{keywordtype}{int} end = -\/1);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \};}
+
+\end{DoxyCode}

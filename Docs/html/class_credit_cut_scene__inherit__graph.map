@@ -1,0 +1,5 @@
+<map id="CreditCutScene" name="CreditCutScene">
+<area shape="rect" id="node1" title=" " alt="" coords="23,155,136,181"/>
+<area shape="rect" id="node2" href="$class_game_scene.html" title=" " alt="" coords="32,80,127,107"/>
+<area shape="rect" id="node3" href="$class_i_game_object_manager.html" title=" " alt="" coords="5,5,153,32"/>
+</map>

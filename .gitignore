@@ -1,0 +1,10 @@
+#Gitignore for PP
+
+#ignore .vs/ files
+.vs
+
+#ignore debug build/log folders
+lib/glm/out/**
+Project-Pentagram/**/[Dd]ebug
+[Rr]elease
+Project-Pentagram/WorkingDir/save.dat

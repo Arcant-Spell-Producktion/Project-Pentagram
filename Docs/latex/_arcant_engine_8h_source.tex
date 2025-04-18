@@ -1,0 +1,29 @@
+\hypertarget{_arcant_engine_8h_source}{}\doxysection{Arcant\+Engine.\+h}
+\label{_arcant_engine_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/ArcantEngine.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/ArcantEngine.h}}
+\mbox{\hyperlink{_arcant_engine_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_singleton_8h}{Utilities/Singleton.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_arcant_engine}{ArcantEngine}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_singleton}{Singleton}}<ArcantEngine>}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keyword}{private}:}
+\DoxyCodeLine{12         \mbox{\hyperlink{class_window}{Window}} m\_Window;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{public}:}
+\DoxyCodeLine{15         \mbox{\hyperlink{class_arcant_engine_ada1c3d3563e486be8f10a2e159f5c919}{ArcantEngine}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_arcant_engine_aaa647da73f2313d8b45881dbd16bc876}{Init}}();}
+\DoxyCodeLine{18         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_arcant_engine_a52c010b8c7bff26c6ec13110d2385788}{Free}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \mbox{\hyperlink{class_window}{Window}}* \mbox{\hyperlink{class_arcant_engine_ad62695f707b7d2827807e1e63da8c6ad}{GetWindow}}();}
+\DoxyCodeLine{21         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_arcant_engine_a064fd2f264e62e793ae13adcf5dd3660}{IsRunning}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \};}
+
+\end{DoxyCode}

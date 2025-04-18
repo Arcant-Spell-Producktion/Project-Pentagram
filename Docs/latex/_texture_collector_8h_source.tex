@@ -1,0 +1,32 @@
+\hypertarget{_texture_collector_8h_source}{}\doxysection{Texture\+Collector.\+h}
+\label{_texture_collector_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/TextureCollector.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Engine/Collector/TextureCollector.h}}
+\mbox{\hyperlink{_texture_collector_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Engine/Renderer/Texture.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture_collector}{TextureCollector}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{private}:}
+\DoxyCodeLine{14         std::map<std::string, Texture*> m\_Textures;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         \textcolor{keywordtype}{void} LoadTexture(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{19         \mbox{\hyperlink{class_texture_collector_adb0adff02be7537f761857f8cd80f822}{TextureCollector}}();}
+\DoxyCodeLine{20         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_collector_a6bd6c5014cd96a7880a4f10e8663c776}{PreLoadResource}}();}
+\DoxyCodeLine{21         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_collector_a026589c6a1b0d421c5d14557bc32fa68}{LoadFile}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \mbox{\hyperlink{class_texture}{Texture}}* \mbox{\hyperlink{class_texture_collector_a56531d70adbe7251f93296070956e896}{GetTexture}}(\textcolor{keyword}{const} std::string\& filePath);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_texture_collector_a540610734a249eafdeacfc42598c7feb}{Free}}();}
+\DoxyCodeLine{26 \};}
+
+\end{DoxyCode}

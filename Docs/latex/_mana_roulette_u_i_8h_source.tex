@@ -1,0 +1,69 @@
+\hypertarget{_mana_roulette_u_i_8h_source}{}\doxysection{Mana\+Roulette\+UI.\+h}
+\label{_mana_roulette_u_i_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteUI.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/ManaRoulette/ManaRouletteUI.h}}
+\mbox{\hyperlink{_mana_roulette_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_game_object_manager_8h}{Engine/IGameObjectManager.h}}"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mana_roulette_number_u_i_8h}{ManaRouletteNumberUI.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_mana_roulette_u_i}{ManaRouletteUI}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_u_i_object}{UIObject}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{private}:}
+\DoxyCodeLine{10     \textcolor{keyword}{enum} RouletteState}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12         IDLE,}
+\DoxyCodeLine{13         SPINNING,}
+\DoxyCodeLine{14         SLOWING\_DOWN,}
+\DoxyCodeLine{15         OVERSHOOTING,}
+\DoxyCodeLine{16         BACKTRACKING,}
+\DoxyCodeLine{17         FREEZE,}
+\DoxyCodeLine{18         DONE}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     RouletteState m\_State = IDLE;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{float} m\_OvershootAmount = 0.0f;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} m\_OvershootTarget = 0.0f;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_u_i_object}{UIObject}}* m\_Body;}
+\DoxyCodeLine{26     std::function<void()> OnSpinEnd;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     std::array<ManaRouletteNumberUI*, 6> m\_Numbers;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt) \textcolor{keyword}{override};}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} RotateRoulette(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} Spin(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} SlowDown(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{float} m\_SpinSpeed = 600.0f;}
+\DoxyCodeLine{36     \textcolor{keywordtype}{float} m\_CurrentSpinSpeed = 0.0f;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} m\_SpinResult = -\/1;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{float} m\_DestinatedAngle = 0.0f;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{float} m\_SpinTimer = 0.0f;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{float} m\_SpinTime = 0.8f;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{float} m\_FreezeTimer = 0.0f;}
+\DoxyCodeLine{44     \textcolor{keyword}{const} \textcolor{keywordtype}{float} m\_FreezeTime = 0.5f;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} m\_Direction;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} OvershootRotation(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} Backtrack(\textcolor{keyword}{const} \textcolor{keywordtype}{float}\& dt);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{float} lerp(\textcolor{keywordtype}{float} a, \textcolor{keywordtype}{float} b, \textcolor{keywordtype}{float} \mbox{\hyperlink{_demo_scene_8cpp_afea36502e9d227ff62c5fb2719a246f2}{t}});}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} FreezeRoulette();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{float} AngleDifference(\textcolor{keywordtype}{float} angle1, \textcolor{keywordtype}{float} angle2);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{public}:}
+\DoxyCodeLine{56     \mbox{\hyperlink{class_mana_roulette_u_i_afa692d83978ea2dd055cbc3e0f0344ae}{ManaRouletteUI}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mana_roulette_u_i_a1e122d94e9b1a2ddc188220980746988}{SetRouletteNumbers}}(std::array<int, 6> numbers);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mana_roulette_u_i_aa86f502623b0599c1e170b3ee1b06a4d}{SetSpinResult}}(\textcolor{keywordtype}{int} n, std::function<\textcolor{keywordtype}{void}()> SpinEndCallback);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_mana_roulette_u_i_ad65817f98f9020bd2284c1fdee800f8e}{ResetRoulette}}();}
+\DoxyCodeLine{63 \};}
+
+\end{DoxyCode}

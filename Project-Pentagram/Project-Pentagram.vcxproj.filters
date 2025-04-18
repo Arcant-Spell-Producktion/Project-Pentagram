@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Engine\Collector\ShaderCollector.cpp">
+      <Filter>Engine\Collector\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Collector\TextureCollector.cpp">
+      <Filter>Engine\Collector\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Collector\FontCollector.cpp">
+      <Filter>Engine\Collector\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\EBO.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Mesh.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Shader.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\TextObject.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\Texture.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\VAO.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderer\VBO.cpp">
+      <Filter>Engine\etc\Renderer\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Scene\MenuScene.cpp">
+      <Filter>Engine\Scene\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Scene\NodeScene.cpp">
+      <Filter>Engine\Scene\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ArcantEngine.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Button.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Camera.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameObject.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameScene.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\GLAD\src\glad.c">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Input.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ParticleSystem.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SceneManager.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIObject.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Window.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\stb\stb_image.cpp">
+      <Filter>Engine\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Collector\EngineDataCollector.cpp">
+      <Filter>Engine\Collector\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameStateController.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\Spell.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\SpellBook.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\SpellDatabase.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp">
+      <Filter>Utilities\TinyXml</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\Element.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleManager.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleScene.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterManager.cpp">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\Element.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Audio\AudioEngine.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Slider.cpp">
+      <Filter>Engine\etc\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\Spells\ChannelEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Spells\SpellEffectType.cpp">
+      <Filter>Game\Spells\Source File</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Objects\StageObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellDispather.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellTimeline.cpp">
+      <Filter>Game\BattleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp">
+      <Filter>Game\BattleScene\SpellObject\Fire</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
+    <ClCompile Include="Engine\Scene\LoadScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp">
+      <Filter>Game\BattleScene\SpellObject\Water</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Scene\DemoScene.cpp" />
+    <ClCompile Include="Engine\Audio\AudioController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.cpp">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
+    <ClCompile Include="Game\Objects\ScrollButton.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp">
+      <Filter>Game\CharacterScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp">
+      <Filter>Game\CharacterScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Objects\CursorManager.cpp" />
+    <ClCompile Include="Game\MapScene\MapScene.cpp">
+      <Filter>Game\MapScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\ChapterData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\MapData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameData\MapData\NodeData.cpp">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BattleScene\SpellCaster\EnemyController.cpp" />
+    <ClCompile Include="Game\MapScene\MapNode.cpp" />
+    <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\StandByBattleState.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />
+    <ClCompile Include="Game\Spells\SpellTarget.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterInfoUI.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\CastTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
+    <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
+    <ClCompile Include="Game\Objects\TextBox.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
+    <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
+    <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
+    <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
+    <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\CastTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResolveTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\SetupTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
+    <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\PlayerController.cpp" />
+    <ClCompile Include="Game\Objects\GameOverUI.cpp" />
+    <ClCompile Include="Game\Objects\ConfirmUI.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\SlideObject.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\IntroSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\FinalCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\FinalSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\IntroCutScene.cpp" />
+    <ClCompile Include="Game\Objects\StaticButton.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResultTestState.cpp" />
+    <ClCompile Include="Game\Objects\ShortcutUI.cpp" />
+    <ClCompile Include="Game\Objects\ArrowButton.cpp" />
+    <ClCompile Include="Game\Objects\SpellAidUI.cpp" />
+    <ClCompile Include="Game\Objects\EffectAidUI.cpp" />
+    <ClCompile Include="Game\Objects\PlayerAidUI.cpp" />
+    <ClCompile Include="Game\Objects\SpellTypeAidUI.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\CreditSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\CreditCutScene.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SOIL.h" />
+    <ClInclude Include="Engine\Collector\EngineDataCollector.h">
+      <Filter>Engine\Collector\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Collector\ShaderCollector.h">
+      <Filter>Engine\Collector\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Collector\TextureCollector.h">
+      <Filter>Engine\Collector\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Collector\FontCollector.h">
+      <Filter>Engine\Collector\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\EBO.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Mesh.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Shader.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\TextObject.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\Texture.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\VAO.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer\VBO.h">
+      <Filter>Engine\etc\Renderer\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Scene\MenuScene.h">
+      <Filter>Engine\Scene\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Scene\NodeScene.h">
+      <Filter>Engine\Scene\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ArcantEngine.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Button.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Camera.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameObject.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameObjectTag.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameScene.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameState.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Input.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ParticleSystem.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SceneManager.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\UIObject.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Window.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\stb\stb_image.h">
+      <Filter>Engine\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GameStateController.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\Spell.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\SpellBook.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\SpellDatabase.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Singleton.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\TinyXml\tinyxml2.h">
+      <Filter>Utilities\TinyXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\Element.h" />
+    <ClInclude Include="Game\BattleScene\BattleScene.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterManager.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\Element.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimeline.h">
+      <Filter>Game\BattleScene\SpellTimeline</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\RuntimeGameData.h">
+      <Filter>Game\GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\CasterData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\CasterPosition.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\EnemyData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\CasterData\PlayerData.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\ResolveBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleStates\SetupBattleState.h">
+      <Filter>Game\BattleScene\BattleState</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleManager.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\BattleSceneData.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Audio\AudioEngine.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\Color.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities\ArcantAssert.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Slider.h">
+      <Filter>Engine\etc\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\ChannelEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Spells\SpellEffectType.h">
+      <Filter>Game\Spells\Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h">
+      <Filter>Game\BattleScene\SpellEffect\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h">
+      <Filter>Game\BattleScene\SpellEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\StageObject.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.h">
+      <Filter>Game\BattleScene\SpellObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h">
+      <Filter>Game\BattleScene\SpellObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellDispather.h">
+      <Filter>Game\BattleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h">
+      <Filter>Game\BattleScene\SpellObject\Fire</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\IGameObjectManager.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Engine\Scene\LoadScene.h" />
+    <ClInclude Include="Utilities\Thread.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.h">
+      <Filter>Game\BattleScene\SpellObject\Water</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Event.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
+    <ClInclude Include="Engine\Scene\DemoScene.h" />
+    <ClInclude Include="Engine\Audio\AudioController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\ScrollButton.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h">
+      <Filter>Game\BattleScene\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\ScrollButton.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h">
+      <Filter>Game\CharacterScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h">
+      <Filter>Game\CharacterScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\OptionMenuObject.h" />
+    <ClInclude Include="Game\Objects\PauseMenuObject.h" />
+    <ClInclude Include="Game\Objects\CursorManager.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h">
+      <Filter>Game\GameData\CasterData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MapScene\MapScene.h">
+      <Filter>Game\MapScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
+    <ClInclude Include="Game\GameData\MapData\MapData.h">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\MapGenerator.h">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData\MapData\NodeData.h">
+      <Filter>Game\GameData\MapData</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MapScene\MapNode.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
+    <ClInclude Include="Game\BattleScene\IBattleManager.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
+    <ClInclude Include="Game\GameState\BaseGameState.h" />
+    <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
+    <ClInclude Include="Game\Spells\SpellTarget.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\CastTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResultTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\SetupTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\StandByTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\TutorialStateModel.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
+    <ClInclude Include="Game\BattleScene\IBaseBattleManager.h" />
+    <ClInclude Include="Game\Objects\TextBox.h" />
+    <ClInclude Include="Game\BattleScene\IBattleController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
+    <ClInclude Include="Game\MapScene\CasterStatUI.h" />
+    <ClInclude Include="Game\MapScene\MapInfoUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\ActiveTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CounterTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\EffectTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TrapTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WaitTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WillTutorialNode.h" />
+    <ClInclude Include="Game\TestScene\TestStates\CastTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResolveTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\SetupTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\StandByTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
+    <ClInclude Include="Game\TestScene\CharacterTestScene.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\BossController.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterDetailUI.h">
+      <Filter>Game\BattleScene\SpellCaster</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.h">
+      <Filter>Game\BattleScene\Objects\Pentagram</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.h">
+      <Filter>Game\BattleScene\SpellEffect\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Objects\GameOverUI.h" />
+    <ClInclude Include="Game\Objects\PlayerAidUI.h" />
+    <ClInclude Include="Game\Objects\ConfirmUI.h" />
+    <ClInclude Include="Game\Slideshow\Slide\SlideObject.h" />
+    <ClInclude Include="Game\Slideshow\Slide\IntroSlide.h" />
+    <ClInclude Include="Game\Slideshow\Scene\FinalCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Slide\FinalSlide.h" />
+    <ClInclude Include="Game\Slideshow\Scene\IntroCutScene.h" />
+    <ClInclude Include="Game\Objects\StaticButton.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResultTestState.h" />
+    <ClInclude Include="Game\Objects\ShortcutUI.h" />
+    <ClInclude Include="Game\Objects\SpellAidUI.h" />
+    <ClInclude Include="Game\Objects\ArrowButton.h" />
+    <ClInclude Include="Game\Objects\EffectAidUI.h" />
+    <ClInclude Include="Game\Objects\SpellTypeAidUI.h" />
+    <ClInclude Include="Game\Slideshow\Slide\CreditSlide.h" />
+    <ClInclude Include="Game\Slideshow\Scene\CreditCutScene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Engine\Texture\awesomeface.png">
+      <Filter>WorkingDir\Sprites</Filter>
+    </Image>
+    <Image Include="Engine\Texture\default.png">
+      <Filter>WorkingDir\Sprites</Filter>
+    </Image>
+    <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WorkingDir\Shader\TextFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\TextVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GameObjVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GameObjFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GradientVertex.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+    <None Include="WorkingDir\Shader\GradientFragment.shader">
+      <Filter>WorkingDir\Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{f1cbf967-7fc6-459f-851f-9f976d8e3aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Collector">
+      <UniqueIdentifier>{eb89c6c1-27f1-45c1-9cf3-9ef550ae8c1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Collector\Header File">
+      <UniqueIdentifier>{5fef2046-708b-47e5-847c-3d78584bbb15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Collector\Source File">
+      <UniqueIdentifier>{366dc780-d3e0-4a7e-995c-b448fd449ced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{d3ec8239-9fd6-436a-8e93-c0dd6ebae721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Header File">
+      <UniqueIdentifier>{48a7f51d-581f-49c9-869b-114d5b94ca93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Source File">
+      <UniqueIdentifier>{7ad014b0-d5f1-4e69-b192-c33f324f45ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc">
+      <UniqueIdentifier>{5dcfb037-9eb2-4ca2-9acd-9a8032e04b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Header File">
+      <UniqueIdentifier>{457341bb-ddea-4a31-bdd3-d2c8e0a56c35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Source File">
+      <UniqueIdentifier>{2f9cc1a1-4b3d-40df-b20a-a0faba2b6573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\stb">
+      <UniqueIdentifier>{00676e71-c9ce-44c5-bc5b-19cd07fd139a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir">
+      <UniqueIdentifier>{6236b323-da20-4e95-ab5a-b46af6b49d43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites">
+      <UniqueIdentifier>{6bc6a2d2-fe96-43bd-abed-9de2ac8b34be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Shader">
+      <UniqueIdentifier>{9bb7899d-474a-4a9f-9bf5-b3ca78cfc583}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{adcd8aae-4966-4528-9230-58bf5cfa154a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Spells">
+      <UniqueIdentifier>{b6312c21-9972-45bd-9fd4-27b72193324e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Spells\Header File">
+      <UniqueIdentifier>{5000a817-feed-4288-88c1-fdf62c3cb8b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Spells\Source File">
+      <UniqueIdentifier>{d7102202-5074-48c6-9aad-461243a76917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{c0a9ef56-dcda-42f2-90cb-544cabc01221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\TinyXml">
+      <UniqueIdentifier>{d25a4382-3500-4d4e-820e-0c08ff8bd63c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene">
+      <UniqueIdentifier>{18677a60-65ae-4436-8c5b-e3bcbba4b9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellCaster">
+      <UniqueIdentifier>{5056adb8-4763-48f9-834d-c814c385cd22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellTimeline">
+      <UniqueIdentifier>{aa536545-9b87-4009-b92b-fdf47cf4275f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData">
+      <UniqueIdentifier>{851d5c60-5c86-40e1-b7c0-25542b9ed09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData\CasterData">
+      <UniqueIdentifier>{315d151d-6d86-4b8a-a970-9720a78565ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\BattleState">
+      <UniqueIdentifier>{e74b6370-3651-4e89-9a5a-87a5b1671b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio">
+      <UniqueIdentifier>{73a2d1fd-78bc-4cb8-af9b-5e12f99d029e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Fonts">
+      <UniqueIdentifier>{6e4de3bd-6dc1-40fe-b622-97ac24e63a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM">
+      <UniqueIdentifier>{9d127788-1145-488d-86d1-5947d2de71df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX">
+      <UniqueIdentifier>{81314559-bd99-4841-8cf6-10c99646fb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\Objects">
+      <UniqueIdentifier>{1ac92bc4-88be-41b7-8c1a-fb2ff660a4a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character">
+      <UniqueIdentifier>{a03f8f67-580b-4562-8918-bf8b5668a1b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage">
+      <UniqueIdentifier>{211409b9-acef-42d2-87e9-1b582e0c6d33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Particle">
+      <UniqueIdentifier>{3c783f97-41a1-4e8f-b2a9-93cea6e521b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell">
+      <UniqueIdentifier>{d7dd1cb7-57ba-40a3-8d17-b70b20d0ed32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI">
+      <UniqueIdentifier>{f4be92e7-d6d1-4117-b92a-89834bdd8cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Boss">
+      <UniqueIdentifier>{e164fc54-7c38-4aa8-b44f-4fea5b48a989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Minion">
+      <UniqueIdentifier>{7037e51d-8030-4ce1-b2c8-b1164953da57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Character\Player">
+      <UniqueIdentifier>{e5340a0d-3dc1-4810-9ef1-481c641faa01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Earth">
+      <UniqueIdentifier>{aeded1d3-a8a9-4688-839c-6720d22c033d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Fire">
+      <UniqueIdentifier>{320e039e-1aa5-4a90-817e-7c1d83ad5d7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Water">
+      <UniqueIdentifier>{40e52b58-1037-417f-be8a-ab71c4b1e02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Spell\Wind">
+      <UniqueIdentifier>{4d7a6379-01db-449c-816f-3a7eef411552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Earth">
+      <UniqueIdentifier>{c56231c9-217a-4184-832f-77366a19cc15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Fire">
+      <UniqueIdentifier>{24ac05ed-6c6c-43f7-b59a-85380a8f3631}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Water">
+      <UniqueIdentifier>{bab96e1b-5e7c-4812-a606-68178c626461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\Stage\Wind">
+      <UniqueIdentifier>{eadba255-2fa0-47d7-a918-230c239c1839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game">
+      <UniqueIdentifier>{04102b95-988f-45fd-b7eb-3ce176e18fce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable">
+      <UniqueIdentifier>{6270544f-4f36-43a4-af1d-9ca3b2dcc2e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game\Caster">
+      <UniqueIdentifier>{4cdb628c-691d-4472-b225-44fabf97e6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Game\Timeline">
+      <UniqueIdentifier>{3d0782dc-97ff-439d-946b-c8496f355025}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Button">
+      <UniqueIdentifier>{f9b6079b-1450-4868-b863-c4b577700151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider">
+      <UniqueIdentifier>{c82dfe56-5e45-4b51-a4a5-295596425ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider\bar">
+      <UniqueIdentifier>{62492150-6474-48d7-94ad-3951e8f3b2bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Sprites\UI\Interactable\Slider\handle">
+      <UniqueIdentifier>{b831d72a-d4a0-4628-a298-41900d1f01fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Earth">
+      <UniqueIdentifier>{3e935ce9-865e-4865-8785-d8238d98c2cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Fire">
+      <UniqueIdentifier>{593dbcb0-2a1e-47e5-9a6a-a5809a1c9ce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Wind">
+      <UniqueIdentifier>{d6a28447-6d90-47b5-ab34-0bacbcf76707}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\BGM\Water">
+      <UniqueIdentifier>{dabbd573-115c-4833-8bef-20f2b17dbbeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay">
+      <UniqueIdentifier>{d03b2578-faee-49cf-8018-90047a55e7c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\General">
+      <UniqueIdentifier>{9616d0c3-e494-42d2-b1b0-245d8bef70e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI">
+      <UniqueIdentifier>{3b250a56-426a-49b9-ae79-1f049135bb52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Compare">
+      <UniqueIdentifier>{40c3b977-92cf-401d-a382-2dae90078097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Effect">
+      <UniqueIdentifier>{7b0f0978-8f61-446d-8f11-98f9e57f1c83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell">
+      <UniqueIdentifier>{dc2c87e5-df38-43b1-9445-8c2a0616861a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Earth">
+      <UniqueIdentifier>{2e85c15c-68f5-4bf6-9c9b-e2688c767aa8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Fire">
+      <UniqueIdentifier>{22a330b1-3306-4e38-b3b3-d7be45f5d439}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Wind">
+      <UniqueIdentifier>{89e92a3e-be9c-4ccc-a34c-3f2225bb8f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\Gameplay\Spell\Water">
+      <UniqueIdentifier>{1737bb5a-8d3e-4438-a235-87d4123678bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI\Game">
+      <UniqueIdentifier>{c4e8af7e-3ccc-4453-bc8a-bb5fb9583633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WorkingDir\Audio\SFX\UI\Interactable">
+      <UniqueIdentifier>{bd6547d6-9924-4ba6-bfed-2644e0767872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect">
+      <UniqueIdentifier>{86a72964-26ab-42aa-8443-5d2b406bef98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect\Effects">
+      <UniqueIdentifier>{8e08e294-e6e7-4bad-a6fb-74e182482132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject">
+      <UniqueIdentifier>{9dc4fa57-b747-44b6-8298-2f3b210acbae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject\Fire">
+      <UniqueIdentifier>{0cf6e220-fe9d-4c1f-b82d-ae760b0e4108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellObject\Water">
+      <UniqueIdentifier>{b925cc52-93d6-48d2-af2b-b9524ed81d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\Objects\Pentagram">
+      <UniqueIdentifier>{133a299c-bec3-4c3b-9d65-964f4e0a82c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\CharacterScene">
+      <UniqueIdentifier>{0a5f06a5-0208-4bc2-b076-9f7743abc30d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MapScene">
+      <UniqueIdentifier>{55d25fff-bab5-4e4c-9271-5e08cbf8ab49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameData\MapData">
+      <UniqueIdentifier>{51f54860-10e6-4a9e-bc27-511079606c99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer">
+      <UniqueIdentifier>{edab6d46-9ff4-4b2d-89b9-70c0d9d80f8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer\Header File">
+      <UniqueIdentifier>{89639f19-6b73-455e-90e9-04a9187341f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\etc\Renderer\Source File">
+      <UniqueIdentifier>{9bbe79d4-e4c0-4bbe-8135-db89a3427d03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\BattleScene\SpellEffect\Object">
+      <UniqueIdentifier>{96d079fe-51eb-412e-9fdb-2350499571d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="WorkingDir\Fonts\ARLRDBD.ttf">
+      <Filter>WorkingDir\Fonts</Filter>
+    </Font>
+    <Font Include="WorkingDir\Fonts\BAUHS93.ttf">
+      <Filter>WorkingDir\Fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="WorkingDir\Spellbooks\Ligma.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Fire.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Water.xml" />
+  </ItemGroup>
+</Project>

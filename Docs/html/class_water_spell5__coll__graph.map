@@ -1,0 +1,13 @@
+<map id="WaterSpell5" name="WaterSpell5">
+<area shape="rect" id="node1" title=" " alt="" coords="292,349,385,376"/>
+<area shape="rect" id="node2" href="$class_base_spell_object.html" title=" " alt="" coords="279,273,398,300"/>
+<area shape="rect" id="node3" href="$class_game_object.html" title=" " alt="" coords="101,184,195,211"/>
+<area shape="rect" id="node4" href="$class_mesh.html" title=" " alt="" coords="78,95,133,121"/>
+<area shape="rect" id="node5" href="$class_v_a_o.html" title=" " alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node6" href="$class_v_b_o.html" title=" " alt="" coords="80,5,131,32"/>
+<area shape="rect" id="node7" href="$class_e_b_o.html" title=" " alt="" coords="155,5,205,32"/>
+<area shape="rect" id="node8" href="$class_texture.html" title=" " alt="" coords="158,95,223,121"/>
+<area shape="rect" id="node9" href="$class_spell_controller.html" title=" " alt="" coords="285,184,392,211"/>
+<area shape="rect" id="node10" href="$class_audio_controller.html" title=" " alt="" coords="417,184,527,211"/>
+<area shape="rect" id="node11" href="$class_singleton.html" title=" " alt="" coords="378,95,566,121"/>
+</map>

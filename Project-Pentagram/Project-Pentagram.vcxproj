@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine\Audio\AudioController.h" />
+    <ClInclude Include="Engine\Event.h" />
+    <ClInclude Include="Engine\IGameObjectManager.h" />
+    <ClInclude Include="Engine\Scene\DemoScene.h" />
+    <ClInclude Include="Engine\Scene\LoadScene.h" />
+    <ClInclude Include="Engine\Slider.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\ResultBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\StandByBattleState.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterDetailUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectBarUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterEffectIconUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\CasterObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\MainObjectEnum.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\EffectDetailUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\RuneObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\ScrollButton.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellDetailUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellIconUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\ISpellController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\SpellController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObjects.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\TimelineController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\TimetrackUI.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareController.h" />
+    <ClInclude Include="Game\BattleScene\IBattleController.h" />
+    <ClInclude Include="Game\BattleScene\GameObject\WillCompareUI.h" />
+    <ClInclude Include="Game\BattleScene\IBaseBattleManager.h" />
+    <ClInclude Include="Game\BattleScene\IBattleManager.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteNumberUI.h" />
+    <ClInclude Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\BossController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterDetailUI.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterUIController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\EnemyController.h" />
+    <ClInclude Include="Game\BattleScene\SpellDispather.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\BaseSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\Effects\BaseSpellEffect.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffectManager.h" />
+    <ClInclude Include="Game\BattleScene\SpellEffect\SpellEffects.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterInfoUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectScene.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CharacterSelectUI.h" />
+    <ClInclude Include="Game\CharacterSelectScene\CasterInfo.h" />
+    <ClInclude Include="Game\CharacterSelectScene\EffectInfoUI.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMoveset.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterMovesetDatabase.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStat.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterType.h" />
+    <ClInclude Include="Game\GameData\MapData\MapGenerator.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialData.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\ActiveTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CompareTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\CounterTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\EffectTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TimeTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TrapTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialEvent.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\TutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WaitTutorialNode.h" />
+    <ClInclude Include="Game\GameData\TutorialData\TutorialNodes\WillTutorialNode.h" />
+    <ClInclude Include="Game\GameState\BaseGameState.h" />
+    <ClInclude Include="Game\MapScene\CasterStatUI.h" />
+    <ClInclude Include="Game\MapScene\MapInfoUI.h" />
+    <ClInclude Include="Game\MapScene\MapNode.h" />
+    <ClInclude Include="Game\Objects\ArrowButton.h" />
+    <ClInclude Include="Game\Objects\ConfirmUI.h" />
+    <ClInclude Include="Game\Objects\CursorManager.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterStatDatabase.h" />
+    <ClInclude Include="Game\GameData\MapData\ChapterData.h" />
+    <ClInclude Include="Game\GameData\MapData\NodeData.h" />
+    <ClInclude Include="Game\MapScene\MapScene.h" />
+    <ClInclude Include="Game\Objects\EffectAidUI.h" />
+    <ClInclude Include="Game\Objects\GameOverUI.h" />
+    <ClInclude Include="Game\Objects\PauseMenuObject.h" />
+    <ClInclude Include="Game\Objects\OptionMenuObject.h" />
+    <ClInclude Include="Game\Objects\PlayerAidUI.h" />
+    <ClInclude Include="Game\Objects\ScrollButton.h" />
+    <ClInclude Include="Game\Objects\ShortcutUI.h" />
+    <ClInclude Include="Game\Objects\SpellAidUI.h" />
+    <ClInclude Include="Game\Objects\SpellTypeAidUI.h" />
+    <ClInclude Include="Game\Objects\StageObject.h" />
+    <ClInclude Include="Game\Objects\StaticButton.h" />
+    <ClInclude Include="Game\Objects\TextBox.h" />
+    <ClInclude Include="Game\Slideshow\Scene\CreditCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Slide\CreditSlide.h" />
+    <ClInclude Include="Game\Slideshow\Slide\FinalSlide.h" />
+    <ClInclude Include="Game\Slideshow\Scene\IntroCutScene.h" />
+    <ClInclude Include="Game\Slideshow\Slide\SlideObject.h" />
+    <ClInclude Include="Game\Spells\ChannelEffectType.h" />
+    <ClInclude Include="Game\Spells\SpellEffectType.h" />
+    <ClInclude Include="Game\Spells\SpellResolveEffect.h" />
+    <ClInclude Include="Game\Spells\SpellTarget.h" />
+    <ClInclude Include="Game\TestScene\TestStates\CastTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResolveTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\ResultTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\SetupTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\StandByTestState.h" />
+    <ClInclude Include="Game\TestScene\TestStates\TestStateModel.h" />
+    <ClInclude Include="Game\TestScene\CharacterTestScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialSelectScene.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\CastTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\ResultTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\SetupTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\StandByTutorialState.h" />
+    <ClInclude Include="Game\TutorialScene\TutorialStates\TutorialStateModel.h" />
+    <ClInclude Include="Game\Slideshow\Scene\FinalCutScene.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Game\Slideshow\Slide\IntroSlide.h" />
+    <ClInclude Include="Utilities\ArcantAssert.h" />
+    <ClInclude Include="Engine\Audio\AudioEngine.h" />
+    <ClInclude Include="Game\BattleScene\BattleManager.h" />
+    <ClInclude Include="Game\BattleScene\BattleScene.h" />
+    <ClInclude Include="Game\BattleScene\BattleSceneData.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BaseBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\BattleStateModel.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\CastBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\ResolveBattleState.h" />
+    <ClInclude Include="Game\BattleScene\BattleStates\SetupBattleState.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CastSpellDetail.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\PentagramData.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\PlayerController.h" />
+    <ClInclude Include="Game\BattleScene\SpellCaster\CasterManager.h" />
+    <ClInclude Include="Engine\ArcantEngine.h" />
+    <ClInclude Include="Engine\Button.h" />
+    <ClInclude Include="Engine\Camera.h" />
+    <ClInclude Include="Engine\Collector\EngineDataCollector.h" />
+    <ClInclude Include="Engine\GameObject.h" />
+    <ClInclude Include="Engine\GameObjectTag.h" />
+    <ClInclude Include="Engine\GameScene.h" />
+    <ClInclude Include="Engine\GameState.h" />
+    <ClInclude Include="Engine\GameStateController.h" />
+    <ClInclude Include="Engine\Input.h" />
+    <ClInclude Include="Engine\Renderer\EBO.h" />
+    <ClInclude Include="Engine\Renderer\Mesh.h" />
+    <ClInclude Include="Engine\Renderer\Shader.h" />
+    <ClInclude Include="Engine\Collector\ShaderCollector.h" />
+    <ClInclude Include="Engine\Collector\FontCollector.h" />
+    <ClInclude Include="Engine\Renderer\TextObject.h" />
+    <ClInclude Include="Engine\Renderer\Texture.h" />
+    <ClInclude Include="Engine\Collector\TextureCollector.h" />
+    <ClInclude Include="Engine\Renderer\VAO.h" />
+    <ClInclude Include="Engine\Renderer\VBO.h" />
+    <ClInclude Include="Engine\SceneManager.h" />
+    <ClInclude Include="Engine\Scene\MenuScene.h" />
+    <ClInclude Include="Engine\Scene\NodeScene.h" />
+    <ClInclude Include="Engine\stb\stb_image.h" />
+    <ClInclude Include="Engine\UIObject.h" />
+    <ClInclude Include="Engine\Window.h" />
+    <ClInclude Include="Engine\ParticleSystem.h" />
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimeline.h" />
+    <ClInclude Include="Game\BattleScene\SpellTimeline\SpellTimetrack.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterData.h" />
+    <ClInclude Include="Game\GameData\CasterData\CasterPosition.h" />
+    <ClInclude Include="Game\GameData\CasterData\EnemyData.h" />
+    <ClInclude Include="Game\GameData\CasterData\PlayerData.h" />
+    <ClInclude Include="Game\GameData\MapData\MapData.h" />
+    <ClInclude Include="Game\GameData\RuntimeGameData.h" />
+    <ClInclude Include="Game\Spells\Element.h" />
+    <ClInclude Include="Game\Spells\Spell.h" />
+    <ClInclude Include="Game\Spells\SpellBook.h" />
+    <ClInclude Include="Game\Spells\SpellDatabase.h" />
+    <ClInclude Include="SOIL.h" />
+    <ClInclude Include="Utilities\Color.h" />
+    <ClInclude Include="Utilities\Singleton.h" />
+    <ClInclude Include="Utilities\Thread.h" />
+    <ClInclude Include="Utilities\TinyXml\tinyxml2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lib\GLAD\src\glad.c" />
+    <ClCompile Include="Engine\Audio\AudioController.cpp" />
+    <ClCompile Include="Engine\Scene\DemoScene.cpp" />
+    <ClCompile Include="Engine\Scene\LoadScene.cpp" />
+    <ClCompile Include="Engine\Slider.cpp" />
+    <ClCompile Include="Engine\Audio\AudioEngine.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleManager.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleScene.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleSceneData.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\BattleState.h" />
+    <ClCompile Include="Game\BattleScene\BattleStates\CastBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\ResolveBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\ResultBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\SetupBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\BattleStates\StandByBattleState.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectBarUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterEffectIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\CasterObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\EffectObject\BaseEffectObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramCircleUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButton.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramFieldButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButton.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramScrollButtonManagerUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\PentagramObject\PentagramSpellSelector.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\RuneObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellDetailUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellIconUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\BaseSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Earth\EarthSpellObjects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Fire\FireSpellObjects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Water\WaterSpellObjects.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\SpellObject\Wind\WindSpellObject.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\TimelineController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\TimetrackUI.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareController.cpp" />
+    <ClCompile Include="Game\BattleScene\GameObject\WillCompareUI.cpp" />
+    <ClCompile Include="Game\BattleScene\ManaRoulette\ManaRouletteUI.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterUIController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CastSpellDetail.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\CasterManager.cpp" />
+    <ClCompile Include="Engine\ArcantEngine.cpp" />
+    <ClCompile Include="Engine\Button.cpp" />
+    <ClCompile Include="Engine\Camera.cpp" />
+    <ClCompile Include="Engine\Collector\EngineDataCollector.cpp" />
+    <ClCompile Include="Engine\GameObject.cpp" />
+    <ClCompile Include="Engine\GameStateController.cpp" />
+    <ClCompile Include="Engine\Input.cpp" />
+    <ClCompile Include="Engine\ParticleSystem.cpp" />
+    <ClCompile Include="Engine\Renderer\EBO.cpp" />
+    <ClCompile Include="Engine\Renderer\Mesh.cpp" />
+    <ClCompile Include="Engine\Renderer\Shader.cpp" />
+    <ClCompile Include="Engine\Collector\ShaderCollector.cpp" />
+    <ClCompile Include="Engine\Collector\FontCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\TextObject.cpp" />
+    <ClCompile Include="Engine\Renderer\Texture.cpp" />
+    <ClCompile Include="Engine\Collector\TextureCollector.cpp" />
+    <ClCompile Include="Engine\Renderer\VAO.cpp" />
+    <ClCompile Include="Engine\Renderer\VBO.cpp" />
+    <ClCompile Include="Engine\SceneManager.cpp" />
+    <ClCompile Include="Engine\Scene\MenuScene.cpp" />
+    <ClCompile Include="Engine\Scene\NodeScene.cpp" />
+    <ClCompile Include="Engine\stb\stb_image.cpp" />
+    <ClCompile Include="Engine\UIObject.cpp" />
+    <ClCompile Include="Engine\Window.cpp" />
+    <ClCompile Include="Engine\GameScene.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\EnemyController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellCaster\PlayerController.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellDispather.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellEffect\SpellEffects.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline.cpp" />
+    <ClCompile Include="Game\BattleScene\SpellTimeline\SpellTimetrack.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterInfoUI.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectScene.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\CharacterSelectUI.cpp" />
+    <ClCompile Include="Game\CharacterSelectScene\EffectInfoUI.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterMovesetDatabase.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\CasterStatDatabase.cpp" />
+    <ClCompile Include="Game\GameData\CasterData\PlayerData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\ChapterData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\MapData.cpp" />
+    <ClCompile Include="Game\GameData\MapData\NodeData.cpp" />
+    <ClCompile Include="Game\GameData\RuntimeGameData.cpp" />
+    <ClCompile Include="Game\MapScene\CasterStatUI.cpp" />
+    <ClCompile Include="Game\MapScene\MapInfoUI.cpp" />
+    <ClCompile Include="Game\GameData\TutorialData\TutorialData.cpp" />
+    <ClCompile Include="Game\MapScene\MapNode.cpp" />
+    <ClCompile Include="Game\Objects\ArrowButton.cpp" />
+    <ClCompile Include="Game\Objects\ConfirmUI.cpp" />
+    <ClCompile Include="Game\Objects\CursorManager.cpp" />
+    <ClCompile Include="Game\MapScene\MapScene.cpp" />
+    <ClCompile Include="Game\Objects\EffectAidUI.cpp" />
+    <ClCompile Include="Game\Objects\GameOverUI.cpp" />
+    <ClCompile Include="Game\Objects\OptionMenuObject.cpp" />
+    <ClCompile Include="Game\Objects\PauseMenuObject.cpp" />
+    <ClCompile Include="Game\Objects\PlayerAidUI.cpp" />
+    <ClCompile Include="Game\Objects\ScrollButton.cpp" />
+    <ClCompile Include="Game\Objects\ShortcutUI.cpp" />
+    <ClCompile Include="Game\Objects\SpellAidUI.cpp" />
+    <ClCompile Include="Game\Objects\SpellTypeAidUI.cpp" />
+    <ClCompile Include="Game\Objects\StageObject.cpp" />
+    <ClCompile Include="Game\Objects\StaticButton.cpp" />
+    <ClCompile Include="Game\Objects\TextBox.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\CreditCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\CreditSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\FinalSlide.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\IntroCutScene.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\SlideObject.cpp" />
+    <ClCompile Include="Game\Spells\ChannelEffectType.cpp" />
+    <ClCompile Include="Game\Spells\Element.cpp" />
+    <ClCompile Include="Game\Spells\Spell.cpp" />
+    <ClCompile Include="Game\Spells\SpellBook.cpp" />
+    <ClCompile Include="Game\Spells\SpellDatabase.cpp" />
+    <ClCompile Include="Game\Spells\SpellEffectType.cpp" />
+    <ClCompile Include="Game\Spells\SpellTarget.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\CastTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResolveTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\ResultTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\SetupTestState.cpp" />
+    <ClCompile Include="Game\TestScene\TestStates\StandByTestState.cpp" />
+    <ClCompile Include="Game\TestScene\CharacterTestScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ExplainTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialSelectScene.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\CastTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResolveTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\ResultTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\SetupTutorialState.cpp" />
+    <ClCompile Include="Game\TutorialScene\TutorialStates\StandByTutorialState.cpp" />
+    <ClCompile Include="Game\Slideshow\Scene\FinalCutScene.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Game\Slideshow\Slide\IntroSlide.cpp" />
+    <ClCompile Include="Utilities\TinyXml\tinyxml2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Engine\Texture\awesomeface.png" />
+    <Image Include="Engine\Texture\default.png" />
+    <Image Include="WorkingDir\Sprites\Fire_Mage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WorkingDir\Shader\GradientFragment.shader" />
+    <None Include="WorkingDir\Shader\GradientVertex.shader" />
+    <None Include="WorkingDir\Shader\UISlicingFragment.shader" />
+    <None Include="WorkingDir\Shader\UISlicingVertex.shader" />
+    <None Include="WorkingDir\Shader\GameObjFragment.shader" />
+    <None Include="WorkingDir\Shader\GameObjVertex.shader" />
+    <None Include="WorkingDir\Shader\TextFragment.shader" />
+    <None Include="WorkingDir\Shader\TextVertex.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="WorkingDir\Fonts\ARLRDBD.ttf" />
+    <Font Include="WorkingDir\Fonts\BAUHS93.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="WorkingDir\Spellbooks\Ligma.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Fire.xml" />
+    <Xml Include="WorkingDir\Spellbooks\Spellbook_Water.xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{FE823A51-0FB2-4C12-9DCD-005B00BCF49B}</ProjectGuid>
+    <RootNamespace>Project1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Project-Pentagram</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;$(SolutionDir)Project-Pentagram;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)../lib/GLFW/lib-vc2019;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;$(ProjectDir)../lib/FreeType/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)lib/GLAD/include;$(SolutionDir)lib/GLFW/include;$(SolutionDir)lib/;$(SolutionDir)lib/FreeType/include;$(SolutionDir)Project-Pentagram;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)../lib/GLFW/lib-vc2019;$(ProjectDir)../lib/irrklang;$(ProjectDir)../lib/SOIL;$(ProjectDir)../lib/FreeType/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;SOIL.lib;irrklang.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

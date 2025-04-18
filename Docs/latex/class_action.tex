@@ -1,0 +1,181 @@
+\hypertarget{class_action}{}\doxysection{Action\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_action}\index{Action$<$ T $>$@{Action$<$ T $>$}}
+
+
+\mbox{\hyperlink{class_action}{Action}} class template.  
+
+
+
+
+{\ttfamily \#include $<$Event.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_action_ab8664f73991e2d8455b86c0d94ff1f95}{Action}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor that initializes the std\+::function with a null function pointer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_action_a1d96e854ad62df9a5c64be1b6f159d83}{Action}} (std\+::function$<$ void(T)$>$ \+\_\+fn)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a std\+::function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename L $>$ }\\\mbox{\hyperlink{class_action_a7d40de49539a705b725f196c48a53716}{Action}} (L \&\&lambda)
+\begin{DoxyCompactList}\small\item\em Constructor that takes a function pointer. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_action_a2c60b9831b4ee042666857e0253bf535}{Get\+Func\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Get the value of the wrapped function as a std\+::string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_action_afffec9fdc3592f96886dd1d2fcc63ea2}{operator()}} (T arg)
+\begin{DoxyCompactList}\small\item\em Call the wrapped function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_action_a2241b1ca963e0f36e86b317e80d8bd03}{operator==}} (const \mbox{\hyperlink{class_action}{Action}}$<$ T $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Compare the function names of the \mbox{\hyperlink{class_action}{Action}} objects using std\+::string comparison. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::function$<$ void(T)$>$ \mbox{\hyperlink{class_action_ad28a85fe2aa988439f36878f2686e7b7}{fn}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_action_a981a30b41bebaeeee0a1d47d974b8464}{Action\+Id}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class Action$<$ T $>$}
+\mbox{\hyperlink{class_action}{Action}} class template. 
+
+Wraps a function or lambda that takes a single argument of type T.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the argument that the wrapped function takes. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_action_ab8664f73991e2d8455b86c0d94ff1f95}\label{class_action_ab8664f73991e2d8455b86c0d94ff1f95}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!Action@{Action}}
+\index{Action@{Action}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Action()}{Action()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_action}{Action}}$<$ T $>$\mbox{\hyperlink{class_action}{\+::\+Action}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor that initializes the std\+::function with a null function pointer. 
+
+\mbox{\Hypertarget{class_action_a1d96e854ad62df9a5c64be1b6f159d83}\label{class_action_a1d96e854ad62df9a5c64be1b6f159d83}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!Action@{Action}}
+\index{Action@{Action}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Action()}{Action()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{class_action}{Action}}$<$ T $>$\mbox{\hyperlink{class_action}{\+::\+Action}} (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(T)$>$}]{\+\_\+fn }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that takes a std\+::function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fn} & The std\+::function to be wrapped. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_action_a7d40de49539a705b725f196c48a53716}\label{class_action_a7d40de49539a705b725f196c48a53716}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!Action@{Action}}
+\index{Action@{Action}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Action()}{Action()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename L $>$ \\
+\mbox{\hyperlink{class_action}{Action}}$<$ T $>$\mbox{\hyperlink{class_action}{\+::\+Action}} (\begin{DoxyParamCaption}\item[{L \&\&}]{lambda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that takes a function pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+fn} & The function pointer to be wrapped. / \mbox{\hyperlink{class_action}{Action}}(void (\+\_\+fn)(T)) \+: fn(\+\_\+fn) \{\} /$\ast$$\ast$\\
+\hline
+\end{DoxyParams}
+Constructor that takes a lambda. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em L} & The type of the lambda. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em lambda} & The lambda to be wrapped. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_action_a2c60b9831b4ee042666857e0253bf535}\label{class_action_a2c60b9831b4ee042666857e0253bf535}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!GetFuncValue@{GetFuncValue}}
+\index{GetFuncValue@{GetFuncValue}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetFuncValue()}{GetFuncValue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string \mbox{\hyperlink{class_action}{Action}}$<$ T $>$\+::\+Get\+Func\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the value of the wrapped function as a std\+::string. 
+
+\begin{DoxyReturn}{Returns}
+The value of the wrapped function as a std\+::string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_action_afffec9fdc3592f96886dd1d2fcc63ea2}\label{class_action_afffec9fdc3592f96886dd1d2fcc63ea2}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{class_action}{Action}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{T}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Call the wrapped function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & The argument to pass to the wrapped function. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_action_a2241b1ca963e0f36e86b317e80d8bd03}\label{class_action_a2241b1ca963e0f36e86b317e80d8bd03}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{class_action}{Action}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_action}{Action}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare the function names of the \mbox{\hyperlink{class_action}{Action}} objects using std\+::string comparison. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other \mbox{\hyperlink{class_action}{Action}} object to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the function names are equal, false otherwise. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_action_a981a30b41bebaeeee0a1d47d974b8464}\label{class_action_a981a30b41bebaeeee0a1d47d974b8464}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!ActionId@{ActionId}}
+\index{ActionId@{ActionId}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ActionId}{ActionId}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{class_action}{Action}}$<$ T $>$\+::\+Action\+Id = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_action_ad28a85fe2aa988439f36878f2686e7b7}\label{class_action_ad28a85fe2aa988439f36878f2686e7b7}} 
+\index{Action$<$ T $>$@{Action$<$ T $>$}!fn@{fn}}
+\index{fn@{fn}!Action$<$ T $>$@{Action$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fn}{fn}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::function$<$void(T)$>$ \mbox{\hyperlink{class_action}{Action}}$<$ T $>$\+::fn}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/\+Project-\/\+Pentagram/\+Project-\/\+Pentagram/\+Engine/\mbox{\hyperlink{_event_8h}{Event.\+h}}\end{DoxyCompactItemize}

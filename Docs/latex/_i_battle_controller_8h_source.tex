@@ -1,0 +1,23 @@
+\hypertarget{_i_battle_controller_8h_source}{}\doxysection{IBattle\+Controller.\+h}
+\label{_i_battle_controller_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/IBattleController.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/BattleScene/IBattleController.h}}
+\mbox{\hyperlink{_i_battle_controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_base_battle_state_8h}{Game/BattleScene/BattleStates/BaseBattleState.h}}"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{template} <\textcolor{keyword}{typename}  STATE>}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_i_battle_manager}{IBattleManager}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7 \textcolor{keyword}{public}:}
+\DoxyCodeLine{8     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a06c9f2c37aa316d6b9d608260d5eb03f}{SetBattleState}}(STATE state) = 0;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_base_game_state}{BaseGameState<STATE>}}* \mbox{\hyperlink{class_i_battle_manager_ab7488f4f851629762b68ea230c761de3}{GetBattleStates}}() = 0;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a5c873010da6ca3b273eef967a63a1d05}{Init}}(\mbox{\hyperlink{class_i_game_object_manager}{IGameObjectManager}}* scene) = 0;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_aab6fd162a16e985978f504cffce3ae8e}{StartBattle}}() = 0;}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a35e8958f5b35efcd3ebb5ddddced72a8}{SwapCaster}}() = 0;}
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_i_battle_manager_a41ca58c24e84b7a67aaf4c9549a10f65}{EndBattle}}() = 0;}
+\DoxyCodeLine{17 \};}
+
+\end{DoxyCode}

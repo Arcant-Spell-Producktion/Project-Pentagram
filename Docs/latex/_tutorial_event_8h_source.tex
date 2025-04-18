@@ -1,0 +1,63 @@
+\hypertarget{_tutorial_event_8h_source}{}\doxysection{Tutorial\+Event.\+h}
+\label{_tutorial_event_8h_source}\index{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/TutorialEvent.h@{E:/Project-\/Pentagram/Project-\/Pentagram/Game/GameData/TutorialData/TutorialNodes/TutorialEvent.h}}
+\mbox{\hyperlink{_tutorial_event_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_main_object_enum_8h}{Game/BattleScene/GameObject/MainObjectEnum.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{enum class} \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9a}{TutorialEventType}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aaa8875bbe4272c0bdd786cfaaedf77921}{Toggle}},}
+\DoxyCodeLine{10     \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9aae24ee2487879116dcab772c0ac4fe341}{Focus}},}
+\DoxyCodeLine{11 \};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_tutorial_object_event}{TutorialObjectEvent}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{_main_object_enum_8h_ab3a895de75a158dcac55073bb87a2952}{MainObjectEnum}} \mbox{\hyperlink{struct_tutorial_object_event_ae3e7f241f6250883a06eecefe07c3569}{Obj}};}
+\DoxyCodeLine{16     \mbox{\hyperlink{_tutorial_event_8h_ae700bdf61935e588b8bb5fe96ceaca9a}{TutorialEventType}} \mbox{\hyperlink{struct_tutorial_object_event_a7c6383d21b98f9e95b81f07330e1f07f}{Type}};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_tutorial_object_event_af0491816dda33973f8fd938407045ad3}{Active}};}
+\DoxyCodeLine{18 \};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_event}{TutorialEvent}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     std::string \mbox{\hyperlink{class_tutorial_event_a62165db234506e492644963e71dc76de}{TutorialText}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{25     std::vector<TutorialObjectEvent> \mbox{\hyperlink{class_tutorial_event_a9588bb12c8020d278ad544831330d7e3}{ObjectEvents}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_tutorial_event_ae4c9f4cda3e93d5cca71398795305300}{TutorialEvent}}(std::string text) :\mbox{\hyperlink{class_tutorial_event_a62165db234506e492644963e71dc76de}{TutorialText}}(text)}
+\DoxyCodeLine{28     \{\}}
+\DoxyCodeLine{29 \};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_tutorial_events}{TutorialEvents}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     std::vector<TutorialEvent> m\_TutorialEvents;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tutorial_events_a624e69ef8a03254e71cbfcefa3fa436b}{size}}()\textcolor{keyword}{ const}}
+\DoxyCodeLine{39 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{return} m\_TutorialEvents.size();}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{class_tutorial_event}{TutorialEvent}}\& \mbox{\hyperlink{class_tutorial_events_a81f8d1407b7a2f957c4e219561de05a2}{operator[]}}(\textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} m\_TutorialEvents[i];}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_events_a33dbf34c2c6ec0b93ff6648bfbbe208c}{AddStep}}(std::string text)}
+\DoxyCodeLine{49     \{}
+\DoxyCodeLine{50         m\_TutorialEvents.push\_back(text);}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tutorial_events_a8725f05b9f6fcc21ee737e96598623d7}{AddEvent}}(\mbox{\hyperlink{struct_tutorial_object_event}{TutorialObjectEvent}} e)}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         m\_TutorialEvents.back().ObjectEvents.push\_back(e);}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 \};}
+
+\end{DoxyCode}
